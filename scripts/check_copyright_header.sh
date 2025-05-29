@@ -65,7 +65,7 @@ while IFS= read -r -d $'\0' file; do
   # Use `grep` for Linux environments like GitHub Actions.
   # (Locally on macOS, you would use `ggrep`).
   if ! grep -qPz "$expected_pattern" "$file"; then
-    echo "❌ Error: The file '$file' does not start with a valid copyright header."
+    echo "::error file=$file,line=1,col=1,title=No copyright header::The file '$file' does not start with a valid copyright header"
     error_found=true
   fi
 done < <(find . -type f -name "*.lean" -not -path '*/.*' -print0)
