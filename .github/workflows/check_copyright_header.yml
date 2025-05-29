@@ -26,5 +26,4 @@ jobs:
 
     - name: Run copyright check script
       run: |
-        chmod +x ./scripts/check_copyright_header.sh
         ./scripts/check_copyright_header.sh
