@@ -12,6 +12,11 @@ A description, ideally with some reference to the informal version of the conjec
 
 ### Prerequisites needed
 Mathematical context that needs to be formalized so that this conjecture can be added.
+Consider linking any open Mathlib issues / PRs here.
+
+### [AMS categories](https://github.com/google-deepmind/formal-conjectures/labels?q=ams-)
+
+* ams-XX
 
 ### Choose either option
 [ ] I plan on working on this conjecture
