@@ -132,6 +132,8 @@ classifications, please refer to the
 {categoryStats}
 
 (note the links above use GitHub search, and so require logging into GitHub)
+
+
 ---
 
 ## Subject Category Statistics
