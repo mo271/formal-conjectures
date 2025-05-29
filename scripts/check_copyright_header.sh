@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright 2025 Google LLC
+# Copyright 2025 The Formal Conjectures Authors.
 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -28,7 +28,7 @@
 # All special regex characters like `.` and `()` must be escaped with a `\`.
 read -r -d '' header_block <<'EOF'
 /-
-Copyright 2[0-9]{3} Google LLC
+Copyright 2[0-9]{3} The Formal Conjectures Authors.
 
 Licensed under the Apache License, Version 2\.0 \(the "License"\);
 you may not use this file except in compliance with the License\.
