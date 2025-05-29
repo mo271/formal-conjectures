@@ -2,13 +2,13 @@
 name: New conjecture
 about: Suggest an idea for a new conjectures
 title: ''
-labels: ''
+labels: 'new conjecture'
 assignees: ''
 
 ---
 
 **What is the conjecture**
- A description, ideally with some reference to the informal version of the conjecture, for instance a to a website, paper or book.
+A description, ideally with some reference to the informal version of the conjecture, for instance a to a website, paper or book.
 
 **Prerequisites need**
 Mathematical context that needs to be formalized so that this conjecture can be added.
