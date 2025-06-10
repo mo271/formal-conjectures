@@ -1,5 +1,8 @@
 # Formal Conjectures
 
+[![.github/workflows/push_master.yml](https://github.com/google-deepmind/formal-conjectures/actions/workflows/build-and-docs.yml/badge.svg)](https://github.com/google-deepmind/formal-conjectures/actions/workflows/build-and-docs.yml)
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/google-deepmind/formal-conjectures)
+
 A collection of formalized statements of conjectures in
 [Lean](https://leanprover.github.io/lean4/doc/whatIsLean.html), using
 [mathlib](https://github.com/leanprover-community/mathlib4).
@@ -239,6 +242,26 @@ meaningful solution of the problem is outside of the scope of this repository.
     ```
     If the problem has been solved to the negative, then `P` should be replaced with
     `¬ P`.
+7.  Every file should start with the following copyright header:
+    ```lean
+    /-
+    Copyright 2025 The Formal Conjectures Authors.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        https://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    -/
+    ```
+    Also consider adding yourself to the list of authors in the AUTHORS file.
+
 
 ## Versioning
 

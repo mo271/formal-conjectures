@@ -27,7 +27,7 @@ permissions:
   id-token: write
 
 jobs:
-  build_project:
+  build:
     runs-on: ubuntu-latest
     name: Build project
     steps:
@@ -101,18 +101,38 @@ jobs:
           cd docbuild
           lake build FormalConjectures:docs
 
-      - name: Inject stats into index.html
+      - name: Extract documentation
         run: |
-          set -o pipefail
           cd docbuild
-          lake exe overwrite_index ./.lake/build/doc/index.html | tee -a "$GITHUB_STEP_SUMMARY"
+          mkdir out
+          lake query FormalConjectures:docs > out-files.txt
+          sed -i 's|^.*\.lake/build/doc/||' out-files.txt
+          echo "::group::Generated files" 
+          cat out-files.txt
+          echo "::endgroup::"
+          rsync -a --files-from=out-files.txt --relative .lake/build/doc ./out
+
+      - name: Inject stats into index.html
+        shell: bash
+        run: |
+          cd docbuild
+          lake exe overwrite_index ./out/index.html | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Upload docs
+        id: deployment
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docbuild/.lake/build/doc
+          path: docbuild/out
 
+  # Deployment job
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
       - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/main'
         id: deployment
         uses: actions/deploy-pages@v4
