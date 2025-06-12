@@ -30,7 +30,7 @@ open Filter
 The number of solutions to the equation $a - b = k$, for $a \in A$ and $b \in B$.
 This represents the "overlap" between sets $A$ and $B$ for a given difference $k$.
 -/
-noncomputable def Overlap (A B : Finset ℤ) (k : ℤ) : ℕ := {((a : A), (b: B)) | (a : ℤ) - b = k}.ncard
+noncomputable def Overlap (A B : Finset ℤ) (k : ℤ) : ℕ := {((a : A), (b : B)) | (a : ℤ) - b = k}.ncard
 
 /--
 The maximum overlap for a given pair of sets $A$ and $B$, taken over all possible integer differences $k$.
@@ -94,7 +94,7 @@ A lower bound of $1 - frac{1}{\sqrt 2}$.
 Scherk (written communication), see [On the minimal overlap problem of Erdös](https://eudml.org/doc/206397) by *Leo Moser*, Аста Аrithmetica V, p. 117-119, 1959
 -/
 @[category research solved, AMS 11]
-theorem minimum_overlap.variants.lower.scherk_1955 : 1 - 2 ^ (-(1 : ℝ) / 2) < atTop.liminf MinOverlapQuotient := by sorry
+theorem minimum_overlap.variants.lower.scherk_1955 : 1 - (√2)⁻¹ < atTop.liminf MinOverlapQuotient := by sorry
 
 /--
 A lower bound of $\frac{4 - \sqrt{6}}{5}.
