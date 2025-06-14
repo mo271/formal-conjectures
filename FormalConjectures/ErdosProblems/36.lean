@@ -30,7 +30,7 @@ open Filter
 The number of solutions to the equation $a - b = k$, for $a \in A$ and $b \in B$.
 This represents the "overlap" between sets $A$ and $B$ for a given difference $k$.
 -/
-noncomputable def Overlap (A B : Finset ℤ) (k : ℤ) : ℕ := {((a : A), (b : B)) | (a : ℤ) - b = k}.ncard
+noncomputable def Overlap (A B : Finset ℤ) (k : ℤ) : ℕ := {((a : A), (b : B)) | k = a - b}.ncard
 
 /--
 The maximum overlap for a given pair of sets $A$ and $B$, taken over all possible integer differences $k$.
@@ -43,7 +43,7 @@ such that both have the same cardinality $n$.
 Define $M(n)$ to be the minimum `MaxOverlap` that can be achieved, ranging over all such partitions $(A, B)$.
 -/
 noncomputable def M (n : ℕ) : ℕ :=
-  sInf {MaxOverlap A B | (A : Finset ℤ) (B: Finset ℤ)
+  sInf {MaxOverlap A B | (A : Finset ℤ) (B : Finset ℤ)
     (_disjoint : Disjoint A B)
     (_union : A ∪ B = Finset.Icc (1 : ℤ) (2 * n))
     (_same_card : A.card = B.card)}
@@ -79,7 +79,7 @@ example : M 5 = 3 := by
 The quotient of the minimum maximum overlap $M(N)$ by $N$. The central question of the
 minimum overlap problem is to determine the asymptotic behavior of this quotient as $N \to \infty$.
 -/
-noncomputable def MinOverlapQuotient N := (M N : ℝ) / N
+noncomputable def MinOverlapQuotient (N : ℕ) := (M N : ℝ) / N
 
 
 /--
