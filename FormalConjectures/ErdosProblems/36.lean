@@ -55,23 +55,23 @@ The `Overlap` for $k=-1$ is 1 (if $A=\{1\}, B=\{2\}$) and for $k=1$ also 1 (if $
 The `MaxOverlap` is $1$, since the `Overlap` is $0$ for other $k$.
 Thus, $M 1 = 1$.
 -/
-@[category test, AMS 11]
+@[category test, AMS 5 11]
 example : M 1 = 1 := by
   sorry
 
-@[category test, AMS 11]
+@[category test, AMS 5 11]
 example : M 2 = 1 := by
   sorry
 
-@[category test, AMS 11]
+@[category test, AMS 5 11]
 example : M 3 = 2 := by
   sorry
 
-@[category test, AMS 11]
+@[category test, AMS 5 11]
 example : M 4 = 2 := by
   sorry
 
-@[category test, AMS 11]
+@[category test, AMS 5 11]
 example : M 5 = 3 := by
   sorry
 
@@ -86,14 +86,14 @@ noncomputable def MinOverlapQuotient (N : ℕ) := (M N : ℝ) / N
 A lower bound of $\frac 1 4$.
 See [Some remarks on number theory (in Hebrew)](https://users.renyi.hu/~p_erdos/1955-13.pdf) by *Paul Erdős*, Riveon Lematematika 9, p.45-48,1955
 -/
-@[category graduate, AMS 11]
+@[category graduate, AMS 5 11]
 theorem minimum_overlap.variants.lower.erdos_1955 : (1 : ℝ) / 4 < atTop.liminf MinOverlapQuotient := by sorry
 
 /--
 A lower bound of $1 - frac{1}{\sqrt 2}$.
 Scherk (written communication), see [On the minimal overlap problem of Erdös](https://eudml.org/doc/206397) by *Leo Moser*, Аста Аrithmetica V, p. 117-119, 1959
 -/
-@[category research solved, AMS 11]
+@[category research solved, AMS 5 11]
 theorem minimum_overlap.variants.lower.scherk_1955 : 1 - (√2)⁻¹ < atTop.liminf MinOverlapQuotient := by sorry
 
 /--
@@ -101,21 +101,21 @@ A lower bound of $\frac{4 - \sqrt{6}}{5}.
 See [On the intersection of a linear set with the translation of its complement](https://bibliotekanauki.pl/articles/969027) by *Stanisław Świerczkowski1*, Colloquium Mathematicum 5(2), p. 185-197, 1958
 
 -/
-@[category research solved, AMS 11]
+@[category research solved, AMS 5 11]
 theorem minimum_overlap.variants.lower.swierczkowski_1958 : (4 - 6 ^ ((1 : ℝ) / 2)) / 5 < atTop.liminf MinOverlapQuotient := by sorry
 
 /--
 A lower bound of $\sqrt{4 - \sqrt{15}}$.
 
 -/
-@[category research solved, AMS 11]
+@[category research solved, AMS 5 11]
 theorem minimum_overlap.variants.lower.haugland_1996 : (4 - 15 ^((1 : ℝ) / 2)) ^ ((1 : ℝ) / 2) < atTop.liminf MinOverlapQuotient := by sorry
 
 /--
 A lower bound of $0.379005$.
 See [Erdős' minimum overlap problem](https://arxiv.org/abs/2201.05704) by *Ethan Patrick White*, 2022
 -/
-@[category research solved, AMS 11]
+@[category research solved, AMS 5 11]
 theorem minimum_overlap.variants.lower.white_2022 : 0.379005 < atTop.liminf MinOverlapQuotient := by sorry
 
 
@@ -123,28 +123,28 @@ theorem minimum_overlap.variants.lower.white_2022 : 0.379005 < atTop.liminf MinO
 An upper bound of $\frac 1 2$.
 See [Some remarks on number theory (in Hebrew)](https://users.renyi.hu/~p_erdos/1955-13.pdf) by *Paul Erdős*, Riveon Lematematika 9, p.45-48,1955
 -/
-@[category research solved, AMS 11]
+@[category research solved, AMS 5 11]
 theorem minimum_overlap.variants.upper.erdos_1955 : ∃ o, (o =o[atTop] fun n => (1 : ℝ)) ∧ atTop.limsup (fun N => MinOverlapQuotient N - o N) < (1 : ℝ) / 2 := by sorry
 
 /--
 An upper bound of $\frac 2 5$.
 See [Minimal overlapping under translation.](https://projecteuclid.org/journals/bulletin-of-the-american-mathematical-society/volume-62/issue-6) by *T. S. Motzkin*, *K. E. Ralston* and *J. L. Selfridge*, in "The summer meeting in Seattle" by *V. L. Klee Jr.*, Bull. Amer. Math. Soc.62, p. 558, 1956
 -/
-@[category research solved, AMS 11]
+@[category research solved, AMS 5 11]
 theorem minimum_overlap.variants.upper.MRS_1956 : ∃ o, (o =o[atTop] fun n => (1 : ℝ)) ∧ atTop.limsup (fun N => MinOverlapQuotient N - o N) < (2 : ℝ) / 5 := by sorry
 
 /--
 An upper bound of $0.38200298812318988$.
 See [Advances in the Minimum Overlap Problem](https://doi.org/10.1006%2Fjnth.1996.0064) by *Jan Kristian Haugland*, Journal of Number Theory Volume 58, Issue 1, p 71-78, 1996
 -/
-@[category research solved, AMS 11]
+@[category research solved, AMS 5 11]
 theorem minimum_overlap.variants.upper.haugland_1996 : ∃ o, (o =o[atTop] fun n => (1 : ℝ)) ∧ atTop.limsup (fun N => MinOverlapQuotient N - o N) < 0.38200298812318988 := by sorry
 
 /--
 An upper bound of $0.3809268534330870$.
 See [The minimum overlap problem](https://www.neutreeko.net/mop/index.htm) by *Jan Kristian Haugland*
 -/
-@[category research solved, AMS 11]
+@[category research solved, AMS 5 11]
 theorem minimum_overlap.variants.upper.haugland_2022 : ∃ o, (o =o[atTop] fun n => (1 : ℝ)) ∧ atTop.limsup (fun N => MinOverlapQuotient N - o N) < 0.3809268534330870 := by sorry
 
 
@@ -152,20 +152,20 @@ theorem minimum_overlap.variants.upper.haugland_2022 : ∃ o, (o =o[atTop] fun n
 /--
 Find a better lower bound!
 -/
-@[category research open, AMS 11]
+@[category research open, AMS 5 11]
 theorem minimum_overlap.variants.lower: ∃ (c : ℝ), 0.379005 < c ∧ c ≤ atTop.liminf MinOverlapQuotient ∧ c = answer(sorry) := by sorry
 
 /--
 Find a better upper bound!
 -/
-@[category research open, AMS 11]
+@[category research open, AMS 5 11]
 theorem minimum_overlap.variants.upper : ∃ (c : ℝ), c < 0.3809268534330870 ∧ (∃ o, (o =o[atTop] fun n => (1 : ℝ)) ∧ atTop.limsup (fun N => MinOverlapQuotient N - o N) ≤ c) ∧  c = answer(sorry) := by sorry
 
 
 /--
 The limit of `MinOverlapQuotient` exists and it is less than $0.385694$.
 -/
-@[category research solved, AMS 11]
+@[category research solved, AMS 5 11]
 theorem minimum_overlap_problem.variants.exists : ∃ c, atTop.Tendsto MinOverlapQuotient (𝓝 c) ∧ c < 0.385694 := by
   sorry
 
@@ -173,6 +173,6 @@ theorem minimum_overlap_problem.variants.exists : ∃ c, atTop.Tendsto MinOverla
 /--
 Find the value of the limit of `MinOverlapQuotient`!
 -/
-@[category research open, AMS 11]
+@[category research open, AMS 5 11]
 theorem minimum_overlap_problem.variants.exact : atTop.Tendsto MinOverlapQuotient (𝓝 answer(sorry)) := by
   sorry
