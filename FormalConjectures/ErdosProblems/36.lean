@@ -153,20 +153,20 @@ theorem minimum_overlap.variants.upper.haugland_2022 : ∃ o, (o =o[atTop] fun n
 Find a better lower bound!
 -/
 @[category research open, AMS 5 11]
-theorem minimum_overlap.variants.lower: ∃ (c : ℝ), 0.379005 < c ∧ c ≤ atTop.liminf MinOverlapQuotient ∧ c = answer(sorry) := by sorry
+theorem erdos_36.variants.lower: ∃ (c : ℝ), 0.379005 < c ∧ c ≤ atTop.liminf MinOverlapQuotient ∧ c = answer(sorry) := by sorry
 
 /--
 Find a better upper bound!
 -/
 @[category research open, AMS 5 11]
-theorem minimum_overlap.variants.upper : ∃ (c : ℝ), c < 0.3809268534330870 ∧ (∃ o, (o =o[atTop] fun n => (1 : ℝ)) ∧ atTop.limsup (fun N => MinOverlapQuotient N - o N) ≤ c) ∧  c = answer(sorry) := by sorry
+theorem erdos_36.variants.upper : ∃ (c : ℝ), c < 0.3809268534330870 ∧ (∃ o, (o =o[atTop] fun n => (1 : ℝ)) ∧ atTop.limsup (fun N => MinOverlapQuotient N - o N) ≤ c) ∧  c = answer(sorry) := by sorry
 
 
 /--
 The limit of `MinOverlapQuotient` exists and it is less than $0.385694$.
 -/
 @[category research solved, AMS 5 11]
-theorem minimum_overlap_problem.variants.exists : ∃ c, atTop.Tendsto MinOverlapQuotient (𝓝 c) ∧ c < 0.385694 := by
+theorem erdos_36.variants.exists : ∃ c, atTop.Tendsto MinOverlapQuotient (𝓝 c) ∧ c < 0.385694 := by
   sorry
 
 
@@ -174,5 +174,5 @@ theorem minimum_overlap_problem.variants.exists : ∃ c, atTop.Tendsto MinOverla
 Find the value of the limit of `MinOverlapQuotient`!
 -/
 @[category research open, AMS 5 11]
-theorem minimum_overlap_problem.variants.exact : atTop.Tendsto MinOverlapQuotient (𝓝 answer(sorry)) := by
+theorem erdos_36 : atTop.Tendsto MinOverlapQuotient (𝓝 answer(sorry)) := by
   sorry
