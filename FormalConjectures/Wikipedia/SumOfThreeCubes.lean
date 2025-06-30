@@ -17,12 +17,14 @@ limitations under the License.
 import FormalConjectures.Util.ProblemImports
 
 /-!
-# Mathoverflow 100324
+# Sum of three cubes
 
 An integer `n : ℤ` can be written as a sum of three cubes (of integers) if and only if
 `n` is not `4` or `5` mod `9`.
 
-*Reference:* [mathoverflow/100324](https://mathoverflow.net/a/100324)
+*References:*
+ - [Wikipedia](https://en.wikipedia.org/wiki/Sums_of_three_cubes)
+ - [mathoverflow/100324](https://mathoverflow.net/a/100324)
 asked by user [*David Feldman*](https://mathoverflow.net/users/10909/david-feldman)
 -/
 
