@@ -20,11 +20,11 @@ import Mathlib.Order.Defs.PartialOrder
 
 open Function Set
 
-variable {α γ: Type*} [AddCommMonoid α] [Membership α γ]
+variable {α : Type*} [AddCommMonoid α]
 
 /-- A Sidon set is a set, such that such that all pairwise sums of elements are distinct apart from
 coincidences forced by the commutativity of addition. -/
-def IsSidon (A : γ) : Prop := ∀ᵉ (i₁ ∈ A) (j₁ ∈ A) (i₂ ∈ A) (j₂ ∈ A),
+def IsSidon (A : Set α) : Prop := ∀ᵉ (i₁ ∈ A) (j₁ ∈ A) (i₂ ∈ A) (j₂ ∈ A),
   i₁ + i₂ = j₁ + j₂ → (i₁ = j₁ ∧ i₂ = j₂) ∨ (i₁ = j₂ ∧ i₂ = j₁)
 
 /-- The predicate that a set `s` is an arithmetic progression of length `l` (possibly infinite). -/
