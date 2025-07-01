@@ -51,17 +51,25 @@ theorem erdos_730.variants.two_div_forall (n : ℕ) (h : 0 < n) : 2 ∣ (2*n).ch
 
 /--
 Show that $(n, n+1) ∈ S$ if and only if for all odd primes $p ≤ n$ both the base $p$
-representations of $n$ and $n+1$ either both have all digits less or equal to $(p-1)/2$
+representations of $n$ and $n+1$ either both have all digits less or equal to $\frac{p-1}{2}$
 or both don't.
-
-Note: currently there is stronger, but potentially false formulation of this criterion
-on erdosproblems.com.
 -/
 @[category undergraduate]
 theorem erdos_730.variants.succ_pair_criterion (n : ℕ) (h : 2 < n) :
     (n, n+1) ∈ S ↔ ∀ p ∈ Set.Ioc 2 n, ∀ [hp : Fact p.Prime],
     let kummer_condition: ℕ → Prop := fun n => (p.digits n).Forall (fun m => m ≤ (p - 1) / 2)
     (kummer_condition n ↔ kummer_condition (n + 1)) := by
+  sorry
+
+
+/--
+An observation by Thomas Bloom: we have $(n, n+1) ∈ S$ if for all primes $p≤n$ and $p=2n+1$
+(if such a prime exists) we have $n ∉ \{\frac{p - 1}{2}, p - 1\} \mod p$.
+-/
+@[category undergraduate]
+theorem erdos_730.variants.sufficient_criterion (n : ℕ) (h : 2 < n) :
+    (∀ p ∈ (Set.Ioc 2 n) ∪ {2 * p - 1}, ∀ [hp : Fact p.Prime],
+    (n : ZMod p) ≠ (p - 1) / 2 ∧ (n : ZMod p) ≠ p - 1) → (n, n + 1) ∈ S := by
   sorry
 
 open scoped Topology in
