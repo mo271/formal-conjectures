@@ -24,9 +24,8 @@ variable {α γ: Type*} [AddCommMonoid α] [Membership α γ]
 
 /-- A Sidon set is a set, such that such that all pairwise sums of elements are distinct apart from
 coincidences forced by the commutativity of addition. -/
-def IsSidon (A : γ) : Prop :=
-  Pairwise fun i₁ j₁ =>
-  i₁ ∈ A → j₁ ∈ A → ∀ i₂ ∈ A, ∀ j₂ ∈ A, i₁ + i₂ = j₁ + j₂ → (i₁ = j₂ ∧ i₂ = j₁)
+def IsSidon (A : γ) : Prop := ∀ᵉ (i₁ ∈ A) (j₁ ∈ A) (i₂ ∈ A) (j₂ ∈ A),
+  i₁ + i₂ = j₁ + j₂ → (i₁ = j₁ ∧ i₂ = j₂) ∨ (i₁ = j₂ ∧ i₂ = j₁)
 
 /-- The predicate that a set `s` is an arithmetic progression of length `l` (possibly infinite). -/
 def Set.IsAPOfLength (s : Set α) (l : ℕ∞) : Prop :=
