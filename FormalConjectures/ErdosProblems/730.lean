@@ -24,11 +24,11 @@ import FormalConjectures.Util.ProblemImports
   - [A129515](https://oeis.org/A129515)
 -/
 private abbrev S :=
-  {(n, m) : ℕ × ℕ | n ≠ m ∧ ((2*n).choose n).primeFactors = ((2*m).choose m).primeFactors}
+  {(n, m) : ℕ × ℕ | n < m ∧ ((2*n).choose n).primeFactors = ((2*m).choose m).primeFactors}
 
 
 /--
-Are there infinitely many pairs of integers $n ≠ m$ such that $\binom{2n}{n}$
+Are there infinitely many pairs of integers $n < m$ such that $\binom{2n}{n}$
 and $\binom{2m}{m}$ have the same set of prime divisors?
 -/
 @[category research open, AMS 11]
