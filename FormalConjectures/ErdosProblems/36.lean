@@ -30,7 +30,7 @@ open Filter
 The number of solutions to the equation $a - b = k$, for $a \in A$ and $b \in B$.
 This represents the "overlap" between sets $A$ and $B$ for a given difference $k$.
 -/
-noncomputable def Overlap (A B : Finset ℤ) (k : ℤ) : ℕ := {((a : A), (b : B)) | k = a - b}.ncard
+def Overlap (A B : Finset ℤ) (k : ℤ) : ℕ := ((A.product B).filter <| fun (a, b) => a - b = k).card
 
 /--
 The maximum overlap for a given pair of sets $A$ and $B$,
