@@ -19,7 +19,9 @@ import FormalConjectures.Util.ProblemImports
 /-!
 # Erdős Problem 730
 
-*Reference:* [erdosproblems.com/730](https://www.erdosproblems.com/730)
+*References:*
+  - [erdosproblems.com/730](https://www.erdosproblems.com/730)
+  - [A129515](https://oeis.org/A129515)
 -/
 private abbrev S :=
   {(n, m) : ℕ × ℕ | n ≠ m ∧ ((2*n).choose n).primeFactors = ((2*m).choose m).primeFactors}
@@ -32,7 +34,6 @@ and $\binom{2m}{m}$ have the same set of prime divisors?
 @[category research open, AMS 11]
 theorem erdos_730 : S.Infinite ↔ answer(sorry) := by
   sorry
-
 
 /--
 For example, $(87,88)$ and $(607,608)$ are such pairs.
@@ -50,35 +51,8 @@ theorem erdos_730.variants.two_div_forall (n : ℕ) (h : 0 < n) : 2 ∣ (2*n).ch
   sorry
 
 /--
-Show that $(n, n+1) ∈ S$ if and only if for all odd primes $p ≤ n$ both the base $p$
-representations of $n$ and $n+1$ either both have all digits less or equal to $\frac{p-1}{2}$
-or both don't.
--/
-@[category undergraduate]
-theorem erdos_730.variants.succ_pair_criterion (n : ℕ) (h : 2 < n) :
-    (n, n+1) ∈ S ↔ ∀ p ∈ Set.Ioc 2 n, ∀ [hp : Fact p.Prime],
-    let kummer_condition: ℕ → Prop := fun n => (p.digits n).Forall (fun m => m ≤ (p - 1) / 2)
-    (kummer_condition n ↔ kummer_condition (n + 1)) := by
-  sorry
-
-
-/--
-An observation by Thomas Bloom: we have $(n, n+1) ∈ S$ if for all primes $p≤n$ and $p=2n+1$
-(if such a prime exists) we have $n ∉ \{\frac{p - 1}{2}, p - 1\} \mod p$.
--/
-@[category undergraduate]
-theorem erdos_730.variants.sufficient_criterion (n : ℕ) (h : 2 < n) :
-    (∀ p ∈ (Set.Ioc 2 n) ∪ {2 * p - 1}, ∀ [hp : Fact p.Prime],
-    (n : ZMod p) ≠ (p - 1) / 2 ∧ (n : ZMod p) ≠ p - 1) → (n, n + 1) ∈ S := by
-  sorry
-
-open scoped Topology in
-/--
-Standard heuristics then predict there should be $≫ \frac x {(\log x)^2}$
-many $n ≤ x$ such that $(n, n+1) ∈ S$.
+In every known example $(n, m) ∈ S$, we have $m = n + 1$.
 -/
 @[category research open, AMS 11]
-theorem erdos_730.variants.succ_pair_growth :
-    let C (x : ℝ) : ℝ := (Finset.Icc 0 ⌊x⌋₊ |>.filter fun n => (n, n+1) ∈ S).card
-    Filter.Tendsto (fun (x : ℝ) => x / (x.log^2) / C x) Filter.atTop (𝓝 0) := by
+theorem erdos_730.variants.delta_one (n m : ℕ) : (n, m) ∈ S → m = n + 1 := by
   sorry
