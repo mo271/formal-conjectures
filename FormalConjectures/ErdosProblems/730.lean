@@ -54,5 +54,5 @@ theorem erdos_730.variants.two_div_forall (n : ℕ) (h : 0 < n) : 2 ∣ (2*n).ch
 In every known example $(n, m) ∈ S$, we have $m = n + 1$.
 -/
 @[category research open, AMS 11]
-theorem erdos_730.variants.delta_one (n m : ℕ) : (n, m) ∈ S → m = n + 1 := by
+theorem erdos_730.variants.delta_one (n m : ℕ) (h : (n, m) ∈ S) : m = n + 1 := by
   sorry
