@@ -19,7 +19,7 @@ import FormalConjectures.Util.ProblemImports
 /-!
 # Primes and perfect squares
 
-*References:* [Wikipedia](https://en.wikipedia.org/wiki/Landau%27s_problems#Near-square_primes)
+*Reference:* [Wikipedia](https://en.wikipedia.org/wiki/Landau%27s_problems#Near-square_primes)
 -/
 
 
