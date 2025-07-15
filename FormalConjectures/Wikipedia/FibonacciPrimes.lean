@@ -44,7 +44,7 @@ The two ways of phrasing the conjecture are equivalent.
 -/
 @[category test, AMS 11]
 theorem indices_infinite_iff_fib_primes_infinite : type_of% fib_primes_infinite.variant ↔
-    type_of%fib_primes_infinite := by
+    type_of% fib_primes_infinite := by
   simp only [Set.infinite_iff_exists_gt]
   constructor
   · intros h a
