@@ -19,7 +19,7 @@ import FormalConjectures.Util.ProblemImports
 /-!
 # Erdős Problem 141
 
-*Reference:*
+*References:*
 - [erdosproblems.com/141](https://www.erdosproblems.com/141)
 - [Wikipedia](https://en.wikipedia.org/wiki/Primes_in_arithmetic_progression#Consecutive_primes_in_arithmetic_progression)
 -/
