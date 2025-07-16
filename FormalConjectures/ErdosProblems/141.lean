@@ -83,7 +83,7 @@ theorem erdos_141.variant.first_cases :
   sorry
 
 /--
-The first unsolved case is $k=11$.
+Are there $11$ consecutive primes in arithmetic progression?
 -/
 @[category research open, AMS 5 11]
 theorem erdos_141.variant.eleven : (∃ (s : Set ℕ), s.IsAPAndPrimeProgressionOfLength 11)
