@@ -36,7 +36,7 @@ open Nat
 /--
 The first three odd primes are an example of three consecutive primes.
 -/
-@[category test]
+@[category test, AMS 5 11]
 theorem first_three_odd_primes : ({3, 5, 7} : Set ℕ).IsPrimeProgressionOfLength 3 := by
   use 1
   constructor
@@ -55,7 +55,7 @@ def Set.IsAPAndPrimeProgressionOfLength (s : Set ℕ) (l : ℕ) :=
 /--
 There are 3 consecutive primes in arithmetic progression.
 -/
-@[category test]
+@[category test, AMS 5 11]
 example : ∃ (s : Set ℕ), s.IsAPAndPrimeProgressionOfLength 3 := by
   use {3, 5, 7}
   constructor
@@ -75,7 +75,7 @@ theorem erdos_141 : (∀ k ≥ 3, ∃ (s : Set ℕ), s.IsAPAndPrimeProgressionOf
   sorry
 
 /--
-The exisitence of such progressions has been verified for $k≤10$.
+The existence of such progressions has been verified for $k≤10$.
 -/
 @[category research solved, AMS 5 11]
 theorem erdos_141.variant.first_cases :
