@@ -24,7 +24,7 @@ import FormalConjectures.Util.ProblemImports
 
 /--
 Is
-$$\sum_{n} \frac{φ_n}{2^n}$$
+$$\sum_{n} \frac{p_n}{2^n}$$
 irrational? Here $p_n$ is the $n$-th prime.
 -/
 @[category research open, AMS 11]
