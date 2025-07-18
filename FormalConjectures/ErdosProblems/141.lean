@@ -103,3 +103,12 @@ It is open, even for $k=3$, whether there are infinitely many such progressions.
 theorem erdos_141.variant.infinite_three :
     (consecutivePrimeArithmeticProgressions 3).Infinite ↔ answer(sorry) :=
   sorry
+
+/--
+Fix a $k \geq 3$. Is it true that there are infinitely many arithmetic prime progressions of length $k$?
+-/
+@[category research open, AMS 5 11]
+theorem erdos_141.variant.infinite_general_case  (k : ℕ) (hk : k ≥ 3) :
+    (consecutivePrimeArithmeticProgressions k).Infinite ↔ answer(sorry) :=
+  sorry
+  
