@@ -45,9 +45,9 @@ theorem erdos_218.variant : {n | primeGap (n + 1) ≤ primeGap n}.HasDensity <| 
 
 /--
 There are infintely many indices $n$ such that the prime gap at $n$ is equal to the prime gap
-at $n+1$. This is equivalent to the existence of infinetly many arithmetic progressions of
+at $n+1$. This is equivalent to the existence of infinitely many arithmetic progressions of
 length $3$, see `erdos_141.variant.infinite_three`.
 -/
 @[category research open, AMS 11]
-theorem erdos_218.infinite_equal_prime_gap : {n | primeGap n = primeGap (n + 1)}.Infinite := by
+theorem erdos_218.variants.infinite_equal_prime_gap : {n | primeGap n = primeGap (n + 1)}.Infinite := by
   sorry
