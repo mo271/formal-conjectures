@@ -25,7 +25,7 @@ import FormalConjectures.Util.ProblemImports
 open Filter Real
 
 /--
-The longest arithmetic progression of primes in $\{1,\ldots,n\}$.
+The length of the longest arithmetic progression of primes in $\{1,\ldots,n\}$.
 -/
 noncomputable def longestPrimeArithmeticProgressions (n : ℕ) : ℕ :=
   sSup {(k : ℕ) | ∃ s ⊆ Set.Icc 1 n, s.IsAPOfLength k ∧ ∀ m ∈ s, m.Prime}
