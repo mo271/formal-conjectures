@@ -27,11 +27,11 @@ open Filter Real
 /--
 The longest arithmetic progression of primes in $\{1,\ldots,n\}$.
 -/
-noncomputable def longestPrimeArithmeticProgressions (n : ℕ) :=
-  (sSup {(k : ℕ) | ∃ s ⊆ Set.Icc 1 n, s.IsAPOfLength k ∧ ∀ m ∈ s, m.Prime})
+noncomputable def longestPrimeArithmeticProgressions (n : ℕ) : ℕ :=
+  sSup {(k : ℕ) | ∃ s ⊆ Set.Icc 1 n, s.IsAPOfLength k ∧ ∀ m ∈ s, m.Prime}
 
 /--
-Does the longest arithmetic progression of primes in $\{1,\ldots,n\}$ have length $o(\log N)$?
+Does the longest arithmetic progression of primes in $\{1,\ldots,N\}$ have length $o(\log N)$?
 -/
 @[category research open, AMS 5 11]
 theorem erdos_200 : (fun n => (longestPrimeArithmeticProgressions n : ℝ))
