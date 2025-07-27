@@ -34,8 +34,8 @@ noncomputable def primeGap (n : ℕ) : ℕ := (n + 1).nth Nat.Prime - n.nth Nat.
 
 open Filter Real
 /--
-The prime number theorem immediately implies a lower bound for the sum of squares of gaps between
-consecutive primes.
+The prime number theorem immediately implies a lower bound of $\gg N(\log N)^2$ for the sum of
+squares of gaps between consecutive primes.
 -/
 @[category research solved, AMS 11]
 theorem sum_of_squares_of_prime_gaps_lower_bound :
