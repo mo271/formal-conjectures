@@ -53,9 +53,9 @@ theorem erdos_233 :
   sorry
 
 /--
-Cramér proved an upper bound of O(N(logN)4) conditional on the Riemann hypothesis.
+Cramér proved an upper bound of $O(N(\log N)^4)$ conditional on the Riemann hypothesis.
 -/
 @[category research solved, AMS 11]
-theorem erdos_233.variant (h : RiemannHypothesis):
+theorem erdos_233.variant (h : RiemannHypothesis) :
     (fun N => ((∑ n ∈ Finset.range N, (primeGap n) ^ 2) : ℝ)) =O[atTop] fun N => N * (log N)^4 := by
   sorry
