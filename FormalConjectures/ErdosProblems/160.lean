@@ -62,7 +62,8 @@ theorem erdos_160.known_lower :
 Estimate $h(n)$ by finding a better upper bound.
 -/
 @[category research open, AMS 5 51]
-theorem erdos_160.better_upper : ∃ upper_bound : ℕ → ℝ, upper_bound = answer(sorry) ∧
+theorem erdos_160.better_upper :
+    let upper_bound : ℕ → ℝ := answer(sorry)
     (fun n => (erdos_160.h n : ℝ)) =O[atTop] upper_bound ∧
     upper_bound =o[atTop] fun n => (n : ℝ) ^ ((2 : ℝ) / 3) := by
   sorry
@@ -71,7 +72,8 @@ theorem erdos_160.better_upper : ∃ upper_bound : ℕ → ℝ, upper_bound = an
 Estimate $h(n)$ by finding a better lower bound.
 -/
 @[category research open, AMS 5 51]
-theorem erdos_160.better_lower: ∃ lower_bound : ℕ → ℝ, lower_bound = answer(sorry) ∧
-     (lower_bound =O[atTop] fun n => (erdos_160.h n : ℝ)) ∧
-     ∀ c > 0, (fun (n : ℕ) => exp (c * log (n : ℝ) ^ ((1 : ℝ) / 12))) =o[atTop] lower_bound := by
+theorem erdos_160.better_lower:
+    let lower_bound : ℕ → ℝ := answer(sorry)
+    (lower_bound =O[atTop] fun n => (erdos_160.h n : ℝ)) ∧
+    ∀ c > 0, (fun (n : ℕ) => exp (c * log (n : ℝ) ^ ((1 : ℝ) / 12))) =o[atTop] lower_bound := by
   sorry
