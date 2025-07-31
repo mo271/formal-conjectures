@@ -53,4 +53,4 @@ theorem erdos_364.variants.weak :
   obtain ⟨n, hn⟩ := h
   have h2mod4 : n % 4 = 2 ∨ (n + 1) % 4 = 2 ∨ (n + 2) % 4 = 2 ∨ (n + 3) % 4 = 2 := by omega
   rcases h2mod4 with (_|_|_|_) <;>
-  simp_all [not_powerful_of_prime_mod_prime_sq _ 2 (Nat.prime_two)]
+  simp_all [not_full_of_prime_mod_prime_sq _ 1 (Nat.prime_two)]

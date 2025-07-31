@@ -36,18 +36,18 @@ theorem full_of_succ_full (k : ℕ) (n : ℕ) (h : (k + 1).Full n) : k.Full n :=
   intro hp
   exact fun a ↦ dvd_of_mul_right_dvd (h hp a)
 
-/-- If $n \equiv p \pmod{p}$, for a prime $p$ then $n$ is not powerful -/
-theorem not_powerful_of_prime_mod_prime_sq (n : ℕ) (p : ℕ) (hp : p.Prime) (h : n % (p^2) = p) :
-    ¬ Powerful n := by
-  rw [Powerful, Full]
+/-- If $n \equiv p \pmod{p ^ (k + 1)}$, for a prime $p$ then $n$ is not $(k + 1)$-full.-/
+theorem not_full_of_prime_mod_prime_sq (n : ℕ) (k : ℕ) {p : ℕ} (hp : p.Prime)
+    (h : n % p ^ (k + 1) = p) : ¬ (k + 1).Full n := by
+  rw [Full]
   push_neg
   use p
   simp  [mem_primeFactors, hp, ne_eq, true_and, reducePow]
   constructor
-  · rw [←Nat.div_add_mod n (p^2), h]
-    simp [Nat.dvd_add (dvd_mul_of_dvd_left (show p ∣ (p^2) by
-      exact Dvd.intro_left (p.pow 1) rfl) (n / (p^2))) (dvd_refl p)]
-    aesop
+  · rw [←Nat.div_add_mod n (p ^ (k + 1)), h]
+    have : p ∣ p ^ (k + 1) := by exact Dvd.intro_left (p.pow k) rfl
+    simp [Nat.dvd_add (dvd_mul_of_dvd_left this (n / (p ^ 2))) (dvd_refl p)]
+    exact ⟨Dvd.dvd.mul_right this (n / p ^ (k + 1)), fun a ↦ Prime.ne_zero hp⟩
   · intro h
     simp_all [OfNat.zero_ne_ofNat, Nat.dvd_iff_mod_eq_zero.mp h]
     aesop
