@@ -36,14 +36,18 @@ theorem full_of_succ_full (k : ℕ) (n : ℕ) (h : (k + 1).Full n) : k.Full n :=
   intro hp
   exact fun a ↦ dvd_of_mul_right_dvd (h hp a)
 
-/-- If $n \equiv 2 \pmod{4}$, then $n$ is not powerful -/
-theorem not_powerful_of_2mod4 (n : ℕ) (h : n % 4 = 2) : ¬ Powerful n := by
+/-- If $n \equiv p \pmod{p}$, for a prime $p$ then $n$ is not powerful -/
+theorem not_powerful_of_prime_mod_prime_sq (n : ℕ) (p : ℕ) (hp : p.Prime) (h : n % (p^2) = p) :
+    ¬ Powerful n := by
   rw [Powerful, Full]
   push_neg
-  use 2
-  simp only [mem_primeFactors, prime_two, ne_eq, true_and, reducePow]
+  use p
+  simp  [mem_primeFactors, hp, ne_eq, true_and, reducePow]
   constructor
-  · rw [←Nat.div_add_mod n 4, h]
-    simp [Nat.dvd_add (dvd_mul_of_dvd_left (show 2 ∣ 4 by decide) (n / 4)) (dvd_refl 2)]
+  · rw [←Nat.div_add_mod n (p^2), h]
+    simp [Nat.dvd_add (dvd_mul_of_dvd_left (show p ∣ (p^2) by
+      exact Dvd.intro_left (p.pow 1) rfl) (n / (p^2))) (dvd_refl p)]
+    aesop
   · intro h
     simp_all [OfNat.zero_ne_ofNat, Nat.dvd_iff_mod_eq_zero.mp h]
+    aesop
