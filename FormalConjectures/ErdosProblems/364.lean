@@ -15,7 +15,6 @@ limitations under the License.
 -/
 
 import FormalConjectures.Util.ProblemImports
-import FormalConjectures.ForMathlib.NumberTheory.Powerful
 
 /-!
 # Erdős Problem 364
@@ -23,6 +22,7 @@ import FormalConjectures.ForMathlib.NumberTheory.Powerful
 *Reference:* [erdosproblems.com/364](https://www.erdosproblems.com/364)
 -/
 
+open Nat
 
 /-- There is no consecutive triple of powerful numbers. -/
 @[category research open, AMS 11]
