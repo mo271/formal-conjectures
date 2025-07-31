@@ -31,10 +31,9 @@ Powerful numbers are also known as "squareful", "square-full", or "$2$-full".
 -/
 abbrev Powerful : ℕ → Prop := (2).Full
 
-theorem full_of_succ_full (k : ℕ) (n : ℕ) (h : (k + 1).Full n) : k.Full n := by
-  unfold Full at *
-  intro hp
-  exact fun a ↦ dvd_of_mul_right_dvd (h hp a)
+
+theorem full_of_le_full (k : ℕ) (n : ℕ) {m : ℕ} (hk : k ≤ m) (h : m.Full n) : k.Full n :=
+  fun p a ↦ pow_dvd_of_le_of_pow_dvd hk (h p a)
 
 /-- If $n \equiv p \pmod{p ^ (k + 1)}$, for a prime $p$ then $n$ is not $(k + 1)$-full.-/
 theorem not_full_of_prime_mod_prime_sq (n : ℕ) (k : ℕ) {p : ℕ} (hp : p.Prime)
