@@ -32,7 +32,7 @@ The set of indices $n$ for which a prime gap is followed by a larger or equal pr
 natural density of $\frac 1 2$.
 -/
 @[category research open, AMS 11]
-theorem erdos_218.variant.le : {n | primeGap n ≤ primeGap (n + 1)}.HasDensity <| 1 / 2 := by
+theorem erdos_218.variants.le : {n | primeGap n ≤ primeGap (n + 1)}.HasDensity <| 1 / 2 := by
   sorry
 
 /--
@@ -40,7 +40,7 @@ The set of indices $n$ for which a prime gap is preceeded by a larger or equal p
 natural density of $\frac 1 2$.
 -/
 @[category research open, AMS 11]
-theorem erdos_218.variant.ge : {n | primeGap (n + 1) ≤ primeGap n}.HasDensity <| 1 / 2 := by
+theorem erdos_218.variants.ge : {n | primeGap (n + 1) ≤ primeGap n}.HasDensity <| 1 / 2 := by
   sorry
 
 /--
