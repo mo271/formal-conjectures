@@ -21,9 +21,6 @@ import FormalConjectures.Util.ProblemImports
 
 *References:*
 - [erdosproblems.com/137](https://www.erdosproblems.com/137)
-- [Er82c] Erdős, Paul, "Miscellaneous problems in number theory". Congr. Numer. (1982), 25-45.,
-- [ES75] P. Erdös, J. L. Selfridge, "The product of consecutive integers is never a power",
-  Illinois J. Math. 19(2): 292-301, 1975
 -/
 
 /--
@@ -38,6 +35,9 @@ theorem erdos_137 :
 /--
 Let $k\geq 2$. Erdős and Selfridge [ES75] proved that the product of any $k$ consecutive
 integers $N$ cannot be a perfect power.
+
+[ES75] P. Erdös, J. L. Selfridge, "The product of consecutive integers is never a power",
+  Illinois J. Math. 19(2): 292-301, 1975
 -/
 @[category research solved, AMS 11]
 theorem erdos_137.variants.perfect_power (k : ℕ) (hk : k ≥ 2) (n : ℕ) (x l : ℕ) (hl : 2 ≤ l) :
@@ -49,7 +49,7 @@ Erdős [Er82c] conjectures that, if $m$, $k$ are fixed and $n$ sufficiently larg
 be at least $k$ distict primes $p$ such that $p\mid m(m+1)\cdots (m+n)$ and yet $p^2$ does not
 divide the right hand side.
 
-[Er82c] Erdős, P., Miscellaneous problems in number theory. Congr. Numer. (1982), 25-45.
+[Er82c] Erdős, Paul, "Miscellaneous problems in number theory". Congr. Numer. (1982), 25-45.,
 -/
 @[category research open, AMS 11]
 theorem erdos_137.multiple_powerful_factors (m k : ℕ) (hm : 0 < m): ∃ (n₀ : ℕ), ∀ n > n₀,
