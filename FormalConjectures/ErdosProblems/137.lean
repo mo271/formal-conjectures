@@ -31,7 +31,8 @@ Let $k\geq 3$. Can the product of any $k$ consecutive integers $N$ ever be power
 must there always exist a prime $p\mid N$ such that $p^2\nmid N$?
 -/
 @[category research open, AMS 11]
-  theorem erdos_137 : (∀ k ≥ 3, ∀ n, ¬ ((Finset.Ioc n (n + k)).prod id).Powerful) ↔ answer(sorry) := by
+theorem erdos_137 :
+    (∀ k ≥ 3, ∀ n, ¬ (∏ x ∈ Finset.Ioc n (n + k), x).Powerful) ↔ answer(sorry) := by
   sorry
 
 /--
@@ -39,8 +40,7 @@ Let $k\geq 2$. Erdős and Selfridge [ES75] proved that the product of any $k$ co
 integers $N$ cannot be a perfect power.
 -/
 @[category research solved, AMS 11]
-theorem erdos_137.variants.perfect_power (k : ℕ) (hk : k ≥ 2) (n : ℕ) (x l : ℕ)
-(hl : 2 ≤ l):
+theorem erdos_137.variants.perfect_power (k : ℕ) (hk : k ≥ 2) (n : ℕ) (x l : ℕ) (hl : 2 ≤ l) :
     ((Finset.Ioc n (n + k)).prod id) ≠ x ^ l := by
   sorry
 
@@ -48,10 +48,12 @@ theorem erdos_137.variants.perfect_power (k : ℕ) (hk : k ≥ 2) (n : ℕ) (x l
 Erdős [Er82c] conjectures that, if $m$, $k$ are fixed and $n$ sufficiently large, then there must
 be at least $k$ distict primes $p$ such that $p\mid m(m+1)\cdots (m+n)$ and yet $p^2$ does not
 divide the right hand side.
+
+[Er82c] Erdős, P., Miscellaneous problems in number theory. Congr. Numer. (1982), 25-45.
 -/
 @[category research open, AMS 11]
 theorem erdos_137.multiple_powerful_factors (m k : ℕ) (hm : 0 < m): ∃ (n₀ : ℕ), ∀ n > n₀,
-    letI N := (Finset.Icc m (m + n)).prod id
+    letI N := ∏ x ∈ Finset.Ioc m (m + n), x
     ∃ P : Finset ℕ, P.card = k ∧ ∀ p ∈ P, p.Prime ∧
     p ∣ N ∧ ¬ p ^ 2 ∣ N := by
   sorry
