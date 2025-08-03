@@ -41,7 +41,7 @@ integers $N$ cannot be a perfect power.
 -/
 @[category research solved, AMS 11]
 theorem erdos_137.variants.perfect_power (k : ℕ) (hk : k ≥ 2) (n : ℕ) (x l : ℕ) (hl : 2 ≤ l) :
-    ((Finset.Ioc n (n + k)).prod id) ≠ x ^ l := by
+    (∏ x ∈ Finset.Ioc n (n + k), x) ≠ x ^ l := by
   sorry
 
 /--
