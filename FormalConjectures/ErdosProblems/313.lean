@@ -60,7 +60,7 @@ It is conjectured that the set of primary pseudoperfect numbers is infinite.
 -/
 @[category research open, AMS 11]
 theorem erdos_313.variant.primary_pseudoperfect_are_infinite :
-  Set.Infinite {n | IsPrimaryPseudoperfect n} := by
+    Set.Infinite {n | IsPrimaryPseudoperfect n} := by
   sorry
 
 /--
@@ -68,5 +68,5 @@ There are at least 8 primary pseudoperfect numbers.
 -/
 @[category undergraduate, AMS 11]
 theorem exists_at_least_eight_primary_pseudoperfect :
-  8 ≤ (Set.encard {n | IsPrimaryPseudoperfect n}) := by
+    8 ≤ (Set.encard {n | IsPrimaryPseudoperfect n}) := by
   sorry
