@@ -28,7 +28,7 @@ import FormalConjectures.Util.ProblemImports
 open Filter Real
 
 
-abbrev τ  := fun (n : ℕ) => n.divisors.card
+private abbrev τ  := fun (n : ℕ) => n.divisors.card
 
 private noncomputable def F (x : ℝ) : ℕ :=
   sSup {k | ∃ (n : ℕ), n + k ≤ x ∧ (Set.Ioc n (n + k)).InjOn τ}
