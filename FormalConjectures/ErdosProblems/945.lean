@@ -30,6 +30,9 @@ open Filter Real
 
 private abbrev τ  := fun (n : ℕ) => n.divisors.card
 
+/--
+Let $F(x)$ be the maximal $k$ such that there exist $n+1, \dots, n+k \le x$
+with $τ(n+1), \dots, τ(n+k)$ all distinct, where $τ(m)$ counts the divisors of $m$.-/
 private noncomputable def F (x : ℝ) : ℕ :=
   sSup {k | ∃ (n : ℕ), n + k ≤ x ∧ (Set.Ioc n (n + k)).InjOn τ}
 
@@ -37,7 +40,7 @@ private noncomputable def F (x : ℝ) : ℕ :=
 Is it true that $F(x) \leq (\log x)^{O(1)}$?
 -/
 @[category research open, AMS 11]
-theorem erdos_945 : (∃ (O : ℝ → ℝ), O =O[Filter.atTop] (1 : ℝ → ℝ) ∧ ∀ (x : ℝ),
+theorem erdos_945 : (∃ (O : ℝ → ℝ), O =O[Filter.atTop] (1 : ℝ → ℝ) ∧ ∀ᶠ x in atTop,
     F x ≤ x.log ^ (O x)) ↔ answer(sorry) := by
   sorry
 
@@ -46,7 +49,7 @@ Is there a constant $C > 0$ such that, for all large $x$, every interval $[x, x+
 contains two integers with the same number of divisors?
 -/
 @[category research open, AMS 11]
-theorem erdos_945.variants.constant : (∃ (C : ℝ), C > 0 ∧ ∃ x₀, ∀ (x : ℝ), x₀ < x →
+theorem erdos_945.variants.constant : (∃ (C : ℝ), C > 0 ∧  ∀ᶠ (x : ℝ) in atTop,
     ∃ a b : ℕ, a ≠ b ∧
     ↑a ∈ Set.Icc x (x + (x.log)^C) ∧
     ↑b ∈ Set.Icc x (x + (x.log)^C) ∧
@@ -59,9 +62,9 @@ The two ways of phrasing the conjecture are equivalent.
 -/
 @[category undergraduate, AMS 11]
 theorem erdos_945.equivalence :
-    (∃ (O : ℝ → ℝ), O =O[atTop] (1 : ℝ → ℝ) ∧ ∀ (x : ℝ),
+    (∃ (O : ℝ → ℝ), O =O[Filter.atTop] (1 : ℝ → ℝ) ∧ ∀ᶠ x in atTop,
     F x ≤ x.log ^ (O x)) ↔
-    (∃ (C : ℝ), C > 0 ∧ ∃ x₀, ∀ (x : ℝ), x₀ < x →
+    (∃ (C : ℝ), C > 0 ∧  ∀ᶠ (x : ℝ) in atTop,
     ∃ a b : ℕ, a ≠ b ∧
     ↑a ∈ Set.Icc x (x + (x.log)^C) ∧
     ↑b ∈ Set.Icc x (x + (x.log)^C) ∧
