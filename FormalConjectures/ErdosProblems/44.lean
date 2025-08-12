@@ -24,16 +24,6 @@ import FormalConjectures.Util.ProblemImports
 
 open Function Set
 
-/-- The maximum size of a Sidon set in `{1, ..., N}`. -/
-noncomputable def maxSidonSetSize (N : ℕ) : ℕ :=
-  sSup {(A.card) | (A : Finset ℕ) (_ : A ⊆ Finset.Icc 1 N) (_ : IsSidon A.toSet)}
-
-/-- The maximum size of a Sidon set in `{1, ..., N}` is less than or equal to `√N + 1`. -/
-@[category undergraduate, AMS 5 11]
-theorem maxSidonSetSize_bound (N : ℕ) (hN : 1 ≤ N) :
-    maxSidonSetSize N ≤ N.sqrt + 1 := by
-  sorry
-
 /--
 **Erdős Problem 44:** Let N ≥ 1 and `A ⊆ {1,…,N}` be a Sidon set. Is it true that, for any ε > 0,
 there exist M = M(ε) and `B ⊆ {N+1,…,M}` such that `A ∪ B ⊆ {1,…,M}` is a Sidon set
