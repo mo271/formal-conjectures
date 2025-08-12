@@ -36,24 +36,31 @@ with $τ(n+1), \dots, τ(n+k)$ all distinct, where $τ(m)$ counts the divisors o
 private noncomputable def F (x : ℝ) : ℕ :=
   sSup {k | ∃ (n : ℕ), n + k ≤ x ∧ (Set.Ioc n (n + k)).InjOn τ}
 
+-- Implementation note: we define a Prop here and below to be able to easily formulate
+-- the equivalence between the two variants. Because the theorems require `anwswer(sorry)` we
+-- can't handle this with `type_of%`.
+def Erdos945 : Prop := (∃ (O : ℝ → ℝ), O =O[Filter.atTop] (1 : ℝ → ℝ) ∧ ∀ᶠ x in atTop,
+    F x ≤ x.log ^ (O x))
+
 /--
 Is it true that $F(x) \leq (\log x)^{O(1)}$?
 -/
 @[category research open, AMS 11]
-theorem erdos_945 : (∃ (O : ℝ → ℝ), O =O[Filter.atTop] (1 : ℝ → ℝ) ∧ ∀ᶠ x in atTop,
-    F x ≤ x.log ^ (O x)) ↔ answer(sorry) := by
+theorem erdos_945 : Erdos945 ↔ answer(sorry) := by
   sorry
+
+def Erdos945Constant : Prop := (∃ (C : ℝ), C > 0 ∧  ∀ᶠ (x : ℝ) in atTop,
+    ∃ a b : ℕ, a ≠ b ∧
+    ↑a ∈ Set.Icc x (x + (x.log)^C) ∧
+    ↑b ∈ Set.Icc x (x + (x.log)^C) ∧
+    τ a = τ b)
 
 /--
 Is there a constant $C > 0$ such that, for all large $x$, every interval $[x, x+(\log x)C]$
 contains two integers with the same number of divisors?
 -/
 @[category research open, AMS 11]
-theorem erdos_945.variants.constant : (∃ (C : ℝ), C > 0 ∧  ∀ᶠ (x : ℝ) in atTop,
-    ∃ a b : ℕ, a ≠ b ∧
-    ↑a ∈ Set.Icc x (x + (x.log)^C) ∧
-    ↑b ∈ Set.Icc x (x + (x.log)^C) ∧
-    τ a = τ b) ↔ answer(sorry) := by
+theorem erdos_945.variants.constant : Erdos945Constant ↔ answer(sorry) := by
   sorry
 
 -- TODO(firsching): show equivalence
@@ -61,14 +68,7 @@ theorem erdos_945.variants.constant : (∃ (C : ℝ), C > 0 ∧  ∀ᶠ (x : ℝ
 The two ways of phrasing the conjecture are equivalent.
 -/
 @[category undergraduate, AMS 11]
-theorem erdos_945.equivalence :
-    (∃ (O : ℝ → ℝ), O =O[Filter.atTop] (1 : ℝ → ℝ) ∧ ∀ᶠ x in atTop,
-    F x ≤ x.log ^ (O x)) ↔
-    (∃ (C : ℝ), C > 0 ∧  ∀ᶠ (x : ℝ) in atTop,
-    ∃ a b : ℕ, a ≠ b ∧
-    ↑a ∈ Set.Icc x (x + (x.log)^C) ∧
-    ↑b ∈ Set.Icc x (x + (x.log)^C) ∧
-    τ a = τ b) := by
+theorem erdos_945.equivalence : Erdos945 ↔ Erdos945Constant := by
   sorry
 
 
