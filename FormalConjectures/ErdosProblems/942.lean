@@ -51,6 +51,7 @@ theorem erdos_942.variants.limsup :
 
 /--
 It is not hard to prove that the density $δ_l$ of integers for which $h(n) = l$ exists
+and satisfies $$\sum_l δ_l = 1$$.
 -/
 @[category graduate, AMS 11]
 theorem erdos_942.variants.density :
