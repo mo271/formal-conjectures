@@ -14,14 +14,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -/
 
-import Mathlib.Algebra.CharP.Defs
 import Mathlib.Algebra.Module.NatInt
-import Mathlib.Algebra.Order.Star.Basic
-import Mathlib.Algebra.Ring.Regular
 import Mathlib.Data.ENat.Lattice
 import Mathlib.Data.Set.Card
-import Mathlib.Order.CompletePartialOrder
-import Mathlib.SetTheory.Cardinal.Finite
 import Mathlib.Tactic.IntervalCases
 
 /-! # Arithmetic Progressions
@@ -162,4 +157,4 @@ Let $r_k(N)$ be the largest possible size of a subset of $\{1, \dots, N\}$ that 
 any non-trivial $k$-term arithmetic progression.
 -/
 noncomputable abbrev r (k : ℕ) (N : ℕ) : ℕ :=
-    ((Finset.Icc 1 N).powerset.filter fun S => S.toSet.IsAPOfLengthFree k).sup Finset.card
+  ((Finset.Icc 1 N).powerset.filter fun S => S.toSet.IsAPOfLengthFree k).sup Finset.card
