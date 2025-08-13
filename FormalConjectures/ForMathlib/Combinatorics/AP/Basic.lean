@@ -151,7 +151,7 @@ theorem Set.IsAPOfLength.not_isAPOfLengthFree {s : Set α} {l : ℕ∞}
   simpa [Set.IsAPOfLengthFree] using ⟨s, le_rfl, ⟨hs, hl⟩⟩
 
 /--
-Let $r_k(N)$ be the largest possible size of a subset of $\{1, \dots, N\}$ that does not contain
+Define the largest possible size of a subset of $\{1, \dots, N\}$ that does not contain
 any non-trivial $k$-term arithmetic progression.
 -/
 noncomputable def Set.IsAPOfLengthFree.maxCard (k : ℕ) (N : ℕ) : ℕ :=
