@@ -30,7 +30,7 @@ each the product of two distinct primes, such that $\frac{a}{b}=\frac{1}{n_1}+\c
 @[category research open, AMS 11]
 theorem erdos_306 : (∀ (q : ℚ), 0 < q → Squarefree q.den →
     ∃ k : ℕ, ∃ (n : Fin (k + 1) → ℕ), n 0 = 1 ∧ StrictMono n ∧
-    ∀ i ∈ Finset.Icc 1 k, ∃ p₁ p₂, (p₁.Prime ∧ p₂.Prime ∧ p₁ ≠ p₂ ∧ n i = p₁ * p₂) ∧
+    (∀ i ∈ Finset.Icc 1 k, ∃ p₁ p₂, (p₁.Prime ∧ p₂.Prime ∧ p₁ ≠ p₂ ∧ n i = p₁ * p₂)) ∧
     q = ∑ i ∈ Finset.Icc 1 k, (1 : ℚ) / (n i)) ↔ answer(sorry) := by
   sorry
 
