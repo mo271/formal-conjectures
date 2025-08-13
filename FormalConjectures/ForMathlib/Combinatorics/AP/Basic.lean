@@ -154,5 +154,5 @@ theorem Set.IsAPOfLength.not_isAPOfLengthFree {s : Set α} {l : ℕ∞}
 Let $r_k(N)$ be the largest possible size of a subset of $\{1, \dots, N\}$ that does not contain
 any non-trivial $k$-term arithmetic progression.
 -/
-noncomputable abbrev Set.IsAPOfLengthFree.maxCard (k : ℕ) (N : ℕ) : ℕ :=
+noncomputable def Set.IsAPOfLengthFree.maxCard (k : ℕ) (N : ℕ) : ℕ :=
   sSup {Finset.card S | (S) (_ : S ⊆ Finset.Icc 1 N) (_ : S.toSet.IsAPOfLengthFree k)}
