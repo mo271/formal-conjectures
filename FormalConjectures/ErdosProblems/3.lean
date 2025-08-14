@@ -31,7 +31,7 @@ long arithmetic progressions?
 -/
 @[category research open, AMS 11]
 theorem erdos_3 : (∀ A : Set ℕ,
-    (Tendsto (fun n => ∑ i ∈ ((Finset.Ico 1 n).filter (fun j => j ∈ A)), 1 / (i : ℝ)) atTop atTop) →
+    (¬ Summable (fun a : A ↦ 1 / (a : ℝ))) →
     ∃ᶠ (k : ℕ) in Filter.atTop, ∃ S ⊆ A, S.IsAPOfLength k) ↔ answer(sorry) := by
   sorry
 
