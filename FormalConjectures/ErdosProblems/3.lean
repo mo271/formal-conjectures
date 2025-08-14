@@ -22,9 +22,6 @@ import FormalConjectures.Util.ProblemImports
 *Reference:* [erdosproblems.com/3](https://www.erdosproblems.com/3)
 -/
 
-open Filter
-open Classical
-
 /--
 If $A \subset \mathbb{N} has $\sum_{n \in A}\frac 1 n = \infty$, then must $A$ contain arbitrarily
 long arithmetic progressions?
