@@ -43,6 +43,6 @@ product of three distinct primes.
 @[category research solved, AMS 11]
 theorem erdos_306.variant.integer_three_primes (m : ℕ) (h : 0 < m) :
     ∃ k : ℕ, ∃ (n : Fin (k + 1) → ℕ), n 0 = 1 ∧ ∀ i, i < k → n i < n (i + 1) ∧
-    (∀ i ∈ Finset.Icc 1 k, ∃ (P : Finset ℕ), ω (n i) = 3 ∧ Ω (n i) = 3) ∧
+    (∀ i ∈ Finset.Icc 1 k, ω (n i) = 3 ∧ Ω (n i) = 3) ∧
     m = ∑ i ∈ Finset.Icc 1 k, (1 : ℚ) / (n i) := by
   sorry
