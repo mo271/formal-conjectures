@@ -31,9 +31,9 @@ Let $A(n)$ denote the least value of $t$ such that
 $$
   n! = a_1 \cdots a_t
 $$
-with $a_1 \leq \cdots \leq a_t\leq n^2$. Is it true that
+with $a_1 \leq \cdots \leq a_t\leq n^2$. Then
 $$
-  A(n) = \frac{n}{2} - \frac{n}{2\log n} + o\left(\frac{n}{\log n}\right)?
+  A(n) = \frac{n}{2} - \frac{n}{2\log n} + o\left(\frac{n}{\log n}\right).
 $$
 -/
 @[category research solved, AMS 11]
