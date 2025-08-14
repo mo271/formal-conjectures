@@ -28,7 +28,7 @@ long arithmetic progressions?
 -/
 @[category research open, AMS 11]
 theorem erdos_3 : (∀ A : Set ℕ,
-    (¬ Summable (fun a : A ↦ 1 / (a : ℝ))) →
+    (¬ Summable fun a : A ↦ 1 / (a : ℝ)) →
     ∃ᶠ (k : ℕ) in Filter.atTop, ∃ S ⊆ A, S.IsAPOfLength k) ↔ answer(sorry) := by
   sorry
 
