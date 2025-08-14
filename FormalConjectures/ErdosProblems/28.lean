@@ -22,7 +22,7 @@ import FormalConjectures.Util.ProblemImports
 *Reference:* [erdosproblems.com/28](https://www.erdosproblems.com/28)
 -/
 
-open Filter
+open Filter Set
 open scoped Pointwise
 
 /--
@@ -30,9 +30,9 @@ If $A ⊆ \mathbb{N}$ is such that $A + A$ contains all but finitely many intege
  $\limsup 1_A ∗ 1_A(n) = \infty$.
 -/
 @[category research open, AMS 11]
-theorem erdos_28 (A : Set ℕ) (h : (Set.univ \ (A + A)).Finite) :
+theorem erdos_28 (A : Set ℕ) (h : (univ \ (A + A)).Finite) :
     limsup (fun (n : ℕ) =>
-    letI a := PowerSeries.mk (Set.indicator A 1)
+    letI a := PowerSeries.mk (indicator A 1)
     (a * a).coeff ℕ n) atTop = (⊤ : ℕ∞) := by
   sorry
 
