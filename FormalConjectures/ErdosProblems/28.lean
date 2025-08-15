@@ -30,7 +30,7 @@ If $A ⊆ \mathbb{N}$ is such that $A + A$ contains all but finitely many intege
  $\limsup 1_A ∗ 1_A(n) = \infty$.
 -/
 @[category research open, AMS 11]
-theorem erdos_28 (A : Set ℕ) (h : (univ \ (A + A)).Finite) :
+theorem erdos_28 (A : Set ℕ) (h : (A + A)ᶜ.Finite) :
     limsup (fun (n : ℕ) =>
     letI a := PowerSeries.mk (indicator A 1)
     (a * a).coeff ℕ n) atTop = (⊤ : ℕ∞) := by
