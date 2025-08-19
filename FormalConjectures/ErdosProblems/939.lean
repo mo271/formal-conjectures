@@ -54,8 +54,9 @@ Are there infinitely many triples of coprime $3$-powerful numbers $a, b, c$ such
 @[category research open, AMS 11]
 theorem erdos_939.variants.triples :
     {(a,b,c) | ({a, b, c} : Finset ℕ).Coprime ∧
-    (3).Full a ∧ (3).Full b ∧ (3).Full c ∧
-    a + b = c}.Infinite ↔ answer(sorry) := by sorry
+      (3).Full a ∧ (3).Full b ∧ (3).Full c ∧
+      a + b = c}.Infinite ↔ answer(sorry) := by
+  sorry
 
 /--
 Cambie has found several examples of the sum of $r - 2$ coprime $r$-powerful numbers being itself

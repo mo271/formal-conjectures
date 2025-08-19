@@ -21,6 +21,5 @@ import Mathlib
 
 theorem Finset.Coprime_pair_iff (S : Finset ℕ) (a b : ℕ) (h : S = {a, b}) :
     S.Coprime ↔ Nat.Coprime a b := by
-  subst h
-  simp only [Finset.Coprime, Nat.Coprime, gcd_insert, gcd_singleton, normalize_eq]
+  simp only [h, Finset.Coprime, Nat.Coprime, gcd_insert, gcd_singleton, normalize_eq]
   rfl
