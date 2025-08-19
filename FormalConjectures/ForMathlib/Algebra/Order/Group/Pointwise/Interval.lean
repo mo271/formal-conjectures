@@ -23,9 +23,4 @@ theorem Nat.image_mul_two_Iio_even {n : ℕ} (h : Even n) :
 
 theorem Nat.image_mul_two_Iio (n : ℕ) :
     (2 * ·) '' Set.Iio ((n + 1) / 2) = { n | Even n } ∩ Set.Iio n := by
-  ext m
-  simp
-  refine ⟨fun ⟨x, hx, hxm⟩ => ?_, fun ⟨hm, hmn⟩ => ⟨m / 2, ⟨by omega, ?_⟩⟩⟩
-  · simp [← hxm]
-    omega
-  · rw [Nat.mul_div_cancel' (by exact even_iff_two_dvd.mp hm)]
+  aesop (add simp [even_iff_two_dvd, dvd_iff_exists_eq_mul_right, mul_comm, lt_div_iff_mul_lt])
