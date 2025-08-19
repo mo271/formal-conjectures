@@ -24,13 +24,13 @@ universe u
 
 /--
 This proposition asserts the Ramsey property `κ → (κ, c)₂`, where `κ` is the
-cardinality of the ordinal `ω ^ β`.
+cardinality of the ordinal `ω ^ β` and `c` is some cardinal.
 
 It states that for any 2-coloring of the edges of a complete graph on `κ`
 vertices, there must be a monochromatic red clique of size `κ` or a
 monochromatic blue clique of size `c`.
 -/
-def OmegaPowerRamsey  (β : Ordinal.{u}) (c : Cardinal.{u}): Prop :=
+def OmegaPowerRamsey  (β : Ordinal.{u}) (c : Cardinal.{u}) : Prop :=
   -- Let α be the ordinal ω^β
   let κ := ω ^ β
   -- Let V be a type with the cardinality of α.
