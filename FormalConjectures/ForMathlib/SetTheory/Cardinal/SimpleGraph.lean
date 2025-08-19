@@ -33,9 +33,9 @@ It states that for any 2-coloring of the edges of a complete graph on `κ`
 vertices, there must be a monochromatic red clique of size `κ` or a
 monochromatic blue clique of size `c`.
 -/
-def OmegaPowerRamsey (β : Ordinal.{u}) (c : Cardinal.{u}) (V : Type u): Prop :=
-  letI κ := Cardinal.mk V
-  (κ = (ω ^ β).card ) ∧
+def OmegaPowerRamsey (β : Ordinal.{u}) (c : Cardinal.{u}) : Prop :=
+  let κ := (ω ^ β).card
+  ∀ (V : Type u),  κ = Cardinal.mk V →
   -- For any red/blue edge coloring of the complete graph on V...
   -- (represented by two graphs G_red and G_blue that are complements)
   ∀ (G_red G_blue : SimpleGraph V), IsCompl G_red G_blue →
