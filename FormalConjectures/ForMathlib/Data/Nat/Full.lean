@@ -26,7 +26,7 @@ the $k$-th power $p^k$ also divides $n$.
 -/
 def Full (k : ℕ) (n : ℕ) : Prop := ∀ p ∈ n.primeFactors, p^k ∣ n
 
-instance Nat.Full.decide : ∀ k n, Decidable (Full k n) := by
+instance Full.decide : ∀ k n, Decidable (Full k n) := by
   intro k n
   dsimp [Full]
   infer_instance
@@ -38,7 +38,7 @@ Powerful numbers are also known as "squareful", "square-full", or "$2$-full".
 -/
 abbrev Powerful : ℕ → Prop := (2).Full
 
-instance Nat.Powerful.decide : ∀ n, Decidable (Powerful n) := by
+instance Powerful.decide : ∀ n, Decidable (Powerful n) := by
   intro n
   dsimp [Powerful, Full]
   apply Finset.decidableDforallFinset
