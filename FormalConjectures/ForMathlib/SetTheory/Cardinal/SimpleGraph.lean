@@ -17,8 +17,11 @@ limitations under the License.
 import Mathlib.Combinatorics.SimpleGraph.Clique
 import Mathlib.Order.CompletePartialOrder
 import Mathlib.SetTheory.Ordinal.Exponential
+import Mathlib
 
 open Cardinal Ordinal
+
+open scoped Ordinal
 
 universe u
 
@@ -30,15 +33,13 @@ It states that for any 2-coloring of the edges of a complete graph on `κ`
 vertices, there must be a monochromatic red clique of size `κ` or a
 monochromatic blue clique of size `c`.
 -/
-def OmegaPowerRamsey  (β : Ordinal.{u}) (c : Cardinal.{u}) : Prop :=
-  -- Let α be the ordinal ω^β
-  let κ := ω ^ β
-  -- Let V be a type with the cardinality of α.
-  let V := κ.toType
+def OmegaPowerRamsey (β : Ordinal.{u}) (c : Cardinal.{u}) (V : Type u): Prop :=
+  letI κ := Cardinal.mk V
+  (κ = (ω ^ β).card ) ∧
   -- For any red/blue edge coloring of the complete graph on V...
   -- (represented by two graphs G_red and G_blue that are complements)
   ∀ (G_red G_blue : SimpleGraph V), IsCompl G_red G_blue →
     -- ...there is either a red K_α
-    (∃ (s : Set V), G_red.IsClique s ∧ #s = κ.card) ∨
+    (∃ (s : Set V), G_red.IsClique s ∧ #s = κ) ∨
     -- ...or there is a blue K_3.
     (∃ (s : Set V), G_blue.IsClique s ∧ #s = c)

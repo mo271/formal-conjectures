@@ -32,7 +32,7 @@ red/blue colouring of the edges of $K_α$ there is either a red $K_α$ or a blue
 -/
 @[category research open, AMS 3]
 theorem erdos_592 (β : Ordinal.{u}) : (β.card ≤ ℵ₀) →
-  OmegaPowerRamsey β 3 ↔ (answer(sorry) : Ordinal.{u} → Prop) β := by
+  OmegaPowerRamsey β 3 (ω ^ β).toType ↔ (answer(sorry) : Ordinal.{u} → Prop) β := by
   sorry
 
 -- TODO(firsching): add condition by Galvin and Larson.
