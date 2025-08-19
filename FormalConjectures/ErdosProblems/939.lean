@@ -71,18 +71,10 @@ theorem erdos_939.variants.examples : (∃ r ≥ 4, (Erdos939Sums r).Nonempty) :
   simp [Set.Nonempty]
   use {2^8 * 3^10 * 5^7, 2^12 * 23^6, 11^5 * 13^5}
   simp
-  sorry
-  /-
-  The following proof works in princicple, but throws a "(kernel) deep recursion detected" error,
-  caused by the simproc `primeFactorsEq`.
-
   constructor
   · unfold Finset.Coprime
     aesop
-  · simp only [Full, primeFactorsEq, Finset.mem_insert, insert_emptyc_eq, Finset.mem_singleton,
-    forall_eq_or_imp, reducePow, forall_eq]
-    norm_num
-  -/
+  · norm_num [Nat.Full, Nat.primeFactors, Nat.primeFactorsList]
 
 
 /-- Cambie has also found solutions when $r=7$.-/
