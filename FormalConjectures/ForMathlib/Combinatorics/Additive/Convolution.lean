@@ -13,7 +13,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -/
-import Mathlib
+import FormalConjectures.ForMathlib.Algebra.Group.Indicator
+import Mathlib.RingTheory.PowerSeries.Basic
 
 /-!
 # Convolution of Functions on ℕ
@@ -22,7 +23,6 @@ This file defines the sum (`∗`) convolution of functions `ℕ → R`.
 
 ## Main Definitions
 * `AdditiveCombinatorics.sumConv`: The sum convolution `f ∗ g`.
-* `indicatorOne`: An indicator function `𝟙_A` mapping `A` to `1` and its complement to `0`.
 
 
 ## Notation
@@ -38,15 +38,7 @@ This file defines the sum (`∗`) convolution of functions `ℕ → R`.
 
 namespace AdditiveCombinatorics
 
-open Set Finset Classical
-
-
-variable {α R : Type*} [One R] [Zero R] (A : Set α)
-
-/-- A polymorphic indicator function `𝟙_A` which is `1` on `A` and `0` outside. -/
-noncomputable def indicatorOne : α → R := indicator A (fun _ ↦ 1)
-
-notation "𝟙_" A:max => indicatorOne A
+open Finset Classical Set
 
 variable {R : Type*} [Semiring R]
 
