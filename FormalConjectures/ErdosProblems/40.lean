@@ -23,7 +23,7 @@ import FormalConjectures.ErdosProblems.«28»
 *Reference:* [erdosproblems.com/40](https://www.erdosproblems.com/40)
 -/
 
-open Filter Set
+open Filter Set AdditiveCombinatorics
 open scoped Pointwise
 
 
@@ -35,9 +35,7 @@ implies $\limsup 1_A\ast 1_A(n)=\infty$.
 def Erdos40For (g : ℕ → ℝ) : Prop :=
   ∀ (A : Set ℕ),
     ((fun (N : ℕ) => (N : ℝ).sqrt/(g N)) =O[atTop] (fun (N : ℕ) => ((A ∩ Set.Icc 1 N).ncard : ℝ))) →
-    (limsup (fun (N : ℕ) =>
-    letI a := PowerSeries.mk (indicator A 1)
-    (a * a).coeff ℕ N) atTop = (⊤ : ℕ∞))
+    (limsup (fun (N : ℕ) => sumRep A N) atTop = (⊤ : ℕ∞))
 
 /--
 Given a set of functions $\mathbb{N} → \mathbb{R})$, we assert that for all $g$ in that set,
