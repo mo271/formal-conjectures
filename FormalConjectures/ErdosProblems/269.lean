@@ -42,7 +42,7 @@ the LCM of the first `n` integers in the sequence.
 -/
 noncomputable def partialLcm (P : Set ℕ) (n : ℕ) : ℕ :=
   -- We take the LCM of `{a P 0, ..., a P n}`.
-  (Finset.range n).image (a P) |>.lcm id
+  (Finset.range n).lcm (a P)
 
 /--
 The sum $\sum_{n=1}^\infty \frac{1}{[a_0,\ldots,a_{n - 1}]}$.
