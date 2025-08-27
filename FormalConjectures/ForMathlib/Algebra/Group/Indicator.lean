@@ -22,6 +22,6 @@ variable {α R : Type*} [One R] [Zero R] (A : Set α)
 /-- A polymorphic indicator function `𝟙_A` which is `1` on `A` and `0` outside. -/
 noncomputable def indicatorOne : α → R := indicator A (fun _ ↦ 1)
 
-notation "𝟙_" A:max => indicatorOne A
+scoped notation "𝟙_" A:max => indicatorOne A
 
 end Set

@@ -28,7 +28,6 @@ This file defines the sum (`∗`) convolution of functions `ℕ → R`.
 ## Notation
 
 * `f ∗ g` for `sumConv f g`.
-* `𝟙_A` for the indicator function of a set `A`.
 
 ## TODO
 
@@ -50,7 +49,7 @@ infixl:70 " ∗ " => sumConv
 
 /-- The number of sum representations is the sum convolution of `A`'s indicator
 function with itself. -/
-noncomputable def sumRep (A : Set ℕ) (n : ℕ) : ℕ := (𝟙_A ∗ 𝟙_A) n
+noncomputable def sumRep (A : Set ℕ) : ℕ → ℕ := (𝟙_A ∗ 𝟙_A)
 
 
 @[simp]
