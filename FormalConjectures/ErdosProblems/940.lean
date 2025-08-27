@@ -31,7 +31,7 @@ has density $0$?
 @[category research open, AMS 11]
 theorem erdos_940 :
     (∀ r ≥ 3,
-    {n : ℕ | ∃ (S : Multiset ℕ), S.card ≤ r ∧ (∀ s ∈ S, r.Full s) ∧ n = S.sum}.HasDensity 0)
+      {n : ℕ | ∃ (S : Multiset ℕ), S.card ≤ r ∧ (∀ s ∈ S, r.Full s) ∧ n = S.sum}.HasDensity 0)
     ↔ answer(sorry) := by
   sorry
 
@@ -41,7 +41,7 @@ The set of integers which are the sum of at most two $2$-powerful numbers has de
 @[category research solved, AMS 11]
 theorem erdos_940.variants.two :
     {n : ℕ | ∃ (S : Multiset ℕ),
-    S.card ≤ 2 ∧ (∀ s ∈ S, (2).Full s) ∧ n = S.sum}.HasDensity 0 := by
+      S.card ≤ 2 ∧ (∀ s ∈ S, (2).Full s) ∧ n = S.sum}.HasDensity 0 := by
   sorry
 
 /--
@@ -49,7 +49,7 @@ Is it true that the set of integers which are the sum of at most three cubes has
 -/
 @[category research open, AMS 11]
 theorem erdos_940.variants.three_cubes :
-    ({n : ℕ | ∃ (S : Multiset ℕ), S.card ≤ 3 ∧ n = (Multiset.map (· ^3) S).sum}.HasDensity 0)
+    {n : ℕ | ∃ (S : Multiset ℕ), S.card ≤ 3 ∧ n = (Multiset.map (· ^ 3) S).sum}.HasDensity 0
     ↔ answer(sorry) := by
   sorry
 
