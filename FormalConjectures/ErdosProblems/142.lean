@@ -43,7 +43,7 @@ of $\{1, \dots, N\}$ that does not contain any non-trivial $k$-term arithmetic p
 -/
 @[category research open, AMS 11]
 theorem erdos_142.variants.lower (k : ℕ) :
-    (fun N => (r k N : ℝ)) =o[atTop] (fun N => N / (N : ℝ).log : ℕ → ℝ) := by
+    (fun N => (r k N : ℝ)) =o[atTop] (fun N : ℕ => N / (N : ℝ).log) := by
   sorry
 
 
