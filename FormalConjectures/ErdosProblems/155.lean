@@ -17,22 +17,32 @@ limitations under the License.
 import FormalConjectures.Util.ProblemImports
 
 /-!
-# Erdős Problem 943
+# Erdős Problem 155
 
-*Reference:* [erdosproblems.com/943](https://www.erdosproblems.com/943)
+*Reference:* [erdosproblems.com/155](https://www.erdosproblems.com/155)
 -/
 
-open AdditiveCombinatorics Nat Filter
+open Filter
 
-namespace Erdos943
+namespace Erdos155
 
 /--
-Let $A$ be the set of powerful numbers. Is is true that $1_A\ast 1_A(n)=n^{o(1)}$ for every $n$?
+Let $F(N)$ be the size of the largest Sidon subset of $\{1, \dots, N\}$.
 -/
-@[category research open, AMS 11]
-theorem erdos_943 :
-    (∃ (o : ℕ → ℝ), o =o[atTop] (1 : ℕ → ℝ) ∧ ∀ᶠ n in atTop, (sumRep Powerful n) = (n : ℝ)^(o n)) ↔
-    answer(sorry) := by
+noncomputable abbrev F := maxSidonSetSize
+
+/--
+Is it true that for every $k \geq 1$ we have
+$$
+F(N + k) \leq F(N) + 1
+$$
+for all sufficiently large $N$?
+-/
+@[category research open, AMS 5]
+theorem erdos_155 :
+    (∀ k ≥ 1, ∀ᶠ N in atTop, F (N + k) ≤ F N + 1) ↔ answer(sorry) := by
   sorry
 
-end Erdos943
+-- TODO: This may even hold with $k \approx ε * N ^ (1 / 2)$.
+
+end Erdos155
