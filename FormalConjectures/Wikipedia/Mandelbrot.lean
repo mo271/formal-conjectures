@@ -33,6 +33,8 @@ The first two conjectures are related in that the former implies the latter.
 
 open Topology Set Function Filter Bornology Metric MeasureTheory
 
+namespace Mandelbrot
+
 /-- The Multibrot set of power `n` is the set of all parameters `c : ℂ` for which `0` does not
 escape to infinity under repeated application of `z ↦ z ^ n + c`. -/
 def multibrotSet (n : ℕ) : Set ℂ :=
@@ -135,18 +137,18 @@ example (f : ℂ → ℂ) (z : ℂ) : ¬ IsAttractingCycle f 0 z := by
   simp [IsAttractingCycle]
 
 /-- The density of hyperbolicity conjecture, stating that the set of all parameters `c` for which
-`fun z ↦ z ^ 2 - c` has an attracting cycle is dense in the Mandelbrot set. -/
+`fun z ↦ z ^ 2 + c` has an attracting cycle is dense in the Mandelbrot set. -/
 @[category research open, AMS 37]
 theorem density_of_hyperbolicity :
-    mandelbrotSet ⊆ closure {c | ∃ n z, IsAttractingCycle (fun z ↦ z ^ 2 - c) n z} := by
+    mandelbrotSet ⊆ closure {c | ∃ n z, IsAttractingCycle (fun z ↦ z ^ 2 + c) n z} := by
   sorry
 
 /-- The density of hyperbolicity conjecture for Multibrot sets, stating that the set of all
-parameters `c` for which `fun z ↦ z ^ n - c` has an attracting cycle is dense in `multibrotSet n`.
+parameters `c` for which `fun z ↦ z ^ n + c` has an attracting cycle is dense in `multibrotSet n`.
 Note that we need to require `2 ≤ n` because the conjecture is trivially false for `n = 1`. -/
 @[category research open, AMS 37]
 theorem density_of_hyperbolicity_general_exponent {n : ℕ} (hn : 2 ≤ n) :
-    multibrotSet n ⊆ closure {c | ∃ n z, IsAttractingCycle (fun z ↦ z ^ n - c) n z} := by
+    multibrotSet n ⊆ closure {c | ∃ n z, IsAttractingCycle (fun z ↦ z ^ n + c) n z} := by
   sorry
 
 /-- The boundary of any Multibrot set is measurable because it is closed, so it makes sense to
@@ -165,3 +167,5 @@ holds for them. -/
 @[category research open, AMS 37]
 theorem volume_frontier_multibrotSet_eq_zero {n : ℕ} : volume (frontier (multibrotSet n)) = 0 := by
   sorry
+
+end Mandelbrot

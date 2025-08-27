@@ -22,6 +22,8 @@ import FormalConjectures.Util.ProblemImports
 *Reference:* [erdosproblems.com/64](https://www.erdosproblems.com/64)
 -/
 
+namespace Erdos64
+
 /--
 Does every finite graph with minimum degree at least $3$
 contain a cycle of length $2^k$ for some $k \geq 2$?
@@ -34,3 +36,5 @@ theorem erdos_64 :
   sorry
 
 -- TODO(firsching): add more context
+
+end Erdos64
