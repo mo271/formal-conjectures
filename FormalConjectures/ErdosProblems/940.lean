@@ -59,7 +59,7 @@ It is not known if all large integers are the sum of at most $r$-many $r$-powerf
 -/
 @[category research open, AMS 11]
 theorem erdos_940.variants.large_integers :
-    (∀ r, (∀ᶠ x in atTop, ∃ (S : Multiset ℕ), S.card ≤ r ∧ (∀ s ∈ S, r.Full s) ∧ x = S.sum))
+    (∀ r ≥ 2, (∀ᶠ x in atTop, ∃ (S : Multiset ℕ), S.card ≤ r ∧ (∀ s ∈ S, r.Full s) ∧ x = S.sum))
     ↔ answer(sorry) := by
   sorry
 
