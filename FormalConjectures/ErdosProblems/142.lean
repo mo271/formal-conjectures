@@ -24,6 +24,9 @@ import FormalConjectures.Util.ProblemImports
 
 open Filter
 
+
+namespace Erdos142
+
 private noncomputable abbrev r := Set.IsAPOfLengthFree.maxCard
 
 /--
@@ -63,3 +66,5 @@ of $\{1, \dots, N\}$ that does not contain any non-trivial $3$-term arithmetic p
 @[category research open, AMS 11]
 theorem erdos_142.variants.three: (fun N => (r 3 N : ℝ)) =Θ[atTop] (answer(sorry) : ℕ → ℝ) := by
   sorry
+
+end Erdos142

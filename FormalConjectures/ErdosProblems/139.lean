@@ -22,7 +22,10 @@ import FormalConjectures.Util.ProblemImports
 *Reference:* [erdosproblems.com/139](https://www.erdosproblems.com/139)
 -/
 
+
 open scoped Topology
+
+namespace Erdos139
 
 private noncomputable abbrev r := Set.IsAPOfLengthFree.maxCard
 
