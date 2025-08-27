@@ -44,7 +44,7 @@ variable {R : Type*} [Semiring R]
 
 /-- The sum convolution of two functions `f, g : ℕ → R`, also known as the Cauchy product.
 `(f ∗ g) n = ∑_{a+b=n} f(a)g(b)`. -/
-def sumConv (f g : ℕ → R) (n : ℕ) : R := ∑ p ∈  antidiagonal n, f p.1 * g p.2
+def sumConv (f g : ℕ → R) (n : ℕ) : R := ∑ p ∈ antidiagonal n, f p.1 * g p.2
 
 infixl:70 " ∗ " => sumConv
 
