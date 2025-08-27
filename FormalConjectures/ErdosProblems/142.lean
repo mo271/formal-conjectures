@@ -34,7 +34,7 @@ Prove an asymptotic formula for $r_k(N)$, the largest possible size of a subset
 of $\{1, \dots, N\}$ that does not contain any non-trivial $k$-term arithmetic progression.
 -/
 @[category research open, AMS 11]
-theorem erdos_142 (k : ℕ) : (fun N => (r k N : ℝ)) =Θ[atTop] (answer(sorry) : ℕ → ℕ → ℝ) k := by
+theorem erdos_142 (k : ℕ) : (fun N => (r k N : ℝ)) =Θ[atTop] (answer(sorry) : ℕ → ℝ) := by
   sorry
 
 /--
@@ -53,7 +53,7 @@ subset of $\{1, \dots, N\}$ that does not contain any non-trivial $k$-term arith
 -/
 @[category research open, AMS 11]
 theorem erdos_142.variants.upper (k : ℕ) :
-    (fun N => (r k N : ℝ)) =O[atTop] (answer(sorry) : ℕ → ℕ → ℝ) k := by
+    (fun N => (r k N : ℝ)) =O[atTop] (answer(sorry) : ℕ → ℝ) := by
   sorry
 
 
@@ -64,7 +64,7 @@ Prove an asymptotic formula for $r_3(N)$, the largest possible size of a subset
 of $\{1, \dots, N\}$ that does not contain any non-trivial $3$-term arithmetic progression.
 -/
 @[category research open, AMS 11]
-theorem erdos_142.variants.three: (fun N => (r 3 N : ℝ)) =Θ[atTop] (answer(sorry) : ℕ → ℝ) := by
+theorem erdos_142.variants.three : (fun N => (r 3 N : ℝ)) =Θ[atTop] (answer(sorry) : ℕ → ℝ) := by
   sorry
 
 end Erdos142
