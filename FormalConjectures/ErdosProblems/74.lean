@@ -33,6 +33,17 @@ open Erdos74
 universe u
 variable {V : Type u}
 
+
+
+def SimpleGraph.edgeDistancesToBipartite {G : SimpleGraph V} (A : G.Subgraph) : Set ℕ :=
+  { (E.ncard) | (E : Set (Sym2 V)) (_ : IsBipartite (A.deleteEdges E).coe)}
+
+noncomputable def SimpleGraph.minEdgeDistToBipartite {G : SimpleGraph V} (A : G.Subgraph) : ℕ :=
+  sInf <| SimpleGraph.edgeDistancesToBipartite A
+
+def SimpleGraph.subgraphEdgeDistsToBipartite (G : SimpleGraph V) (n : ℕ) : Set ℕ :=
+  { (SimpleGraph.minEdgeDistToBipartite A) | (A : Subgraph G) (_ : A.verts.ncard = n) }
+
 /--
 For a given Graph $G$, define a number such that any subgraph of G
 on $n$ vertices can be made bipartite after deleting at most this many edges.
@@ -41,10 +52,8 @@ This is Definition 3.1 in [EHS82].
 [EHS82] Erdős, P. and Hajnal, A. and Szemerédi, E.,
   *On almost bipartite large chromatic graphs* Theory and practice of combinatorics (1982), 117-123.
 -/
-noncomputable def SimpleGraph.max_subgraph_bipartite_edge_deletion_num
-    (G : SimpleGraph V) (n : ℕ) : ℕ :=
-  sSup { (sInf { (E.ncard) | (E : Set (Sym2 V)) (_ : IsBipartite (A.deleteEdges E).coe)}) |
-    (A : Subgraph G) (_ : (A.verts.ncard = n))}
+noncomputable def SimpleGraph.maxSubgraphEdgeDistToBipartite
+    (G : SimpleGraph V) (n : ℕ) : ℕ := sSup <| SimpleGraph.subgraphEdgeDistsToBipartite G n
 
 
 /--
@@ -52,7 +61,7 @@ Deleting all edges will always be sufficient to make the graph bipartite.
 -/
 @[category undergraduate, AMS 5]
 lemma max_subgraph_edge_dist_bipartite_le (G : SimpleGraph V) (n : ℕ) :
-    G.max_subgraph_bipartite_edge_deletion_num n ≤ n.choose 2 := by
+    G.maxSubgraphEdgeDistToBipartite n ≤ n.choose 2 := by
   sorry
 
 /--
