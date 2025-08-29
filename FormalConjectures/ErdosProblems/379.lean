@@ -27,7 +27,7 @@ namespace Erdos379
 open Filter
 
 private noncomputable def S (n : ℕ) : ℕ :=
-    sSup {s | ∀ k ∈ Finset.Ico 1 n, ∃ p, p.Prime ∧ p^s ∣n.choose k}
+  sSup {s | ∀ k ∈ Finset.Ico 1 n, ∃ p, p.Prime ∧ p^s ∣n.choose k}
 
 /--
 Let $S(n)$ denote the largest integer such that, for all $1 ≤ k < n$, the binomial coefficient
