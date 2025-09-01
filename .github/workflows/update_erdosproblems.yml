@@ -1,0 +1,46 @@
+name: Forward changes to erdosproblems
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  update-erdosproblems:
+    runs-on: ubuntu-latest
+    if: github.repository == 'mo271/formal-conjectures'
+
+    steps:
+      - name: Checkout erdosproblems repo
+        uses: actions/checkout@v4
+        with:
+          repository: mo271/erdosproblems
+          token: ${{ secrets.UPDATE_FORMAL_CONJECTURES }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Python dependencies
+        run: |
+          pip install requests ruamel.yaml
+
+      - name: Run update script
+        run: |
+          python3 ./scripts/update_formalization_status.py
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add data/problems.yaml # Be specific about what you're adding
+
+          # Check if there are changes to commit
+          if git diff --staged --quiet; then
+            echo "🧘 No changes to commit."
+          else
+            git commit -m "🤖 Auto-update formalization status from formal-conjectures"
+            git push
+          fi
