@@ -1,0 +1,49 @@
+name: Forward changes to erdosproblems
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  update-erdosproblems:
+    runs-on: ubuntu-latest
+    if: github.repository == 'google-deepmind/formal-conjectures'
+
+    steps:
+      - name: Checkout erdosproblems repo
+        uses: actions/checkout@v4
+        with:
+          repository: teorth/erdosproblems
+          token: ${{ secrets.UPDATE_ERDOSPROBLEMS }}
+          path: erdosproblems
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Python dependencies
+        working-directory: ./erdosproblems
+        run: |
+          pip install requests ruamel.yaml
+
+      - name: Run update script
+        working-directory: ./erdosproblems
+        run: |
+          python3 scripts/update_formalization_status.py
+
+      - name: Commit and push changes (if any)
+        working-directory: ./erdosproblems
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add data/problems.yaml
+
+          # Check if there are changes to commit
+          if git diff --staged --quiet; then
+            echo "🧘 No changes to commit."
+          else
+            git commit -m "🤖 Auto-update formalization status from formal-conjectures"
+            git push
+          fi
