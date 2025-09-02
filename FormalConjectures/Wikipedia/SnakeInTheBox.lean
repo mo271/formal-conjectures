@@ -26,6 +26,8 @@ import FormalConjectures.Util.ProblemImports
 
 universe u
 
+namespace SnakeInBox
+
 open SimpleGraph
 
 def Hypercube (n : ℕ) : SimpleGraph (Finset (Fin n)) := fromRel fun a b => (a ∩ b).card = 1
@@ -108,5 +110,5 @@ theorem snake_upper_bound (n : ℕ) : LongestSnakeInTheBox n
     ≤ (1 : ℝ) + 2^(n - 1) * (6 * n) / (6 * n + (1/(6 * (6 : ℝ).sqrt)*(n : ℝ).sqrt)) := by
   sorry
 
-
+end SnakeInBox
 -- TODO(firsching): add "coil-in-the-box"
