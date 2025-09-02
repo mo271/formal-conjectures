@@ -55,32 +55,31 @@ The length of the longest snake for the `Hypercube n` graph.
 -/
 noncomputable def LongestSnakeInTheBox (n : ℕ) : ℕ := LongestSnakeInGraph <| Hypercube n
 
+@[simp]
+theorem Finset.univ_finset_of_isEmpty {α : Type*} [h : IsEmpty α] :
+    (Set.univ : Set (Finset α)) = {∅} := by
+  ext S
+  rw [Set.mem_singleton_iff, eq_true (Set.mem_univ S), true_iff]
+  ext a
+  exact IsEmpty.elim h a
+
 /--
 The longest snake in the $0$-dimensional cube, i.e. the cube consisting of one point, is zero,
 since there only is one induced path and it is of length zero.
 -/
 @[category test, AMS 5]
 theorem snake_zero_zero : LongestSnakeInTheBox 0 = 0 := by
-  simp [LongestSnakeInTheBox, LongestSnakeInGraph, IsSnakeInGraphOfLength, Hypercube]
+  simp_rw [LongestSnakeInTheBox, LongestSnakeInGraph, IsSnakeInGraphOfLength, Hypercube]
   convert csSup_singleton 0
   ext n
-  constructor
-  · intro h
-    replace ⟨S, ⟨h_induced, ⟨u, ⟨v, ⟨P, h⟩⟩⟩⟩⟩ := h
-    have hu := Finset.eq_empty_of_isEmpty u
+  refine ⟨fun  ⟨S, ⟨h_induced, ⟨u, ⟨v, ⟨P, ⟨hPath, hSupport, hLength⟩⟩⟩⟩⟩⟩ ↦ ?_, fun h ↦ ?_⟩
+  · have hu := Finset.eq_empty_of_isEmpty u
     have hv := Finset.eq_empty_of_isEmpty v
-    rw [hu, hv] at P
-    aesop
-  · intro h
-    rw [h]
-    use (⊤ : Subgraph _)
-    simp_all only [csSup_singleton, Subgraph.IsInduced.top, Subgraph.verts_top, true_and]
-    use ∅, ∅
-    simp only [Walk.isPath_iff_eq_nil, Walk.length_eq_zero_iff, exists_eq_left, Walk.support_nil,
-      List.mem_cons, List.not_mem_nil, or_false, Set.setOf_eq_eq_singleton, and_true]
-    symm
-    rw [← Set.toFinset_eq_univ]
-    rfl
+    subst hu hv
+    simp_all [hPath, hSupport, hLength]
+  · rw [h]
+    use (⊤ : Subgraph _), by simp, ∅, ∅
+    simp
 
 
 open List
@@ -120,7 +119,7 @@ $$
 -/
 @[category research solved, AMS 5]
 theorem snake_upper_bound (n : ℕ) : LongestSnakeInTheBox n
-    ≤ (1 : ℝ) + 2^(n - 1) * (6 * n) / (6 * n + (1/(6 * (6 : ℝ).sqrt)*(n : ℝ).sqrt)) := by
+    ≤ (1 : ℝ) + 2 ^ (n - 1) * (6 * n) / (6 * n + (1 / (6 * √6) * √n)) := by
   sorry
 
 end SnakeInBox
