@@ -54,11 +54,23 @@ Let $P$ be a finite set of primes with $|P| \ge 2$ and let
 $\{a_1 < a_2 < \dots\}$ be the set of positive integers whose prime factors
 are all in $P$. Is the sum
 $$ \sum_{n=1}^\infty \frac{1}{[a_1,\ldots,a_n]} $$
-rational or irrational?
+rational?
 -/
 @[category research open, AMS 11]
-theorem erdos_269 : (∀ᵉ (P : Finset ℕ) (h : ∀ p ∈ P, p.Prime) (h_card : P.card ≥ 2),
-    (Irrational (series (P : Set ℕ)) ↔ answer(sorry))) ↔ answer(sorry) := by
+theorem erdos_269.variants.rational : (∀ᵉ (P : Finset ℕ) (h : ∀ p ∈ P, p.Prime) (h_card : P.card ≥ 2),
+    ∃ (q : ℚ), q = (series (P : Set ℕ))) ↔ answer(sorry) := by
+  sorry
+
+/--
+Let $P$ be a finite set of primes with $|P| \ge 2$ and let
+$\{a_1 < a_2 < \dots\}$ be the set of positive integers whose prime factors
+are all in $P$. Is the sum
+$$ \sum_{n=1}^\infty \frac{1}{[a_1,\ldots,a_n]} $$
+irrational?
+-/
+@[category research open, AMS 11]
+theorem erdos_269.variants.irrational : (∀ᵉ (P : Finset ℕ) (h : ∀ p ∈ P, p.Prime) (h_card : P.card ≥ 2),
+    Irrational (series (P : Set ℕ))) ↔ answer(sorry) := by
   sorry
 
 /--
