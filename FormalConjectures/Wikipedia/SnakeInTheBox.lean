@@ -30,16 +30,29 @@ namespace SnakeInBox
 
 open SimpleGraph
 
+
+/--
+A graph on the power set of `Fin n`, where two sets are adjacent if their intersection has size 1.
+-/
 def Hypercube (n : ℕ) : SimpleGraph (Finset (Fin n)) := fromRel fun a b => (a ∩ b).card = 1
 
+/--
+A subgraph `G'` is a 'snake' of length `k` in graph `G` if it is an induced path of length `k`.
+-/
 def IsSnakeInGraphOfLength {V : Type u} [DecidableEq V] (G : SimpleGraph V) (G' : Subgraph G)
     (k : ℕ) : Prop :=
   G'.IsInduced ∧ ∃ u v : V, ∃ (P : G.Walk u v), P.IsPath ∧ G'.verts = P.support.toFinset.toSet ∧
   P.length = k
 
+/--
+The length of the longest induced path (or 'snake') in a graph `G`.
+-/
 noncomputable def LongestSnakeInGraph {V : Type u} [DecidableEq V] (G : SimpleGraph V) : ℕ :=
   sSup {k | ∃ (S : Subgraph G), IsSnakeInGraphOfLength G S k}
 
+/--
+The length of the longest snake for the `Hypercube n` graph.
+-/
 noncomputable def LongestSnakeInTheBox (n : ℕ) : ℕ := LongestSnakeInGraph <| Hypercube n
 
 /--
