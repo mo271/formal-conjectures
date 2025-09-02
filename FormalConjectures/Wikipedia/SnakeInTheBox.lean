@@ -102,7 +102,7 @@ theorem snake_dim_nine : LongestSnakeInTheBox 9 = answer(sorry) := by
   sorry
 
 /-
-The best lengths found so far for dimension nine is 190.
+The best length found so far for dimension nine is 190.
 --/
 @[category research solved, AMS 5]
 theorem snake_dim_nine_lower_bound : 190 ≤ LongestSnakeInTheBox 9 := by
