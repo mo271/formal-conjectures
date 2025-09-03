@@ -28,11 +28,6 @@ This is being upstreamed to Mathlib in leanprover-community/mathlib4#26935.
 
 noncomputable section
 
-theorem SignType.pow_odd (s : SignType) (n : ℕ) (hn : Odd n) : s ^ n = s := by
-  obtain ⟨k, rfl⟩ := hn
-  rw [pow_add, pow_one, pow_mul, sq]
-  cases s <;> simp
-
 namespace Real
 
 def nthRoot (n : ℕ) (r : ℝ) : ℝ :=
