@@ -85,6 +85,10 @@ theorem SimpleGraph.subgraphEdgeDistsToBipartite_bddAbove (G : SimpleGraph V) (n
     have := h_fin.fintype
     have := Fintype.ofFinite ↑A.coe.edgeSet
     convert (A.coe).card_edgeFinset_le_card_choose_two
+    · rw [← Set.ncard_coe_Finset A.coe.edgeFinset, coe_edgeFinset A.coe, ← Subgraph.image_coe_edgeSet_coe A]
+      exact (Set.ncard_image_iff (Set.toFinite A.coe.edgeSet)).mpr <|
+        Function.Injective.injOn <| Sym2.map.injective Subtype.coe_injective
+    · rw [Set.ncard_eq_toFinset_card _ h_fin, Set.Finite.card_toFinset]
   refine le_trans ?_ this
   apply Nat.sInf_le
   simp only [Subgraph.deleteEdges_verts, exists_prop, Set.mem_setOf_eq]
@@ -94,7 +98,6 @@ theorem SimpleGraph.subgraphEdgeDistsToBipartite_bddAbove (G : SimpleGraph V) (n
     rintro ⟨v, hv⟩ ⟨w, hw⟩ ⟨_, hvw⟩
     aesop
   · rfl
-
 
 /--
 For a given graph $G$ and size $n$, this defines the smallest number $k$
