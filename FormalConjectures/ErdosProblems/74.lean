@@ -97,8 +97,13 @@ theorem SimpleGraph.subgraphEdgeDistsToBipartite_bddAbove (G : SimpleGraph V) (n
 
 
 /--
-For a given Graph $G$, define a number such that any subgraph of G
-on $n$ vertices can be made bipartite after deleting at most this many edges.
+For a given graph $G$ and size $n$, this defines the smallest number $k$
+such that any subgraph of $G$ on $n$ vertices can be made bipartite by deleting
+at most $k$ edges.
+
+This value is optimal because it is the maximum of `minEdgeDistToBipartite` taken
+over all $n$-vertex subgraphs. This means there exists at least one $n$-vertex
+subgraph that requires exactly this many edge deletions.
 This is Definition 3.1 in [EHS82].
 
 [EHS82] Erdős, P. and Hajnal, A. and Szemerédi, E.,
