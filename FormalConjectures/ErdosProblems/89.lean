@@ -87,3 +87,5 @@ theorem erdos_89.variants.implies_n_dvd_log_n (h : type_of% erdos_89) :
 
 
 -- TODO(firsching): formalize the rest of the remarks
+
+end Erdos89
