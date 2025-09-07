@@ -89,14 +89,6 @@ theorem erdos_92.variants.strong :
   (∃ c > 0, ∀ n, (f n : ℝ) ≤ n^(c / (n : ℝ).log.log)) ↔ answer(sorry) := by
 sorry
 
-/--
-The strong version of the conjecture trivially implies the weak one.
--/
-@[category test, AMS 52]
-theorem erdos_92.variants.strong_implies_weak (h : type_of% erdos_92.variants.strong) :
-   type_of% erdos_92.variants.weak := by
-  sorry
-
 -- TODO(firsching): formalize the rest of the remarks
 
 end Erdos92
