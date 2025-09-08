@@ -13,9 +13,12 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -/
+import Mathlib.Combinatorics.SimpleGraph.Coloring
+import Mathlib.Order.CompletePartialOrder
+
 universe u
 
-open Classical 
+open Classical
 
 variable {V : Type u} (G : SimpleGraph V)
 
