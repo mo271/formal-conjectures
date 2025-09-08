@@ -30,16 +30,15 @@ theorem colorable_iff_induce_eq_bot (G : SimpleGraph V) (n : ℕ) : G.Colorable 
   specialize h (w a)
   contrapose h
   intro hG
-  have : ¬ ((SimpleGraph.induce {v | w v = w a} G).Adj ⟨a, by rfl⟩ ⟨b, by simp_all⟩) := 
-    hG ▸ fun a ↦ a 
+  have : ¬ ((SimpleGraph.induce {v | w v = w a} G).Adj ⟨a, by rfl⟩ ⟨b, by simp_all⟩) :=
+    hG ▸ fun a ↦ a
   exact this h_adj
 
 def Cocolorable (G : SimpleGraph V) (n : ℕ) : Prop := ∃ coloring : V → Fin n,
-  ∀ i, letI induced_color_class := G.induce {v | coloring v = i}
-  induced_color_class = ⊥ ∨ induced_color_class = ⊤
+  ∀ i, G.induce {v | coloring v = i} = ⊥ ∨ G.induce {v | coloring v = i} = ⊤
 
 example (G : SimpleGraph V) (n : ℕ) : G.Colorable n → SimpleGraph.Cocolorable G n := by
-  simp [Colorable_iff_induce_bot, Cocolorable]
+  simp [colorable_iff_induce_eq_bot, Cocolorable]
   aesop
 
 /--
