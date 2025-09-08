@@ -24,25 +24,15 @@ variable {V : Type u}
 open SimpleGraph
 namespace SimpleGraph
 
-theorem Colorable_iff_induce_bot (G : SimpleGraph V) (n : ℕ) : G.Colorable n ↔ ∃ coloring : V → Fin n,
-  ∀ i, G.induce {v | coloring v = i} = ⊥ := by
-  constructor
-  · intro ⟨a, h⟩
-    use a
-    intro i
-    aesop
-  · intro ⟨w, h⟩
-    use w
-    intro a b h_adj
-    by_contra hw
-    absurd h
-    push_neg
-    use w a
-    by_contra hG
-    have : ¬ ((SimpleGraph.induce {v | w v = w a} G).Adj ⟨a, by rfl⟩ ⟨b, by simp_all⟩) := by
-      rw [hG]
-      simp
-    exact hw fun a ↦ this h_adj
+theorem colorable_iff_induce_eq_bot (G : SimpleGraph V) (n : ℕ) : G.Colorable n ↔ ∃ coloring : V → Fin n,
+    ∀ i, G.induce {v | coloring v = i} = ⊥ := by
+  refine ⟨fun ⟨a, h⟩ ↦ ⟨a, by aesop⟩, fun ⟨w, h⟩ ↦ ⟨w, @fun a b h_adj ↦ ?_⟩⟩
+  specialize h (w a)
+  contrapose h
+  intro hG
+  have : ¬ ((SimpleGraph.induce {v | w v = w a} G).Adj ⟨a, by rfl⟩ ⟨b, by simp_all⟩) := 
+    hG ▸ fun a ↦ a 
+  exact this h_adj
 
 def Cocolorable (G : SimpleGraph V) (n : ℕ) : Prop := ∃ coloring : V → Fin n,
   ∀ i, letI induced_color_class := G.induce {v | coloring v = i}
