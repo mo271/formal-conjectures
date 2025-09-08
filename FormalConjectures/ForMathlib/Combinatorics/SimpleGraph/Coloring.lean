@@ -24,8 +24,8 @@ variable {V : Type u}
 open SimpleGraph
 namespace SimpleGraph
 
-theorem colorable_iff_induce_eq_bot (G : SimpleGraph V) (n : ℕ) : G.Colorable n ↔ ∃ coloring : V → Fin n,
-    ∀ i, G.induce {v | coloring v = i} = ⊥ := by
+theorem colorable_iff_induce_eq_bot (G : SimpleGraph V) (n : ℕ) :
+    G.Colorable n ↔ ∃ coloring : V → Fin n, ∀ i, G.induce {v | coloring v = i} = ⊥ := by
   refine ⟨fun ⟨a, h⟩ ↦ ⟨a, by aesop⟩, fun ⟨w, h⟩ ↦ ⟨w, @fun a b h_adj ↦ ?_⟩⟩
   specialize h (w a)
   contrapose h
