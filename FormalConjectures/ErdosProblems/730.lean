@@ -53,7 +53,7 @@ theorem erdos_730.variants.two_div_forall (n : ℕ) (h : 0 < n) : 2 ∣ (2*n).ch
   sorry
 
 /--
-There are examples where $(n, m) ∈ S$, we have $m ≠ n + 1$.
+There are examples where $(n, m) ∈ S$ with $m ≠ n + 1$.
 
 (Found by AlphaProof, although it was implicit already in [A129515])
 -/
