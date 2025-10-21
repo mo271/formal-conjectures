@@ -25,30 +25,57 @@ import FormalConjectures.Util.ProblemImports
 namespace Erdos1056
 
 /--
-Boundaries between k intervals in a sequence.
+Checks if the modular product of each interval equals 1 modulo the prime p,
+where intervals are defined by consecutive boundaries.
 -/
-def boundaries (k : ℕ) : Type :=
-  { boundaries : Fin (k + 1) → ℕ // StrictMono boundaries }
-
-/--
-Consecutive intervals between boundaries.
--/
-def interval (k : ℕ) (ci : boundaries k) (i : Fin k) : Finset ℕ :=
-  Finset.Ico (ci.val i.castSucc) (ci.val i.succ)
-
-/--
-Product of elements in a set modulo p.
--/
-def modProd (p : ℕ) (I : Finset ℕ) : ℕ :=
-  (∏ n ∈ I, n) % p
+def Erdos1056For (p : ℕ) (boundaries : List ℕ) : Prop :=
+  p.Prime ∧
+  boundaries.length ≥ 2 ∧
+  StrictMono (fun i => boundaries.get i) ∧
+  ∀ i : Fin (boundaries.length - 1),
+    (∏ n ∈ (Finset.Ico boundaries[i.val] boundaries[i.val + 1]), n) ≡ 1 [MOD p]
 
 /--
 Let $k ≥ 2$. Does there exist a prime $p$ and consecutive intervals $I_0,\dots,I_k$
-such that $\prod\limits_{n{\in}I_i}n\equiv1 [mod n]$ for all $1 \le i \le k$?-/
+such that $\prod\limits_{n{\in}I_i}n \equiv 1 [mod~n]$ for all $1 \le i \le k$?
+-/
 @[category research open, AMS 11]
 theorem erdos_1056 :
-  ∀ k ≥ 2, ∃ (p : ℕ) (hp : p.Prime) (ci : boundaries k),
-    ∀ i : Fin k, modProd p (interval k ci i) = 1 ↔ answer(sorry) := by
+    (∀ k ≥ 2, ∃ (p : ℕ) (boundaries : List ℕ) (_ : boundaries.length = k + 1),
+    Erdos1056For p boundaries)
+  ↔ answer(sorry) := by
+  sorry
+
+/--
+This is problem A15 in Guy's collection [Gu04], where he reports that in a letter in 1979
+Erdős observed that $3 * 4 \equiv 5 * 6 * 7 \equiv 1~[mod~11]$.
+-/
+@[category research solved, AMS 11]
+theorem erdos_1056_k2 :
+    Erdos1056For 11 [3, 5, 8] := by
+  unfold Erdos1056For
+  decide
+
+/--
+Makowski [Ma83] found, for $k=3$:
+$2 * 3 * 4 * 5 \equiv 6 * 7 * 8 * 9 * 10 * 11 \equiv 12 * 13 * 14 * 15 \equiv 1~[mod~17]$.
+-/
+@[category research solved, AMS 11]
+theorem erdos_1056_k3 :
+    Erdos1056For 17 [2, 6, 12, 16] := by
+  unfold Erdos1056For
+  decide
+
+/--
+Noll and Simmons asked, more generally, whether there are solutions to
+$q_1! \equiv \dots \equiv q_k!~[mod~p]$ for arbitrarily large $k$ (with $q_1 < \dots <q_k$).
+-/
+@[category research open, AMS 11]
+theorem noll_simmons :
+    (∀ k ≥ 2,
+    ∃ (p : ℕ) (_ : p.Prime) (Q : List ℕ) (_ : Q.length = k) (_ : StrictMono (fun i => Q.get i)),
+    p.Prime ∧ StrictMono (fun i => Q.get i) ∧
+    ∀ i j : Fin k, Q[i.val]! ≡ Q[j.val]! [MOD p]) ↔ answer(sorry) := by
   sorry
 
 end Erdos1056
