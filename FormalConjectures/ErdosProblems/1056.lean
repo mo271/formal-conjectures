@@ -28,12 +28,11 @@ namespace Erdos1056
 Checks if the modular product of each interval equals 1 modulo the prime p,
 where intervals are defined by consecutive boundaries.
 -/
-def Erdos1056For (p : ℕ) (boundaries : List ℕ) : Prop :=
-  p.Prime ∧
-  boundaries.length ≥ 2 ∧
-  StrictMono (fun i => boundaries.get i) ∧
-  ∀ i : Fin (boundaries.length - 1),
-    (∏ n ∈ (Finset.Ico boundaries[i.val] boundaries[i.val + 1]), n) ≡ 1 [MOD p]
+def Erdos1056For (p : ℕ) {k : ℕ} (boundaries : Fin (k + 1) → ℕ) : Prop := sorry
+
+#check @Erdos1056For 11 2 ![3, 5, 8]
+#check Erdos1056For 11 (k := 2) ![3, 5, 8]
+
 
 /--
 Let $k ≥ 2$. Does there exist a prime $p$ and consecutive intervals $I_0,\dots,I_k$
@@ -52,7 +51,7 @@ Erdős observed that $3 * 4 \equiv 5 * 6 * 7 \equiv 1~[mod~11]$.
 -/
 @[category research solved, AMS 11]
 theorem erdos_1056_k2 :
-    Erdos1056For 11 [3, 5, 8] := by
+    Erdos1056For 11 ![3, 5, 8] := by
   unfold Erdos1056For
   decide
 

@@ -72,7 +72,7 @@ A weaker version asking for any modulus, not necessarily of the form `p^2 + p + 
 -/
 @[category research open, AMS 5 11]
 theorem erdos_707.variants.weaker : (∀ (A : Set ℕ) (h : A.Finite), IsSidon A →
-    ∃ (B : Set ℕ) (n : ℕ), A ⊆ B ∧ IsPerfectDifferenceSetModulo B n) ↔ answer(sorry) := by
+    ∃ (B : Set ℕ), ∃ᵉ (n > 0), A ⊆ B ∧ IsPerfectDifferenceSetModulo B n) ↔ answer(sorry) := by
   sorry
 
 /-! ## Perfect difference sets and their properties -/
