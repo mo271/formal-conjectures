@@ -30,22 +30,27 @@ $$a > \varepsilon n,\quad b > \varepsilon n, \quad a!\, b! \mid n!\, (a + b - n)
 and
 $$ a + b > n + C \log n ?$$
 -/
-@[category research open, AMS 11]
-theorem erdos_728 :
-    (∀ (ε C : ℝ) (hε : 0 < ε) (hC : 0 < C) (n : ℕ) (_: 0 < n),
+@[category research solved, AMS 11]
+theorem erdos_728 : (∀ (ε C : ℝ) (hε : 0 < ε) (hC : 0 < C) (n : ℕ) (_: 0 < n),
     ∃ a b : ℕ, ε * n < a ∧ ε * n < b ∧
     Nat.factorial a * Nat.factorial b ∣ Nat.factorial n * Nat.factorial (a + b - n) ∧
     a + b > n + C * Real.log n) := by
-    classical (aesop)
-    cases exists_nat_gt<|ε*n⊔C*.log n
-    simp_rw [max_lt_iff]at*
-    use n+ (by valid+1)
-    simp_all[mul_assoc, add_assoc,←Nat.choose_mul_factorial_mul_factorial le_self_add]
-    aesop
-    · {linarith only [@@ left] }
-    · use(n+(w+1)).choose n*(w+1)-1,left.trans_le (mod_cast w.le_pred_of_lt ((Nat.le_mul_of_pos_left _)<|Nat.choose_pos le_self_add))
-      use (by field_simp [mul_assoc, mul_left_comm, mul_dvd_mul,Nat.succ_le,Nat.choose_pos]),by linarith
-
+  intros ε C hε hC n hn
+  have ⟨w, hw⟩ := exists_nat_gt <| max  (ε * n)  (C*(n : ℝ).log)
+  use n + w + 1
+  use (n + w + 1).choose n * (w + 1) - 1
+  rw [max_lt_iff] at hw
+  obtain ⟨hw1, hw2⟩ := hw
+  refine ⟨hw1.trans_le (mod_cast le_add_right le_add_self),
+    (hw1).trans_le (mod_cast w.le_pred_of_lt ((Nat.le_mul_of_pos_left _)
+      ((Nat.choose_pos (by omega))))),
+    ?_,
+    (add_lt_add_left hw2 _).trans (mod_cast (by omega))⟩
+  use (((n + w + 1).choose n) * (w + 1) + w).choose w
+  obtain ⟨x, hx⟩ := Nat.exists_eq_succ_of_ne_zero (mul_pos ((n + w + 1).choose_pos
+    (by omega : n ≤ _)) w.succ_pos).ne'
+  simp_all [mul_assoc, add_assoc, add_comm, add_left_comm, mul_comm, mul_left_comm,
+    ←Nat.choose_mul_factorial_mul_factorial le_self_add]
 
 -- TODO(firsching): Use Legendre's formula to test divisibility in terms of p-adic valuations.
 
