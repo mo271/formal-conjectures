@@ -32,13 +32,20 @@ $$ a + b > n + C \log n ?$$
 -/
 @[category research open, AMS 11]
 theorem erdos_728 :
-    (∀ (ε C : ℝ) (hε : 0 < ε) (hC : 0 < C), ∃ a b n : ℕ,
-      0 < n ∧
-      ε * n < a ∧
-      ε * n < b ∧
-      Nat.factorial a * Nat.factorial b ∣ Nat.factorial n * Nat.factorial (a + b - n) ∧
-      a + b > n + C * Real.log n) ↔ answer(sorry) := by
-  sorry
+    (∀ (ε C : ℝ) (hε : 0 < ε) (hC : 0 < C) (n : ℕ) (_: 0 < n),
+    ∃ a b : ℕ, ε * n < a ∧ ε * n < b ∧
+    Nat.factorial a * Nat.factorial b ∣ Nat.factorial n * Nat.factorial (a + b - n) ∧
+    a + b > n + C * Real.log n) := by
+    classical (aesop)
+    cases exists_nat_gt<|ε*n⊔C*.log n
+    simp_rw [max_lt_iff]at*
+    use n+ (by valid+1)
+    simp_all[mul_assoc, add_assoc,←Nat.choose_mul_factorial_mul_factorial le_self_add]
+    aesop
+    · {linarith only [@@ left] }
+    · use(n+(w+1)).choose n*(w+1)-1,left.trans_le (mod_cast w.le_pred_of_lt ((Nat.le_mul_of_pos_left _)<|Nat.choose_pos le_self_add))
+      use (by field_simp [mul_assoc, mul_left_comm, mul_dvd_mul,Nat.succ_le,Nat.choose_pos]),by linarith
+
 
 -- TODO(firsching): Use Legendre's formula to test divisibility in terms of p-adic valuations.
 
