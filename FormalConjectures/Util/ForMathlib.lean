@@ -30,9 +30,6 @@ import FormalConjectures.ForMathlib.Combinatorics.Additive.Convolution
 import FormalConjectures.ForMathlib.Combinatorics.Basic
 import FormalConjectures.ForMathlib.Combinatorics.SimpleGraph.Coloring
 import FormalConjectures.ForMathlib.Combinatorics.SimpleGraph.DiamExtra
-import FormalConjectures.ForMathlib.Combinatorics.SimpleGraph.GraphConjectures.Definitions
-import FormalConjectures.ForMathlib.Combinatorics.SimpleGraph.GraphConjectures.Domination
-import FormalConjectures.ForMathlib.Combinatorics.SimpleGraph.GraphConjectures.Invariants
 import FormalConjectures.ForMathlib.Computability.TuringMachine.Notation
 import FormalConjectures.ForMathlib.Combinatorics.SimpleGraph.Balanced
 import FormalConjectures.ForMathlib.Computability.TuringMachine.BusyBeavers
