@@ -45,7 +45,7 @@ $$
 for $k = 0, 1, \dots, n$.
  -/
 noncomputable def finiteAdditiveConvolution (n : ℕ) (p q : F[X]) : F[X] :=
-  let c := fun k  => ∑ ij ∈ antidiagonal (k : ℕ),
+  let c := fun k => ∑ ij ∈ antidiagonal (k : ℕ),
       ((n - ij.1)! * (n - ij.2)! : F) / (n ! * (n - k)! : F) *
       (p.coeff (n - ij.1)) * (q.coeff (n - ij.2))
   ∑ k ∈ range (n + 1), (c k) • X^(n - k)
@@ -68,7 +68,7 @@ and $\Phi_n(p):=\infty$ if $p$ has a multiple root.
 noncomputable def Φ (n : ℕ) (p : ℝ[X]) : ℝ≥0∞ :=
   if p.Monic ∧ p.degree = n ∧ p.roots.Nodup then
     let roots := p.roots.toFinset
-    (∑ i ∈ roots, (∑ j ∈ roots.erase i, (1 : ℝ) / (i - j))^(2 : ℝ)).toNNReal
+    (∑ i ∈ roots, (∑ j ∈ roots.erase i, 1 / (i - j)) ^ 2).toNNReal
   else
     ⊤
 
@@ -86,7 +86,7 @@ TODO(firsching): update category and remove Note when proof is published.
 @[category research open, AMS 26]
 theorem four : answer(sorry) ↔
     ∀ (p q : ℝ[X]) (n : ℕ), p.degree = n → p.roots.card = n → q.degree = n → p.Monic → q.Monic →
-    1 / Φ n (p (⊞_n) q) ≥ 1 / Φ n p + 1 / Φ n q := by
+    1 / Φ n p + 1 / Φ n q ≤ 1 / Φ n (p (⊞_n) q) := by
   sorry
 
 end Arxiv.«2602.05192»
