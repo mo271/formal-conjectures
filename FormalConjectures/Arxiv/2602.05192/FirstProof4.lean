@@ -85,7 +85,8 @@ TODO(firsching): update category and remove Note when proof is published.
 -/
 @[category research open, AMS 26]
 theorem four : answer(sorry) ↔
-    ∀ (p q : ℝ[X]) (n : ℕ), p.degree = n → p.roots.card = n → q.degree = n → p.Monic → q.Monic →
+    ∀ (p q : ℝ[X]) (n : ℕ),
+    p.degree = n → p.roots.card = n → q.degree = n  → q.roots.card = n → p.Monic → q.Monic →
     1 / Φ n p + 1 / Φ n q ≤ 1 / Φ n (p (⊞_n) q) := by
   sorry
 
