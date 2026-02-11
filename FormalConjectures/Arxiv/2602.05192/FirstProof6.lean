@@ -32,21 +32,21 @@ open Matrix Polynomial  SimpleGraph
 open Classical
 
 variable {V : Type*} [Fintype V] [DecidableEq V]
+
+
+abbrev SimpleGraph.restrictEdges (S : Set V) : SimpleGraph V :=
+  ((⊤ : G.Subgraph).induce S).spanningCoe
+
 /--
 For a graph $G = (V, E)$, let $G_S = (V, E(S,S))$ denote the graph with the same vertex set,
 but only the edges between vertices in $S$.
 Let $L$ be the Laplacian matrix of $G$ and let $L_S$ be the Laplacian of $G_S$.
--/
-noncomputable def L (G : SimpleGraph V) (S : Finset V) : Matrix V V ℝ :=
-  let G_S := (⊤ : G.Subgraph).induce (S : Set V)
-  lapMatrix ℝ G_S.spanningCoe
 
-/--
 I say that a set of vertices $S$ is $\epsilon$-light if the matrix $\epsilon L - L_S$ is
 positive semidefinite.
 -/
 def IsEpsilonLight (G : SimpleGraph V) (ε : ℝ) (S : Finset V) : Prop :=
-  PosSemidef (ε • lapMatrix ℝ G  - L G S)
+  PosSemidef (ε • lapMatrix ℝ G - lapMatrix ℝ (G.restrictEdges S))
 
 /--
 Does there exist a constant $c > 0$ so that for every graph $G$ and every $\epsilon$ between
@@ -64,5 +64,6 @@ theorem epsilon_light_subset_exists : answer(sorry) ↔
     0 < ε → ε < 1 →
     ∃ (S : Finset (Fin n)), IsEpsilonLight G ε S ∧ (S.card : ℝ) ≥ c * ε * n := by
   sorry
+
 
 end Arxiv.«2602.05192»
