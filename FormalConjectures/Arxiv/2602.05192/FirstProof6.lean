@@ -33,7 +33,12 @@ open Classical
 
 variable {V : Type*} [Fintype V] [DecidableEq V]
 
-
+/--
+Given a graph `G` and a set of vertices `S`, `G.restrictEdges S` returns a new graph
+on the same vertex set `V`. The edge set of this new graph consists only of those
+edges in `G` where both endpoints belong to `S`:
+the spanning subgraph of the subgraph of `G` induced by `S`.
+-/
 abbrev SimpleGraph.restrictEdges (S : Set V) : SimpleGraph V :=
   ((⊤ : G.Subgraph).induce S).spanningCoe
 
