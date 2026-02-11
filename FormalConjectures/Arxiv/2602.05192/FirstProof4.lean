@@ -78,7 +78,7 @@ and $\Phi_n(p):=\infty$ if $p$ has a multiple root.
 -/
 noncomputable def Φ (p : ℝ[X]) : ℝ≥0∞ :=
   -- TODO: write this as
-  -- (∑ ij ∈ p.roots.offDiag, (1 : ℝ) / (ij.1 - ij.2)^(2 : ℝ)).toNNReal
+  -- (∑ ij ∈ p.roots.toFinset.offDiag, 1 / ((ij.1 - ij.2).toNNReal)^2)
   -- when `Multiset.offDiag` becomes available.
   if p.roots.Nodup then
     let roots := p.roots.toFinset
