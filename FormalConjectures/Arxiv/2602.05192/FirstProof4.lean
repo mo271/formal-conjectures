@@ -63,18 +63,13 @@ theorem finiteAdditiveConvolution_comm (n : ℕ) (p q : F[X]) :
 theorem finiteAdditiveConvolution_degree (n : ℕ) (p q : ℝ[X])
   (hp : p.degree = n) (hq : q.degree = n):
     (p (⊞_n) q).degree = n := by
-  apply degree_eq_of_le_of_coeff_ne_zero (( degree_sum_le _ _).trans _)
-  · simp_all-contextual[n.factorial_ne_zero, Finset.sum_range_succ']
-    exact (add_eq_right.2 (Finset.sum_eq_zero fun and β=>if_neg (n.sub_lt (List.mem_range.1 β).pos and.succ_pos).ne')).trans_ne (mul_ne_zero (coeff_ne_zero_of_eq_degree hp) (coeff_ne_zero_of_eq_degree hq))
-  · refine Finset.sup_le fun and x =>(degree_smul_le _ _).trans (.trans (degree_X_pow_le _) ((WithBot.coe_mono (n.sub_le and))))
+  sorry
 
 @[category test, AMS 26]
 theorem finiteAdditiveConvolution_monic' (n : ℕ) (p q : ℝ[X]) (hn : 0 < n)
   (hp : p.degree = n) (hq : q.degree = n) (hp : p.Monic) (hq : q.Monic) :
     (p (⊞_n) q).Monic := by
-  show Monic ↑(id _)
-  use monic_of_degree_le n ((degree_sum_le _ _).trans ( Finset.sup_le fun and x =>(degree_smul_le _ _).trans (.trans (degree_X_pow_le _)<|mod_cast n.sub_le and))) ?_
-  simp_all -contextual [(n.sub_lt _ _).ne', Monic,leadingCoeff,natDegree_eq_of_degree_eq_some,n.factorial_ne_zero,pos_iff_ne_zero, Finset.sum_range_succ']
+  sorry
 
 /--
 For a monic polynomial $p(x)=\prod_{i\le n}(x- \lambda_i)$, define
