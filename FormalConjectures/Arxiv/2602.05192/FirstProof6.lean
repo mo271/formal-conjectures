@@ -27,7 +27,7 @@ by *Mohammed Abouzaid, Andrew J. Blumberg, Martin Hairer, Joe Kileel, Tamara G. 
 namespace Arxiv.«2602.05192»
 
 
-open Matrix Polynomial  SimpleGraph
+open Matrix Polynomial SimpleGraph
 
 open Classical
 
@@ -39,8 +39,8 @@ on the same vertex set `V`. The edge set of this new graph consists only of thos
 edges in `G` where both endpoints belong to `S`:
 the spanning subgraph of the subgraph of `G` induced by `S`.
 -/
-abbrev SimpleGraph.restrictEdges (S : Set V) : SimpleGraph V :=
-  ((⊤ : G.Subgraph).induce S).spanningCoe
+abbrev SimpleGraph.restrictEdges (G : SimpleGraph V) (S : Set V) : SimpleGraph V :=
+   (⊤ : G.Subgraph).induce (S : Set V) |>.spanningCoe
 
 /--
 For a graph $G = (V, E)$, let $G_S = (V, E(S,S))$ denote the graph with the same vertex set,
@@ -51,7 +51,7 @@ I say that a set of vertices $S$ is $\epsilon$-light if the matrix $\epsilon L -
 positive semidefinite.
 -/
 def IsEpsilonLight (G : SimpleGraph V) (ε : ℝ) (S : Finset V) : Prop :=
-  letI G_S := G.restrictEdges S
+  letI G_S := SimpleGraph.restrictEdges G S
   letI L := lapMatrix ℝ G
   letI L_S := lapMatrix ℝ (G_S)
   PosSemidef (ε • L - L_S)
