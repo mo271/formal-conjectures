@@ -34,15 +34,6 @@ open Classical
 variable {V : Type*} [Fintype V] [DecidableEq V]
 
 /--
-Given a graph `G` and a set of vertices `S`, `G.restrictEdges S` returns a new graph
-on the same vertex set `V`. The edge set of this new graph consists only of those
-edges in `G` where both endpoints belong to `S`:
-the spanning subgraph of the subgraph of `G` induced by `S`.
--/
-abbrev SimpleGraph.restrictEdges (G : SimpleGraph V) (S : Set V) : SimpleGraph V :=
-   (⊤ : G.Subgraph).induce (S : Set V) |>.spanningCoe
-
-/--
 For a graph $G = (V, E)$, let $G_S = (V, E(S,S))$ denote the graph with the same vertex set,
 but only the edges between vertices in $S$.
 Let $L$ be the Laplacian matrix of $G$ and let $L_S$ be the Laplacian of $G_S$.
@@ -51,7 +42,7 @@ I say that a set of vertices $S$ is $\epsilon$-light if the matrix $\epsilon L -
 positive semidefinite.
 -/
 def IsEpsilonLight (G : SimpleGraph V) (ε : ℝ) (S : Finset V) : Prop :=
-  letI G_S := SimpleGraph.restrictEdges G S
+  letI G_S := G.induce S |>.spanningCoe
   letI L := lapMatrix ℝ G
   letI L_S := lapMatrix ℝ (G_S)
   PosSemidef (ε • L - L_S)
