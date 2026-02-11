@@ -46,7 +46,10 @@ I say that a set of vertices $S$ is $\epsilon$-light if the matrix $\epsilon L -
 positive semidefinite.
 -/
 def IsEpsilonLight (G : SimpleGraph V) (ε : ℝ) (S : Finset V) : Prop :=
-  PosSemidef (ε • lapMatrix ℝ G - lapMatrix ℝ (G.restrictEdges S))
+  letI G_S := G.restrictEdges S
+  letI L := lapMatrix ℝ G
+  letI L_S := lapMatrix ℝ (G_S)
+  PosSemidef (ε • L - L_S)
 
 /--
 Does there exist a constant $c > 0$ so that for every graph $G$ and every $\epsilon$ between
