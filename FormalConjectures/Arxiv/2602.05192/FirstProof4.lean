@@ -59,22 +59,46 @@ theorem finiteAdditiveConvolution_comm (n : ℕ) (p q : F[X]) :
   exact sum_congr rfl fun m hm =>
     (congr_arg₂ _) (sum_equiv (.prodComm _ _) (by simp [add_comm]) fun _ _ => by ring!) rfl
 
+@[category test, AMS 26]
+theorem finiteAdditiveConvolution_degree (n : ℕ) (p q : ℝ[X])
+  (hp : p.degree = n) (hq : q.degree = n):
+    (p (⊞_n) q).degree = n := by
+  apply degree_eq_of_le_of_coeff_ne_zero (( degree_sum_le _ _).trans _)
+  · simp_all-contextual[n.factorial_ne_zero, Finset.sum_range_succ']
+    exact (add_eq_right.2 (Finset.sum_eq_zero fun and β=>if_neg (n.sub_lt (List.mem_range.1 β).pos and.succ_pos).ne')).trans_ne (mul_ne_zero (coeff_ne_zero_of_eq_degree hp) (coeff_ne_zero_of_eq_degree hq))
+  · refine Finset.sup_le fun and x =>(degree_smul_le _ _).trans (.trans (degree_X_pow_le _) ((WithBot.coe_mono (n.sub_le and))))
+
+@[category test, AMS 26]
+theorem finiteAdditiveConvolution_monic' (n : ℕ) (p q : ℝ[X]) (hn : 0 < n)
+  (hp : p.degree = n) (hq : q.degree = n) (hp : p.Monic) (hq : q.Monic) :
+    (p (⊞_n) q).Monic := by
+  show Monic ↑(id _)
+  use monic_of_degree_le n ((degree_sum_le _ _).trans ( Finset.sup_le fun and x =>(degree_smul_le _ _).trans (.trans (degree_X_pow_le _)<|mod_cast n.sub_le and))) ?_
+  simp_all -contextual [(n.sub_lt _ _).ne', Monic,leadingCoeff,natDegree_eq_of_degree_eq_some,n.factorial_ne_zero,pos_iff_ne_zero, Finset.sum_range_succ']
 
 /--
 For a monic polynomial $p(x)=\prod_{i\le n}(x- \lambda_i)$, define
 $$\Phi_n(p):=\sum_{i\le n}(\sum_{j\neq i} \frac1{\lambda_i-\lambda_j})^2$$
 and $\Phi_n(p):=\infty$ if $p$ has a multiple root.
 -/
-noncomputable def Φ (n : ℕ) (p : ℝ[X]) : ℝ≥0∞ :=
-  if p.Monic ∧ p.degree = n ∧ p.roots.Nodup then
+noncomputable def Φ (p : ℝ[X]) : ℝ≥0∞ :=
+  -- TODO: write this as
+  -- (∑ ij ∈ p.roots.offDiag, (1 : ℝ) / (ij.1 - ij.2)^(2 : ℝ)).toNNReal
+  -- when `Multiset.offDiag` becomes available.
+  if p.roots.Nodup then
     let roots := p.roots.toFinset
     (∑ i ∈ roots, (∑ j ∈ roots.erase i, 1 / (i - j)) ^ 2).toNNReal
   else
     ⊤
 
+/--
+A predicate that holds if $p(x)$ and $q(x)$ are monic real-rooted polynomials of
+degree $n$, then
+$$\frac{1}{\Phi_n(p\boxplus_n q)} \ge \frac{1}{\Phi_n(p)}+\frac{1}{\Phi_n(q)}?$$
+-/
 def FourProp (p q : ℝ[X]) (n : ℕ) : Prop :=
     p.degree = n → p.roots.card = n → q.degree = n  → q.roots.card = n → p.Monic → q.Monic →
-    1 / Φ n p + 1 / Φ n q ≤ 1 / Φ n (p (⊞_n) q)
+    1 / Φ p + 1 / Φ q ≤ 1 / Φ (p (⊞_n) q)
 
 /--
 Is it true that if $p(x)$ and $q(x)$ are monic real-rooted polynomials of
@@ -91,10 +115,20 @@ TODO(firsching): update category and remove Note when proof is published.
 theorem four : answer(sorry) ↔ ∀ (p q : ℝ[X]) (n : ℕ), FourProp p q n := by
   sorry
 
+/--
+Is it true that if $p(x)$ and $q(x)$ are monic real-rooted polynomials of
+degree $2$, then
+$$\frac{1}{\Phi_2(p\boxplus_n q)} \ge \frac{1}{\Phi_2(p)}+\frac{1}{\Phi_2(q)}?$$
+-/
 @[category research open, AMS 26]
 theorem four_2 : answer(sorry) ↔ ∀ (p q : ℝ[X]), FourProp p q 2 := by
   sorry
 
+/--
+Is it true that if $p(x)$ and $q(x)$ are monic real-rooted polynomials of
+degree $3$, then
+$$\frac{1}{\Phi_3(p\boxplus_n q)} \ge \frac{1}{\Phi_3(p)}+\frac{1}{\Phi_3(q)}?$$
+-/
 @[category research open, AMS 26]
 theorem four_3 : answer(sorry) ↔ ∀ (p q : ℝ[X]), FourProp p q 3 := by
   sorry
