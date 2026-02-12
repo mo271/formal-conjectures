@@ -77,9 +77,6 @@ $$\Phi_n(p):=\sum_{i\le n}(\sum_{j\neq i} \frac1{\lambda_i-\lambda_j})^2$$
 and $\Phi_n(p):=\infty$ if $p$ has a multiple root.
 -/
 noncomputable def Φ (p : ℝ[X]) : ℝ≥0∞ :=
-  -- TODO: consider writing this as
-  -- `(p.roots.offDiag.map (fun ij => (1 : ℝ≥0∞) / ((ij.1 - ij.2) ^ 2).toNNReal)).sum`
-  -- when `Multiset.offDiag` becomes available.
   if p.roots.Nodup then
     let roots := p.roots.toFinset
     (∑ i ∈ roots, (∑ j ∈ roots.erase i, 1 / (i - j)) ^ 2).toNNReal
