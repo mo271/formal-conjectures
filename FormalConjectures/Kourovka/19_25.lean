@@ -36,9 +36,8 @@ $H$ necessarily simple?
 -/
 @[category research open, AMS 20]
 theorem kourovka.«19.25» : answer(sorry) ↔
-    ∀ᵉ (G : Type*) (_ : Group G) (_ : Finite G)
-       (H : Type*) (_ : Group H) (_ : Finite H)
-       (h : ∑' (g : G), φ (orderOf g) = ∑' (h : H), φ (orderOf h)),
+    ∀ (G H : Type) [Group G] [Group H] [Fintype G] [Fintype H],
+       ∑ g : G, φ (orderOf g) = ∑ h : H, φ (orderOf h) →
        IsSimpleGroup G → IsSimpleGroup H := by
   sorry
 
