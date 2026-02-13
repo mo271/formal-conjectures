@@ -16,17 +16,17 @@ limitations under the License.
 
 import FormalConjectures.Util.ProblemImports
 
-open scoped Nat Group
-
-namespace Kourovka.«19.25»
-
 /-!
 # Conjecture 19.25
 
 by B. Curtin, G. R. Pourgholi
 
 *Reference:* [The Kourovka Notebook](https://arxiv.org/abs/1401.0300v40)
-!-/
+-/
+
+open scoped Nat Group
+
+namespace Kourovka.«19.25»
 
 /--
 Let $G$ and $H$ be finite groups of the same order with
