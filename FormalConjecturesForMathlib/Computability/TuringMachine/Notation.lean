@@ -54,13 +54,13 @@ open Lean Elab Meta Parser Command Term Qq
 
 section Util
 
-private def Alphabet := ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
+def Alphabet := ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
   'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
 /-- `Char.toDirSyntax c` outputs the syntax corresponding to the character `c` if `c` is
 `R` or `L` and throws an error in other cases. This is used when parsing the "direction"
 component of turing machine string representations. -/
-private def Char.toDirSyntax : Char → TermElabM Term
+def Char.toDirSyntax : Char → TermElabM Term
   | 'R' => `(Dir.right)
   | 'L' => `(Dir.left)
   | char => throwError "Invalid direction {char}."
@@ -68,7 +68,7 @@ private def Char.toDirSyntax : Char → TermElabM Term
 /-- `Char.toBinarySyntax c` outputs the syntax corresponding to the character `c` if `c` is in
 `0, ..., 9` and throws an error in other cases. This is used when parsing the "symbol"
 component of turing machine string representations. -/
-private def Char.toNumeralSyntax (c : Char) : TermElabM Term := do
+def Char.toNumeralSyntax (c : Char) : TermElabM Term := do
   unless c.isDigit do
     throwError m!"Invalid write instruction: {c} is not a numeral."
   -- Compute the value of the digit represented by `c`.
@@ -79,7 +79,7 @@ private def Char.toNumeralSyntax (c : Char) : TermElabM Term := do
 if `c` is a capital letter (i.e. something between `A` and `Z`.). For example, `A` would output
 the syntax `stateName.A` where `stateName` is the name of the type used to index sets.
 This is used when parsing the "state" component of turing machine string representations. -/
-private def Char.toStateSyntax (c : Char) (stateName : Name) (numStates : Nat) : TermElabM Term := do
+def Char.toStateSyntax (c : Char) (stateName : Name) (numStates : Nat) : TermElabM Term := do
   unless c.isUpper do
     throwError m!"Invalid state character: {c} should be between A and Z"
   -- The convention is to non-state letters (i.e. any letter above the highest letter denoting a
@@ -91,14 +91,14 @@ private def Char.toStateSyntax (c : Char) (stateName : Name) (numStates : Nat) :
 
 /-- `Nat.toStateSyntax n stateName` outputs the syntax of the `n`-th constructor of the type used to
 index states. -/
-private def Nat.toStateSyntax (n : Nat) (stateName : Name) : TermElabM Term := do
+def Nat.toStateSyntax (n : Nat) (stateName : Name) : TermElabM Term := do
   if n > 25 then
     throwError m!"Invalid state index {n}"
   `($(Lean.mkIdent <| .str stateName Alphabet[n]!.toString))
 
 /-- `String.toStmtSyntax s stateName` parses a component of a Turing machine string representation
 and outputs the syntax of the corresponding `(state, statement) : State × Stmt` pair. -/
-private def String.toStmtSyntax (s : String) (stateName : Name) (numStates : Nat) : TermElabM Term := do
+def String.toStmtSyntax (s : String) (stateName : Name) (numStates : Nat) : TermElabM Term := do
   let [c_symbol, c_dir, c_state] := s.toList |
     throwError m!"Invalid transition encoding: {s} should be 3 characters long."
   if c_symbol = '-' ∧ c_dir = '-' ∧ c_state = '-' then
@@ -112,7 +112,7 @@ private def String.toStmtSyntax (s : String) (stateName : Name) (numStates : Nat
 
 end Util
 
-private def String.nextn (s : String) (p : Pos.Raw) : Nat → Pos.Raw
+def String.nextn (s : String) (p : Pos.Raw) : Nat → Pos.Raw
   | 0 => p
   | n + 1 => Pos.Raw.next s (s.nextn p n)
 
@@ -143,7 +143,7 @@ def mkMachineMatchAltExpr (L : List String) (stateName : Name) (numSymbols numSt
 -- The following is extracted as a standalone definition in case we want to later change
 -- the naming convention to make clashes harder.
 /-- The name of the state type with `n` constructors `A, B, ...`. -/
-private def Nat.toStateName (n : Nat) : Name := .mkSimple s!"State{n}"
+def Nat.toStateName (n : Nat) : Name := .mkSimple s!"State{n}"
 
 section Main
 

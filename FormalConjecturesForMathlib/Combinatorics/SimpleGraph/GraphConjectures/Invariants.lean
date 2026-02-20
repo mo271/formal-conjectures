@@ -233,7 +233,7 @@ Removes the first element `d`, decrements the next `d` elements by 1, and re-sor
 Note: when `s` is the list of vertices arising from a simple graph, if the first index is `s` then
 the degree list always has length at least `s+1` so this makes sense.
 -/
-private def havelHakimiStep (s : List ℕ) : List ℕ :=
+def havelHakimiStep (s : List ℕ) : List ℕ :=
   match s with
   | [] => []
   | d :: rest =>
@@ -248,7 +248,7 @@ private def havelHakimiStep (s : List ℕ) : List ℕ :=
 Auxiliary function to calculate the residue recursively.
 Applies Havel-Hakimi steps until the sequence consists only of zeros or is empty.
 -/
-private partial def residueAux : List ℕ → ℕ
+partial def residueAux : List ℕ → ℕ
   | [] => 0        -- Empty sequence, residue is 0.
   | 0 :: s => 1 + s.length -- If the largest degree is 0 (and the list is sorted), all are 0.
   | s => residueAux (havelHakimiStep s) -- Apply one reduction step and recurse.

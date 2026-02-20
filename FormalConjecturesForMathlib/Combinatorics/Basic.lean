@@ -128,8 +128,11 @@ end Set
 
 namespace Finset
 
-instance (A : Finset α) [DecidableEq α] : Decidable (IsSidon (A : Set α)) :=
-  decidable_of_iff (∀ᵉ (i₁ ∈ A) (j₁ ∈ A) (i₂ ∈ A) (j₂ ∈ A), _) <| by rfl
+instance (A : Finset α) [DecidableEq α] : Decidable (IsSidon (A : Set α)) := by
+  refine decidable_of_iff (∀ᵉ (i₁ ∈ A) (j₁ ∈ A) (i₂ ∈ A) (j₂ ∈ A),
+    i₁ + i₂ = j₁ + j₂ → (i₁ = j₁ ∧ i₂ = j₂) ∨ (i₁ = j₂ ∧ i₂ = j₁)) ?_
+  rfl
+
 
 /-- The maximum size of a Sidon set in the supplied `Finset`. -/
 def maxSidonSubsetCard (A : Finset α) [DecidableEq α] : ℕ :=
