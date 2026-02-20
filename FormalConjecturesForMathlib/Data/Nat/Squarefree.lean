@@ -19,7 +19,7 @@ module
 public import Mathlib.Data.Nat.Squarefree
 public import FormalConjecturesForMathlib.Data.Nat.Factorization.Basic
 public import Mathlib.Data.Nat.Factorization.Basic
-public import Mathlib
+public import Mathlib.Tactic
 
 @[expose] public section
 
@@ -107,5 +107,3 @@ theorem squarefree_infinite : Set.Infinite { n : ℕ | Squarefree n } :=
   Set.Infinite.mono (fun _ hp ↦ hp.squarefree) Nat.infinite_setOf_prime
 
 end Nat
-
-#min_imports
