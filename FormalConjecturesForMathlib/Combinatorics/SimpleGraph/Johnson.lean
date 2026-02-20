@@ -18,6 +18,8 @@ module
 public import Mathlib.Combinatorics.SimpleGraph.Basic
 public import FormalConjecturesForMathlib.Data.Finset.Card
 
+@[expose] public section
+
 open Finset
 
 namespace SimpleGraph

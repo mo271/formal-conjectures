@@ -18,6 +18,8 @@ module
 
 public import Mathlib.Data.ZMod.Defs
 
+@[expose] public section
+
 /--
 A perfect difference set modulo `n` is a set `D` such that the map `(a, b) ↦ a - b` from
 `D.offDiag` to `{x : ZMod n | x ≠ 0}` is a bijection.

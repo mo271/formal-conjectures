@@ -21,6 +21,8 @@ public import Mathlib.Computability.TuringMachine
 public import Mathlib.Data.Nat.Lattice
 public import Mathlib.Data.Nat.PartENat
 
+@[expose] public section
+
 
 /-! # Turing Machines, Busy Beaver version.
 A variant on the definition of the TM0 model in Mathlib: while the statements the

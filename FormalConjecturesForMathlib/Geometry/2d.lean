@@ -24,6 +24,8 @@ public import Mathlib.Geometry.Euclidean.Triangle
 public import FormalConjecturesForMathlib.Logic.Equiv.Fin.Rotate
 public import FormalConjecturesForMathlib.Data.Set.Triplewise
 
+@[expose] public section
+
 scoped[EuclideanGeometry] notation "ℝ²" => EuclideanSpace ℝ (Fin 2)
 
 open scoped EuclideanGeometry

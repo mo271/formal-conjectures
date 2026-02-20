@@ -17,6 +17,8 @@ module
 
 public import Mathlib.Topology.Homeomorph.Lemmas
 
+@[expose] public section
+
 /- A bijection between discrete topological spaces induces a homeomorphism. -/
 def Homeomorph.OfDiscrete {X  Y : Type*} [TopologicalSpace X] [DiscreteTopology X]
     [TopologicalSpace Y] [DiscreteTopology Y] (f : X ≃ Y) : X ≃ₜ Y where

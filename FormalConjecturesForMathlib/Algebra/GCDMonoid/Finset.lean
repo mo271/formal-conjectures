@@ -19,6 +19,8 @@ module
 public import Mathlib.Algebra.GCDMonoid.Finset
 public import Mathlib.Order.Interval.Finset.Defs
 
+@[expose] public section
+
 namespace Finset
 
 /-- The least common multiple of ${n+1, \dotsc, n+k}$. -/

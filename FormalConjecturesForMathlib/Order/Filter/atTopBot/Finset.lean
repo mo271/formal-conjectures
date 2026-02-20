@@ -18,6 +18,8 @@ module
 
 public import Mathlib.Order.Filter.AtTopBot.Finset
 
+@[expose] public section
+
 open Filter
 
 theorem Finset.tendsto_card_atTop {α : Type*} [Infinite α] :

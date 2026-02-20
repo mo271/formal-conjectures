@@ -17,6 +17,8 @@ module
 
 public import Mathlib.Data.Set.Card
 
+@[expose] public section
+
 /-!
 # VC dimension of a set family
 

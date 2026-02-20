@@ -20,6 +20,8 @@ public import Mathlib.Analysis.Complex.ExponentialBounds
 public import Mathlib.Analysis.SpecialFunctions.Log.Basic
 public import Mathlib.Tactic
 
+@[expose] public section
+
 -- TODO(mercuris): define a recursive version of this for better usability?
 -- TODO(mercuris): add `Real.iteratedLogb` for general bases
 /-- The iterated logarithm of `x` is the number of times the natural logarithm

@@ -20,6 +20,8 @@ public import FormalConjecturesForMathlib.Combinatorics.AP.Basic
 public import Mathlib.Analysis.Normed.Field.Lemmas
 public import Mathlib.Order.CompletePartialOrder
 
+@[expose] public section
+
 open Function Set
 open scoped Pointwise
 

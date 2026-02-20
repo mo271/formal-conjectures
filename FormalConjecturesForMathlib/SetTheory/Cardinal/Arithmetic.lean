@@ -17,6 +17,8 @@ module
 
 public import Mathlib.SetTheory.Cardinal.Arithmetic
 
+@[expose] public section
+
 namespace Cardinal
 variable {α : Type*} {s t : Set α}
 

@@ -17,6 +17,8 @@ module
 
 public import Mathlib.Data.Nat.Init
 
+@[expose] public section
+
 namespace Nat
 variable {a b c : ℕ}
 

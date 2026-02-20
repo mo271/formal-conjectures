@@ -19,6 +19,8 @@ module
 public import Mathlib.Algebra.Polynomial.Bivariate
 public import Mathlib.RingTheory.Algebraic.Pi
 
+@[expose] public section
+
 /-!
 # Algebra over the Ring of Polynomials
 

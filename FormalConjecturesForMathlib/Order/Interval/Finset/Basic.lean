@@ -19,6 +19,8 @@ module
 public import Mathlib.Order.Interval.Finset.Basic
 public import Mathlib.Data.Set.Card
 
+@[expose] public section
+
 theorem Finset.Iio_eventually_nonempty (β : Type*) [PartialOrder β] [LocallyFiniteOrder β]
     [OrderBot β] [Nontrivial β] : ∃ (b : β), ∀ n ≥ b, (Finset.Iio n).Nonempty :=
   let ⟨b, hb⟩ := exists_ne (⊥ : β)

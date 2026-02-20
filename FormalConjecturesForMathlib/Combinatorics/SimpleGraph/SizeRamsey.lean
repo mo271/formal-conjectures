@@ -21,6 +21,8 @@ public import Mathlib.Data.Nat.Lattice
 public import Mathlib.Data.Real.Basic
 public import Mathlib.Data.Set.Card
 
+@[expose] public section
+
 /-!
 # Size Ramsey Number
 

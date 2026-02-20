@@ -18,6 +18,8 @@ module
 public import Mathlib.Data.Finset.Sym
 public import Mathlib.Topology.MetricSpace.Defs
 
+@[expose] public section
+
 open scoped Finset
 
 variable {X : Type*} [MetricSpace X]

@@ -17,6 +17,8 @@ module
 
 public import Mathlib.Combinatorics.SimpleGraph.Clique
 
+@[expose] public section
+
 namespace SimpleGraph
 variable {V : Type*} {G : SimpleGraph V}
 

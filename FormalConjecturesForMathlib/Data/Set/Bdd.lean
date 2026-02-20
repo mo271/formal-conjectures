@@ -18,6 +18,8 @@ module
 
 public import Mathlib.Order.Interval.Finset.Defs
 
+@[expose] public section
+
 variable {β : Type*} [Preorder β]
 variable (S : Set β) (a b : β)
 

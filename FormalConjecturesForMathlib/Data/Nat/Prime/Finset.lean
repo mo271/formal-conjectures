@@ -20,6 +20,8 @@ public import Batteries.Data.Nat.Gcd
 public import Mathlib.Algebra.GCDMonoid.Finset
 public import Mathlib.Algebra.GCDMonoid.Nat
 
+@[expose] public section
+
 /-- A Finset of numbers is coprime, or relatively prime, if its `gcd` is 1. -/
 @[reducible] def Finset.Coprime (S : Finset ℕ) : Prop := S.gcd id = 1
 

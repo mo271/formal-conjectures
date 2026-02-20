@@ -18,6 +18,8 @@ module
 
 public import Mathlib.Topology.Separation.GDelta
 
+@[expose] public section
+
 /--
 A space where all singletons are Gδ sets.
 -/

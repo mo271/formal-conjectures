@@ -21,6 +21,8 @@ public import Mathlib.Combinatorics.Enumerative.DoubleCounting
 public import Mathlib.Combinatorics.SimpleGraph.Coloring
 public import Mathlib.Data.Set.Card
 
+@[expose] public section
+
 variable {V α ι : Type*} {G : SimpleGraph V} {n : ℕ}
 
 namespace SimpleGraph

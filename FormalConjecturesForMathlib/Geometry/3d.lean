@@ -19,6 +19,8 @@ module
 public import Mathlib.Analysis.InnerProductSpace.PiL2
 public import Mathlib.LinearAlgebra.Orientation
 
+@[expose] public section
+
 scoped[EuclideanGeometry] notation "ℝ³" => EuclideanSpace ℝ (Fin 3)
 
 open scoped EuclideanGeometry

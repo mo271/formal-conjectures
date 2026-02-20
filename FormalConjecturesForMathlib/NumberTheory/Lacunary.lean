@@ -20,6 +20,8 @@ public import Mathlib.Analysis.Normed.Field.Lemmas
 public import Mathlib.Order.Filter.Defs
 public import Mathlib.Tactic.Rify
 
+@[expose] public section
+
 open Filter
 
 /-- Say a sequence is lacunary if there exists some $\lambda > 1$ such that

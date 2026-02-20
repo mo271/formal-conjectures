@@ -17,6 +17,8 @@ module
 
 public import Mathlib.Algebra.Group.Indicator
 
+@[expose] public section
+
 namespace Set
 
 variable {α R : Type*} [One R] [Zero R] (A : Set α)

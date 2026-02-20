@@ -19,6 +19,8 @@ module
 public import Mathlib.Combinatorics.SimpleGraph.Clique
 public import Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected
 
+@[expose] public section
+
 /-!
 Dominating sets and domination numbers
 

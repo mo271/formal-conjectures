@@ -18,6 +18,8 @@ module
 public import Mathlib.Combinatorics.Young.YoungDiagram
 public import Mathlib.Combinatorics.SimpleGraph.Basic
 
+@[expose] public section
+
 open YoungDiagram
 
 def YoungDiagram.Cell (μ : YoungDiagram) : Type := μ.cells

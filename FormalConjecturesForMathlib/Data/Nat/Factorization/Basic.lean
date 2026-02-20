@@ -18,6 +18,8 @@ module
 
 public import Mathlib.Data.Nat.Factorization.Basic
 
+@[expose] public section
+
 namespace Nat
 
 theorem prod_primeFactors_factorization_apply (n : ℕ) {p : ℕ} (hp : p.Prime) {f : ℕ → ℕ → ℕ}

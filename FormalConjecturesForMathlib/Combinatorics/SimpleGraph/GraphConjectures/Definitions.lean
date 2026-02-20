@@ -22,6 +22,8 @@ public import Mathlib.Combinatorics.SimpleGraph.Matching
 public import Mathlib.Data.Real.Archimedean
 public import Mathlib.Analysis.InnerProductSpace.PiL2
 
+@[expose] public section
+
 namespace SimpleGraph
 
 open Classical Finset List

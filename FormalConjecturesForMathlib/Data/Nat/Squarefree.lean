@@ -19,6 +19,8 @@ module
 public import Mathlib.Data.Nat.Squarefree
 public import FormalConjecturesForMathlib.Data.Nat.Factorization.Basic
 
+@[expose] public section
+
 namespace Nat
 
 /-- `n.squarefreePart` is the unique `a₀ : ℕ` such that `a₀` is squarefree and `n = a₀ * b ^ 2`,

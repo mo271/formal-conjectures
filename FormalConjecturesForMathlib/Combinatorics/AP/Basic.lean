@@ -21,6 +21,8 @@ public import Mathlib.Data.ENat.Lattice
 public import Mathlib.Data.Set.Card
 public import Mathlib.Tactic.IntervalCases
 
+@[expose] public section
+
 open scoped Classical
 
 /-! # Arithmetic Progressions

@@ -17,6 +17,8 @@ module
 
 public import Mathlib.Topology.Algebra.InfiniteSum.Order
 
+@[expose] public section
+
 variable {ι α : Type*} [PartialOrder α] [CommGroup α] [IsOrderedMonoid α] [UniformSpace α]
   [IsUniformGroup α] [CompleteSpace α] [OrderClosedTopology α]
   {f : ι → α} {s : Finset ι} {t : Set ι}

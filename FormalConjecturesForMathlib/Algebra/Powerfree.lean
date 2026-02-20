@@ -18,6 +18,8 @@ module
 
 public import Mathlib.Algebra.Squarefree.Basic
 
+@[expose] public section
+
 variable {M M₀ : Type*} {r m : M} {k : ℕ}
 
 section Monoid

@@ -18,6 +18,8 @@ module
 
 public import Mathlib.Analysis.SpecialFunctions.Pow.Real
 
+@[expose] public section
+
 /-!
 # nth root operations
 

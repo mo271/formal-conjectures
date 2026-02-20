@@ -18,6 +18,8 @@ module
 public import FormalConjecturesForMathlib.Algebra.Group.Indicator
 public import Mathlib.RingTheory.PowerSeries.Basic
 
+@[expose] public section
+
 /-!
 # Convolution of Functions on ℕ
 

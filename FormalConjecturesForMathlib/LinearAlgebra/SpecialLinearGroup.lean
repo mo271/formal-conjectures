@@ -19,6 +19,8 @@ module
 
 public import FormalConjecturesForMathlib.LinearAlgebra.GeneralLinearGroup
 
+@[expose] public section
+
 open Matrix
 open scoped MatrixGroups
 

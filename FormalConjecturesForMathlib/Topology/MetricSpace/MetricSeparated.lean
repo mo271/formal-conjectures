@@ -17,6 +17,8 @@ module
 
 public import Mathlib.Topology.EMetricSpace.Defs
 
+@[expose] public section
+
 open EMetric Set
 open scoped ENNReal
 

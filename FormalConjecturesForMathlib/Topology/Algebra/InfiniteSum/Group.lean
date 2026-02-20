@@ -17,6 +17,8 @@ module
 
 public import Mathlib.Topology.Algebra.InfiniteSum.Group
 
+@[expose] public section
+
 open Filter
 open scoped Topology
 

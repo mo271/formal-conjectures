@@ -19,5 +19,7 @@ module
 public import Mathlib.Analysis.Asymptotics.Defs
 public import Mathlib.Order.Filter.AtTopBot.Defs
 
+@[expose] public section
+
 notation f " ≫ " g => Asymptotics.IsBigO Filter.atTop (g : ℕ → ℝ) (f : ℕ → ℝ)
 notation g " ≪ " f => Asymptotics.IsBigO Filter.atTop (g : ℕ → ℝ) (f : ℕ → ℝ)

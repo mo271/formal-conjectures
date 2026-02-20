@@ -18,4 +18,6 @@ module
 
 public import Mathlib.Analysis.InnerProductSpace.PiL2
 
+@[expose] public section
+
 scoped[EuclideanGeometry] notation "ℝ^" n:65 => EuclideanSpace ℝ (Fin n)

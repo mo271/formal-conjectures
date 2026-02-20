@@ -18,6 +18,8 @@ module
 
 public import FormalConjecturesForMathlib.Computability.TuringMachine.BusyBeavers
 
+@[expose] public section
+
 /-! # Turing Machine Parser
 
 This module provides a parser for defining a Turing machine from a simple string description.

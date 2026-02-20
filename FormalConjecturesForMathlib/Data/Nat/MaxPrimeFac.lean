@@ -19,6 +19,8 @@ module
 public import Mathlib.Data.Nat.PrimeFin
 public import Mathlib.Data.Nat.Lattice
 
+@[expose] public section
+
 namespace Nat
 
 /-- The greatest prime divisor of a natural number `n > 1`.

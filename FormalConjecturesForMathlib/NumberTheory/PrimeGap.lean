@@ -19,6 +19,8 @@ module
 public import Mathlib.Data.Nat.Prime.Defs
 public import Mathlib.Data.Nat.Nth
 
+@[expose] public section
+
 /--
 The prime gap: the difference between the $n+1$-th and $n$-th prime.
 -/

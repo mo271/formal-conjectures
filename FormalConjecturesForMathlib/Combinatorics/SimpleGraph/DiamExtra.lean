@@ -18,6 +18,8 @@ module
 public import Mathlib.Combinatorics.SimpleGraph.Diam
 public import Mathlib.Combinatorics.SimpleGraph.Metric
 
+@[expose] public section
+
 assert_not_exists Field
 
 namespace SimpleGraph

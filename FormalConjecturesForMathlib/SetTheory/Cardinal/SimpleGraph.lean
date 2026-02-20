@@ -19,6 +19,8 @@ module
 public import Mathlib.Combinatorics.SimpleGraph.Clique
 public import Mathlib.SetTheory.Ordinal.Exponential
 
+@[expose] public section
+
 open Cardinal Ordinal
 
 universe u

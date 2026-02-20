@@ -17,4 +17,6 @@ module
 
 public import Mathlib.SetTheory.Cardinal.Continuum
 
+@[expose] public section
+
 attribute [simp] Cardinal.continuum_ne_zero

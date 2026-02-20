@@ -19,6 +19,8 @@ module
 public import Mathlib.MeasureTheory.Integral.Bochner.Basic
 public import Mathlib.MeasureTheory.Measure.Haar.OfBasis
 
+@[expose] public section
+
 /-! # Standard real valued constants
 
 This file is for storing the definition of standard real constants that arise in conjectures.

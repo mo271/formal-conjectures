@@ -21,6 +21,8 @@ public import Mathlib.Data.Set.Card
 public import Mathlib.Order.CompletePartialOrder
 public import Mathlib.Tactic.NormNum.Ineq
 
+@[expose] public section
+
 def Triplewise {α : Type*} (r : α → α → α → Prop) : Prop :=
   ∀ ⦃i j k ⦄, i ≠ j → j ≠ k → i ≠ k → r i j k
 

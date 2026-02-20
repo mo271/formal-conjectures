@@ -19,6 +19,8 @@ public import Mathlib.Algebra.Group.Pointwise.Set.Basic
 public import Mathlib.Algebra.Module.Submodule.Lattice
 public import Mathlib.RingTheory.Ideal.Defs
 
+@[expose] public section
+
 open Pointwise
 
 /--

@@ -21,6 +21,8 @@ public import Mathlib.Algebra.Group.Pointwise.Set.BigOperators
 public import Mathlib.Algebra.Group.Pointwise.Set.Finite
 public import Mathlib.Algebra.Order.Monoid.Canonical.Defs
 
+@[expose] public section
+
 open Filter
 open scoped Pointwise
 

@@ -19,6 +19,8 @@ public import Mathlib.AlgebraicGeometry.Limits
 public import Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Scheme
 public import Mathlib.RingTheory.MvPolynomial.Homogeneous
 
+@[expose] public section
+
 -- The contents of this file will be in mathlib as of #26061
 
 universe u v

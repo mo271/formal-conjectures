@@ -19,6 +19,8 @@ module
 public import Mathlib.Algebra.Order.Group.Pointwise.Interval
 public import Mathlib.Tactic
 
+@[expose] public section
+
 theorem Nat.image_mul_two_Iio_even {n : ℕ} (h : Even n) :
     (2 * ·) '' Set.Iio (n / 2) = { n | Even n } ∩ Set.Iio n := by
   aesop (add simp [even_iff_two_dvd, dvd_iff_exists_eq_mul_right])

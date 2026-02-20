@@ -19,6 +19,8 @@ public import Mathlib.Data.Finset.Basic
 public import Mathlib.Data.Fintype.Card
 public import Mathlib.Data.Nat.Lattice
 
+@[expose] public section
+
 /-!
 # Hypergraph Ramsey Numbers
 

@@ -20,6 +20,8 @@ public import Mathlib.Order.Filter.Cofinite
 public import Mathlib.Order.Interval.Finset.Defs
 public import Mathlib.Order.SuccPred.Basic
 
+@[expose] public section
+
 open Set
 
 namespace Filter

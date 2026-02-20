@@ -17,5 +17,7 @@ module
 
 public import Mathlib.NumberTheory.LegendreSymbol.Basic
 
+@[expose] public section
+
 @[inherit_doc]
 scoped[NumberTheorySymbols] notation "L(" a " | " p ")" => legendreSym p a

@@ -17,4 +17,6 @@ module
 
 public import Mathlib.Analysis.Real.Cardinality
 
+@[expose] public section
+
 attribute [simp] Cardinal.mk_real

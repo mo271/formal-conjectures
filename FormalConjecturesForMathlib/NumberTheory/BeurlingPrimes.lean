@@ -20,6 +20,8 @@ public import Mathlib.Algebra.BigOperators.Finsupp.Basic
 public import Mathlib.Data.Real.Basic
 public import Mathlib.Order.Filter.AtTopBot.Defs
 
+@[expose] public section
+
 /-!
 # Beurling primes
 

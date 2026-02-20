@@ -17,6 +17,8 @@ module
 
 public import Mathlib.Data.Finset.Powerset
 
+@[expose] public section
+
 namespace Finset
 variable {α : Type*} [DecidableEq α] {s t : Finset α} {n : ℕ}
 

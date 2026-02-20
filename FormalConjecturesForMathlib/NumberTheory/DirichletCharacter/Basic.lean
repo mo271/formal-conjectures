@@ -18,6 +18,8 @@ module
 
 public import Mathlib.NumberTheory.DirichletCharacter.Basic
 
+@[expose] public section
+
 namespace DirichletCharacter
 
 instance {S : Type*} [DecidableEq S] [CommRing S] {m : ℕ} :

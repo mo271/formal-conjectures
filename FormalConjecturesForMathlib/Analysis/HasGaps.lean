@@ -19,6 +19,8 @@ public import FormalConjecturesForMathlib.Topology.Algebra.InfiniteSum.Group
 public import FormalConjecturesForMathlib.Topology.Algebra.InfiniteSum.Order
 public import Mathlib.Analysis.SpecificLimits.Basic
 
+@[expose] public section
+
 /-!
 # Sequences with Large Gaps
 

@@ -19,6 +19,8 @@ public import Mathlib.Algebra.Category.ModuleCat.Sheaf.Free
 public import Mathlib.Algebra.Category.ModuleCat.Sheaf.PushforwardContinuous
 public import Mathlib.CategoryTheory.Sites.CoversTop
 
+@[expose] public section
+
 universe u v
 
 namespace SheafOfModules

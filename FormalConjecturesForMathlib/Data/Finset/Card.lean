@@ -17,6 +17,8 @@ module
 
 public import Mathlib.Data.Finset.Card
 
+@[expose] public section
+
 namespace Finset
 variable {α : Type*} {s t : Finset α}
 

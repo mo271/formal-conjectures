@@ -18,6 +18,8 @@ module
 
 public import Mathlib.Data.Nat.Squarefree
 
+@[expose] public section
+
 /-!
 # Primitive elements of a set with respect to divisibility
 

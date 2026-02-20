@@ -18,6 +18,8 @@ module
 
 public import Mathlib.Algebra.Polynomial.HasseDeriv
 
+@[expose] public section
+
 open scoped Polynomial in -- probably removable in the mathlib file
 theorem Polynomial.hasseDeriv_map {R S : Type*} [Semiring R] [Semiring S]
     {f : R →+* S} {k : ℕ} {p : R[X]} : (p.map f).hasseDeriv k = (p.hasseDeriv k).map f := by

@@ -19,6 +19,8 @@ public import Mathlib.Algebra.Polynomial.Degree.Definitions
 public import Mathlib.Algebra.Polynomial.Eval.Defs
 public import Mathlib.Data.Nat.Prime.Defs
 
+@[expose] public section
+
 open Polynomial
 
 /-!

@@ -19,6 +19,8 @@ module
 public import Mathlib.Order.Interval.Finset.Nat
 public import Mathlib.Data.Set.Card
 
+@[expose] public section
+
 @[simp]
 theorem Nat.ncard_Iio (b : ℕ) : (Set.Iio b).ncard = b := by
   rw [← Finset.coe_Iio, Set.ncard_coe_finset]

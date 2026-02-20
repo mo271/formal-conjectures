@@ -19,6 +19,8 @@ module
 
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 
+@[expose] public section
+
 open Matrix
 open scoped MatrixGroups
 

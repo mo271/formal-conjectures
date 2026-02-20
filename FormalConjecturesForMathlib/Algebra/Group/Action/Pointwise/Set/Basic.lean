@@ -17,6 +17,8 @@ module
 
 public import Mathlib.Algebra.Group.Action.Pointwise.Set.Basic
 
+@[expose] public section
+
 open scoped Pointwise
 
 namespace Set

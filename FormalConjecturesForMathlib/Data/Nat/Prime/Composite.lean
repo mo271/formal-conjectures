@@ -17,4 +17,6 @@ module
 
 public import Mathlib.Data.Nat.Prime.Defs
 
+@[expose] public section
+
 abbrev Nat.Composite (n : ℕ) : Prop := 1 < n ∧ ¬n.Prime

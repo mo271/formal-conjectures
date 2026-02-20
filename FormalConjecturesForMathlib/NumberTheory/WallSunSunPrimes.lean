@@ -17,6 +17,8 @@ module
 
 public import Mathlib.NumberTheory.LegendreSymbol.JacobiSymbol
 
+@[expose] public section
+
 
 /-!
 # Wall-Sun-Sun primes

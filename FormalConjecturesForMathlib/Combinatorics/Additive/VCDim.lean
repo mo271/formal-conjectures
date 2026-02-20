@@ -18,6 +18,8 @@ module
 public import FormalConjecturesForMathlib.Combinatorics.SetFamily.VCDim
 public import Mathlib.Algebra.Group.Action.Pointwise.Set.Basic
 
+@[expose] public section
+
 /-!
 # VC dimension in a group
 

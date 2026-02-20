@@ -22,6 +22,8 @@ public import FormalConjecturesForMathlib.Order.Interval.Finset.Basic
 public import FormalConjecturesForMathlib.Order.Interval.Finset.Nat
 public import Batteries.Util.ProofWanted
 
+@[expose] public section
+
 open Filter
 
 open scoped Topology

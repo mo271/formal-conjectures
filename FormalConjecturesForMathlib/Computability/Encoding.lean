@@ -19,6 +19,8 @@ module
 public import Mathlib.Computability.Encoding
 public import Mathlib.Data.List.SplitOn
 
+@[expose] public section
+
 open Computability
 
 section Encodings

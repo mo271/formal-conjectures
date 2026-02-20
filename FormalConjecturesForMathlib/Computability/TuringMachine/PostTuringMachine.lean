@@ -19,6 +19,8 @@ module
 public import Mathlib.Computability.PostTuringMachine
 public import Mathlib.Logic.Relation
 
+@[expose] public section
+
 theorem Part.get_eq_get {σ : Type*} {a b : Part σ} (ha : a.Dom) (hb : a.get ha ∈ b) : a = b := by
   have hb' : b.Dom := Part.dom_iff_mem.mpr ⟨a.get ha, hb⟩
   rwa [← Part.eq_get_iff_mem hb', Part.eq_iff_of_dom ha hb'] at hb

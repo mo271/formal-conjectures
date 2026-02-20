@@ -18,6 +18,8 @@ module
 
 public import Mathlib.Logic.Equiv.Fin.Rotate
 
+@[expose] public section
+
 variable {n : ℕ}
 
 theorem lt_finRotate_of_ne_last {i : Fin (n + 1)} (hi : i ≠ Fin.last n) :

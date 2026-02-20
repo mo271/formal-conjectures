@@ -20,6 +20,8 @@ public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 public import Mathlib.Data.Set.Finite.Lattice
 public import Mathlib.Order.Filter.AtTopBot.Defs
 
+@[expose] public section
+
 variable {M : Type*} [AddCommMonoid M]
 
 open scoped List
