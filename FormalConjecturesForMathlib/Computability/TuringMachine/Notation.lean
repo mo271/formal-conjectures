@@ -17,8 +17,9 @@ limitations under the License.
 module
 
 public import FormalConjecturesForMathlib.Computability.TuringMachine.BusyBeavers
+public meta import Mathlib.Data.List.Defs
 
-@[expose] public section
+@[expose] public meta section
 
 /-! # Turing Machine Parser
 
