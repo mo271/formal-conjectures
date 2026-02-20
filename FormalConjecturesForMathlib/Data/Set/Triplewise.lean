@@ -13,11 +13,13 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -/
+module
 
-import Mathlib.Data.ENat.Lattice
-import Mathlib.Data.Set.Card
-import Mathlib.Order.CompletePartialOrder
-import Mathlib.Tactic.NormNum.Ineq
+
+public import Mathlib.Data.ENat.Lattice
+public import Mathlib.Data.Set.Card
+public import Mathlib.Order.CompletePartialOrder
+public import Mathlib.Tactic.NormNum.Ineq
 
 def Triplewise {α : Type*} (r : α → α → α → Prop) : Prop :=
   ∀ ⦃i j k ⦄, i ≠ j → j ≠ k → i ≠ k → r i j k

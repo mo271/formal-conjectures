@@ -13,8 +13,10 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -/
-import Mathlib.Combinatorics.Young.YoungDiagram
-import Mathlib.Combinatorics.SimpleGraph.Basic
+module
+
+public import Mathlib.Combinatorics.Young.YoungDiagram
+public import Mathlib.Combinatorics.SimpleGraph.Basic
 
 open YoungDiagram
 

@@ -13,9 +13,11 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -/
+module
 
 
-import FormalConjecturesForMathlib.LinearAlgebra.GeneralLinearGroup
+
+public import FormalConjecturesForMathlib.LinearAlgebra.GeneralLinearGroup
 
 open Matrix
 open scoped MatrixGroups

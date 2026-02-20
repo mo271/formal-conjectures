@@ -13,10 +13,12 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -/
+module
 
-import FormalConjecturesForMathlib.Combinatorics.AP.Basic
-import Mathlib.Analysis.Normed.Field.Lemmas
-import Mathlib.Order.CompletePartialOrder
+
+public import FormalConjecturesForMathlib.Combinatorics.AP.Basic
+public import Mathlib.Analysis.Normed.Field.Lemmas
+public import Mathlib.Order.CompletePartialOrder
 
 open Function Set
 open scoped Pointwise

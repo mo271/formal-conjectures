@@ -13,12 +13,14 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -/
-import FormalConjecturesForMathlib.Combinatorics.SimpleGraph.GraphConjectures.Definitions
-import FormalConjecturesForMathlib.Combinatorics.SimpleGraph.GraphConjectures.Domination
-import Mathlib.Analysis.Matrix.Spectrum
-import Mathlib.Combinatorics.SimpleGraph.AdjMatrix
-import Mathlib.Combinatorics.SimpleGraph.Metric
-import Mathlib.Data.Multiset.Interval
+module
+
+public import FormalConjecturesForMathlib.Combinatorics.SimpleGraph.GraphConjectures.Definitions
+public import FormalConjecturesForMathlib.Combinatorics.SimpleGraph.GraphConjectures.Domination
+public import Mathlib.Analysis.Matrix.Spectrum
+public import Mathlib.Combinatorics.SimpleGraph.AdjMatrix
+public import Mathlib.Combinatorics.SimpleGraph.Metric
+public import Mathlib.Data.Multiset.Interval
 
 noncomputable def Matrix.IsHermitian.maxEigenvalue {𝕜 : Type*} [Field 𝕜] [RCLike 𝕜]
     {n : Type*} [Fintype n] [DecidableEq n] {A : Matrix n n 𝕜} (hA : A.IsHermitian) : ℝ :=

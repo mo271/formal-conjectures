@@ -13,7 +13,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -/
-import Mathlib.Topology.Homeomorph.Lemmas
+module
+
+public import Mathlib.Topology.Homeomorph.Lemmas
 
 /- A bijection between discrete topological spaces induces a homeomorphism. -/
 def Homeomorph.OfDiscrete {X  Y : Type*} [TopologicalSpace X] [DiscreteTopology X]

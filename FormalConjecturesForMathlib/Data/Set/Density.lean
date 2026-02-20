@@ -13,12 +13,14 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -/
+module
 
-import FormalConjecturesForMathlib.Algebra.Order.Group.Pointwise.Interval
-import FormalConjecturesForMathlib.Data.Set.Bdd
-import FormalConjecturesForMathlib.Order.Interval.Finset.Basic
-import FormalConjecturesForMathlib.Order.Interval.Finset.Nat
-import Batteries.Util.ProofWanted
+
+public import FormalConjecturesForMathlib.Algebra.Order.Group.Pointwise.Interval
+public import FormalConjecturesForMathlib.Data.Set.Bdd
+public import FormalConjecturesForMathlib.Order.Interval.Finset.Basic
+public import FormalConjecturesForMathlib.Order.Interval.Finset.Nat
+public import Batteries.Util.ProofWanted
 
 open Filter
 

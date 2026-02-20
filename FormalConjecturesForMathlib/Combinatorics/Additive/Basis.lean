@@ -13,11 +13,13 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -/
-import FormalConjecturesForMathlib.Order.Filter.Cofinite
-import FormalConjecturesForMathlib.Algebra.Group.Action.Pointwise.Set.Basic
-import Mathlib.Algebra.Group.Pointwise.Set.BigOperators
-import Mathlib.Algebra.Group.Pointwise.Set.Finite
-import Mathlib.Algebra.Order.Monoid.Canonical.Defs
+module
+
+public import FormalConjecturesForMathlib.Order.Filter.Cofinite
+public import FormalConjecturesForMathlib.Algebra.Group.Action.Pointwise.Set.Basic
+public import Mathlib.Algebra.Group.Pointwise.Set.BigOperators
+public import Mathlib.Algebra.Group.Pointwise.Set.Finite
+public import Mathlib.Algebra.Order.Monoid.Canonical.Defs
 
 open Filter
 open scoped Pointwise

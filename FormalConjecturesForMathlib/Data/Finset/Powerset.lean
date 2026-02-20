@@ -13,7 +13,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -/
-import Mathlib.Data.Finset.Powerset
+module
+
+public import Mathlib.Data.Finset.Powerset
 
 namespace Finset
 variable {α : Type*} [DecidableEq α] {s t : Finset α} {n : ℕ}
