@@ -18,7 +18,7 @@ module
 
 public import Mathlib.Analysis.Complex.ExponentialBounds
 public import Mathlib.Analysis.SpecialFunctions.Log.Basic
-public import Mathlib.Tactic
+import Mathlib.Tactic
 
 @[expose] public section
 

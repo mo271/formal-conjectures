@@ -19,7 +19,7 @@ module
 public import Mathlib.Data.ENat.Lattice
 public import Mathlib.Data.Set.Card
 public import Mathlib.Order.CompletePartialOrder
-public import Mathlib.Tactic.NormNum.Ineq
+import Mathlib.Tactic.NormNum.Ineq
 
 @[expose] public section
 

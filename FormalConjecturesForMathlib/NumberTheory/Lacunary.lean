@@ -18,7 +18,7 @@ module
 
 public import Mathlib.Analysis.Normed.Field.Lemmas
 public import Mathlib.Order.Filter.Defs
-public import Mathlib.Tactic.Rify
+import Mathlib.Tactic.Rify
 
 @[expose] public section
 

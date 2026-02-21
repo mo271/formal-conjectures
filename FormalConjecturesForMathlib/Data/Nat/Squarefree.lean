@@ -19,7 +19,7 @@ module
 public import Mathlib.Data.Nat.Squarefree
 public import FormalConjecturesForMathlib.Data.Nat.Factorization.Basic
 public import Mathlib.Data.Nat.Factorization.Basic
-public import Mathlib.Tactic
+import Mathlib.Tactic
 
 @[expose] public section
 
