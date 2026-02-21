@@ -15,12 +15,13 @@ limitations under the License.
 -/
 module
 
-
+public import Mathlib.Analysis.SpecialFunctions.Log.Basic
 public import FormalConjecturesForMathlib.Algebra.Order.Group.Pointwise.Interval
 public import FormalConjecturesForMathlib.Data.Set.Bdd
 public import FormalConjecturesForMathlib.Order.Interval.Finset.Basic
 public import FormalConjecturesForMathlib.Order.Interval.Finset.Nat
 public import Batteries.Util.ProofWanted
+import Mathlib.Tactic
 
 @[expose] public section
 

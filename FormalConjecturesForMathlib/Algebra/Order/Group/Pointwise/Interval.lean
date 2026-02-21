@@ -16,8 +16,10 @@ limitations under the License.
 module
 
 
+public import Mathlib.Data.Nat.Cast.Order.Ring
+public import Mathlib.Order.Interval.Set.Defs
 public import Mathlib.Algebra.Order.Group.Pointwise.Interval
-public import Mathlib.Tactic
+import Mathlib.Tactic
 
 @[expose] public section
 
