@@ -19,7 +19,7 @@ module
 public import FormalConjecturesForMathlib.Computability.TuringMachine.BusyBeavers
 public meta import Mathlib.Data.List.Defs
 
-@[expose] public meta section
+public meta section
 
 /-! # Turing Machine Parser
 
