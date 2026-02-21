@@ -18,7 +18,7 @@ module
 public import Mathlib.Algebra.GCDMonoid.Finset
 public import Mathlib.Algebra.GCDMonoid.Nat
 public import Mathlib.Data.Nat.Factorization.Defs
-public import Mathlib.Tactic.NormNum.Ineq
+import Mathlib.Tactic
 
 @[expose] public section
 
