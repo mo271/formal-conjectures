@@ -15,7 +15,6 @@ limitations under the License.
 -/
 module
 
-
 public import Mathlib.Data.Nat.Factorization.Basic
 
 @[expose] public section

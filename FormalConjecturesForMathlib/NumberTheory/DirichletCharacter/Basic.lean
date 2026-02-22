@@ -15,7 +15,6 @@ limitations under the License.
 -/
 module
 
-
 public import Mathlib.NumberTheory.DirichletCharacter.Basic
 
 @[expose] public section

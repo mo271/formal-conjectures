@@ -15,7 +15,6 @@ limitations under the License.
 -/
 module
 
-
 public import Mathlib.LinearAlgebra.Orientation
 public import Mathlib.Analysis.InnerProductSpace.PiL2
 public import Mathlib.Geometry.Euclidean.Angle.Oriented.Affine

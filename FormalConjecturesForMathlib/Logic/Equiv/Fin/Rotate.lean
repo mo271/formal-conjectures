@@ -15,7 +15,6 @@ limitations under the License.
 -/
 module
 
-
 public import Mathlib.Logic.Equiv.Fin.Rotate
 
 @[expose] public section

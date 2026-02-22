@@ -15,8 +15,6 @@ limitations under the License.
 -/
 module
 
-
-
 public import FormalConjecturesForMathlib.LinearAlgebra.GeneralLinearGroup
 
 @[expose] public section

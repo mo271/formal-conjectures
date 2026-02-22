@@ -15,7 +15,6 @@ limitations under the License.
 -/
 module
 
-
 public import Mathlib.Data.ZMod.Defs
 
 @[expose] public section

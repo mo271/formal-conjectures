@@ -15,7 +15,6 @@ limitations under the License.
 -/
 module
 
-
 public import FormalConjecturesForMathlib.Combinatorics.AP.Basic
 public import Mathlib.Analysis.Normed.Field.Lemmas
 public import Mathlib.Order.CompletePartialOrder

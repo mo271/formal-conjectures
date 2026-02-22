@@ -15,7 +15,6 @@ limitations under the License.
 -/
 module
 
-
 public import Mathlib.Computability.Encoding
 public import Mathlib.Data.List.SplitOn
 

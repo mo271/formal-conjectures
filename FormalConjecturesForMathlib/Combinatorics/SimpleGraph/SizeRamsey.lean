@@ -15,7 +15,6 @@ limitations under the License.
 -/
 module
 
-
 public import Mathlib.Combinatorics.SimpleGraph.Copy
 public import Mathlib.Data.Nat.Lattice
 public import Mathlib.Data.Real.Basic

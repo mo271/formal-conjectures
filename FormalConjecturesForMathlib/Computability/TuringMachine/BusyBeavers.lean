@@ -15,7 +15,6 @@ limitations under the License.
 -/
 module
 
-
 public import FormalConjecturesForMathlib.Computability.TuringMachine.PostTuringMachine
 public import Mathlib.Computability.TuringMachine
 public import Mathlib.Data.Nat.Lattice

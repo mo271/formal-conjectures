@@ -15,7 +15,6 @@ limitations under the License.
 -/
 module
 
-
 public import Mathlib.Algebra.Module.NatInt
 public import Mathlib.Data.ENat.Lattice
 public import Mathlib.Data.Set.Card

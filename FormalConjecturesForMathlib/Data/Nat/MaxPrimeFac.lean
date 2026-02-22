@@ -15,7 +15,6 @@ limitations under the License.
 -/
 module
 
-
 public import Mathlib.Data.Nat.PrimeFin
 public import Mathlib.Data.Nat.Lattice
 

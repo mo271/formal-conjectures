@@ -15,7 +15,6 @@ limitations under the License.
 -/
 module
 
-
 public import Mathlib.Algebra.Order.Ring.Nat
 public import Mathlib.Algebra.Order.Star.Basic
 public import Mathlib.Data.Nat.PrimeFin

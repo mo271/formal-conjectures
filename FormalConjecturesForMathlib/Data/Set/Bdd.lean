@@ -15,7 +15,6 @@ limitations under the License.
 -/
 module
 
-
 public import Mathlib.Order.Interval.Finset.Defs
 
 @[expose] public section
