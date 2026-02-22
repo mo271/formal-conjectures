@@ -15,7 +15,6 @@ limitations under the License.
 -/
 module
 
-
 public import Mathlib.Algebra.BigOperators.Finsupp.Basic
 public import Mathlib.Data.Real.Basic
 public import Mathlib.Order.Filter.AtTopBot.Defs
