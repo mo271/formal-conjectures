@@ -40,7 +40,6 @@ noncomputable def h (n : ℕ) : ℕ∞ := sInf {m | 2 < m ∧
 /-- `n + 1` is prime iff `h n = n + 1`. -/
 @[category test, AMS 11]
 theorem Nat.Prime.h_eq_add_one {n : ℕ} (hn : 2 < n) : h n = n + 1 ↔ (n + 1).Prime := by
-  -- AlphaProof failed to close this goal
   sorry
 
 /-- For odd `n`, the values of `h n` form an unbounded set. -/
