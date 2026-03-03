@@ -59,7 +59,7 @@ theorem erdos_978.sub_two {f : ℤ[X]} (hi : Irreducible f) (hd : f.natDegree �
 /-- Is it true that the set of `n` such that `f n` is `(k - 2)`-th power free has infinitely many
 elements? -/
 @[category research open, AMS 11]
-theorem erdos_978.sub_two' : answer(sorry) ↔ ∀ {f : ℤ[X]}, Irreducible f → f.natDegree > 2 →
+theorem erdos_978.sub_two' : answer(sorry) ↔ ∀ {f : ℤ[X]}, Irreducible f → f.natDegree > 3 →
     (¬ ∃ p : ℕ, p.Prime ∧ ∀ n : ℕ, (p : ℤ) ^ (f.natDegree - 1) ∣ f.eval (n : ℤ)) →
     {n : ℕ | Powerfree (f.natDegree - 2) (f.eval (n : ℤ))}.Infinite := by
   sorry
