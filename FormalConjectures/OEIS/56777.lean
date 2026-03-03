@@ -77,7 +77,8 @@ theorem mod_72_of_comesFromPrimeQuadruple {n : ℕ} (h : ComesFromPrimeQuadruple
     n % 72 = 65 := by
   sorry
 
-/-- Numbers coming from prime quadruples satisfy $n \equiv 9 \pmod{100}$. -/
+/-- Numbers coming from prime quadruples satisfy $n \equiv 9 \pmod{100}$,
+except the first value "65". -/
 @[category undergraduate, AMS 11]
 theorem mod_100_of_comesFromPrimeQuadruple {n : ℕ} (h : 65 < n) (h : ComesFromPrimeQuadruple n) :
     n % 100 = 9 := by
