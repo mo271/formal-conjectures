@@ -21,6 +21,10 @@ import FormalConjectures.Util.ProblemImports
 
 *Reference:* [erdosproblems.com/21](https://www.erdosproblems.com/21)
 
+Let $f(n)$ be the minimum size of an intersecting family of $n$-element sets such that every
+set of size at most $n-1$ is disjoint from at least one member. Erdős and Lovász [ErLo75]
+conjectured $f(n) = O(n)$, proved by Kahn [Ka94].
+
 [ErLo75] Erdős, P. and Lovász, L., _Problems and results on 3-chromatic hypergraphs and some
 related questions_. Infinite and finite sets (Colloq., Keszthely, 1973; dedicated to P. Erdős on
 his 60th birthday), Vol. II (1975), 609–627.
@@ -66,9 +70,9 @@ Kahn [Ka92b] improved the upper bound to $f(n) \ll n \log n$.
 Kahn [Ka94] proved $f(n) \ll n$, settling the conjecture.
 -/
 @[category research solved, AMS 5]
-theorem erdos_21 :
-    ∃ C : ℝ, 0 < C ∧ ∃ N : ℕ, ∀ n : ℕ, N ≤ n →
-      (erdosLovaszF n : ℝ) ≤ C * n := by
+theorem erdos_21 : answer(True) ↔
+    (∃ C : ℝ, 0 < C ∧ ∃ N : ℕ, ∀ n : ℕ, N ≤ n →
+      (erdosLovaszF n : ℝ) ≤ C * n) := by
   sorry
 
 end Erdos21

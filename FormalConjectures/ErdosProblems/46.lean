@@ -21,6 +21,9 @@ import FormalConjectures.Util.ProblemImports
 
 *Reference:* [erdosproblems.com/46](https://www.erdosproblems.com/46)
 
+For every finite colouring of the integers $\geq 2$, there exists a monochromatic finite
+set whose reciprocals sum to $1$. Proved by Croot [Cr03].
+
 [Cr03] Croot, E.S., _On a coloring conjecture about unit fractions_, Annals of Mathematics **157** (2003), 545–556.
 -/
 
@@ -36,11 +39,12 @@ reciprocals sum to $1$, i.e. $\sum 1/n_i = 1$.
 Proved by Croot [Cr03].
 -/
 @[category research solved, AMS 5 11]
-theorem erdos_46 (α : Type*) [Finite α] (c : ℕ → α) :
-    ∃ S : Finset ℕ, S.Nonempty ∧
-      (∀ n ∈ S, n ≥ 2) ∧
-      (∃ color : α, ∀ n ∈ S, c n = color) ∧
-      (∑ n ∈ S, (1 : ℚ) / (n : ℚ)) = 1 := by
+theorem erdos_46 : answer(True) ↔
+    ∀ (α : Type*) [Finite α] (c : ℕ → α),
+      ∃ S : Finset ℕ, S.Nonempty ∧
+        (∀ n ∈ S, n ≥ 2) ∧
+        (∃ color : α, ∀ n ∈ S, c n = color) ∧
+        (∑ n ∈ S, (1 : ℚ) / (n : ℚ)) = 1 := by
   sorry
 
 end Erdos46

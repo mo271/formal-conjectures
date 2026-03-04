@@ -21,6 +21,10 @@ import FormalConjectures.Util.ProblemImports
 
 *Reference:* [erdosproblems.com/16](https://www.erdosproblems.com/16)
 
+Erdős [Er50] showed that the set of odd integers not of the form $2^k + p$ (with $p$ prime)
+contains an infinite arithmetic progression, and asked whether this set is the union of an
+infinite AP and a density-zero set. Chen [Ch23] proved it is not.
+
 [Er50] Erdős, P., _On integers of the form $2^k + p$ and some related problems_. Summa Brasil.
 Math. **2** (1950), 113–123.
 
@@ -67,11 +71,11 @@ congruences, Erdős [Er50] showed this set contains an infinite arithmetic progr
 Chen [Ch23] resolved the question negatively.
 -/
 @[category research solved, AMS 11]
-theorem erdos_16 :
-    ¬ ∃ (AP D : Set ℕ),
-        IsInfiniteAP AP ∧
-        HasNaturalDensityZero D ∧
-        oddNotPowerOfTwoPlusPrime = AP ∪ D := by
+theorem erdos_16 : answer(False) ↔
+    ∃ (AP D : Set ℕ),
+      IsInfiniteAP AP ∧
+      HasNaturalDensityZero D ∧
+      oddNotPowerOfTwoPlusPrime = AP ∪ D := by
   sorry
 
 end Erdos16

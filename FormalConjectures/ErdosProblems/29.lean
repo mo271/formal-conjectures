@@ -20,6 +20,11 @@ import FormalConjectures.Util.ProblemImports
 # Erdős Problem 29
 
 *Reference:* [erdosproblems.com/29](https://www.erdosproblems.com/29)
+
+There exists a set $A \subseteq \mathbb{N}$ that is an additive basis of order 2 (i.e.,
+$A + A = \mathbb{N}$) whose representation function grows sub-polynomially: $r_A(n) = o(n^\varepsilon)$
+for every $\varepsilon > 0$. First proved by Erdős via probabilistic methods; an explicit
+construction was given by Jain, Pham, Sawhney, and Zakharov (2024).
 -/
 
 open Filter Asymptotics Classical
@@ -47,6 +52,7 @@ Jain, Pham, Sawhney, and Zakharov (2024).
 -/
 @[category research solved, AMS 5 11]
 theorem erdos_29 :
+    answer(True) ↔
     ∃ A : Set ℕ,
       (∀ n : ℕ, ∃ a ∈ A, ∃ b ∈ A, a + b = n) ∧
       ∀ ε : ℝ, 0 < ε →

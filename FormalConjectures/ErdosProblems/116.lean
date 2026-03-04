@@ -21,6 +21,10 @@ import FormalConjectures.Util.ProblemImports
 
 *Reference:* [erdosproblems.com/116](https://www.erdosproblems.com/116)
 
+Erdős–Herzog–Piranian conjecture (proved): if all roots of a degree-$n$ polynomial lie in the
+unit disk, the area of $\{z : |p(z)| < 1\}$ is at least $n^{-O(1)}$. Settled by Krishnapur,
+Lundberg, and Ramachandran.
+
 [EHP58] Erdős, P., Herzog, F., and Piranian, G., *Metric properties of polynomials*, J. Analyse
 Math. 6 (1958), 125–148.
 
@@ -72,7 +76,7 @@ Pólya [Po28] showed the area is always at most $\pi$, with equality only when a
 roots are equal.
 -/
 @[category research solved, AMS 28 30]
-theorem erdos_116 :
+theorem erdos_116 : answer(True) ↔
     ∃ (κ δ : ℝ), 0 < δ ∧ 0 < κ ∧
     ∀ (n : ℕ), 1 ≤ n →
     ∀ (roots : Fin n → ℂ), (∀ i, ‖roots i‖ ≤ 1) →

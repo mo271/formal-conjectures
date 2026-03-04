@@ -41,7 +41,7 @@ open scoped Classical
 namespace Erdos27
 
 /-- A congruence system has distinct moduli if no two pairs share the same modulus. -/
-def hasDistinctModuli (S : Finset (ℤ × ℕ)) : Prop :=
+def HasDistinctModuli (S : Finset (ℤ × ℕ)) : Prop :=
   S.card = (S.image Prod.snd).card
 
 /-- The LCM of all moduli in a congruence system. -/
@@ -67,11 +67,12 @@ Pomerance, and Yu [FFKPY07].
 -/
 @[category research solved, AMS 11]
 theorem erdos_27 :
-    ¬ ∃ C : ℝ, C > 1 ∧
+    answer(False) ↔
+    ∃ C : ℝ, C > 1 ∧
       ∀ ε : ℝ, ε > 0 →
       ∀ N : ℕ, N ≥ 1 →
       ∃ S : Finset (ℤ × ℕ),
-        hasDistinctModuli S ∧
+        HasDistinctModuli S ∧
         S.Nonempty ∧
         (∀ p ∈ S, p.2 ≥ 2) ∧
         (∀ p ∈ S, N ≤ p.2 ∧ (p.2 : ℝ) ≤ C * N) ∧
