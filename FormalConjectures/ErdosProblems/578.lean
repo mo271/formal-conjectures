@@ -47,9 +47,7 @@ def hypercubeGraph (d : ℕ) : SimpleGraph (Fin d → Bool) where
       ext i; simp [ne_comm]
     rw [heq]; exact h
   loopless := fun v h => by
-    have : (Finset.univ.filter fun i : Fin d => v i ≠ v i) = ∅ := by
-      ext i; simp
-    rw [this] at h; exact absurd h (by norm_num)
+    simp [Finset.filter_false_of_mem] at h
 
 /-- The simple graph on `Fin n` determined by a Boolean matrix. Only values at
     `(min u v, max u v)` matter; this ensures symmetry. Under $G(n, 1/2)$, each

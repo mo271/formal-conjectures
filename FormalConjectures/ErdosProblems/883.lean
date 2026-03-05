@@ -44,7 +44,7 @@ def coprimeGraph (A : Finset ℕ) : SimpleGraph ℕ where
   symm := by
     intro x y ⟨hx, hy, hne, hcop⟩
     exact ⟨hy, hx, hne.symm, hcop.symm⟩
-  loopless x ⟨_, _, hne, _⟩ := hne rfl
+  loopless x := fun ⟨_, _, hne, _⟩ => hne rfl
 
 /--
 A graph contains a cycle of length $k$: there exist $k$ distinct vertices
@@ -78,7 +78,7 @@ theorem erdos_883 : answer(sorry) ↔
       (∀ a ∈ A, 1 ≤ a ∧ a ≤ n) →
       A.card > erdos883Threshold n →
       ∀ k : ℕ, k ≥ 3 → k % 2 = 1 → k ≤ n / 3 + 1 →
-        (coprimeGraph A).ContainsCycle k := by
+        Erdos883.SimpleGraph.ContainsCycle (coprimeGraph A) k := by
   sorry
 
 /--
@@ -107,7 +107,7 @@ theorem erdos_883.variants.tripartite : answer(True) ↔
     ∀ A : Finset ℕ,
       (∀ a ∈ A, 1 ≤ a ∧ a ≤ n) →
       A.card > erdos883Threshold n →
-        (coprimeGraph A).ContainsTripartite ℓ := by
+        Erdos883.SimpleGraph.ContainsTripartite (coprimeGraph A) ℓ := by
   sorry
 
 end Erdos883

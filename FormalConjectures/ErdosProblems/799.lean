@@ -60,8 +60,9 @@ def toGraph {n : ℕ} (ec : Fin n → Fin n → Bool) : SimpleGraph (Fin n) wher
 Each graph is encoded by a Boolean edge predicate; the graph is read
 from the upper triangle, so every graph has equal weight. -/
 noncomputable def graphFraction (n : ℕ) (P : SimpleGraph (Fin n) → Prop) : ℝ :=
+  haveI : DecidablePred (fun ec => P (toGraph ec)) := fun _ => Classical.dec _
   ((Finset.univ : Finset (Fin n → Fin n → Bool)).filter
-    (fun ec => P (toGraph ec)) (p := fun ec => Classical.dec (P (toGraph ec)))).card /
+    (fun ec => P (toGraph ec))).card /
   ((Finset.univ : Finset (Fin n → Fin n → Bool)).card : ℝ)
 
 /--
