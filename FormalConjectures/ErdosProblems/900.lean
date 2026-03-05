@@ -40,10 +40,10 @@ def GraphHasLongPath {V : Type*} (G : SimpleGraph V) (k : ℕ) : Prop :=
       ∀ i : ℕ, ∀ h : i < m,
         G.Adj (path ⟨i, by omega⟩) (path ⟨i + 1, by omega⟩)
 
+open Classical in
 /-- The probability that a uniformly random simple graph on $\operatorname{Fin}(n)$ with exactly
 $m$ edges satisfies a given property, in the Erdős–Rényi $G(n,m)$ model.
 This is the fraction $|\{G \in G(n,m) \mid P(G)\}| / |G(n,m)|$. -/
-open Classical in
 noncomputable def erdosRenyiProbability (n m : ℕ)
     (P : SimpleGraph (Fin n) → Prop) : ℝ :=
   let total := Finset.univ.filter (fun G : SimpleGraph (Fin n) => G.edgeFinset.card = m)

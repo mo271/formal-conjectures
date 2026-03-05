@@ -50,10 +50,10 @@ $i + 1 \pmod{m}$ and vertex $i - 1 \pmod{m}$. -/
 def cycleGraph (m : ℕ) (_ : m ≥ 3) : SimpleGraph (Fin m) where
   Adj i j := i ≠ j ∧ (j.val = (i.val + 1) % m ∨ i.val = (j.val + 1) % m)
   symm := fun _ _ ⟨hne, h⟩ => ⟨hne.symm, h.elim Or.inr Or.inl⟩
-  loopless := ⟨fun _ ⟨h, _⟩ => h rfl⟩
+  loopless := fun _ h => h.1 rfl
 
 /-- $G$ contains a copy of $H$: there is an injective map preserving adjacency. -/
-def SimpleGraph.ContainsCopy {V W : Type*}
+def ContainsCopy {V W : Type*}
     (G : SimpleGraph V) (H : SimpleGraph W) : Prop :=
   ∃ f : W → V, Function.Injective f ∧ ∀ u v, H.Adj u v → G.Adj (f u) (f v)
 
@@ -72,7 +72,7 @@ theorem erdos_594 : answer(True) ↔
     ∀ {V : Type*} (G : SimpleGraph V),
       HasUncountableChromaticNumber G →
       ∃ N₀ : ℕ, ∀ (n : ℕ) (hn : n ≥ 3), Odd n → n ≥ N₀ →
-        G.ContainsCopy (cycleGraph n hn) := by
+        ContainsCopy G (cycleGraph n hn) := by
   sorry
 
 end Erdos594

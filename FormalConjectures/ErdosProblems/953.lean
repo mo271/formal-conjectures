@@ -63,7 +63,7 @@ $\gg_\varepsilon r^{1/2-\varepsilon}$ is known [Sá??].
 @[category research open, AMS 28 52]
 theorem erdos_953 :
     ∀ (r : ℝ), 0 < r →
-    maxNoIntDistMeasure r = answer(sorry) r := by
+    maxNoIntDistMeasure r = (answer(sorry) : ℝ → ℝ) r := by
   sorry
 
 /--

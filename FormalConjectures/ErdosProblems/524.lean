@@ -63,7 +63,7 @@ theorem erdos_524
     (hIndep : iIndepFun ε μ) :
     ∀ᵐ ω ∂μ,
       (fun n => supNormInterval (fun k => ε k ω) n) =Θ[atTop]
-        answer(sorry) := by
+        (answer(sorry) : ℕ → ℝ) := by
   sorry
 
 /-- Erdős showed that for almost all $\omega$ and every $\delta > 0$,

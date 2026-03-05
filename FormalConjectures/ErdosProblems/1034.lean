@@ -28,7 +28,7 @@ vertices each adjacent to at least two of the triangle's vertices.
 [Er93] Erdős, P., *On some of my favourite theorems* (1993), p. 344.
 -/
 
-open SimpleGraph Finset
+open Classical SimpleGraph Finset
 
 namespace Erdos1034
 

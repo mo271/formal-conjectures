@@ -62,7 +62,7 @@ def asCompleteAsPossible (n t : ℕ) : SimpleGraph (Fin (n + 1)) where
     · exact ⟨hne.symm, Or.inl ⟨h.2, h.1⟩⟩
     · exact ⟨hne.symm, Or.inr (Or.inr h)⟩
     · exact ⟨hne.symm, Or.inr (Or.inl h)⟩
-  loopless := ⟨fun u h => h.1 rfl⟩
+  loopless u h := h.1 rfl
 
 /--
 Erdős Problem 545 [ErGr75, Er84b]:

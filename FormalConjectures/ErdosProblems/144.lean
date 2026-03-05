@@ -31,6 +31,8 @@ open Filter
 
 open scoped Topology
 
+attribute [local instance] Classical.propDecidable
+
 namespace Erdos144
 
 /-- A positive integer $n$ has two divisors $d_1, d_2$ with $d_1 < d_2 < 2d_1$. -/

@@ -71,7 +71,7 @@ for some constant $C$ depending only on $k$.
 -/
 @[category research open, AMS 5]
 theorem erdos_612 (k : ℕ) (hk : k ≥ 2) :
-    ∃ C : ℝ, ∀ (n : ℕ) (G : SimpleGraph (Fin n)),
+    ∃ C : ℝ, ∀ (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj],
       G.Connected →
       G.CliqueFree (k + 1) →
       G.minDegree ≥ 1 →
@@ -88,7 +88,7 @@ for some absolute constant $C$.
 -/
 @[category research solved, AMS 5]
 theorem erdos_612.variants.triangle_free :
-    ∃ C : ℝ, ∀ (n : ℕ) (G : SimpleGraph (Fin n)),
+    ∃ C : ℝ, ∀ (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj],
       G.Connected →
       G.CliqueFree 3 →
       G.minDegree ≥ 1 →
@@ -103,7 +103,7 @@ $$\operatorname{diam}(G) \leq \frac{3n}{d+1} + O(1).$$
 -/
 @[category research solved, AMS 5]
 theorem erdos_612.variants.general_bound :
-    ∃ C : ℝ, ∀ (n : ℕ) (G : SimpleGraph (Fin n)),
+    ∃ C : ℝ, ∀ (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj],
       G.Connected →
       G.minDegree ≥ 1 →
       (G.diam : ℝ) ≤ 3 * ((n : ℝ) / ((G.minDegree : ℝ) + 1)) + C := by

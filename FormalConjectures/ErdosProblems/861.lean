@@ -42,6 +42,8 @@ sets contained in a sparse random set of integers* (2015).
 the maximum size of Sidon sets contained in a sparse random set of integers* (2015).
 -/
 
+open scoped Classical
+
 open Finset Filter
 
 namespace Erdos861

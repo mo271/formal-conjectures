@@ -58,7 +58,7 @@ $1 \le k \le n$. The answer is an unknown function $g$ such that $f(n) / g(n) \t
 -/
 @[category research open, AMS 11]
 theorem erdos_710 :
-    Filter.Tendsto (fun n : ℕ => (erdos710F n : ℝ) / answer(sorry) n)
+    Filter.Tendsto (fun n : ℕ => (erdos710F n : ℝ) / (answer(sorry) : ℕ → ℝ) n)
       Filter.atTop (nhds 1) := by
   sorry
 

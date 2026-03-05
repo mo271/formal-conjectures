@@ -37,6 +37,7 @@ of sets with $A(x)B(x) - x < w(x)$ for infinitely many $x$.
 [Ru17] Ruzsa, I. Z.
 -/
 
+open scoped Classical
 open Filter
 
 namespace Erdos785

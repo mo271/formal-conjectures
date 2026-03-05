@@ -29,6 +29,7 @@ Pikhurko.
 Combinatorica 21 (2001), 403–412.
 -/
 
+open scoped Classical
 open SimpleGraph
 
 namespace Erdos613

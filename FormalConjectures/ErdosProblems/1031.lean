@@ -48,7 +48,7 @@ then $G$ contains all graphs with $O_c(\log n)$ vertices as induced subgraphs.
 theorem erdos_1031 :
     ∃ c : ℝ, c > 0 ∧
     ∃ N₀ : ℕ, ∀ n : ℕ, n ≥ N₀ →
-    ∀ G : SimpleGraph (Fin n),
+    ∀ G : SimpleGraph (Fin n), ∀ _ : DecidableRel G.Adj,
       G.CliqueFree ⌈10 * Real.log (↑n)⌉₊ →
       Gᶜ.CliqueFree ⌈10 * Real.log (↑n)⌉₊ →
       ∃ S : Finset (Fin n),

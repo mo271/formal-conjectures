@@ -45,12 +45,12 @@ def HasUncountableChromaticNumber {V : Type*} (G : SimpleGraph V) : Prop :=
 def cycleGraph (m : ℕ) (_ : m ≥ 3) : SimpleGraph (Fin m) where
   Adj i j := i ≠ j ∧ (j.val = (i.val + 1) % m ∨ i.val = (j.val + 1) % m)
   symm := fun _ _ ⟨hne, h⟩ => ⟨hne.symm, h.elim Or.inr Or.inl⟩
-  loopless := ⟨fun _ ⟨h, _⟩ => h rfl⟩
+  loopless := fun _ ⟨h, _⟩ => h rfl
 
 /-- $G$ contains a copy of the cycle graph $C_m$ passing through edge $\{u, v\}$:
     there is an injective embedding of $C_m$ into $G$ that maps some edge of
     the cycle to the edge $\{u, v\}$. -/
-def SimpleGraph.ContainsCycleThroughEdge {V : Type*}
+def ContainsCycleThroughEdge {V : Type*}
     (G : SimpleGraph V) (u v : V) (m : ℕ) (hm : m ≥ 3) : Prop :=
   ∃ f : Fin m → V, Function.Injective f ∧
     (∀ a b : Fin m, (cycleGraph m hm).Adj a b → G.Adj (f a) (f b)) ∧
@@ -72,7 +72,7 @@ theorem erdos_737 : answer(True) ↔
       HasUncountableChromaticNumber G →
         ∃ u v : V, G.Adj u v ∧
           ∃ N₀ : ℕ, ∀ (n : ℕ) (hn : n ≥ 3), n ≥ N₀ →
-            G.ContainsCycleThroughEdge u v n hn := by
+            ContainsCycleThroughEdge G u v n hn := by
   sorry
 
 end Erdos737

@@ -31,13 +31,14 @@ Proc. London Math. Soc. (3) 21 (1970), 540-556.
 
 open scoped MeasureTheory
 
-open Filter Finset Set
+open Filter Finset Set MeasureTheory
 
 namespace Erdos994
 
 /-- The Cesàro frequency of visits of the fractional parts $\{k\alpha\}$ to a set $E$,
 for $k = 1, \ldots, n$. That is, $\frac{1}{n} \cdot \#\{1 \le k \le n : \{k\alpha\} \in E\}$. -/
 noncomputable def cesaroFrequency (α : ℝ) (E : Set ℝ) (n : ℕ) : ℝ :=
+  have : DecidablePred (· ∈ E) := Classical.decPred _
   ((Finset.range n).filter (fun (k : ℕ) =>
     Int.fract (((k : ℝ) + 1) * α) ∈ E)).card / (n : ℝ)
 

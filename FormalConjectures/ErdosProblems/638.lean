@@ -43,7 +43,7 @@ def inducedFinSubgraph {V : Type*} (G : SimpleGraph V) {m : ℕ}
     (f : Fin m ↪ V) : SimpleGraph (Fin m) where
   Adj i j := G.Adj (f i) (f j)
   symm _ _ h := G.symm h
-  loopless := ⟨fun i h => G.loopless.1 (f i) h⟩
+  loopless i h := G.loopless (f i) h
 
 /-- Two graphs on $\operatorname{Fin} m$ are isomorphic via a permutation of vertices. -/
 def FinGraphIso {m : ℕ} (G H : SimpleGraph (Fin m)) : Prop :=

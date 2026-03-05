@@ -44,7 +44,7 @@ def coprimeGraph (A : Finset ℕ) : SimpleGraph ℕ where
   symm := by
     intro x y ⟨hx, hy, hne, hcop⟩
     exact ⟨hy, hx, hne.symm, hcop.symm⟩
-  loopless := ⟨fun x ⟨_, _, hne, _⟩ => hne rfl⟩
+  loopless x ⟨_, _, hne, _⟩ := hne rfl
 
 /--
 A graph contains a cycle of length $k$: there exist $k$ distinct vertices

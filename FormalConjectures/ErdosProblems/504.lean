@@ -68,7 +68,7 @@ theorem erdos_504 :
     ∀ (N : ℕ), 4 < N →
     ∀ (n : ℕ), 3 ≤ n → 2 ^ (n - 1) < N → N ≤ 2 ^ n →
       maxGuaranteedAngle N =
-        answer (if 2 ^ (n - 1) + 2 ^ (n - 3) < N
+        answer(if 2 ^ (n - 1) + 2 ^ (n - 3) < N
           then Real.pi * (1 - 1 / (n : ℝ))
           else Real.pi * (1 - 1 / (2 * (n : ℝ) - 1))) := by
   sorry

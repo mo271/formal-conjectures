@@ -31,7 +31,7 @@ Soc. Ser. B (1954), 23–38.
 [Ke63] Kesten, H., *On the number of self-avoiding walks*. J. Math. Phys. (1963), 960–969.
 -/
 
-open Finset BigOperators Filter
+open Classical Finset BigOperators Filter
 
 namespace Erdos528
 

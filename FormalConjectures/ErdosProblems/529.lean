@@ -29,7 +29,7 @@ $d_2(n)/\sqrt{n} \to \infty$ (Part 1) and whether $d_k(n) \ll \sqrt{n}$ for $k \
 J. Eur. Math. Soc. (2013).
 -/
 
-open BigOperators Filter
+open BigOperators Filter Classical
 
 namespace Erdos529
 

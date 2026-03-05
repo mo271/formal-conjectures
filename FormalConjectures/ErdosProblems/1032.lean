@@ -60,7 +60,7 @@ Known results:
 @[category research open, AMS 5]
 theorem erdos_1032 : answer(sorry) ↔
     ∃ c : ℝ, c > 0 ∧ ∀ N₀ : ℕ, ∃ n : ℕ, n ≥ N₀ ∧
-      ∃ G : SimpleGraph (Fin n),
+      ∃ (G : SimpleGraph (Fin n)) (_ : DecidableRel G.Adj),
         IsCritical G 4 ∧ (G.minDegree : ℝ) ≥ c * (n : ℝ) := by
   sorry
 

@@ -43,7 +43,7 @@ has a property equals the $G(n, 1/2)$-probability of that property. -/
 def toGraph625 {n : ℕ} (ec : Fin n → Fin n → Bool) : SimpleGraph (Fin n) where
   Adj u v := u ≠ v ∧ ec (min u v) (max u v) = true
   symm := fun _ _ ⟨hne, h⟩ => ⟨hne.symm, by rwa [min_comm, max_comm]⟩
-  loopless := ⟨fun v ⟨h, _⟩ => h rfl⟩
+  loopless := fun v ⟨h, _⟩ => h rfl
 
 /-- The chromatic number of a simple graph on `Fin n`: the minimum number of colors $k$
 such that there exists a proper coloring $f : \operatorname{Fin} n \to \operatorname{Fin} k$

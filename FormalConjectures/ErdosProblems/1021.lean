@@ -56,7 +56,7 @@ def subdivisionKComplete (k : ℕ) :
   symm := by
     intro v w h
     rcases v with a | ⟨⟨i, j⟩, hij⟩ <;> rcases w with b | ⟨⟨i', j'⟩, hij'⟩ <;> exact h
-  loopless := ⟨fun v h => by rcases v with a | ⟨⟨i, j⟩, hij⟩ <;> exact h⟩
+  loopless := fun v h => by rcases v with a | ⟨⟨i, j⟩, hij⟩ <;> exact h
 
 /-- A graph $G$ contains $H$ as a subgraph if there is an injective vertex map
 that sends edges to edges. -/

@@ -28,8 +28,6 @@ Proved by Reed [Re99].
 [Re99] Reed, B., _Mangoes and blueberries_. Combinatorica 19 (1999), 267–296.
 -/
 
-namespace Erdos73
-
 /--
 An independent set of a simple graph within a vertex subset $S$:
 a subset $I \subseteq S$ such that no two vertices in $I$ are adjacent in $G$.
@@ -37,6 +35,8 @@ a subset $I \subseteq S$ such that no two vertices in $I$ are adjacent in $G$.
 def SimpleGraph.IndepSetIn {V : Type*} (G : SimpleGraph V)
     (I S : Finset V) : Prop :=
   I ⊆ S ∧ ∀ ⦃u⦄, u ∈ I → ∀ ⦃v⦄, v ∈ I → u ≠ v → ¬G.Adj u v
+
+namespace Erdos73
 
 /--
 Let $k \geq 0$. If $G$ is a finite graph such that every induced subgraph $H$ on $n$

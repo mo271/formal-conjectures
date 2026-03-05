@@ -32,6 +32,8 @@ $\exp(C\sqrt{n})$ for some constant $C > 0$.
 
 namespace Erdos607
 
+open scoped Classical
+
 /-- Three points in $\mathbb{R}^2$ are collinear: the cross product of the displacement
     vectors $(q - p)$ and $(r - p)$ vanishes. -/
 noncomputable def Collinear607 (p q r : ℝ × ℝ) : Prop :=

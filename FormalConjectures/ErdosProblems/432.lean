@@ -27,6 +27,7 @@ Asked by Straus, inspired by a problem of Ostmann (see Problem #431).
 theory*. Monographies de L'Enseignement Mathematique (1980).
 -/
 
+open scoped Classical
 open Filter
 
 namespace Erdos432

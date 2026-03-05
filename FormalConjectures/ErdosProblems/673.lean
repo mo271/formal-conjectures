@@ -58,7 +58,7 @@ noncomputable def erdosG (n : ℕ) : ℝ :=
   ((divs.zip divs.tail).map (fun p => (p.1 : ℝ) / (p.2 : ℝ))).sum
 
 /-- The natural density of a set $A \subseteq \mathbb{N}$ is zero. -/
-def HasNaturalDensityZero (A : Set ℕ) : Prop :=
+def HasNaturalDensityZero (A : Set ℕ) [DecidablePred (· ∈ A)] : Prop :=
   Tendsto
     (fun N : ℕ => (((Finset.range N).filter (· ∈ A)).card : ℝ) / (N : ℝ))
     atTop (nhds 0)

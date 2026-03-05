@@ -33,6 +33,8 @@ open Filter
 
 namespace Erdos342
 
+open scoped Classical
+
 /-- Count the number of representations of $m$ as $a_i + a_j$ with $i < j < n$. -/
 def ulamRepCount (a : ℕ → ℕ) (n m : ℕ) : ℕ :=
   Finset.card (Finset.filter

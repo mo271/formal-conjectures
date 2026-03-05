@@ -36,6 +36,7 @@ number theory*. Monographies de L'Enseignement Mathematique (1980).
 
 namespace Erdos280
 
+open Classical in
 /-- The count of integers $m < n(k)$ that avoid all congruence classes $a(i) \bmod n(i)$
 for $1 \leq i \leq k$. -/
 noncomputable def sieveCount (n a : ℕ → ℕ) (k : ℕ) : ℕ :=

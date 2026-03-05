@@ -27,6 +27,8 @@ such that $A + B$ contains all except finitely many natural numbers. Proved by L
 [Lo54] Lorentz, G. G., _On a problem of additive number theory_. Proc. Amer. Math. Soc. 5 (1954), 838–840.
 -/
 
+open scoped Classical
+
 namespace Erdos31
 
 /-- The sumset $A + B$: the set of all $a + b$ with $a \in A$, $b \in B$. -/

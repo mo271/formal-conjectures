@@ -57,6 +57,7 @@ def IsAdditiveBasis (A : Set ℕ) (r : ℕ) : Prop :=
 
 /-- Count of elements of $A$ in $\{0, 1, \ldots, N\}$. -/
 noncomputable def countInRange (A : Set ℕ) (N : ℕ) : ℕ :=
+  haveI : DecidablePred (· ∈ A) := Classical.decPred _
   ((Finset.range (N + 1)).filter (· ∈ A)).card
 
 /--

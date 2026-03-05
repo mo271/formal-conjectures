@@ -38,7 +38,7 @@ with an edge between $g$ and $h$ if and only if they do not commute ($gh \neq hg
 def nonCommutingGraph (G : Type*) [Group G] : SimpleGraph G where
   Adj g h := g * h ≠ h * g
   symm := by intro _ _ hab; exact Ne.symm hab
-  loopless := ⟨by intro a hab; exact hab rfl⟩
+  loopless := by intro a hab; exact hab rfl
 
 /--
 Erdős Problem 1098 (Proved by Neumann [Ne76]):

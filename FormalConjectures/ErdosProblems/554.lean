@@ -36,7 +36,7 @@ $i + 1 \pmod{m}$ and vertex $i - 1 \pmod{m}$. -/
 def cycleGraph (m : ℕ) (_ : m ≥ 3) : SimpleGraph (Fin m) where
   Adj i j := i ≠ j ∧ (j.val = (i.val + 1) % m ∨ i.val = (j.val + 1) % m)
   symm := fun _ _ ⟨hne, h⟩ => ⟨hne.symm, h.elim Or.inr Or.inl⟩
-  loopless := ⟨fun _ ⟨h, _⟩ => h rfl⟩
+  loopless := fun _ ⟨h, _⟩ => h rfl
 
 /-- The $k$-colour Ramsey number $R_k(G)$: the minimum $N$ such that for every
 $k$-colouring of the edges of $K_N$, there is a monochromatic copy of $G$.

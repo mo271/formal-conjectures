@@ -29,6 +29,7 @@ Solved by Conlon, Fox, and Pham [CFP21].
 sequences_, 2021.
 -/
 
+open scoped Classical
 open Finset Real
 
 namespace Erdos55

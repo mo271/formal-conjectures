@@ -33,6 +33,8 @@ geometry_ (1987).
 Combinatorica 3 (1983), 381–392.
 -/
 
+open scoped Classical
+
 namespace Erdos1069
 
 /-- A line in $\mathbb{R}^2$ (represented as `Fin 2 → ℝ`): a set of the form

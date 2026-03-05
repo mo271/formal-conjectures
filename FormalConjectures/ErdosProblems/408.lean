@@ -45,6 +45,7 @@ def iteratedTotient (k n : ℕ) : ℕ := Nat.totient^[k] n
 
 /-- The iterated totient function eventually reaches $1$ for any $n \ge 2$,
 since $\varphi(m) < m$ for $m \ge 2$ and $\varphi(1) = 1$. -/
+@[category test, AMS 11]
 lemma iteratedTotient_reaches_one {n : ℕ} (hn : 1 < n) :
     ∃ k, iteratedTotient k n = 1 := by
   sorry
@@ -56,7 +57,7 @@ This is well-defined for $n \ge 2$ since $\varphi(m) < m$ for $m \ge 2$ and $\va
 -/
 noncomputable def totientIterationLength (n : ℕ) : ℕ :=
   if h : n ≤ 1 then 0
-  else Nat.find (iteratedTotient_reaches_one (by omega))
+  else Nat.find (iteratedTotient_reaches_one (not_le.mp h))
 
 /--
 Erdős Problem 408 [ErGr80] — Part (a).

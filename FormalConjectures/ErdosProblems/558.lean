@@ -55,7 +55,7 @@ complete bipartite graph $K_{s,t}$. The general problem remains open.
 @[category research open, AMS 5]
 theorem erdos_558 :
     ∀ s t : ℕ, s ≥ 1 → t ≥ 1 → ∀ k : ℕ,
-    multicolorRamseyNumber (completeBipartiteGraph (Fin s) (Fin t)) k = answer(sorry) s t k := by
+    multicolorRamseyNumber (completeBipartiteGraph (Fin s) (Fin t)) k = answer((sorry : ℕ → ℕ → ℕ → ℕ) s t k) := by
   sorry
 
 /--

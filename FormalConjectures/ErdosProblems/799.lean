@@ -54,14 +54,14 @@ Only the upper-triangle entries $ec(\min(u, v), \max(u, v))$ for $u \neq v$ are 
 def toGraph {n : ℕ} (ec : Fin n → Fin n → Bool) : SimpleGraph (Fin n) where
   Adj u v := u ≠ v ∧ ec (min u v) (max u v) = true
   symm := fun _ _ ⟨hne, h⟩ => ⟨hne.symm, by rwa [min_comm, max_comm]⟩
-  loopless := ⟨fun _ ⟨h, _⟩ => h rfl⟩
+  loopless := fun _ ⟨h, _⟩ => h rfl
 
 /-- The fraction of all labeled graphs on $n$ vertices satisfying property $P$.
 Each graph is encoded by a Boolean edge predicate; the graph is read
 from the upper triangle, so every graph has equal weight. -/
 noncomputable def graphFraction (n : ℕ) (P : SimpleGraph (Fin n) → Prop) : ℝ :=
   ((Finset.univ : Finset (Fin n → Fin n → Bool)).filter
-    (fun ec => P (toGraph ec))).card /
+    (fun ec => P (toGraph ec)) (p := fun ec => Classical.dec (P (toGraph ec)))).card /
   ((Finset.univ : Finset (Fin n → Fin n → Bool)).card : ℝ)
 
 /--

@@ -38,7 +38,7 @@ are adjacent iff their Euclidean distance belongs to $A$. -/
 noncomputable def multiDistanceGraph (A : Set ℝ) : SimpleGraph (EuclideanSpace ℝ (Fin 2)) where
   Adj x y := x ≠ y ∧ dist x y ∈ A
   symm := fun _ _ ⟨hne, hd⟩ => ⟨hne.symm, by rw [dist_comm]; exact hd⟩
-  loopless := ⟨fun _ h => h.1 rfl⟩
+  loopless := fun _ h => h.1 rfl
 
 /--
 Is it true that $L(r) \leq r^{O(1)}$? That is, does there exist a polynomial bound

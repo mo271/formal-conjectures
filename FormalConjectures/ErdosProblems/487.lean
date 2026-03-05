@@ -41,9 +41,9 @@ namespace Erdos487
 A set $A \subseteq \mathbb{N}$ has positive upper density if there exists $\delta > 0$ such that
 for arbitrarily large $N$, $|A \cap \{1, \ldots, N\}| / N \geq \delta$.
 -/
-def HasPositiveUpperDensity487 (A : Set ℕ) : Prop :=
+noncomputable def HasPositiveUpperDensity487 (A : Set ℕ) : Prop :=
   ∃ δ : ℝ, 0 < δ ∧ ∀ N₀ : ℕ, ∃ N : ℕ, N₀ ≤ N ∧
-    (((Icc 1 N).filter (· ∈ A)).card : ℝ) ≥ δ * (N : ℝ)
+    ((A ∩ {i | 1 ≤ i ∧ i ≤ N}).ncard : ℝ) ≥ δ * (N : ℝ)
 
 /--
 Erdős Problem 487 [Er61, p. 236] [Er65b, p. 228]:

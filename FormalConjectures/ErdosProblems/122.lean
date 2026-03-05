@@ -34,6 +34,8 @@ number theory* (1997).
 arithmetic functions, III* (1997).
 -/
 
+open scoped Classical
+
 open Filter
 
 namespace Erdos122

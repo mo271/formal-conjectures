@@ -42,6 +42,7 @@ namespace Erdos778
 structure GameState (n : ℕ) where
   red : Finset (Sym2 (Fin n))
   blue : Finset (Sym2 (Fin n))
+deriving Inhabited
 
 /-- A strategy for a player in the edge-coloring game:
     given the current game state, choose the next edge to color. -/

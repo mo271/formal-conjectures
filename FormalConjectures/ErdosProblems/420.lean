@@ -63,7 +63,7 @@ Is it true that $\lim_{n \to \infty} F((\log n)^C, n) = \infty$ for all sufficie
 @[category research open, AMS 11]
 theorem erdos_420 : answer(sorry) ↔
     ∃ C₀ : ℝ, ∀ C : ℝ, C ≥ C₀ →
-      Tendsto (fun n : ℕ => F (fun m => (log (m : ℝ)) ^ C) n)
+      Tendsto (fun n : ℕ => F (fun m => (Real.log (m : ℝ)) ^ C) n)
         atTop atTop := by
   sorry
 
@@ -78,8 +78,8 @@ $a < F(\log n, n) < b$.
 theorem erdos_420.variants.dense_log : answer(sorry) ↔
     ∀ a b : ℝ, 1 < a → a < b →
       ∃ᶠ n in atTop,
-        a < F (fun m => log (m : ℝ)) n ∧
-        F (fun m => log (m : ℝ)) n < b := by
+        a < F (fun m => Real.log (m : ℝ)) n ∧
+        F (fun m => Real.log (m : ℝ)) n < b := by
   sorry
 
 /--
@@ -91,7 +91,7 @@ as $n \to \infty$, then is $F(f, n)$ everywhere dense in $(1, \infty)$?
 @[category research open, AMS 11]
 theorem erdos_420.variants.dense_monotone : answer(sorry) ↔
     ∀ f : ℕ → ℝ, Monotone f →
-      (∀ n : ℕ, f n ≤ log (n : ℝ)) →
+      (∀ n : ℕ, f n ≤ Real.log (n : ℝ)) →
       Tendsto f atTop atTop →
       ∀ a b : ℝ, 1 < a → a < b →
         ∃ᶠ n in atTop,

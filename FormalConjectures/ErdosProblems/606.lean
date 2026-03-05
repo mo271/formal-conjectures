@@ -42,8 +42,8 @@ namespace Erdos606
 A line is the affine span of a pair of distinct points from $A$. -/
 noncomputable def numLinesDetermined
     (A : Finset (EuclideanSpace ℝ (Fin 2))) : ℕ :=
-  (A.offDiag.image
-    (fun p => affineSpan ℝ ({p.1, p.2} : Set (EuclideanSpace ℝ (Fin 2))))).card
+  Set.ncard {l : AffineSubspace ℝ (EuclideanSpace ℝ (Fin 2)) |
+    ∃ a ∈ A, ∃ b ∈ A, a ≠ b ∧ l = affineSpan ℝ ({a, b} : Set (EuclideanSpace ℝ (Fin 2)))}
 
 /-- The set of achievable line counts for configurations of exactly $n$ points
 in $\mathbb{R}^2$. -/

@@ -28,7 +28,7 @@ $n!$ that are orders of subgroups of $S_n$ tends to $0$ as $n \to \infty$.
 [Va99] Vardi, I., *Computational Recreations in Mathematica* (1999).
 -/
 
-open Equiv
+open Equiv Classical
 
 namespace Erdos1163
 

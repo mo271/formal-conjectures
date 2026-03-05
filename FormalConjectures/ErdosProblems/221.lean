@@ -26,6 +26,7 @@ $k \geq 0$ and $a \in A$?
 *Reference:* [erdosproblems.com/221](https://www.erdosproblems.com/221)
 -/
 
+open scoped Classical
 open Finset Real
 
 namespace Erdos221

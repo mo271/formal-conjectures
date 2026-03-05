@@ -52,6 +52,9 @@ namespace Erdos748
 def IsSumFree (A : Finset ℕ) : Prop :=
   ∀ b ∈ A, ∀ c ∈ A, b + c ∉ A
 
+instance : DecidablePred IsSumFree :=
+  fun A => decidable_of_iff (∀ b ∈ A, ∀ c ∈ A, b + c ∉ A) Iff.rfl
+
 /-- The number of sum-free subsets of $\{1, \ldots, n\}$. -/
 noncomputable def sumFreeSubsetCount (n : ℕ) : ℕ :=
   ((Finset.Icc 1 n).powerset.filter (fun A => IsSumFree A)).card

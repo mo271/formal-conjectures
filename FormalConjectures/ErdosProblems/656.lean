@@ -38,7 +38,7 @@ namespace Erdos656
 $\limsup_{N \to \infty} |A \cap \{0, \ldots, N-1\}| / N$. -/
 noncomputable def Nat.upperDensity (A : Set ℕ) : ℝ :=
   Filter.limsup (fun N : ℕ =>
-    ((Finset.filter (· ∈ A) (Finset.range N)).card : ℝ) / N) atTop
+    ((@Finset.filter _ (· ∈ A) (Classical.decPred (· ∈ A)) (Finset.range N)).card : ℝ) / N) atTop
 
 /--
 **Erdős Problem 656** [Er75b]:

@@ -51,7 +51,7 @@ namespace Erdos811
 def cycleGraph811 (m : ℕ) (_ : m ≥ 3) : SimpleGraph (Fin m) where
   Adj i j := i ≠ j ∧ (j.val = (i.val + 1) % m ∨ i.val = (j.val + 1) % m)
   symm := fun _ _ ⟨hne, h⟩ => ⟨hne.symm, h.elim Or.inr Or.inl⟩
-  loopless := ⟨fun _ ⟨h, _⟩ => h rfl⟩
+  loopless := fun _ ⟨h, _⟩ => h rfl
 
 /-- An edge-colouring of the complete graph on $\operatorname{Fin} n$ with $m$ colours is
     **balanced** if every vertex sees exactly $\lfloor n / m \rfloor$ edges of each colour.

@@ -33,7 +33,7 @@ The general characterization remains open.
 [Er79e] Erdős, P., _Some old and new problems on combinatorial number theory_ (1979), p.77.
 -/
 
-open Filter
+open Classical Filter
 
 open scoped BigOperators Topology
 

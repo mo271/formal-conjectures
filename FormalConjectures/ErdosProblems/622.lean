@@ -36,6 +36,7 @@ asymptotically tight result that there are at least $(1/2 + o(1))2^{2n}$ subsets
 which are spanned by a cycle.
 -/
 
+open scoped Classical
 open SimpleGraph Finset
 
 namespace Erdos622

@@ -52,7 +52,7 @@ any finite arithmetic progression with common difference $d$ is at most $h(d)$.
 theorem erdos_177 :
     ∃ f : ℕ → ℤ, (∀ n, f n = 1 ∨ f n = -1) ∧
     ∀ d : ℕ, 0 < d → ∀ a k : ℕ, 0 < k →
-      |(↑(∑ i ∈ range k, f (a + i * d)) : ℝ)| ≤ answer(sorry) d := by sorry
+      |(↑(∑ i ∈ range k, f (a + i * d)) : ℝ)| ≤ (answer(sorry) : ℕ → ℝ) d := by sorry
 
 /--
 Erdős Problem 177 — Lower bound (Roth [Ro64]):

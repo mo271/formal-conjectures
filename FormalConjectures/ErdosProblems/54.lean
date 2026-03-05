@@ -28,6 +28,7 @@ Resolved by Conlon, Fox, and Pham [CFP21].
 [CFP21] Conlon, D., Fox, J., and Pham, H.T., _Subset sums, completeness and colorings_. (2021).
 -/
 
+open scoped Classical
 open Finset Real
 
 namespace Erdos54

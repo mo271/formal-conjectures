@@ -55,14 +55,14 @@ noncomputable def hypercubeGraph (n : ℕ) : SimpleGraph (Fin n → Bool) where
       Finset.filter_congr (fun i _ => ne_comm)
     rw [heq]
     exact hcard
-  loopless := ⟨fun v ⟨hne, _⟩ => hne rfl⟩
+  loopless := fun v ⟨hne, _⟩ => hne rfl
 
 /-- The cycle graph $C_m$ on $m$ vertices ($m \geq 3$). Vertex $i$ is adjacent to vertex
 $i + 1 \pmod{m}$ and vertex $i - 1 \pmod{m}$. -/
 def cycleGraph (m : ℕ) (_ : m ≥ 3) : SimpleGraph (Fin m) where
   Adj i j := i ≠ j ∧ (j.val = (i.val + 1) % m ∨ i.val = (j.val + 1) % m)
   symm := fun _ _ ⟨hne, h⟩ => ⟨hne.symm, h.elim Or.inr Or.inl⟩
-  loopless := ⟨fun _ ⟨h, _⟩ => h rfl⟩
+  loopless := fun _ ⟨h, _⟩ => h rfl
 
 /--
 Erdős Problem 86 [Er90][Er91][Er92b][Er93][Er94b][Er95][Er97f]:

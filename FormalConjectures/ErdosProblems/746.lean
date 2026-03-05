@@ -35,7 +35,7 @@ namespace Erdos746
 def toGraph {n : ℕ} (ec : Fin n → Fin n → Bool) : SimpleGraph (Fin n) where
   Adj u v := u ≠ v ∧ ec (min u v) (max u v) = true
   symm := fun _ _ ⟨hne, h⟩ => ⟨hne.symm, by rwa [min_comm, max_comm]⟩
-  loopless := ⟨fun v ⟨h, _⟩ => h rfl⟩
+  loopless := fun v ⟨h, _⟩ => h rfl
 
 /-- The number of edges in a Boolean edge configuration on $\operatorname{Fin} n$
 (counting only pairs $i < j$ to avoid double-counting). -/
@@ -46,6 +46,7 @@ def edgeCount {n : ℕ} (ec : Fin n → Fin n → Bool) : ℕ :=
 def graphsWithEdges (n m : ℕ) : Finset (Fin n → Fin n → Bool) :=
   Finset.univ.filter (fun ec => edgeCount ec = m)
 
+open Classical in
 /-- The fraction of graphs on $\operatorname{Fin} n$ with exactly $m$ edges that satisfy
 property $P$ (the $G(n,m)$ probability of $P$). Returns $0$ if there are
 no graphs with exactly $m$ edges. -/

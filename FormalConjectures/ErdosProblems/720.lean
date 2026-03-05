@@ -50,14 +50,14 @@ namespace Erdos720
 def pathGraph (n : ℕ) : SimpleGraph (Fin (n + 1)) where
   Adj i j := (i.val + 1 = j.val) ∨ (j.val + 1 = i.val)
   symm := fun _ _ h => h.elim Or.inr Or.inl
-  loopless := ⟨fun x h => by rcases h with h | h <;> omega⟩
+  loopless := fun x h => by rcases h with h | h <;> omega
 
 /-- The cycle graph $C_n$ on $n$ vertices ($n \geq 3$). Vertex $i$ is adjacent to
     vertex $(i+1) \bmod n$ and vertex $(i-1) \bmod n$. -/
 def cycleGraph (n : ℕ) (_ : n ≥ 3) : SimpleGraph (Fin n) where
   Adj i j := i ≠ j ∧ (j.val = (i.val + 1) % n ∨ i.val = (j.val + 1) % n)
   symm := fun _ _ ⟨hne, h⟩ => ⟨hne.symm, h.elim Or.inr Or.inl⟩
-  loopless := ⟨fun _ ⟨h, _⟩ => h rfl⟩
+  loopless := fun _ ⟨h, _⟩ => h rfl
 
 /-- The size Ramsey number $\hat{R}(G)$: the minimum number of edges in a graph $H$
     that is Ramsey for $G$.

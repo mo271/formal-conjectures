@@ -61,7 +61,7 @@ def completeMultipartiteGraph {k : ℕ} (sizes : Fin k → ℕ) :
     SimpleGraph (Σ i : Fin k, Fin (sizes i)) where
   Adj v w := v.1 ≠ w.1
   symm _ _ h := Ne.symm h
-  loopless := ⟨fun _ h => h rfl⟩
+  loopless _ := fun h => h rfl
 
 /-- Part sizes for the complete bipartite graph $K_{m_1,m_2}$. -/
 def bipSizes (m₁ m₂ : ℕ) : Fin 2 → ℕ

@@ -85,7 +85,10 @@ def graphHk (k : ℕ) : SimpleGraph (HkVertex k) where
     match v with
     | Sum.inl () => intro h; exact h
     | Sum.inr (Sum.inl _) => intro h; exact h
-    | Sum.inr (Sum.inr ⟨(a, b), h⟩) => intro ⟨h1, _⟩ | ⟨_, h2⟩ <;> omega
+    | Sum.inr (Sum.inr ⟨(a, b), h⟩) =>
+      simp only [Adj]
+      intro h'
+      rcases h' with rfl | rfl <;> omega
 
 /--
 Erdős Problem 926 [Er69b, Er71, Er74c, Er93]:

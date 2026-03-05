@@ -33,7 +33,7 @@ combinatorial theory (Proc. Internat. Sympos., Colorado State Univ., Fort Collin
 [ErHa78b] Erdős, P. and Hajnal, A., 1978.
 -/
 
-open Finset Filter
+open Finset Filter Classical
 
 open scoped BigOperators
 

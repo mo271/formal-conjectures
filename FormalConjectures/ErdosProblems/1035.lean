@@ -44,7 +44,7 @@ def hypercubeGraph (n : ℕ) : SimpleGraph (Fin n → Bool) where
       Finset.filter_congr (fun i _ => ne_comm)
     rw [heq]
     exact hcard
-  loopless := ⟨fun v h => h.1 rfl⟩
+  loopless v h := h.1 rfl
 
 /-- An injective graph homomorphism from $H$ to $G$: $G$ contains a copy of $H$
 as a subgraph. -/

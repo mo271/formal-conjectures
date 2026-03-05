@@ -33,6 +33,7 @@ Balogh, Liu, Sharifzadeh, and Treglown [BLST15] proved $f_m(n) = 2^{(1/4+o(1))n}
 later refined [BLST18] to $f_m(n) = (C_n + o(1)) \cdot 2^{n/4}$.
 -/
 
+open scoped Classical
 open Finset
 
 namespace Erdos877

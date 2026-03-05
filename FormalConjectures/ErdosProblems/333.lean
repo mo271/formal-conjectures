@@ -27,6 +27,8 @@ number theory*. Monographies de L'Enseignement Mathématique (1980).
 [ErNe77] Erdős, P. and Newman, D.J.
 -/
 
+open scoped Classical
+
 namespace Erdos333
 
 /--

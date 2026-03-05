@@ -42,7 +42,7 @@ The answer is yes, proved by Tashkinov [Ta82].
 regular graphs_ (1984).
 -/
 
-open SimpleGraph
+open Classical SimpleGraph
 
 namespace Erdos715
 

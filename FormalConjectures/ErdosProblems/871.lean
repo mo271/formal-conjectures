@@ -31,7 +31,7 @@ J. Number Theory (1988).
 bases*, Proc. Amer. Math. Soc. (1989).
 -/
 
-open Filter
+open Classical Filter
 
 open scoped Topology
 

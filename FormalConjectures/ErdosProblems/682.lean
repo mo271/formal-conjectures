@@ -29,7 +29,7 @@ $p_{n+1} - p_n$.
 $n \in [1, X]$ is $\ll X / (\log X)^2$.
 -/
 
-open Nat
+open Nat Classical
 
 namespace Erdos682
 

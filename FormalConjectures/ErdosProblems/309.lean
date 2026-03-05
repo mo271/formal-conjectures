@@ -31,7 +31,7 @@ number theory_. Monographies de L'Enseignement Mathematique (1980).
 [Yo97] Yokota, H., _On a problem of Erdős and Graham_. (1997).
 -/
 
-open Filter
+open Classical Filter
 
 open scoped BigOperators
 

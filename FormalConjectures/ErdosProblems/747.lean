@@ -31,6 +31,7 @@ edges?
 [Ka23] Kahn, J., _Asymptotics for Shamir's problem_, Annals of Mathematics 198 (2023), 1-69.
 -/
 
+open scoped Classical
 open Finset
 
 namespace Erdos747

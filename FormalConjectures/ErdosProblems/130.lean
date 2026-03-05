@@ -66,8 +66,9 @@ noncomputable def intDistGraph (A : Set (EuclideanSpace ℝ (Fin 2))) :
     SimpleGraph ↥A where
   Adj p q := (p : EuclideanSpace ℝ (Fin 2)) ≠ q ∧
     ∃ n : ℕ, 0 < n ∧ dist (p : EuclideanSpace ℝ (Fin 2)) (q : EuclideanSpace ℝ (Fin 2)) = n
-  symm := fun _p _q ⟨hne, n, hn, hd⟩ => ⟨hne.symm, n, hn, by rw [dist_comm]; exact hd⟩
-  loopless := ⟨fun _ ⟨hne, _⟩ => hne rfl⟩
+  symm := fun _p _q ⟨hne, n, hn, hd⟩ =>
+    ⟨hne.symm, n, hn, by rw [_root_.dist_comm]; exact hd⟩
+  loopless := fun _ ⟨hne, _⟩ => hne rfl
 
 /--
 Erdős Problem 130 [Er97b] (asked by Andrásfai and Erdős):

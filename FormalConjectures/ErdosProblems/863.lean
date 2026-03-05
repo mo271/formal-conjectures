@@ -28,7 +28,7 @@ bound on Sidon sets).
 [Er92c] Erdős, P.
 -/
 
-open Finset Filter
+open Classical Finset Filter
 
 open scoped Topology
 

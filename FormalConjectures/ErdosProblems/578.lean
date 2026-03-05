@@ -30,6 +30,7 @@ proved this with any edge-probability $> 1/4$.
 and Computing, 2000.
 -/
 
+open scoped Classical
 open SimpleGraph
 
 namespace Erdos578
@@ -45,10 +46,10 @@ def hypercubeGraph (d : ℕ) : SimpleGraph (Fin d → Bool) where
                (Finset.univ.filter fun i : Fin d => u i ≠ v i) := by
       ext i; simp [ne_comm]
     rw [heq]; exact h
-  loopless := ⟨fun v h => by
+  loopless := fun v h => by
     have : (Finset.univ.filter fun i : Fin d => v i ≠ v i) = ∅ := by
       ext i; simp
-    rw [this] at h; exact absurd h (by norm_num)⟩
+    rw [this] at h; exact absurd h (by norm_num)
 
 /-- The simple graph on `Fin n` determined by a Boolean matrix. Only values at
     `(min u v, max u v)` matter; this ensures symmetry. Under $G(n, 1/2)$, each
@@ -57,7 +58,7 @@ def hypercubeGraph (d : ℕ) : SimpleGraph (Fin d → Bool) where
 def toGraph578 {n : ℕ} (ec : Fin n → Fin n → Bool) : SimpleGraph (Fin n) where
   Adj u v := u ≠ v ∧ ec (min u v) (max u v) = true
   symm := fun _ _ ⟨hne, h⟩ => ⟨hne.symm, by rwa [min_comm, max_comm]⟩
-  loopless := ⟨fun v ⟨h, _⟩ => h rfl⟩
+  loopless := fun v ⟨h, _⟩ => h rfl
 
 /--
 Erdős Problem 578 [Er90c]:

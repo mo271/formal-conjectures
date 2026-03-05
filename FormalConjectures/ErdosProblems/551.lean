@@ -66,13 +66,13 @@ they differ by exactly $1$ modulo $k$. -/
 def cycleGraph (k : ℕ) (hk : k ≥ 3) : SimpleGraph (Fin k) where
   Adj i j := (i.val + 1) % k = j.val ∨ (j.val + 1) % k = i.val
   symm _ _ h := h.elim Or.inr Or.inl
-  loopless := ⟨fun v h => by
+  loopless v h := by
     rcases h with h | h <;> {
       have := v.isLt
       by_cases heq : v.val + 1 = k
       · rw [heq, Nat.mod_self] at h; omega
       · rw [Nat.mod_eq_of_lt (by omega)] at h; omega
-    }⟩
+    }
 
 /--
 Erdős Problem 551 [EFRS78]:

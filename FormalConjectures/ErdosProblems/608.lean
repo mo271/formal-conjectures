@@ -37,6 +37,7 @@ edges in a $C_5$.
 [GHV19] Grzesik, A., Hu, P., and Volec, J.
 -/
 
+open scoped Classical
 open SimpleGraph
 
 namespace Erdos608
