@@ -41,7 +41,7 @@ def disjointUnionStars (s : ℕ) (deg : Fin s → ℕ) :
   Adj x y := x.1 = y.1 ∧ ((x.2.val = 0 ∧ y.2.val ≠ 0) ∨ (x.2.val ≠ 0 ∧ y.2.val = 0))
   symm {_x} {_y} := fun ⟨heq, h⟩ =>
     ⟨heq.symm, h.elim (fun ⟨a, b⟩ => Or.inr ⟨b, a⟩) (fun ⟨a, b⟩ => Or.inl ⟨b, a⟩)⟩
-  loopless x := fun ⟨_, h⟩ =>
+  loopless _x := fun ⟨_, h⟩ =>
     h.elim (fun ⟨a, b⟩ => b a) (fun ⟨a, b⟩ => a b)
 
 /-- The two-color size Ramsey number $\hat{R}(G_1, G_2)$: the minimum number of edges in

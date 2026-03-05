@@ -72,9 +72,9 @@ $$a \cdot \prod_{1 \le i \le k_1} (m_1 + i) = b \cdot \prod_{1 \le j \le k_2} (m
 should have only finitely many solutions.
 -/
 @[category research open, AMS 11]
-theorem erdos_388.variants.general (a b : ℕ) :
+theorem erdos_388.variants.general :
     answer(sorry) ↔
-    ∀ k₁ : ℕ, 2 < k₁ →
+    ∀ (a b : ℕ) (k₁ : ℕ), 2 < k₁ →
     ∀ k₂ : ℕ,
     Set.Finite {t : ℕ × ℕ |
       a * consecutiveProduct t.1 k₁ = b * consecutiveProduct t.2 k₂} := by
