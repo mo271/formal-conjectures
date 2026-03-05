@@ -81,19 +81,31 @@ function applyFilters() {
 
   // Sort
   filtered.sort((a, b) => {
-    if (state.sort === 'votes') {
-      const aVotes = FC.voting.getVote(a.theorem).count;
-      const bVotes = FC.voting.getVote(b.theorem).count;
-      return bVotes - aVotes || a.theorem.localeCompare(b.theorem);
+    if (state.sort === 'most-liked') {
+      const aLikes = FC.voting.getVote(a.theorem).count;
+      const bLikes = FC.voting.getVote(b.theorem).count;
+      return bLikes - aLikes || a.theorem.localeCompare(b.theorem);
     }
-    if (state.sort === 'difficulty') {
+    if (state.sort === 'difficulty-desc' || state.sort === 'difficulty-asc') {
       const aDiff = FC.voting.getVote(a.theorem).avgDifficulty;
       const bDiff = FC.voting.getVote(b.theorem).avgDifficulty;
-      // nulls sort last
+      // nulls sort last regardless of direction
       if (aDiff === null && bDiff === null) return a.theorem.localeCompare(b.theorem);
       if (aDiff === null) return 1;
       if (bDiff === null) return -1;
-      return bDiff - aDiff || a.theorem.localeCompare(b.theorem);
+      const dir = state.sort === 'difficulty-desc' ? -1 : 1;
+      return dir * (aDiff - bDiff) || a.theorem.localeCompare(b.theorem);
+    }
+    if (state.sort === 'prediction-true' || state.sort === 'prediction-false') {
+      const aVote = FC.voting.getVote(a.theorem);
+      const bVote = FC.voting.getVote(b.theorem);
+      const aScore = aVote.thumbsUp - aVote.thumbsDown;
+      const bScore = bVote.thumbsUp - bVote.thumbsDown;
+      const aTotal = aVote.thumbsUp + aVote.thumbsDown;
+      const bTotal = bVote.thumbsUp + bVote.thumbsDown;
+      // prediction-true: highest score first; prediction-false: lowest score first
+      const dir = state.sort === 'prediction-true' ? -1 : 1;
+      return dir * (aScore - bScore) || bTotal - aTotal || a.theorem.localeCompare(b.theorem);
     }
     if (state.sort === 'category')   return a.category.localeCompare(b.category) || a.theorem.localeCompare(b.theorem);
     if (state.sort === 'collection') return a.collection.localeCompare(b.collection) || a.theorem.localeCompare(b.theorem);
@@ -132,6 +144,7 @@ function renderCard(c) {
     </div>
     <div class="theorem-card__badge">
       ${FC.voting.renderCardVoteCount(c.theorem)}
+      ${FC.voting.renderCardTruth(c.theorem)}
       ${FC.voting.renderCardDifficulty(c.theorem)}
       <span class="badge ${catMeta.css}">${FC.escapeHTML(catMeta.label)}</span>
     </div>

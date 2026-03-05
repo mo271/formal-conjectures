@@ -1,22 +1,39 @@
-# OAuth Proxy & Voting Worker
+# OAuth Proxy & Discussions Reader Worker
 
-A Cloudflare Worker that handles GitHub OAuth token exchange and vote storage via Cloudflare KV.
+A Cloudflare Worker that handles GitHub App OAuth token exchange and provides a read-only proxy for GitHub Discussions data (for anonymous users).
+
+**Important:** This uses a **GitHub App**, not an OAuth App. Permissions are set on the app itself, not via OAuth scopes. The app must be installed on the target repo for user tokens to work.
 
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/) >= 18
 - A [Cloudflare account](https://dash.cloudflare.com/sign-up) (free tier works)
-- A GitHub OAuth App
+- A GitHub App with Discussions: Read & Write permission, installed on the target repo
+- A GitHub fine-grained PAT with read-only Discussions access
 
-## Register a GitHub OAuth App
+## Register a GitHub App
 
-1. Go to GitHub → Settings → Developer Settings → [OAuth Apps](https://github.com/settings/developers)
-2. Click **New OAuth App**
+1. Go to GitHub → Settings → Developer Settings → [GitHub Apps](https://github.com/settings/apps)
+2. Click **New GitHub App**
 3. Fill in:
-   - **Application name:** Formal Conjectures Voting
+   - **GitHub App name:** Formal Conjectures Voting
    - **Homepage URL:** Your site URL (e.g., `https://formal-conjectures.github.io`)
-   - **Authorization callback URL:** Your site URL (the client handles the redirect)
-4. After creating, note the **Client ID** and generate a **Client Secret**
+   - **Callback URL:** Your site URL (the client handles the redirect)
+   - **Request user authorization (OAuth) during installation:** checked
+4. Under **Permissions → Repository permissions**, set **Discussions** to **Read and write**
+5. After creating, note the **Client ID** (starts with `Iv`) and generate a **Client Secret**
+
+## Install the App on the Repo
+
+After creating the app, go to the app's settings page → **Install App** tab → click **Install** next to your account → select the target repository.
+
+**This is required.** Without installation, user tokens won't have access to the repo's discussions, and all GraphQL mutations will fail with "Resource not accessible by integration".
+
+## Create a Read-Only PAT
+
+1. Go to GitHub → Settings → Developer Settings → [Fine-grained tokens](https://github.com/settings/tokens?type=beta)
+2. Create a token scoped to the target repository with **Discussions: Read** access
+3. This token is used by the worker to serve discussion data to anonymous users
 
 ## Setup
 
@@ -25,66 +42,44 @@ cd worker
 npm install
 ```
 
-## Create KV Namespace
-
-```bash
-npx wrangler kv namespace create VOTES
-npx wrangler kv namespace create VOTES --preview
-```
-
-Copy the output IDs into `wrangler.toml`:
-
-```toml
-[[kv_namespaces]]
-binding = "VOTES"
-id = "<production-id>"
-preview_id = "<preview-id>"
-```
-
 ## Configure Secrets
-
-Store your GitHub OAuth App credentials as Cloudflare Worker secrets:
 
 ```bash
 npx wrangler secret put GH_CLIENT_ID
 npx wrangler secret put GH_CLIENT_SECRET
+npx wrangler secret put GH_READ_TOKEN
 ```
 
-You'll be prompted to enter each value.
+- `GH_CLIENT_ID` / `GH_CLIENT_SECRET` — from your GitHub App
+- `GH_READ_TOKEN` — the fine-grained PAT with read-only Discussions access
 
 ## API Endpoints
 
 ### `POST /token`
-Exchange a GitHub OAuth authorization code for an access token.
+Exchange a GitHub App OAuth authorization code for an access token.
 
 **Request:** `{ "code": "..." }`
-**Response:** `{ "access_token": "...", "token_type": "bearer", "scope": "" }`
+**Response:** `{ "access_token": "...", "token_type": "bearer", "scope": "..." }`
 
-### `GET /votes?user=<login>`
-Get all vote counts and difficulty data. The `user` parameter is optional — when provided, the response includes whether that user has voted and their difficulty rating for each theorem.
+### `GET /discussions`
+Get aggregated discussion data for all theorems. Used by anonymous users who can't query GitHub directly.
 
-**Response:** `{ "TheoremName": { "count": 5, "userVoted": true, "avgDifficulty": 6.2, "numRatings": 3, "userDifficulty": 7 }, ... }`
+**Response:**
+```json
+{
+  "TheoremName": {
+    "count": 5,
+    "thumbsUp": 12,
+    "thumbsDown": 3,
+    "avgDifficulty": 6.2,
+    "numRatings": 3,
+    "discussionId": "D_kwDO...",
+    "discussionNumber": 1
+  }
+}
+```
 
-### `POST /vote/:name`
-Cast a vote for a theorem. Requires `Authorization: Bearer <token>` header.
-
-**Response:** `{ "count": 6, "userVoted": true }`
-
-### `DELETE /vote/:name`
-Remove a vote from a theorem. Requires `Authorization: Bearer <token>` header.
-
-**Response:** `{ "count": 5, "userVoted": false }`
-
-### `POST /difficulty/:name`
-Rate the difficulty of a theorem (0–10 integer). Requires `Authorization: Bearer <token>` header.
-
-**Request:** `{ "value": 7 }`
-**Response:** `{ "avgDifficulty": 6.2, "numRatings": 3, "userDifficulty": 7 }`
-
-### `DELETE /difficulty/:name`
-Remove your difficulty rating from a theorem. Requires `Authorization: Bearer <token>` header.
-
-**Response:** `{ "avgDifficulty": 5.5, "numRatings": 2, "userDifficulty": null }`
+Response includes `Cache-Control: public, max-age=60`.
 
 ## Local Development
 
@@ -97,7 +92,11 @@ This starts a local dev server (default `http://localhost:8787`). For local dev,
 ```
 GH_CLIENT_ID=your_client_id
 GH_CLIENT_SECRET=your_client_secret
+GH_READ_TOKEN=your_read_token
+ALLOWED_ORIGIN=http://localhost:8000
 ```
+
+**CORS:** The `ALLOWED_ORIGIN` variable controls which origins are allowed. It supports comma-separated values (e.g. `http://localhost:8000,http://localhost:8080`). In `.dev.vars` it overrides the production value from `wrangler.toml`. Make sure it matches the port your local site is served on, or you'll get CORS errors.
 
 ## Deploy
 
@@ -107,12 +106,18 @@ npm run deploy
 
 ## Configuration
 
-The `ALLOWED_ORIGIN` variable in `wrangler.toml` controls CORS. Update it to match your deployed site URL.
+| Variable | Location | Description |
+|---|---|---|
+| `ALLOWED_ORIGIN` | `wrangler.toml` (production), `.dev.vars` (local override) | CORS allowed origin(s), comma-separated |
+| `GH_REPO_OWNER` | `wrangler.toml` | GitHub repo owner |
+| `GH_REPO_NAME` | `wrangler.toml` | GitHub repo name |
+| `GH_CLIENT_ID` | Secret | GitHub App client ID |
+| `GH_CLIENT_SECRET` | Secret | GitHub App client secret |
+| `GH_READ_TOKEN` | Secret | Fine-grained PAT for anonymous reads |
 
-## KV Data Model
+## Troubleshooting
 
-- **Namespace:** `VOTES`
-- **Key format:** `votes:{theoremName}`
-- **Value format:** `{ "count": N, "voters": ["user1", "user2"], "ratings": { "user1": 7, "user3": 4 } }`
-
-The `voters` array handles deduplication — each GitHub user can only vote once per theorem. The `ratings` object maps GitHub logins to difficulty values (0–10 integers). When the last voter removes their vote and there are no ratings, the KV key is deleted.
+- **CORS errors:** Check that `ALLOWED_ORIGIN` (in `.dev.vars` for local dev) matches the origin your site is served from (including port)
+- **500 on `/discussions`:** Check that `GH_READ_TOKEN` has Discussions read access and that `GH_REPO_OWNER`/`GH_REPO_NAME` in `wrangler.toml` point to the correct repo
+- **"Resource not accessible by integration":** The GitHub App isn't installed on the target repo — see "Install the App on the Repo" above
+- **401 Unauthorized on GraphQL:** The user's token is invalid or expired — log out and re-authorize. This can also happen after changing the app's permissions
