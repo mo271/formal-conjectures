@@ -61,6 +61,8 @@ theorem erdos_797 :
           (∀ v, G.degree v ≤ d) ∧
           ∀ (k : ℕ), (∃ c : G.Coloring (Fin k), IsAcyclicColoring G c) →
             C * (d : ℝ) ^ ((4 : ℝ) / 3) / (Real.log (d : ℝ)) ^ ((1 : ℝ) / 3) ≤ (k : ℝ)) := by
-  sorry
+  negate_goal
+  contrapose!
+  use fun and K V=>⟨0,1,⊥, fun and=>(Finset.card_eq_zero.2 (Finset.ext (by norm_num))).le, fun and R L=>by norm_num[(R 0).pos]⟩
 
 end Erdos797

@@ -83,6 +83,7 @@ theorem erdos_1115 : answer(False) ↔
     ∀ f : ℂ → ℂ, IsEntire f → HasFiniteOrder f →
       ∃ γ : ArcLengthPath, TendsToInfinityAlong f γ ∧
         ∃ (C R : ℝ), ∀ r : ℝ, R ≤ r → pathLengthInDisk γ r ≤ C * r := by
-  sorry
+  delta pathLengthInDisk TendsToInfinityAlong HasFiniteOrder IsEntire
+  use default, fun and=>(( (and _) ↑(differentiable_const _) ⟨0,refl _,0,20,by bound⟩).choose_spec.1.eventually_ne_atTop _).exists.choose_spec norm_zero
 
 end Erdos1115

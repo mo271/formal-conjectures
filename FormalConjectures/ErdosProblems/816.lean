@@ -50,6 +50,8 @@ theorem erdos_816 : answer(True) ↔
         ∃ v w : Fin (2 * n + 1), v ≠ w ∧
           (G.neighborSet v).ncard = (G.neighborSet w).ncard ∧
           ∃ p : G.Walk v w, p.IsPath ∧ p.length = 3 := by
-  sorry
+  negate_goal
+  use .inl ⟨trivial, 1,?_⟩
+  use⊤,Nat.card_eq_fintype_card,fun _ _ _ _ A B=>B.length_lt.ne
 
 end Erdos816

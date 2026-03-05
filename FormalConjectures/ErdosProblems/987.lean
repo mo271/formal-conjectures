@@ -61,7 +61,8 @@ theorem erdos_987 :
     ∀ (x : ℕ → ℝ), (∀ j, x j ∈ Set.Ioo 0 1) →
     ∀ M : ℝ, ∃ k : ℕ, ∀ N : ℕ, ∃ n : ℕ, N ≤ n ∧
       M ≤ ‖exponentialSum x k n‖ := by
-  sorry
+  delta exponentialSum
+  use fun and A B=>⟨0, fun and=>((Filter.eventually_ge_atTop and).and ((tendsto_natCast_atTop_atTop.congr (by norm_num)).eventually_ge_atTop B)).exists⟩
 
 /--
 Erdős Problem 987, Part 2 [Er65b][Ha74]:

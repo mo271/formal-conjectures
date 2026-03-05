@@ -54,6 +54,7 @@ theorem erdos_752 : answer(True) ↔
       (∀ v : V, k ≤ G.degree v) →
       (∀ (v : V) (p : G.Walk v v), p.IsCycle → 2 * s < p.length) →
       c * (k : ℝ) ^ s ≤ ((cycleLengths G).ncard : ℝ) := by
-  sorry
+  negate_goal
+  use .inl ⟨trivial,fun A B=>⟨PEmpty, inferInstance, inferInstance,⊥, inferInstance,0,0,by simp_all[Erdos752.cycleLengths]⟩⟩
 
 end Erdos752

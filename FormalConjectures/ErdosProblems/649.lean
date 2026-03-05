@@ -45,6 +45,12 @@ so this fails with $p = 2$ and $q = 7$. [Er95c]
 @[category research solved, AMS 11]
 theorem erdos_649 : answer(False) ↔ ∀ p q : ℕ, Nat.Prime p → Nat.Prime q →
     ∃ n : ℕ, 0 < n ∧ greatestPrimeFactor n = p ∧ greatestPrimeFactor (n + 1) = q := by
-  sorry
+  simp_rw [greatestPrimeFactor, false_iff,not_forall]
+  use(2),2,by decide,by decide,fun⟨A, B, L, R⟩=>absurd (A.prod_primeFactorsList B.ne') fun and=>absurd ((A+1).prod_primeFactorsList A.succ_ne_zero) ?_
+  rw[List.prod_eq_pow_card _ _ fun and(a)=>le_antisymm (R▸(A+1).primeFactorsList.rec (nofun) ?_ a) (Nat.prime_of_mem_primeFactorsList a).two_le]
+  · rw[List.prod_eq_pow_card _ _ fun and(a)=>le_antisymm (L▸ A.primeFactorsList.rec (nofun) ?_ a) ( A.prime_of_mem_primeFactorsList a).two_le]at and
+    · cases List.length _ with if a: A=1 then{norm_num[a]at L} else use absurd and ∘by cases(List.length _) with valid
+    · use fun and K V=>le_sup_iff.2 ∘.imp le_of_eq V ∘ List.mem_cons.1
+  · exact fun and A B μ=>le_sup_iff.2 ((List.mem_cons.1 μ).imp le_of_eq B)
 
 end Erdos649

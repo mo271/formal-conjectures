@@ -63,6 +63,9 @@ $$
 theorem erdos_1020 (n r k : ℕ) (hr : r ≥ 3) (hk : k ≥ 1) :
     maxEdgesNoMatching n r k =
       max (Nat.choose (r * k - 1) r) (Nat.choose n r - Nat.choose (n - k + 1) r) := by
-  sorry
+  negate_goal
+  delta Ne maxEdgesNoMatching
+  delta IsRUniform HasMatching
+  use(0),3,2,refl _,by decide,((csSup_le' (by exact fun and⟨A, B, C, E⟩=>E▸ A.card_le_univ)).trans_lt (by decide)).ne
 
 end Erdos1020

@@ -45,6 +45,7 @@ theorem erdos_702 (n k : ℕ) (hk : 4 ≤ k) (hkn : k ≤ n)
     (hF_unif : ∀ A ∈ F, A.card = k)
     (hF_large : F.card > Nat.choose (n - 2) (k - 2)) :
     ∃ A ∈ F, ∃ B ∈ F, A ≠ B ∧ (A ∩ B).card = 1 := by
-  sorry
+  negate_goal
+  exists(5), 4,refl _,by decide,.powersetCard (4 : ℕ) (.univ)
 
 end Erdos702

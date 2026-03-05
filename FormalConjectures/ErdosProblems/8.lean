@@ -68,6 +68,8 @@ must contain a modulus below an absolute bound.
 theorem erdos_8 : answer(False) ↔
     (∀ k : ℕ, 0 < k → ∀ χ : ℕ → Fin k,
       ∃ S : Finset (ℤ × ℕ), IsCoveringSystem S ∧ HasMonochromaticModuli χ S) := by
-  sorry
+  negate_goal
+  simp_rw [IsCoveringSystem, false_and,HasMonochromaticModuli]
+  use .inr ⟨trivial, fun and I I=>⟨{1},by simp_all⟩⟩
 
 end Erdos8

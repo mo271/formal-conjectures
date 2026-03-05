@@ -66,6 +66,8 @@ theorem erdos_718 :
         ∀ (G : SimpleGraph (Fin n)) [DecidableRel G.Adj],
           (G.edgeFinset.card : ℝ) ≥ C * (r : ℝ) ^ 2 * (n : ℝ) →
           ContainsSubdivision G r := by
-  sorry
+  negate_goal
+  push_cast only[ContainsSubdivision, not_exists]
+  use fun and y=>⟨0,1,⊥, inferInstance,by norm_num, fun and K V=> (and 0).elim0⟩
 
 end Erdos718

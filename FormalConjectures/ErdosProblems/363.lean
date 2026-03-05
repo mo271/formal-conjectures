@@ -49,6 +49,7 @@ theorem erdos_363 : answer(False) ↔
     Set.Finite {t : ℕ × ℕ × ℕ |
       t.1 + 4 ≤ t.2.1 ∧ t.2.1 + 4 ≤ t.2.2 ∧
       IsSquare (prod4 t.1 * prod4 t.2.1 * prod4 t.2.2)} := by
-  sorry
+  simp_rw [ Erdos363.prod4,false_iff]
+  exact (Set.infinite_of_injective_forall_mem fun and=>by simp_all fun and=> show(0,and+4, and+8) ∈_ from .symm (by simp_all))
 
 end Erdos363

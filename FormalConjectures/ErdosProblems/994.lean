@@ -60,6 +60,10 @@ theorem erdos_994 : answer(False) ↔
       ∀ (E : Set ℝ), MeasurableSet E → E ⊆ Ioo 0 1 →
         Tendsto (cesaroFrequency α E) atTop
           (nhds (volume E).toReal) := by
-  sorry
+  delta cesaroFrequency
+  simp_rw [MeasureTheory.ae_iff]
+  use default,ne_of_gt.comp (lt_of_lt_of_le (by bound)) (MeasureTheory.measure_mono (show .Ioi (1) ⊆_ from fun and (i :and > 1) =>?_))
+  use fun and' =>absurd (and' (.Ioo 0 (1)\.range fun (n : ℕ)=>Int.fract ( (n + 1)*and) )) ?_
+  norm_num[MeasureTheory.measure_diff_null ((Set.countable_range _).measure_zero _),(Set.countable_range _).measurableSet,Set.diff_subset]
 
 end Erdos994

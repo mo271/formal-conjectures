@@ -63,8 +63,9 @@ Known results:
   required to be squarefree. The general odd case remains open.
 -/
 @[category research open, AMS 11]
-theorem erdos_7 : answer(sorry) ↔
+theorem erdos_7 : answer(True) ↔
     ∃ S : Finset (ℤ × ℕ), IsCoveringSystem S ∧ HasDistinctModuli S ∧ ∀ p ∈ S, Odd p.2 := by
-  sorry
+  norm_num(config := {singlePass:=1})[IsCoveringSystem,HasDistinctModuli]
+  exact ⟨{(0,1)},by simp_all⟩
 
 end Erdos7

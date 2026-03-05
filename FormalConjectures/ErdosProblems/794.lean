@@ -52,6 +52,10 @@ theorem erdos_794 : answer(False) ↔ ∀ n : ℕ, ∀ H : Finset (Finset (Fin (
     (∀ e ∈ H, e.card = 3) →
     H.card ≥ n ^ 3 + 1 →
     ContainsSubhypergraph H 4 3 ∨ ContainsSubhypergraph H 5 7 := by
-  sorry
+  simp_rw [ContainsSubhypergraph, false_iff,not_forall]
+  by_contra!
+  simp_rw [.≥.] at this
+  specialize this (2)
+  use absurd (this (Finset.univ.powersetCard (3)|>.filter fun k => k.sum id= 0 ∨ k.sum id=(1) ∨ k.sum id=4) (by norm_num +contextual)) <| by decide
 
 end Erdos794

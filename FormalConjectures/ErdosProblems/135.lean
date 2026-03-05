@@ -65,6 +65,7 @@ theorem erdos_135 :
         ∀ A : Finset (EuclideanSpace ℝ (Fin 2)),
           FourPointFiveDist A →
           c * (A.card : ℝ) ^ 2 ≤ (numDistances A : ℝ) := by
-  sorry
+  simp_rw [false_iff,not_exists,not_and,numDistances]
+  use fun and R L=>absurd (L {0} (show 0 ∈{s |_}by bound)) (by simp_all[ Finset.filter_singleton])
 
 end Erdos135

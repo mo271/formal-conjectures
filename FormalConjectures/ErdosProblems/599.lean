@@ -65,6 +65,6 @@ theorem erdos_599 : answer(True) ↔
         (∀ i, ∃! v, v ∈ S ∧ v ∈ (p i).support) ∧
         (∀ (x : V) (y : V), x ∈ A → y ∈ B →
           ∀ (w : G.Walk x y), ∃ s ∈ S, s ∈ w.support) := by
-  sorry
+  use fun and _ _ _ _ _ _ _=> ⟨Empty, nofun, nofun, nofun,⊤, nofun, nofun, nofun, nofun, nofun, fun and a s A B=> ⟨a,by norm_num⟩⟩,default
 
 end Erdos599

@@ -62,6 +62,9 @@ Resolved by Tang, who proved that the infimum of $\Lambda(f)$ over all such $f$ 
 theorem erdos_1044 :
     sInf {L : ℝ | ∃ (f : Polynomial ℂ), f.Monic ∧ (∀ z, f.IsRoot z → ‖z‖ ≤ 1) ∧
       L = maxBoundaryLength (fun z => Polynomial.eval z f)} = answer((2 : ℝ)) := by
-  sorry
+  negate_goal
+  delta Ne maxBoundaryLength
+  show (sInf {s | ∃_, _∧_∧s =sSup {s |∃ a ∈{s |_},s = (μH[1] (frontier (connectedComponentIn {s |_} a))).toReal}}≠2)
+  exact (ne_of_lt (csInf_lt_of_lt ⟨0,fun A B=>B.choose_spec.2.2▸Real.sSup_nonneg fun and ⟨a, _⟩=>by bound⟩ ⟨1,by simp_all⟩ two_pos))
 
 end Erdos1044

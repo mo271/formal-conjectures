@@ -76,6 +76,12 @@ theorem erdos_492 : answer(False) ↔
       Tendsto (fun i => (a (i + 1) : ℝ) / (a i : ℝ)) atTop (nhds 1) →
       ∀ᵐ α ∂(volume : Measure ℝ),
         IsEquidistributed (fun n => fractionalPosition a (α * (n : ℝ))) := by
-  sorry
+  delta fractionalPosition IsEquidistributed
+  use default,mt (. (.+1) @Nat.succ_lt_succ (by bound) (tendsto_sub_nhds_zero_iff.1 ? _)) ?_
+  · field_simp[(tendsto_inverse_atTop_nhds_zero_nat.comp (Filter.tendsto_add_atTop_nat (1))).congr]
+    exact (tendsto_inverse_atTop_nhds_zero_nat.comp (Filter.tendsto_add_atTop_nat (1))).congr (by((bound)))
+  simp_rw [MeasureTheory.ae_iff]
+  use ne_of_gt<|lt_of_lt_of_le (by simp_all) (MeasureTheory.measure_mono (show .Iio 0 ⊆_ from fun and A B=>absurd (B 0.5 1) ?_))
+  norm_num[Nat.cast_add_one_pos _,mt (mul_nonpos_of_nonpos_of_nonneg A.out.le ↑_).trans']
 
 end Erdos492

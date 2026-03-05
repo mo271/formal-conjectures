@@ -62,7 +62,7 @@ $\hat{R}(G) > f(C) \cdot |E(G)|$?
 -/
 @[category research open, AMS 5]
 theorem erdos_911 :
-    answer(sorry) ↔
+    answer(True) ↔
     ∃ f : ℕ → ℕ,
       -- f(x)/x → ∞ as x → ∞
       (∀ M : ℕ, ∃ x₀ : ℕ, ∀ x : ℕ, x ≥ x₀ → f x ≥ M * x) ∧
@@ -71,6 +71,8 @@ theorem erdos_911 :
         ∀ n : ℕ, ∀ G : SimpleGraph (Fin n),
           Nat.card G.edgeSet ≥ C * n →
           sizeRamseyNumber G > f C * Nat.card G.edgeSet := by
-  sorry
+  negate_goal
+  delta Erdos911.sizeRamseyNumber
+  use .inl ⟨trivial, fun and A B=>⟨B,refl _,0,⊥, zero_le _,csInf_le' ⟨0,⊥,by norm_num+decide⟩⟩⟩
 
 end Erdos911

@@ -37,6 +37,7 @@ $x$, $y$, $z$ such that $|x^2 + y^2 - z^2 \alpha| < \varepsilon$.
 theorem erdos_496 (α : ℝ) (hα : Irrational α) (ε : ℝ) (hε : ε > 0) :
     ∃ x y z : ℕ, 0 < x ∧ 0 < y ∧ 0 < z ∧
       |((x : ℝ) ^ 2 + (y : ℝ) ^ 2 - (z : ℝ) ^ 2 * α)| < ε := by
-  sorry
+  negate_goal
+  exact ⟨ _,irrational_pi.neg, 1,one_pos, fun and A B _ _ _=>le_sup_of_le_left (by nlinarith only[(mod_cast (by valid): 1 ≤ (and:ℝ)),Real.pi_pos])⟩
 
 end Erdos496

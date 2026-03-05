@@ -56,6 +56,7 @@ theorem erdos_1022 : answer(False) ↔
         (∀ e ∈ F, t ≤ e.card) →
         (∀ X : Finset (Fin n),
           ((F.filter (fun e => e ⊆ X)).card : ℝ) < c t * (X.card : ℝ)) →
-        HasPropertyB F := by sorry
+        HasPropertyB F := by negate_goal
+                             use .inr ⟨trivial, _,tendsto_natCast_atTop_atTop,fun _ _ _ _=>by simp_all ∘(. {})⟩
 
 end Erdos1022

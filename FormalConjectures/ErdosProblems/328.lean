@@ -59,6 +59,7 @@ theorem erdos_328 : answer(False) ↔
           ∃ f : ℕ → Fin t,
             ∀ (i : Fin t) (n : ℕ),
               repCount ({a | a ∈ A ∧ f a = i}) n < C := by
-  sorry
+  delta repCount
+  use default,(. (1) le_rfl {0} (by norm_num+contextual[ Finset.card_le_one])|>.elim fun and⟨k,A, B⟩=>(B (A 0) 0).ne (Finset.card_eq_one.2 ⟨0, Finset.ext (by norm_num[and_assoc])⟩))
 
 end Erdos328

@@ -74,6 +74,9 @@ theorem erdos_147 : answer(False) ↔
         ∃ C : ℝ, 0 < C ∧
           ∃ N₀ : ℕ, ∀ n : ℕ, N₀ ≤ n →
             C * (n : ℝ) ^ ((2 : ℝ) - 1 / ((r : ℝ) - 1) + ε) ≤ (turanNumber H n : ℝ) := by
-  sorry
+  simp_rw [turanNumber, false_iff]
+  delta ContainsSubgraph SimpleGraph.degree
+  push_neg
+  exact ⟨2,refl _,PEmpty,⊥, inferInstance, inferInstance, ⟨2,nofun⟩,default, fun and _ _ _ n=>⟨ _,le_of_lt (by constructor),lt_of_le_of_lt (by simp_all[Function.Injective]) (show (0< _)by bound)⟩⟩
 
 end Erdos147

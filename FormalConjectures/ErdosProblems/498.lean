@@ -60,6 +60,9 @@ theorem erdos_498 (n : ℕ) (z : Fin n → ℂ) (w : ℂ)
     (hz : ∀ i, 1 ≤ ‖z i‖) :
     (Finset.univ.filter (fun ε : Fin n → Bool =>
       ‖signedSum498 z ε - w‖ ≤ 1)).card ≤ n.choose (n / 2) := by
-  sorry
+  negate_goal
+  existsi(3), 1
+  norm_num[signedSum498, Fin.sum_univ_three,Nat.lt_iff_add_one_le]
+  use(0),by norm_cast
 
 end Erdos498

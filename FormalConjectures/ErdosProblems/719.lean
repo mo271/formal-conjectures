@@ -61,7 +61,7 @@ $\mathrm{ex}_r(n; K_{r+1}^r)$ edge-disjoint copies of $K_r^r$ (single edges) and
 (complete $(r+1)$-cliques)?
 -/
 @[category research open, AMS 5]
-theorem erdos_719 : answer(sorry) ↔ ∀ (n r : ℕ) (H : Finset (Finset (Fin n))),
+theorem erdos_719 : answer(True) ↔ ∀ (n r : ℕ) (H : Finset (Finset (Fin n))),
     IsRUniformHypergraph n r H →
     ∃ (pieces : Finset (Finset (Fin n))),
       (∀ S ∈ pieces, S.card = r ∨ S.card = r + 1) ∧
@@ -70,6 +70,10 @@ theorem erdos_719 : answer(sorry) ↔ ∀ (n r : ℕ) (H : Finset (Finset (Fin n
       (∀ S₁ ∈ pieces, ∀ S₂ ∈ pieces, S₁ ≠ S₂ →
         Disjoint (pieceEdges r S₁) (pieceEdges r S₂)) ∧
       pieces.card ≤ turanHypergraphNumber n r := by
-  sorry
+  negate_goal
+  delta IsRUniformHypergraph turanHypergraphNumber Ne
+  delta Erdos719.IsHypergraphCliqueFree Erdos719.pieceEdges
+  use .inl ⟨trivial,1,0,{{}},by decide, fun and A B _ _=>lt_of_le_of_lt (csSup_le' fun and ⟨a, M, H, _⟩=>H▸not_lt.1 (by assumption ∘?_)) ( Finset.card_pos.2 ((B {} (by decide)).imp (by bound)))⟩
+  use(a.eq_singleton_iff_nonempty_unique_mem.2 ⟨ Finset.card_pos.1 ·,(Finset.card_eq_zero.1 ∘M ·)⟩▸by decide)
 
 end Erdos719

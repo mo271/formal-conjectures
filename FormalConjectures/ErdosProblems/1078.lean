@@ -66,6 +66,8 @@ theorem erdos_1078 (r : ℕ) (hr : r ≥ 2) :
       IsMultipartite G →
       (∀ v : Fin r × Fin n, (G.degree v : ℝ) ≥ ((r : ℝ) - 3 / 2 - ε) * (n : ℝ)) →
       HasTransversalClique G := by
-  sorry
+  negate_goal
+  delta IsMultipartite HasTransversalClique
+  refine ⟨2,refl _, _,one_pos, (by use.,refl _,⊥, inferInstance, nofun, fun and =>.trans (mul_nonpos_of_nonpos_of_nonneg (by·norm_num1) (by ·bound)) ( (by bound)), (by cases·.choose_spec 3 4 (by decide)))⟩
 
 end Erdos1078

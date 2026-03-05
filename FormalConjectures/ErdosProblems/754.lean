@@ -60,6 +60,7 @@ theorem erdos_754 :
         (∀ x ∈ A, ∃ d : ℝ,
           k ≤ (A.filter (fun y => x ≠ y ∧ dist x y = d)).card) →
         (k : ℝ) ≤ n / 2 + C := by
-  sorry
+  negate_goal
+  use .inl ⟨trivial, fun and=>⟨0,{},rfl,_, nofun,Nat.lt_succ_floor _,⟩⟩
 
 end Erdos754

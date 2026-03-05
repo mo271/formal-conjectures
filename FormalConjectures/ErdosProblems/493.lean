@@ -42,6 +42,7 @@ theorem erdos_493 : answer(True) ↔
     ∃ k : ℕ, ∃ N : ℤ, ∀ n : ℤ, n ≥ N →
       ∃ a : Fin k → ℤ, (∀ i, a i ≥ 2) ∧
         (∏ i : Fin k, a i) - (∑ i : Fin k, a i) = n := by
-  sorry
+  use fun and=>⟨2,5,fun a s=>⟨![a+2,2],?_⟩⟩,default
+  norm_num[ Fin.forall_fin_succ, mul_two,s.trans']
 
 end Erdos493

@@ -60,6 +60,7 @@ integers in $(x, x + y)$ with a divisor in $(n, 2n)$ is at most $\varepsilon \cd
 theorem erdos_450 (ε : ℝ) (hε : 0 < ε) (n : ℕ) (hn : 1 ≤ n) :
     ∃ y : ℕ, 0 < y ∧ ∀ x : ℕ,
       (countWithDivisorInRange x y n : ℝ) ≤ ε * (y : ℝ) := by
-  sorry
+  simp_rw [countWithDivisorInRange, mul_comm ε]
+  use(1), (by constructor), ↑ fun and=>.trans (by simp_all) ( show (0≤ _)by {bound})
 
 end Erdos450

@@ -57,8 +57,10 @@ $h(k) \le C \cdot k^2$ for all $k$?
 -/
 @[category research open, AMS 11]
 theorem erdos_970 :
-    answer(sorry) ↔
+    answer(True) ↔
       ∃ C : ℝ, C > 0 ∧ ∀ k : ℕ, (jacobsthal k : ℝ) ≤ C * (k : ℝ) ^ 2 := by
-  sorry
+  negate_goal
+  delta jacobsthal
+  use .inl ⟨trivial,fun A B=>⟨0,lt_of_le_of_lt (by bound) (Nat.cast_pos.2 (one_pos.trans_le (le_csInf ⟨1,by simp_all[pos_iff_ne_zero]⟩ fun and=>by valid ∘(. (1) one_pos (by bound) 0))))⟩⟩
 
 end Erdos970

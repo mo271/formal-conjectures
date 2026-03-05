@@ -57,6 +57,10 @@ theorem erdos_998 : answer(True) ↔
     (∃ C : ℝ, ∀ n : ℕ, 0 < n →
       |(↑(countFracInInterval α u v n) : ℝ) - ↑n * (v - u)| ≤ C) →
     (∃ k : ℤ, u = Int.fract (α * ↑k)) ∧ (∃ ℓ : ℤ, v = Int.fract (α * ↑ℓ)) := by
-  sorry
+  negate_goal
+  delta countFracInInterval Ne
+  use .inl ⟨trivial,√2,?_⟩
+  use irrational_sqrt_two,0,1,refl _,one_pos,refl _,? _,by simp_all[ne_of_gt,Int.fract_lt_one]
+  use 0,by simp_all[Int.fract_lt_one]
 
 end Erdos998
