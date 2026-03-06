@@ -43,11 +43,16 @@ async function init() {
   // Voting integration
   await FC.voting.handleOAuthCallback();
   const widget = document.getElementById('vote-widget');
+  const discLink = document.getElementById('discussion-link');
+  const truthWidget = document.getElementById('truth-widget');
   const diffWidget = document.getElementById('difficulty-widget');
   if (widget) FC.voting.renderVoteButton(theorem.theorem, widget);
+  if (truthWidget) FC.voting.renderTruthWidget(theorem.theorem, truthWidget);
   if (diffWidget) FC.voting.renderDifficultyWidget(theorem.theorem, diffWidget);
   FC.voting.fetchAllVotes().then(() => {
     if (widget) FC.voting.renderVoteButton(theorem.theorem, widget);
+    if (discLink) FC.voting.renderDiscussionLink(theorem.theorem, discLink);
+    if (truthWidget) FC.voting.renderTruthWidget(theorem.theorem, truthWidget);
     if (diffWidget) FC.voting.renderDifficultyWidget(theorem.theorem, diffWidget);
   });
 }
@@ -105,6 +110,8 @@ function renderDetail(theorem, siblings) {
     </header>
 
     <div id="vote-widget"></div>
+    <div id="discussion-link"></div>
+    <div id="truth-widget"></div>
     <div id="difficulty-widget"></div>
 
     <div class="theorem-detail__section">

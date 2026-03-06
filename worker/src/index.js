@@ -1,32 +1,5 @@
 'use strict';
 
-async function verifyUser(token) {
-  if (!token) return null;
-  try {
-    const resp = await fetch('https://api.github.com/user', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        Accept: 'application/json',
-        'User-Agent': 'fc-oauth-proxy',
-      },
-    });
-    if (!resp.ok) return null;
-    const user = await resp.json();
-    return user.login ? { login: user.login } : null;
-  } catch {
-    return null;
-  }
-}
-
-function computeAvgDifficulty(ratings) {
-  const values = Object.values(ratings || {});
-  if (values.length === 0) return { avgDifficulty: null, numRatings: 0 };
-  return {
-    avgDifficulty: Math.round((values.reduce((a, b) => a + b, 0) / values.length) * 10) / 10,
-    numRatings: values.length,
-  };
-}
-
 function jsonResponse(data, status, corsHeaders) {
   return new Response(JSON.stringify(data), {
     status,
@@ -34,11 +7,140 @@ function jsonResponse(data, status, corsHeaders) {
   });
 }
 
+async function fetchAllDiscussions(env) {
+  const token = env.GH_READ_TOKEN;
+  const owner = env.GH_REPO_OWNER;
+  const name = env.GH_REPO_NAME;
+  const result = {};
+
+  let hasNextPage = true;
+  let afterCursor = null;
+
+  while (hasNextPage) {
+    const query = `
+      query($owner: String!, $name: String!, $after: String) {
+        repository(owner: $owner, name: $name) {
+          discussions(first: 100, after: $after) {
+            pageInfo { hasNextPage endCursor }
+            nodes {
+              id
+              number
+              title
+              reactions(content: HEART) { totalCount }
+              thumbsUpReactions: reactions(content: THUMBS_UP) { totalCount }
+              thumbsDownReactions: reactions(content: THUMBS_DOWN) { totalCount }
+              comments(first: 100) {
+                pageInfo { hasNextPage endCursor }
+                nodes {
+                  body
+                  author { login }
+                }
+              }
+            }
+          }
+        }
+      }
+    `;
+
+    const resp = await fetch('https://api.github.com/graphql', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        'User-Agent': 'fc-oauth-proxy',
+      },
+      body: JSON.stringify({ query, variables: { owner, name, after: afterCursor } }),
+    });
+
+    if (!resp.ok) throw new Error(`GitHub API error: ${resp.status}`);
+    const json = await resp.json();
+    if (json.errors) throw new Error(json.errors[0].message);
+
+    const discussions = json.data.repository.discussions;
+
+    for (const disc of discussions.nodes) {
+      // Paginate comments if needed
+      let allComments = [...disc.comments.nodes];
+      let commentPage = disc.comments.pageInfo;
+      while (commentPage.hasNextPage) {
+        const cQuery = `
+          query($discId: ID!, $after: String) {
+            node(id: $discId) {
+              ... on Discussion {
+                comments(first: 100, after: $after) {
+                  pageInfo { hasNextPage endCursor }
+                  nodes {
+                    body
+                    author { login }
+                  }
+                }
+              }
+            }
+          }
+        `;
+        const cResp = await fetch('https://api.github.com/graphql', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+            'User-Agent': 'fc-oauth-proxy',
+          },
+          body: JSON.stringify({ query: cQuery, variables: { discId: disc.id, after: commentPage.endCursor } }),
+        });
+        if (!cResp.ok) break;
+        const cJson = await cResp.json();
+        if (cJson.errors) break;
+        const moreComments = cJson.data.node.comments;
+        allComments = allComments.concat(moreComments.nodes);
+        commentPage = moreComments.pageInfo;
+      }
+
+      // Parse difficulty from comments: scan each line for /^difficulty [0-9]$/i
+      // Latest match per user wins (comments are in chronological order)
+      const difficultyByUser = {};
+      for (const comment of allComments) {
+        if (!comment.author) continue;
+        const lines = comment.body.split('\n');
+        for (const line of lines) {
+          const trimmed = line.trim();
+          if (/^difficulty [0-9]$/i.test(trimmed)) {
+            difficultyByUser[comment.author.login] = parseInt(trimmed.split(' ')[1], 10);
+          }
+        }
+      }
+
+      const values = Object.values(difficultyByUser);
+      const numRatings = values.length;
+      const avgDifficulty = numRatings > 0
+        ? Math.round((values.reduce((a, b) => a + b, 0) / numRatings) * 10) / 10
+        : null;
+
+      result[disc.title] = {
+        count: disc.reactions.totalCount,
+        thumbsUp: disc.thumbsUpReactions.totalCount,
+        thumbsDown: disc.thumbsDownReactions.totalCount,
+        avgDifficulty,
+        numRatings,
+        discussionId: disc.id,
+        discussionNumber: disc.number,
+      };
+    }
+
+    hasNextPage = discussions.pageInfo.hasNextPage;
+    afterCursor = discussions.pageInfo.endCursor;
+  }
+
+  return result;
+}
+
 export default {
   async fetch(request, env) {
+    const origin = request.headers.get('Origin') || '';
+    const allowed = (env.ALLOWED_ORIGIN || '').split(',').map(s => s.trim());
+    const corsOrigin = allowed.includes(origin) ? origin : allowed[0] || '*';
     const corsHeaders = {
-      'Access-Control-Allow-Origin': env.ALLOWED_ORIGIN || '*',
-      'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
+      'Access-Control-Allow-Origin': corsOrigin,
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type, Authorization',
     };
 
@@ -74,136 +176,22 @@ export default {
       return jsonResponse(data, 200, corsHeaders);
     }
 
-    // GET /votes?user=<login> — all vote counts + optional user vote status
-    if (path === '/votes' && request.method === 'GET') {
-      const userParam = url.searchParams.get('user') || '';
-      const result = {};
-
+    // GET /discussions — read-only proxy for anonymous users
+    if (path === '/discussions' && request.method === 'GET') {
       try {
-        const list = await env.VOTES.list({ prefix: 'votes:' });
-        const fetches = list.keys.map(async (key) => {
-          const val = await env.VOTES.get(key.name, { type: 'json' });
-          if (!val) return;
-          const theoremName = key.name.slice('votes:'.length);
-          const ratings = val.ratings || {};
-          const { avgDifficulty, numRatings } = computeAvgDifficulty(ratings);
-          result[theoremName] = {
-            count: val.count || 0,
-            userVoted: userParam ? (val.voters || []).includes(userParam) : false,
-            avgDifficulty,
-            numRatings,
-            userDifficulty: userParam ? (ratings[userParam] ?? null) : null,
-          };
+        const data = await fetchAllDiscussions(env);
+        return new Response(JSON.stringify(data), {
+          status: 200,
+          headers: {
+            ...corsHeaders,
+            'Content-Type': 'application/json',
+            'Cache-Control': 'public, max-age=60',
+          },
         });
-        await Promise.all(fetches);
       } catch (e) {
-        return jsonResponse({ error: 'Failed to read votes' }, 500, corsHeaders);
+        console.error('Failed to fetch discussions:', e);
+        return jsonResponse({ error: 'Failed to fetch discussions' }, 500, corsHeaders);
       }
-
-      return jsonResponse(result, 200, corsHeaders);
-    }
-
-    // POST /vote/:name — cast a vote (auth required)
-    const voteMatch = path.match(/^\/vote\/(.+)$/);
-    if (voteMatch && request.method === 'POST') {
-      const token = (request.headers.get('Authorization') || '').replace('Bearer ', '');
-      const user = await verifyUser(token);
-      if (!user) {
-        return jsonResponse({ error: 'Unauthorized' }, 401, corsHeaders);
-      }
-
-      const theoremName = decodeURIComponent(voteMatch[1]);
-      const key = `votes:${theoremName}`;
-      const val = await env.VOTES.get(key, { type: 'json' }) || { count: 0, voters: [] };
-
-      if (!val.voters.includes(user.login)) {
-        val.voters.push(user.login);
-        val.count = val.voters.length;
-        await env.VOTES.put(key, JSON.stringify(val));
-      }
-
-      return jsonResponse({ count: val.count, userVoted: true }, 200, corsHeaders);
-    }
-
-    // DELETE /vote/:name — remove a vote (auth required)
-    if (voteMatch && request.method === 'DELETE') {
-      const token = (request.headers.get('Authorization') || '').replace('Bearer ', '');
-      const user = await verifyUser(token);
-      if (!user) {
-        return jsonResponse({ error: 'Unauthorized' }, 401, corsHeaders);
-      }
-
-      const theoremName = decodeURIComponent(voteMatch[1]);
-      const key = `votes:${theoremName}`;
-      const val = await env.VOTES.get(key, { type: 'json' }) || { count: 0, voters: [], ratings: {} };
-
-      const idx = val.voters.indexOf(user.login);
-      if (idx !== -1) {
-        val.voters.splice(idx, 1);
-        val.count = val.voters.length;
-        const hasRatings = Object.keys(val.ratings || {}).length > 0;
-        if (val.count === 0 && !hasRatings) {
-          await env.VOTES.delete(key);
-        } else {
-          await env.VOTES.put(key, JSON.stringify(val));
-        }
-      }
-
-      return jsonResponse({ count: val.count, userVoted: false }, 200, corsHeaders);
-    }
-
-    // POST /difficulty/:name — rate difficulty (auth required)
-    const diffMatch = path.match(/^\/difficulty\/(.+)$/);
-    if (diffMatch && request.method === 'POST') {
-      const token = (request.headers.get('Authorization') || '').replace('Bearer ', '');
-      const user = await verifyUser(token);
-      if (!user) {
-        return jsonResponse({ error: 'Unauthorized' }, 401, corsHeaders);
-      }
-
-      const body = await request.json().catch(() => ({}));
-      const value = body.value;
-      if (!Number.isInteger(value) || value < 0 || value > 10) {
-        return jsonResponse({ error: 'Value must be an integer 0–10' }, 400, corsHeaders);
-      }
-
-      const theoremName = decodeURIComponent(diffMatch[1]);
-      const key = `votes:${theoremName}`;
-      const val = await env.VOTES.get(key, { type: 'json' }) || { count: 0, voters: [], ratings: {} };
-      if (!val.ratings) val.ratings = {};
-
-      val.ratings[user.login] = value;
-      await env.VOTES.put(key, JSON.stringify(val));
-
-      const { avgDifficulty, numRatings } = computeAvgDifficulty(val.ratings);
-      return jsonResponse({ avgDifficulty, numRatings, userDifficulty: value }, 200, corsHeaders);
-    }
-
-    // DELETE /difficulty/:name — remove difficulty rating (auth required)
-    if (diffMatch && request.method === 'DELETE') {
-      const token = (request.headers.get('Authorization') || '').replace('Bearer ', '');
-      const user = await verifyUser(token);
-      if (!user) {
-        return jsonResponse({ error: 'Unauthorized' }, 401, corsHeaders);
-      }
-
-      const theoremName = decodeURIComponent(diffMatch[1]);
-      const key = `votes:${theoremName}`;
-      const val = await env.VOTES.get(key, { type: 'json' }) || { count: 0, voters: [], ratings: {} };
-      if (!val.ratings) val.ratings = {};
-
-      delete val.ratings[user.login];
-
-      const hasVoters = (val.voters || []).length > 0;
-      const hasRatings = Object.keys(val.ratings).length > 0;
-      if (!hasVoters && !hasRatings) {
-        await env.VOTES.delete(key);
-      } else {
-        await env.VOTES.put(key, JSON.stringify(val));
-      }
-
-      const { avgDifficulty, numRatings } = computeAvgDifficulty(val.ratings);
-      return jsonResponse({ avgDifficulty, numRatings, userDifficulty: null }, 200, corsHeaders);
     }
 
     return new Response('Not found', { status: 404, headers: corsHeaders });
