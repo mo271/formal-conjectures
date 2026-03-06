@@ -321,7 +321,13 @@
           afterCursor = discussions.pageInfo.endCursor;
         }
       } catch (e) {
-        console.error('Failed to fetch user-specific vote state:', e);
+        if (e.message && e.message.includes('401')) {
+          // Token expired — clear it so UI shows "Sign in" buttons
+          localStorage.removeItem(LS_TOKEN_KEY);
+          localStorage.removeItem(LS_USER_KEY);
+        } else {
+          console.error('Failed to fetch user-specific vote state:', e);
+        }
       }
     }
 
