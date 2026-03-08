@@ -13,8 +13,11 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -/
+module
 
-import Mathlib.Order.Interval.Finset.Defs
+public import Mathlib.Order.Interval.Finset.Defs
+
+@[expose] public section
 
 variable {β : Type*} [Preorder β]
 variable (S : Set β) (a b : β)
@@ -29,7 +32,7 @@ abbrev Set.interIio (S : Set β) (b : β) : Set β :=
 
 /--
 Given a set `S` and elements `a` and `b` in an order `β`, `Set.interIcc S a b` is the intersection
-`S  ∩ Icc a b`.
+`S ∩ Icc a b`.
 -/
 @[inline]
 abbrev Set.interIcc [OrderBot β] (S : Set β) (a b : β) : Set β :=
