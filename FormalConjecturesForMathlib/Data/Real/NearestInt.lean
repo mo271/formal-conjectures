@@ -1,5 +1,5 @@
 /-
-Copyright 2025 The Formal Conjectures Authors.
+Copyright 2026 The Formal Conjectures Authors.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,12 +14,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -/
 
-import Mathlib.Data.Finset.Empty
+import Mathlib.Algebra.Order.Round
+import Mathlib.Data.Real.Archimedean
+import Mathlib.Data.Real.Basic
 
-@[simp]
-theorem Finset.univ_finset_of_isEmpty {α : Type*} [h : IsEmpty α] :
-    (Set.univ : Set (Finset α)) = {∅} := by
-  ext S
-  rw [Set.mem_singleton_iff, eq_true (Set.mem_univ S), true_iff]
-  ext a
-  exact IsEmpty.elim h a
+/-- The distance from a real number to the nearest integer. -/
+noncomputable def distToNearestInt (x : ℝ) : ℝ := |x - round x|
