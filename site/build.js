@@ -124,6 +124,15 @@ function moduleToGitHubURL(module) {
   return `${GITHUB_BASE}/${moduleToGitHubPath(module)}`;
 }
 
+/** Convert a module name to a Verso literate source page URL. */
+function moduleToSourceURL(module) {
+  // Add Lean guillemets «» around path segments starting with a digit,
+  // matching verso-html's output directory naming convention.
+  const segments = module.split('.');
+  const withGuillemets = segments.map(s => /^\d/.test(s) ? `«${s}»` : s);
+  return `/src/${withGuillemets.join('/')}/`;
+}
+
 /** Extract the source collection from a module name. */
 function getCollection(module) {
   const parts = module.split('.');
@@ -164,6 +173,7 @@ function processEntry(entry) {
     module,
     githubPath: moduleToGitHubPath(entry.module),
     githubUrl: moduleToGitHubURL(entry.module),
+    sourceUrl: moduleToSourceURL(entry.module),
     collection: collection.name,
     collectionUrl: collection.url,
     categoryLabel: catMeta.label,
@@ -291,6 +301,15 @@ function main() {
   const conjectures = rawData.map(processEntry);
   const stats = computeStats(conjectures);
 
+  // Load Verso literate fragments (module docstrings + const links)
+  let versoFragments = { moduleDocs: {}, constLinks: {} };
+  if (fs.existsSync('data/verso-fragments.json')) {
+    versoFragments = JSON.parse(fs.readFileSync('data/verso-fragments.json', 'utf8'));
+    console.log(`  Loaded ${Object.keys(versoFragments.moduleDocs).length} module docstrings, ${Object.keys(versoFragments.constLinks).length} constant links from Verso.`);
+  } else {
+    console.log('  No Verso fragments found (run extract_verso_fragments.py first).');
+  }
+
   console.log(`  Loaded ${conjectures.length} conjectures.`);
 
   // Clean and recreate site directory
@@ -307,7 +326,7 @@ function main() {
   ensureDir('site/data');
   fs.writeFileSync(
     'site/data/conjectures.json',
-    JSON.stringify({ conjectures, stats, amsSubjects: AMS_SUBJECTS }),
+    JSON.stringify({ conjectures, stats, amsSubjects: AMS_SUBJECTS, versoFragments }),
   );
 
   // ---- Landing page ----
@@ -353,7 +372,10 @@ function applyBasePath(html) {
   // Set data-base on <html> for client-side JS (main.js uses this for fetch paths)
   html = html.replace('data-base=""', `data-base="${BASE_PATH}"`);
   // Rewrite href="/..." and src="/..." to include the base path
-  return html.replace(/(href|src)="\/(?!\/)/g, `$1="${BASE_PATH}/`);
+  html = html.replace(/(href|src)="\/(?!\/)/g, `$1="${BASE_PATH}/`);
+  // Rewrite url('/...') in CSS (e.g. @font-face src)
+  html = html.replace(/url\('\/(?!\/)/g, `url('${BASE_PATH}/`);
+  return html;
 }
 
 main();
