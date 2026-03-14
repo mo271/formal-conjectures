@@ -117,6 +117,12 @@ function moduleToGitHubURL(module) {
   return `${GITHUB_BASE}/${clean.replace(/\./g, '/')}.lean`;
 }
 
+/** Convert a module name to a Verso literate source page URL. */
+function moduleToSourceURL(module) {
+  // Keep «guillemets» — verso-html uses them in output directory names
+  return `/src/${module.replace(/\./g, '/')}/`;
+}
+
 /** Extract the source collection from a module name. */
 function getCollection(module) {
   const parts = module.split('.');
@@ -156,6 +162,7 @@ function processEntry(entry) {
     theorem,
     module,
     githubUrl: moduleToGitHubURL(entry.module),
+    sourceUrl: moduleToSourceURL(entry.module),
     collection: collection.name,
     collectionUrl: collection.url,
     categoryLabel: catMeta.label,

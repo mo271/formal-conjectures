@@ -70,6 +70,11 @@ jobs:
         run: |
           lake build
 
+      - name: Build literate source pages
+        run: |
+          lake build FormalConjectures:literate
+          lake exe verso-html .lake/build/literate _literate_html
+
       - name: Pack olean cache
         run: |
           lake exe cache pack
@@ -155,6 +160,8 @@ jobs:
           cp -r site/site/* _deploy/
           # Lean docs go under /doc
           cp -r docbuild/out _deploy/doc
+          # Literate source pages go under /src
+          cp -r _literate_html _deploy/src
 
       - name: Upload deploy artifact
         id: deployment

@@ -128,7 +128,10 @@ function renderDetail(theorem, siblings) {
 
     <div class="theorem-detail__section">
       <div class="detail-label">View source</div>
-      <div class="detail-value">
+      <div class="detail-value" style="display:flex;flex-direction:column;gap:.4rem">
+        <a href="${_base}${FC.escapeHTML(theorem.sourceUrl)}">
+          Annotated source (with hovers &amp; docstrings)
+        </a>
         <a href="${FC.escapeHTML(theorem.githubUrl)}" target="_blank" rel="noopener">
           ${FC.escapeHTML(theorem.module.replace(/\./g, '/'))}.lean on GitHub ↗
         </a>
@@ -145,6 +148,9 @@ function renderDetail(theorem, siblings) {
 
     <nav class="theorem-detail__nav" aria-label="Page actions">
       <a href="${_base}/browse/" class="btn btn-outline">&larr; Back to browse</a>
+      <a href="${_base}${FC.escapeHTML(theorem.sourceUrl)}" class="btn btn-outline">
+        View annotated source
+      </a>
       <a href="${FC.escapeHTML(theorem.githubUrl)}" class="btn btn-outline" target="_blank" rel="noopener">
         View on GitHub ↗
       </a>
