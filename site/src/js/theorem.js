@@ -1,8 +1,11 @@
 /**
  * theorem.js — powers the /theorem/ detail page.
  *
- * Reads ?name= from the URL, finds the theorem in the loaded data,
- * and renders the full detail view with module docstring, code, and links.
+ * Renders the theorem detail view with:
+ * - Module docstring (from Verso, with rendered LaTeX/HTML)
+ * - Problem description (docstring from Verso, with rendered LaTeX)
+ * - Syntax-highlighted Lean code (fetched on demand from the Verso literate page)
+ * - Links to full annotated source and GitHub
  */
 
 'use strict';
@@ -33,13 +36,8 @@ async function init() {
     return;
   }
 
-  // Update page title
   document.title = `${theorem.theorem} — Formal Conjectures`;
-
-  // Find siblings (same module)
   const siblings = data.conjectures.filter(c => c.module === theorem.module);
-
-  // Get Verso fragments
   const verso = data.versoFragments || { moduleDocs: {}, constLinks: {} };
 
   renderDetail(theorem, siblings, verso);
@@ -47,18 +45,65 @@ async function init() {
 
 /**
  * Find the Verso constant link for a theorem.
- * extract_names uses fully-qualified names like "FormalConjectures.ErdosProblems.830.erdos_830.parts.i"
- * but Verso uses Lean namespace names like "Erdos830.erdos_830.parts.i".
- * We try progressively shorter suffixes of the theorem name.
+ * extract_names uses "FormalConjectures.ErdosProblems.830.erdos_830.parts.i"
+ * Verso uses "Erdos830.erdos_830.parts.i".
+ * We try progressively shorter suffixes.
  */
 function findVersoLink(theoremName, constLinks) {
-  // Try the full name first (after stripping module prefix)
   const parts = theoremName.split('.');
   for (let i = 0; i < parts.length; i++) {
     const suffix = parts.slice(i).join('.');
     if (constLinks[suffix]) return constLinks[suffix];
   }
   return null;
+}
+
+/**
+ * Load the Verso CSS for syntax highlighting if not already loaded.
+ */
+function loadVersoCss() {
+  if (document.getElementById('verso-code-css')) return;
+  const link = document.createElement('link');
+  link.id = 'verso-code-css';
+  link.rel = 'stylesheet';
+  link.href = `${_base}/src/code.css`;
+  document.head.appendChild(link);
+}
+
+/**
+ * Fetch the highlighted code block for a theorem from its Verso page.
+ * Returns the HTML string of the <code class="hl lean block"> element
+ * containing the theorem definition.
+ */
+async function fetchVersoCodeBlock(versoLink) {
+  try {
+    const pageUrl = `${_base}/src${versoLink.url.split('#')[0]}`;
+    const resp = await fetch(pageUrl);
+    if (!resp.ok) return null;
+    const html = await resp.text();
+
+    // Parse the HTML and find the code block containing our theorem's anchor
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const anchor = doc.getElementById(versoLink.anchor);
+    if (!anchor) return null;
+
+    // Walk up to find the enclosing <code class="hl lean block">
+    let el = anchor;
+    while (el && !(el.tagName === 'CODE' && el.classList.contains('hl'))) {
+      el = el.parentElement;
+    }
+    if (!el) return null;
+
+    // Also grab the hover data script for this page
+    const hoverScript = doc.querySelector('script[type="verso-hovers"]');
+    const hoverData = hoverScript ? hoverScript.textContent : null;
+
+    return { codeHtml: el.outerHTML, hoverData };
+  } catch (e) {
+    console.warn('Failed to fetch Verso code:', e);
+    return null;
+  }
 }
 
 function renderError(msg) {
@@ -74,7 +119,7 @@ function renderError(msg) {
 function renderDetail(theorem, siblings, verso) {
   const catMeta = FC.getCategoryMeta(theorem.category);
 
-  // Subject pills HTML
+  // Subject pills
   const subjectPillsHTML = theorem.subjects.length
     ? theorem.subjects.map(s =>
         `<span class="subject-pill">${FC.escapeHTML(s.name)} <span style="opacity:.6;font-size:.75em">(${FC.escapeHTML(s.code)})</span></span>`
@@ -86,7 +131,7 @@ function renderDetail(theorem, siblings, verso) {
     ? `<a href="${FC.escapeHTML(theorem.collectionUrl)}" target="_blank" rel="noopener">${FC.escapeHTML(theorem.collection)}</a>`
     : FC.escapeHTML(theorem.collection);
 
-  // Siblings list
+  // Siblings
   const siblingsHTML = siblings.length > 1
     ? siblings.map(s => {
         const isCurrent = s.theorem === theorem.theorem;
@@ -102,54 +147,41 @@ function renderDetail(theorem, siblings, verso) {
     : '';
 
   // --- Verso data ---
-  // Module docstring: use sourceUrl as key (e.g. "/FormalConjectures/ErdosProblems/«830»/")
-  // sourceUrl already has the right format with guillemets
   const moduleDocKey = theorem.sourceUrl || '';
   const moduleDocHTML = verso.moduleDocs[moduleDocKey] || '';
-
-  // Find Verso const link for this theorem
   const versoLink = findVersoLink(theorem.theorem, verso.constLinks);
-  const versoIframeUrl = versoLink
+  const docHtml = versoLink && versoLink.docHtml ? versoLink.docHtml : '';
+
+  const versoSourceUrl = versoLink
     ? `${_base}/src${versoLink.url}`
     : theorem.sourceUrl
       ? `${_base}/src${theorem.sourceUrl}`
       : null;
 
-  // Module docstring section
+  // Module overview section (from Verso)
   const moduleDocSection = moduleDocHTML ? `
     <div class="theorem-detail__section verso-module-doc">
       <div class="detail-label">Module overview</div>
       <div class="verso-doc-content">${moduleDocHTML}</div>
     </div>` : '';
 
-  // Docstring section (from extract_names)
-  const docstringSection = theorem.docstring ? `
+  // Problem description (from Verso docstring, with HTML/LaTeX)
+  const docSection = docHtml ? `
     <div class="theorem-detail__section">
       <div class="detail-label">Problem description</div>
-      <div class="verso-doc-content docstring-content">${FC.escapeHTML(theorem.docstring)}</div>
+      <div class="verso-doc-content">${docHtml}</div>
     </div>` : '';
 
-  // Lean statement section (from extract_names)
-  const statementSection = theorem.statement ? `
-    <div class="theorem-detail__section">
-      <div class="detail-label">Lean statement</div>
-      <pre class="lean-statement"><code>${FC.escapeHTML(theorem.statement)}</code></pre>
-    </div>` : '';
-
-  // Annotated source iframe section
-  const iframeSection = versoIframeUrl ? `
+  // Code placeholder (will be filled by async fetch)
+  const codeSection = versoLink ? `
     <div class="theorem-detail__section">
       <div class="detail-label">
-        Annotated source
-        <a href="${versoIframeUrl}" target="_blank" rel="noopener"
-           style="font-weight:400;font-size:.8rem;margin-left:.5rem">↗ open full page</a>
+        Lean code
+        ${versoSourceUrl ? `<a href="${versoSourceUrl}" target="_blank" rel="noopener"
+           style="font-weight:400;font-size:.8rem;margin-left:.5rem">view full source ↗</a>` : ''}
       </div>
-      <div class="verso-iframe-container">
-        <iframe src="${versoIframeUrl}"
-                class="verso-iframe"
-                title="Annotated Lean source"
-                loading="lazy"
-                sandbox="allow-scripts allow-same-origin"></iframe>
+      <div id="verso-code-container" class="verso-code-container">
+        <div class="verso-code-loading">Loading highlighted code…</div>
       </div>
     </div>` : '';
 
@@ -167,9 +199,9 @@ function renderDetail(theorem, siblings, verso) {
 
     ${moduleDocSection}
 
-    ${docstringSection}
+    ${docSection}
 
-    ${statementSection}
+    ${codeSection}
 
     <div class="theorem-detail__section">
       <div class="detail-label">Module</div>
@@ -188,18 +220,6 @@ function renderDetail(theorem, siblings, verso) {
       </div>
     </div>
 
-    <div class="theorem-detail__section">
-      <div class="detail-label">View source</div>
-      <div class="detail-value" style="display:flex;flex-direction:column;gap:.4rem">
-        <a href="${_base}${FC.escapeHTML(theorem.sourceUrl)}">
-          Annotated source (with hovers &amp; docstrings)
-        </a>
-        <a href="${FC.escapeHTML(theorem.githubUrl)}" target="_blank" rel="noopener">
-          ${FC.escapeHTML(theorem.module.replace(/\./g, '/'))}.lean on GitHub ↗
-        </a>
-      </div>
-    </div>
-
     ${siblings.length > 1 ? `
     <div class="theorem-detail__section">
       <div class="detail-label">Other results in this file</div>
@@ -208,18 +228,61 @@ function renderDetail(theorem, siblings, verso) {
       </div>
     </div>` : ''}
 
-    ${iframeSection}
-
     <nav class="theorem-detail__nav" aria-label="Page actions">
       <a href="${_base}/browse/" class="btn btn-outline">&larr; Back to browse</a>
-      <a href="${_base}${FC.escapeHTML(theorem.sourceUrl)}" class="btn btn-outline">
-        View annotated source
-      </a>
+      ${versoSourceUrl ? `<a href="${versoSourceUrl}" class="btn btn-outline">View annotated source</a>` : ''}
       <a href="${FC.escapeHTML(theorem.githubUrl)}" class="btn btn-outline" target="_blank" rel="noopener">
         View on GitHub ↗
       </a>
     </nav>
   `;
+
+  // Render LaTeX in docstrings using KaTeX auto-render
+  renderLatex();
+
+  // Async: fetch and render the highlighted code block
+  if (versoLink) {
+    loadVersoCss();
+    fetchVersoCodeBlock(versoLink).then(result => {
+      const container = document.getElementById('verso-code-container');
+      if (!container) return;
+      if (result && result.codeHtml) {
+        container.innerHTML = result.codeHtml;
+      } else {
+        container.innerHTML = `<div class="verso-code-fallback">
+          <a href="${versoSourceUrl || '#'}">View in annotated source →</a>
+        </div>`;
+      }
+    });
+  }
+}
+
+/**
+ * Render LaTeX in docstring elements using KaTeX auto-render.
+ * Waits for KaTeX to be loaded (it's deferred), then processes
+ * all .verso-doc-content elements.
+ */
+function renderLatex() {
+  // KaTeX auto-render is loaded with defer, so it may not be ready yet
+  function doRender() {
+    if (typeof renderMathInElement !== 'function') {
+      // KaTeX not loaded yet, retry
+      setTimeout(doRender, 100);
+      return;
+    }
+    for (const el of document.querySelectorAll('.verso-doc-content')) {
+      renderMathInElement(el, {
+        delimiters: [
+          { left: '$$', right: '$$', display: true },
+          { left: '\\\\[', right: '\\\\]', display: true },
+          { left: '$', right: '$', display: false },
+          { left: '\\\\(', right: '\\\\)', display: false },
+        ],
+        throwOnError: false,
+      });
+    }
+  }
+  doRender();
 }
 
 init();
