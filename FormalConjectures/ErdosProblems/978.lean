@@ -44,7 +44,7 @@ degree `k` of `f` is larger than `2`, is not equal to a power of `2`, and `f n` 
 `(k - 1)`-th power divisors other than `1`. Then the set of `n` such that `f n` is `(k - 1)`-th
 power free has positive density, and this is proved in [Ho67]. -/
 @[category research solved, AMS 11]
-theorem erdos_978..parts.i {f : ℤ[X]} (hi : Irreducible f) (hd : f.natDegree > 2)
+theorem erdos_978.parts.i {f : ℤ[X]} (hi : Irreducible f) (hd : f.natDegree > 2)
     (hp2 : ¬ ∃ l : ℕ, f.natDegree = 2 ^ l) (hlc : 0 < f.leadingCoeff)
     (hp : ¬ ∃ p : ℕ, p.Prime ∧ ∀ n : ℕ, (p : ℤ) ^ (f.natDegree - 1) ∣ f.eval (n : ℤ)) :
     HasPosDensity {n : ℕ | Powerfree (f.natDegree - 1) (f.eval (n : ℤ))} := by
