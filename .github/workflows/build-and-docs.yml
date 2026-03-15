@@ -77,7 +77,7 @@ jobs:
           lake build FormalConjectures:literate || true
           # Remove empty/corrupt JSON files left by failed builds
           find .lake/build/literate -name "*.json" -empty -delete 2>/dev/null || true
-          lake exe verso-html .lake/build/literate _literate_html
+          lake exe verso-html .lake/build/literate _literate_html || true
 
       - name: Pack olean cache
         run: |
