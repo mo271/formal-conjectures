@@ -290,6 +290,15 @@ function main() {
   const conjectures = rawData.map(processEntry);
   const stats = computeStats(conjectures);
 
+  // Load Verso literate fragments (module docstrings + const links)
+  let versoFragments = { moduleDocs: {}, constLinks: {} };
+  if (fs.existsSync('data/verso-fragments.json')) {
+    versoFragments = JSON.parse(fs.readFileSync('data/verso-fragments.json', 'utf8'));
+    console.log(`  Loaded ${Object.keys(versoFragments.moduleDocs).length} module docstrings, ${Object.keys(versoFragments.constLinks).length} constant links from Verso.`);
+  } else {
+    console.log('  No Verso fragments found (run extract_verso_fragments.py first).');
+  }
+
   console.log(`  Loaded ${conjectures.length} conjectures.`);
 
   // Clean and recreate site directory
@@ -306,7 +315,7 @@ function main() {
   ensureDir('site/data');
   fs.writeFileSync(
     'site/data/conjectures.json',
-    JSON.stringify({ conjectures, stats, amsSubjects: AMS_SUBJECTS }),
+    JSON.stringify({ conjectures, stats, amsSubjects: AMS_SUBJECTS, versoFragments }),
   );
 
   // ---- Landing page ----

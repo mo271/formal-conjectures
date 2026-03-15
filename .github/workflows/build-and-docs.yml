@@ -150,6 +150,10 @@ jobs:
         run: |
           lake exe extract_names > site/data/conjectures.json || true
 
+      - name: Extract Verso fragments for website
+        run: |
+          python3 site/extract_verso_fragments.py _literate_html site/data/verso-fragments.json
+
       - name: Build website
         run: |
           cd site

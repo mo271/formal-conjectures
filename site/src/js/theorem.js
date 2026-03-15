@@ -2,7 +2,7 @@
  * theorem.js — powers the /theorem/ detail page.
  *
  * Reads ?name= from the URL, finds the theorem in the loaded data,
- * and renders the full detail view.
+ * and renders the full detail view with module docstring, code, and links.
  */
 
 'use strict';
@@ -39,18 +39,26 @@ async function init() {
   // Find siblings (same module)
   const siblings = data.conjectures.filter(c => c.module === theorem.module);
 
-  renderDetail(theorem, siblings);
+  // Get Verso fragments
+  const verso = data.versoFragments || { moduleDocs: {}, constLinks: {} };
 
-  // Voting integration (disabled)
-  // await FC.voting.handleOAuthCallback();
-  // const widget = document.getElementById('vote-widget');
-  // const diffWidget = document.getElementById('difficulty-widget');
-  // if (widget) FC.voting.renderVoteButton(theorem.theorem, widget);
-  // if (diffWidget) FC.voting.renderDifficultyWidget(theorem.theorem, diffWidget);
-  // FC.voting.fetchAllVotes().then(() => {
-  //   if (widget) FC.voting.renderVoteButton(theorem.theorem, widget);
-  //   if (diffWidget) FC.voting.renderDifficultyWidget(theorem.theorem, diffWidget);
-  // });
+  renderDetail(theorem, siblings, verso);
+}
+
+/**
+ * Find the Verso constant link for a theorem.
+ * extract_names uses fully-qualified names like "FormalConjectures.ErdosProblems.830.erdos_830.parts.i"
+ * but Verso uses Lean namespace names like "Erdos830.erdos_830.parts.i".
+ * We try progressively shorter suffixes of the theorem name.
+ */
+function findVersoLink(theoremName, constLinks) {
+  // Try the full name first (after stripping module prefix)
+  const parts = theoremName.split('.');
+  for (let i = 0; i < parts.length; i++) {
+    const suffix = parts.slice(i).join('.');
+    if (constLinks[suffix]) return constLinks[suffix];
+  }
+  return null;
 }
 
 function renderError(msg) {
@@ -63,7 +71,7 @@ function renderError(msg) {
     </div>`;
 }
 
-function renderDetail(theorem, siblings) {
+function renderDetail(theorem, siblings, verso) {
   const catMeta = FC.getCategoryMeta(theorem.category);
 
   // Subject pills HTML
@@ -93,6 +101,58 @@ function renderDetail(theorem, siblings) {
       }).join('\n')
     : '';
 
+  // --- Verso data ---
+  // Module docstring: use sourceUrl as key (e.g. "/FormalConjectures/ErdosProblems/«830»/")
+  // sourceUrl already has the right format with guillemets
+  const moduleDocKey = theorem.sourceUrl || '';
+  const moduleDocHTML = verso.moduleDocs[moduleDocKey] || '';
+
+  // Find Verso const link for this theorem
+  const versoLink = findVersoLink(theorem.theorem, verso.constLinks);
+  const versoIframeUrl = versoLink
+    ? `${_base}/src${versoLink.url}`
+    : theorem.sourceUrl
+      ? `${_base}/src${theorem.sourceUrl}`
+      : null;
+
+  // Module docstring section
+  const moduleDocSection = moduleDocHTML ? `
+    <div class="theorem-detail__section verso-module-doc">
+      <div class="detail-label">Module overview</div>
+      <div class="verso-doc-content">${moduleDocHTML}</div>
+    </div>` : '';
+
+  // Docstring section (from extract_names)
+  const docstringSection = theorem.docstring ? `
+    <div class="theorem-detail__section">
+      <div class="detail-label">Problem description</div>
+      <div class="verso-doc-content docstring-content">${FC.escapeHTML(theorem.docstring)}</div>
+    </div>` : '';
+
+  // Lean statement section (from extract_names)
+  const statementSection = theorem.statement ? `
+    <div class="theorem-detail__section">
+      <div class="detail-label">Lean statement</div>
+      <pre class="lean-statement"><code>${FC.escapeHTML(theorem.statement)}</code></pre>
+    </div>` : '';
+
+  // Annotated source iframe section
+  const iframeSection = versoIframeUrl ? `
+    <div class="theorem-detail__section">
+      <div class="detail-label">
+        Annotated source
+        <a href="${versoIframeUrl}" target="_blank" rel="noopener"
+           style="font-weight:400;font-size:.8rem;margin-left:.5rem">↗ open full page</a>
+      </div>
+      <div class="verso-iframe-container">
+        <iframe src="${versoIframeUrl}"
+                class="verso-iframe"
+                title="Annotated Lean source"
+                loading="lazy"
+                sandbox="allow-scripts allow-same-origin"></iframe>
+      </div>
+    </div>` : '';
+
   detailEl.innerHTML = `
     <div class="theorem-detail__breadcrumb">
       <a href="${_base}/browse/">&larr; Browse</a>
@@ -105,9 +165,11 @@ function renderDetail(theorem, siblings) {
       <span class="badge ${catMeta.css}" style="font-size:.9rem;padding:.3rem .9rem">${FC.escapeHTML(catMeta.label)}</span>
     </header>
 
-    <!-- voting disabled -->
-    <!-- <div id="vote-widget"></div> -->
-    <!-- <div id="difficulty-widget"></div> -->
+    ${moduleDocSection}
+
+    ${docstringSection}
+
+    ${statementSection}
 
     <div class="theorem-detail__section">
       <div class="detail-label">Module</div>
@@ -145,6 +207,8 @@ function renderDetail(theorem, siblings) {
         ${siblingsHTML}
       </div>
     </div>` : ''}
+
+    ${iframeSection}
 
     <nav class="theorem-detail__nav" aria-label="Page actions">
       <a href="${_base}/browse/" class="btn btn-outline">&larr; Back to browse</a>
