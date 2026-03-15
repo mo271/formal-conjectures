@@ -16,3 +16,11 @@ limitations under the License.
 
 import FormalConjectures.Util.ProblemImports
 import FormalConjectures.ErdosProblems.«107»
+
+/-!
+# Happy Ending Problem
+
+*Reference:* [Wikipedia](https://en.wikipedia.org/wiki/Happy_ending_problem)
+
+This file points to the canonical formalization in `FormalConjectures.ErdosProblems.«107»`.
+-/

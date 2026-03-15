@@ -15,3 +15,11 @@ limitations under the License.
 -/
 
 import FormalConjectures.ErdosProblems.«36»
+
+/-!
+# Minimum Overlap Problem
+
+*Reference:* [Wikipedia](https://en.wikipedia.org/wiki/Minimum_overlap_problem)
+
+This file points to the canonical formalization in `FormalConjectures.ErdosProblems.«36»`.
+-/
