@@ -30,20 +30,22 @@ open Polynomial Set
 
 namespace Erdos978
 
-/-- Let `f ∈ ℤ[X]` be an irreducible polynomial. Suppose that the degree `k` of `f` is larger than
-`2` and is not equal to a power of `2`. Then the set of `n` such that `f n` is `(k - 1)`-th power
-free is infinite, and this is proved in [Er53]. -/
+/-- Let `f ∈ ℤ[X]` be an irreducible polynomial with positive leading coefficient. Suppose that the
+degree `k` of `f` is larger than `2` and is not equal to a power of `2`. Then the set of `n` such
+that `f n` is `(k - 1)`-th power free is infinite, and this is proved in [Er53]. -/
 @[category research solved, AMS 11]
 theorem erdos_978.sub_one {f : ℤ[X]} (hi : Irreducible f) (hd : f.natDegree > 2)
-    (hp : ¬ ∃ l : ℕ, f.natDegree = 2 ^ l) :
+    (hp : ¬ ∃ l : ℕ, f.natDegree = 2 ^ l) (hlc : 0 < f.leadingCoeff) :
     {n : ℕ | Powerfree (f.natDegree - 1) (f.eval (n : ℤ))}.Infinite := by
   sorry
 
-/-- Let `f ∈ ℤ[X]` be an irreducible polynomial. Suppose that the degree `k` of `f` is larger than
-`2`, and `f n` have no fixed `(k - 1)`-th power divisors other than `1`. Then the set of `n` such
-that `f n` is `(k - 1)`-th power free has positive density, and this is proved in [Ho67]. -/
+/-- Let `f ∈ ℤ[X]` be an irreducible polynomial with positive leading coefficient. Suppose that the
+degree `k` of `f` is larger than `2`, is not equal to a power of `2`, and `f n` has no fixed
+`(k - 1)`-th power divisors other than `1`. Then the set of `n` such that `f n` is `(k - 1)`-th
+power free has positive density, and this is proved in [Ho67]. -/
 @[category research solved, AMS 11]
 theorem erdos_978.sub_one_density {f : ℤ[X]} (hi : Irreducible f) (hd : f.natDegree > 2)
+    (hp2 : ¬ ∃ l : ℕ, f.natDegree = 2 ^ l) (hlc : 0 < f.leadingCoeff)
     (hp : ¬ ∃ p : ℕ, p.Prime ∧ ∀ n : ℕ, (p : ℤ) ^ (f.natDegree - 1) ∣ f.eval (n : ℤ)) :
     HasPosDensity {n : ℕ | Powerfree (f.natDegree - 1) (f.eval (n : ℤ))} := by
   sorry
@@ -56,10 +58,11 @@ theorem erdos_978.sub_two {f : ℤ[X]} (hi : Irreducible f) (hd : f.natDegree �
     {n : ℕ | Powerfree (f.natDegree - 2) (f.eval (n : ℤ))}.Infinite := by
   sorry
 
-/-- Is it true that the set of `n` such that `f n` is `(k - 2)`-th power free has infinitely many
-elements? -/
+/-- If $k > 3$ (and $k \neq 2^l$), then are there infinitely many $n$ for which $f(n)$ is
+$(k-2)$-power-free? -/
 @[category research open, AMS 11]
-theorem erdos_978.sub_two' : answer(sorry) ↔ ∀ {f : ℤ[X]}, Irreducible f → f.natDegree > 3 →
+theorem erdos_978.parts.ii : answer(sorry) ↔ ∀ {f : ℤ[X]}, Irreducible f → f.natDegree > 3 →
+    (¬ ∃ l : ℕ, f.natDegree = 2 ^ l) → 0 < f.leadingCoeff →
     (¬ ∃ p : ℕ, p.Prime ∧ ∀ n : ℕ, (p : ℤ) ^ (f.natDegree - 1) ∣ f.eval (n : ℤ)) →
     {n : ℕ | Powerfree (f.natDegree - 2) (f.eval (n : ℤ))}.Infinite := by
   sorry
