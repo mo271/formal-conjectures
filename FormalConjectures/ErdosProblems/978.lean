@@ -34,7 +34,7 @@ namespace Erdos978
 degree `k` of `f` is larger than `2` and is not equal to a power of `2`. Then the set of `n` such
 that `f n` is `(k - 1)`-th power free is infinite, and this is proved in [Er53]. -/
 @[category research solved, AMS 11]
-theorem erdos_978.variants.sub_one  {f : ℤ[X]} (hi : Irreducible f) (hd : f.natDegree > 2)
+theorem erdos_978.variants.sub_one {f : ℤ[X]} (hi : Irreducible f) (hd : f.natDegree > 2)
     (hp : ¬ ∃ l : ℕ, f.natDegree = 2 ^ l) (hlc : 0 < f.leadingCoeff) :
     {n : ℕ | Powerfree (f.natDegree - 1) (f.eval (n : ℤ))}.Infinite := by
   sorry
