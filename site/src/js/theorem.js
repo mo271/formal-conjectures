@@ -59,15 +59,48 @@ function findVersoLink(theoremName, constLinks) {
 }
 
 /**
- * Load the Verso CSS for syntax highlighting if not already loaded.
+ * Load the Verso CSS for syntax highlighting and code block rendering.
+ * Includes code.css and tippy-border.css from the deployed Verso pages,
+ * plus critical inline rules to hide tactic states and warning messages.
  */
 function loadVersoCss() {
   if (document.getElementById('verso-code-css')) return;
-  const link = document.createElement('link');
-  link.id = 'verso-code-css';
-  link.rel = 'stylesheet';
-  link.href = `${_base}/src/code.css`;
-  document.head.appendChild(link);
+
+  // Load Verso's code.css for syntax highlighting
+  const codeLink = document.createElement('link');
+  codeLink.id = 'verso-code-css';
+  codeLink.rel = 'stylesheet';
+  codeLink.href = `${_base}/src/code.css`;
+  document.head.appendChild(codeLink);
+
+  // Load tippy border CSS for hover tooltips
+  const tippyLink = document.createElement('link');
+  tippyLink.rel = 'stylesheet';
+  tippyLink.href = `${_base}/src/tippy-border.css`;
+  document.head.appendChild(tippyLink);
+
+  // Add critical inline CSS to properly hide Verso interactive elements
+  // that are normally hidden on the Verso source pages
+  const style = document.createElement('style');
+  style.textContent = `
+    /* Hide tactic goal states (shown via checkbox toggle on Verso pages) */
+    .hl.lean .tactic-state { display: none; }
+    .hl.lean .tactic-toggle { position: absolute; opacity: 0; height: 0; width: 0; }
+    .hl.lean .tactic-toggle:checked ~ .tactic-state { display: inline-block; }
+    /* Hide compiler messages (shown via hover on Verso pages) */
+    .hover-info.messages { display: none; }
+    /* Style warning underlines */
+    .hl.lean .has-info .token:not(.tactic-state) {
+      text-decoration-style: wavy;
+      text-decoration-line: underline;
+    }
+    .hl.lean .has-info.warning .token:not(.tactic-state) {
+      text-decoration-color: #c09020;
+    }
+    /* Style inter-text spacing */
+    .hl.lean .inter-text { white-space: pre; }
+  `;
+  document.head.appendChild(style);
 }
 
 /**

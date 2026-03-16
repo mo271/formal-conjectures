@@ -364,7 +364,10 @@ function applyBasePath(html) {
   // Set data-base on <html> for client-side JS (main.js uses this for fetch paths)
   html = html.replace('data-base=""', `data-base="${BASE_PATH}"`);
   // Rewrite href="/..." and src="/..." to include the base path
-  return html.replace(/(href|src)="\/(?!\/)/g, `$1="${BASE_PATH}/`);
+  html = html.replace(/(href|src)="\/(?!\/)/g, `$1="${BASE_PATH}/`);
+  // Rewrite url('/...') in CSS (e.g. @font-face src)
+  html = html.replace(/url\('\/(?!\/)/g, `url('${BASE_PATH}/`);
+  return html;
 }
 
 main();
