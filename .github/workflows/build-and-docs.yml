@@ -79,6 +79,10 @@ jobs:
           find .lake/build/literate -name "*.json" -empty -delete 2>/dev/null || true
           lake exe verso-html .lake/build/literate _literate_html || true
 
+      - name: Post-process literate HTML
+        run: |
+          python3 site/fix_literate_html.py _literate_html
+
       - name: Pack olean cache
         run: |
           lake exe cache pack

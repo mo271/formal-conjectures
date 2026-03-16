@@ -119,8 +119,11 @@ function moduleToGitHubURL(module) {
 
 /** Convert a module name to a Verso literate source page URL. */
 function moduleToSourceURL(module) {
-  // Keep «guillemets» — verso-html uses them in output directory names
-  return `/src/${module.replace(/\./g, '/')}/`;
+  // Add Lean guillemets «» around path segments starting with a digit,
+  // matching verso-html's output directory naming convention.
+  const segments = module.split('.');
+  const withGuillemets = segments.map(s => /^\d/.test(s) ? `«${s}»` : s);
+  return `/src/${withGuillemets.join('/')}/`;
 }
 
 /** Extract the source collection from a module name. */

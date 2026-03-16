@@ -147,15 +147,17 @@ function renderDetail(theorem, siblings, verso) {
     : '';
 
   // --- Verso data ---
-  const moduleDocKey = theorem.sourceUrl || '';
+  // sourceUrl is like "/src/FormalConjectures/..." but verso keys don't have /src prefix
+  const moduleDocKey = (theorem.sourceUrl || '').replace(/^\/src/, '');
   const moduleDocHTML = verso.moduleDocs[moduleDocKey] || '';
   const versoLink = findVersoLink(theorem.theorem, verso.constLinks);
   const docHtml = versoLink && versoLink.docHtml ? versoLink.docHtml : '';
 
+  // versoLink.url is already like "/FormalConjectures/.../#anchor"
   const versoSourceUrl = versoLink
     ? `${_base}/src${versoLink.url}`
     : theorem.sourceUrl
-      ? `${_base}/src${theorem.sourceUrl}`
+      ? `${_base}${theorem.sourceUrl}`
       : null;
 
   // Module overview section (from Verso)
