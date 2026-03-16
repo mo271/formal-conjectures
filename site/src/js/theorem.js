@@ -83,6 +83,8 @@ function loadVersoCss() {
   // that are normally hidden on the Verso source pages
   const style = document.createElement('style');
   style.textContent = `
+    /* Override Verso's body overflow:hidden which breaks page scrolling */
+    body { overflow: visible !important; overflow-y: auto !important; }
     /* Hide tactic goal states (shown via checkbox toggle on Verso pages) */
     .hl.lean .tactic-state { display: none; }
     .hl.lean .tactic-toggle { position: absolute; opacity: 0; height: 0; width: 0; }
