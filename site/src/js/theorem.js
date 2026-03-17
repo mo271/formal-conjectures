@@ -125,6 +125,18 @@ function loadVersoAssets() {
       display: block;
       padding: 1.25rem;
     }
+    /* Tooltip spacing: separator between type signature and docstring */
+    .hover-info .sep {
+      display: block;
+      height: 1px;
+      background: #e0e0e0;
+      margin: .5rem 0;
+    }
+    .hover-info code.docstring {
+      display: block;
+      white-space: pre-wrap;
+      margin-top: .25rem;
+    }
   `;
   document.head.appendChild(style);
 
