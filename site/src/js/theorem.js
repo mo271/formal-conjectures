@@ -4,7 +4,7 @@
  * Renders the theorem detail view with:
  * - Module docstring (from Verso, with rendered LaTeX/HTML)
  * - Problem description (docstring from Verso, with rendered LaTeX)
- * - Syntax-highlighted Lean code (fetched on demand from the Verso literate page)
+ * - Syntax-highlighted Lean code (fetched from Verso, with full interactive hovers)
  * - Links to full annotated source and GitHub
  */
 
@@ -58,13 +58,26 @@ function findVersoLink(theoremName, constLinks) {
   return null;
 }
 
+// ─── Verso asset and script loading ────────────────────────────────
+
+/** Helper to load an external script and return a Promise. */
+function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    if (document.querySelector(`script[src="${src}"]`)) { resolve(); return; }
+    const s = document.createElement('script');
+    s.src = src;
+    s.onload = resolve;
+    s.onerror = () => { console.warn(`Failed to load script: ${src}`); resolve(); };
+    document.head.appendChild(s);
+  });
+}
+
 /**
- * Load the Verso CSS for syntax highlighting and code block rendering.
- * Includes code.css and tippy-border.css from the deployed Verso pages,
- * plus critical inline rules to hide tactic states and warning messages.
+ * Load Verso CSS + JS for code rendering and interactive hovers.
+ * Returns a Promise that resolves once popper.js + tippy.js are loaded.
  */
-function loadVersoCss() {
-  if (document.getElementById('verso-code-css')) return;
+function loadVersoAssets() {
+  if (document.getElementById('verso-code-css')) return Promise.resolve();
 
   // Load Verso's code.css for syntax highlighting
   const codeLink = document.createElement('link');
@@ -79,8 +92,7 @@ function loadVersoCss() {
   tippyLink.href = `${_base}/src/tippy-border.css`;
   document.head.appendChild(tippyLink);
 
-  // Add critical inline CSS to properly hide Verso interactive elements
-  // that are normally hidden on the Verso source pages
+  // Critical inline CSS overrides
   const style = document.createElement('style');
   style.textContent = `
     /* Override Verso's body overflow:hidden which breaks page scrolling */
@@ -99,23 +111,48 @@ function loadVersoCss() {
     .hl.lean .has-info.warning .token:not(.tactic-state) {
       text-decoration-color: #c09020;
     }
-    /* Style inter-text spacing */
+    /* Inter-text spacing */
     .hl.lean .inter-text { white-space: pre; }
+    /* Make the code container match Verso's clean look */
+    .verso-code-container {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 0;
+    }
+    .verso-code-container code.hl.lean.block {
+      font-size: 16px;
+      display: block;
+      padding: 1.25rem;
+    }
   `;
   document.head.appendChild(style);
+
+  // Load popper.js then tippy.js from the Verso source directory
+  return loadScript(`${_base}/src/popper.js`)
+    .then(() => loadScript(`${_base}/src/tippy.js`));
 }
+
+// ─── Fetch code block + hover data ─────────────────────────────────
 
 /**
  * Fetch the highlighted code block for a theorem from its Verso page.
- * Returns the HTML string of the <code class="hl lean block"> element
- * containing the theorem definition.
+ * Also fetches the -verso-docs.json hover data for interactive tooltips.
  */
 async function fetchVersoCodeBlock(versoLink) {
   try {
-    const pageUrl = `${_base}/src${versoLink.url.split('#')[0]}`;
-    const resp = await fetch(pageUrl);
-    if (!resp.ok) return null;
-    const html = await resp.text();
+    const pagePath = versoLink.url.split('#')[0]; // "/FormalConjectures/.../«17»/"
+    const pageUrl = `${_base}/src${pagePath}`;
+    // -verso-docs.json is at the literate root, shared across all pages
+    const docsUrl = `${_base}/src/-verso-docs.json`;
+
+    const [pageResp, docsResp] = await Promise.all([
+      fetch(pageUrl),
+      fetch(docsUrl).catch(() => null),
+    ]);
+    if (!pageResp.ok) return null;
+    const html = await pageResp.text();
+    const docsData = docsResp && docsResp.ok ? await docsResp.json() : null;
 
     // Parse the HTML and find the code block containing our theorem's anchor
     const parser = new DOMParser();
@@ -130,16 +167,178 @@ async function fetchVersoCodeBlock(versoLink) {
     }
     if (!el) return null;
 
-    // Also grab the hover data script for this page
-    const hoverScript = doc.querySelector('script[type="verso-hovers"]');
-    const hoverData = hoverScript ? hoverScript.textContent : null;
-
-    return { codeHtml: el.outerHTML, hoverData };
+    return { codeHtml: el.outerHTML, docsData };
   } catch (e) {
     console.warn('Failed to fetch Verso code:', e);
     return null;
   }
 }
+
+// ─── Verso hover initialization (replicates Verso inline script) ───
+
+/**
+ * Initialize Verso-style interactive hovers on the injected code block.
+ * This replicates the behavior of Verso's inline initialization script,
+ * including binding highlights, tactic toggles, and type-info tooltips.
+ */
+function initVersoHovers(container, docsData) {
+  if (typeof tippy !== 'function') {
+    console.warn('tippy.js not loaded, skipping hover init');
+    return;
+  }
+
+  // 1. Binding highlight on mouseover/mouseout
+  for (const c of container.querySelectorAll('.hl.lean .token')) {
+    if (c.dataset.binding != '') {
+      c.addEventListener('mouseover', () => {
+        const context = c.closest('.hl.lean')?.dataset.leanContext;
+        for (const example of container.querySelectorAll('.hl.lean')) {
+          if (example.dataset.leanContext == context) {
+            for (const tok of example.querySelectorAll('.token')) {
+              if (c.dataset.binding == tok.dataset.binding) {
+                tok.classList.add('binding-hl');
+              }
+            }
+          }
+        }
+      });
+    }
+    c.addEventListener('mouseout', () => {
+      for (const tok of container.querySelectorAll('.hl.lean .token')) {
+        tok.classList.remove('binding-hl');
+      }
+    });
+  }
+
+  // 2. Helpers
+  function blockedByTactic(elem) {
+    let parent = elem.parentNode;
+    while (parent && 'classList' in parent) {
+      if (parent.classList.contains('tactic')) {
+        const toggle = parent.querySelector('input.tactic-toggle');
+        if (toggle) return !toggle.checked;
+      }
+      parent = parent.parentNode;
+    }
+    return false;
+  }
+
+  function blockedByTippy(elem) {
+    let block = elem;
+    const topLevel = new Set(['section', 'body', 'html', 'nav', 'header', 'main']);
+    while (block.parentNode && !topLevel.has(block.parentNode.nodeName.toLowerCase())) {
+      block = block.parentNode;
+    }
+    for (const child of block.querySelectorAll('.token, .has-info')) {
+      if (child._tippy && child._tippy.state.isVisible) return true;
+    }
+    return false;
+  }
+
+  function hideParentTooltips(element) {
+    let parent = element.parentElement;
+    while (parent) {
+      if (parent._tippy) parent._tippy.hide();
+      parent = parent.parentElement;
+    }
+  }
+
+  // 3. Set tippy themes on elements
+  container.querySelectorAll(
+    '.hl.lean .const.token, .hl.lean .keyword.token, .hl.lean .literal.token, ' +
+    '.hl.lean .option.token, .hl.lean .var.token, .hl.lean .typed.token, ' +
+    '.hl.lean .level-var, .hl.lean .level-const, .hl.lean .level-op, .hl.lean .sort'
+  ).forEach(el => el.setAttribute('data-tippy-theme', 'lean'));
+
+  container.querySelectorAll('.hl.lean .has-info.warning').forEach(el =>
+    el.setAttribute('data-tippy-theme', 'warning message'));
+  container.querySelectorAll('.hl.lean .has-info.information').forEach(el =>
+    el.setAttribute('data-tippy-theme', 'info message'));
+  container.querySelectorAll('.hl.lean .has-info.error').forEach(el =>
+    el.setAttribute('data-tippy-theme', 'error message'));
+  container.querySelectorAll('.hl.lean .tactic').forEach(el =>
+    el.setAttribute('data-tippy-theme', 'tactic'));
+
+  // 4. Initialize tippy instances
+  const tippyProps = {
+    maxWidth: 'none',
+    appendTo: () => document.body,
+    interactive: true,
+    delay: [100, null],
+    followCursor: 'initial',
+    onShow(inst) {
+      if (inst.reference.className == 'tactic') {
+        const toggle = inst.reference.querySelector('input.tactic-toggle');
+        if (toggle && toggle.checked) return false;
+        hideParentTooltips(inst.reference);
+      } else if (inst.reference.querySelector('.hover-info') || 'versoHover' in inst.reference.dataset) {
+        if (blockedByTactic(inst.reference)) return false;
+        if (blockedByTippy(inst.reference)) return false;
+      } else {
+        return false;
+      }
+    },
+    content(tgt) {
+      const content = document.createElement('span');
+      if (tgt.className == 'tactic') {
+        const state = tgt.querySelector('.tactic-state')?.cloneNode(true);
+        if (state) {
+          state.style.display = 'block';
+          content.appendChild(state);
+          content.style.display = 'block';
+          content.className = 'hl lean popup';
+        }
+      } else {
+        content.className = 'hl lean';
+        content.style.display = 'block';
+        content.style.maxHeight = '300px';
+        content.style.overflowY = 'auto';
+        content.style.overflowX = 'hidden';
+        const hoverId = tgt.dataset.versoHover;
+        const hoverInfo = tgt.querySelector('.hover-info');
+        if (hoverId && docsData) {
+          const data = docsData[hoverId];
+          if (data) {
+            const info = document.createElement('span');
+            info.className = 'hover-info';
+            info.style.display = 'block';
+            info.innerHTML = data;
+            content.appendChild(info);
+          }
+        } else if (hoverInfo) {
+          content.appendChild(hoverInfo.cloneNode(true));
+        }
+        const extraLinks = tgt.parentElement?.dataset['versoLinks'];
+        if (extraLinks) {
+          try {
+            const extras = JSON.parse(extraLinks);
+            const links = document.createElement('ul');
+            links.className = 'extra-doc-links';
+            extras.forEach(l => {
+              const li = document.createElement('li');
+              li.innerHTML = `<a href="${l.href}" title="${l.long}">${l.short}</a>`;
+              links.appendChild(li);
+            });
+            content.appendChild(links);
+          } catch (_) { }
+        }
+      }
+      return content;
+    },
+  };
+
+  tippy(
+    container.querySelectorAll(
+      '.hl.lean .const.token, .hl.lean .keyword.token, .hl.lean .literal.token, ' +
+      '.hl.lean .option.token, .hl.lean .var.token, .hl.lean .typed.token, ' +
+      '.hl.lean .has-info, .hl.lean .tactic, ' +
+      '.hl.lean .level-var, .hl.lean .level-const, .hl.lean .level-op, .hl.lean .sort'
+    ),
+    tippyProps
+  );
+}
+
+// ─── Page rendering ────────────────────────────────────────────────
 
 function renderError(msg) {
   detailEl.innerHTML = `
@@ -182,34 +381,31 @@ function renderDetail(theorem, siblings, verso) {
     : '';
 
   // --- Verso data ---
-  // sourceUrl is like "/src/FormalConjectures/..." but verso keys don't have /src prefix
   const moduleDocKey = (theorem.sourceUrl || '').replace(/^\/src/, '');
   const moduleDocHTML = verso.moduleDocs[moduleDocKey] || '';
   const versoLink = findVersoLink(theorem.theorem, verso.constLinks);
   const docHtml = versoLink && versoLink.docHtml ? versoLink.docHtml : '';
-
-  // versoLink.url is already like "/FormalConjectures/.../#anchor"
   const versoSourceUrl = versoLink
     ? `${_base}/src${versoLink.url}`
     : theorem.sourceUrl
       ? `${_base}${theorem.sourceUrl}`
       : null;
 
-  // Module overview section (from Verso)
+  // Module overview section
   const moduleDocSection = moduleDocHTML ? `
     <div class="theorem-detail__section verso-module-doc">
       <div class="detail-label">Module overview</div>
       <div class="verso-doc-content">${moduleDocHTML}</div>
     </div>` : '';
 
-  // Problem description (from Verso docstring, with HTML/LaTeX)
+  // Problem description
   const docSection = docHtml ? `
     <div class="theorem-detail__section">
       <div class="detail-label">Problem description</div>
       <div class="verso-doc-content">${docHtml}</div>
     </div>` : '';
 
-  // Code placeholder (will be filled by async fetch)
+  // Code placeholder (async-filled)
   const codeSection = versoLink ? `
     <div class="theorem-detail__section">
       <div class="detail-label">
@@ -274,17 +470,18 @@ function renderDetail(theorem, siblings, verso) {
     </nav>
   `;
 
-  // Render LaTeX in docstrings using KaTeX auto-render
+  // Render LaTeX in docstrings
   renderLatex();
 
-  // Async: fetch and render the highlighted code block
+  // Async: load Verso assets, fetch code block, and initialize hovers
   if (versoLink) {
-    loadVersoCss();
-    fetchVersoCodeBlock(versoLink).then(result => {
+    loadVersoAssets().then(() => fetchVersoCodeBlock(versoLink)).then(result => {
       const container = document.getElementById('verso-code-container');
       if (!container) return;
       if (result && result.codeHtml) {
         container.innerHTML = result.codeHtml;
+        // Initialize interactive hovers on the injected code
+        initVersoHovers(container, result.docsData);
       } else {
         container.innerHTML = `<div class="verso-code-fallback">
           <a href="${versoSourceUrl || '#'}">View in annotated source →</a>
@@ -294,16 +491,14 @@ function renderDetail(theorem, siblings, verso) {
   }
 }
 
+// ─── KaTeX rendering ───────────────────────────────────────────────
+
 /**
  * Render LaTeX in docstring elements using KaTeX auto-render.
- * Waits for KaTeX to be loaded (it's deferred), then processes
- * all .verso-doc-content elements.
  */
 function renderLatex() {
-  // KaTeX auto-render is loaded with defer, so it may not be ready yet
   function doRender() {
     if (typeof renderMathInElement !== 'function') {
-      // KaTeX not loaded yet, retry
       setTimeout(doRender, 100);
       return;
     }
@@ -311,9 +506,7 @@ function renderLatex() {
       renderMathInElement(el, {
         delimiters: [
           { left: '$$', right: '$$', display: true },
-          { left: '\\\\[', right: '\\\\]', display: true },
           { left: '$', right: '$', display: false },
-          { left: '\\\\(', right: '\\\\)', display: false },
         ],
         throwOnError: false,
       });
