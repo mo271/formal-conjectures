@@ -30,13 +30,14 @@ async function init() {
     return;
   }
 
-  const theorem = data.conjectures.find(c => c.theorem === name);
+  // Look up by exact name (with guillemets) or by display name (guillemets stripped)
+  const theorem = data.conjectures.find(c => c.theorem === name || c.displayTheorem === name);
   if (!theorem) {
     renderError(`Theorem <code>${FC.escapeHTML(name)}</code> not found. It may have been renamed or removed.`);
     return;
   }
 
-  document.title = `${theorem.theorem} — Formal Conjectures`;
+  document.title = `${theorem.displayTheorem} — Formal Conjectures`;
   const siblings = data.conjectures.filter(c => c.module === theorem.module);
   const verso = data.versoFragments || { moduleDocs: {}, constLinks: {} };
 
@@ -401,14 +402,14 @@ function renderDetail(theorem, siblings, verso) {
           <div class="sibling-item ${isCurrent ? 'current' : ''}">
             <span class="badge ${sCatMeta.css}">${FC.escapeHTML(sCatMeta.label)}</span>
             ${isCurrent
-          ? `<span style="font-weight:500;color:var(--color-text)">${FC.escapeHTML(s.theorem)}</span>`
-          : `<a href="${FC.escapeHTML(FC.theoremURL(s.theorem))}">${FC.escapeHTML(s.theorem)}</a>`}
+          ? `<span style="font-weight:500;color:var(--color-text)">${FC.escapeHTML(s.displayTheorem)}</span>`
+          : `<a href="${FC.escapeHTML(FC.theoremURL(s.displayTheorem))}">${FC.escapeHTML(s.displayTheorem)}</a>`}
           </div>`;
       }).join('\n')
     : '';
 
   // --- Verso data ---
-  const moduleDocKey = (theorem.sourceUrl || '').replace(/^\/src/, '').replace(/[«»]/g, '');
+  const moduleDocKey = (theorem.sourceUrl || '').replace(/^\/src/, '');
   const moduleDocHTML = verso.moduleDocs[moduleDocKey] || '';
   const versoLink = findVersoLink(theorem.theorem, verso.constLinks);
   const docHtml = versoLink && versoLink.docHtml ? versoLink.docHtml : '';
@@ -422,7 +423,7 @@ function renderDetail(theorem, siblings, verso) {
   const moduleDocSection = moduleDocHTML ? `
     <div class="theorem-detail__section verso-module-doc">
       <div class="detail-label">Module overview
-        <span style="font-weight:400;font-size:.8rem;margin-left:.5rem;color:var(--color-text-muted);text-transform:none">${FC.escapeHTML(theorem.module)}</span>
+        <span style="font-weight:400;font-size:.8rem;margin-left:.5rem;color:var(--color-text-muted);text-transform:none">${FC.escapeHTML(theorem.displayModule)}</span>
       </div>
       <div class="verso-doc-content">${moduleDocHTML}</div>
     </div>` : '';
@@ -457,7 +458,7 @@ function renderDetail(theorem, siblings, verso) {
     </div>
 
     <header class="theorem-detail__header">
-      <h1 class="theorem-detail__title">${FC.escapeHTML(theorem.theorem)}</h1>
+      <h1 class="theorem-detail__title">${FC.escapeHTML(theorem.displayTheorem)}</h1>
       <span class="badge ${catMeta.css}" style="font-size:.9rem;padding:.3rem .9rem">${FC.escapeHTML(catMeta.label)}</span>
     </header>
 

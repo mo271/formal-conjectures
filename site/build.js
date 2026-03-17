@@ -166,10 +166,10 @@ function getCategoryMeta(category) {
 
 /** Enrich a raw theorem entry with derived fields. */
 function processEntry(entry) {
-  // Strip Lean «guillemets» from names for display
-  const theorem = entry.theorem.replace(/[«»]/g, '');
-  const module = entry.module.replace(/[«»]/g, '');
-  const collection = getCollection(module);
+  // Keep guillemets in theorem/module for exact lookups (avoids collisions
+  // between e.g. «A.B».C and A.«B.C» which are distinct Lean names).
+  // Provide display* variants with guillemets stripped for HTML rendering.
+  const collection = getCollection(entry.module);
   const catMeta = getCategoryMeta(entry.category);
   const subjects = entry.subjects.map(code => ({
     code,
@@ -177,8 +177,8 @@ function processEntry(entry) {
   }));
   return {
     ...entry,
-    theorem,
-    module,
+    displayTheorem: entry.theorem.replace(/[«»]/g, ''),
+    displayModule: entry.module.replace(/[«»]/g, ''),
     githubPath: moduleToGitHubPath(entry.module),
     githubUrl: moduleToGitHubURL(entry.module),
     sourceUrl: moduleToSourceURL(entry.module),
@@ -313,11 +313,6 @@ function main() {
   let versoFragments = { moduleDocs: {}, constLinks: {} };
   if (fs.existsSync('data/verso-fragments.json')) {
     versoFragments = JSON.parse(fs.readFileSync('data/verso-fragments.json', 'utf8'));
-    // Strip guillemets from keys so lookups match guillemet-stripped theorem/module names
-    const stripG = s => s.replace(/[«»]/g, '');
-    const normKeys = obj => Object.fromEntries(Object.entries(obj).map(([k, v]) => [stripG(k), v]));
-    versoFragments.moduleDocs = normKeys(versoFragments.moduleDocs);
-    versoFragments.constLinks = normKeys(versoFragments.constLinks);
     console.log(`  Loaded ${Object.keys(versoFragments.moduleDocs).length} module docstrings, ${Object.keys(versoFragments.constLinks).length} constant links from Verso.`);
   } else {
     console.log('  No Verso fragments found (run extract_verso_fragments.py first).');
