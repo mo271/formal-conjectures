@@ -89,12 +89,18 @@ def extract_from_html(html_path, base_dir):
         doc_html = None
         if code_block_start_candidates:
             block_start = code_block_start_candidates[-1]
-            # Find the end of the previous code block (nearest </code> before this block)
-            prev_code_end = html.rfind('</code>', 0, block_start)
-            region_start = (prev_code_end + len('</code>')) if prev_code_end >= 0 else max(0, block_start - 3000)
+            # Search backward from this code block's start for the nearest
+            # <div class="md-text">. To avoid grabbing a docstring belonging
+            # to an earlier definition, we bound the search: don't look back
+            # past the previous const binding anchor (data-binding="const-").
+            prev_const = html.rfind('data-binding="const-', 0, block_start)
+            if prev_const >= 0:
+                region_start = prev_const
+            else:
+                region_start = max(0, block_start - 5000)
             before_region = html[region_start:block_start]
             doc_matches = list(re.finditer(
-                r'<div class="md-text"[^>]*>([\s\S]*?)</div>\s*$',
+                r'<div class="md-text"[^>]*>([\s\S]*?)</div>',
                 before_region
             ))
             if doc_matches:

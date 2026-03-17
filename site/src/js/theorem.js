@@ -403,7 +403,7 @@ function renderDetail(theorem, siblings, verso) {
     : '';
 
   // --- Verso data ---
-  const moduleDocKey = (theorem.sourceUrl || '').replace(/^\/src/, '');
+  const moduleDocKey = (theorem.sourceUrl || '').replace(/^\/src/, '').replace(/[«»]/g, '');
   const moduleDocHTML = verso.moduleDocs[moduleDocKey] || '';
   const versoLink = findVersoLink(theorem.theorem, verso.constLinks);
   const docHtml = versoLink && versoLink.docHtml ? versoLink.docHtml : '';
@@ -417,7 +417,7 @@ function renderDetail(theorem, siblings, verso) {
   const moduleDocSection = moduleDocHTML ? `
     <div class="theorem-detail__section verso-module-doc">
       <div class="detail-label">Module overview
-        <span style="font-weight:400;font-size:.8rem;margin-left:.5rem;color:var(--color-text-muted)">${FC.escapeHTML(theorem.module)}</span>
+        <span style="font-weight:400;font-size:.8rem;margin-left:.5rem;color:var(--color-text-muted);text-transform:none">${FC.escapeHTML(theorem.module)}</span>
       </div>
       <div class="verso-doc-content">${moduleDocHTML}</div>
     </div>` : '';

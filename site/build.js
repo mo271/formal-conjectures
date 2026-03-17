@@ -126,10 +126,18 @@ function moduleToGitHubURL(module) {
 
 /** Convert a module name to a Verso literate source page URL. */
 function moduleToSourceURL(module) {
-  // Add Lean guillemets «» around path segments starting with a digit,
+  // Use the same approach as moduleToGitHubPath: replace dots with slashes,
+  // but preserve dots that are inside guillemets.
+  const withSlashes = module.replace(/«[^»]*»|\./g, (match) =>
+    match[0] === '«' ? match : '/'
+  );
+  // Add guillemets «» around path segments starting with a digit,
   // matching verso-html's output directory naming convention.
-  const segments = module.split('.');
-  const withGuillemets = segments.map(s => /^\d/.test(s) ? `«${s}»` : s);
+  const segments = withSlashes.split('/');
+  const withGuillemets = segments.map(s =>
+    // If already has guillemets, keep as-is; if starts with digit, wrap
+    s.startsWith('«') ? s : /^\d/.test(s) ? `«${s}»` : s
+  );
   return `/src/${withGuillemets.join('/')}/`;
 }
 
@@ -305,6 +313,11 @@ function main() {
   let versoFragments = { moduleDocs: {}, constLinks: {} };
   if (fs.existsSync('data/verso-fragments.json')) {
     versoFragments = JSON.parse(fs.readFileSync('data/verso-fragments.json', 'utf8'));
+    // Strip guillemets from keys so lookups match guillemet-stripped theorem/module names
+    const stripG = s => s.replace(/[«»]/g, '');
+    const normKeys = obj => Object.fromEntries(Object.entries(obj).map(([k, v]) => [stripG(k), v]));
+    versoFragments.moduleDocs = normKeys(versoFragments.moduleDocs);
+    versoFragments.constLinks = normKeys(versoFragments.constLinks);
     console.log(`  Loaded ${Object.keys(versoFragments.moduleDocs).length} module docstrings, ${Object.keys(versoFragments.constLinks).length} constant links from Verso.`);
   } else {
     console.log('  No Verso fragments found (run extract_verso_fragments.py first).');
