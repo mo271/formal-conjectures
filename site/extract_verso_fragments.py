@@ -11,8 +11,9 @@ Usage: python3 extract_verso_fragments.py <literate-html-dir> <output-json>
 
 import json
 import os
-import re
 import sys
+
+from bs4 import BeautifulSoup
 
 
 def walk_html_files(root):
@@ -23,88 +24,61 @@ def walk_html_files(root):
                 yield os.path.join(dirpath, f)
 
 
-def find_enclosing_code_block(html, pos):
-    """Find the <code class="hl lean block"> that encloses position `pos`.
-
-    Walks backwards to find the nearest <code class="hl lean" start,
-    then uses balanced tag matching to find the correct </code>.
-    """
-    # Find all <code class="hl lean" starts before pos
-    all_starts = [m.start() for m in re.finditer(r'<code class="hl lean', html[:pos])]
-    if not all_starts:
-        return None
-
-    block_start = all_starts[-1]
-    tag_end = html.find('>', block_start) + 1
-
-    # Balanced matching for nested <code>...</code>
-    depth = 1
-    idx = tag_end
-    while depth > 0 and idx < len(html):
-        open_pos = html.find('<code', idx)
-        close_pos = html.find('</code>', idx)
-        if close_pos == -1:
-            break
-        if open_pos != -1 and open_pos < close_pos:
-            depth += 1
-            idx = open_pos + 5
-        else:
-            depth -= 1
-            if depth == 0:
-                return html[block_start:close_pos + len('</code>')]
-            idx = close_pos + 7
-
-    return None
-
-
 def extract_from_html(html_path, base_dir):
     """Extract module doc and const links from a Verso HTML file."""
     with open(html_path, encoding='utf-8') as f:
-        html = f.read()
+        soup = BeautifulSoup(f, 'lxml')
 
     rel = os.path.relpath(os.path.dirname(html_path), base_dir)
     module_path = '/' + rel.replace(os.sep, '/') + '/'
 
-    # 1. Module docstring
-    mod_doc_match = re.search(
-        r'<div[^>]*class="[^"]*mod-doc[^"]*"[^>]*>([\s\S]*?)</div>',
-        html
-    )
-    module_doc = mod_doc_match.group(1).strip() if mod_doc_match else None
+    # 1. Module docstring: <div class="mod-doc">...</div>
+    mod_doc_el = soup.find('div', class_='mod-doc')
+    module_doc = mod_doc_el.decode_contents().strip() if mod_doc_el else None
 
-    # 2. Find ALL const bindings with id (defining sites) in the entire file
+    # 2. Find ALL const bindings that have an id (defining sites only).
+    #    Usage-site references (like Nat.primeFactors inside a proof)
+    #    have data-binding but no id.
     const_map = {}
-    for m in re.finditer(
-        r'data-binding="const-([^"]+)"[^>]*id="([^"]+)"', html
-    ):
-        lean_name = m.group(1)
-        verso_id = m.group(2)
+    bindings = soup.find_all(
+        attrs={
+            'data-binding': lambda v: v and v.startswith('const-'),
+            'id': True,
+        }
+    )
 
-        # Find preceding docstring: look back from the enclosing code block
-        # for a <div class="md-text"> element, but only up to the previous
-        # </code> boundary to avoid grabbing docstrings from earlier defs.
-        code_block_start_candidates = [
-            cm.start() for cm in re.finditer(r'<code class="hl lean', html[:m.start()])
-        ]
+    for binding in bindings:
+        lean_name = binding['data-binding'].removeprefix('const-')
+        verso_id = binding['id']
+
+        # Find the enclosing <code class="hl lean"> block
+        code_block = binding.find_parent('code', class_='hl')
         doc_html = None
-        if code_block_start_candidates:
-            block_start = code_block_start_candidates[-1]
-            # Search backward from this code block's start for the nearest
-            # <div class="md-text">. To avoid grabbing a docstring belonging
-            # to an earlier definition, we bound the search: don't look back
-            # past the previous const binding anchor (data-binding="const-").
-            prev_const = html.rfind('data-binding="const-', 0, block_start)
-            if prev_const >= 0:
-                region_start = prev_const
-            else:
-                region_start = max(0, block_start - 5000)
-            before_region = html[region_start:block_start]
-            doc_matches = list(re.finditer(
-                r'<div class="md-text"[^>]*>([\s\S]*?)</div>',
-                before_region
-            ))
-            if doc_matches:
-                doc_html = doc_matches[-1].group(1).strip()
+
+        if code_block:
+            # Walk backward from the code block to find the nearest
+            # <div class="md-text"> sibling (the docstring).
+            prev_md = code_block.find_previous_sibling('div', class_='md-text')
+
+            if prev_md:
+                # Ensure this docstring belongs to *this* definition,
+                # not an earlier one. Check for any intervening code block
+                # that contains a defining-site binding.
+                is_immediate = True
+                for sibling in prev_md.find_next_siblings('code', class_='hl'):
+                    if sibling == code_block:
+                        break
+                    if sibling.find(
+                        attrs={
+                            'data-binding': lambda v: v and v.startswith('const-'),
+                            'id': True,
+                        }
+                    ):
+                        is_immediate = False
+                        break
+
+                if is_immediate:
+                    doc_html = prev_md.decode_contents().strip()
 
         entry = {
             'url': module_path + '#' + verso_id,
