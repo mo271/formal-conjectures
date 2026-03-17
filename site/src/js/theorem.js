@@ -137,6 +137,11 @@ function loadVersoAssets() {
       white-space: pre-wrap;
       margin-top: .25rem;
     }
+    /* Tactic state layout: hypotheses as table rows, goals as blocks */
+    .hl.lean .hypotheses { display: table; border-spacing: 0; }
+    .hl.lean .hypothesis { display: table-row; }
+    .hl.lean .hypothesis > * { display: table-cell; padding-right: .3em; }
+    .hl.lean .goal, .hl.lean .conclusion { display: block; margin-top: .4em; }
   `;
   document.head.appendChild(style);
 
