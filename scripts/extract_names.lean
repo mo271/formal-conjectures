@@ -70,10 +70,10 @@ structure TheoremInfo where
   docstring : Option String
   formalProofKind : Option String
   formalProofLink : Option String
-  deriving ToJson
+
 
 /-- Serialize `TheoremInfo` to JSON, omitting fields whose keys are in `exclude`. -/
-def TheoremInfo.toFilteredJson (info : TheoremInfo) (exclude : Std.HashSet String) : Json :=
+def TheoremInfo.toFilteredJson (info : TheoremInfo) (exclude : Std.HashSet String := {}) : Json :=
   let fields : List (String × Json) :=
     [("theorem", toJson info.theorem),
      ("module", toJson info.module),
@@ -86,6 +86,9 @@ def TheoremInfo.toFilteredJson (info : TheoremInfo) (exclude : Std.HashSet Strin
     ++ (if exclude.contains "formalProofLink" then [] else
         [("formalProofLink", toJson info.formalProofLink)])
   Json.mkObj fields
+
+instance : ToJson TheoremInfo where
+  toJson info := info.toFilteredJson
 
 unsafe def runWithImports {α : Type} (moduleNames : Array Name) (actionToRun : CoreM α) : IO α := do
   initSearchPath (← findSysroot)
