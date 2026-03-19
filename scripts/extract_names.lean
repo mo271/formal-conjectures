@@ -92,8 +92,13 @@ unsafe def main (args : List String) : IO Unit := do
     | [] =>
       let f1 ← getAllLeanFiles "FormalConjectures"
       pure (f1)
-    | [file] => pure #[System.FilePath.mk file]
-    | _ => throw <| IO.userError "Usage: extract_names [file]"
+    | [arg] =>
+      let p := System.FilePath.mk arg
+      if ← p.isDir then
+        getAllLeanFiles p
+      else
+        pure #[p]
+    | _ => throw <| IO.userError "Usage: extract_names [directory-or-file]"
 
   let mut moduleNames := #[]
   for file in leanFiles do
