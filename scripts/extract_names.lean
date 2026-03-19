@@ -126,8 +126,13 @@ unsafe def main (args : List String) : IO Unit := do
     | [] =>
       let f1 ← getAllLeanFiles "FormalConjectures"
       pure (f1)
-    | [file] => pure #[System.FilePath.mk file]
-    | _ => throw <| IO.userError "Usage: extract_names [file] [--exclude=key1,key2] [--no-docstrings]"
+    | [arg] =>
+      let p := System.FilePath.mk arg
+      if ← p.isDir then
+        getAllLeanFiles p
+      else
+        pure #[p]
+    | _ => throw <| IO.userError "Usage: extract_names [directory-or-file] [--exclude=key1,key2] [--no-docstrings]"
 
   let mut moduleNames := #[]
   for file in leanFiles do
@@ -170,6 +175,8 @@ unsafe def main (args : List String) : IO Unit := do
                 throwError m!"Theorem {name} must have exactly one category, found {cats.length}."
               let statement := toString (← Meta.MetaM.run' (Meta.ppExpr info.type))
               let docstring ← findDocString? env name
+              if docstring.isNone then
+                IO.eprintln s!"WARNING: Theorem {name} (category: {cats.head!}) is missing a docstring"
               let (formalProofKind, formalProofLink) :=
                 if let some tag := categoryFullMap.get? name then
                   if let .research (.formallySolvedAt kind link) := tag.category then
