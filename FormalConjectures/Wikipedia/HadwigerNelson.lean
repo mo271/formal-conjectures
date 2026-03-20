@@ -27,15 +27,3 @@ the same color.
 
 This file points to the canonical formalization in `FormalConjectures.ErdosProblems.«508»`.
 -/
-
-namespace HadwigerNelson
-
-/--
-This Wikipedia entry points to the canonical formalization of the
-Hadwiger-Nelson problem in `FormalConjectures.ErdosProblems.«508»`.
--/
-@[category research open, AMS 52]
-theorem hadwiger_nelson_problem : type_of% @Erdos508.HadwigerNelsonProblem := by
-  sorry
-
-end HadwigerNelson
