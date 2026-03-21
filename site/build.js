@@ -175,8 +175,13 @@ function processEntry(entry) {
     code,
     name: AMS_SUBJECTS[parseInt(code, 10)] || `AMS ${code}`,
   }));
+  // Pick only the fields the website actually uses. Avoids leaking large
+  // unused fields (statement, docstring, formalProofKind, formalProofLink)
+  // into the client-side JSON. Docstrings come from versoFragments instead.
   return {
-    ...entry,
+    theorem: entry.theorem,
+    module: entry.module,
+    category: entry.category,
     displayTheorem: entry.theorem.replace(/[«»]/g, ''),
     displayModule: entry.module.replace(/[«»]/g, ''),
     githubPath: moduleToGitHubPath(entry.module),
