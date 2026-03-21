@@ -28,15 +28,3 @@ $a \in A$, $b \in B$, divided by $n$.
 
 This file points to the canonical formalization in `FormalConjectures.ErdosProblems.«36»`.
 -/
-
-namespace MinimalOverlapProblem
-
-/--
-This Wikipedia entry points to the canonical formalization of the minimum overlap
-problem in `FormalConjectures.ErdosProblems.«36»`.
--/
-@[category research open, AMS 5 11]
-theorem minimum_overlap_problem : type_of% @Erdos36.erdos_36 := by
-  sorry
-
-end MinimalOverlapProblem
