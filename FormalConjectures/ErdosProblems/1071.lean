@@ -52,14 +52,13 @@ theorem erdos_1071.parts.i :
 /-- Is there a region $R$ with a maximal set of disjoint unit line segments that is countably infinite?
 Solved affirmatively by [Fo99], who gave an explicit construction.
 
-
 This was formalized in Lean by Alexeev using Aristotle and ChatGPT.
 -/
 @[category research formally solved using lean4 at
 "https://github.com/plby/lean-proofs/blob/main/src/v4.24.0/ErdosProblems/Erdos1071b.lean", AMS 52]
 theorem erdos_1071.parts.ii :
     answer(sorry) ↔ ∃ (R : Set ℝ²) (S : Set (ℝ² × ℝ²)),
-      S.Countable ∧ S.Infinite ∧
+      IsOpen R ∧ IsConnected R ∧ S.Countable ∧ S.Infinite ∧
       Maximal (fun T : Set (ℝ² × ℝ²) =>
         (∀ seg ∈ T, dist seg.1 seg.2 = 1 ∧ seg.1 ∈ R ∧ seg.2 ∈ R) ∧
         T.Pairwise SegmentsDisjoint) S := by
