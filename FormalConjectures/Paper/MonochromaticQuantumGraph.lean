@@ -218,6 +218,8 @@ def Witness4_d2 : WeightsN 4 2 α :=
     if e = mkEdge 1 3 1 1 then (1 : α) else
     (0 : α)
 
+/-- Sanity check over `ℕ` using `native_decide`. -/
+@[category test, AMS 5 14 81]
 private theorem eqSystem4_d2_nat :
     EqSystemN 4 2 (Witness4_d2 (α := ℕ)) := by
   native_decide
@@ -254,6 +256,8 @@ def Witness4_d3 : WeightsN 4 3 α :=
     if e = mkEdge 1 2 2 2 then (1 : α) else
     (0 : α)
 
+/-- Sanity check over `ℕ` using `native_decide`. -/
+@[category test, AMS 5 14 81]
 private theorem eqSystem4_d3_nat :
     EqSystemN 4 3 (Witness4_d3 (α := ℕ)) := by
   native_decide
@@ -291,6 +295,8 @@ def Witness6_d2 : WeightsN 6 2 α :=
     if e = mkEdge 3 4 1 1 then (1 : α) else
     (0 : α)
 
+/-- Sanity check over `ℕ` using `native_decide`. -/
+@[category test, AMS 5 14 81]
 private theorem eqSystem6_d2_nat :
     EqSystemN 6 2 (Witness6_d2 (α := ℕ)) := by
   native_decide
