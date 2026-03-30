@@ -31,9 +31,12 @@ Let $A = {∑ ε_{k} 3^{k} : ε_{k} ∈ {0,1}}$ be the set of integers which
 have only the digits $0, 1$ when written base 3, and $B = {∑ ε_{k} 4^{k} : ε_{k} ∈ {0,1}}$
 be the set of integers which have only the digits $0, 1$ when written base 4.
 Does $A + B$ have positive density?
+
+This has been falsified.
 -/
 
-@[category research solved, AMS 11, formal_proof using formal_conjectures at "https://github.com/google-deepmind/formal-conjectures/blob/300bf771bdbef43d7b9aa2521e633a50fd54dd28/FormalConjectures/ErdosProblems/125.lean"]
+@[category research solved, AMS 11,
+formal_proof using formal_conjectures at "https://github.com/google-deepmind/formal-conjectures/blob/300bf771bdbef43d7b9aa2521e633a50fd54dd28/FormalConjectures/ErdosProblems/125.lean"]
 theorem erdos_125 :
     answer(False) ↔ ({ x : ℕ | (digits 3 x).toFinset ⊆ {0, 1} } +
       { x : ℕ | (digits 4 x).toFinset ⊆ {0, 1} }).HasPosDensity := by
@@ -44,12 +47,16 @@ Let $A = {∑ ε_{k} 3^{k} : ε_{k} ∈ {0,1}}$ be the set of integers which
 have only the digits $0, 1$ when written base 3, and $B = {∑ ε_{k} 4^{k} : ε_{k} ∈ {0,1}}$
 be the set of integers which have only the digits $0, 1$ when written base 4.
 Does $A + B$ have positive lower density?
+
+This has been falsified.
 -/
-@[category research open, AMS 11]
+@[category research solved, AMS 11,
+formal_proof using formal_conjectures at "https://github.com/mo271/formal-conjectures/blob/c27415379b5dbe34105d1fdd707994540c4c6fc7/FormalConjectures/ErdosProblems/125.lean#L468"]
 theorem erdos_125.variants.positive_lower_density :
-    answer(sorry) ↔ 0 < ({ x : ℕ | (digits 3 x).toFinset ⊆ {0, 1} } +
+    answer(False) ↔ 0 < ({ x : ℕ | (digits 3 x).toFinset ⊆ {0, 1} } +
       { x : ℕ | (digits 4 x).toFinset ⊆ {0, 1} }).lowerDensity := by
   sorry
+
 
 /--
 Let $A = {∑ ε_{k} 3^{k} : ε_{k} ∈ {0,1}}$ be the set of integers which
