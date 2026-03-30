@@ -57,7 +57,9 @@ Case 3:
 Does $A + B$ have positive upper and lower density that are equal?
 This is the literal interpretation of "positive density" which was falsified.
 -/
-@[category research solved, AMS 11, formal_proof using formal_conjectures at "https://github.com/google-deepmind/formal-conjectures/blob/300bf771bdbef43d7b9aa2521e633a50fd54dd28/FormalConjectures/ErdosProblems/125.lean"]
+
+@[category research solved, AMS 11,
+formal_proof using formal_conjectures at "https://github.com/google-deepmind/formal-conjectures/blob/300bf771bdbef43d7b9aa2521e633a50fd54dd28/FormalConjectures/ErdosProblems/125.lean"]
 theorem erdos_125 :
     answer(False) ↔ (A + B).HasPosDensity := by
   sorry
@@ -65,11 +67,15 @@ theorem erdos_125 :
 /--
 Literature question:
 Does $A + B$ have positive lower density?
+
+This has been falsified.
 -/
-@[category research open, AMS 11]
+@[category research solved, AMS 11,
+formal_proof using formal_conjectures at "https://github.com/mo271/formal-conjectures/blob/c27415379b5dbe34105d1fdd707994540c4c6fc7/FormalConjectures/ErdosProblems/125.lean#L468"]
 theorem erdos_125.variants.positive_lower_density :
-    answer(sorry) ↔ 0 < (A + B).lowerDensity := by
+    answer(False) ↔ 0 < (A + B).lowerDensity := by
   sorry
+
 
 /--
 Literature question:
