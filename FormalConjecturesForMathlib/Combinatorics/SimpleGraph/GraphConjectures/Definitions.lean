@@ -256,9 +256,56 @@ def computable_Ls (G : SimpleGraph α) [DecidableRel G.Adj] (v0 : α) : ℕ :=
   let leaf_counts := connected_candidates.image (fun s => leaf_count_subgraph G s)
   (leaf_counts.max).getD 0
 
+def to_subgraph (G : SimpleGraph α) [DecidableRel G.Adj] (s : Finset (Sym2 α)) (h_sub : s ⊆ G.edgeFinset) : Subgraph G :=
+  SimpleGraph.toSubgraph (SimpleGraph.fromEdgeSet (s : Set (Sym2 α))) (by
+    intro u v h
+    have h1 := h.1
+    have h2 := h_sub h1
+    rw [G.mem_edgeFinset] at h2
+    exact h2)
+
+lemma iterate_reachable_step_subset_reachable (G : SimpleGraph α) [DecidableRel G.Adj] (s : Finset (Sym2 α)) (h_sub : s ⊆ G.edgeFinset) (k : ℕ) (a : Finset α) (v : α) (h : v ∈ (Nat.iterate (reachable_step G s) k) a) :
+    ∃ u ∈ a, (to_subgraph G s h_sub).spanningCoe.Reachable u v := by
+  induction k generalizing a with
+  | zero =>
+    exact ⟨v, h, Reachable.rfl⟩
+  | succ k ih =>
+    unfold reachable_step at h
+    rw [Finset.mem_union] at h
+    rcases h with h1 | h2
+    · exact ih _ h1
+    · rw [Finset.mem_biUnion] at h2
+      rcases h2 with ⟨w, hw1, hw2⟩
+      have ⟨u, hu, huw⟩ := ih _ hw1
+      use u
+      refine ⟨hu, ?_⟩
+      refine Reachable.trans huw ?_
+      -- w ⟶ v in to_subgraph
+      exact ⟨Walk.cons (by
+        -- need to prove (to_subgraph G s h_sub).spanningCoe.Adj w v
+        -- unfolding to_subgraph and spanningCoe should reveal it's just Sym2.mk (w, v) ∈ s
+        sorry) Walk.nil⟩
+
+lemma mem_iterate_reachable_step_iff_reachable (G : SimpleGraph α) [DecidableRel G.Adj] (s : Finset (Sym2 α)) (h_sub : s ⊆ G.edgeFinset) (v0 v : α) :
+    v ∈ (Nat.iterate (reachable_step G s) (Fintype.card α)) {v0} ↔
+      (to_subgraph G s h_sub).spanningCoe.Reachable v0 v := by
+  sorry
+
+def Ls_le_computable_Ls (G : SimpleGraph α) [DecidableRel G.Adj] (v0 : α) :
+    Ls G ≤ (computable_Ls G v0 : ℝ) := by
+  sorry
+
+theorem computable_Ls_le_Ls (G : SimpleGraph α) [DecidableRel G.Adj] (v0 : α) :
+    (computable_Ls G v0 : ℝ) ≤ Ls G := by
+  unfold computable_Ls
+  -- If Candidates is empty, max is 0, done.
+  -- If not, let s be the maximizer.
+  -- leaf_count_subgraph G s ≤ Ls G
+  sorry
+
 theorem Ls_eq_computable (G : SimpleGraph α) [DecidableRel G.Adj] (v0 : α) :
     Ls G = (computable_Ls G v0 : ℝ) := by
-  sorry
+  exact le_antisymm (Ls_le_computable_Ls G v0) (computable_Ls_le_Ls G v0)
 
 /-- A unit distance graph in ℝ²:
 A graph where the vertices V are a collection of points in ℝ² and there is

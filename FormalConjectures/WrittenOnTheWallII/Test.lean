@@ -145,13 +145,10 @@ theorem house_l : averageIndepNeighbors HouseGraph = ((9/5 : ℚ) : ℝ) := by
   norm_cast
   decide +native
 
-lemma house_Ls_nat : computable_Ls HouseGraph 0 = 3 := by
-  native_decide
-
 @[category test, AMS 5]
 theorem house_Ls : Ls HouseGraph = 3 := by
-  rw [Ls_eq_computable _ 0, house_Ls_nat]
-  rfl
+  rw [Ls_eq_computable _ 0]
+  norm_cast
 
 
 /-  ### K4 Tests -/
@@ -230,13 +227,10 @@ theorem K4_l : averageIndepNeighbors K4 = 1 := by
   norm_cast
   decide +native
 
-lemma K4_Ls_nat : computable_Ls K4 0 = 3 := by
-  native_decide
-
 @[category test, AMS 5]
 theorem K4_Ls : Ls K4 = 3 := by
-  rw [Ls_eq_computable _ 0, K4_Ls_nat]
-  rfl
+  rw [Ls_eq_computable _ 0]
+  norm_cast
 
 
 /-  ### Petersen Graph Tests -/
@@ -321,7 +315,7 @@ lemma petersen_Ls_nat : computable_Ls PetersenGraph 0 = 6 := by
 @[category test, AMS 5]
 theorem petersen_Ls : Ls PetersenGraph = 6 := by
   rw [Ls_eq_computable _ 0, petersen_Ls_nat]
-  rfl
+  norm_cast
 
 
 /-  ### C6 Tests -/
@@ -400,13 +394,10 @@ theorem C6_l : averageIndepNeighbors C6 = 2 := by
   norm_cast
   decide +native
 
-lemma C6_Ls_nat : computable_Ls C6 0 = 2 := by
-  native_decide
-
 @[category test, AMS 5]
 theorem C6_Ls : Ls C6 = 2 := by
-  rw [Ls_eq_computable _ 0, C6_Ls_nat]
-  rfl
+  rw [Ls_eq_computable _ 0]
+  norm_cast
 
 /-  ### Star5 Tests -/
 
@@ -484,10 +475,7 @@ theorem Star5_l : averageIndepNeighbors Star5 = ((5/3 : ℚ) : ℝ) := by
   norm_cast
   decide +native
 
-lemma Star5_Ls_nat : computable_Ls Star5 (Sum.inl 0) = 5 := by
-  native_decide
-
 @[category test, AMS 5]
 theorem Star5_Ls : Ls Star5 = 5 := by
-  rw [Ls_eq_computable _ (Sum.inl 0), Star5_Ls_nat]
-  rfl
+  rw [Ls_eq_computable _ default]
+  norm_cast
