@@ -81,9 +81,25 @@ Returned as a real number. -/
 noncomputable def b (G : SimpleGraph α) : ℝ :=
   (largestInducedBipartiteSubgraphSize G : ℝ)
 
+def is_indep_set {β : Type*} [Fintype β] [DecidableEq β] (G : SimpleGraph β) [DecidableRel G.Adj] (s : Finset β) : Bool :=
+  let violations := s.filter (fun u =>
+    let bad_neighbors := s.filter (fun v => u ≠ v ∧ G.Adj u v)
+    bad_neighbors.card > 0
+  )
+  violations.card = 0
+
+def computable_indep_num_on_subset {β : Type*} [Fintype β] [DecidableEq β] (G : SimpleGraph β) [DecidableRel G.Adj] (V_subset : Finset β) : ℕ :=
+  let subsets := V_subset.powerset
+  let indep_subsets := subsets.filter (fun s => is_indep_set G s)
+  let sizes := indep_subsets.image (fun s => s.card)
+  (sizes.max).getD 0
+
 /-- Independence number of the neighbourhood of `v`. -/
 noncomputable def indepNeighborsCard (G : SimpleGraph α) (v : α) : ℕ :=
   (G.induce (G.neighborSet v)).indepNum
+
+def computable_indep_neighbors_card (G : SimpleGraph α) [DecidableRel G.Adj] (v : α) : ℕ :=
+  computable_indep_num_on_subset G (G.neighborSet v).toFinset
 
 /-- The same quantity as a real number. -/
 noncomputable def indepNeighbors (G : SimpleGraph α) (v : α) : ℝ :=
@@ -92,6 +108,17 @@ noncomputable def indepNeighbors (G : SimpleGraph α) (v : α) : ℝ :=
 /-- Average of `indepNeighbors` over all vertices. -/
 noncomputable def averageIndepNeighbors (G : SimpleGraph α) : ℝ :=
   (∑ v ∈ Finset.univ, indepNeighbors G v) / (Fintype.card α : ℝ)
+
+def computable_average_indep_neighbors (G : SimpleGraph α) [DecidableRel G.Adj] : ℚ :=
+  (∑ v ∈ Finset.univ, (computable_indep_neighbors_card G v : ℚ)) / (Fintype.card α : ℚ)
+
+theorem indepNeighborsCard_eq_computable (G : SimpleGraph α) [DecidableRel G.Adj] (v : α) :
+    indepNeighborsCard G v = computable_indep_neighbors_card G v := by
+  sorry
+
+theorem averageIndepNeighbors_eq_computable (G : SimpleGraph α) [DecidableRel G.Adj] :
+    averageIndepNeighbors G = (computable_average_indep_neighbors G : ℝ) := by
+  sorry
 
 /-- A unit distance graph in ℝ²:
 A graph where the vertices V are a collection of points in ℝ² and there is

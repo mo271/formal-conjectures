@@ -140,8 +140,10 @@ theorem house_cvetkovic : cvetkovic HouseGraph = 3 := by
   sorry
 
 @[category test, AMS 5]
-theorem house_l : averageIndepNeighbors HouseGraph = 9/5 := by
-  sorry
+theorem house_l : averageIndepNeighbors HouseGraph = ((9/5 : ℚ) : ℝ) := by
+  rw [averageIndepNeighbors_eq_computable]
+  norm_cast
+  decide +native
 
 @[category test, AMS 5]
 theorem house_Ls : Ls HouseGraph = 3 := by
@@ -220,7 +222,9 @@ theorem K4_cvetkovic : cvetkovic K4 = 1 := by
 
 @[category test, AMS 5]
 theorem K4_l : averageIndepNeighbors K4 = 1 := by
-  sorry
+  rw [averageIndepNeighbors_eq_computable]
+  norm_cast
+  decide +native
 
 @[category test, AMS 5]
 theorem K4_Ls : Ls K4 = 3 := by
@@ -299,7 +303,9 @@ theorem petersen_cvetkovic : cvetkovic PetersenGraph = 4 := by
 
 @[category test, AMS 5]
 theorem petersen_l : averageIndepNeighbors PetersenGraph = 3 := by
-  sorry
+  rw [averageIndepNeighbors_eq_computable]
+  norm_cast
+  decide +native
 
 @[category test, AMS 5]
 theorem petersen_Ls : Ls PetersenGraph = 6 := by
@@ -378,7 +384,9 @@ theorem C6_cvetkovic : cvetkovic C6 = 3 := by
 
 @[category test, AMS 5]
 theorem C6_l : averageIndepNeighbors C6 = 2 := by
-  sorry
+  rw [averageIndepNeighbors_eq_computable]
+  norm_cast
+  decide +native
 
 @[category test, AMS 5]
 theorem C6_Ls : Ls C6 = 2 := by
@@ -455,8 +463,10 @@ theorem Star5_cvetkovic : cvetkovic Star5 = 5 := by
   sorry
 
 @[category test, AMS 5]
-theorem Star5_l : averageIndepNeighbors Star5 = 5/3 := by
-  sorry
+theorem Star5_l : averageIndepNeighbors Star5 = ((5/3 : ℚ) : ℝ) := by
+  rw [averageIndepNeighbors_eq_computable]
+  norm_cast
+  decide +native
 
 @[category test, AMS 5]
 theorem Star5_Ls : Ls Star5 = 5 := by
