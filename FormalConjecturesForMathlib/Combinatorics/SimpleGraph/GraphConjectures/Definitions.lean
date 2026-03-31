@@ -120,6 +120,36 @@ theorem averageIndepNeighbors_eq_computable (G : SimpleGraph α) [DecidableRel G
     averageIndepNeighbors G = (computable_average_indep_neighbors G : ℝ) := by
   sorry
 
+def reachable_step (G : SimpleGraph α) [DecidableRel G.Adj] (E_sub : Finset (Sym2 α)) (S : Finset α) : Finset α :=
+  S ∪ (S.biUnion (fun v =>
+    Finset.univ.filter (fun u => Sym2.mk (v, u) ∈ E_sub)
+  ))
+
+def is_connected_subgraph (G : SimpleGraph α) [DecidableRel G.Adj] (E_sub : Finset (Sym2 α)) (v0 : α) : Bool :=
+  let n := Fintype.card α
+  let reachable_final := (Nat.iterate (reachable_step G E_sub) n) {v0}
+  reachable_final.card = n
+
+def edge_subsets_of_size (G : SimpleGraph α) [DecidableRel G.Adj] (k : ℕ) : Finset (Finset (Sym2 α)) :=
+  G.edgeFinset.powerset.filter (fun s => s.card = k)
+
+def leaf_count_subgraph (G : SimpleGraph α) [DecidableRel G.Adj] (E_sub : Finset (Sym2 α)) : ℕ :=
+  (Finset.univ.filter (fun v =>
+    (Finset.univ.filter (fun u => Sym2.mk (v, u) ∈ E_sub)).card = 1
+  )).card
+
+def computable_Ls (G : SimpleGraph α) [DecidableRel G.Adj] (v0 : α) : ℕ :=
+  let n_verts := Fintype.card α
+  if n_verts ≤ 1 then 0 else
+  let candidates := edge_subsets_of_size G (n_verts - 1)
+  let connected_candidates := candidates.filter (fun s => is_connected_subgraph G s v0)
+  let leaf_counts := connected_candidates.image (fun s => leaf_count_subgraph G s)
+  (leaf_counts.max).getD 0
+
+theorem Ls_eq_computable (G : SimpleGraph α) [DecidableRel G.Adj] (v0 : α) :
+    Ls G = (computable_Ls G v0 : ℝ) := by
+  sorry
+
 /-- A unit distance graph in ℝ²:
 A graph where the vertices V are a collection of points in ℝ² and there is
 an edge between two points if and only if the distance between them is 1. -/
