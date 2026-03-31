@@ -112,13 +112,123 @@ noncomputable def averageIndepNeighbors (G : SimpleGraph α) : ℝ :=
 def computable_average_indep_neighbors (G : SimpleGraph α) [DecidableRel G.Adj] : ℚ :=
   (∑ v ∈ Finset.univ, (computable_indep_neighbors_card G v : ℚ)) / (Fintype.card α : ℚ)
 
+lemma is_indep_set_induce_iff {α : Type*} [Fintype α] [DecidableEq α] (G : SimpleGraph α) {S : Set α} {s : Finset {x // x ∈ S}} :
+    (G.induce S).IsIndepSet ↑s ↔ SimpleGraph.IsIndepSet G ↑(s.map ⟨Subtype.val, Subtype.val_injective⟩ : Finset α) := by
+  simp [SimpleGraph.IsIndepSet, Set.Pairwise]
+
+lemma is_indep_set_eq_true_iff (G : SimpleGraph α) [DecidableRel G.Adj] (s : Finset α) :
+    is_indep_set G s = true ↔ SimpleGraph.IsIndepSet G ↑s := by
+  unfold is_indep_set
+  simp [SimpleGraph.IsIndepSet, Set.Pairwise]
+
 theorem indepNeighborsCard_eq_computable (G : SimpleGraph α) [DecidableRel G.Adj] (v : α) :
     indepNeighborsCard G v = computable_indep_neighbors_card G v := by
-  sorry
+  apply Nat.le_antisymm
+  · unfold indepNeighborsCard
+    unfold indepNum
+    apply csSup_le
+    · use 0
+      simp only [Set.mem_setOf_eq]
+      use ∅
+      rw [SimpleGraph.isNIndepSet_iff]
+      simp
+    · intro n hn
+      rcases hn with ⟨s', hs⟩
+      rw [SimpleGraph.isNIndepSet_iff] at hs
+      rcases hs with ⟨hs_indep, hs_card⟩
+      set subsets := (G.neighborSet v).toFinset.powerset
+      set indep_subsets := subsets.filter (fun s => is_indep_set G s)
+      set sizes := indep_subsets.image (fun s => s.card)
+      unfold computable_indep_neighbors_card
+      change n ≤ Option.getD sizes.max 0
+
+      let T := s'.map ⟨Subtype.val, Subtype.val_injective⟩
+      have hT_card : T.card = n := by
+        simp [T, hs_card]
+      have hT_subset : T ⊆ (G.neighborSet v).toFinset := by
+        intro x hx
+        rw [Finset.mem_map] at hx
+        rcases hx with ⟨y, hy, rfl⟩
+        simp [y.property]
+      have hT_indep : is_indep_set G T = true := by
+        rw [is_indep_set_eq_true_iff]
+        rw [← is_indep_set_induce_iff]
+        exact hs_indep
+      have hT_mem_sizes : n ∈ sizes := by
+        rw [Finset.mem_image]
+        use T
+        refine ⟨?_, hT_card⟩
+        rw [Finset.mem_filter]
+        refine ⟨?_, hT_indep⟩
+        rw [Finset.mem_powerset]
+        exact hT_subset
+
+      rcases h_max : sizes.max with _ | m
+      · exfalso
+        have h_empty : sizes = ∅ := by
+          rw [← Finset.max_eq_bot]
+          exact h_max
+        rw [h_empty] at hT_mem_sizes
+        simp at hT_mem_sizes
+      · simp
+        exact Finset.le_max_of_eq hT_mem_sizes h_max
+  · -- RHS ≤ LHS
+    set subsets := (G.neighborSet v).toFinset.powerset
+    set indep_subsets := subsets.filter (fun s => is_indep_set G s)
+    set sizes := indep_subsets.image (fun s => s.card)
+    unfold computable_indep_neighbors_card
+    change Option.getD sizes.max 0 ≤ indepNeighborsCard G v
+
+    rcases h_max : sizes.max with _ | m
+    · simp
+    · simp
+      have hm : m ∈ sizes := Finset.mem_of_max h_max
+      rw [Finset.mem_image] at hm
+      rcases hm with ⟨T, hT, rfl⟩
+      rw [Finset.mem_filter] at hT
+      rcases hT with ⟨hT_sub, hT_indep_bool⟩
+      rw [is_indep_set_eq_true_iff] at hT_indep_bool
+
+      have hT_sub_subset : T ⊆ (G.neighborSet v).toFinset := by
+        rw [← Finset.mem_powerset]
+        exact hT_sub
+
+      set s' : Finset {x // x ∈ G.neighborSet v} := T.attach.map ⟨fun x => ⟨x.1, by
+        have h := hT_sub_subset x.2
+        simp at h
+        exact h⟩, fun x y h_eq => by
+        injection h_eq with h1
+        exact Subtype.ext h1⟩
+
+      have hs'_card : s'.card = T.card := by
+        rw [Finset.card_map, Finset.card_attach]
+
+      have hs'_indep : (G.induce (G.neighborSet v)).IsIndepSet s' := by
+        rw [@is_indep_set_induce_iff α _ _ G]
+        have h_map_eq : (s'.map ⟨Subtype.val, Subtype.val_injective⟩ : Finset α) = T := by
+          rw [Finset.map_map]
+          have h_fun_eq : ((⟨fun x => ⟨x.1, by
+            have h := hT_sub_subset x.2
+            simp at h
+            exact h⟩, fun x y h_eq => by
+            injection h_eq with h1
+            exact Subtype.ext h1⟩ : {x // x ∈ T} ↪ {y // y ∈ G.neighborSet v}).trans ⟨Subtype.val, Subtype.val_injective⟩ : {x // x ∈ T} ↪ α) = ⟨Subtype.val, Subtype.val_injective⟩ := by
+            ext x
+            rfl
+          rw [h_fun_eq]
+          exact Finset.attach_map_val
+        rw [h_map_eq]
+        exact hT_indep_bool
+
+      have h_le := SimpleGraph.IsIndepSet.card_le_indepNum hs'_indep
+      rw [hs'_card] at h_le
+      exact h_le
 
 theorem averageIndepNeighbors_eq_computable (G : SimpleGraph α) [DecidableRel G.Adj] :
     averageIndepNeighbors G = (computable_average_indep_neighbors G : ℝ) := by
-  sorry
+  unfold averageIndepNeighbors indepNeighbors computable_average_indep_neighbors
+  norm_cast
+  simp [indepNeighborsCard_eq_computable]
 
 def reachable_step (G : SimpleGraph α) [DecidableRel G.Adj] (E_sub : Finset (Sym2 α)) (S : Finset α) : Finset α :=
   S ∪ (S.biUnion (fun v =>
