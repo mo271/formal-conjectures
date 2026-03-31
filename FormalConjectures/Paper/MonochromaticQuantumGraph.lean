@@ -492,7 +492,7 @@ lemma contradiction_from_v (W : WeightsN 4 4 ℂ) (hW : EqSystemN 4 4 W) : False
 
 /-- For $N = 4$ and $D = 4$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{C}$? -/
-@[category research open, AMS 5 14 81]
+@[category research solved, AMS 5 14 81]
 theorem eqSystem4_no_solution_d4 :
     answer(True) ↔
       ¬ ∃ W : WeightsN 4 4 ℂ, EqSystemN 4 4 W := by
@@ -595,11 +595,24 @@ theorem eqSystem_no_solution_ge6_ge3 :
 
 /-- For $N = 4$ and $D = 4$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{R}$? -/
-@[category research open, AMS 5 14 81]
+@[category research solved, AMS 5 14 81]
 theorem eqSystem4_no_solution_d4_real :
-    answer(sorry) ↔
+    answer(True) ↔
       ¬ ∃ W : WeightsN 4 4 ℝ, EqSystemN 4 4 W := by
-  sorry
+  simp only [true_iff]
+  intro ⟨W, hW⟩
+  refine eqSystem4_no_solution_d4.mp (by simp) ⟨fun e => ↑(W e), ?_⟩
+  intro ι
+  have h := hW ι
+  by_cases h_eq : allEqual ι
+  · simp [h_eq] at h ⊢
+    have h_c := congr_arg (fun x : ℝ => (↑x : ℂ)) h
+    simp [pmSumN, pmSumList, pmSumListAux, vertices] at h_c ⊢
+    exact h_c
+  · simp [h_eq] at h ⊢
+    have h_c := congr_arg (fun x : ℝ => (↑x : ℂ)) h
+    simp [pmSumN, pmSumList, pmSumListAux, vertices] at h_c ⊢
+    exact h_c
 
 /-- For $N = 4$ and all $D \geq 4$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{R}$? -/
@@ -672,11 +685,24 @@ theorem eqSystem_no_solution_ge6_ge3_real :
 
 /-- For $N = 4$ and $D = 4$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{Z}$? -/
-@[category research open, AMS 5 14 81]
+@[category research solved, AMS 5 14 81]
 theorem eqSystem4_no_solution_d4_int :
-    answer(sorry) ↔
+    answer(True) ↔
       ¬ ∃ W : WeightsN 4 4 ℤ, EqSystemN 4 4 W := by
-  sorry
+  simp only [true_iff]
+  intro ⟨W, hW⟩
+  refine eqSystem4_no_solution_d4.mp (by simp) ⟨fun e => ↑(W e), ?_⟩
+  intro ι
+  have h := hW ι
+  by_cases h_eq : allEqual ι
+  · simp [h_eq] at h ⊢
+    have h_c := congr_arg (fun x : ℤ => (↑x : ℂ)) h
+    simp [pmSumN, pmSumList, pmSumListAux, vertices] at h_c ⊢
+    exact h_c
+  · simp [h_eq] at h ⊢
+    have h_c := congr_arg (fun x : ℤ => (↑x : ℂ)) h
+    simp [pmSumN, pmSumList, pmSumListAux, vertices] at h_c ⊢
+    exact h_c
 
 /-- For $N = 4$ and all $D \geq 4$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{Z}$? -/
@@ -750,13 +776,26 @@ theorem eqSystem_no_solution_ge6_ge3_int :
 
 /-- For $N = 4$ and $D = 4$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{Z}$ with weights in $\{-1, 0, 1\}$? -/
-@[category research open, AMS 5 14 81]
+@[category research solved, AMS 5 14 81]
 theorem eqSystem4_no_solution_d4_trinary_int :
-    answer(sorry) ↔
+    answer(True) ↔
       ¬ ∃ W : WeightsN 4 4 ℤ,
           (∀ e, W e = (-1 : ℤ) ∨ W e = 0 ∨ W e = 1) ∧
             EqSystemN 4 4 W := by
-  sorry
+  simp only [true_iff]
+  intro ⟨W, _, hW⟩
+  refine eqSystem4_no_solution_d4.mp (by simp) ⟨fun e => ↑(W e), ?_⟩
+  intro ι
+  have h := hW ι
+  by_cases h_eq : allEqual ι
+  · simp [h_eq] at h ⊢
+    have h_c := congr_arg (fun x : ℤ => (↑x : ℂ)) h
+    simp [pmSumN, pmSumList, pmSumListAux, vertices] at h_c ⊢
+    exact h_c
+  · simp [h_eq] at h ⊢
+    have h_c := congr_arg (fun x : ℤ => (↑x : ℂ)) h
+    simp [pmSumN, pmSumList, pmSumListAux, vertices] at h_c ⊢
+    exact h_c
 
 /-- For $N = 4$ and all $D \geq 4$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{Z}$ with weights in $\{-1, 0, 1\}$? -/
