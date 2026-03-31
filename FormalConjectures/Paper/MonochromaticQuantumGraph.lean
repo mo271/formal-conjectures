@@ -353,13 +353,152 @@ All "general" conjectures are restricted to even `N`.
 
 /- ## Open conjectures over ℂ -/
 
+def A (W : WeightsN 4 4 ℂ) (i j : Fin 4) : ℂ := W (mkEdge 0 1 i j)
+def B (W : WeightsN 4 4 ℂ) (k l : Fin 4) : ℂ := W (mkEdge 2 3 k l)
+def C (W : WeightsN 4 4 ℂ) (i k : Fin 4) : ℂ := W (mkEdge 0 2 i k)
+def D (W : WeightsN 4 4 ℂ) (j l : Fin 4) : ℂ := W (mkEdge 1 3 j l)
+def E (W : WeightsN 4 4 ℂ) (i l : Fin 4) : ℂ := W (mkEdge 0 3 i l)
+def F (W : WeightsN 4 4 ℂ) (j k : Fin 4) : ℂ := W (mkEdge 1 2 j k)
+
+noncomputable def b (W : WeightsN 4 4 ℂ) (k : Fin 4) : ℂ := ∑ l : Fin 4, B W k l
+noncomputable def d (W : WeightsN 4 4 ℂ) (j : Fin 4) : ℂ := ∑ l : Fin 4, D W j l
+noncomputable def e (W : WeightsN 4 4 ℂ) (i : Fin 4) : ℂ := ∑ l : Fin 4, E W i l
+
+lemma pmSum_eq (W : WeightsN 4 4 ℂ) (i j k l : Fin 4) :
+  let ι : V 4 → Fin 4 := fun x => if x = 0 then i else if x = 1 then j else if x = 2 then k else l;
+  pmSumN 4 4 W ι = A W i j * B W k l + C W i k * D W j l + E W i l * F W j k := by
+  delta pmSumN V A B C D E F
+  simp_all +decide -contextual[pmSumList, true,vertices, false,↑ ky /em']
+  simp_all! -contextual [add_assoc]
+
+lemma delta_eq (i j k l : Fin 4) :
+  let ι : V 4 → Fin 4 := fun x => if x = 0 then i else if x = 1 then j else if x = 2 then k else l;
+  (if allEqual ι then (1 : ℂ) else 0) =
+  if i = j ∧ j = k ∧ k = l then 1 else 0 := by
+  delta allEqual V
+  simp_all-contextual[vertices,allEqualList, Fin.forall_fin_succ]
+
+lemma sum_l_eq (W : WeightsN 4 4 ℂ) (hW : EqSystemN 4 4 W) (i j k : Fin 4) :
+  A W i j * b W k + C W i k * d W j + e W i * F W j k =
+  if i = j ∧ j = k then 1 else 0 := by
+  have h1 : ∑ l : Fin 4, pmSumN 4 4 W (fun x => if x = 0 then i else if x = 1 then j else if x = 2 then k else l) =
+            ∑ l : Fin 4, (if i = j ∧ j = k ∧ k = l then (1 : ℂ) else 0) := by
+    push_cast[pmSumN, V,EqSystemN]at*
+    simp_all!-contextual[allEqual,Fin.forall_iff_succ]
+    norm_num+decide[allEqualList,and_assoc]
+  delta V pmSumN EqSystemN e F A b C d at*
+  linear_combination2(norm:=norm_num+decide[iInf,pmSumList,B,D,E,vertices, Fin.sum_univ_four, Finset.sum_mul, Finset.mul_sum,ite_and, Finset.sum_add_distrib])h1
+  clear *-
+  simp_all! -contextual
+  ring
+
+lemma exists_v (e_vec : Fin 4 → ℂ) :
+  ∃ v : Fin 4 → ℂ, (∑ i, v i * e_vec i) = 0 ∧
+  ((v 0 = 1 ∧ v 1 = 1 ∧ v 2 = 1) ∨
+   (v 0 = 1 ∧ v 1 = 1 ∧ v 3 = 1) ∨
+   (v 0 = 1 ∧ v 2 = 1 ∧ v 3 = 1) ∨
+   (v 1 = 1 ∧ v 2 = 1 ∧ v 3 = 1)) := by
+  by_cases h0 : e_vec 0 ≠ 0
+  · use fun i => if i = 0 then -(e_vec 1 + e_vec 2 + e_vec 3) / e_vec 0 else 1
+    simp_all[ Fin.sum_univ_four, add_assoc]
+  · by_cases h1 : e_vec 1 ≠ 0
+    · use fun i => if i = 1 then -(e_vec 0 + e_vec 2 + e_vec 3) / e_vec 1 else 1
+      simp_all[ Fin.sum_univ_four, add_assoc]
+    · by_cases h2 : e_vec 2 ≠ 0
+      · use fun i => if i = 2 then -(e_vec 0 + e_vec 1 + e_vec 3) / e_vec 2 else 1
+        simp_all[ Fin.sum_univ_four]
+      · by_cases h3 : e_vec 3 ≠ 0
+        · use fun i => if i = 3 then -(e_vec 0 + e_vec 1 + e_vec 2) / e_vec 3 else 1
+          simp_all [ Fin.sum_univ_four]
+        · use fun _ => 1
+          simp_all[ Fin.sum_univ_four]
+
+noncomputable def x_vec (W : WeightsN 4 4 ℂ) (v : Fin 4 → ℂ) (j : Fin 4) : ℂ := ∑ i, v i * A W i j
+noncomputable def y_vec (W : WeightsN 4 4 ℂ) (v : Fin 4 → ℂ) (k : Fin 4) : ℂ := ∑ i, v i * C W i k
+
+lemma sum_i_eq (W : WeightsN 4 4 ℂ) (hW : EqSystemN 4 4 W) (v : Fin 4 → ℂ)
+  (hv : ∑ i, v i * e W i = 0) (j k : Fin 4) :
+  x_vec W v j * b W k + d W j * y_vec W v k = if j = k then v j else 0 := by
+  have h1 : (∑ i, v i * (A W i j * b W k + C W i k * d W j + e W i * F W j k)) =
+            ∑ i, v i * (if i = j ∧ j = k then (1 : ℂ) else 0) := by
+    apply Finset.sum_congr rfl
+    intro i _
+    rw [sum_l_eq W hW i j k]
+  have h3 : (∑ i, v i * (A W i j * b W k + C W i k * d W j + e W i * F W j k)) =
+            x_vec W v j * b W k + d W j * y_vec W v k := by
+    calc
+      _ = ∑ i, (v i * A W i j * b W k + v i * C W i k * d W j + v i * e W i * F W j k) := by
+        apply Finset.sum_congr rfl
+        intro i _
+        ring
+      _ = (∑ i, v i * A W i j * b W k) + (∑ i, v i * C W i k * d W j) + (∑ i, v i * e W i * F W j k) := by
+        rw [Finset.sum_add_distrib, Finset.sum_add_distrib]
+      _ = (∑ i, v i * A W i j) * b W k + (∑ i, v i * C W i k) * d W j + (∑ i, v i * e W i) * F W j k := by
+        rw [← Finset.sum_mul, ← Finset.sum_mul, ← Finset.sum_mul]
+      _ = x_vec W v j * b W k + y_vec W v k * d W j + 0 * F W j k := by
+        rw [hv]
+        rfl
+      _ = x_vec W v j * b W k + d W j * y_vec W v k := by ring
+  norm_num[h3▸(h1),ite_and]
+
+lemma det_rank_2_zero_fin4 (x b_vec d_vec y : Fin 4 → ℂ) (j0 j1 j2 : Fin 4) :
+  let M := fun j k => x j * b_vec k + d_vec j * y k;
+  M j0 j0 * M j1 j1 * M j2 j2 + M j0 j1 * M j1 j2 * M j2 j0 + M j0 j2 * M j1 j0 * M j2 j1
+  - M j0 j2 * M j1 j1 * M j2 j0 - M j0 j1 * M j1 j0 * M j2 j2 - M j0 j0 * M j1 j2 * M j2 j1 = 0 := by
+  intros M
+  ring
+
+lemma det_eval (v : Fin 4 → ℂ) (j0 j1 j2 : Fin 4)
+  (hj01 : j0 ≠ j1) (hj02 : j0 ≠ j2) (hj12 : j1 ≠ j2) :
+  let M := fun j k => if j = k then v j else (0 : ℂ);
+  M j0 j0 * M j1 j1 * M j2 j2 + M j0 j1 * M j1 j2 * M j2 j0 + M j0 j2 * M j1 j0 * M j2 j1
+  - M j0 j2 * M j1 j1 * M j2 j0 - M j0 j1 * M j1 j0 * M j2 j2 - M j0 j0 * M j1 j2 * M j2 j1 =
+  v j0 * v j1 * v j2 := by
+  simp_all[]
+
+lemma v_prod_zero (W : WeightsN 4 4 ℂ) (hW : EqSystemN 4 4 W) (v : Fin 4 → ℂ)
+  (hv : ∑ i, v i * e W i = 0) (j0 j1 j2 : Fin 4)
+  (hj01 : j0 ≠ j1) (hj02 : j0 ≠ j2) (hj12 : j1 ≠ j2) :
+  v j0 * v j1 * v j2 = 0 := by
+  have h_eq : ∀ j k, (if j = k then v j else (0 : ℂ)) = x_vec W v j * b W k + d W j * y_vec W v k := by
+    intros j k
+    have h_sum := sum_i_eq W hW v hv j k
+    gcongr with S
+  have h_det1 := det_rank_2_zero_fin4 (x_vec W v) (b W) (d W) (y_vec W v) j0 j1 j2
+  have h_det2 := det_eval v j0 j1 j2 hj01 hj02 hj12
+  rwa[←h_det2,funext₂ h_eq]
+
+lemma contradiction_from_v (W : WeightsN 4 4 ℂ) (hW : EqSystemN 4 4 W) : False := by
+  have hex := exists_v (e W)
+  rcases hex with ⟨v, hv, hcases⟩
+  have h_prod := v_prod_zero W hW v hv
+  rcases hcases with h | h | h | h
+  · have hz := h_prod 0 1 2 (by decide) (by decide) (by decide)
+    rcases h with ⟨h0, h1, h2⟩
+    rw [h0, h1, h2] at hz
+    norm_num at hz
+  · have hz := h_prod 0 1 3 (by decide) (by decide) (by decide)
+    rcases h with ⟨h0, h1, h3⟩
+    rw [h0, h1, h3] at hz
+    norm_num at hz
+  · have hz := h_prod 0 2 3 (by decide) (by decide) (by decide)
+    rcases h with ⟨h0, h2, h3⟩
+    rw [h0, h2, h3] at hz
+    norm_num at hz
+  · have hz := h_prod 1 2 3 (by decide) (by decide) (by decide)
+    rcases h with ⟨h1, h2, h3⟩
+    rw [h1, h2, h3] at hz
+    norm_num at hz
+
 /-- For $N = 4$ and $D = 4$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{C}$? -/
 @[category research open, AMS 5 14 81]
 theorem eqSystem4_no_solution_d4 :
-    answer(sorry) ↔
+    answer(True) ↔
       ¬ ∃ W : WeightsN 4 4 ℂ, EqSystemN 4 4 W := by
-  sorry
+  simp only [true_iff]
+  intro ⟨W, hW⟩
+  exact contradiction_from_v W hW
 
 /-- For $N = 4$ and all $D \geq 4$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{C}$? -/

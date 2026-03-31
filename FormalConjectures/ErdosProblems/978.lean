@@ -65,6 +65,7 @@ theorem erdos_978.parts.ii : answer(sorry) ↔ ∀ {f : ℤ[X]}, Irreducible f �
     (¬ ∃ l : ℕ, f.natDegree = 2 ^ l) → 0 < f.leadingCoeff →
     (¬ ∃ p : ℕ, p.Prime ∧ ∀ n : ℕ, (p : ℤ) ^ (f.natDegree - 1) ∣ f.eval (n : ℤ)) →
     {n : ℕ | Powerfree (f.natDegree - 2) (f.eval (n : ℤ))}.Infinite := by
+  -- AlphaProof failed to close this goal
   sorry
 
 /-- Does `n ^ 4 + 2` represent infinitely many squarefree numbers? -/
