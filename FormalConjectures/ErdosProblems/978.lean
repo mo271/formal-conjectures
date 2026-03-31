@@ -37,7 +37,6 @@ that `f n` is `(k - 1)`-th power free is infinite, and this is proved in [Er53].
 theorem erdos_978.variants.sub_one {f : ℤ[X]} (hi : Irreducible f) (hd : 2 < f.natDegree)
     (hp : ∀ (x : ℕ), f.natDegree ≠ 2 ^ x) (hlc : 0 < f.leadingCoeff) :
     {n : ℕ | Powerfree (f.natDegree - 1) (f.eval (n : ℤ))}.Infinite := by
-  -- AlphaProof failed to close this goal
   sorry
 
 /-- Let `f ∈ ℤ[X]` be an irreducible polynomial with positive leading coefficient. Suppose that the
@@ -49,7 +48,6 @@ theorem erdos_978.parts.i {f : ℤ[X]} (hi : Irreducible f) (hd : 2 < f.natDegre
     (hp2 : ∀ (x : ℕ), f.natDegree ≠ 2 ^ x) (hlc : 0 < f.leadingCoeff)
     (hp : ∀ (p : ℕ), p.Prime → ∃ n : ℕ, ¬ (p : ℤ) ^ (f.natDegree - 1) ∣ f.eval (n : ℤ)) :
     HasPosDensity {n : ℕ | Powerfree (f.natDegree - 1) (f.eval (n : ℤ))} := by
-  -- AlphaProof failed to close this goal
   sorry
 
 /-- If the degree `k` of `f` is larger than or equal to `9`, then the set of `n` such that `f n` is
@@ -58,7 +56,6 @@ theorem erdos_978.parts.i {f : ℤ[X]} (hi : Irreducible f) (hd : 2 < f.natDegre
 theorem erdos_978.variants.sub_two {f : ℤ[X]} (hi : Irreducible f) (hd : 9 ≤ f.natDegree)
     (hp : ∀ (p : ℕ), p.Prime → ∃ n : ℕ, ¬ (p : ℤ) ^ (f.natDegree - 1) ∣ f.eval (n : ℤ)) :
     {n : ℕ | Powerfree (f.natDegree - 2) (f.eval (n : ℤ))}.Infinite := by
-  -- AlphaProof failed to close this goal
   sorry
 
 /-- If $k > 3$ (and $k \neq 2^l$), then are there infinitely many $n$ for which $f(n)$ is
