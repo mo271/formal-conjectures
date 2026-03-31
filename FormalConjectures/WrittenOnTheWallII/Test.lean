@@ -29,7 +29,8 @@ This file contains tests for graph invariants on 5 specific concrete graphs:
 Tests cover:
 independence_number, dominationNumber, average_distance, diameter, radius,
 girth, order, size, szeged_index, wiener_index, min_degree, max_degree,
-average_degree, matching_number, residue, annihilation_number, cvetkovic.
+average_degree, matching_number, residue, annihilation_number, cvetkovic,
+l and Ls.
 -/
 
 open SimpleGraph
@@ -138,6 +139,14 @@ theorem house_annihilation : annihilationNumber HouseGraph = 3 := by
 theorem house_cvetkovic : cvetkovic HouseGraph = 3 := by
   sorry
 
+@[category test, AMS 5]
+theorem house_l : averageIndepNeighbors HouseGraph = 9/5 := by
+  sorry
+
+@[category test, AMS 5]
+theorem house_Ls : Ls HouseGraph = 3 := by
+  sorry
+
 
 /-  ### K4 Tests -/
 
@@ -207,6 +216,14 @@ theorem K4_annihilation : annihilationNumber K4 = 2 := by
 
 @[category test, AMS 5]
 theorem K4_cvetkovic : cvetkovic K4 = 1 := by
+  sorry
+
+@[category test, AMS 5]
+theorem K4_l : averageIndepNeighbors K4 = 1 := by
+  sorry
+
+@[category test, AMS 5]
+theorem K4_Ls : Ls K4 = 3 := by
   sorry
 
 
@@ -280,6 +297,14 @@ theorem petersen_annihilation : annihilationNumber PetersenGraph = 5 := by
 theorem petersen_cvetkovic : cvetkovic PetersenGraph = 4 := by
   sorry
 
+@[category test, AMS 5]
+theorem petersen_l : averageIndepNeighbors PetersenGraph = 3 := by
+  sorry
+
+@[category test, AMS 5]
+theorem petersen_Ls : Ls PetersenGraph = 6 := by
+  sorry
+
 
 /-  ### C6 Tests -/
 
@@ -351,6 +376,14 @@ theorem C6_annihilation : annihilationNumber C6 = 3 := by
 theorem C6_cvetkovic : cvetkovic C6 = 3 := by
   sorry
 
+@[category test, AMS 5]
+theorem C6_l : averageIndepNeighbors C6 = 2 := by
+  sorry
+
+@[category test, AMS 5]
+theorem C6_Ls : Ls C6 = 2 := by
+  sorry
+
 /-  ### Star5 Tests -/
 
 @[category test, AMS 5]
@@ -419,4 +452,12 @@ theorem Star5_annihilation : annihilationNumber Star5 = 5 := by
 
 @[category test, AMS 5]
 theorem Star5_cvetkovic : cvetkovic Star5 = 5 := by
+  sorry
+
+@[category test, AMS 5]
+theorem Star5_l : averageIndepNeighbors Star5 = 5/3 := by
+  sorry
+
+@[category test, AMS 5]
+theorem Star5_Ls : Ls Star5 = 5 := by
   sorry
