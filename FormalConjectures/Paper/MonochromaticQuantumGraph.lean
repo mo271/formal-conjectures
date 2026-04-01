@@ -643,12 +643,25 @@ theorem eqSystem4_no_solution_d4_real :
 
 /-- For $N = 4$ and all $D \geq 4$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{R}$? -/
-@[category research open, AMS 5 14 81]
+@[category research solved, AMS 5 14 81]
 theorem eqSystem4_no_solution_ge4_real :
-    answer(sorry) ↔
+    answer(True) ↔
       ∀ D : Nat, D ≥ 4 →
         ¬ ∃ W : WeightsN 4 D ℝ, EqSystemN 4 D W := by
-  sorry
+  simp only [true_iff]
+  intro D hD ⟨W, hW⟩
+  exact no_witness_4 D hD ⟨fun e => ↑(W e), fun ι => by
+    have h := hW ι
+    by_cases h_eq : allEqual ι
+    · simp [h_eq] at h ⊢
+      have h_c := congr_arg (fun x : ℝ => (↑x : ℂ)) h
+      simp [pmSumN, pmSumList, pmSumListAux, vertices] at h_c ⊢
+      exact h_c
+    · simp [h_eq] at h ⊢
+      have h_c := congr_arg (fun x : ℝ => (↑x : ℂ)) h
+      simp [pmSumN, pmSumList, pmSumListAux, vertices] at h_c ⊢
+      exact h_c⟩
+
 
 /-- For $N = 6$ and $D = 3$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{R}$? -/
@@ -720,12 +733,24 @@ theorem eqSystem4_no_solution_d4_int :
 
 /-- For $N = 4$ and all $D \geq 4$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{Z}$? -/
-@[category research open, AMS 5 14 81]
+@[category research solved, AMS 5 14 81]
 theorem eqSystem4_no_solution_ge4_int :
-    answer(sorry) ↔
+    answer(True) ↔
       ∀ D : Nat, D ≥ 4 →
         ¬ ∃ W : WeightsN 4 D ℤ, EqSystemN 4 D W := by
-  sorry
+  simp only [true_iff]
+  intro D hD ⟨W, hW⟩
+  exact no_witness_4 D hD ⟨fun e => ↑(W e), fun ι => by
+    have h := hW ι
+    by_cases h_eq : allEqual ι
+    · simp [h_eq] at h ⊢
+      have h_c := congr_arg (fun x : ℤ => (↑x : ℂ)) h
+      simp [pmSumN, pmSumList, pmSumListAux, vertices] at h_c ⊢
+      exact h_c
+    · simp [h_eq] at h ⊢
+      have h_c := congr_arg (fun x : ℤ => (↑x : ℂ)) h
+      simp [pmSumN, pmSumList, pmSumListAux, vertices] at h_c ⊢
+      exact h_c⟩
 
 /-- For $N = 6$ and $D = 3$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{Z}$? -/
@@ -800,14 +825,16 @@ theorem eqSystem4_no_solution_d4_trinary_int :
 
 /-- For $N = 4$ and all $D \geq 4$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{Z}$ with weights in $\{-1, 0, 1\}$? -/
-@[category research open, AMS 5 14 81]
+@[category research solved, AMS 5 14 81]
 theorem eqSystem4_no_solution_ge4_trinary_int :
-    answer(sorry) ↔
+    answer(True) ↔
       ∀ D : Nat, D ≥ 4 →
         ¬ ∃ W : WeightsN 4 D ℤ,
             (∀ e, W e = (-1 : ℤ) ∨ W e = 0 ∨ W e = 1) ∧
               EqSystemN 4 D W := by
-  sorry
+  simp only [true_iff]
+  intro D hD ⟨W, _, hW⟩
+  exact eqSystem4_no_solution_ge4_int.mp (by simp) D hD ⟨W, hW⟩
 
 /-- For $N = 6$ and $D = 3$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{Z}$ with weights in $\{-1, 0, 1\}$? -/
