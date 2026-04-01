@@ -948,13 +948,29 @@ theorem eqSystem8_no_solution_d3_real :
       ¬ ∃ W : WeightsN 8 3 ℝ, EqSystemN 8 3 W := by
   sorry
 
+
+set_option maxHeartbeats 400000 in
 /-- For $N = 8$ and $D = 10$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{R}$? -/
-@[category research open, AMS 5 14 81]
+@[category research solved, AMS 5 14 81]
 theorem eqSystem8_no_solution_d10_real :
-    answer(sorry) ↔
+    answer(True) ↔
       ¬ ∃ W : WeightsN 8 10 ℝ, EqSystemN 8 10 W := by
-  sorry
+  simp only [true_iff]
+  intro ⟨W, hW⟩
+  refine eqSystem8_no_solution_d10.mp (by simp) ⟨fun e => ↑(W e), ?_⟩
+  intro ι
+  have h := hW ι
+  by_cases h_eq : allEqual ι
+  · simp [h_eq] at h ⊢
+    have h_c := congr_arg (fun x : ℝ => (↑x : ℂ)) h
+    simp [pmSumN, pmSumList, pmSumListAux, vertices] at h_c ⊢
+    exact h_c
+  · simp [h_eq] at h ⊢
+    have h_c := congr_arg (fun x : ℝ => (↑x : ℂ)) h
+    simp [pmSumN, pmSumList, pmSumListAux, vertices] at h_c ⊢
+    exact h_c
+
 
 /-- For $N = 10$ and $D = 3$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{R}$? -/
@@ -1025,13 +1041,28 @@ theorem eqSystem8_no_solution_d3_int :
       ¬ ∃ W : WeightsN 8 3 ℤ, EqSystemN 8 3 W := by
   sorry
 
+set_option maxHeartbeats 800000 in
 /-- For $N = 8$ and $D = 10$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{Z}$? -/
-@[category research open, AMS 5 14 81]
+@[category research solved, AMS 5 14 81]
 theorem eqSystem8_no_solution_d10_int :
-    answer(sorry) ↔
+    answer(True) ↔
       ¬ ∃ W : WeightsN 8 10 ℤ, EqSystemN 8 10 W := by
-  sorry
+  simp only [true_iff]
+  intro ⟨W, hW⟩
+  refine eqSystem8_no_solution_d10.mp (by simp) ⟨fun e => ↑(W e), ?_⟩
+  intro ι
+  have h := hW ι
+  by_cases h_eq : allEqual ι
+  · simp [h_eq] at h ⊢
+    have h_c := congr_arg (fun x : ℤ => (↑x : ℂ)) h
+    simp [pmSumN, pmSumList, pmSumListAux, vertices] at h_c ⊢
+    exact h_c
+  · simp [h_eq] at h ⊢
+    have h_c := congr_arg (fun x : ℤ => (↑x : ℂ)) h
+    simp [pmSumN, pmSumList, pmSumListAux, vertices] at h_c ⊢
+    exact h_c
+
 
 /-- For $N = 10$ and $D = 3$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{Z}$? -/
@@ -1115,13 +1146,16 @@ theorem eqSystem8_no_solution_d3_trinary_int :
 
 /-- For $N = 8$ and $D = 10$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{Z}$ with weights in $\{-1, 0, 1\}$? -/
-@[category research open, AMS 5 14 81]
+@[category research solved, AMS 5 14 81]
 theorem eqSystem8_no_solution_d10_trinary_int :
-    answer(sorry) ↔
+    answer(True) ↔
       ¬ ∃ W : WeightsN 8 10 ℤ,
           (∀ e, W e = (-1 : ℤ) ∨ W e = 0 ∨ W e = 1) ∧
             EqSystemN 8 10 W := by
-  sorry
+  simp only [true_iff]
+  intro ⟨W, _, hW⟩
+  exact eqSystem8_no_solution_d10_int.mp (by simp) ⟨W, hW⟩
+
 
 /-- For $N = 10$ and $D = 3$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{Z}$ with weights in $\{-1, 0, 1\}$? -/
