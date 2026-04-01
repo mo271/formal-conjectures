@@ -268,6 +268,8 @@ def to_subgraph (G : SimpleGraph α) [DecidableRel G.Adj] (s : Finset (Sym2 α))
 -- Helper lemmas for Ls_eq_computable
 -- ================================================================
 
+omit [DecidableEq α]
+
 private lemma to_subgraph_adj_iff' (G : SimpleGraph α) [DecidableRel G.Adj]
     (s : Finset (Sym2 α)) (h_sub : s ⊆ G.edgeFinset) (w v : α) :
     (to_subgraph G s h_sub).spanningCoe.Adj w v ↔ (Sym2.mk (w, v) ∈ s ∧ w ≠ v) := by
@@ -285,6 +287,7 @@ private lemma to_subgraph_adj_of_mem_edge' (G : SimpleGraph α) [DecidableRel G.
   subst h_eq
   exact G.loopless w (G.mem_edgeFinset.mp (h_sub h_mem))
 
+variable  [DecidableEq α]
 private lemma mem_filter_of_adj' (G : SimpleGraph α) [DecidableRel G.Adj]
     (s : Finset (Sym2 α)) (h_sub : s ⊆ G.edgeFinset) (w v : α)
     (hadj : (to_subgraph G s h_sub).spanningCoe.Adj w v) :
@@ -397,7 +400,7 @@ private lemma is_connected_subgraph_iff (G : SimpleGraph α) [DecidableRel G.Adj
 -- ================================================================
 -- Edge set correspondence
 -- ================================================================
-
+omit [DecidableEq α] in
 private lemma to_subgraph_edgeFinset_eq (G : SimpleGraph α) [DecidableRel G.Adj]
     (s : Finset (Sym2 α)) (h_sub : s ⊆ G.edgeFinset) :
     (to_subgraph G s h_sub).spanningCoe.edgeFinset = s := by
@@ -424,7 +427,7 @@ private lemma to_subgraph_degree_eq (G : SimpleGraph α) [DecidableRel G.Adj]
     ext w
     simp only [Set.mem_toFinset, Subgraph.mem_neighborSet]
     unfold to_subgraph
-    simp only [toSubgraph_adj, fromEdgeSet_adj, Set.mem_setOf_eq]
+    simp only [toSubgraph_adj, fromEdgeSet_adj]
     constructor
     · exact fun ⟨h1, _⟩ => Finset.mem_filter.mpr ⟨Finset.mem_univ w, h1⟩
     · intro h; rw [Finset.mem_filter] at h
@@ -443,6 +446,8 @@ private lemma leaf_count_eq_leaves (G : SimpleGraph α) [DecidableRel G.Adj]
 -- ================================================================
 -- to_subgraph.IsSpanning
 -- ================================================================
+
+omit [DecidableEq α]
 
 private lemma to_subgraph_isSpanning (G : SimpleGraph α) [DecidableRel G.Adj]
     (s : Finset (Sym2 α)) (h_sub : s ⊆ G.edgeFinset) :
@@ -510,6 +515,7 @@ private lemma spanning_tree_size_mem (G : SimpleGraph α) [DecidableRel G.Adj]
 -- ================================================================
 -- Main inequalities
 -- ================================================================
+variable [DecidableEq α]
 
 theorem Ls_le_computable_Ls (G : SimpleGraph α) [DecidableRel G.Adj] (v0 : α) :
     Ls G ≤ (computable_Ls G v0 : ℝ) := by
