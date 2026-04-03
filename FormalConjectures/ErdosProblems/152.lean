@@ -31,11 +31,17 @@ open Filter
 
 namespace Erdos152
 
-/-- Define `f n` to be the minimum of `|{s | s - 1 ∉ A + A, s ∈ A + A, s + 1 ∉ A + A}|` as `A`
-ranges over all Sidon sets of size `n`. -/
+/-- The number of isolated elements of $A + A$ over $\mathbb{Z}$: elements $s \in A + A$
+such that $s - 1 \notin A + A$ and $s + 1 \notin A + A$. Working over $\mathbb{Z}$ avoids
+natural-number subtraction issues at $0$. -/
+noncomputable def num_isolated (A : Set ℕ) : ℕ :=
+  {s ∈ ((↑) '' (A + A) : Set ℤ) | s - 1 ∉ ((↑) '' (A + A) : Set ℤ) ∧
+    s + 1 ∉ ((↑) '' (A + A) : Set ℤ)}.ncard
+
+/-- Define `f n` to be the minimum number of isolated elements of `A + A`
+as `A` ranges over all Sidon sets of size `n`. -/
 noncomputable def f (n : ℕ) : ℕ :=
-  ⨅ A : {A : Set ℕ | A.ncard = n ∧ IsSidon A},
-  {s : ℕ | s - 1 ∉ A.1 + A.1 ∧ s ∈ A.1 + A.1 ∧ s + 1 ∉ A.1 + A.1}.ncard
+  ⨅ A : {A : Set ℕ | A.ncard = n ∧ IsSidon A}, num_isolated A.1
 
 
 
@@ -44,9 +50,6 @@ open scoped Classical
 
 
 open Set Finset
-
-noncomputable def num_isolated (A : Set ℕ) : ℕ :=
-  {s : ℕ | s - 1 ∉ A + A ∧ s ∈ A + A ∧ s + 1 ∉ A + A}.ncard
 
 noncomputable def N_k_N (X : Set ℕ) (k : ℕ) : ℕ := {x ∈ X | x + k ∈ X}.ncard
 noncomputable def N_k_Z (X : Set ℤ) (k : ℤ) : ℕ := {x ∈ X | x + k ∈ X}.ncard
@@ -195,13 +198,8 @@ lemma local_pattern_bound_Z (X : Set ℤ) (hX : X.Finite) :
   have hN := local_pattern_bound_Z_hN X hX
   omega
 
-lemma num_isolated_Z_rel (A : Set ℕ) :
-  I_Z (Z_S (A + A)) ≤ num_isolated A + 1 := by
-  norm_num(config := {singlePass := 1})[I_Z, false,num_isolated, true, Z_S]
-  by_cases h:{M|M-1 ∉A+A∧M ∈A+A∧M+1 ∉A+A}.Finite
-  · use(Nat.card_mono (h.image (↑) |>.insert 0) ? _).trans (.trans (Set.ncard_insert_le _ _) (by rw [Set.ncard_image_of_injective _ Nat.cast_injective]))
-    refine fun and⟨ ⟨a, A, I⟩,R, L⟩=>by cases I with use a.eq_zero_or_pos.imp ↑(congr_arg _) (by use a, ⟨ fun and=>(R _) ⟨and,Nat.cast_pred ·⟩,A,(L _ ⟨ ·, rfl⟩)⟩)
-  · exact (Set.Infinite.ncard (h.comp (·.preimage Nat.cast_injective.injOn|>.insert 0|>.subset ↑ fun and⟨A, B, C⟩=>and.eq_zero_or_pos.imp_right fun and' =>⟨⟨ _,B, rfl⟩,by grind⟩))).trans_le bot_le
+lemma num_isolated_eq (A : Set ℕ) :
+    num_isolated A = I_Z (Z_S (A + A)) := rfl
 
 lemma N_k_Z_rel_1 (A : Set ℕ) : N_k_Z (Z_S (A + A)) (1 : ℤ) = N_k_N (A + A) 1 := by
   delta N_k_N and N_k_Z Z_S
@@ -416,7 +414,7 @@ lemma S_card (A : Set ℕ) (hA : A.Finite) (hSidon : IsSidon A) :
   use Nat.mul_two _▸ Finset.sum_le_card_nsmul _ _ _ (and.forall_mem_image₂.2 fun and R L M=>.trans ( Finset.card_mono fun and=> by aesop) ( Finset.card_le_two: Finset.card { (and, L),(L, and)}≤2))
 
 lemma num_isolated_lower_bound (n : ℕ) (hn : n > 0) (A : Set ℕ) (h_card : A.ncard = n) (h_sidon : IsSidon A) :
-  16 * num_isolated A + 100 * n + 16 ≥ n * n := by
+    16 * num_isolated A + 100 * n ≥ n * n := by
   have hF : A.Finite := Set.finite_of_ncard_pos (by omega)
   have hSF : (A + A).Finite := Set.Finite.add hF hF
   have hSF_Z : (Z_S (A + A)).Finite := by simp_rw [ ←h_card,Z_S]at *
@@ -431,7 +429,7 @@ lemma num_isolated_lower_bound (n : ℕ) (hn : n > 0) (A : Set ℕ) (h_card : A.
   have h6 := N_bound_upper_3 A hF h_sidon
   have h7 := D_set_card A hF
   have h8 := S_card A hF h_sidon
-  have hI1 := num_isolated_Z_rel A
+  have hI1 := num_isolated_eq A
   have hN1 : N_k_Z (Z_S (A + A)) (1 : ℤ) = N_k_N (A + A) 1 := N_k_Z_rel_1 A
   have hN2 : N_k_Z (Z_S (A + A)) (2 : ℤ) = N_k_N (A + A) 2 := N_k_Z_rel_2 A
   have hN3 : N_k_Z (Z_S (A + A)) (3 : ℤ) = N_k_N (A + A) 3 := N_k_Z_rel_3 A
@@ -454,7 +452,7 @@ lemma exists_sidon_set_n (n : ℕ) : ∃ A : Set ℕ, A.ncard = n ∧ IsSidon A 
     · simp_all [le_antisymm (not_lt.1 ↑(mt ((2).pow_le_pow_right ↑ _) fun and=> absurd A.two_pow_pos ((by fin_omega ∘(2).pow_le_pow_right (by decide)) c))) (by valid: a ≤and)]
   · match (by bound:2^D≤2^A∧2^and≥2^a) with| ⟨a, _⟩=>fin_omega
 
-lemma f_lower_bound_div (n : ℕ) : f n ≥ (n * n - 100 * n - 16) / 16 := by
+lemma f_lower_bound_div (n : ℕ) : f n ≥ (n * n - 100 * n) / 16 := by
   have hn : n = 0 ∨ n > 0 := Nat.eq_zero_or_pos n
   cases hn with
   | inr h_pos =>
@@ -464,18 +462,17 @@ lemma f_lower_bound_div (n : ℕ) : f n ≥ (n * n - 100 * n - 16) / 16 := by
     apply le_ciInf
     intro A_sub
     have h_b := num_isolated_lower_bound n h_pos A_sub.val A_sub.property.1 A_sub.property.2
-    unfold num_isolated at h_b
     apply Nat.div_le_of_le_mul
     omega
   | inl h_zero =>
     subst h_zero
     omega
 
-lemma tendsto_bound : Tendsto (fun n : ℕ => (n * n - 100 * n - 16) / 16) atTop atTop := by
+lemma tendsto_bound : Tendsto (fun n : ℕ => (n * n - 100 * n) / 16) atTop atTop := by
   exact (Filter.tendsto_atTop.2 fun and=>by filter_upwards[Filter.mem_atTop 101,Filter.mem_atTop (and*16+16)] with a _ _ using (by valid ∘Nat.mul_le_mul_right a) (‹101 ≤ a›))
 
 lemma tendsto_f : Tendsto f atTop atTop := by
-  have h_le : ∀ᶠ n in atTop, (n * n - 100 * n - 16) / 16 ≤ f n := by
+  have h_le : ∀ᶠ n in atTop, (n * n - 100 * n) / 16 ≤ f n := by
     filter_upwards [eventually_ge_atTop 1000] with n hn
     exact f_lower_bound_div n
   exact tendsto_atTop_mono' atTop h_le tendsto_bound
@@ -504,8 +501,8 @@ theorem erdos_152.variants.square : answer(True) ↔
     rw [Real.norm_of_nonneg (sq_nonneg _), sq, Real.norm_of_nonneg (Nat.cast_nonneg _)]
     have h := f_lower_bound_div n
     have h_sq : 200 * n ≤ n * n := Nat.mul_le_mul_right n hn
-    have h_dm := Nat.div_add_mod (n * n - 100 * n - 16) 16
-    have h_ml := Nat.mod_lt (n * n - 100 * n - 16) (show (0 : ℕ) < 16 by omega)
+    have h_dm := Nat.div_add_mod (n * n - 100 * n) 16
+    have h_ml := Nat.mod_lt (n * n - 100 * n) (show (0 : ℕ) < 16 by omega)
     have : n * n ≤ 64 * f n := by omega
     exact_mod_cast this
   · intro _; trivial
