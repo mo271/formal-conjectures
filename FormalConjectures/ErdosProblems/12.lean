@@ -58,10 +58,13 @@ Let $A$ be an infinite set such that there are no distinct $a,b,c \in A$
 such that $a \mid (b+c)$ and $b,c > a$. Does there exist some absolute constant $c > 0$
 such that there are always infinitely many $N$
 with $|A \cap \{1, \dotsc, N\}| < N^{1−c}$?
+
+The DeepMind prover agent has found a formal disprove of this statement.
 -/
-@[category research open, AMS 11]
-theorem erdos_12.parts.ii : answer(sorry) ↔ ∃ c > (0 : ℝ), ∀ (A : Set ℕ), IsGood A →
-  {N : ℕ| (A ∩ Icc 1 N).ncard < (N : ℝ) ^ (1 - c)}.Infinite := by
+@[category research solved, AMS 11,
+formal_proof using formal_conjectures at "https://github.com/mo271/formal-conjectures/blob/118a6a60df73a9f47d6c89f3cdb3786eaa2e8d0a/FormalConjectures/ErdosProblems/12.lean#L740"]
+theorem erdos_12.parts.ii : answer(False) ↔ ∃ c > (0 : ℝ), ∀ (A : Set ℕ), IsGood A →
+    {N : ℕ| (A ∩ Icc 1 N).ncard < (N : ℝ) ^ (1 - c)}.Infinite := by
   sorry
 
 /--
