@@ -55,7 +55,6 @@ theorem erdos_12.parts.i : answer(True) ↔ ∃ (A : Set ℕ), IsGood A ∧
       (fun N => (A ∩ Icc 1 N).ncard / (N : ℝ).sqrt) := by
   sorry
 
-
 /--
 Let $A$ be an infinite set such that there are no distinct $a,b,c \in A$
 such that $a \mid (b+c)$ and $b,c > a$. Does there exist some absolute constant $c > 0$
