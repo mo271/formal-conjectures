@@ -59,7 +59,7 @@ such that $a \mid (b+c)$ and $b,c > a$. Does there exist some absolute constant 
 such that there are always infinitely many $N$
 with $|A \cap \{1, \dotsc, N\}| < N^{1−c}$?
 
-The DeepMind prover agent has found a formal disprove of this statement.
+The DeepMind prover agent has found a formal disproof of this statement.
 -/
 @[category research solved, AMS 11,
 formal_proof using formal_conjectures at "https://github.com/mo271/formal-conjectures/blob/118a6a60df73a9f47d6c89f3cdb3786eaa2e8d0a/FormalConjectures/ErdosProblems/12.lean#L740"]
