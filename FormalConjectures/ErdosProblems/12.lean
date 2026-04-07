@@ -47,6 +47,8 @@ open Erdos12
 Let $A$ be an infinite set such that there are no distinct $a,b,c \in A$
 such that $a \mid (b+c)$ and $b,c > a$. Is there such an $A$ with
 $\liminf \frac{|A \cap \{1, \dotsc, N\}|}{N^{1/2}} > 0$ ?
+
+The DeepMind prover agent has found a formal proof of this statement.
 -/
 @[category research solved, AMS 11,
 formal_proof using formal_conjectures at "https://github.com/mo271/formal-conjectures/blob/8d872b465955e46e2d28bc165d186ea41fd0da9e/FormalConjectures/ErdosProblems/12.lean#L810"]
