@@ -111,7 +111,7 @@ $$I^p(\mathcal F) \le \frac{1000}{p} \cdot \mu_p(\mathcal F) \cdot \log \frac{1}
 -/
 noncomputable def IsOptimal {n : ℕ} (p : ℝ) (F : Finset (Finset (Fin n))) : Prop :=
   let m := μFamily p F
-  edgeBoundary n p F ≤ 1000 * (1 / p * m * Real.log (1 / m))
+  edgeBoundary n p F ≤ 1000 * Real.log (1 / p) * (m * Real.logb p m / p)
 
 
 /--
@@ -169,16 +169,15 @@ This relation is true for every family $F$ and every $p$. It is especially famou
 $p=1/2$ and $\mu_p(F)=1/2$. In this case, it says that given a set of half the vertices of the
 discrete cube $2^X$, the number of edges between $F$ and its complement is at least $2^{n-1}$.
 
-*Note on translation:* The formula in the original literature is often stated using logarithm
-base $p$. When converted to natural logarithms (as used in Lean), it introduces the $\log(1/p)$
-factor in the denominator. The factor of $p$ is consistent with the definition of `IsOptimal`
-used in the counterexample proof.
+*Note on translation:* We use `Real.logb p m` to represent the logarithm base $p$ directly.
+The factor of $p$ in the denominator (equivalent to $1/p$ in front) is consistent with the
+definition of `IsOptimal` used in the counterexample proof.
 -/
 @[category graduate, AMS 5 60]
 theorem discrete_isoperimetric_inequality (n : ℕ) (p : ℝ) (hp : 0 < p) (hp' : p < 1)
     (F : Finset (Finset (Fin n))) :
     let m := μFamily p F
-    edgeBoundary n p F ≥ m * Real.log (1 / m) / (p * Real.log (1 / p)) := by
+    edgeBoundary n p F ≥ m * Real.logb p m / p := by
   sorry
 
 /--
