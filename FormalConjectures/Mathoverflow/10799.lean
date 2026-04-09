@@ -116,9 +116,6 @@ properties. The related [Kahn–Kalai conjecture](https://arxiv.org/abs/math/060
 **This conjecture is false** without the additional assumption $\mu_t(F) = 1/2$.
 A counterexample was found by Shlomo Perles (April 7, 2026).
 -/
-@[category research solved, AMS 5 60,
-formal_proof using formal_conjectures at
-"https://github.com/mo271/formal-conjectures/blob/408f53dc0856c0882a5e77acd24fc83b978f0bc9/FormalConjectures/Mathoverflow/10799.lean#L252"]
 theorem mathoverflow_10799 : answer(False) ↔
     ∀ (n : ℕ) (_ : 2 ≤ n)
     (F : Finset (Finset (Fin n))) (_ : IsMonotoneIncreasing F)
@@ -157,17 +154,21 @@ theorem mathoverflow_10799.variants.weak_kahn_kalai :
 
 /--
 Now a famous isoperimetric relation asserts that
-(IR) $I^p(F) \ge (1/p) \mu_p(F) \cdot \log \mu_p(F)$
+(IR) $I^p(F) \ge \frac{1}{p} \mu_p(F) \log_p \mu_p(F)$
 This relation is true for every family $F$ and every $p$. It is especially famous and simple when
 $p=1/2$ and $\mu_p(F)=1/2$. In this case, it says that given a set of half the vertices of the
 discrete cube $2^X$, the number of edges between $F$ and its complement is at least $2^{n-1}$.
+
+*Note on translation:* The formula in the original literature is often stated using logarithm
+base $p$. When converted to natural logarithms (as used in Lean), it introduces the $\log(1/p)$
+factor in the denominator. The factor of $p$ is consistent with the definition of `IsOptimal`
+used in the counterexample proof.
 -/
 @[category graduate, AMS 5 60]
 theorem discrete_isoperimetric_inequality (n : ℕ) (p : ℝ) (hp : 0 < p) (hp' : p < 1)
     (F : Finset (Finset (Fin n))) :
     let m := μFamily p F
     edgeBoundary n p F ≥ m * Real.log (1 / m) / (p * Real.log (1 / p)) := by
-  -- AlphaProof failed to close this goal
   sorry
 
 /--

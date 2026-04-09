@@ -118,7 +118,6 @@ theorem five : a 5 = 23 := by
 
 @[category test, AMS 11]
 theorem six : a 6 = 46 := by
-  -- AlphaProof failed to close this goal
   sorry
 
 @[category test, AMS 11]
