@@ -438,7 +438,7 @@ lemma extension_by_one (N k : ℕ) (hk : k ≥ 1) (c : Finset.Icc 1 N → Fin 2)
     · zify[ap,Set.IsAPOfLength,Set.image]
       norm_num
       repeat constructor
-      norm_num[hd_pos.ne',Set.setOf_exists, Fin.1 y -em]
+      simp[Set.setOf_exists]
       norm_num[hd_pos.ne', Fin.val_injective.eq_iff, Finset.card_image_of_injective, true,Function.Injective]
       exact (mod_cast show _={s |∃x,∃S:_, a+x*d =s}by norm_num[ Fin.exists_iff])
     · exact (Set.forall_mem_range.2 fun and=>(h_color and (by valid)).2▸by norm_num[ Erdos138.extend_coloring_fn, (by nlinarith[and.2]:a+and*d ≤N)])
