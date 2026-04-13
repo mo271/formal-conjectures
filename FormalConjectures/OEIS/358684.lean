@@ -118,7 +118,7 @@ theorem five : a 5 = 23 := by
 
 @[category test, AMS 11]
 theorem six : a 6 = 46 := by
-  sorry
+  decide +native
 
 @[category test, AMS 11]
 theorem seven : a 7 = 73 := by
