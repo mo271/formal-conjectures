@@ -29,7 +29,7 @@ namespace WolstenholmePrime
 Wolstenholme's theorem states that any prime $p > 3$ satisfies $\binom{2p-1}{p-1} \equiv 1 (\pmod{p^3})$.
 
 Formal proof linked here provided by AlphaProof
-*Reference:* [Wikipedea](https://en.wikipedia.org/wiki/Wolstenholme%27s_theorem)
+*Reference:* [Wikipedia](https://en.wikipedia.org/wiki/Wolstenholme%27s_theorem)
 -/
 @[category undergraduate, AMS 11, formal_proof using formal_conjectures at
 "https://github.com/mo271/formal-conjectures/blob/d833ed31d82693f10bed7a4c9ac329545b556a03/FormalConjectures/Wikipedia/WolstenholmePrime.lean#L34"]
