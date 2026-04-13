@@ -126,6 +126,8 @@ properties. The related [Kahn–Kalai conjecture](https://arxiv.org/abs/math/060
 **This conjecture is false** without the additional assumption $\mu_t(F) = 1/2$.
 A counterexample was found by Shlomo Perles (April 7, 2026).
 -/
+@[category research solved, AMS 5 60, formal_proof using formal_conjectures at
+"https://github.com/mo271/formal-conjectures/blob/408f53dc0856c0882a5e77acd24fc83b978f0bc9/FormalConjectures/Mathoverflow/10799.lean#L252"]
 theorem mathoverflow_10799 : answer(False) ↔
     ∀ (n : ℕ) (_ : 2 ≤ n)
     (F : Finset (Finset (Fin n))) (_ : IsMonotoneIncreasing F)
