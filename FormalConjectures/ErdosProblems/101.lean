@@ -35,7 +35,6 @@ private noncomputable def linesWithPointsFor (k : ℕ) (S : Set ℝ²) : Set (Af
   let determined_lines := { affineSpan ℝ {p, q} | (p ∈ S) (q ∈ S) (_ : p ≠ q) }
   { L ∈ determined_lines | (↑L ∩ S).ncard = k }
 
-
 /--
 The maximum number of lines containing exactly $4$ points among all sets $S$ of $n$
 points in $\mathbb{R}^2$ satisfying the condition that no five points are collinear.
