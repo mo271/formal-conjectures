@@ -19,6 +19,7 @@ public import Mathlib.LinearAlgebra.Orientation
 public import Mathlib.Analysis.InnerProductSpace.PiL2
 public import Mathlib.Geometry.Euclidean.Angle.Oriented.Affine
 public import Mathlib.Geometry.Euclidean.Triangle
+public import Mathlib.Data.Set.Card
 
 public import FormalConjecturesForMathlib.Logic.Equiv.Fin.Rotate
 public import FormalConjecturesForMathlib.Data.Set.Triplewise
@@ -56,6 +57,17 @@ variable [Module.Oriented ℝ V (Fin 2)] [Fact (Module.finrank ℝ V = 2)] {p : 
 if it contains no three points that lie on the same line. -/
 def NonTrilinear (A : Set P) : Prop :=
   A.Triplewise (fun x y z ↦ ¬ Collinear ℝ {x, y, z})
+
+/-- We say a subset `S` of points is non-collinear for $n$ points
+if it contains no $n$ points that lie on the same line. -/
+def NonCollinearFor (n : ℕ) (S : Set P) : Prop :=
+  ∀ (A : Set P), A ⊆ S → A.Finite → A.ncard = n → ¬ Collinear ℝ A
+
+omit [Module.Oriented ℝ V (Fin 2)] [Fact (Module.finrank ℝ V = 2)] in
+lemma NonCollinearFor.subset {n : ℕ} {S T : Set P} (h : S ⊆ T) (hS : NonCollinearFor n T) :
+    NonCollinearFor n S := by
+  intro A hA hFin hCard
+  exact hS A (hA.trans h) hFin hCard
 
 /-- `ConvexIndep S` means that `S` consists of extremal points of its convex hull,
 i.e., the point set encloses a convex shape.
