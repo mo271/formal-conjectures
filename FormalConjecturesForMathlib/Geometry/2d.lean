@@ -20,6 +20,7 @@ public import Mathlib.Analysis.InnerProductSpace.PiL2
 public import Mathlib.Geometry.Euclidean.Angle.Oriented.Affine
 public import Mathlib.Geometry.Euclidean.Triangle
 public import Mathlib.Data.Set.Card
+public import Mathlib.Geometry.Euclidean.Sphere.Basic
 
 public import FormalConjecturesForMathlib.Logic.Equiv.Fin.Rotate
 public import FormalConjecturesForMathlib.Data.Set.Triplewise
@@ -227,8 +228,12 @@ Let $g(n)$ be the maximum number of distinct values the $R(x_i)$ can take.-/
 noncomputable def maximalDistinctDistancesFrom (n : ℕ) : ℕ :=
   sSup {#(X.image (distinctDistancesFrom X)) | (X) (_ : #X = n)}
 
-end EuclideanGeometry
+/-- A collection $x_1, \dots, x_n\in\mathbb{R}^2$ is in _general position_
+if no three are collinear and no four lie on a circle. -/
+def InGeneralPosition (X : Finset ℝ²) : Prop :=
+  NonTrilinear (SetLike.coe X) ∧ ∀ T ⊆ X, #T = 4 → ¬Cospherical (SetLike.coe T)
 
+end EuclideanGeometry
 
 def IsIsosceles {α : Type*} [Dist α] (p q r : α) : Prop :=
   dist p q = dist q r ∨ dist q r = dist r p ∨ dist r p = dist p q
