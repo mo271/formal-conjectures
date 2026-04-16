@@ -41,7 +41,7 @@ points in $\mathbb{R}^2$ satisfying the condition that no five points are collin
 -/
 noncomputable def numLinesWithFourPointMax (n : ℕ) : ℕ :=
   sSup {((linesWithPointsFor 4 S).ncard)| (S : Set ℝ²)
-  (_ : S.ncard = n) (_ : S.Finite) (_ : NonCollinearFor 5 S)}
+    (_ : S.ncard = n) (_ : S.Finite) (_ : NonCollinearFor 5 S)}
 
 /--
 Given $n$ points in $\mathbb{R}^2$, no five of which are on a line, the number of
