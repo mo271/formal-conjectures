@@ -34,8 +34,8 @@ Note: In the problem statement, $p_n$ is the $n$-th prime, indexed such that $p_
 We 0-index here to reflect how Nat.nth works.
 -/
 @[category research open, AMS 11]
-theorem erdos_15 : answer(sorry) ↔ (∃ m : ℝ, Tendsto (fun n ↦ ∑ i ∈ Finset.range n, (fun k : ℕ =>
-    (-1 : ℝ) ^ (k + 1) * ((k + 1) : ℝ) / (k.nth Nat.Prime : ℝ)) i) atTop (𝓝 m)) := by
+theorem erdos_15 : answer(sorry) ↔
+    Summable (fun k : ℕ => (-1 : ℚ) ^ (k + 1) * (k + 1) / (k.nth Nat.Prime)) := by
   sorry
 
 
