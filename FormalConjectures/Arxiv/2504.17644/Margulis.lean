@@ -42,8 +42,10 @@ end
 
 
 /--
-Let $D$ be the diagonal group of $\mathrm{SL}_n(\mathbb{R})$ where $n \ge 3$. Then any relatively compact $D$-orbit in
-$\mathrm{SL}_n(\mathbb{R})/ \mathrm{SL}_n(\mathbb{Z})$ is closed. -/
+Let $D$ be the diagonal group of $\mathrm{SL}_n(\mathbb{R})$ where $n \ge 3$.
+Then any relatively compact $D$-orbit in
+$\mathrm{SL}_n(\mathbb{R})/ \mathrm{SL}_n(\mathbb{Z})$ is closed.
+-/
 @[category research open, AMS 11 15 22]
 theorem conjecture_1_1 {n : ℕ} (hn : 3 ≤ n)
     (g : SL(n, ℝ) ⧸ Subgroup.map (map (Int.castRingHom ℝ)) ⊤)
