@@ -23,6 +23,7 @@ public import FormalConjectures.Util.Linters.AnswerLinter
 public import FormalConjectures.Util.Linters.CategoryLinter
 public import FormalConjectures.Util.Linters.CopyrightLinter
 public import FormalConjectures.Util.Linters.ModuleDocstringLinter
+public import FormalConjectures.Util.Linters.NamespaceLinter
 
 
 /-!

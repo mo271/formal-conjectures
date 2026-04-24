@@ -24,7 +24,7 @@ import FormalConjectures.Util.ProblemImports
 by *Qianlin Huang, Ronggang Shi*
 -/
 
-section MatrixGroupConjecture
+namespace Margulis
 
 open Matrix SpecialLinearGroup
 open scoped MatrixGroups Polynomial
@@ -53,4 +53,4 @@ theorem conjecture_1_1 {n : ℕ} (hn : 3 ≤ n)
 
 -- TODO(Paul-Lez): add main theorem from the paper.
 
-end MatrixGroupConjecture
+end Margulis
