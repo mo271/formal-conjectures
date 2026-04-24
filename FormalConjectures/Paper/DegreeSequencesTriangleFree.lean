@@ -175,10 +175,12 @@ noncomputable def F (n : ℕ) : ℕ :=
   sInf { p | ∃ (G : SimpleGraph (Fin p)) (_ : DecidableRel G.Adj),
     G.CliqueFree 3 ∧ G.chromaticNumber = n ∧ degreeSequenceMultiplicity G = 3 }
 
+/-- The smallest number of vertices of a triangle-free graph with chromatic number 3 and f=3 is 7. -/
 @[category research solved, AMS 5]
 theorem F_three : F 3 = 7 := by
   sorry
 
+/-- The smallest number of vertices of a triangle-free graph with chromatic number 4 and f=3 is at most 19. -/
 @[category research solved, AMS 5]
 theorem F_four_le : F 4 ≤ 19 := by
   sorry
