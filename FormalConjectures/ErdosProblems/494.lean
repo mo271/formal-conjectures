@@ -53,7 +53,10 @@ theorem erdos_494.variants.k_eq_2_card_not_pow_two :
     ∀ card : ℕ, (∀ l : ℕ, card ≠ 2 ^ l) → Erdos494Unique 2 card := by
   sorry
 
-/-- Selfridge and Straus [SeSt58] gave counterexamples to the conjecture when $k = 2$ and $|A| = 2^l$. -/
+/--
+Selfridge and Straus [SeSt58] gave counterexamples to the conjecture
+when $k = 2$ and $|A| = 2^l$.
+-/
 @[category research solved, AMS 5]
 theorem erdos_494.variants.k_eq_2_card_pow_two :
     ∀ card : ℕ, (∃ l : ℕ, card = 2 ^ l) → ¬Erdos494Unique 2 card := by
@@ -71,13 +74,19 @@ theorem erdos_494.variants.k_eq_3_card_gt_6 :
     ∀ card > 6, Erdos494Unique 3 card := by
   sorry
 
-/-- Selfridge and Straus [SeSt58] showed that the conjecture is true when $k = 4$ and $|A| > 12$. -/
+/--
+Selfridge and Straus [SeSt58] showed that the conjecture is true
+when $k = 4$ and $|A| > 12$.
+-/
 @[category research solved, AMS 5]
 theorem erdos_494.variants.k_eq_4_card_gt_12 :
     ∀ card > 12, Erdos494Unique 4 card := by
   sorry
 
-/-- Selfridge and Straus [SeSt58] proved that $A$ is determined by $A_k$ if $|A|$ is divisible by a prime greater than $k$. -/
+/--
+Selfridge and Straus [SeSt58] proved that $A$ is determined by $A_k$
+if $|A|$ is divisible by a prime greater than $k$.
+-/
 @[category research solved, AMS 5]
 theorem erdos_494.variants.card_divisible_by_prime_gt_k :
     ∀ (k card p : ℕ), p.Prime → k ∈ Set.Ioo 0 p → p ∣ card → Erdos494Unique k card := by
