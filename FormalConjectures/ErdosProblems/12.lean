@@ -92,7 +92,7 @@ theorem erdos_12.variants.erdos_sarkozy_density_0 (A : Set ℕ) (hA : IsGood A) 
 /--
 Given any function $f(x)\to \infty$ as $x\to \infty$ there exists a set $A$ with the property
 that there are no distinct $a,b,c \in A$ such that $a \mid (b+c)$ and $b,c > a$, such that there are
-infinitely many $N$ such that \[\lvert A\cap\{1,\ldots,N\}\rvert > \frac{N}{f(N)}.
+infinitely many $N$ such that $$\lvert A\cap\{1,\ldots,N\}\rvert > \frac{N}{f(N)}.
 -/
 @[category research solved, AMS 11]
 theorem erdos_12.variants.erdos_sarkozy (f : ℕ → ℕ) (hf : atTop.Tendsto f atTop) :
@@ -102,7 +102,7 @@ theorem erdos_12.variants.erdos_sarkozy (f : ℕ → ℕ) (hf : atTop.Tendsto f 
 /--
 An example of an $A$ with the property that there are no distinct $a,b,c \in A$ such that
 $a \mid (b+c)$ and $b,c > a$ and such that
-\[\liminf \frac{\lvert A\cap\{1,\ldots,N\}\rvert}{N^{1/2}}\log N > 0\]
+$$\liminf \frac{\lvert A\cap\{1,\ldots,N\}\rvert}{N^{1/2}}\log N > 0$$
 is given by the set of $p^2$, where $p\equiv 3\pmod{4}$ is prime.
 -/
 @[category research solved, AMS 11]
@@ -115,7 +115,7 @@ theorem erdos_12.variants.example (A : Set ℕ)
 /--
 Let $A$ be a set of natural numbers with the property that there are no distinct $a,b,c \in A$ such
 that $a \mid (b+c)$ and $b,c > a$. If all elements in $A$ are pairwise coprime then
-\[\lvert A\cap\{1,\ldots,N\}\rvert \ll N^{2/3}\]
+$$\lvert A\cap\{1,\ldots,N\}\rvert \ll N^{2/3}$$
 -/
 @[category research solved, AMS 11]
 theorem erdos_12.variants.schoen (A : Set ℕ) (hA : IsGood A) (hA' : A.Pairwise Nat.Coprime) :
@@ -125,7 +125,7 @@ theorem erdos_12.variants.schoen (A : Set ℕ) (hA : IsGood A) (hA' : A.Pairwise
 /--
 Let $A$ be a set of natural numbers with the property that there are no distinct $a,b,c \in A$ such
 that $a \mid (b+c)$ and $b,c > a$. If all elements in $A$ are pairwise coprime then
-\[\lvert A\cap\{1,\ldots,N\}\rvert \ll N^{2/3}/\log N\]
+$$\lvert A\cap\{1,\ldots,N\}\rvert \ll N^{2/3}/\log N$$
 -/
 @[category research solved, AMS 11]
 theorem erdos_12.variants.baier (A : Set ℕ) (hA : IsGood A) (hA' : A.Pairwise Nat.Coprime) :
