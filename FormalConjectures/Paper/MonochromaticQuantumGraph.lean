@@ -380,11 +380,7 @@ theorem eqSystem4_no_solution_ge4 :
     answer(True) ↔
       ∀ D : Nat, D ≥ 4 →
         ¬ ∃ W : WeightsN 4 D ℂ, EqSystemN 4 D W := by
-  constructor
-  · intro _ D hD
-    exact no_witness_4 D hD
-  · intro _
-    exact trivial
+  sorry
 
 /-- For $N = 6$ and $D = 3$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{C}$? -/
