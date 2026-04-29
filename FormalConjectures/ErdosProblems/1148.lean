@@ -65,7 +65,7 @@ private instance (n : ℕ) : Decidable (Erdos1148Prop n) :=
                 z, Finset.mem_range.mpr ?_, h1, h2, h3, h4⟩
         all_goals (simp only [Nat.lt_succ_iff]; exact Nat.le_sqrt'.mpr ‹_›))
 
-@[category high_school, AMS 11]
+@[category textbook, AMS 11]
 theorem erdos_1148.variants.lower_bound : ¬ Erdos1148Prop 6563 := by
   decide +native
 

@@ -175,7 +175,7 @@ discrete cube $2^X$, the number of edges between $F$ and its complement is at le
 The factor of $p$ in the denominator (equivalent to $1/p$ in front) is consistent with the
 definition of `IsOptimal` used in the counterexample proof.
 -/
-@[category graduate, AMS 5 60]
+@[category textbook, AMS 5 60]
 theorem discrete_isoperimetric_inequality (n : ℕ) (p : ℝ) (hp : 0 < p) (hp' : p < 1)
     (F : Finset (Finset (Fin n))) :
     let m := μFamily p F
