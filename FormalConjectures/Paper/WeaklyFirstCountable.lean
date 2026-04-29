@@ -49,7 +49,7 @@ class WeaklyFirstCountableTopology (X : Type*) [TopologicalSpace X] : Prop where
 
 /-- There are weakly first countable spaces which are not first countable,
 for example the [Arens Space](https://topology.pi-base.org/spaces/S000156). -/
-@[category undergraduate, AMS 54]
+@[category textbook, AMS 54]
 theorem exists_weakly_first_countable_not_first_countable : ∃ (X : Type) (_ : TopologicalSpace X),
       WeaklyFirstCountableTopology X ∧ ¬ FirstCountableTopology X := by sorry
 

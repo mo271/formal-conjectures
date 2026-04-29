@@ -4,7 +4,7 @@
 Randomly samples 100 problems each from extracted_names.json:
   - FC100Open:   drawn uniformly at random from `category research open` problems
   - FC100Solved: drawn uniformly at random from all other categories
-    (research solved, test, API, undergraduate, high_school, graduate)
+    (research solved, test, API, textbook)
 
 All problems are eligible for sampling (no filtering). A custom `decl_name%`
 elaborator resolves each theorem identifier to verify the declaration exists

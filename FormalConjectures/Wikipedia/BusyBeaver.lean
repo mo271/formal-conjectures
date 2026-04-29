@@ -70,15 +70,15 @@ theorem sanity_check (n : ℕ) [NeZero n] :
 theorem BB_1 : BB 1 = 1 := by
   sorry
 
-@[category undergraduate, AMS 3]
+@[category textbook, AMS 3]
 theorem BB_2 : BB 2 = 6 := by
   sorry
 
-@[category undergraduate, AMS 3]
+@[category textbook, AMS 3]
 theorem BB_3 : BB 3 = 21 := by
   sorry
 
-@[category undergraduate, AMS 3]
+@[category textbook, AMS 3]
 theorem BB_4 : BB 4 = 107 := by
   sorry
 

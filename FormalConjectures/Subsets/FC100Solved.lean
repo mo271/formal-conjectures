@@ -218,7 +218,5 @@ open Lean Meta ProblemAttributes in
   ("test", 34),
   ("research solved", 50),
   ("API", 9),
-  ("undergraduate", 4),
-  ("high_school", 2),
-  ("graduate", 1)
+  ("textbook", 7)
 ]

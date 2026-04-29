@@ -30,13 +30,13 @@ open SimpleGraph
 
 variable {V : Type} {G : SimpleGraph V}
 
-@[category undergraduate, AMS 5]
+@[category textbook, AMS 5]
 lemma completeGraphIsClique (s : Finset V) : (⊤ : SimpleGraph V).IsClique s :=
   Pairwise.set_pairwise (fun _ _ a ↦ a) _
 
 variable [Fintype V]
 
-@[category undergraduate, AMS 5]
+@[category textbook, AMS 5]
 lemma completeGraph_cliqueSet :
     (⊤ : SimpleGraph V).cliqueSet (Fintype.card V) = {Set.univ.toFinset} := by
   simp only [cliqueSet, isNClique_iff ⊤, completeGraphIsClique, true_and,

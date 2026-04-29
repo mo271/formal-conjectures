@@ -165,7 +165,7 @@ lemma fromSperner_monotone {n : ℕ} (A : Finset (Finset (Fin n))) (_ : IsSperne
       exact decide_eq_true
         ( ⟨ s, hsA, fun i hi => by simpa using Finset.mem_filter.mp ( hs_w hi ) |>.2 ⟩ )
 
-@[category graduate, AMS 5 6]
+@[category textbook, AMS 5 6]
 lemma exists_minimal_true_subset {n : ℕ} {f : (Fin n → Bool) → Bool} (_ : Monotone f)
     {s : Finset (Fin n)} (hs : f (χ s) = true) :
     ∃ t, t ⊆ s ∧ f (χ t) = true ∧ ∀ u, u ⊆ t → f (χ u) = true → t ⊆ u := by
@@ -180,7 +180,7 @@ lemma exists_minimal_true_subset {n : ℕ} {f : (Fin n → Bool) → Bool} (_ : 
         not_lt_of_ge ( ht₂ u ⟨ hu.trans ht₁.1, hu' ⟩ )
         ( Finset.card_lt_card <| Finset.ssubset_iff_subset_ne.2 ⟨ hu, by aesop ⟩ )
 
-@[category graduate, AMS 5 6]
+@[category textbook, AMS 5 6]
 lemma fromSperner_toSperner {n : ℕ} (f : (Fin n → Bool) → Bool) (hf : Monotone f) :
     fromSperner (toSperner f) = f := by
   funext v
@@ -198,7 +198,7 @@ lemma fromSperner_toSperner {n : ℕ} (f : (Fin n → Bool) → Bool) (hf : Mono
     refine' hf _ hs.1
     intro i; by_cases hi : i ∈ s <;> simp_all +decide [ χ ]
 
-@[category graduate, AMS 5 6]
+@[category textbook, AMS 5 6]
 lemma toSperner_fromSperner {n : ℕ} (A : Finset (Finset (Fin n))) (hA : IsSperner A) :
     toSperner (fromSperner A) = A := by
   ext s; simp [toSperner, fromSperner]
