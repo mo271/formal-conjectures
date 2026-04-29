@@ -74,7 +74,7 @@ async function loadData() {
 const CATEGORY_META = {
   'research open':    { label: 'Open',          css: 'cat-open' },
   'research solved':  { label: 'Solved',        css: 'cat-solved' },
-  'textbook':        { label: 'Textbook',     css: 'cat-textbook' },
+  'textbook':         { label: 'Textbook',      css: 'cat-textbook' },
   'test':             { label: 'Test',          css: 'cat-test' },
   'API':              { label: 'API',           css: 'cat-api' },
 };
