@@ -65,6 +65,9 @@ private instance (n : ℕ) : Decidable (Erdos1148Prop n) :=
                 z, Finset.mem_range.mpr ?_, h1, h2, h3, h4⟩
         all_goals (simp only [Nat.lt_succ_iff]; exact Nat.le_sqrt'.mpr ‹_›))
 
+/--
+The integer $6563$ cannot be written as $x^2 + y^2 - z^2$ with $\max(x^2, y^2, z^2) \leq 6563$.
+-/
 @[category textbook, AMS 11]
 theorem erdos_1148.variants.lower_bound : ¬ Erdos1148Prop 6563 := by
   decide +native
