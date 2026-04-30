@@ -65,7 +65,6 @@ If a sequence `d` is nondecreasing and no three terms are equal, then terms at d
 @[category API, AMS 5]
 lemma lemma1_b
     (h_mono : Monotone d)
-    (h_pos : ∀ k, 0 < d k)
     (h_no_three : ∀ i, d (i + 2) ≠ d i) :
     r ≤ d (k + 2 * r) - d k := by
   induction r with

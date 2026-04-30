@@ -67,8 +67,22 @@ theorem finiteAdditiveConvolution_degree (n : ℕ) (p q : ℝ[X])
 
 @[category test, AMS 26]
 theorem finiteAdditiveConvolution_monic' (n : ℕ) (p q : ℝ[X]) (hn : 0 < n)
-    (hp : p.degree = n) (hq : q.degree = n) (hp : p.Monic) (hq : q.Monic) :
+    (hp_deg : p.degree = n) (hq_deg : q.degree = n) (hp_monic : p.Monic) (hq_monic : q.Monic) :
     (p (⊞_n) q).Monic := by
+  have hc0 : ∑ ij ∈ antidiagonal 0, ((n - ij.1)! * (n - ij.2)! : ℝ) / (n ! * (n - 0)! : ℝ) * p.coeff (n - ij.1) * q.coeff (n - ij.2) = 1 := by
+    rw [antidiagonal_zero]
+    simp
+    have hp1 : p.coeff n = 1 := by
+      have : p.natDegree = n := natDegree_eq_of_degree_eq_some hp_deg
+      rw [← this]
+      exact hp_monic
+    have hq1 : q.coeff n = 1 := by
+      have : q.natDegree = n := natDegree_eq_of_degree_eq_some hq_deg
+      rw [← this]
+      exact hq_monic
+    rw [hp1, hq1]
+    have h_ne : (n ! : ℝ) ≠ 0 := by positivity
+    simp [h_ne]
   sorry
 
 /--
