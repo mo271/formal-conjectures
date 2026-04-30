@@ -43,27 +43,7 @@ reaches a prime. -/
 @[category test, AMS 11]
 theorem erdos_409.variants.termination (n : ℕ) (hn : 0 < n) :
     ∃ i, (φ · + 1)^[i] n |>.Prime := by
-  induction' n using Nat.strong_induction_on with n ih
-  by_cases h_prime : n.Prime
-  · use 0
-    simp [h_prime]
-  · by_cases hn1 : n = 1
-    · subst hn1
-      use 1
-      show (φ 1 + 1).Prime
-      -- unfold φ if it's a definition, or just use computed value
-      have : φ 1 = 1 := by sorry -- or norm_num if it works
-      rw [this]
-      norm_num
-    · have h_lt : φ n + 1 < n := by
-        -- φ n + 1 < n for composite n > 1
-        sorry
-      have h_pos_next : 0 < φ n + 1 := by omega
-      obtain ⟨i, hi⟩ := ih (φ n + 1) h_lt h_pos_next
-      use i + 1
-      have h_iter : (fun x ↦ φ x + 1)^[i + 1] n = (fun x ↦ φ x + 1)^[i] (φ n + 1) := by sorry
-      rw [h_iter]
-      exact hi
+  sorry
 
 -- Formalisation note: it's possible that solution to `erdos_409.parts.i` needs to be
 -- expressed asymptotically. To handle this we include `IsTheta`, `IsBigO`
