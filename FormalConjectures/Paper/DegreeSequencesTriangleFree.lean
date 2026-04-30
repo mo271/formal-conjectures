@@ -87,26 +87,7 @@ lemma lemma2_a
     2 * n * n ≤
       ∑ i ∈ .Icc (2 * n + 1) (4 * n), d i -
         ∑ i ∈ .Icc 1 (2 * n), d i := by
-  have h_shift : ∑ i ∈ Finset.Icc (2 * n + 1) (4 * n), d i = ∑ r ∈ Finset.Icc 1 (2 * n), d (2 * n + r) := by sorry
-  rw [h_shift]
-  have h_le : ∀ r ∈ Finset.Icc 1 (2 * n), n ≤ d (2 * n + r) - d r := by
-    intro r hr
-    have h1 := lemma1_b d r n h_mono h_no_three
-    rw [add_comm] at h1
-    exact h1
-  have h_sum : ∑ r ∈ Finset.Icc 1 (2 * n), n ≤ ∑ r ∈ Finset.Icc 1 (2 * n), (d (2 * n + r) - d r) := by
-    exact Finset.sum_le_sum h_le
-  have h_mono_le : ∀ r ∈ Finset.Icc 1 (2 * n), d r ≤ d (2 * n + r) := by
-    intro r _
-    exact h_mono (by omega)
-  have h_rename : (∑ i ∈ Finset.Icc 1 (2 * n), d i) = ∑ r ∈ Finset.Icc 1 (2 * n), d r := rfl
-  rw [h_rename]
-  have h_eq_sub : (∑ r ∈ Finset.Icc 1 (2 * n), d (2 * n + r)) - ∑ r ∈ Finset.Icc 1 (2 * n), d r =
-    ∑ r ∈ Finset.Icc 1 (2 * n), (d (2 * n + r) - d r) := by sorry
-  rw [h_eq_sub]
-  have h_const_sum : ∑ r ∈ Finset.Icc 1 (2 * n), n = 2 * n * n := by sorry
-  rw [← h_const_sum]
-  exact h_sum
+  sorry
 
 /-- **Lemma 2 (b)**
 Inequality involving sums of terms of a nondecreasing sequence with no three terms equal. -/
