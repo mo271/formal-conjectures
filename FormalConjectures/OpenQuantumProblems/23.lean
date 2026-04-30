@@ -280,7 +280,16 @@ lemma bb84Family_normalized (i : Fin 4) :
 
 /-- The BB84 family has the right cardinality for a qubit SIC but fails the constant-overlap condition. -/
 @[category test, AMS 15 47 81]
-theorem bb84Family_not_isSICFamily : ¬ IsSICFamily 2 bb84Family := by sorry
+theorem bb84Family_not_isSICFamily : ¬ IsSICFamily 2 bb84Family := by
+  intro h
+  have h_const := h.2
+  unfold HasConstantOverlapSq at h_const
+  change ∀ i j, i ≠ j → overlapSq (bb84Family i) (bb84Family j) = sicOverlapSq 2 at h_const
+  have h_overlap := h_const (0 : Fin 4) (1 : Fin 4) (by decide)
+  rw [sicOverlapSq_two] at h_overlap
+  unfold overlapSq at h_overlap
+  rw [Fin.sum_univ_two] at h_overlap
+  simp [bb84Family, vec2] at h_overlap
 
 /- ## Smallest open special cases (all d<=75) -/
 
