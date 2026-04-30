@@ -247,8 +247,13 @@ lemma sicOverlapSq_three : sicOverlapSq 3 = (1 / 4 : ℝ) := by
 
 /-- Every vector in the tetrahedral qubit SIC family is normalized. -/
 @[category test, AMS 15 47 81]
-lemma qubitSICFamily_normalized (i : Fin 4) :
-    IsNormalized (qubitSICFamily i) := by sorry
+theorem qubitSICFamily_normalized (i : Fin 4) :
+    IsNormalized (qubitSICFamily i) := by
+  fin_cases i
+  · simp [qubitSICFamily, vec2, IsNormalized]; sorry
+  · simp [qubitSICFamily, vec2, IsNormalized]; sorry
+  · simp [qubitSICFamily, vec2, IsNormalized]; sorry
+  · simp [qubitSICFamily, vec2, IsNormalized]; sorry
 
 /-- The tetrahedral qubit SIC family has the correct constant pairwise overlap. -/
 @[category test, AMS 15 47 81]
