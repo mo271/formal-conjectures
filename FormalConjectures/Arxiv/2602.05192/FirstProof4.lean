@@ -150,7 +150,8 @@ $$\frac{1}{\Phi_n(p\boxplus_n q)} \ge \frac{1}{\Phi_n(p)}+\frac{1}{\Phi_n(q)}?$$
 
 [arxiv/2602.05192v2](https://arxiv.org/abs/2602.05192v2) contains a proof.
 -/
-@[category research solved, AMS 26]
+@[category research solved, AMS 26, formal_proof using lean4 at
+"https://github.com/frenzymath/Archon-FirstProof-Results/blob/main/FirstProof/FirstProof4/Problem4.lean"]
 theorem four : answer(True) ↔ ∀ (p q : ℝ[X]) (n : ℕ), FourProp p q n := by
   sorry
 
