@@ -311,7 +311,7 @@ theorem petersen_l : averageIndepNeighbors PetersenGraph = 3 := by
 
 @[category test, AMS 5]
 theorem petersen_Ls : Ls PetersenGraph = 6 := by
-  have : computable_Ls PetersenGraph 0 = 6 := by
+  have : computableLs PetersenGraph 0 = 6 := by
     decide +native
   rw [Ls_eq_computable _ 0, this]
   norm_cast

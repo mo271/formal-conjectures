@@ -81,16 +81,16 @@ Returned as a real number. -/
 noncomputable def b (G : SimpleGraph α) : ℝ :=
   (largestInducedBipartiteSubgraphSize G : ℝ)
 
-def is_indep_set {β : Type*} [Fintype β] [DecidableEq β] (G : SimpleGraph β) [DecidableRel G.Adj] (s : Finset β) : Bool :=
+def isIndepSet {β : Type*} [Fintype β] [DecidableEq β] (G : SimpleGraph β) [DecidableRel G.Adj] (s : Finset β) : Bool :=
   let violations := s.filter (fun u =>
     let bad_neighbors := s.filter (fun v => u ≠ v ∧ G.Adj u v)
     bad_neighbors.card > 0
   )
   violations.card = 0
 
-def computable_indep_num_on_subset {β : Type*} [Fintype β] [DecidableEq β] (G : SimpleGraph β) [DecidableRel G.Adj] (V_subset : Finset β) : ℕ :=
+def computableIndepNumOnSubset {β : Type*} [Fintype β] [DecidableEq β] (G : SimpleGraph β) [DecidableRel G.Adj] (V_subset : Finset β) : ℕ :=
   let subsets := V_subset.powerset
-  let indep_subsets := subsets.filter (fun s => is_indep_set G s)
+  let indep_subsets := subsets.filter (fun s => isIndepSet G s)
   let sizes := indep_subsets.image (fun s => s.card)
   (sizes.max).getD 0
 
@@ -98,8 +98,8 @@ def computable_indep_num_on_subset {β : Type*} [Fintype β] [DecidableEq β] (G
 noncomputable def indepNeighborsCard (G : SimpleGraph α) (v : α) : ℕ :=
   (G.induce (G.neighborSet v)).indepNum
 
-def computable_indep_neighbors_card (G : SimpleGraph α) [DecidableRel G.Adj] (v : α) : ℕ :=
-  computable_indep_num_on_subset G (G.neighborSet v).toFinset
+def computableIndepNeighborsCard (G : SimpleGraph α) [DecidableRel G.Adj] (v : α) : ℕ :=
+  computableIndepNumOnSubset G (G.neighborSet v).toFinset
 
 /-- The same quantity as a real number. -/
 noncomputable def indepNeighbors (G : SimpleGraph α) (v : α) : ℝ :=
@@ -109,20 +109,20 @@ noncomputable def indepNeighbors (G : SimpleGraph α) (v : α) : ℝ :=
 noncomputable def averageIndepNeighbors (G : SimpleGraph α) : ℝ :=
   (∑ v ∈ Finset.univ, indepNeighbors G v) / (Fintype.card α : ℝ)
 
-def computable_average_indep_neighbors (G : SimpleGraph α) [DecidableRel G.Adj] : ℚ :=
-  (∑ v ∈ Finset.univ, (computable_indep_neighbors_card G v : ℚ)) / (Fintype.card α : ℚ)
+def computableAverageIndepNeighbors (G : SimpleGraph α) [DecidableRel G.Adj] : ℚ :=
+  (∑ v ∈ Finset.univ, (computableIndepNeighborsCard G v : ℚ)) / (Fintype.card α : ℚ)
 
-lemma is_indep_set_induce_iff {α : Type*} [Fintype α] [DecidableEq α] (G : SimpleGraph α) {S : Set α} {s : Finset {x // x ∈ S}} :
+lemma isIndepSet_induce_iff {α : Type*} [Fintype α] [DecidableEq α] (G : SimpleGraph α) {S : Set α} {s : Finset {x // x ∈ S}} :
     (G.induce S).IsIndepSet ↑s ↔ SimpleGraph.IsIndepSet G ↑(s.map ⟨Subtype.val, Subtype.val_injective⟩ : Finset α) := by
   simp [SimpleGraph.IsIndepSet, Set.Pairwise]
 
-lemma is_indep_set_eq_true_iff (G : SimpleGraph α) [DecidableRel G.Adj] (s : Finset α) :
-    is_indep_set G s = true ↔ SimpleGraph.IsIndepSet G ↑s := by
-  unfold is_indep_set
+lemma isIndepSet_eq_true_iff (G : SimpleGraph α) [DecidableRel G.Adj] (s : Finset α) :
+    isIndepSet G s = true ↔ SimpleGraph.IsIndepSet G ↑s := by
+  unfold isIndepSet
   simp [SimpleGraph.IsIndepSet, Set.Pairwise]
 
 theorem indepNeighborsCard_eq_computable (G : SimpleGraph α) [DecidableRel G.Adj] (v : α) :
-    indepNeighborsCard G v = computable_indep_neighbors_card G v := by
+    indepNeighborsCard G v = computableIndepNeighborsCard G v := by
   apply Nat.le_antisymm
   · unfold indepNeighborsCard
     unfold indepNum
@@ -137,9 +137,9 @@ theorem indepNeighborsCard_eq_computable (G : SimpleGraph α) [DecidableRel G.Ad
       rw [SimpleGraph.isNIndepSet_iff] at hs
       rcases hs with ⟨hs_indep, hs_card⟩
       set subsets := (G.neighborSet v).toFinset.powerset
-      set indep_subsets := subsets.filter (fun s => is_indep_set G s)
+      set indep_subsets := subsets.filter (fun s => isIndepSet G s)
       set sizes := indep_subsets.image (fun s => s.card)
-      unfold computable_indep_neighbors_card
+      unfold computableIndepNeighborsCard
       change n ≤ Option.getD sizes.max 0
 
       let T := s'.map ⟨Subtype.val, Subtype.val_injective⟩
@@ -150,9 +150,9 @@ theorem indepNeighborsCard_eq_computable (G : SimpleGraph α) [DecidableRel G.Ad
         rw [Finset.mem_map] at hx
         rcases hx with ⟨y, hy, rfl⟩
         simp [y.property]
-      have hT_indep : is_indep_set G T = true := by
-        rw [is_indep_set_eq_true_iff]
-        rw [← is_indep_set_induce_iff]
+      have hT_indep : isIndepSet G T = true := by
+        rw [isIndepSet_eq_true_iff]
+        rw [← isIndepSet_induce_iff]
         exact hs_indep
       have hT_mem_sizes : n ∈ sizes := by
         rw [Finset.mem_image]
@@ -174,9 +174,9 @@ theorem indepNeighborsCard_eq_computable (G : SimpleGraph α) [DecidableRel G.Ad
         exact Finset.le_max_of_eq hT_mem_sizes h_max
   · -- RHS ≤ LHS
     set subsets := (G.neighborSet v).toFinset.powerset
-    set indep_subsets := subsets.filter (fun s => is_indep_set G s)
+    set indep_subsets := subsets.filter (fun s => isIndepSet G s)
     set sizes := indep_subsets.image (fun s => s.card)
-    unfold computable_indep_neighbors_card
+    unfold computableIndepNeighborsCard
     change Option.getD sizes.max 0 ≤ indepNeighborsCard G v
 
     rcases h_max : sizes.max with _ | m
@@ -187,7 +187,7 @@ theorem indepNeighborsCard_eq_computable (G : SimpleGraph α) [DecidableRel G.Ad
       rcases hm with ⟨T, hT, rfl⟩
       rw [Finset.mem_filter] at hT
       rcases hT with ⟨hT_sub, hT_indep_bool⟩
-      rw [is_indep_set_eq_true_iff] at hT_indep_bool
+      rw [isIndepSet_eq_true_iff] at hT_indep_bool
 
       have hT_sub_subset : T ⊆ (G.neighborSet v).toFinset := by
         rw [← Finset.mem_powerset]
@@ -204,7 +204,7 @@ theorem indepNeighborsCard_eq_computable (G : SimpleGraph α) [DecidableRel G.Ad
         rw [Finset.card_map, Finset.card_attach]
 
       have hs'_indep : (G.induce (G.neighborSet v)).IsIndepSet s' := by
-        rw [@is_indep_set_induce_iff α _ _ G]
+        rw [@isIndepSet_induce_iff α _ _ G]
         have h_map_eq : (s'.map ⟨Subtype.val, Subtype.val_injective⟩ : Finset α) = T := by
           rw [Finset.map_map]
           have h_fun_eq : ((⟨fun x => ⟨x.1, by
@@ -225,38 +225,38 @@ theorem indepNeighborsCard_eq_computable (G : SimpleGraph α) [DecidableRel G.Ad
       exact h_le
 
 theorem averageIndepNeighbors_eq_computable (G : SimpleGraph α) [DecidableRel G.Adj] :
-    averageIndepNeighbors G = (computable_average_indep_neighbors G : ℝ) := by
-  unfold averageIndepNeighbors indepNeighbors computable_average_indep_neighbors
+    averageIndepNeighbors G = (computableAverageIndepNeighbors G : ℝ) := by
+  unfold averageIndepNeighbors indepNeighbors computableAverageIndepNeighbors
   norm_cast
   simp [indepNeighborsCard_eq_computable]
 
-def reachable_step (G : SimpleGraph α) [DecidableRel G.Adj] (E_sub : Finset (Sym2 α)) (S : Finset α) : Finset α :=
+def reachableStep (G : SimpleGraph α) [DecidableRel G.Adj] (E_sub : Finset (Sym2 α)) (S : Finset α) : Finset α :=
   S ∪ (S.biUnion (fun v =>
     Finset.univ.filter (fun u => Sym2.mk (v, u) ∈ E_sub)
   ))
 
-def is_connected_subgraph (G : SimpleGraph α) [DecidableRel G.Adj] (E_sub : Finset (Sym2 α)) (v0 : α) : Bool :=
+def isConnectedSubgraph (G : SimpleGraph α) [DecidableRel G.Adj] (E_sub : Finset (Sym2 α)) (v0 : α) : Bool :=
   let n := Fintype.card α
-  let reachable_final := (Nat.iterate (reachable_step G E_sub) n) {v0}
+  let reachable_final := (Nat.iterate (reachableStep G E_sub) n) {v0}
   reachable_final.card = n
 
-def edge_subsets_of_size (G : SimpleGraph α) [DecidableRel G.Adj] (k : ℕ) : Finset (Finset (Sym2 α)) :=
+def edgeSubsetsOfSize (G : SimpleGraph α) [DecidableRel G.Adj] (k : ℕ) : Finset (Finset (Sym2 α)) :=
   G.edgeFinset.powerset.filter (fun s => s.card = k)
 
-def leaf_count_subgraph (G : SimpleGraph α) [DecidableRel G.Adj] (E_sub : Finset (Sym2 α)) : ℕ :=
+def leafCountSubgraph (G : SimpleGraph α) [DecidableRel G.Adj] (E_sub : Finset (Sym2 α)) : ℕ :=
   (Finset.univ.filter (fun v =>
     (Finset.univ.filter (fun u => Sym2.mk (v, u) ∈ E_sub)).card = 1
   )).card
 
-def computable_Ls (G : SimpleGraph α) [DecidableRel G.Adj] (v0 : α) : ℕ :=
+def computableLs (G : SimpleGraph α) [DecidableRel G.Adj] (v0 : α) : ℕ :=
   let n_verts := Fintype.card α
   if n_verts ≤ 1 then 0 else
-  let candidates := edge_subsets_of_size G (n_verts - 1)
-  let connected_candidates := candidates.filter (fun s => is_connected_subgraph G s v0)
-  let leaf_counts := connected_candidates.image (fun s => leaf_count_subgraph G s)
+  let candidates := edgeSubsetsOfSize G (n_verts - 1)
+  let connected_candidates := candidates.filter (fun s => isConnectedSubgraph G s v0)
+  let leaf_counts := connected_candidates.image (fun s => leafCountSubgraph G s)
   (leaf_counts.max).getD 0
 
-def to_subgraph (G : SimpleGraph α) [DecidableRel G.Adj] (s : Finset (Sym2 α)) (h_sub : s ⊆ G.edgeFinset) : Subgraph G :=
+def toSubgraph' (G : SimpleGraph α) [DecidableRel G.Adj] (s : Finset (Sym2 α)) (h_sub : s ⊆ G.edgeFinset) : Subgraph G :=
   SimpleGraph.toSubgraph (SimpleGraph.fromEdgeSet (s : Set (Sym2 α))) (by
     intro u v h
     have h1 := h.1
@@ -270,18 +270,18 @@ def to_subgraph (G : SimpleGraph α) [DecidableRel G.Adj] (s : Finset (Sym2 α))
 
 omit [DecidableEq α]
 
-private lemma to_subgraph_adj_iff' (G : SimpleGraph α) [DecidableRel G.Adj]
+private lemma toSubgraph_adj_iff' (G : SimpleGraph α) [DecidableRel G.Adj]
     (s : Finset (Sym2 α)) (h_sub : s ⊆ G.edgeFinset) (w v : α) :
-    (to_subgraph G s h_sub).spanningCoe.Adj w v ↔ (Sym2.mk (w, v) ∈ s ∧ w ≠ v) := by
-  unfold to_subgraph
+    (toSubgraph' G s h_sub).spanningCoe.Adj w v ↔ (Sym2.mk (w, v) ∈ s ∧ w ≠ v) := by
+  unfold toSubgraph'
   simp only [Subgraph.spanningCoe_adj, toSubgraph_adj, fromEdgeSet_adj]
   exact Iff.rfl
 
-private lemma to_subgraph_adj_of_mem_edge' (G : SimpleGraph α) [DecidableRel G.Adj]
+private lemma toSubgraph_adj_of_mem_edge' (G : SimpleGraph α) [DecidableRel G.Adj]
     (s : Finset (Sym2 α)) (h_sub : s ⊆ G.edgeFinset)
     (w v : α) (h_mem : Sym2.mk (w, v) ∈ s) :
-    (to_subgraph G s h_sub).spanningCoe.Adj w v := by
-  rw [to_subgraph_adj_iff']
+    (toSubgraph' G s h_sub).spanningCoe.Adj w v := by
+  rw [toSubgraph_adj_iff']
   refine ⟨h_mem, ?_⟩
   intro h_eq
   subst h_eq
@@ -290,14 +290,14 @@ private lemma to_subgraph_adj_of_mem_edge' (G : SimpleGraph α) [DecidableRel G.
 variable  [DecidableEq α]
 private lemma mem_filter_of_adj' (G : SimpleGraph α) [DecidableRel G.Adj]
     (s : Finset (Sym2 α)) (h_sub : s ⊆ G.edgeFinset) (w v : α)
-    (hadj : (to_subgraph G s h_sub).spanningCoe.Adj w v) :
+    (hadj : (toSubgraph' G s h_sub).spanningCoe.Adj w v) :
     v ∈ Finset.univ.filter (fun u => Sym2.mk (w, u) ∈ s) := by
-  rw [to_subgraph_adj_iff'] at hadj
+  rw [toSubgraph_adj_iff'] at hadj
   exact Finset.mem_filter.mpr ⟨Finset.mem_univ v, hadj.1⟩
 
-private lemma reachable_step_mono' (G : SimpleGraph α) [DecidableRel G.Adj]
-    (E : Finset (Sym2 α)) : Monotone (reachable_step G E) := by
-  intro A B h; unfold reachable_step
+private lemma reachableStep_mono' (G : SimpleGraph α) [DecidableRel G.Adj]
+    (E : Finset (Sym2 α)) : Monotone (reachableStep G E) := by
+  intro A B h; unfold reachableStep
   exact Finset.union_subset_union h (Finset.biUnion_subset_biUnion_of_subset_left _ h)
 
 omit [Fintype α] [DecidableEq α] in
@@ -309,58 +309,58 @@ private lemma iterate_mono_finset (f : Finset α → Finset α)
 
 private lemma walk_endpoint_in_iterate (G : SimpleGraph α) [DecidableRel G.Adj]
     (s : Finset (Sym2 α)) (h_sub : s ⊆ G.edgeFinset)
-    (v0 v : α) (p : (to_subgraph G s h_sub).spanningCoe.Walk v0 v) :
-    v ∈ Nat.iterate (reachable_step G s) p.length {v0} := by
+    (v0 v : α) (p : (toSubgraph' G s h_sub).spanningCoe.Walk v0 v) :
+    v ∈ Nat.iterate (reachableStep G s) p.length {v0} := by
   induction p with
   | nil => exact Finset.mem_singleton.mpr rfl
   | @cons u w v hadj p ih =>
     rw [Walk.length_cons]
-    have hw_step : w ∈ reachable_step G s {u} := by
-      unfold reachable_step
+    have hw_step : w ∈ reachableStep G s {u} := by
+      unfold reachableStep
       exact Finset.mem_union.mpr (Or.inr (Finset.mem_biUnion.mpr
         ⟨u, Finset.mem_singleton.mpr rfl, mem_filter_of_adj' G s h_sub u w hadj⟩))
-    have hw_iter1 : {w} ⊆ Nat.iterate (reachable_step G s) 1 {u} := by
+    have hw_iter1 : {w} ⊆ Nat.iterate (reachableStep G s) 1 {u} := by
       rw [Function.iterate_one]
       exact Finset.singleton_subset_iff.mpr hw_step
-    have h_mono := iterate_mono_finset (reachable_step G s) (reachable_step_mono' G s) p.length hw_iter1
+    have h_mono := iterate_mono_finset (reachableStep G s) (reachableStep_mono' G s) p.length hw_iter1
     rw [← Function.iterate_add_apply] at h_mono
     exact h_mono ih
 
 private lemma mem_iterate_of_le' (G : SimpleGraph α) [DecidableRel G.Adj]
     (s : Finset (Sym2 α)) (v0 v : α) (k m : ℕ) (hkm : k ≤ m)
-    (h : v ∈ Nat.iterate (reachable_step G s) k {v0}) :
-    v ∈ Nat.iterate (reachable_step G s) m {v0} := by
+    (h : v ∈ Nat.iterate (reachableStep G s) k {v0}) :
+    v ∈ Nat.iterate (reachableStep G s) m {v0} := by
   obtain ⟨d, rfl⟩ := Nat.le.dest hkm
   induction d with
   | zero => exact h
   | succ d ih_d =>
     rw [Nat.add_succ]
-    exact (iterate_mono_finset (reachable_step G s) (reachable_step_mono' G s) (k + d)
-      (by unfold reachable_step; exact Finset.subset_union_left)) (ih_d (Nat.le_add_right k d))
+    exact (iterate_mono_finset (reachableStep G s) (reachableStep_mono' G s) (k + d)
+      (by unfold reachableStep; exact Finset.subset_union_left)) (ih_d (Nat.le_add_right k d))
 
-lemma iterate_reachable_step_subset_reachable (G : SimpleGraph α) [DecidableRel G.Adj]
+lemma iterate_reachableStep_subset_reachable (G : SimpleGraph α) [DecidableRel G.Adj]
     (s : Finset (Sym2 α)) (h_sub : s ⊆ G.edgeFinset) (k : ℕ) (a : Finset α) (v : α)
-    (h : v ∈ (Nat.iterate (reachable_step G s) k) a) :
-    ∃ u ∈ a, (to_subgraph G s h_sub).spanningCoe.Reachable u v := by
+    (h : v ∈ (Nat.iterate (reachableStep G s) k) a) :
+    ∃ u ∈ a, (toSubgraph' G s h_sub).spanningCoe.Reachable u v := by
   induction k generalizing a v with
   | zero => exact ⟨v, h, Reachable.rfl⟩
   | succ k ih =>
-    set b := Nat.iterate (reachable_step G s) k a
-    rw [Function.iterate_succ_apply' (reachable_step G s) k a] at h
+    set b := Nat.iterate (reachableStep G s) k a
+    rw [Function.iterate_succ_apply' (reachableStep G s) k a] at h
     rcases Finset.mem_union.mp
-      (by unfold reachable_step at h; exact h : v ∈ b ∪ _) with h1 | h2
+      (by unfold reachableStep at h; exact h : v ∈ b ∪ _) with h1 | h2
     · exact ih _ _ h1
     · obtain ⟨w, hw1, hw2⟩ := Finset.mem_biUnion.mp h2
       obtain ⟨u, hu, huw⟩ := ih _ w hw1
-      exact ⟨u, hu, Reachable.trans huw ⟨Walk.cons (to_subgraph_adj_of_mem_edge' G s h_sub w v
+      exact ⟨u, hu, Reachable.trans huw ⟨Walk.cons (toSubgraph_adj_of_mem_edge' G s h_sub w v
         (Finset.mem_filter.mp hw2).2) Walk.nil⟩⟩
 
-lemma mem_iterate_reachable_step_iff_reachable (G : SimpleGraph α) [DecidableRel G.Adj]
+lemma mem_iterate_reachableStep_iff_reachable (G : SimpleGraph α) [DecidableRel G.Adj]
     (s : Finset (Sym2 α)) (h_sub : s ⊆ G.edgeFinset) (v0 v : α) :
-    v ∈ (Nat.iterate (reachable_step G s) (Fintype.card α)) {v0} ↔
-      (to_subgraph G s h_sub).spanningCoe.Reachable v0 v := by
+    v ∈ (Nat.iterate (reachableStep G s) (Fintype.card α)) {v0} ↔
+      (toSubgraph' G s h_sub).spanningCoe.Reachable v0 v := by
   constructor
-  · intro h; obtain ⟨u, hu, huv⟩ := iterate_reachable_step_subset_reachable G s h_sub _ _ _ h
+  · intro h; obtain ⟨u, hu, huv⟩ := iterate_reachableStep_subset_reachable G s h_sub _ _ _ h
     rwa [Finset.mem_singleton.mp hu] at huv
   · intro ⟨p⟩; exact mem_iterate_of_le' G s v0 v p.toPath.val.length (Fintype.card α)
       (Nat.le_of_lt (Walk.IsPath.length_lt p.toPath.prop))
@@ -370,30 +370,30 @@ lemma mem_iterate_reachable_step_iff_reachable (G : SimpleGraph α) [DecidableRe
 -- Connected subgraph ↔
 -- ================================================================
 
-private lemma is_connected_subgraph_iff (G : SimpleGraph α) [DecidableRel G.Adj]
+private lemma isConnectedSubgraph_iff (G : SimpleGraph α) [DecidableRel G.Adj]
     (s : Finset (Sym2 α)) (h_sub : s ⊆ G.edgeFinset) (v0 : α) :
-    is_connected_subgraph G s v0 = true ↔
-    (to_subgraph G s h_sub).spanningCoe.Connected := by
-  unfold is_connected_subgraph
+    isConnectedSubgraph G s v0 = true ↔
+    (toSubgraph' G s h_sub).spanningCoe.Connected := by
+  unfold isConnectedSubgraph
   simp only [decide_eq_true_eq]
   constructor
   · intro h_card
-    have h_all : Nat.iterate (reachable_step G s) (Fintype.card α) {v0} = Finset.univ :=
+    have h_all : Nat.iterate (reachableStep G s) (Fintype.card α) {v0} = Finset.univ :=
       Finset.eq_univ_of_card _ h_card
     have h_ne : Nonempty α := ⟨v0⟩
     exact Connected.mk (fun u v => by
-      have hu : u ∈ Nat.iterate (reachable_step G s) (Fintype.card α) {v0} :=
+      have hu : u ∈ Nat.iterate (reachableStep G s) (Fintype.card α) {v0} :=
         h_all ▸ Finset.mem_univ u
-      have hv : v ∈ Nat.iterate (reachable_step G s) (Fintype.card α) {v0} :=
+      have hv : v ∈ Nat.iterate (reachableStep G s) (Fintype.card α) {v0} :=
         h_all ▸ Finset.mem_univ v
-      have hu' : (to_subgraph G s h_sub).spanningCoe.Reachable v0 u := by
-        rwa [mem_iterate_reachable_step_iff_reachable G s h_sub v0 u] at hu
-      have hv' : (to_subgraph G s h_sub).spanningCoe.Reachable v0 v := by
-        rwa [mem_iterate_reachable_step_iff_reachable G s h_sub v0 v] at hv
+      have hu' : (toSubgraph' G s h_sub).spanningCoe.Reachable v0 u := by
+        rwa [mem_iterate_reachableStep_iff_reachable G s h_sub v0 u] at hu
+      have hv' : (toSubgraph' G s h_sub).spanningCoe.Reachable v0 v := by
+        rwa [mem_iterate_reachableStep_iff_reachable G s h_sub v0 v] at hv
       exact hu'.symm.trans hv')
   · intro hconn
-    have : Nat.iterate (reachable_step G s) (Fintype.card α) {v0} = Finset.univ :=
-      Finset.eq_univ_iff_forall.mpr (fun v => (mem_iterate_reachable_step_iff_reachable
+    have : Nat.iterate (reachableStep G s) (Fintype.card α) {v0} = Finset.univ :=
+      Finset.eq_univ_iff_forall.mpr (fun v => (mem_iterate_reachableStep_iff_reachable
         G s h_sub v0 v).mpr (hconn.preconnected v0 v))
     rw [this, Finset.card_univ]
 
@@ -401,14 +401,14 @@ private lemma is_connected_subgraph_iff (G : SimpleGraph α) [DecidableRel G.Adj
 -- Edge set correspondence
 -- ================================================================
 omit [DecidableEq α] in
-private lemma to_subgraph_edgeFinset_eq (G : SimpleGraph α) [DecidableRel G.Adj]
+private lemma toSubgraph'_edgeFinset_eq (G : SimpleGraph α) [DecidableRel G.Adj]
     (s : Finset (Sym2 α)) (h_sub : s ⊆ G.edgeFinset) :
-    (to_subgraph G s h_sub).spanningCoe.edgeFinset = s := by
+    (toSubgraph' G s h_sub).spanningCoe.edgeFinset = s := by
   ext e
   induction e using Sym2.ind with
   | h a b =>
     simp only [mem_edgeFinset, mem_edgeSet]
-    rw [to_subgraph_adj_iff']
+    rw [toSubgraph_adj_iff']
     constructor
     · exact fun ⟨h1, _⟩ => h1
     · intro h1
@@ -418,15 +418,15 @@ private lemma to_subgraph_edgeFinset_eq (G : SimpleGraph α) [DecidableRel G.Adj
 -- Leaf count correspondence
 -- ================================================================
 
-private lemma to_subgraph_degree_eq (G : SimpleGraph α) [DecidableRel G.Adj]
+private lemma toSubgraph'_degree_eq (G : SimpleGraph α) [DecidableRel G.Adj]
     (s : Finset (Sym2 α)) (h_sub : s ⊆ G.edgeFinset) (v : α) :
-    (to_subgraph G s h_sub).degree v =
+    (toSubgraph' G s h_sub).degree v =
     (Finset.univ.filter (fun u => Sym2.mk (v, u) ∈ s)).card := by
   unfold Subgraph.degree
-  have h_eq : Set.toFinset ((to_subgraph G s h_sub).neighborSet v) = Finset.univ.filter (fun u => Sym2.mk (v, u) ∈ s) := by
+  have h_eq : Set.toFinset ((toSubgraph' G s h_sub).neighborSet v) = Finset.univ.filter (fun u => Sym2.mk (v, u) ∈ s) := by
     ext w
     simp only [Set.mem_toFinset, Subgraph.mem_neighborSet]
-    unfold to_subgraph
+    unfold toSubgraph'
     simp only [toSubgraph_adj, fromEdgeSet_adj]
     constructor
     · exact fun ⟨h1, _⟩ => Finset.mem_filter.mpr ⟨Finset.mem_univ w, h1⟩
@@ -437,21 +437,21 @@ private lemma to_subgraph_degree_eq (G : SimpleGraph α) [DecidableRel G.Adj]
 
 private lemma leaf_count_eq_leaves (G : SimpleGraph α) [DecidableRel G.Adj]
     (s : Finset (Sym2 α)) (h_sub : s ⊆ G.edgeFinset) :
-    leaf_count_subgraph G s =
-    (Finset.univ.filter (fun v => (to_subgraph G s h_sub).degree v = 1)).card := by
-  unfold leaf_count_subgraph; congr 1; ext v
+    leafCountSubgraph G s =
+    (Finset.univ.filter (fun v => (toSubgraph' G s h_sub).degree v = 1)).card := by
+  unfold leafCountSubgraph; congr 1; ext v
   simp only [Finset.mem_filter, Finset.mem_univ, true_and]
-  rw [to_subgraph_degree_eq]
+  rw [toSubgraph'_degree_eq]
 
 -- ================================================================
--- to_subgraph.IsSpanning
+-- toSubgraph'.IsSpanning
 -- ================================================================
 
 omit [DecidableEq α]
 
-private lemma to_subgraph_isSpanning (G : SimpleGraph α) [DecidableRel G.Adj]
+private lemma toSubgraph'_isSpanning (G : SimpleGraph α) [DecidableRel G.Adj]
     (s : Finset (Sym2 α)) (h_sub : s ⊆ G.edgeFinset) :
-    (to_subgraph G s h_sub).IsSpanning :=
+    (toSubgraph' G s h_sub).IsSpanning :=
   SimpleGraph.toSubgraph.isSpanning _ _
 
 -- ================================================================
@@ -501,8 +501,8 @@ private lemma spanning_tree_edge_card (G : SimpleGraph α) [DecidableRel G.Adj]
 
 private lemma spanning_tree_size_mem (G : SimpleGraph α) [DecidableRel G.Adj]
     (T : Subgraph G) (h_span : T.IsSpanning) (h_tree : IsTree T.coe) :
-    T.edgeSet.toFinset ∈ G.edge_subsets_of_size (Fintype.card α - 1) := by
-  unfold edge_subsets_of_size
+    T.edgeSet.toFinset ∈ G.edgeSubsetsOfSize (Fintype.card α - 1) := by
+  unfold edgeSubsetsOfSize
   rw [Finset.mem_filter]
   refine ⟨?_, ?_⟩
   · rw [Finset.mem_powerset]
@@ -517,12 +517,12 @@ private lemma spanning_tree_size_mem (G : SimpleGraph α) [DecidableRel G.Adj]
 -- ================================================================
 variable [DecidableEq α]
 
-theorem Ls_le_computable_Ls (G : SimpleGraph α) [DecidableRel G.Adj] (v0 : α) :
-    Ls G ≤ (computable_Ls G v0 : ℝ) := by
+theorem Ls_le_computableLs (G : SimpleGraph α) [DecidableRel G.Adj] (v0 : α) :
+    Ls G ≤ (computableLs G v0 : ℝ) := by
   by_cases h_card : Fintype.card α ≤ 1
-  · -- card ≤ 1: computable_Ls is 0, Ls is nonneg but also ≤ 0
+  · -- card ≤ 1: computableLs is 0, Ls is nonneg but also ≤ 0
     -- In fact any spanning tree has no leaves when |V| ≤ 1
-    unfold Ls computable_Ls
+    unfold Ls computableLs
     simp only [if_pos h_card, Nat.cast_zero]
     by_cases h_span : ∃ T : Subgraph G, T.IsSpanning ∧ IsTree T.coe
     · apply csSup_le
@@ -560,63 +560,63 @@ theorem Ls_le_computable_Ls (G : SimpleGraph α) [DecidableRel G.Adj] (v0 : α) 
           ext v; simp [h_span_T v]
         exact ⟨_, ⟨T, ⟨h_span_T, h_tree_T⟩, rfl⟩⟩
       · rintro x ⟨T', ⟨h_span_T', h_tree_T'⟩, h_leaf⟩
-        show x ≤ (computable_Ls G v0 : ℝ)
+        show x ≤ (computableLs G v0 : ℝ)
         rw [← h_leaf]
         show ((T'.verts.toFinset.filter (fun v => T'.degree v = 1)).card : ℝ) ≤ _
         set s := T'.edgeSet.toFinset
         have h_size := spanning_tree_size_mem G T' h_span_T' h_tree_T'
         have h_sub : s ⊆ G.edgeFinset := by
-          unfold edge_subsets_of_size at h_size
+          unfold edgeSubsetsOfSize at h_size
           have h_mem_powerset := (Finset.mem_filter.mp h_size).1
           rw [Finset.mem_powerset] at h_mem_powerset
           exact h_mem_powerset
         have : Nonempty α := ⟨v0⟩
-        -- T' is connected (from IsTree), and T' = to_subgraph s, so
+        -- T' is connected (from IsTree), and T' = toSubgraph' s, so
         -- the spanning coe is connected
-        have h_subgraph_eq : T' = G.to_subgraph s h_sub := by
+        have h_subgraph_eq : T' = G.toSubgraph' s h_sub := by
           ext v
           · exact ⟨fun _ => Set.mem_univ v, fun _ => h_span_T' v⟩
           · next u v =>
             constructor
             · intro hadj
-              unfold to_subgraph
+              unfold toSubgraph'
               simp only [toSubgraph_adj, fromEdgeSet_adj]
               exact ⟨Set.mem_toFinset.mpr (Subgraph.mem_edgeSet.mpr hadj),
                      (T'.adj_sub hadj).ne⟩
             · intro hadj
-              unfold to_subgraph at hadj
+              unfold toSubgraph' at hadj
               simp only [toSubgraph_adj, fromEdgeSet_adj] at hadj
               exact Subgraph.mem_edgeSet.mp (Set.mem_toFinset.mp hadj.1)
-        have h_conn : G.is_connected_subgraph s v0 = true := by
-          rw [is_connected_subgraph_iff G s h_sub]
-          have : (G.to_subgraph s h_sub).spanningCoe = T'.spanningCoe := by
+        have h_conn : G.isConnectedSubgraph s v0 = true := by
+          rw [isConnectedSubgraph_iff G s h_sub]
+          have : (G.toSubgraph' s h_sub).spanningCoe = T'.spanningCoe := by
             rw [h_subgraph_eq]
           rw [this]
           have h_iso := T'.spanningCoeEquivCoeOfSpanning h_span_T'
           exact h_iso.connected_iff.mpr h_tree_T'.isConnected
-        -- The leaf count of T' equals leaf_count_subgraph s
+        -- The leaf count of T' equals leafCountSubgraph s
         have h_leaf_eq : (T'.verts.toFinset.filter (fun v => T'.degree v = 1)).card =
-            G.leaf_count_subgraph s := by
+            G.leafCountSubgraph s := by
           rw [h_subgraph_eq, leaf_count_eq_leaves]
-          have h_verts_eq : (to_subgraph G s h_sub).verts.toFinset = Finset.univ := by
-            ext v; simp [to_subgraph_isSpanning G s h_sub v]
+          have h_verts_eq : (toSubgraph' G s h_sub).verts.toFinset = Finset.univ := by
+            ext v; simp [toSubgraph'_isSpanning G s h_sub v]
           rw [h_verts_eq]
         rw [h_leaf_eq]
-        -- leaf_count_subgraph s ≤ computable_Ls G v0
-        unfold computable_Ls
+        -- leafCountSubgraph s ≤ computableLs G v0
+        unfold computableLs
         rw [if_neg h_card]
-        -- Goal: ↑(leaf_count_subgraph G s) ≤ ↑(Option.getD counts.max 0)
-        have h_mem_counts : G.leaf_count_subgraph s ∈
-            (image (fun s => G.leaf_count_subgraph s)
-              (filter (fun s => G.is_connected_subgraph s v0 = true)
-                (G.edge_subsets_of_size (Fintype.card α - 1)))) := by
+        -- Goal: ↑(leafCountSubgraph G s) ≤ ↑(Option.getD counts.max 0)
+        have h_mem_counts : G.leafCountSubgraph s ∈
+            (image (fun s => G.leafCountSubgraph s)
+              (filter (fun s => G.isConnectedSubgraph s v0 = true)
+                (G.edgeSubsetsOfSize (Fintype.card α - 1)))) := by
           rw [mem_image]
           exact ⟨s, mem_filter.mpr ⟨h_size, h_conn⟩, rfl⟩
         have h_le := Finset.le_max h_mem_counts
         push_cast
-        generalize h_max : (image (fun s => G.leaf_count_subgraph s)
-              (filter (fun s => G.is_connected_subgraph s v0 = true)
-                (G.edge_subsets_of_size (Fintype.card α - 1)))).max = o_max at h_le
+        generalize h_max : (image (fun s => G.leafCountSubgraph s)
+              (filter (fun s => G.isConnectedSubgraph s v0 = true)
+                (G.edgeSubsetsOfSize (Fintype.card α - 1)))).max = o_max at h_le
         rcases o_max with _ | v
         · exact absurd h_le (not_le.mpr (WithBot.bot_lt_coe _))
         · simp only [Option.getD_some]
@@ -630,27 +630,27 @@ theorem Ls_le_computable_Ls (G : SimpleGraph α) [DecidableRel G.Adj] (v0 : α) 
       rw [Real.sSup_empty]
       exact_mod_cast Nat.zero_le _
 
-theorem computable_Ls_le_Ls (G : SimpleGraph α) [DecidableRel G.Adj] (v0 : α) :
-    (computable_Ls G v0 : ℝ) ≤ Ls G := by
+theorem computableLs_le_Ls (G : SimpleGraph α) [DecidableRel G.Adj] (v0 : α) :
+    (computableLs G v0 : ℝ) ≤ Ls G := by
   by_cases h : Fintype.card α ≤ 1
-  · -- computable_Ls is 0 when card ≤ 1
-    have h_eq : computable_Ls G v0 = 0 := by
-      unfold computable_Ls; simp [if_pos h]
+  · -- computableLs is 0 when card ≤ 1
+    have h_eq : computableLs G v0 = 0 := by
+      unfold computableLs; simp [if_pos h]
     rw [h_eq]; push_cast; exact Ls_nonneg G
-  · -- Suffices to show: for any s in the candidates, leaf_count_subgraph s ≤ Ls
+  · -- Suffices to show: for any s in the candidates, leafCountSubgraph s ≤ Ls
     -- and then max of those ≤ Ls
-    -- Strategy: show computable_Ls ≤ max leaf count ≤ Ls
-    suffices h_suff : ∀ s ∈ filter (fun s => G.is_connected_subgraph s v0 = true)
-        (G.edge_subsets_of_size (Fintype.card α - 1)),
-        (G.leaf_count_subgraph s : ℝ) ≤ Ls G by
-      unfold computable_Ls
+    -- Strategy: show computableLs ≤ max leaf count ≤ Ls
+    suffices h_suff : ∀ s ∈ filter (fun s => G.isConnectedSubgraph s v0 = true)
+        (G.edgeSubsetsOfSize (Fintype.card α - 1)),
+        (G.leafCountSubgraph s : ℝ) ≤ Ls G by
+      unfold computableLs
       rw [if_neg h]
       push_cast
       -- Need: Option.getD (...).max 0 ≤ Ls G
       -- Case analysis on whether there are any candidates
-      generalize h_max_eq : (image (fun s => G.leaf_count_subgraph s)
-          (filter (fun s => G.is_connected_subgraph s v0 = true)
-            (G.edge_subsets_of_size (Fintype.card α - 1)))).max = o_max
+      generalize h_max_eq : (image (fun s => G.leafCountSubgraph s)
+          (filter (fun s => G.isConnectedSubgraph s v0 = true)
+            (G.edgeSubsetsOfSize (Fintype.card α - 1)))).max = o_max
       rcases o_max with _ | M
       · -- Empty: getD gives 0, and 0 ≤ Ls G
         simp only [Option.getD_none]
@@ -665,39 +665,39 @@ theorem computable_Ls_le_Ls (G : SimpleGraph α) [DecidableRel G.Adj] (v0 : α) 
     rw [Finset.mem_filter] at hs
     have h_size := hs.1
     have h_conn := hs.2
-    unfold edge_subsets_of_size at h_size
+    unfold edgeSubsetsOfSize at h_size
     rw [Finset.mem_filter] at h_size
     have h_sub : s ⊆ G.edgeFinset := by
       rw [Finset.mem_powerset] at h_size; exact h_size.1
     have h_card_s : s.card = Fintype.card α - 1 := h_size.2
     -- Build the spanning tree from s
-    have h_spanning := to_subgraph_isSpanning G s h_sub
-    have h_iso := (to_subgraph G s h_sub).spanningCoeEquivCoeOfSpanning h_spanning
-    have h_conn_spanningCoe : (to_subgraph G s h_sub).spanningCoe.Connected := by
-      rwa [is_connected_subgraph_iff G s h_sub] at h_conn
-    have h_tree : IsTree (to_subgraph G s h_sub).coe := by
+    have h_spanning := toSubgraph'_isSpanning G s h_sub
+    have h_iso := (toSubgraph' G s h_sub).spanningCoeEquivCoeOfSpanning h_spanning
+    have h_conn_spanningCoe : (toSubgraph' G s h_sub).spanningCoe.Connected := by
+      rwa [isConnectedSubgraph_iff G s h_sub] at h_conn
+    have h_tree : IsTree (toSubgraph' G s h_sub).coe := by
       rw [h_iso.symm.isTree_iff, isTree_iff_connected_and_card]
       refine ⟨h_conn_spanningCoe, ?_⟩
       rw [Nat.card_eq_fintype_card, Nat.card_eq_fintype_card]
-      have h_edge_card : Fintype.card (to_subgraph G s h_sub).spanningCoe.edgeSet = s.card := by
+      have h_edge_card : Fintype.card (toSubgraph' G s h_sub).spanningCoe.edgeSet = s.card := by
         rw [← edgeFinset_card]
         congr 1
-        exact to_subgraph_edgeFinset_eq G s h_sub
+        exact toSubgraph'_edgeFinset_eq G s h_sub
       rw [h_edge_card, h_card_s]
       omega
-    -- leaf_count_subgraph s ≤ Ls G since to_subgraph is a spanning tree
+    -- leafCountSubgraph s ≤ Ls G since toSubgraph' is a spanning tree
     unfold Ls
     apply le_csSup (Ls_bddAbove G)
-    refine ⟨to_subgraph G s h_sub, ⟨h_spanning, h_tree⟩, ?_⟩
+    refine ⟨toSubgraph' G s h_sub, ⟨h_spanning, h_tree⟩, ?_⟩
     simp only
     rw [leaf_count_eq_leaves G s h_sub]
-    have h_verts_eq : (to_subgraph G s h_sub).verts.toFinset = Finset.univ := by
+    have h_verts_eq : (toSubgraph' G s h_sub).verts.toFinset = Finset.univ := by
       ext v; simp [h_spanning v]
     rw [h_verts_eq]
 
 theorem Ls_eq_computable (G : SimpleGraph α) [DecidableRel G.Adj] (v0 : α) :
-    Ls G = (computable_Ls G v0 : ℝ) := by
-  exact le_antisymm (Ls_le_computable_Ls G v0) (computable_Ls_le_Ls G v0)
+    Ls G = (computableLs G v0 : ℝ) := by
+  exact le_antisymm (Ls_le_computableLs G v0) (computableLs_le_Ls G v0)
 
 /-- A unit distance graph in ℝ²:
 A graph where the vertices V are a collection of points in ℝ² and there is
