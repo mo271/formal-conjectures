@@ -294,16 +294,16 @@ directory. This ensures that the addition of these problems to
 formal-conjectures is not locked to the mathlib release cadence.
 
 When `lean-toolchain` is updated on `main`, a GitHub Actions workflow
-automatically adds a git tag of the form `v4.{X}.{Y}.{Z}`, following mathlib's
+automatically adds a git tag of the form `v4.{X}.{Y}`, following mathlib's
 tagging convention.
 
 Stable benchmark snapshots are tagged using the format
-`bench-v{N}-lean4.{X}.{Y}.{Z}`, where:
+`bench-v{N}-lean4.{X}.{Y}`, where:
 
 -   **`v{N}` (Benchmark version):** Identifies the set of problems included in
     the benchmark. The benchmark version is bumped whenever problems are added,
     removed, or when misformalizations are corrected.
--   **`lean4.{X}.{Y}.{Z}` (Lean version):** Identifies the Lean 4 toolchain
+-   **`lean4.{X}.{Y}` (Lean version):** Identifies the Lean 4 toolchain
     version used for that snapshot.
 
 Tags are immutable: fixes to misformalizations are never patched into an existing
