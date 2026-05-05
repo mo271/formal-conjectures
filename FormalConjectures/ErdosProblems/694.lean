@@ -44,8 +44,7 @@ Linnik's theorem; see the
 [formal proof](https://github.com/Shashi456/erdos-formalizations/blob/main/Erdos/P694/Proof.lean).
 -/
 @[category research solved, AMS 11]
-theorem erdos_694 : answer(True) ↔
-    ∀ᵉ (fmax : ℕ → ℕ) (fmin : ℕ → ℕ),
+theorem erdos_694 : ∀ᵉ (fmax : ℕ → ℕ) (fmin : ℕ → ℕ),
       (∀ n, IsGreatest (Nat.totient ⁻¹' {n}) (fmax n)) →
       (∀ n, IsLeast (Nat.totient ⁻¹' {n}) (fmin n)) →
       ∃ o : ℕ → ℝ, Tendsto o atTop (𝓝 0) ∧
