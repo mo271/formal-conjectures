@@ -41,14 +41,14 @@ inductive IsFusible : ℚ → Prop
   | fuse (a b : ℚ) : IsFusible a → IsFusible b → |a - b| < 1 → IsFusible ((a + b + 1) / 2)
 
 /-- The rational number $1/2$ is fusible. -/
-@[category test, AMS 05]
+@[category test, AMS 5]
 theorem isFusible_one_half : IsFusible (1 / 2 : ℚ) := by
   have h := IsFusible.fuse 0 0 IsFusible.zero IsFusible.zero (by norm_num)
   norm_num at h
   exact h
 
 /-- The rational number $1$ is fusible. -/
-@[category test, AMS 05]
+@[category test, AMS 5]
 theorem isFusible_one : IsFusible (1 : ℚ) := by
   have h := IsFusible.fuse (1 / 2) (1 / 2) isFusible_one_half isFusible_one_half (by norm_num)
   norm_num at h
@@ -65,7 +65,7 @@ This formalization differs from Conjecture 7.1 in the paper in four ways:
   strictly between `x` and `y`;
 (4) instead of using `∃ z, IsFusible z ∧ q = s^(n+1)(x) ~ z` we use the value of `z` determined by the equality,
   namely `z = 2 * q - 1 - s^(n+1)(x)`, and it is easy to see `z ∈ [x + 1 - m / 2 ^ n, x + 1)` as required. -/
-@[category research open, AMS 05]
+@[category research open, AMS 5]
 theorem conj_7_1 (x y q : ℚ) (n : ℕ) (fus_x : IsFusible x) (fus_y : IsFusible y) (lt : x < y)
     (nmem_Ioo : ∀ z, IsFusible z → z ∉ Set.Ioo x y) :
     let m := y - x

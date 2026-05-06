@@ -42,7 +42,7 @@ theorem lonely_runner_conjecture (n : ℕ)
     (r : Fin n) : ∃ t ≥ 0, lonely r t := by
   sorry
 
-/-!
+/-
 ## Variant: Tao (2017)
 -/
 
@@ -51,7 +51,7 @@ For an $n$-tuple of distinct integer velocities $v_1,\dots,v_n$,
 `deltaTuple v` is the maximal value of $\min_i \|t v_i\|_{\mathbb{R}/\mathbb{Z}}$ over time.
 -/
 noncomputable def deltaTuple {n : ℕ} (v : Fin n → ℤ) : ℝ :=
-  sSup { δ : ℝ | ∃ t : AddCircle (1 : ℝ), ∀ i : Fin n, δ ≤ dist (v i * t : AddCircle (1 : ℝ)) 0 }
+  sSup { δ : ℝ | ∃ t : AddCircle (1 : ℝ), ∀ i : Fin n, δ ≤ dist (v i • t : AddCircle (1 : ℝ)) 0 }
 
 /--
 The $n$th *gap of loneliness* $\delta_n$: the infimum of `deltaTuple`
