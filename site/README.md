@@ -171,4 +171,4 @@ The GitHub Actions workflow in `.github/workflows/build-and-docs.yml` triggers o
 
 **Deployment** happens on pushes to `main`, and on `*-webtest` branches when on a fork.
 
-To enable GitHub Pages, go to **Settings → Pages** and set the source to **GitHub Actions**.
+For GitHub Pages setup (including the environment rule needed for `*-webtest` branches), see [One-time fork setup](#one-time-fork-setup) above.
