@@ -599,4 +599,5 @@ theorem avg_dist_eq_computable (G : SimpleGraph α) [DecidableRel G.Adj] :
     ring
   · simp
 
+
 end SimpleGraph
