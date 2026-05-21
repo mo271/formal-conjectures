@@ -87,6 +87,7 @@ theorem erdos_501.variants.erdosHajnal_finite : answer(True) ↔
       (∀ x, Bornology.IsBounded (A x)) →
       (∀ x, volume.toOuterMeasure (A x) < 1) →
       ∃ X : Finset ℝ, n ≤ X.card ∧ (X : Set ℝ).Pairwise (fun x y => x ∉ A y) := by
+  show True ↔ _
   simp only [true_iff]
   sorry
 
@@ -103,6 +104,7 @@ theorem erdos_501.variants.hechler_CH : answer(True) ↔
       (∀ x, Bornology.IsBounded (A x)) ∧
       (∀ x, volume.toOuterMeasure (A x) < 1) ∧
       ¬ ∃ X : Set ℝ, X.Infinite ∧ X.Pairwise (fun x y => x ∉ A y) := by
+  show True ↔ _
   simp only [true_iff]
   sorry
 
@@ -120,6 +122,7 @@ theorem erdos_501.variants.closed_size3 : answer(True) ↔
       (∀ x, IsClosed (A x)) →
       (∀ x, volume (A x) < 1) →
       ∃ X : Set ℝ, 3 ≤ X.ncard ∧ X.Pairwise (fun x y => x ∉ A y) := by
+  show True ↔ _
   simp only [true_iff]
   sorry
 
@@ -135,6 +138,7 @@ theorem erdos_501.variants.newelski_pawlikowski_seredynski : answer(True) ↔
       (∀ x, IsClosed (A x)) →
       (∀ x, volume (A x) < 1) →
       ∃ X : Set ℝ, X.Infinite ∧ X.Pairwise (fun x y => x ∉ A y) := by
+  show True ↔ _
   simp only [true_iff]
   sorry
 
@@ -152,6 +156,7 @@ theorem erdos_501.variants.gladysz_size2 : answer(True) ↔
       (∀ x, IsClosed (A x)) →
       (∀ x, volume (A x) < 1) →
       ∃ X : Set ℝ, 2 ≤ X.ncard ∧ X.Pairwise (fun x y => x ∉ A y) := by
+  show True ↔ _
   simp only [true_iff]
   sorry
 
