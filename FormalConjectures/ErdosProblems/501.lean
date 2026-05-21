@@ -133,8 +133,6 @@ theorem erdos_501.variants.newelski_pawlikowski_seredynski : answer(True) ↔
       (∀ x, IsClosed (A x)) →
       (∀ x, volume (A x) < 1) →
       ∃ X : Set ℝ, X.Infinite ∧ X.Pairwise (fun x y => x ∉ A y) := by
-  show True ↔ _
-  simp only [true_iff]
   sorry
 
 /--
