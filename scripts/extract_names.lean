@@ -54,10 +54,34 @@ def nameAny (n : Name) (p : String → Bool) : Bool :=
 def isInternal (n : Name) : Bool :=
   nameAny n (fun s => s.startsWith "_" || s.startsWith "match_" || s.startsWith "proof_")
 
+/-- Recursively find the subexpression with the `answer` annotation, if any. -/
+partial def findAnswerExpr : Expr → Option Expr
+  | .mdata m e => if m.contains `answer then some e else findAnswerExpr e
+  | .app f a => findAnswerExpr f <|> findAnswerExpr a
+  | .lam _ t b _ => findAnswerExpr t <|> findAnswerExpr b
+  | .forallE _ t b _ => findAnswerExpr t <|> findAnswerExpr b
+  | .letE _ t v b _ => findAnswerExpr t <|> findAnswerExpr v <|> findAnswerExpr b
+  | _ => none
+
+/-- Determine the `answerKind` for a theorem's type expression.
+
+    - `"Prop"`: the type of the annotated subexpression is `Prop`.
+    - `"non-Prop"`: the type of the annotated subexpression is not `Prop`.
+    - `none`: no `answer(...)` detected. -/
+def getAnswerKind (type : Expr) : MetaM (Option String) := do
+  -- Check for annotated answer expression
+  if let some ansExpr := findAnswerExpr type then
+    if ← Meta.isProp ansExpr then
+      return some "Prop"
+    else
+      return some "non-Prop"
+  else
+    return none
+
 /-- Valid keys for the `--exclude` flag. -/
 def validExcludeKeys : List String :=
   ["docstring", "statement", "subjects", "formalProofKind", "formalProofLink",
-   "hasSorryFreeProof", "moduleDocstrings"]
+   "hasSorryFreeProof", "moduleDocstrings", "answerKind"]
 
 structure TheoremInfo where
   «theorem» : String
@@ -69,6 +93,7 @@ structure TheoremInfo where
   formalProofKind : Option String
   formalProofLink : Option String
   hasSorryFreeProof : Bool
+  answerKind : Option String
 
 
 /-- Serialize `TheoremInfo` to JSON, omitting fields whose keys are in `exclude`. -/
@@ -86,6 +111,8 @@ def TheoremInfo.toFilteredJson (info : TheoremInfo) (exclude : Std.HashSet Strin
         [("formalProofLink", toJson info.formalProofLink)])
     ++ (if exclude.contains "hasSorryFreeProof" then [] else
         [("hasSorryFreeProof", toJson info.hasSorryFreeProof)])
+    ++ (if exclude.contains "answerKind" then [] else
+        [("answerKind", toJson info.answerKind)])
   Json.mkObj fields
 
 instance : ToJson TheoremInfo where
@@ -206,6 +233,8 @@ unsafe def main (args : List String) : IO Unit := do
                 | .API, false =>
                   IO.eprintln s!"WARNING: Theorem {name} is categorised as `API` but has no sorry-free proof"
                 | _, _ => pure ()
+              -- Determine answerKind from the elaborated type expression
+              let answerKind ← Meta.MetaM.run' (getAnswerKind info.type)
               allResults := {
                 «theorem» := name.toString,
                 module := modName.toString,
@@ -215,7 +244,8 @@ unsafe def main (args : List String) : IO Unit := do
                 docstring := docstring,
                 formalProofKind := formalProofKind,
                 formalProofLink := formalProofLink,
-                hasSorryFreeProof := hasSorryFreeProof
+                hasSorryFreeProof := hasSorryFreeProof,
+                answerKind := answerKind
               } :: allResults
         | _ => pure ()
 
