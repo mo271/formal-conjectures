@@ -63,9 +63,15 @@ noncomputable def maxUnitDistances (n : ℕ) : ℕ :=
 /--
 Does every set of $n$ distinct points in $\mathbb{R}^2$ contain at most
 $n^{1+O(\frac{1}{\log\log n})}$ many pairs which are distance $1$ apart?
+
+This was
+[disproved](https://cdn.openai.com/pdf/74c24085-19b0-4534-9c90-465b8e29ad73/unit-distance-proof.pdf)
+by an internal model at OpenAI, which constructed (for infinitely many $n$) a set $P$ of $n$ points
+in $\mathbb{R}^2$ such that the number of unit distance pairs in $P$ is at least $n^{1+c}$, where
+$c > 0$ is an absolute constant.
 -/
-@[category research open, AMS 52]
-theorem erdos_90 : answer(sorry) ↔ ∃ (O : ℕ → ℝ) (hO : O =O[atTop] (fun n => 1 / (n : ℝ).log.log)),
+@[category research solved, AMS 52]
+theorem erdos_90 : answer(False) ↔ ∃ (O : ℕ → ℝ) (hO : O =O[atTop] (fun n => 1 / (n : ℝ).log.log)),
     (fun n => (maxUnitDistances n : ℝ)) =ᶠ[atTop] fun (n : ℕ) => (n : ℝ) ^ (1 + O n) := by
   sorry
 
