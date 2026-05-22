@@ -13,8 +13,31 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -/
+
 import Lean
 import FormalConjectures.Util.Attributes.Basic
+
+/-!
+# Extract Names
+
+This script extracts metadata (theorem names, statements, categories, subjects,
+formal proof links, and answer kinds) from formalized mathematical conjectures
+in the repository.
+
+### Usage
+```bash
+# Compile with postpone setting for answerKind extraction
+lake build FormalConjecturesAnswerPostpone
+lake exe extract_names [directory-or-file] [--exclude=key1,key2] [--no-docstrings]
+```
+
+**IMPORTANT NOTE**: Make sure to build with `lake build FormalConjecturesAnswerPostpone`
+before running this script. This compiles the library under `weak.google.answer = "postpone"`
+mode, allowing `extract_names` to correctly locate and extract `answerKind` (Prop vs
+non-Prop answer metadata). Otherwise, `answer(sorry)` simplifies to `True` during
+default elaboration, and `answerKind` will always be extracted as `null` for `Prop`
+valued answers.
+-/
 
 open Lean ProblemAttributes
 
@@ -163,7 +186,12 @@ unsafe def main (args : List String) : IO Unit := do
         getAllLeanFiles p
       else
         pure #[p]
-    | _ => throw <| IO.userError "Usage: extract_names [directory-or-file] [--exclude=key1,key2] [--no-docstrings]"
+    | _ =>
+      let usageMsg :=
+        "Usage: extract_names [directory-or-file] [--exclude=key1,key2] [--no-docstrings]\n\n" ++
+        "Note: Make sure to run `lake build FormalConjecturesAnswerPostpone` before running " ++
+        "this script so that `answerKind` metadata is extracted correctly."
+      throw <| IO.userError usageMsg
 
   let mut moduleNames := #[]
   for file in leanFiles do
