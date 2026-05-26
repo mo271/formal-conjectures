@@ -23,7 +23,6 @@ There are no partition numbers $p(k)$ of the form $x^m$, with $x,m$ integers $>1
 
 *Reference*: [A41](https://oeis.org/A41)
 -/
-
 open Nat
 namespace OeisA41
 /-- The `n`-th partition number. -/

@@ -27,7 +27,6 @@ Why do polynomials with coefficients 0,1
 *Reference:* [mathoverflow/339137](https://mathoverflow.net/questions/339137)
 asked by user [*Sil*](https://mathoverflow.net/users/136794/sil)
 -/
-
 open scoped Polynomial
 namespace Mathoverflow339137
 

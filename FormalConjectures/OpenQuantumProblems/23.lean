@@ -104,7 +104,6 @@ placeholder proofs `by sorry`; they are intended to be proved in the next PR.
   *Quantum Designs: Foundations of a Noncommutative Design Theory*,
   PhD thesis, University of Vienna (1999).
 -/
-
 noncomputable section
 namespace OpenQuantumProblem23
 

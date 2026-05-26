@@ -21,7 +21,6 @@ import FormalConjectures.Util.ProblemImports
 
 *Reference:* [erdosproblems.com/623](https://www.erdosproblems.com/623)
 -/
-
 open Filter Real Set
 open scoped Cardinal Ordinal
 namespace Erdos623

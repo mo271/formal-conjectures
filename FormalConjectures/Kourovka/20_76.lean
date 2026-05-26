@@ -21,7 +21,6 @@ import FormalConjectures.Util.ProblemImports
 by L. Pyber
 *Reference:* [The Kourovka Notebook](https://arxiv.org/abs/1401.0300v40)
 !-/
-
 namespace Kourovka.«20.76»
 /--
 Let $G$ be a finite $p$-group and assume that all abelian normal subgroups of $G$

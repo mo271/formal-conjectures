@@ -68,7 +68,6 @@ $\alpha \neq 1$:
 * [Voronovskaja-type Formula for the Bézier Variant of the Bernstein Operators](https://www.math.bas.bg/mathmod/Proceedings_CTF/CTF-2010/files_CTF-2010/Open_problems.pdf),
   by *Ulrich Abel*, in *Constructive Theory of Functions, Sozopol 2010*.
 -/
-
 open Topology Filter Real unitInterval Polynomial
 namespace VoronovskajaTypeFormula
 

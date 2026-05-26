@@ -22,7 +22,6 @@ with $a(0) = 0$.
 
 *Reference:* [A357513](https://oeis.org/A357513)
 -/
-
 open Nat
 namespace OeisA357513
 

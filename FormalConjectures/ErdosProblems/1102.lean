@@ -21,7 +21,6 @@ import FormalConjectures.Util.ProblemImports
 
 *Reference:* [erdosproblems.com/1102](https://www.erdosproblems.com/1102)
 -/
-
 open Squarefree Set Order Filter Topology
 namespace Erdos1102
 

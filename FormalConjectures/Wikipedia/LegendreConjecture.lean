@@ -24,7 +24,6 @@ import FormalConjectures.Util.ProblemImports
 - [Legendre Conjecture Wikipedia Page](https://en.wikipedia.org/wiki/Legendre%27s_conjecture)
 - [Luan Alberto Ferreira, *Real exponential sums over primes and prime gaps*](https://arxiv.org/abs/2307.08725)
 -/
-
 open Filter
 namespace LegendreConjecture
 

@@ -35,7 +35,6 @@ import FormalConjectures.Util.ProblemImports
 - [MathWorld](https://mathworld.wolfram.com/BlochConstant.html)
 - [Bhowmik–Sen](https://www.cambridge.org/core/journals/canadian-mathematical-bulletin/article/improved-bloch-and-landau-constants-for-meromorphic-functions/FD465D1F2CEF7E8C62AFF16C3E89B7B4)
 -/
-
 open scoped Topology
 open Metric Set Filter
 namespace Bloch

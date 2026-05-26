@@ -23,7 +23,6 @@ import FormalConjectures.Util.ProblemImports
  - [erdosproblems.com/835](https://www.erdosproblems.com/835)
  - [MT25](https://github.com/QuanyuTang/erdos-problem-835/blob/main/On_Problem_835.pdf)
 -/
-
 open Finset SimpleGraph
 open scoped Nat
 namespace Erdos835

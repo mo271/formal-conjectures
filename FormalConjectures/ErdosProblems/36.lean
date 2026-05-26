@@ -23,7 +23,6 @@ import FormalConjectures.Util.ProblemImports
  - [erdosproblems.com/36](https://www.erdosproblems.com/36)
  - [Wikipedial: Minimum overlap problem](https://en.wikipedia.org/wiki/Minimum_overlap_problem)
 -/
-
 open scoped Topology
 open Filter
 namespace Erdos36

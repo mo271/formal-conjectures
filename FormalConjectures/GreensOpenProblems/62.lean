@@ -26,7 +26,6 @@ This is a problem of Erdős, Odlyzko, and Sárközy [105] from 1987.
 
 *Reference:* [Ben Green's Open Problem 62](https://people.maths.ox.ac.uk/greenbj/papers/open-problems.pdf#problem.62)
 -/
-
 open Filter
 namespace Green62
 

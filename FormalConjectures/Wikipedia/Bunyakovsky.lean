@@ -21,7 +21,6 @@ import FormalConjectures.Util.ProblemImports
 
 *Reference:* [Wikipedia](https://en.wikipedia.org/wiki/Bunyakovsky_conjecture)
 -/
-
 open Polynomial
 namespace Bunyakovsky
 

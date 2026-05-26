@@ -27,7 +27,6 @@ import FormalConjectures.Util.ProblemImports
 - [Leonard Eugene Dickson, *History of the Theory of Numbers, Vol. I: Divisibility and Primality*](https://archive.org/details/historyoftheoryo01dickuoft)
 - [Arxiv](https://arxiv.org/pdf/0906.3850)
 -/
-
 open Polynomial
 namespace Dickson
 

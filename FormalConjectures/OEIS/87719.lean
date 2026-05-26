@@ -27,7 +27,6 @@ The conjecture states that $a_n = 3^n + 3 \cdot 2^n + 6$ for $n \ge 1$.
 
 *References:* [A087719](https://oeis.org/A087719)
 -/
-
 open Nat
 namespace OeisA87719
 

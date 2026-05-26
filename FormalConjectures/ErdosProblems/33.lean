@@ -21,7 +21,6 @@ import FormalConjectures.Util.ProblemImports
 
 *Reference:* [erdosproblems.com/33](https://www.erdosproblems.com/33)
 -/
-
 variable {α : Type} [AddCommMonoid α]
 open Classical Set
 open scoped goldenRatio

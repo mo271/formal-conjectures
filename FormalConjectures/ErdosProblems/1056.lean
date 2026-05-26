@@ -21,7 +21,6 @@ import FormalConjectures.Util.ProblemImports
 
 *Reference:* [erdosproblems.com/1056](https://www.erdosproblems.com/1056)
 -/
-
 open Nat
 namespace Erdos1056
 

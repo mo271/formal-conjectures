@@ -21,7 +21,6 @@ import FormalConjectures.Util.ProblemImports
 
 *Reference:* [Wikipedia](https://en.wikipedia.org/wiki/Class_number_problem)
 -/
-
 open Polynomial
 namespace ClassNumberProblem
 

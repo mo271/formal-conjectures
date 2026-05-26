@@ -25,7 +25,6 @@ import FormalConjectures.Util.ProblemImports
 - [mathoverflow/41211](https://mathoverflow.net/questions/41211/easy-proof-of-the-fact-that-isotropic-spaces-are-euclidean)
   **Easy proof of the fact that isotropic spaces are Euclidean**
 -/
-
 open TopologicalSpace Metric MulAction
 namespace Arxiv.«math.0110202»
 

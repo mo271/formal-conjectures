@@ -118,7 +118,6 @@ The dimension-six case is not known to be solved. At present, the best-known gen
 
 This is why the theorem `mutuallyUnbiasedBases_dim6` is marked as an open research statement.
 -/
-
 noncomputable section
 namespace OpenQuantumProblem13
 

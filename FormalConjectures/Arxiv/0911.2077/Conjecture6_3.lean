@@ -23,7 +23,6 @@ import FormalConjectures.Util.ProblemImports
 **Central Binomial Tail Bounds**
 by *Matus Telgarsky*
 -/
-
 namespace Arxiv.«0911.2077»
 open NNReal ENNReal ProbabilityTheory
 
