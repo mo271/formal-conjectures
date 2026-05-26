@@ -15,7 +15,6 @@ limitations under the License.
 -/
 
 import FormalConjectures.Util.ProblemImports
-open Polynomial
 
 /-!
 # Dickson's conjecture
@@ -29,6 +28,7 @@ open Polynomial
 - [Arxiv](https://arxiv.org/pdf/0906.3850)
 -/
 
+open Polynomial
 namespace Dickson
 
 /--

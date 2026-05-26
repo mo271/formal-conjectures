@@ -16,13 +16,13 @@ limitations under the License.
 
 import FormalConjectures.Util.ProblemImports
 
-open scoped Nat
-
 /-!
 # Agoh-Giuga conjecture
 
 *Reference:* [Wikipedia](https://en.wikipedia.org/wiki/Agoh-Giuga_conjecture)
 -/
+
+open scoped Nat
 /-
 
 The **Agoh-Giuga Conjecture**.

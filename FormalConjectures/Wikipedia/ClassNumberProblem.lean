@@ -16,13 +16,13 @@ limitations under the License.
 
 import FormalConjectures.Util.ProblemImports
 
-open Polynomial
 /-!
 # Class number problem for real quadratic fields
 
 *Reference:* [Wikipedia](https://en.wikipedia.org/wiki/Class_number_problem)
 -/
 
+open Polynomial
 namespace ClassNumberProblem
 
 def IsClassNumberOne (d : ℤ) : Prop :=

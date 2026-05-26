@@ -16,9 +16,6 @@ limitations under the License.
 
 import FormalConjectures.Util.ProblemImports
 
-open Real Set
-open scoped EuclideanGeometry
-
 /-!
 # Mathoverflow 347178
 
@@ -26,6 +23,8 @@ open scoped EuclideanGeometry
 asked by user [*Biagio Ricceri*](https://mathoverflow.net/users/149235/biagio-ricceri)
 -/
 
+open Real Set
+open scoped EuclideanGeometry
 namespace Mathoverflow347178
 
 /--

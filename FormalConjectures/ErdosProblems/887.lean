@@ -16,8 +16,6 @@ limitations under the License.
 
 import FormalConjectures.Util.ProblemImports
 
-open Filter Finset Real
-
 /-!
 # Erdős Problem 887
 
@@ -26,6 +24,7 @@ open Filter Finset Real
 * [ErRo97] Erdős, Paul and Rosenfeld, Moshe, The factor-difference set of integers. Acta Arith. (1997), 353--359.
 -/
 
+open Filter Finset Real
 namespace Erdos887
 
 /--

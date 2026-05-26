@@ -16,14 +16,13 @@ limitations under the License.
 
 import FormalConjectures.Util.ProblemImports
 
-open scoped Finset
-
 /-!
 # Erdős Problem 56
 
 *Reference:* [erdosproblems.com/56](https://www.erdosproblems.com/56)
 -/
 
+open scoped Finset
 namespace Erdos56
 
 /--

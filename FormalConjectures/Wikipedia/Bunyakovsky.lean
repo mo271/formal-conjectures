@@ -15,7 +15,6 @@ limitations under the License.
 -/
 
 import FormalConjectures.Util.ProblemImports
-open Polynomial
 
 /-!
 # Bunyakovsky conjecture
@@ -23,6 +22,7 @@ open Polynomial
 *Reference:* [Wikipedia](https://en.wikipedia.org/wiki/Bunyakovsky_conjecture)
 -/
 
+open Polynomial
 namespace Bunyakovsky
 
 /--
