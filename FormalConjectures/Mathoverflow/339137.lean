@@ -17,8 +17,6 @@ limitations under the License.
 import FormalConjectures.Util.ProblemImports
 import FormalConjectures.GreensOpenProblems.«28»
 
-open scoped Polynomial
-
 /-!
 # Mathoverflow 339137
 
@@ -30,6 +28,7 @@ Why do polynomials with coefficients 0,1
 asked by user [*Sil*](https://mathoverflow.net/users/136794/sil)
 -/
 
+open scoped Polynomial
 namespace Mathoverflow339137
 
 /--

@@ -16,8 +16,6 @@ limitations under the License.
 
 import FormalConjectures.Util.ProblemImports
 
-open Topology Filter Real unitInterval Polynomial
-
 /-!
 # Voronovskaja-type Formula for the Bezier Variant of the Bernstein Operators
 
@@ -71,6 +69,7 @@ $\alpha \neq 1$:
   by *Ulrich Abel*, in *Constructive Theory of Functions, Sozopol 2010*.
 -/
 
+open Topology Filter Real unitInterval Polynomial
 namespace VoronovskajaTypeFormula
 
 /--

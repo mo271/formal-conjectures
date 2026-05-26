@@ -34,7 +34,7 @@ public section
 open Lean Elab Meta Command Linter
 
 register_option linter.style.moduleDocstring : Bool := {
-  defValue := false
+  defValue := true
   descr := "enable the module docstring linter"
 }
 
