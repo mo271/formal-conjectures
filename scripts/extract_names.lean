@@ -13,10 +13,34 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -/
+
 import Lean
 import FormalConjectures.Util.Attributes.Basic
+import FormalConjectures.Util.Answer
 
-open Lean ProblemAttributes
+/-!
+# Extract Names
+
+This script extracts metadata (theorem names, statements, categories, subjects,
+formal proof links, and answer kinds) from formalized mathematical conjectures
+in the repository.
+
+### Usage
+```bash
+# Compile with postpone setting for answerKind extraction
+lake build FormalConjecturesAnswerPostpone
+lake exe extract_names [directory-or-file] [--exclude=key1,key2] [--no-docstrings]
+```
+
+**IMPORTANT NOTE**: Make sure to build with `lake build FormalConjecturesAnswerPostpone`
+before running this script. This compiles the library under `weak.google.answer = "postpone"`
+mode, allowing `extract_names` to correctly locate and extract `answerKinds` (Prop vs
+non-Prop answer metadata). Otherwise, `answer(sorry)` simplifies to `True` during
+default elaboration, and `answerKinds` will always be extracted as `[]` for `Prop`
+valued answers.
+-/
+
+open Lean ProblemAttributes Google
 
 def getModuleNameFromFile (file : System.FilePath) : IO Name := do
   let components := file.withExtension "" |>.components
@@ -54,10 +78,23 @@ def nameAny (n : Name) (p : String → Bool) : Bool :=
 def isInternal (n : Name) : Bool :=
   nameAny n (fun s => s.startsWith "_" || s.startsWith "match_" || s.startsWith "proof_")
 
+/-- Determine the `answerKinds` for a theorem's type expression.
+
+For each `answer(...)` occurrence found in the type,
+returns `"Prop"` or `"non-Prop"` depending on the type
+of the annotated subexpression. -/
+def getAnswerKinds (type : Expr) : MetaM (List String) := do
+  let ansExprs := findAnswerExprs type
+  ansExprs.toList.mapM fun ansExpr => do
+    if ← Meta.isProp ansExpr then
+      return "Prop"
+    else
+      return "non-Prop"
+
 /-- Valid keys for the `--exclude` flag. -/
 def validExcludeKeys : List String :=
   ["docstring", "statement", "subjects", "formalProofKind", "formalProofLink",
-   "hasSorryFreeProof", "moduleDocstrings"]
+   "hasSorryFreeProof", "moduleDocstrings", "answerKinds"]
 
 structure TheoremInfo where
   «theorem» : String
@@ -70,6 +107,7 @@ structure TheoremInfo where
   formalProofLink : Option String
   hasSorryFreeProof : Bool
   subsets : List String
+  answerKinds : List String
 
 
 /-- Serialize `TheoremInfo` to JSON, omitting fields whose keys are in `exclude`. -/
@@ -88,6 +126,8 @@ def TheoremInfo.toFilteredJson (info : TheoremInfo) (exclude : Std.HashSet Strin
     ++ (if exclude.contains "hasSorryFreeProof" then [] else
         [("hasSorryFreeProof", toJson info.hasSorryFreeProof)])
     ++ (if info.subsets.isEmpty then [] else [("subsets", toJson info.subsets)])
+    ++ (if exclude.contains "answerKinds" then [] else
+        [("answerKinds", toJson info.answerKinds)])
   Json.mkObj fields
 
 instance : ToJson TheoremInfo where
@@ -138,7 +178,12 @@ unsafe def main (args : List String) : IO Unit := do
         getAllLeanFiles p
       else
         pure #[p]
-    | _ => throw <| IO.userError "Usage: extract_names [directory-or-file] [--exclude=key1,key2] [--no-docstrings]"
+    | _ =>
+      let usageMsg :=
+        "Usage: extract_names [directory-or-file] [--exclude=key1,key2] [--no-docstrings]\n\n" ++
+        "Note: Make sure to run `lake build FormalConjecturesAnswerPostpone` before running " ++
+        "this script so that `answerKind` metadata is extracted correctly."
+      throw <| IO.userError usageMsg
 
   let mut moduleNames := #[]
   for file in leanFiles do
@@ -225,6 +270,9 @@ unsafe def main (args : List String) : IO Unit := do
                   IO.eprintln s!"WARNING: Theorem {name} is categorised as `API` but has no sorry-free proof"
                 | _, _ => pure ()
               let subsets := (theoremToSubsets.getD name []).toArray.qsort (· < ·) |>.toList
+              -- Determine answerKinds from the elaborated type
+              let answerKinds ← Meta.MetaM.run'
+                (getAnswerKinds info.type)
               allResults := {
                 «theorem» := name.toString,
                 module := modName.toString,
@@ -236,6 +284,7 @@ unsafe def main (args : List String) : IO Unit := do
                 formalProofLink := formalProofLink,
                 hasSorryFreeProof := hasSorryFreeProof,
                 subsets := subsets
+                answerKinds := answerKinds
               } :: allResults
         | _ => pure ()
 
