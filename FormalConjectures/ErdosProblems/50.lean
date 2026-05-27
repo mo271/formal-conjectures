@@ -73,7 +73,7 @@ that the derivative $f'(x)$ exists and is positive?
 -/
 @[category research open, AMS 11]
 theorem erdos_50 : answer(sorry) ↔ ∀ᵉ (f : ℝ → ℝ) (hf : IsDistributionOfPhiRatio f),
-    ¬∃ x ∈ Ioo (0 : ℝ) 1, ∃ y > 0, HasDerivAt f y x := by
+    ¬∃ x, ∃ y > 0, HasDerivWithinAt f y (Ioo 0 1) x := by
   sorry
 
 end Erdos50
