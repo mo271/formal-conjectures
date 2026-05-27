@@ -43,7 +43,6 @@ theorem Continuous.isConnectedMap {X Y : Type*} [TopologicalSpace X] [Topologica
     {f : X → Y} (hf : Continuous f) : IsConnectedMap f :=
   fun _ h ↦ IsConnected.image h f (Continuous.continuousOn hf)
 
-
 /--
 A set in $\mathbb{R}$ is connected if and only if it is order-connected and non-empty.
 -/
@@ -194,7 +193,6 @@ lemma isConnectedMap_symm_of_E1 (f : ℝ^1 ≃ ℝ^1) (hf : IsConnectedMap f) : 
   have h2 : IsConnectedMap h.symm := isConnectedMap_homeomorph h.symm
   change IsConnectedMap (h.symm ∘ g.symm ∘ h)
   exact isConnectedMap_comp (isConnectedMap_comp h1 hg_symm_conn) h2
-
 
 
 /--
