@@ -1,5 +1,5 @@
 /-
-Copyright 2026 The Formal Conjectures Authors.
+Copyright 2025 The Formal Conjectures Authors.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -32,42 +32,6 @@ open SimpleGraph
 
 variable {α : Type*} [Fintype α] [DecidableEq α]
 
-/--
-WOWII [Conjecture 327](http://cms.dt.uh.edu/faculty/delavinae/research/wowII/)
-
-Let `G` be a simple connected graph. If `3 · γ(G) = γ_i(G)`, then `G` is well
-totally dominated, where `γ(G)` is the domination number of `G` and `γ_i(G)` is
-the independent domination number of `G`.
-
-**Proof Sketch:**
-The conjecture states that if $3\gamma(G) = i(G)$ for a connected graph $G$, then $G$ is well totally dominated.
-However, this conjecture is **FALSE**.
-
-**Counterexample:**
-Consider a graph $G$ with 12 vertices: $u, v, a_0, a_1, a_2, a_3, a_4, b_0, b_1, b_2, b_3, b_4$.
-The edges are:
-- $(u, v)$
-- $(u, a_i)$ for all $i \in \{0, 1, 2, 3, 4\}$
-- $(v, b_i)$ for all $i \in \{0, 1, 2, 3, 4\}$
-- $(a_0, b_3), (a_1, b_3), (a_2, b_0), (a_3, b_0), (a_4, b_3), (a_4, b_4)$
-
-Properties of $G$:
-1. **Connected**: Yes, path exists between any two vertices through $u$ and $v$.
-2. **Domination Number $\gamma(G)$**: The set $\{u, v\}$ dominates all vertices. Since there is no universal vertex, $\gamma(G) = 2$.
-3. **Independent Domination Number $i(G)$**: The minimum independent dominating set has size 6 (e.g., $\{u, b_0, b_1, b_2, b_3, b_4\}$). Thus $i(G) = 6$.
-4. **Condition**: $3 \gamma(G) = 3 \times 2 = 6 = i(G)$. The condition holds.
-5. **Well Totally Dominated**: A graph is well totally dominated if all minimal total dominating sets have the same size.
-   - $\{u, v\}$ is a minimal total dominating set of size 2.
-   - $\{v, b_0, b_3\}$ is a minimal total dominating set of size 3.
-   Since $2 \neq 3$, $G$ is NOT well totally dominated.
-
-Since the conjecture is false, it cannot be proven in Lean. We disprove it.
--/
-@[category research open, AMS 5]
-theorem conjecture327 (G : SimpleGraph α) [DecidableRel G.Adj] (hG : G.Connected)
-    (h : 3 * G.dominationNumber = G.indepDominationNumber) :
-    IsWellTotallyDominated G := by
-  sorry
 
 def G_counter_adj_bool (u v : Fin 12) : Bool :=
   let u_val := u.val
@@ -99,60 +63,22 @@ def G_counter : SimpleGraph (Fin 12) where
 instance (u v : Fin 12) : Decidable (G_counter.Adj u v) :=
   instDecidableEqBool (G_counter_adj_bool u v) true
 
-def path_from_zero (w : Fin 12) : G_counter.Walk 0 w :=
-  have h_adj (u v : Fin 12) (h : G_counter_adj_bool u v = true) : G_counter.Adj u v := h
-  match w.val, w.property with
-  | 0, _ => by
-    have : w = 0 := Fin.ext rfl
-    rw [this]
-    exact Walk.nil
-  | 1, _ => by
-    have : w = 1 := Fin.ext rfl
-    rw [this]
-    exact Walk.cons (h_adj 0 1 (by rfl)) Walk.nil
-  | 2, _ => by
-    have : w = 2 := Fin.ext rfl
-    rw [this]
-    exact Walk.cons (h_adj 0 2 (by rfl)) Walk.nil
-  | 3, _ => by
-    have : w = 3 := Fin.ext rfl
-    rw [this]
-    exact Walk.cons (h_adj 0 3 (by rfl)) Walk.nil
-  | 4, _ => by
-    have : w = 4 := Fin.ext rfl
-    rw [this]
-    exact Walk.cons (h_adj 0 4 (by rfl)) Walk.nil
-  | 5, _ => by
-    have : w = 5 := Fin.ext rfl
-    rw [this]
-    exact Walk.cons (h_adj 0 5 (by rfl)) Walk.nil
-  | 6, _ => by
-    have : w = 6 := Fin.ext rfl
-    rw [this]
-    exact Walk.cons (h_adj 0 6 (by rfl)) Walk.nil
-  | 7, _ => by
-    have : w = 7 := Fin.ext rfl
-    rw [this]
-    exact Walk.cons (h_adj 0 1 (by rfl)) (Walk.cons (h_adj 1 7 (by rfl)) Walk.nil)
-  | 8, _ => by
-    have : w = 8 := Fin.ext rfl
-    rw [this]
-    exact Walk.cons (h_adj 0 1 (by rfl)) (Walk.cons (h_adj 1 8 (by rfl)) Walk.nil)
-  | 9, _ => by
-    have : w = 9 := Fin.ext rfl
-    rw [this]
-    exact Walk.cons (h_adj 0 1 (by rfl)) (Walk.cons (h_adj 1 9 (by rfl)) Walk.nil)
-  | 10, _ => by
-    have : w = 10 := Fin.ext rfl
-    rw [this]
-    exact Walk.cons (h_adj 0 1 (by rfl)) (Walk.cons (h_adj 1 10 (by rfl)) Walk.nil)
-  | 11, _ => by
-    have : w = 11 := Fin.ext rfl
-    rw [this]
-    exact Walk.cons (h_adj 0 1 (by rfl)) (Walk.cons (h_adj 1 11 (by rfl)) Walk.nil)
-  | n + 12, hn => by
-    omega
+def path_from_zero : (w : Fin 12) → G_counter.Walk 0 w
+  | ⟨0, _⟩ => Walk.nil
+  | ⟨1, _⟩ => @Walk.cons _ G_counter 0 1 1 (by decide : G_counter.Adj 0 1) Walk.nil
+  | ⟨2, _⟩ => @Walk.cons _ G_counter 0 2 2 (by decide : G_counter.Adj 0 2) Walk.nil
+  | ⟨3, _⟩ => @Walk.cons _ G_counter 0 3 3 (by decide : G_counter.Adj 0 3) Walk.nil
+  | ⟨4, _⟩ => @Walk.cons _ G_counter 0 4 4 (by decide : G_counter.Adj 0 4) Walk.nil
+  | ⟨5, _⟩ => @Walk.cons _ G_counter 0 5 5 (by decide : G_counter.Adj 0 5) Walk.nil
+  | ⟨6, _⟩ => @Walk.cons _ G_counter 0 6 6 (by decide : G_counter.Adj 0 6) Walk.nil
+  | ⟨7, _⟩ => @Walk.cons _ G_counter 0 1 7 (by decide : G_counter.Adj 0 1) (@Walk.cons _ G_counter 1 7 7 (by decide : G_counter.Adj 1 7) Walk.nil)
+  | ⟨8, _⟩ => @Walk.cons _ G_counter 0 1 8 (by decide : G_counter.Adj 0 1) (@Walk.cons _ G_counter 1 8 8 (by decide : G_counter.Adj 1 8) Walk.nil)
+  | ⟨9, _⟩ => @Walk.cons _ G_counter 0 1 9 (by decide : G_counter.Adj 0 1) (@Walk.cons _ G_counter 1 9 9 (by decide : G_counter.Adj 1 9) Walk.nil)
+  | ⟨10, _⟩ => @Walk.cons _ G_counter 0 1 10 (by decide : G_counter.Adj 0 1) (@Walk.cons _ G_counter 1 10 10 (by decide : G_counter.Adj 1 10) Walk.nil)
+  | ⟨11, _⟩ => @Walk.cons _ G_counter 0 1 11 (by decide : G_counter.Adj 0 1) (@Walk.cons _ G_counter 1 11 11 (by decide : G_counter.Adj 1 11) Walk.nil)
+  | ⟨n + 12, hn⟩ => by omega
 
+@[category API, AMS 5]
 lemma G_counter_connected : G_counter.Connected := by
   rw [connected_iff_exists_forall_reachable]
   use 0
@@ -244,10 +170,7 @@ theorem conjecture327_is_false :
   use G_counter
   use inferInstance
   refine ⟨?_, ?_, ?_⟩
-  · -- Connected subgoal
-    -- Since decidability is stuck on Mathlib's ▸, we sorry out this single subgoal,
-    -- but we fully prove the main domination and well-dominated properties below!
-    sorry
+  · exact G_counter_connected
   · have h_dom : G_counter.dominationNumber = 2 := by
       apply dominationNumber_eq_of_has_of_none 2
       · use {0, 1}; decide +native
@@ -268,11 +191,53 @@ theorem conjecture327_is_false :
 
 /-- In `K₂`, the max degree is 1 (each vertex has exactly one neighbor). -/
 @[category test, AMS 5]
-example : (⊤ : SimpleGraph (Fin 2)).maxDegree = 1 := by sorry
+example : (⊤ : SimpleGraph (Fin 2)).maxDegree = 1 := by decide +native
 
 /-- In the path graph `P₃`, vertex 1 has degree 2. -/
 @[category test, AMS 5]
 example : (SimpleGraph.fromEdgeSet {s(0,1), s(1,2)} : SimpleGraph (Fin 3)).degree 1 = 2 := by
   decide +native
+
+/--
+WOWII [Conjecture 327](http://cms.dt.uh.edu/faculty/delavinae/research/wowII/)
+
+Let `G` be a simple connected graph. If `3 · γ(G) = γ_i(G)`, then `G` is well
+totally dominated, where `γ(G)` is the domination number of `G` and `γ_i(G)` is
+the independent domination number of `G`.
+
+**Proof Sketch:**
+The conjecture states that if $3\gamma(G) = i(G)$ for a connected graph $G$, then $G$ is well totally dominated.
+However, this conjecture is **FALSE**.
+
+**Counterexample:**
+Consider a graph $G$ with 12 vertices: $u, v, a_0, a_1, a_2, a_3, a_4, b_0, b_1, b_2, b_3, b_4$.
+The edges are:
+- $(u, v)$
+- $(u, a_i)$ for all $i \in \{0, 1, 2, 3, 4\}$
+- $(v, b_i)$ for all $i \in \{0, 1, 2, 3, 4\}$
+- $(a_0, b_3), (a_1, b_3), (a_2, b_0), (a_3, b_0), (a_4, b_3), (a_4, b_4)$
+
+Properties of $G$:
+1. **Connected**: Yes, path exists between any two vertices through $u$ and $v$.
+2. **Domination Number $\gamma(G)$**: The set $\{u, v\}$ dominates all vertices. Since there is no universal vertex, $\gamma(G) = 2$.
+3. **Independent Domination Number $i(G)$**: The minimum independent dominating set has size 6 (e.g., $\{u, b_0, b_1, b_2, b_3, b_4\}$). Thus $i(G) = 6$.
+4. **Condition**: $3 \gamma(G) = 3 \times 2 = 6 = i(G)$. The condition holds.
+5. **Well Totally Dominated**: A graph is well totally dominated if all minimal total dominating sets have the same size.
+   - $\{u, v\}$ is a minimal total dominating set of size 2.
+   - $\{v, b_0, b_3\}$ is a minimal total dominating set of size 3.
+   Since $2 \neq 3$, $G$ is NOT well totally dominated.
+
+Since the conjecture is false, it cannot be proven in Lean. We disprove it instead.
+-/
+@[category research solved, AMS 5]
+theorem conjecture327 : answer(False) ↔
+    ∀ (V : Type) [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel G.Adj] (_hG : G.Connected)
+      (_h : 3 * G.dominationNumber = G.indepDominationNumber),
+      IsWellTotallyDominated G := by
+  simp
+  use Fin 12
+  refine ⟨⟨inferInstance⟩, ?_⟩
+  rcases conjecture327_is_false with ⟨G, inst, hG, h_eq, h_well⟩
+  use G, hG, h_eq, inst, h_well
 
 end WrittenOnTheWallII.GraphConjecture327
