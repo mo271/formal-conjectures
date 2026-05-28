@@ -18,7 +18,14 @@ import FormalConjectures.Util.ProblemImports
 /-!
 # Erdős Problem 1097
 
-*Reference:* [erdosproblems.com/1097](https://www.erdosproblems.com/1097)
+*References:*
+- [erdosproblems.com/1097](https://www.erdosproblems.com/1097)
+- [Bo99] Bourgain, J., On the dimension of {K}akeya sets and related maximal
+inequalities. Geom. Funct. Anal. (1999), 256--282
+- [KaTa99] Katz, Nets Hawk and Tao, Terence, Bounds on arithmetic projections, and applications to the
+{K}akeya conjecture. Math. Res. Lett. (1999), 625--630.
+- [Le15] Lemm, Marius, New counterexamples for sums-differences. Proc. Amer. Math. Soc. (2015), 3863--3868.
+- [GGTW25] B. Georgiev, J. Gómez-Serrano, T. Tao, and A. Wagner, Mathematical exploration and discovery at scale. arXiv:2511.02864 (2025).
 -/
 
 namespace Erdos1097
@@ -35,9 +42,23 @@ def CommonDifferencesThreeTermAP (A : Finset ℤ) : Set ℤ :=
 /--
 The main conjecture: for any finite set of integers $A$ with $|A| = n$, the number of distinct
 common differences in three-term arithmetic progressions is $O(n^{3/2})$.
+
+This conjecture was resolved negatively by showing that the problem is exactly equivalent to
+Bourgain's sums-differences question [Bo99], which was introduced as an arithmetic path towards
+the Kakeya conjecture. Under this equivalence:
+- The greatest achievable exponent for this problem is equal to the smallest constant $c$
+  achievable for Bourgain's sums-differences question:
+  $$|A -_G B| \ll \max(|A|, |B|, |A +_G B|)^c$$
+- The $O(n^{3/2})$ prediction is disproved because the lower bound has been shown to satisfy
+  $c \ge 1.77898$ (due to Zheng and AlphaEvolve [GGTW25], improving on Lemm [Le15]), which is
+  strictly greater than $3/2 = 1.5$.
+- The best known upper bound is $c \le 11/6 \approx 1.833$ (due to Katz and Tao [KaTa99]).
+- While the specific $O(n^{3/2})$ prediction is resolved negatively, the general question of
+  determining the exact optimal exponent $c$ remains open.
 -/
-@[category research open, AMS 11]
-theorem erdos_1097 : answer(sorry) ↔ ∃ C > (0 : ℝ), ∀ (A : Finset ℤ),
+@[category research solved, AMS 11, formal_proof using formal_conjectures at
+"https://github.com/mo271/formal-conjectures/blob/f13dd54b520cdf2136fdd3a04f0f9fa50e311358/FormalConjectures/ErdosProblems/1097.lean#L306"]
+theorem erdos_1097 : answer(False) ↔ ∃ C > (0 : ℝ), ∀ (A : Finset ℤ),
     (CommonDifferencesThreeTermAP A).ncard ≤ C * (A.card : ℝ) ^ (3 / 2 : ℝ) := by
   sorry
 
