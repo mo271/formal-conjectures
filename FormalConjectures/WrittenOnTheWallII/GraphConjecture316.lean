@@ -15,6 +15,8 @@ limitations under the License.
 -/
 
 import FormalConjectures.Util.ProblemImports
+import FormalConjectures.MyP5
+
 /-!
 # Written on the Wall II - Conjecture 316
 
@@ -26,20 +28,18 @@ namespace WrittenOnTheWallII.GraphConjecture316
 
 open SimpleGraph
 
-variable {α : Type*} [Fintype α] [DecidableEq α]
-
 /--
-WOWII [Conjecture 316](http://cms.dt.uh.edu/faculty/delavinae/research/wowII/)
-
-Let `G` be a simple connected graph and let `P` denote the set of pendant vertices
-(vertices of degree 1). If `|P| ≥ deg_avg(G)`, then `G` is well totally dominated,
-where `deg_avg(G)` is the average degree of `G`.
+The conjecture is false. P5 is a counterexample: it is connected, its average degree (8/5) is
+at most its number of pendant vertices (2), but it is not well totally dominated.
 -/
-@[category research open, AMS 5]
-theorem conjecture316 (G : SimpleGraph α) [DecidableRel G.Adj] (hG : G.Connected)
-    (h : (averageDegree G : ℚ) ≤ (pendantVertices G).card) :
-    IsWellTotallyDominated G := by
-  sorry
+@[category research solved, AMS 5]
+theorem conjecture316_false : ¬ (∀ {α : Type} [Fintype α] [DecidableEq α]
+    (G : SimpleGraph α) [DecidableRel G.Adj],
+    G.Connected → (averageDegree G : ℚ) ≤ (pendantVertices G).card →
+    IsWellTotallyDominated G) := by
+  intro h
+  have h1 := h P5 P5_connected P5_hyp
+  exact P5_not_WTD h1
 
 -- Sanity checks
 
@@ -52,5 +52,26 @@ example : averageDegree (⊥ : SimpleGraph (Fin 3)) = 0 := by
 @[category test, AMS 5]
 example : averageDegree (SimpleGraph.fromEdgeSet {s(0,1), s(1,2)} : SimpleGraph (Fin 3)) = 4/3 := by
   unfold averageDegree; decide +native
+
+/--
+WOWII [Conjecture 316](http://cms.dt.uh.edu/faculty/delavinae/research/wowII/)
+
+Let `G` be a simple connected graph and let `P` denote the set of pendant vertices
+(vertices of degree 1). If `|P| ≥ deg_avg(G)`, then `G` is well totally dominated,
+where `deg_avg(G)` is the average degree of `G`.
+
+This conjecture is false: `P₅` (the path on 5 vertices) is a counterexample.
+See `conjecture316_false`.
+-/
+@[category research solved, AMS 5]
+theorem conjecture316 : answer(False) ↔
+    ∀ {α : Type} [Fintype α] [DecidableEq α]
+      (G : SimpleGraph α) [DecidableRel G.Adj] (hG : G.Connected)
+      (h : (averageDegree G : ℚ) ≤ (pendantVertices G).card),
+    IsWellTotallyDominated G := by
+  constructor
+  · exact False.elim
+  · intro h
+    exact P5_not_WTD (h P5 P5_connected P5_hyp)
 
 end WrittenOnTheWallII.GraphConjecture316
