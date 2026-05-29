@@ -66,8 +66,8 @@ See `conjecture316_false`.
 @[category research solved, AMS 5]
 theorem conjecture316 : answer(False) ↔
     ∀ {α : Type} [Fintype α] [DecidableEq α]
-      (G : SimpleGraph α) [DecidableRel G.Adj] (hG : G.Connected)
-      (h : (averageDegree G : ℚ) ≤ (pendantVertices G).card),
+      (G : SimpleGraph α) [DecidableRel G.Adj] (_hG : G.Connected)
+      (_h : (averageDegree G : ℚ) ≤ (pendantVertices G).card),
     IsWellTotallyDominated G := by
   constructor
   · exact False.elim
