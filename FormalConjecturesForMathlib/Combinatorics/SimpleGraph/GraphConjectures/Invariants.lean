@@ -42,11 +42,6 @@ noncomputable abbrev l (G : SimpleGraph α) : ℝ := averageIndepNeighbors G
 -/
 noncomputable abbrev l_avg (G : SimpleGraph α) : ℝ := averageIndepNeighbors G
 
-/-- Computable average independence number of the neighborhoods. -/
-noncomputable def computable_l (G : SimpleGraph α) [DecidableRel G.Adj] : ℝ := G.computable_average_indep_neighbors
-
-/-- The same quantity under a different name, used in some conjectures. -/
-noncomputable def computable_l_avg (G : SimpleGraph α) [DecidableRel G.Adj] : ℝ := G.computable_average_indep_neighbors
 
 /-- Independent domination number of `G`. -/
 noncomputable def gi (G : SimpleGraph α) : ℕ := G.indepDominationNumber
@@ -317,17 +312,6 @@ noncomputable def cvetkovic (G : SimpleGraph α) [DecidableRel G.Adj] : ℕ :=
 -- Equivalence between noncomputable and computable graph invariants
 -- ================================================================
 
-proof_wanted largest_induced_forest_size_eq_computable (G : SimpleGraph α) [DecidableRel G.Adj] :
-    G.largestInducedForestSize = G.computable_largest_induced_forest_size
-
-proof_wanted b_eq_computable (G : SimpleGraph α) [DecidableRel G.Adj] :
-    G.b = (G.computable_largest_induced_bipartite_subgraph_size : ℝ)
-
-proof_wanted indep_neighbors_card_eq_computable (G : SimpleGraph α) [DecidableRel G.Adj] (v : α) :
-    G.indepNeighborsCard v = G.computable_indep_neighbors_card v
-
-proof_wanted l_avg_eq_computable (G : SimpleGraph α) [DecidableRel G.Adj] :
-    G.l_avg = G.computable_l_avg
 
 theorem indep_num_eq_computable (G : SimpleGraph α) [DecidableRel G.Adj] :
     G.indepNum = computable_indep_num G := by
