@@ -66,6 +66,14 @@ private instance counterG_decidable : DecidableRel counterG.Adj := fun u v => by
   unfold counterG
   exact instDecidableAnd
 
+private instance neighborSet_decidable (v : Fin 79) : DecidablePred (· ∈ counterG.neighborSet v) :=
+  fun x => show Decidable (counterG.Adj v x) from inferInstance
+
+private instance induce_decidable_rel {α : Type*} (s : Set α) (G : SimpleGraph α) [DecidableRel G.Adj] :
+    DecidableRel (induce s G).Adj :=
+  fun u v => show Decidable (G.Adj u.val v.val) from inferInstance
+
+
 /-- Helper: adjacency in counterG. -/
 private lemma counterG_adj (u v : Fin 79) : counterG.Adj u v ↔
     u ≠ v ∧ (
@@ -236,9 +244,279 @@ private lemma exists_three_of_card_ge_three {α : Type*} [DecidableEq α] {s : F
   have hz_in : z ∈ s := Finset.mem_of_mem_erase (Finset.mem_of_mem_erase hz)
   exact ⟨x, hx, y, hy_in, z, hz_in, hx_ne_y, hy_ne_z, hx_ne_z.symm⟩
 
+private lemma indepNum_le_one_of_clique {V : Type*} [Fintype V] [DecidableEq V] [Nonempty V]
+    (G : SimpleGraph V) (hclique : ∀ u v : V, u ≠ v → G.Adj u v) :
+    G.indepNum = 1 := by
+  apply le_antisymm
+  · apply csSup_le
+    · refine ⟨0, ∅, ?_, rfl⟩
+      simp [SimpleGraph.IsIndepSet]
+    · rintro n ⟨s, hs, rfl⟩
+      by_contra hgt
+      push_neg at hgt
+      have h_card : 2 ≤ s.card := by omega
+      obtain ⟨x, hx, y, hy, hne⟩ := exists_two_of_card_ge_two h_card
+      have h_indep : ¬G.Adj x y := hs (Finset.mem_coe.mp hx) (Finset.mem_coe.mp hy) hne
+      have h_adj : G.Adj x y := hclique x y hne
+      exact h_indep h_adj
+  · obtain ⟨v⟩ := ‹Nonempty V›
+    apply le_csSup
+    · exact ⟨Fintype.card V, fun n ⟨s, hs⟩ => hs.card_eq ▸ s.card_le_univ⟩
+    · refine ⟨{v}, ?_⟩
+      rw [isNIndepSet_iff]
+      constructor
+      · intro x hx y hy hne
+        simp only [coe_singleton, Set.mem_singleton_iff] at hx hy
+        subst hx hy; exact absurd rfl hne
+      · simp
+
+private lemma counterG_indepNeighborsCard_1 : indepNeighborsCard counterG 1 = 3 := by
+  unfold indepNeighborsCard
+  rw [indep_num_eq_computable]
+  decide
+
+private lemma counterG_indepNeighborsCard_2 : indepNeighborsCard counterG 2 = 3 := by
+  unfold indepNeighborsCard
+  rw [indep_num_eq_computable]
+  decide
+
+private lemma counterG_indepNeighborsCard_3 : indepNeighborsCard counterG 3 = 3 := by
+  unfold indepNeighborsCard
+  rw [indep_num_eq_computable]
+  decide
+
+private lemma counterG_indepNeighborsCard_4 : indepNeighborsCard counterG 4 = 3 := by
+  unfold indepNeighborsCard
+  rw [indep_num_eq_computable]
+  decide
+
+private lemma counterG_indepNeighborsCard_5 : indepNeighborsCard counterG 5 = 3 := by
+  unfold indepNeighborsCard
+  rw [indep_num_eq_computable]
+  decide
+
+
+private lemma counterG_indepNeighborsCard_ge6 (v : Fin 79) (hv : 6 ≤ v.val) :
+    indepNeighborsCard counterG v = 1 := by
+  unfold indepNeighborsCard
+  have h0_mem : (0 : Fin 79) ∈ counterG.neighborSet v := by
+    rw [mem_neighborSet, counterG_adj]
+    refine ⟨by omega, Or.inr (Or.inr (Or.inr ⟨rfl, hv⟩))⟩
+  haveI : Nonempty ↑(counterG.neighborSet v) := ⟨⟨0, h0_mem⟩⟩
+  apply indepNum_le_one_of_clique
+  rintro ⟨x, hx⟩ ⟨y, hy⟩ hne
+  rw [mem_neighborSet, counterG_adj] at hx hy
+  have hx_val : x = 0 ∨ 6 ≤ x.val := by
+    rcases hx.2 with ((h1 | h2) | h3 | h4 | h5)
+    · omega
+    · omega
+    · right; exact h3.right
+    · right; exact h4.right
+    · left; exact Fin.ext h5.left
+  have hy_val : y = 0 ∨ 6 ≤ y.val := by
+    rcases hy.2 with ((h1 | h2) | h3 | h4 | h5)
+    · omega
+    · omega
+    · right; exact h3.right
+    · right; exact h4.right
+    · left; exact Fin.ext h5.left
+  have hne_val : x ≠ y := fun h => hne (Subtype.ext h)
+  change counterG.Adj x y
+  rw [counterG_adj]
+  refine ⟨hne_val, ?_⟩
+  rcases hx_val with rfl | hx6
+  · rcases hy_val with rfl | hy6
+    · exact absurd rfl hne_val
+    · right; right; left; exact ⟨rfl, hy6⟩
+  · rcases hy_val with rfl | hy6
+    · right; right; right; exact ⟨rfl, hx6⟩
+    · right; left; exact ⟨hx6, hy6⟩
+
+private lemma counterG_indepNeighborsCard_zero : indepNeighborsCard counterG 0 = 4 := by
+  unfold indepNeighborsCard
+  have h3_in : (3 : Fin 79) ∈ counterG.neighborSet 0 := by
+    rw [mem_neighborSet, counterG_adj]; refine ⟨by decide, Or.inl (Or.inl ⟨by decide, by decide⟩)⟩
+  have h4_in : (4 : Fin 79) ∈ counterG.neighborSet 0 := by
+    rw [mem_neighborSet, counterG_adj]; refine ⟨by decide, Or.inl (Or.inl ⟨by decide, by decide⟩)⟩
+  have h5_in : (5 : Fin 79) ∈ counterG.neighborSet 0 := by
+    rw [mem_neighborSet, counterG_adj]; refine ⟨by decide, Or.inl (Or.inl ⟨by decide, by decide⟩)⟩
+  have h6_in : (6 : Fin 79) ∈ counterG.neighborSet 0 := by
+    rw [mem_neighborSet, counterG_adj]; refine ⟨by decide, Or.inr (Or.inr (Or.inl ⟨rfl, by decide⟩))⟩
+  let w3 : Subtype (counterG.neighborSet 0) := ⟨3, h3_in⟩
+  let w4 : Subtype (counterG.neighborSet 0) := ⟨4, h4_in⟩
+  let w5 : Subtype (counterG.neighborSet 0) := ⟨5, h5_in⟩
+  let w6 : Subtype (counterG.neighborSet 0) := ⟨6, h6_in⟩
+  haveI : Nonempty ↑(counterG.neighborSet 0) := ⟨w3⟩
+  apply le_antisymm
+  · apply csSup_le
+    · refine ⟨0, ∅, ?_, rfl⟩
+      simp [SimpleGraph.IsIndepSet]
+    · rintro n ⟨s, hs, rfl⟩
+      let A := s.filter (fun x => x.val.val < 6)
+      let B := s.filter (fun x => 6 ≤ x.val.val)
+      have hs_partition : s.card = A.card + B.card := by
+        have hAB : s = A ∪ B := by
+          ext x
+          simp only [Finset.mem_union, Finset.mem_filter, A, B]
+          constructor
+          · intro h
+            rcases Nat.lt_or_ge x.val.val 6 with hlt | hge
+            · left; exact ⟨h, hlt⟩
+            · right; exact ⟨h, hge⟩
+          · rintro (⟨h, _⟩ | ⟨h, _⟩) <;> exact h
+        have hdisj : Disjoint A B := by
+          rw [Finset.disjoint_left]
+          intro x hxA hxB
+          simp only [A, B, Finset.mem_filter] at hxA hxB
+          omega
+        rw [← Finset.card_union_of_disjoint hdisj, ← hAB]
+      have hA_le : A.card ≤ 3 := by
+        have hA_sub : A ⊆ {w3, w4, w5} := by
+          intro w hw
+          simp only [A, Finset.mem_filter] at hw
+          simp only [Finset.mem_insert, Finset.mem_singleton]
+          have h_in := w.property
+          rw [mem_neighborSet, counterG_adj] at h_in
+          have h_lt6 : w.val.val < 6 := hw.2
+          have hw_val : w.val = 3 ∨ w.val = 4 ∨ w.val = 5 := by
+            rcases h_in.2 with ((h1 | h2) | h3 | h4 | h5)
+            · omega
+            · omega
+            · omega
+            · omega
+            · omega
+          rcases hw_val with h3 | h4 | h5
+          · left; exact Subtype.ext h3
+          · right; left; exact Subtype.ext h4
+          · right; right; exact Subtype.ext h5
+        have h_card3 : ({w3, w4, w5} : Finset (Subtype (counterG.neighborSet 0))).card ≤ 3 := by
+          calc ({w3, w4, w5} : Finset _).card
+            _ ≤ ({w4, w5} : Finset _).card + 1 := card_insert_le _ _
+            _ ≤ ({w5} : Finset _).card + 1 + 1 := add_le_add_right (card_insert_le w4 {w5}) 1
+            _ = 3 := by simp
+        exact le_trans (Finset.card_le_card hA_sub) h_card3
+      have hB_le : B.card ≤ 1 := by
+        by_contra hgt
+        push_neg at hgt
+        have hB2 : 2 ≤ B.card := hgt
+        obtain ⟨x, hxB, y, hyB, hne⟩ := exists_two_of_card_ge_two hB2
+        have hx_in : x ∈ s := Finset.mem_of_mem_filter x hxB
+        have hy_in : y ∈ s := Finset.mem_of_mem_filter y hyB
+        have hx6 : 6 ≤ x.val.val := (Finset.mem_filter.mp hxB).2
+        have hy6 : 6 ≤ y.val.val := (Finset.mem_filter.mp hyB).2
+        have hne_val : x.val ≠ y.val := fun h => hne (Subtype.ext h)
+        have hadj : counterG.Adj x.val y.val := by
+          rw [counterG_adj]
+          refine ⟨hne_val, Or.inr (Or.inl ⟨hx6, hy6⟩)⟩
+        have hindep : ¬(counterG.induce (counterG.neighborSet 0)).Adj x y :=
+          hs (Finset.mem_coe.mp hx_in) (Finset.mem_coe.mp hy_in) hne
+        have : (counterG.induce (counterG.neighborSet 0)).Adj x y := hadj
+        exact hindep this
+      omega
+  · apply le_csSup
+    · exact ⟨79, fun n ⟨s, hs⟩ => hs.card_eq ▸ s.card_le_univ.trans (by decide)⟩
+    · refine ⟨{w3, w4, w5, w6}, ?_⟩
+      rw [isNIndepSet_iff]
+      constructor
+      · intro x hx y hy hne
+        simp only [coe_insert, coe_singleton, Set.mem_insert_iff, Set.mem_singleton_iff] at hx hy
+        have hne_val : x.val ≠ y.val := fun h => hne (Subtype.ext h)
+        change ¬counterG.Adj x.val y.val
+        rw [counterG_adj]
+        intro h_adj
+        have h_cases : (x.val = 3 ∨ x.val = 4 ∨ x.val = 5 ∨ x.val = 6) ∧ (y.val = 3 ∨ y.val = 4 ∨ y.val = 5 ∨ y.val = 6) := by
+          refine ⟨?_, ?_⟩
+          · rcases hx with rfl | rfl | rfl | rfl
+            · left; rfl
+            · right; left; rfl
+            · right; right; left; rfl
+            · right; right; right; rfl
+          · rcases hy with rfl | rfl | rfl | rfl
+            · left; rfl
+            · right; left; rfl
+            · right; right; left; rfl
+            · right; right; right; rfl
+        rcases h_adj.2 with ((h1 | h2) | h3 | h4 | h5)
+        · omega
+        · omega
+        · omega
+        · omega
+        · omega
+      · have hw3 : w3 ∉ ({w4, w5, w6} : Finset _) := by
+          simp only [mem_insert, mem_singleton]
+          rintro (h | h | h) <;>
+          · have h_val := congr_arg (fun x => x.val.val) h
+            dsimp [w3, w4, w5, w6] at h_val
+            omega
+        have hw4 : w4 ∉ ({w5, w6} : Finset _) := by
+          simp only [mem_insert, mem_singleton]
+          rintro (h | h) <;>
+          · have h_val := congr_arg (fun x => x.val.val) h
+            dsimp [w3, w4, w5, w6] at h_val
+            omega
+        have hw5 : w5 ∉ ({w6} : Finset _) := by
+          simp only [mem_singleton]
+          intro h
+          have h_val := congr_arg (fun x => x.val.val) h
+          dsimp [w3, w4, w5, w6] at h_val
+          omega
+        simp [hw3, hw4, hw5]
+
+
+private lemma sum_univ_partition (f : Fin 79 → ℕ) :
+    (∑ v : Fin 79, f v) = f 0 + f 1 + f 2 + f 3 + f 4 + f 5 + ∑ v ∈ (univ.filter (fun (v : Fin 79) => 6 ≤ v.val)), f v := by
+  have h_union : (univ : Finset (Fin 79)) = {0, 1, 2, 3, 4, 5} ∪ (univ.filter (fun (v : Fin 79) => 6 ≤ v.val)) := by
+    ext x
+    simp only [mem_univ, mem_union, mem_insert, mem_singleton, mem_filter, true_and, true_iff]
+    rcases Nat.lt_or_ge x.val 6 with hlt | hge
+    · left
+      interval_cases h : x.val
+      · have : x = 0 := Fin.ext h
+        subst this; simp
+      · have : x = 1 := Fin.ext h
+        subst this; simp
+      · have : x = 2 := Fin.ext h
+        subst this; simp
+      · have : x = 3 := Fin.ext h
+        subst this; simp
+      · have : x = 4 := Fin.ext h
+        subst this; simp
+      · have : x = 5 := Fin.ext h
+        subst this; simp
+    · right; exact hge
+  have h_disj : Disjoint ({0, 1, 2, 3, 4, 5} : Finset (Fin 79)) (univ.filter (fun (v : Fin 79) => 6 ≤ v.val)) := by
+    decide
+  nth_rw 1 [h_union]
+  rw [sum_union h_disj]
+  simp [sum_insert]
+  omega
+
 /-- `l_avg(counterG) = 92/79` -/
 private lemma counterG_l_avg : counterG.l_avg = 92 / 79 := by
-  sorry
+  unfold l_avg averageIndepNeighbors indepNeighbors
+  suffices h_sum : (∑ v : Fin 79, (indepNeighborsCard counterG v : ℝ)) = 92 by
+    rw [h_sum]
+    simp
+  have h_sum_nat : (∑ v : Fin 79, indepNeighborsCard counterG v) = 92 := by
+    rw [sum_univ_partition (indepNeighborsCard counterG)]
+    rw [counterG_indepNeighborsCard_zero]
+    rw [counterG_indepNeighborsCard_1]
+    rw [counterG_indepNeighborsCard_2]
+    rw [counterG_indepNeighborsCard_3]
+    rw [counterG_indepNeighborsCard_4]
+    rw [counterG_indepNeighborsCard_5]
+    have h_filter : (∑ v ∈ univ.filter (fun (v : Fin 79) => 6 ≤ v.val), indepNeighborsCard counterG v) =
+        ∑ v ∈ univ.filter (fun (v : Fin 79) => 6 ≤ v.val), 1 := by
+      apply Finset.sum_congr rfl
+      intro v hv
+      simp only [mem_filter, mem_univ, true_and] at hv
+      exact counterG_indepNeighborsCard_ge6 v hv
+    rw [h_filter]
+    rw [Finset.sum_const, smul_eq_mul, mul_one]
+    have h_card : (univ.filter (fun (v : Fin 79) => 6 ≤ v.val)).card = 73 := by
+      decide
+    rw [h_card]
+  exact_mod_cast h_sum_nat
 
 /-- `f(counterG) ≤ 6`: Any induced subgraph with ≥ 7 vertices has a cycle. -/
 private lemma counterG_forest_le : counterG.largestInducedForestSize ≤ 6 := by
@@ -522,6 +800,5 @@ theorem conjecture58 : answer(False) ↔
                 apply div_le_div_of_nonneg_right _ (by positivity)
                 exact mul_le_mul_of_nonneg_right hb (by positivity)
             _ = counterG.b / (92 / 79) := by ring
-#print axioms conjecture58
 
 end WrittenOnTheWallII.GraphConjecture58
