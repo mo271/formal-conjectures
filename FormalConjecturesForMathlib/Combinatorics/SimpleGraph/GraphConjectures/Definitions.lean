@@ -156,6 +156,24 @@ def computable_indep_num (G : SimpleGraph α) [DecidableRel G.Adj] : ℕ :=
   (Finset.univ.powerset.filter (fun s : Finset α =>
     ∀ u ∈ s, ∀ v ∈ s, u ≠ v → ¬G.Adj u v)).sup Finset.card
 
+/-- Computable independence number of a subset. -/
+def computable_indep_num_of_set (G : SimpleGraph α) [DecidableRel G.Adj] (s : Finset α) : ℕ :=
+  (s.powerset.filter (fun s1 => ∀ u ∈ s1, ∀ v ∈ s1, ¬ G.Adj u v)).sup Finset.card
+
+/-- Computable independence number of the neighborhood of v. -/
+def computable_indep_neighbors_card (G : SimpleGraph α) [DecidableRel G.Adj] (v : α) : ℕ :=
+  G.computable_indep_num_of_set (G.neighborFinset v)
+
+/-- Computable largest induced forest size via powerset enumeration. -/
+def computable_largest_induced_forest_size (G : SimpleGraph α) [DecidableRel G.Adj] : ℕ :=
+  (Finset.univ.powerset.filter (fun s =>
+    ∀ t ∈ s.powerset, t.Nonempty → ∃ v ∈ t, (t.filter (G.Adj v)).card ≤ 1)).sup Finset.card
+
+/-- Computable largest induced bipartite subgraph size via powerset enumeration. -/
+def computable_largest_induced_bipartite_subgraph_size (G : SimpleGraph α) [DecidableRel G.Adj] : ℕ :=
+  (Finset.univ.powerset.filter (fun s =>
+    ∃ s1 ∈ s.powerset, (∀ u ∈ s1, ∀ v ∈ s1, ¬ G.Adj u v) ∧ (∀ u ∈ s \ s1, ∀ v ∈ s \ s1, ¬ G.Adj u v))).sup Finset.card
+
 /-- Computable domination number via powerset enumeration. -/
 def computable_dom_num (G : SimpleGraph α) [DecidableRel G.Adj] : ℕ :=
   (Finset.univ.powerset.filter (fun D : Finset α =>
@@ -185,5 +203,9 @@ def computable_szeged_index (G : SimpleGraph α) [DecidableRel G.Adj] : ℕ :=
   ∑ e ∈ G.edgeFinset,
     Sym2.lift ⟨fun u v => computable_szeged_aux G u v * computable_szeged_aux G v u,
       fun a b => by ring⟩ e
+
+/-- Computable average of `indepNeighbors` over all vertices. -/
+noncomputable def computable_average_indep_neighbors (G : SimpleGraph α) [DecidableRel G.Adj] : ℝ :=
+  (∑ v ∈ Finset.univ, (G.computable_indep_neighbors_card v : ℝ)) / (Fintype.card α : ℝ)
 
 end SimpleGraph
