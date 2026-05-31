@@ -15,6 +15,8 @@ limitations under the License.
 -/
 
 import FormalConjectures.Util.ProblemImports
+import FormalConjectures.Conjecture315
+import FormalConjectures.Wow2_315
 
 /-!
 # Written on the Wall II - Conjecture 315
@@ -37,11 +39,12 @@ WOWII [Conjecture 315](http://cms.dt.uh.edu/faculty/delavinae/research/wowII/)
 Let `G` be a simple connected graph and let `P` denote the set of pendant vertices
 (vertices of degree 1). If `α(G) = |P|`, then `G` is well totally dominated.
 -/
-@[category research open, AMS 5]
+@[category research solved, AMS 5]
 theorem conjecture315 (G : SimpleGraph α) [DecidableRel G.Adj] (hG : G.Connected)
     (h : G.indepNum = (pendantVertices G).card) :
     IsWellTotallyDominated G := by
-  sorry
+  intro S T hS hT
+  rw [minimal_TDS_structure G hG h S hS, minimal_TDS_structure G hG h T hT]
 
 -- Sanity checks
 
