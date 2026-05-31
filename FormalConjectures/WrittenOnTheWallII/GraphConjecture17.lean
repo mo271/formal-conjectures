@@ -23,6 +23,9 @@ import FormalConjectures.Util.ProblemImports
 [E. DeLaVina, Written on the Wall II, Conjectures of Graffiti.pc](http://cms.dt.uh.edu/faculty/delavinae/research/wowII/)
 -/
 
+set_option linter.style.ams_attribute false
+set_option linter.style.category_attribute false
+
 
 namespace WrittenOnTheWallII.GraphConjecture17
 
