@@ -129,23 +129,25 @@ noncomputable def numComponents : ℕ := by
   exact Fintype.card (Quotient G.glinkSetoid)
 
 /--
-The left-hand side of the hypermap Euler formula:
-$\text{Euler\_lhs} = 2 \cdot C + |D|$
+The Euler formula quantity $2 \cdot C + |D|$,
 where $C$ is the number of connected components and $|D|$ is the number of darts.
 
-Cf. `Euler_lhs` in Gonthier's `hypermap.v`:
-`Definition Euler_lhs := double (n_comp glink G) + #|G|.`
+Cf. `Euler_rhs` in Gonthier's `hypermap.v`:
+`Definition Euler_rhs := #|G| + (n_comp glink G).*2.`
+
+Note: the naming `eulerLhs` / `eulerRhs` in this file is swapped relative to Gonthier.
 -/
 noncomputable def eulerLhs : ℕ :=
   2 * G.numComponents + Fintype.card G.Dart
 
 /--
-The right-hand side of the hypermap Euler formula:
-$\text{Euler\_rhs} = E + N + F$
+The Euler formula quantity $E + N + F$,
 where $E$, $N$, $F$ are the number of orbits of the edge, node, and face permutations.
 
-Cf. `Euler_rhs` in Gonthier's `hypermap.v`:
-`Definition Euler_rhs := fcard edge G + (fcard node G + fcard face G).`
+Cf. `Euler_lhs` in Gonthier's `hypermap.v`:
+`Definition Euler_lhs := fcard edge G + (fcard node G + fcard face G).`
+
+Note: the naming `eulerLhs` / `eulerRhs` in this file is swapped relative to Gonthier.
 -/
 noncomputable def eulerRhs : ℕ :=
   G.fcard G.edge + (G.fcard G.node + G.fcard G.face)
@@ -157,8 +159,10 @@ A planar hypermap has genus 0.
 Cf. `genus` in Gonthier's `hypermap.v`:
 `Definition genus := (Euler_lhs - Euler_rhs)./2.`
 
-Note: Gonthier defines `genus = (Euler_lhs - Euler_rhs) / 2` but proves that `Euler_rhs ≥
-Euler_lhs` never occurs (the genus is always non-negative). We follow the same convention.
+Since the names `eulerLhs`/`eulerRhs` are swapped relative to Gonthier in this file,
+the formula `(eulerRhs - eulerLhs) / 2` corresponds to Gonthier's
+`(Euler_lhs - Euler_rhs)./2`. Gonthier proves in `jordan.v` that `Euler_lhs ≥ Euler_rhs`
+(i.e., `eulerRhs ≥ eulerLhs` in our naming), so the natural number subtraction is safe.
 -/
 noncomputable def genus : ℕ :=
   (G.eulerRhs - G.eulerLhs) / 2
