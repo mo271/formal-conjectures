@@ -30,6 +30,8 @@ public section
 
 namespace AnswerLinter
 
+set_option warn.sorry false
+
 /--
 warning: Move the quantifiers outward:
 instead of

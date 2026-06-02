@@ -15,6 +15,8 @@ limitations under the License.
 -/
 
 import FormalConjectures.Util.Linters.CategoryDocstringLinter
+set_option linter.style.category_docstring true
+set_option warn.sorry false
 
 /-!
 # Tests for the category docstring linter
