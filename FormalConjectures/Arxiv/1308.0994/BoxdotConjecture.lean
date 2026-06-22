@@ -157,8 +157,8 @@ def proves (L : NormalModalLogic) (φ : Formula) := φ ∈ L.thms
 
 
 scoped infixr:85 " ⊢ " => proves
-scoped notation L " ⊆ " L' =>
-  NormalModalLogic.thms L ⊆ NormalModalLogic.thms L'
+instance : HasSubset NormalModalLogic where
+  Subset L L' := NormalModalLogic.thms L ⊆ NormalModalLogic.thms L'
 
 
 /--

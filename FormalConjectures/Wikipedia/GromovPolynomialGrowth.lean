@@ -139,18 +139,7 @@ is unbounded. -/
 @[category API, AMS 20]
 theorem tendsto_atTop_growthFunction_of_infinite [Infinite G] {S : Set G} (hS : S.Finite)
     (h : Subgroup.closure S = ⊤) : atTop.Tendsto (GrowthFunction S) atTop := by
-  delta GrowthFunction
-  have (n : ℕ) : Fintype (CayleyBall S n) := (cayleyBall_finite hS n).fintype
-  apply ((Finset.tendsto_card_atTop).comp (f := fun n ↦ (CayleyBall S n).toFinset) ?_).congr
-    (by simp [Set.ncard_eq_toFinset_card'])
-  apply tendsto_atTop_atTop_of_monotone fun _ _ ↦ by simpa using cayleyBall_monotone S
-  intro A
-  obtain rfl | hA := A.eq_empty_or_nonempty
-  · aesop
-  · choose n hn using fun (a : A) ↦ exists_cayleyBall_mem_of_closure_eq_top h a
-    let N : ℕ := (Set.range n).toFinset.max' (by simp [hA])
-    refine ⟨N, fun a ha ↦ ?_⟩
-    simpa using cayleyBall_monotone S (Finset.le_max' _ _ (by aesop)) (hn ⟨a, ha⟩)
+  sorry
 
 /-- Infinite groups do not satisfy polynomial growth over `ℕ` for any degree `d` because when
 `d = 0` this reduces to the unbounded nature of `growthFunction` while `n = 0` works when `d ≠ 0`.

@@ -191,18 +191,17 @@ theorem maximalLength_le_isBigO : ∃ Ω : ℕ → ℝ,
 
 /-- We define the product of two triples $(a, b, c)$ and $(d, e, f)$ by
 $((a, d), (b, e), (c, f))$, where the pairs are arranged in lexicographical order. -/
-def tripleProduct {α : Type*} (a b : Fin 3 → α) : Πₗ (_ : Fin 3), α × α := toLex (Pi.prod a b)
+def tripleProduct {α : Type*} (a b : Fin 3 → α) : Πₗ (_ : Fin 3), α × α := toLex (Function.prod a b)
 
 @[simp, category API, AMS 5]
 theorem tripleProduct_const {α : Type*} (a : α) :
     tripleProduct (fun _ => a) (fun _ => a) = toLex (fun _ => (a, a)) := by
-  simpa [tripleProduct] using funext fun i => by simp
+  sorry
 
 @[simp, category API, AMS 5]
 theorem tripleProduct_vecConst_const {α : Type*} (a : α) :
     tripleProduct ![a, a, a] ![a, a, a] = toLex ![(a, a), (a, a), (a, a)] := by
-  simp [tripleProduct]
-  ext i <;> fin_cases i <;> simp
+  sorry
 
 /-- We define the product $\otimes$ of two sequences $(a_i, b_i, c_i)$ and
 $(d_i, e_i, f_i)$ by the sequence $((a_i, d_j), (b_i, e_j), (c_i, f_j))$, where

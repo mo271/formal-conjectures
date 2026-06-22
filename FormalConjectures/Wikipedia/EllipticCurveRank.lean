@@ -50,8 +50,8 @@ Consequently, the rank is always finite, so `finrank ℤ E⟮K⟯ = 0` really me
 rational points is torsion, not that it is of infinite rank. -/
 @[category research solved, AMS 11 14]
 instance {K} [Field K] [NumberField K] (E : WeierstrassCurve K) [E.IsElliptic]
-    [AddCommMonoid E⟮K⟯] [Module ℤ E⟮K⟯] :
-      Module.Finite ℤ E⟮K⟯ := by
+    [AddCommMonoid E.toAffine.Point] [Module ℤ E.toAffine.Point] :
+      Module.Finite ℤ E.toAffine.Point := by
   sorry
 
 namespace RatEllipticCurve
@@ -61,7 +61,7 @@ def toWeierstrass (E : RatEllipticCurve) : WeierstrassCurve ℚ :=
   { a₁ := 0, a₂ := 0, a₃ := 0, a₄ := E.A, a₆ := E.B }
 
 /-- The rank of an elliptic curve over ℚ. -/
-noncomputable abbrev rank (E : RatEllipticCurve) : ℕ := finrank ℤ E.toWeierstrass⟮ℚ⟯
+noncomputable abbrev rank (E : RatEllipticCurve) : ℕ := finrank ℤ E.toWeierstrass.toAffine.Point
 
 open WeierstrassCurve in
 instance (E : RatEllipticCurve) : E.toWeierstrass.IsElliptic where
@@ -185,12 +185,12 @@ instance : elkiesKlagsbrun29.IsElliptic where
 
 /-- The rank of the Elkies-Klagsbrun curve is at least 29. -/
 @[category research solved, AMS 11 14]
-theorem twentynine_le_rank_elkiesKlagsbrun29 : 29 ≤ finrank ℤ elkiesKlagsbrun29⟮ℚ⟯ := by
+theorem twentynine_le_rank_elkiesKlagsbrun29 : 29 ≤ finrank ℤ elkiesKlagsbrun29.toAffine.Point := by
   sorry
 
 /-- The rank of the Elkies-Klagsbrun curve is exactly 29. -/
 @[category research open, AMS 11 14]
-theorem rank_elkiesKlagsbrun29 : finrank ℤ elkiesKlagsbrun29⟮ℚ⟯ = 29 := by
+theorem rank_elkiesKlagsbrun29 : finrank ℤ elkiesKlagsbrun29.toAffine.Point = 29 := by
   sorry
 
 /-- The elliptic curve over ℚ of rank at least 28 found by Elkies in 2006.
@@ -216,12 +216,12 @@ instance : elkies28.IsElliptic where
 
 /-- The rank of the Elkies curve is at least 28. -/
 @[category research solved, AMS 11 14]
-theorem twentyeight_le_rank_elkies28 : 28 ≤ finrank ℤ elkies28⟮ℚ⟯ := by
+theorem twentyeight_le_rank_elkies28 : 28 ≤ finrank ℤ elkies28.toAffine.Point := by
   sorry
 
 /-- The rank of the Elkies curve is exactly 28. -/
 @[category research open, AMS 11 14]
-theorem rank_elkies28 : finrank ℤ elkies28⟮ℚ⟯ = 28 := by
+theorem rank_elkies28 : finrank ℤ elkies28.toAffine.Point = 28 := by
   sorry
 
 -- TODO: compute the rank of some rank 0 / 1 curve.
