@@ -20,6 +20,7 @@ This identity connects formal power series inversion (`substInv`) to the enumera
 Dyck paths, binary trees, triangulations of polygons, and many other combinatorial structures.
 -/
 
+@[category research solved, AMS 0]
 theorem substInv_X_sub_X_sq_eq_catalan (n : ℕ) :
     haveI : Invertible (coeff 1 ((X : ℚ⟦X⟧) - X ^ 2)) := by
       simp [coeff_X, coeff_X_pow]; exact invertibleOne

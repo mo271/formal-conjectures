@@ -32,6 +32,7 @@ def WordProblemSolvable {G : Type*} [Group G] {n : ℕ}
 /-- **Novikov's theorem** (P.S. Novikov 1955; independently W.W. Boone
 1958). There exists a finite presentation with undecidable word
 problem. -/
+@[category research solved, AMS 0]
 theorem novikov_unsolvable :
     ∃ (n : ℕ) (rels : Set (FreeGroup (Fin n))),
       rels.Finite ∧ ¬ WordProblemSolvable (PresentedGroup.mk rels) := by

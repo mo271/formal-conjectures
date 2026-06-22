@@ -74,6 +74,7 @@ topology (`[DiscreteTopology Q] [Finite Q]`), in which setting both ranks
 agree with their abstract group-theoretic counterparts.
 
 References: NSW, Theorem 3.9.7; Serre, Chapter I, Appendix 2, Theorem 1. -/
+@[category research solved, AMS 0]
 theorem golod_shafarevich_inequality
     (p : ℕ) [Fact p.Prime] (Q : Type)
     [Group Q] [TopologicalSpace Q] [IsTopologicalGroup Q]

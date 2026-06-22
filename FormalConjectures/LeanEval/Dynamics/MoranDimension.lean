@@ -55,6 +55,7 @@ def OpenSetCondition {d n : ℕ}
 on `ℝᵈ` with common contraction factor `λ ∈ (0,1)`, orthogonal linear parts, and
 the open set condition, the Hausdorff dimension of the attractor is
 `−log n / log λ` (positive since `λ < 1`). -/
+@[category research solved, AMS 0]
 theorem moran_equality_affine
     {d n : ℕ} (hn : 1 ≤ n)
     (f : Fin n → EuclideanSpace ℝ (Fin d) → EuclideanSpace ℝ (Fin d)) (lam : ℝ)

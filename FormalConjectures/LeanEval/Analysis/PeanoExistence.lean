@@ -21,6 +21,7 @@ continuity still yields a local solution of `x' = f(x)`, `x(0) = x₀` — but
 uniqueness may fail (e.g. `x' = √x`, `x(0) = 0`). Stated for a
 finite-dimensional space: Peano's theorem requires local compactness and is
 false in general (infinite-dimensional) Banach spaces. -/
+@[category research solved, AMS 0]
 theorem peano_existence
     {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E] [FiniteDimensional ℝ E]
     {f : E → E} (hf : Continuous f) (x₀ : E) :

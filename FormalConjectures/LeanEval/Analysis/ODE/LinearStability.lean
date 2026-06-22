@@ -23,6 +23,7 @@ open scoped Matrix
 Let `A : Matrix (Fin n) (Fin n) ℝ`. Suppose every (complex) eigenvalue of the
 complexification of `A` has strictly negative real part. Then every solution of the
 linear ODE `x'(t) = A · x(t)` tends to `0` in norm as `t → ∞`. -/
+@[category research solved, AMS 0]
 theorem linear_ode_asymptotic_stability
     (n : ℕ) (A : Matrix (Fin n) (Fin n) ℝ)
     (hA : ∀ μ : ℂ,

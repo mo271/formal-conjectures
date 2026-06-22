@@ -18,6 +18,7 @@ is a normal subgroup of `G`. The only known proof uses character theory
 group-theoretic proof has been found in over a century.
 -/
 
+@[category research solved, AMS 0]
 theorem frobenius_kernel_isNormal
     (G X : Type) [Group G] [Fintype G] [Fintype X]
     [MulAction G X] [FaithfulSMul G X]

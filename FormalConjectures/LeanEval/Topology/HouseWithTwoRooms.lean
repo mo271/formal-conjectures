@@ -21,6 +21,7 @@ def HouseWithTwoRooms : Set (ℝ × ℝ × ℝ) :=
     Icc 1 2 ×ˢ {1, 2} ×ˢ Icc 1 2 ∪ Icc 2 3 ×ˢ {1, 2} ×ˢ Icc 0 1) ∪
   (Icc 0 4 ×ˢ {0, 3} ×ˢ Icc 0 2 ∪ {0, 4} ×ˢ Icc 0 3 ×ˢ Icc 0 2)
 
+@[category research solved, AMS 0]
 theorem contractibleSpace_houseWithTwoRooms : ContractibleSpace HouseWithTwoRooms := by
   sorry
 

@@ -73,6 +73,7 @@ def cyclicPolytopeFaceCount (n d k : ℕ) : ℕ :=
 Every `k`-face count of a finite simplicial `(d − 1)`-sphere with `n`
 vertices is bounded above by the corresponding face count of the
 cyclic polytope `C(n, d)`. -/
+@[category research solved, AMS 0]
 theorem upper_bound_theorem_simplicial_spheres
     {d n k : ℕ} (X : FiniteSimplicialSphere d)
     (_hn : faceCount X 0 = n) (_hk : k < d) :

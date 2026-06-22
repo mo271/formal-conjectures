@@ -73,6 +73,7 @@ The hypotheses *compact* and *connected* on the level set, and its
 containment in the open set where the derivatives are independent,
 restore standard regularity assumptions that Knill elides; without them
 the conclusion fails. -/
+@[category research solved, AMS 0]
 theorem liouville_arnold
     {n : ℕ} (F : Fin n → E n → ℝ) (U : Set (E n)) (_hU : IsOpen U)
     (_hLI : IsLiouvilleIntegrable F U)

@@ -30,6 +30,7 @@ def weakStarPolar (E : Type*) [AddCommGroup E] [Module ℝ E] [TopologicalSpace 
 /-- **Bourbaki's locally convex extension of Banach–Alaoglu** (§137). The
 weak-star polar of a zero-neighbourhood `U` in a real locally convex space `E`
 is weak-star compact. -/
+@[category research solved, AMS 0]
 theorem banach_alaoglu_bourbaki (E : Type*) [AddCommGroup E] [Module ℝ E]
     [TopologicalSpace E] [ContinuousAdd E] [ContinuousSMul ℝ E]
     [LocallyConvexSpace ℝ E] (U : Set E) (_hU : U ∈ 𝓝 (0 : E)) :

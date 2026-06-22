@@ -86,6 +86,7 @@ axiom `A10` is logically independent of Tarski's absolute axioms `A1`–`A9`
 and `A11`: there is a model of the absolute axioms in which the parallel
 postulate holds (the real coordinate plane) and one in which it fails (the
 Klein–Beltrami disk, or any other hyperbolic-plane model). -/
+@[category research solved, AMS 0]
 theorem parallel_postulate_independent :
     (∃ (M : Type) (T : TarskiAbsolute M), Euclidean M T) ∧
     (∃ (M : Type) (T : TarskiAbsolute M), ¬ Euclidean M T) := by

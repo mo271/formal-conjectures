@@ -22,6 +22,7 @@ topological group on a finite-dimensional real vector space is semisimple:
 every subrepresentation has a `G`-invariant complement, so the representation
 decomposes as a direct sum of irreducible finite-dimensional
 subrepresentations. -/
+@[category research solved, AMS 0]
 theorem compact_group_semisimple
     {G V : Type*} [Group G] [TopologicalSpace G] [IsTopologicalGroup G] [CompactSpace G]
     [NormedAddCommGroup V] [NormedSpace ℝ V] [FiniteDimensional ℝ V]

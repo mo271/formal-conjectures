@@ -38,6 +38,7 @@ def IsDiophantine (α : ℝ) : Prop :=
 `q(t+α) − 2q(t) + q(t−α) = c·f(q(t))` has a smooth strictly increasing solution
 `q` with `q − id` periodic — the `c = 0` curve `q₀(t) = t` persists as a smooth
 invariant curve of rotation number `α`. -/
+@[category research solved, AMS 0]
 theorem kam_invariant_curve
     (α : ℝ) (_hα : IsDiophantine α)
     (f : ℝ → ℝ)

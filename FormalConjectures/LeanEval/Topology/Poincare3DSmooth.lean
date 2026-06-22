@@ -29,6 +29,7 @@ open Metric (sphere)
 /-- **3D smooth Poincaré conjecture** (Perelman, 2002–2003). Every simply
 connected compact Hausdorff smooth 3-manifold is diffeomorphic to the
 standard 3-sphere `𝕊³`. -/
+@[category research solved, AMS 0]
 theorem poincare_3d_smooth
     {M : Type*} [TopologicalSpace M] [T2Space M]
     [ChartedSpace (EuclideanSpace ℝ (Fin 3)) M] [IsManifold (𝓡 3) ∞ M]

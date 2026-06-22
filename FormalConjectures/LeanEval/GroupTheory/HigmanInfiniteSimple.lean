@@ -27,6 +27,7 @@ simple group on hand.
 
 /-- **Higman's infinite simple group** (G. Higman 1951/1974). There
 exists an infinite finitely presented simple group. -/
+@[category research solved, AMS 0]
 theorem higman_infinite_simple :
     ∃ (n : ℕ) (rels : Set (FreeGroup (Fin n))),
       rels.Finite ∧ IsSimpleGroup (PresentedGroup rels) ∧

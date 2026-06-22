@@ -49,6 +49,7 @@ noncomputable def Δ (d : ℕ) : ℝ :=
 
 /-- **Kepler conjecture** (Hales 1998, Flyspeck 2014). The optimal
 sphere-packing density in three dimensions equals `π / √18`. -/
+@[category research solved, AMS 0]
 theorem kepler_conjecture : Δ 3 = Real.pi / Real.sqrt 18 := by
   sorry
 

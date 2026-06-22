@@ -33,6 +33,7 @@ abbrev Plane := EuclideanSpace ℝ (Fin 2)
 forward orbit is unbounded, or the ω-limit set contains an equilibrium
 of `F`, or the ω-limit set equals the range of a non-constant periodic
 integral curve of `F`. -/
+@[category research solved, AMS 0]
 theorem poincare_bendixson
     (F : Plane → Plane) (_hF : ContDiff ℝ 1 F)
     (γ : ℝ → Plane)

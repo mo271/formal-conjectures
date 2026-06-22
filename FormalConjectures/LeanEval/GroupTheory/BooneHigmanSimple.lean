@@ -38,6 +38,7 @@ def WordProblemSolvable {G : Type*} [Group G] {n : ℕ}
 
 /-- **Kuznetsov's theorem** (A.V. Kuznetsov, 1958). A finitely presented
 simple group has a solvable word problem. -/
+@[category research solved, AMS 0]
 theorem boone_higman_simple
     {G : Type*} [Group G] [IsSimpleGroup G]
     {n : ℕ} (φ : FreeGroup (Fin n) →* G)

@@ -27,6 +27,7 @@ interval `J` containing `[a, b]` of the linear homogeneous ODE `y'' + p y' + q y
 with `p, q` continuous on `J`, and their Wronskian is nonzero at some point of `J`. If
 `a < b ∈ J` are consecutive zeros of `y₁` (i.e. `y₁ a = y₁ b = 0` and `y₁ x ≠ 0` on
 `(a, b)`), then `y₂` has exactly one zero in `(a, b)`. -/
+@[category research solved, AMS 0]
 theorem sturm_separation
     (p q y₁ y₂ : ℝ → ℝ) (a b : ℝ) (hab : a < b)
     (J : Set ℝ) (hJ_open : IsOpen J) (hJ_conn : IsPreconnected J)

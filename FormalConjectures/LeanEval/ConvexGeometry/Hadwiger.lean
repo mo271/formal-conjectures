@@ -53,6 +53,7 @@ noncomputable def valuations (n : ℕ) : Submodule ℝ (ConvexBody (E n) → ℝ
 
 /-- **Hadwiger's theorem.** The space of continuous rigid-motion-invariant
 valuations on convex bodies in `ℝⁿ` is `(n+1)`-dimensional. -/
+@[category research solved, AMS 0]
 theorem hadwiger (n : ℕ) : Module.finrank ℝ (valuations n) = n + 1 := by
   sorry
 

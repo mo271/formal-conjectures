@@ -28,6 +28,7 @@ def WordProblemSolvable {G : Type*} [Group G] {n : ℕ}
 embeds (via injective `f`) into a simple group `H`, which embeds (via injective
 `g`) into a finitely presented group `K`, then the word problem of `G` is
 solvable. -/
+@[category research solved, AMS 0]
 theorem boone_higman_embedding
     {G H K : Type*} [Group G] [Group H] [Group K]
     [IsSimpleGroup H] [Group.IsFinitelyPresented K]

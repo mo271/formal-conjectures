@@ -33,6 +33,7 @@ def IsDiophantine (x : ℝ) : Prop :=
 /-- **Thue–Siegel–Roth theorem** (Klaus Roth, 1955). Every irrational
 algebraic real is Diophantine: its irrationality measure is at most
 `2`. -/
+@[category research solved, AMS 0]
 theorem thueSiegelRoth (x : ℝ) (_h_irr : Irrational x)
     (_h_alg : IsAlgebraic ℤ x) : IsDiophantine x := by
   sorry

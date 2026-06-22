@@ -19,6 +19,7 @@ open scoped BigOperators Topology
 
 /-- **Bounded gaps between primes.** For every `n` there is a pair of primes
 `p < q` with `n ≤ p` and `q - p ≤ 246`. -/
+@[category research solved, AMS 0]
 theorem zhang_bounded_prime_gaps :
     ∀ n : ℕ, ∃ p q : ℕ, n ≤ p ∧ p.Prime ∧ q.Prime ∧ p < q ∧ q - p ≤ 246 := by
   sorry

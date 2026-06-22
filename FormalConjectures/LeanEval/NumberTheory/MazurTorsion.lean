@@ -25,6 +25,7 @@ def IsInMazurClass (T : Type*) [AddCommGroup T] : Prop :=
 
 /-- **Mazur's torsion theorem.** The torsion subgroup of `E(ℚ)` lies in the
 Mazur class. -/
+@[category research solved, AMS 0]
 theorem mazur_torsion (E : WeierstrassCurve ℚ) [E.IsElliptic] :
     IsInMazurClass ↥(AddCommGroup.torsion (WeierstrassCurve.Affine.Point E)) := by
   sorry

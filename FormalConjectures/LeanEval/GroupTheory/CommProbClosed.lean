@@ -12,6 +12,7 @@ so there is no need to add in `0` to make the set of commuting probabilities clo
 -/
 
 /-- The set of commuting probabilities of finite groups is closed. -/
+@[category research solved, AMS 0]
 theorem commProb_closed : IsClosed ({p : ℝ | ∃ (G : Type) (hG : Group G), commProb G = p}) := by
   sorry
 

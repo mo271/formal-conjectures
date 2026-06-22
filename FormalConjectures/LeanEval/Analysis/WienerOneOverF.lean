@@ -32,6 +32,7 @@ def InWienerAlgebra (f : C(AddCircle T, ℂ)) : Prop :=
 /-- **Wiener's `1/f` theorem.** If a function on the circle belongs to the
 Wiener algebra and has no zero on the circle, then its pointwise reciprocal
 again belongs to the Wiener algebra. -/
+@[category research solved, AMS 0]
 theorem wiener_inverse_closed (f : C(AddCircle T, ℂ))
     (hf : InWienerAlgebra f) (hzero : ∀ x, f x ≠ 0) :
     ∃ g : C(AddCircle T, ℂ),

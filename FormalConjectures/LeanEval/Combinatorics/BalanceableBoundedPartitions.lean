@@ -26,6 +26,7 @@ def Balanceable {n : ℕ} (p : n.Partition) : Prop :=
 For any `k`, the smallest `n` such that any `k`-bounded partition of `n` is
 also balanceable is given by `2 * lcm(1, ..., k)`.
 -/
+@[category research solved, AMS 0]
 theorem minimal_balanceable_of_bounded (k : ℕ) (hk : 0 < k) :
     Minimal (fun n => 0 < n ∧ ∀ p : n.Partition, Bounded k p → Balanceable p) (2 * (Finset.Icc 1 k).lcm id) := by
   sorry

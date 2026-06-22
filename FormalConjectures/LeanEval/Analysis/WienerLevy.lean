@@ -32,6 +32,7 @@ def InWienerAlgebra (f : C(AddCircle T, ℂ)) : Prop :=
 /-- **Wiener–Lévy theorem.** If `φ` is complex-analytic on a neighbourhood of
 the range of a Wiener-algebra function `f`, then the composed function
 `φ ∘ f` is again in the Wiener algebra. -/
+@[category research solved, AMS 0]
 theorem wiener_levy_analytic_calculus (f : C(AddCircle T, ℂ))
     (φ : ℂ → ℂ) (U : Set ℂ) (hf : InWienerAlgebra f)
     (hU : IsOpen U) (hrange : range f ⊆ U)

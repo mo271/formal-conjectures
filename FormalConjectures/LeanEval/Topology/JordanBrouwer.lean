@@ -27,6 +27,7 @@ Stateable with no new definitions.
 complement in `ℝᵈ` of a topological `(d−1)`-sphere (the image of any
 continuous injection from the unit `(d−1)`-sphere into `ℝᵈ`) has
 exactly two connected components. -/
+@[category research solved, AMS 0]
 theorem jordan_brouwer (d : ℕ) (_hd : 2 ≤ d)
     (r : Metric.sphere (0 : EuclideanSpace ℝ (Fin d)) 1 → EuclideanSpace ℝ (Fin d))
     (_hcont : Continuous r) (_hinj : Function.Injective r) :

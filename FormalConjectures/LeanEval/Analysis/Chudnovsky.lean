@@ -12,6 +12,7 @@ Mathlib already defines the Chudnovsky series `chudnovskySum`; this benchmark as
 identity with `π⁻¹`.
 -/
 
+@[category research solved, AMS 0]
 theorem chudnovsky_formula_for_pi_inv :
     chudnovskySum = π⁻¹ := by
   sorry

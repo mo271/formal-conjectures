@@ -35,6 +35,7 @@ discriminant satisfies `|Δ_K| ≤ C ^ d`.
 
 "Infinitely many `d`" is expressed as: for every `N` there is a degree `d ≥ N`
 that works. -/
+@[category research solved, AMS 0]
 theorem exists_totallyReal_discr_le :
     ∃ C : ℝ, 0 < C ∧ ∀ N : ℕ, ∃ d : ℕ, N ≤ d ∧
       ∃ (K : Type) (_ : Field K) (_ : NumberField K) (_ : NumberField.IsTotallyReal K),

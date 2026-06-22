@@ -35,6 +35,7 @@ orientations, and is invariant under ambient isotopy of the oriented link.
 pullback of a closed 2-form on `ℝ³ \ {0}`.)
 
 See <https://en.wikipedia.org/wiki/Linking_number> for a reference. -/
+@[category research solved, AMS 0]
 theorem exists_nonisotopic_link : ∃ L₁ L₂ : TwoLink, ¬ L₁.Isotopic L₂ := by
   sorry
 

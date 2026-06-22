@@ -96,6 +96,7 @@ noncomputable def crystallographicCountOPOnly (d : ℕ) : ℕ∞ :=
 dimension 3 there are 230 space groups (orientation-preserving
 equivalence), 219 (general affine equivalence), and 65 orientation-
 preserving subfamily. -/
+@[category research solved, AMS 0]
 theorem space_groups :
     crystallographicCountOP 3 = 230 ∧
       crystallographicCount 3 = 219 ∧

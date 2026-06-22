@@ -34,6 +34,7 @@ noncomputable def upperDensity (A : Set ℕ) : ℝ :=
 
 /-- **Szemerédi's theorem.** Every subset of `ℕ` of positive upper density
 contains arbitrarily long arithmetic progressions. -/
+@[category research solved, AMS 0]
 theorem szemeredi (A : Set ℕ) (h : 0 < upperDensity A) :
     ContainsArbitraryAPs A := by
   sorry

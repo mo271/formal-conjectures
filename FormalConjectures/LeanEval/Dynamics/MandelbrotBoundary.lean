@@ -24,6 +24,7 @@ def Mandelbrot : Set ℂ :=
 
 /-- **Shishikura's theorem** (§260). The boundary of the Mandelbrot set has
 Hausdorff dimension `2`. -/
+@[category research solved, AMS 0]
 theorem mandelbrot_boundary_dimh :
     dimH (frontier Mandelbrot) = 2 := by
   sorry

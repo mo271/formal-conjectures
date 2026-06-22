@@ -30,6 +30,7 @@ def Collinear3 (p q r : Fin 3 → ℝ) : Prop := p ⬝ᵥ (q ⨯₃ r) = 0
 
 /-- **Pascal's theorem.** Six distinct points on a non-singular conic determine
 three collinear intersection points `Aᵢ Bⱼ ∩ Aⱼ Bᵢ`. -/
+@[category research solved, AMS 0]
 theorem pascal
     (M : Matrix (Fin 3) (Fin 3) ℝ) (hMsymm : M.IsSymm) (hMdet : M.det ≠ 0)
     (a₁ a₂ a₃ b₁ b₂ b₃ : Fin 3 → ℝ)

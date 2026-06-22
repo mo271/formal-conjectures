@@ -66,6 +66,7 @@ def MemHolder {n : ℕ} (r : ℕ) (α : ℝ) (g : E n → ℝ) : Prop :=
 /-- **Sobolev embedding theorem (Morrey regime).** If `n < p`,
 `0 < α ≤ 1` and `r + α < k − n/p`, then every `W^{k,p}(ℝⁿ)` function
 has a `C^{r,α}` representative. -/
+@[category research solved, AMS 0]
 theorem sobolev_embedding {n k r : ℕ} {α p : ℝ}
     (_hp : (n : ℝ) < p) (_hα : 0 < α) (_hα1 : α ≤ 1)
     (_hgap : (r : ℝ) + α < (k : ℝ) - n / p)

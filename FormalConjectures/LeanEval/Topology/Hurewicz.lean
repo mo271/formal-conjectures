@@ -21,6 +21,7 @@ noncomputable abbrev IntegralHomology (n : ℕ) (X : Type) [TopologicalSpace X] 
 
 /-- **Hurewicz (n = 1).** For a path-connected space `X`, `H₁(X;ℤ)` is the
 abelianization of `π₁(X, x)`. -/
+@[category research solved, AMS 0]
 theorem hurewicz_h1_abelianization
     (X : Type) [TopologicalSpace X] [PathConnectedSpace X] (x : X) :
     Nonempty (Additive (Abelianization (FundamentalGroup X x)) ≃+

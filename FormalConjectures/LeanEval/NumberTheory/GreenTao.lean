@@ -25,6 +25,7 @@ def ContainsArbitraryAPs (A : Set ℕ) : Prop :=
 
 /-- **Green–Tao theorem.** The set of primes contains arbitrarily long
 arithmetic progressions. -/
+@[category research solved, AMS 0]
 theorem green_tao : ContainsArbitraryAPs {p : ℕ | Nat.Prime p} := by
   sorry
 

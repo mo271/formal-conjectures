@@ -12,6 +12,7 @@ See also https://en.wikipedia.org/wiki/Rad%C3%B3%27s_theorem_(Riemann_surfaces)
 
 namespace LeanEval.Geometry
 
+@[category research solved, AMS 0]
 theorem rado_riemannSurface {X : Type*} [TopologicalSpace X] [T2Space X] [ConnectedSpace X]
     [ChartedSpace ℂ X] [IsManifold (modelWithCornersSelf ℂ ℂ) 1 X] :
     SecondCountableTopology X := by

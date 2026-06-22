@@ -31,6 +31,7 @@ open Polynomial
 every nonzero rational polynomial of degree `n` lies in `solvableByRad ℚ ℂ` iff
 `n ≤ 4`. The forward direction packages the explicit Cardano/Ferrari radical
 formulas; the reverse is the classical insolvability of the general quintic. -/
+@[category research solved, AMS 0]
 theorem abel_ruffini (n : ℕ) (_hn : 1 ≤ n) :
     (∀ p : ℚ[X], p.natDegree = n → ∀ x : ℂ, aeval x p = 0 →
         x ∈ solvableByRad ℚ ℂ) ↔ n ≤ 4 := by

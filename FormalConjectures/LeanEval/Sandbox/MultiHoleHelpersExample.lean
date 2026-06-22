@@ -31,6 +31,7 @@ namespace Helpers
 
 def preHole : Nat := 100
 
+@[category research solved, AMS 0]
 def first : Nat := sorry
 
 def postHole : Nat := 1000
@@ -38,8 +39,10 @@ def postHole : Nat := 1000
 structure WithCompanions where
   value : Nat
 
+@[category research solved, AMS 0]
 theorem second_eq : first + rootHelper + preHole = first + 141 := sorry
 
+@[category research solved, AMS 0]
 theorem third_eq : postHole + ({ value := 0 } : WithCompanions).value = 1000 := sorry
 
 end Helpers

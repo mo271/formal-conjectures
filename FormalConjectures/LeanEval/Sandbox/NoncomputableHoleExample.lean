@@ -12,10 +12,14 @@ before `noncomputable`, so a naive `@[reducible]` injection at the
 declaration keyword would produce invalid syntax.
 -/
 
+@[category research solved, AMS 0]
 def RWidget : Type := sorry
 
+@[category research solved, AMS 0]
 noncomputable instance instInhabitedRWidget : Inhabited RWidget := sorry
 
+@[category research solved, AMS 0]
 noncomputable def rwidgetPoint : RWidget := sorry
 
+@[category research solved, AMS 0]
 theorem rwidgetPoint_default : rwidgetPoint = (default : RWidget) := sorry

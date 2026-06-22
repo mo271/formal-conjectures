@@ -43,6 +43,7 @@ noncomputable abbrev _root_.AlgebraicGeometry.Scheme.Modules.sheaf :
 /-- A coherent sheaf `M` (here: quasi-coherent and of finite type, which on the
 locally Noetherian `X` is coherent) on a scheme `X` proper over `ℚ` has
 finite-dimensional cohomology in every degree. -/
+@[category research solved, AMS 0]
 theorem coherent_cohomology_finite_dimensional
     (f : X ⟶ Spec (CommRingCat.of ℚ)) [IsProper f]
     [M.IsFiniteType] [M.IsQuasicoherent] (n : ℕ) :

@@ -20,6 +20,7 @@ open scoped Polynomial
 complement and `f : ℂ → ℂ` continuous on `K` and analytic on the
 interior of `K`, every `ε > 0` admits a complex polynomial `p` with
 `‖f z − p(z)‖ < ε` on `K`. -/
+@[category research solved, AMS 0]
 theorem mergelyan (K : Set ℂ) (_hK : IsCompact K) (_hKc : IsConnected (Kᶜ))
     (f : ℂ → ℂ) (_hfc : ContinuousOn f K) (_hfh : AnalyticOnNhd ℂ f (interior K))
     (ε : ℝ) (_hε : 0 < ε) :

@@ -31,6 +31,7 @@ open Polynomial IntermediateField
 characteristic zero and a nonzero `p : F[X]`, every root of `p` in
 `AlgebraicClosure F` lies in `solvableByRad F (AlgebraicClosure F)`
 iff `p.Gal` is solvable. -/
+@[category research solved, AMS 0]
 theorem solvable_iff_solvableByRad (F : Type*) [Field F] [CharZero F]
     (p : F[X]) (_hp : p ≠ 0) :
     (∀ x : AlgebraicClosure F, aeval x p = 0 →

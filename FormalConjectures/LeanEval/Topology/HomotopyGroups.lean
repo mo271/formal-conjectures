@@ -11,11 +11,13 @@ where homotopy groups are based.
 -/
 
 /-- The fundamental group of the complex unit circle is infinite cyclic. -/
+@[category research solved, AMS 0]
 theorem pi1_circle_mulEquiv_int :
     Nonempty (HomotopyGroup.Pi 1 Circle (1 : Circle) ≃* Multiplicative ℤ) := by
   sorry
 
 /-- The third homotopy group of the 2-sphere is infinite cyclic. -/
+@[category research solved, AMS 0]
 theorem pi3_sphere_two_mulEquiv_int
     (x : Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) 1) :
     Nonempty
@@ -24,6 +26,7 @@ theorem pi3_sphere_two_mulEquiv_int
   sorry
 
 /-- For every `n ≥ 1`, the `n`th homotopy group of the `n`-sphere is infinite cyclic. -/
+@[category research solved, AMS 0]
 theorem pin_sphere_n_mulEquiv_int
     (n : ℕ)
     (x : Metric.sphere (0 : EuclideanSpace ℝ (Fin (n + 2))) 1) :
@@ -33,6 +36,7 @@ theorem pin_sphere_n_mulEquiv_int
   sorry
 
 /-- A concrete stable-family statement: for `n ≥ 3`, `π_(n+1)(S^n) ≃ ℤ/2`. -/
+@[category research solved, AMS 0]
 theorem pi_succ_sphere_n_mulEquiv_zmod_two
     (n : ℕ) (hn : 3 ≤ n)
     (x : Metric.sphere (0 : EuclideanSpace ℝ (Fin (n + 1))) 1) :

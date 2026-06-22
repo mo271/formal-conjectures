@@ -49,6 +49,7 @@ noncomputable def finiteIsingFreeEnergySeq (n : ℕ) (β : ℝ) : ℝ :=
 
 /-- **Onsager's 2D Ising phase transition.** The thermodynamic-limit free
 energy exists for all `β` and is non-analytic at some positive `βc`. -/
+@[category research solved, AMS 0]
 theorem ising_2d_phase_transition :
     ∃ (F : ℝ → ℝ) (βc : ℝ),
       0 < βc ∧

@@ -52,6 +52,7 @@ attribute [instance] Closed3Manifold.topology Closed3Manifold.t2
 negatively). There is a closed connected topological 3-manifold `M` and a
 basepoint `x` such that the fundamental group `π₁(M, x)` admits no faithful
 (injective) representation into `GL(4, ℝ)`. -/
+@[category research solved, AMS 0]
 theorem nonlinear_three_manifold_group :
     ∃ (M : Closed3Manifold) (x : M.carrier),
       ∀ f : FundamentalGroup M.carrier x →* GL (Fin 4) ℝ, ¬ Function.Injective f := by

@@ -28,6 +28,7 @@ def IsTopos (E : Type*) [Category E] : Prop :=
 
 /-- **Fundamental theorem of topos theory.** The slice category `E/X` of an
 elementary topos `E` is again an elementary topos. -/
+@[category research solved, AMS 0]
 theorem fundamental_topos_theory {E : Type*} [Category E]
     (hE : IsTopos E) (X : E) : IsTopos (Over X) := by
   sorry

@@ -81,6 +81,7 @@ def HasShadowing (T : E d → E d) (K : Set (E d)) : Prop :=
 
 /-- **Anosov–Bowen shadowing lemma** (Anosov 1967; Bowen 1975). Every
 compact hyperbolic invariant set has the shadowing property. -/
+@[category research solved, AMS 0]
 theorem hyperbolic_has_shadowing
     (T : E d ≃ₜ E d) (K : Set (E d))
     (_hKc : IsCompact K) (_hK : IsHyperbolic T K) :

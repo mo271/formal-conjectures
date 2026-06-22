@@ -22,6 +22,7 @@ open scoped Polynomial
 an open neighbourhood of `K`, then for every `ε > 0`, `f` is uniformly
 approximated on `K` by a rational function `p / q` with `q` non-vanishing
 on `K`. -/
+@[category research solved, AMS 0]
 theorem runge (K : Set ℂ) (_hK : IsCompact K) (U : Set ℂ) (_hU : IsOpen U)
     (_hKU : K ⊆ U) (f : ℂ → ℂ) (_hf : AnalyticOnNhd ℂ f U)
     (ε : ℝ) (_hε : 0 < ε) :

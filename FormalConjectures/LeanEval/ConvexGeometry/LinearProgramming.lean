@@ -54,6 +54,7 @@ end LinearProgram
 the LP objective on the feasible region is automatically a global maximiser; and
 whenever the objective is non-constant (`c ≠ 0`), the maximiser lies on the
 topological frontier of the feasible region. -/
+@[category research solved, AMS 0]
 theorem lp_maximum_principle {m n : ℕ} (lp : LinearProgram m n)
     (x : Fin m → ℝ) (_hx : x ∈ lp.feasible)
     (_hlocal : IsLocalMaxOn lp.objective lp.feasible x) :
@@ -64,6 +65,7 @@ theorem lp_maximum_principle {m n : ℕ} (lp : LinearProgram m n)
 /-- **Vertex optimality** (§101; the existence content of Dantzig's 1947 simplex
 algorithm). Every linear program with a nonempty bounded feasible region admits a
 global maximiser that is an extreme point (vertex) of the feasible region. -/
+@[category research solved, AMS 0]
 theorem simplex_algorithm {m n : ℕ} (lp : LinearProgram m n)
     (_hfeas : lp.feasible.Nonempty) (_hbdd : Bornology.IsBounded lp.feasible) :
     ∃ x ∈ lp.feasible, IsMaxOn lp.objective lp.feasible x ∧

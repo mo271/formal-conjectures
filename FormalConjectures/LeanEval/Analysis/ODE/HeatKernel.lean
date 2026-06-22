@@ -41,6 +41,7 @@ For continuous bounded `f : ℝ → ℝ`, the heat-kernel convolution `u := heat
 satisfies the 1D heat equation `∂_t u = ∂_x² u` on `(0, ∞) × ℝ` (in the sense that the
 required spatial derivatives exist and equal the time derivative), and `u(t, x) → f x`
 as `t ↓ 0` for every `x`. -/
+@[category research solved, AMS 0]
 theorem heat_kernel_solves_heat_equation
     (f : ℝ → ℝ) (hf_cont : Continuous f) (hf_bdd : ∃ M : ℝ, ∀ x, |f x| ≤ M) :
     -- The PDE on (0, ∞) × ℝ.

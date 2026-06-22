@@ -37,6 +37,7 @@ variable {X : Type*} [NormedAddCommGroup X] [NormedSpace ℝ X] [CompleteSpace X
 set `K` in a Banach space is the barycenter of a probability measure supported
 on the extreme points of `K`: there is a probability measure `μ` with
 `μ (ext K)ᶜ = 0` whose barycenter `∫ y, y ∂μ` equals `x`. -/
+@[category research solved, AMS 0]
 theorem choquet [MeasurableSpace X] [BorelSpace X]
     (K : Set X) (hK_cpt : IsCompact K) (hK_cvx : Convex ℝ K)
     {x : X} (hx : x ∈ K) :
@@ -51,6 +52,7 @@ compact convex set `K` and `μ` is a probability measure supported on `K`
 `x`. (The support hypothesis is the weaker `μ Kᶜ = 0`, making this a
 strengthening of the textbook statement: uniqueness among all ambient Borel
 probability measures on `K`, not only those already supported on `ext K`.) -/
+@[category research solved, AMS 0]
 theorem bauer_unique [MeasurableSpace X] [BorelSpace X]
     (K : Set X) (hK_cpt : IsCompact K) (hK_cvx : Convex ℝ K)
     {x : X} (hx : x ∈ K.extremePoints ℝ)

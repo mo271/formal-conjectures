@@ -51,6 +51,7 @@ inductive NonOrientableRel (p n : ℕ) : ClosedUnitDisc → ClosedUnitDisc → P
       (.bdyPtOfReal <| -(3 * i + x) / (2 * p + 3 * n))
       (.bdyPtOfReal <| -(3 * i + 3 - x) / (2 * p + 3 * n))
 
+@[category research solved, AMS 0]
 theorem classification_of_surfaces (S : Type*) [TopologicalSpace S]
     [T2Space S] [ConnectedSpace S] [CompactSpace S]
     [ChartedSpace (EuclideanHalfSpace 2) S]

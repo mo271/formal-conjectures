@@ -22,6 +22,7 @@ that would discharge it. Stateable with no new definitions.
 /-- **Jordan curve theorem** (Camille Jordan, 1887). For every
 continuous injection `r : S¹ → ℝ²` from the unit circle to the plane,
 the complement of its image has exactly two connected components. -/
+@[category research solved, AMS 0]
 theorem jordan_curve
     (r : Metric.sphere (0 : EuclideanSpace ℝ (Fin 2)) 1 → EuclideanSpace ℝ (Fin 2))
     (_hcont : Continuous r) (_hinj : Function.Injective r) :

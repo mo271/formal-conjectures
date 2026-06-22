@@ -28,6 +28,7 @@ definitions.
 /-- **Schoenflies theorem (strong form).** For every Jordan curve in
 the plane there is a self-homeomorphism of `ℝ²` carrying the curve to
 the standard unit circle. -/
+@[category research solved, AMS 0]
 theorem schoenflies
     (r : Metric.sphere (0 : EuclideanSpace ℝ (Fin 2)) 1 → EuclideanSpace ℝ (Fin 2))
     (_hcont : Continuous r) (_hinj : Function.Injective r) :

@@ -105,6 +105,7 @@ noncomputable def platonicCount (d : ℕ) : ℕ∞ :=
     ∃ P, S = {Q : regularPolytopes d | regularSimilar d P Q}}
 
 /-- **Platonic classification.** `p = (p_2, p_3, p_4, p_5, …) = (∞, 5, 6, 3, 3, 3, …)`. -/
+@[category research solved, AMS 0]
 theorem platonic_classification :
     platonicCount 2 = ⊤ ∧
       platonicCount 3 = 5 ∧

@@ -44,6 +44,7 @@ Standard chirality-detecting invariants:
 
 See <https://en.wikipedia.org/wiki/Chirality_(mathematics)> and
 <https://en.wikipedia.org/wiki/Trefoil_knot>. -/
+@[category research solved, AMS 0]
 theorem exists_chiral_knot : ∃ K : Knot, K.Chiral := by
   sorry
 

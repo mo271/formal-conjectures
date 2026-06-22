@@ -50,6 +50,7 @@ def UniformlyAbsolutelyContinuous {d : ℕ}
 /-- **Absolute continuity criterion (Hausdorff moment problem).** A positive
 probability measure `μ` on the cube is uniformly absolutely continuous w.r.t.
 Lebesgue measure iff there is `C` with `(Δᵏμ)ₙ ≤ C·(Δᵏν)ₙ` for all `k ≤ n`. -/
+@[category research solved, AMS 0]
 theorem hausdorff_absolute_continuity {d : ℕ}
     (μ : Measure (EuclideanSpace ℝ (Fin d)))
     [IsProbabilityMeasure μ] (hμ : μ ((cube d)ᶜ) = 0) :

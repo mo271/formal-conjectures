@@ -29,6 +29,7 @@ def IsSumOfCubes (k n : ℕ) : Prop :=
 /-- **Wieferich's theorem `g(3) = 9`.** Every natural number is a sum of nine
 cubes, and nine is necessary: some `n` (namely `23`) is not a sum of eight
 cubes. -/
+@[category research solved, AMS 0]
 theorem wieferich_g_three :
     (∀ n : ℕ, IsSumOfCubes 9 n) ∧ ∃ n : ℕ, ¬ IsSumOfCubes 8 n := by
   sorry

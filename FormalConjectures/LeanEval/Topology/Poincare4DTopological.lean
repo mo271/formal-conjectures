@@ -30,6 +30,7 @@ open ContinuousMap
 /-- **4D topological Poincaré conjecture** (Freedman, 1982). Every Hausdorff
 4-manifold that is homotopy-equivalent to the standard 4-sphere `𝕊⁴` is
 homeomorphic to `𝕊⁴`. -/
+@[category research solved, AMS 0]
 theorem poincare_4d_topological
     {M : Type*} [TopologicalSpace M] [T2Space M]
     [ChartedSpace (EuclideanSpace ℝ (Fin 4)) M]

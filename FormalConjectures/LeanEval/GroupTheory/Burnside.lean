@@ -10,6 +10,7 @@ Mathlib already contains solvability infrastructure, so the statement is natural
 `IsSolvable G` for a finite group of order `p ^ a * q ^ b`.
 -/
 
+@[category research solved, AMS 0]
 theorem finite_group_isSolvable_of_card_eq_prime_pow_mul_prime_pow
     {G : Type*} [Group G] [Fintype G]
     {p q a b : ℕ}

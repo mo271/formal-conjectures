@@ -37,6 +37,7 @@ noncomputable def charpolyDescendingCoeff {R : Type*} [CommRing R]
 
 For `k > N`, `c_k = 0`, and the remaining relation is the trace of
 Cayley-Hamilton multiplied by a power of `A`. -/
+@[category research solved, AMS 0]
 theorem trace_cayley_hamilton_newton {R : Type*} [CommRing R]
     (A : Matrix n n R) {k : ℕ} (hk : 1 ≤ k) :
     (k : R) * charpolyDescendingCoeff A k +

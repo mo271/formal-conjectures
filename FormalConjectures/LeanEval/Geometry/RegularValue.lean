@@ -26,6 +26,7 @@ def IsRegularValue {m : ℕ} (f : EuclideanSpace ℝ (Fin m) → ℝ) (c : ℝ) 
 
 /-- **Regular value corollary (Sard).** For a smooth `f : ℝᵐ → ℝ`, almost every
 `c ∈ ℝ` is a regular value. -/
+@[category research solved, AMS 0]
 theorem regular_value_ae {m : ℕ} (f : EuclideanSpace ℝ (Fin m) → ℝ)
     (hf : ContDiff ℝ ∞ f) :
     ∀ᵐ c ∂(volume : Measure ℝ), IsRegularValue f c := by

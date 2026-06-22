@@ -20,6 +20,7 @@ open Polynomial
 
 /-- **Lindemann's theorem.** Both `e = exp 1` and `π` are transcendental over
 `ℤ`. -/
+@[category research solved, AMS 0]
 theorem lindemann :
     Transcendental ℤ (Real.exp 1) ∧ Transcendental ℤ Real.pi := by
   sorry
@@ -27,6 +28,7 @@ theorem lindemann :
 /-- **Lindemann–Weierstrass theorem.** If `x₁, …, xₙ ∈ ℂ` are algebraic over `ℚ`
 and ℚ-linearly independent, then `e^{x₁}, …, e^{xₙ}` are algebraically
 independent over `ℚ`. -/
+@[category research solved, AMS 0]
 theorem lindemann_weierstrass {n : ℕ} (x : Fin n → ℂ)
     (h_alg : ∀ i, IsAlgebraic ℚ (x i))
     (h_lin : LinearIndependent ℚ x) :

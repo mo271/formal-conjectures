@@ -31,6 +31,7 @@ on `Diffeomorph S³ S³` (which mathlib does not yet have).
 
 /-- **Cerf's theorem Γ₄ = 0.** Every self-diffeomorphism of S³ is smoothly isotopic to
 the restriction of a linear isometry of ℝ⁴. -/
+@[category research solved, AMS 0]
 theorem cerf_gamma_four
     (f : sphere (0 : EuclideanSpace ℝ (Fin 4)) 1 ≃ₘ⟮𝓡 3, 𝓡 3⟯
          sphere (0 : EuclideanSpace ℝ (Fin 4)) 1) :

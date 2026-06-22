@@ -68,6 +68,7 @@ def differences {n : Nat} (a b : Vector Nat n) : Nat :=
 `minRearrange` correctly computes the smallest number of indices that need to be permuted in order to
 turn `arr` into a unimodal permutation.
 -/
+@[category research solved, AMS 0]
 theorem minRearrange_correct {arr : Array Nat} :
     arr.Perm (1...=arr.size).toArray →
       (∃ (x : Array Nat) (hx : x.Perm (1...=arr.size).toArray), Unimodal x ∧ differences (Vector.mk x (by simpa using hx.size_eq)) arr.toVector = minRearrange arr) ∧

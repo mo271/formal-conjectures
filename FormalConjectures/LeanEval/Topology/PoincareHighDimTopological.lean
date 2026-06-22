@@ -31,6 +31,7 @@ open ContinuousMap
 (Smale 1961; topological case Newman 1966 / Connell 1967). For `n ≥ 5`,
 every Hausdorff `n`-manifold homotopy-equivalent to the standard `n`-sphere
 `𝕊ⁿ` is homeomorphic to `𝕊ⁿ`. -/
+@[category research solved, AMS 0]
 theorem poincare_high_dim_topological
     {n : ℕ} (_h5 : 5 ≤ n)
     {M : Type*} [TopologicalSpace M] [T2Space M]

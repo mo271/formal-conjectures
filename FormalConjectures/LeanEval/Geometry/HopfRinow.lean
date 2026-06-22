@@ -73,6 +73,7 @@ def IsGeodesicallyComplete (M : Type*) [EMetricSpace M] : Prop :=
 /-- **Hopf–Rinow theorem.** For a connected, locally compact,
 finite-dimensional smooth Riemannian manifold `M` *without boundary*,
 metric completeness and geodesic completeness are equivalent. -/
+@[category research solved, AMS 0]
 theorem hopf_rinow
     {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
     [FiniteDimensional ℝ E]

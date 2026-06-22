@@ -57,12 +57,14 @@ variable {k : Type u} [Field k] {C : Over (Spec (.of k))}
 
 -- data
 /-- The genus of a smooth proper curve. -/
+@[category research solved, AMS 0]
 def genus (C : Over (Spec (.of k))) [IsProper C.hom] [SmoothOfRelativeDimension 1 C.hom]
     [GeometricallyIrreducible C.hom] : ℕ :=
   sorry
 
 -- data
 /-- The Jacobian of a smooth, proper curve over a field `k`. -/
+@[category research solved, AMS 0]
 def Jacobian (C : Over (Spec (.of k))) [IsProper C.hom] [SmoothOfRelativeDimension 1 C.hom]
     [GeometricallyIrreducible C.hom] : Over (Spec (.of k)) :=
   sorry
@@ -73,31 +75,37 @@ namespace Jacobian
 
 -- data
 /-- The group scheme structure on the Jacobian of the curve `C`. -/
+@[category research solved, AMS 0]
 instance instGrpObj : GrpObj (Jacobian C) :=
   sorry
 
 /-- The Jacobian of `C` is smooth of relative dimension `g` over `k`, where `g` is the
 genus of `C`. -/
+@[category research solved, AMS 0]
 instance smoothOfRelativeDimension_genus :
     SmoothOfRelativeDimension (genus C) (Jacobian C).hom :=
   sorry
 
 /-- The Jacobian of `C` is proper over `k`. -/
+@[category research solved, AMS 0]
 instance instIsProper : IsProper (Jacobian C).hom :=
   sorry
 
 /-- The Jacobian of `C` is geometrically irreducible over `k`. -/
+@[category research solved, AMS 0]
 instance instGeometricallyIrreducible : GeometricallyIrreducible (Jacobian C).hom :=
   sorry
 
 -- data
 /-- The Abel-Jacobi map from a smooth, proper curve to its Jacobian associated
 to a `k`-rational point of `C`. -/
+@[category research solved, AMS 0]
 def ofCurve (P : 𝟙_ (Over (Spec (.of k))) ⟶ C) : C ⟶ Jacobian C :=
   sorry
 
 /-- The Abel-Jacobi map sends the `k`-rational point `P` to `0`, where `0` (denoted by `η` below) is
 the neutral element of the group scheme `Jacobian C`. -/
+@[category research solved, AMS 0]
 theorem comp_ofCurve (C : Over (Spec (.of k))) [IsProper C.hom]
     [SmoothOfRelativeDimension 1 C.hom] [GeometricallyIrreducible C.hom]
     (P : 𝟙_ (Over (Spec (.of k))) ⟶ C) :
@@ -110,6 +118,7 @@ any morphism `f : C ⟶ A` such that `f(P) = 0` factors uniquely through the
 Jacobian of `C`.
 In other words, `Jacobian C` is the Albanese variety of `C`.
 -/
+@[category research solved, AMS 0]
 theorem exists_unique_ofCurve_comp (C : Over (Spec (.of k))) [IsProper C.hom]
     [SmoothOfRelativeDimension 1 C.hom] [GeometricallyIrreducible C.hom]
     (P : 𝟙_ (Over (Spec (.of k))) ⟶ C)

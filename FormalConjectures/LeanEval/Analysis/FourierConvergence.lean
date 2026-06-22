@@ -41,6 +41,7 @@ noncomputable def fourierCesaroMean (f : ℝ → ℂ) (N : ℕ) (x : ℝ) : ℂ 
 /-- **Dirichlet's pointwise convergence theorem** (§46). For every `C¹`
 2π-periodic complex function `f`, the symmetric Fourier partial sums `S_N(f)(x)`
 converge to `f(x)` at every point `x ∈ ℝ`. -/
+@[category research solved, AMS 0]
 theorem dirichlet_pointwise
     {f : ℝ → ℂ} (_hperiod : Function.Periodic f (2 * Real.pi)) (_hC1 : ContDiff ℝ 1 f)
     (x : ℝ) :
@@ -51,6 +52,7 @@ theorem dirichlet_pointwise
 function `f` — without the `C¹` hypothesis of Dirichlet's theorem — the Cesàro
 means `σ_N(f)` of the symmetric Fourier partial sums converge to `f` uniformly
 on `ℝ`. -/
+@[category research solved, AMS 0]
 theorem fejer
     {f : ℝ → ℂ} (_hperiod : Function.Periodic f (2 * Real.pi)) (_hcont : Continuous f) :
     TendstoUniformly (fun N : ℕ => fourierCesaroMean f N) f atTop := by

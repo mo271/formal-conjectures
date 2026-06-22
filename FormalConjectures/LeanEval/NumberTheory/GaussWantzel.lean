@@ -40,6 +40,7 @@ def GaussWantzelNumber (n : ℕ) : Prop :=
 /-- **Gauss-Wantzel constructible polygon theorem** (§174): a regular `n`-gon
 is straightedge-and-compass constructible exactly for the Gauss-Wantzel
 integers. -/
+@[category research solved, AMS 0]
 theorem gauss_wantzel_constructible_polygon (n : ℕ) (hn : 3 ≤ n) :
     IsConstructible (Real.cos (2 * Real.pi / n)) ↔ GaussWantzelNumber n := by
   sorry

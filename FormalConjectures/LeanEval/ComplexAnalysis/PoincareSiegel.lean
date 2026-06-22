@@ -25,6 +25,7 @@ def IsDiophantine (α : ℝ) : Prop :=
 `λ = e^{2πiα}`, and `f` is holomorphic near `0` with `f 0 = 0` and
 `f'(0) = λ`, then there is a holomorphic germ `u` with `u 0 = 0`,
 `u'(0) = 1`, and `f(u z) = u(λ z)` for `z` near `0`. -/
+@[category research solved, AMS 0]
 theorem poincare_siegel
     (α : ℝ) (_hα : IsDiophantine α)
     (lam : ℂ) (_hlam : lam = Complex.exp (2 * Real.pi * Complex.I * (α : ℂ)))

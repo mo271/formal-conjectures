@@ -38,6 +38,7 @@ def IsMorleyConfiguration (A B C P Q R : Plane) : Prop :=
 
 /-- **Morley's theorem.** The adjacent-trisector triangle `PQR` of a
 nondegenerate triangle `ABC` is equilateral. -/
+@[category research solved, AMS 0]
 theorem morley_theorem (A B C P Q R : Plane)
     (h : IsMorleyConfiguration A B C P Q R) :
     IsEquilateralTriple P Q R := by

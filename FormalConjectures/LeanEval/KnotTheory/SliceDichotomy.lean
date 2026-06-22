@@ -34,6 +34,7 @@ This was first established by Casson; explicit examples were given by
 Akbulut–Matveyev and Hedden–Kirk–Livingston. The solver may take any
 witness — historically tractable ones are positive Whitehead doubles
 of certain knots (Akbulut–Matveyev, 1997). -/
+@[category research solved, AMS 0]
 theorem exists_topologically_slice_not_smoothly_slice :
     ∃ K : PLKnot, K.TopologicallySlice ∧ ¬ K.SmoothlySlice := by
   sorry

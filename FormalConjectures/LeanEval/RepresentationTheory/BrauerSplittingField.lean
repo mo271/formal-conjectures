@@ -24,6 +24,7 @@ The descent statement here is the deep content (Schur index 1 over
 `ℚ(ζₙ)` for every irreducible complex representation of `G`).
 -/
 
+@[category research solved, AMS 0]
 theorem brauer_splitting_field
     (G : Type) [Group G] [Fintype G]
     (V : Type) [AddCommGroup V] [Module ℂ V] [FiniteDimensional ℂ V]

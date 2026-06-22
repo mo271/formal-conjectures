@@ -36,6 +36,7 @@ def FilledJulia (c : ℂ) : Set ℂ :=
 /-- **Fatou–Julia dichotomy.** For the quadratic family, `c ∈ M` implies
 the filled Julia set `K_c` is connected; `c ∉ M` implies `K_c` is
 homeomorphic to the Cantor space `ℕ → Bool`. -/
+@[category research solved, AMS 0]
 theorem julia_cantor_dichotomy (c : ℂ) :
     (c ∈ Mandelbrot → IsConnected (FilledJulia c)) ∧
     (c ∉ Mandelbrot → Nonempty ((FilledJulia c) ≃ₜ (ℕ → Bool))) := by

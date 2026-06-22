@@ -39,6 +39,7 @@ noncomputable def kantorovichCost {X Y : Type*}
 `(X, P)` and `(Y, Q)` and a continuous cost `c : X × Y → [0, ∞]`, the Kantorovich
 functional `I(π) = ∫ c dπ` attains its infimum on the set of couplings `Π(P, Q)`
 of `P` and `Q`. -/
+@[category research solved, AMS 0]
 theorem monge_kantorovich_exists
     {X Y : Type*}
     [TopologicalSpace X] [PolishSpace X] [MeasurableSpace X] [BorelSpace X]

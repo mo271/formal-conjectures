@@ -22,6 +22,7 @@ boundary, where `ψ ≤ 0`; let `δ → 0`.
 /-- **Comparison principle for the Dirichlet BVP.** If two functions are `C²` on an open
 interval `J` containing `[0, 1]`, satisfy `-u'' ≤ -v''` on the interior, and are ordered
 at the boundary, then `u ≤ v` throughout `[0, 1]`. -/
+@[category research solved, AMS 0]
 theorem bvp_comparison
     (J : Set ℝ) (hJ_open : IsOpen J) (hJ_sub : Set.Icc (0 : ℝ) 1 ⊆ J)
     (u v : ℝ → ℝ)

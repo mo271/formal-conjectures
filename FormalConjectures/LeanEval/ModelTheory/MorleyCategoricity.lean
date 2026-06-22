@@ -11,6 +11,7 @@ Morley's categoricity theorem.
 A complete theory in a countable language, all of whose models are infinite, that is
 categorical in some uncountable cardinal is categorical in every uncountable cardinal.  -/
 
+@[category research solved, AMS 0]
 theorem morley_categoricity_theorem
     (L : FirstOrder.Language.{0, 0}) (hL : L.card ≤ ℵ₀)
     (T : L.Theory) (hT : T.IsComplete)

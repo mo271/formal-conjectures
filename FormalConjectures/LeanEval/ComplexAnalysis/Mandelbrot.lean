@@ -23,6 +23,7 @@ def Mandelbrot : Set ℂ :=
   { c : ℂ | ∃ M : ℝ, ∀ n : ℕ, ‖(Tc c)^[n] 0‖ ≤ M }
 
 /-- **Mandelbrot set is connected** (Douady–Hubbard). -/
+@[category research solved, AMS 0]
 theorem mandelbrot_connected : IsConnected Mandelbrot := by
   sorry
 

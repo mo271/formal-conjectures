@@ -46,6 +46,7 @@ def robbinsProduct (n : ℕ) : ℚ :=
 
 /-- **Alternating sign matrix theorem.** The number of `n × n` ASMs equals the
 Robbins product. -/
+@[category research solved, AMS 0]
 theorem alternating_sign_matrix_count (n : ℕ) :
     (Nat.card (ASMatrix n) : ℚ) = robbinsProduct n := by
   sorry

@@ -13,6 +13,7 @@ We encode a 2-colouring by a simple graph `G` on `Fin n`; the red edges are the 
 the blue edges are the edges of `Gᶜ`.
 -/
 
+@[category research solved, AMS 0]
 theorem finite_graph_ramsey_theorem :
     ∀ r s : ℕ, 2 ≤ r → 2 ≤ s → ∃ n : ℕ, ∀ G : SimpleGraph (Fin n), ¬ G.CliqueFree r ∨ ¬ Gᶜ.CliqueFree s := by
   sorry

@@ -24,6 +24,7 @@ def HasAtMostTwoPrimeFactors (n : ℕ) : Prop :=
 
 /-- **Chen's theorem.** There are infinitely many primes `p` for which `p + 2`
 has at most two prime factors. -/
+@[category research solved, AMS 0]
 theorem chen_theorem :
     {p : ℕ | p.Prime ∧ HasAtMostTwoPrimeFactors (p + 2)}.Infinite := by
   sorry

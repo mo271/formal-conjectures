@@ -28,6 +28,7 @@ open MeasureTheory
 version). For every measure-preserving `T` on a probability space,
 every measurable `A` of positive measure, and every `d ≥ 1`, some
 `n ≥ 1` satisfies `μ(A ∩ ⋂_{j=1}^{d} T^[j n] ⁻¹' A) > 0`. -/
+@[category research solved, AMS 0]
 theorem furstenberg_measure_recurrence {Ω : Type*}
     [MeasurableSpace Ω] (μ : MeasureTheory.Measure Ω)
     [MeasureTheory.IsProbabilityMeasure μ]

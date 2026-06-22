@@ -12,6 +12,7 @@ This formulation packages the theorem as a finite extreme-point representation f
 compact convex set, with the expected `finrank + 1` bound on the number of points used.
 -/
 
+@[category research solved, AMS 0]
 theorem mem_convexHull_finset_extremePoints_of_mem_compact_convex
     {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E] [FiniteDimensional ℝ E]
     {s : Set E} {x : E}

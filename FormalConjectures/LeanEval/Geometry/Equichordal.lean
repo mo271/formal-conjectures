@@ -36,6 +36,7 @@ def IsEquichordalPoint (K : Set Plane) (P : Plane) : Prop :=
 
 /-- **Equichordal point theorem** (§205).  A convex planar curve cannot have
 two distinct equichordal points. -/
+@[category research solved, AMS 0]
 theorem equichordal_point_unique {K : Set Plane}
     (hK : IsCompact K) (hconv : Convex ℝ K) (hne : (interior K).Nonempty) :
     ¬ ∃ P Q : Plane,

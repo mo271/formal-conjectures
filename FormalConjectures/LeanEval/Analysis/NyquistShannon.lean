@@ -36,6 +36,7 @@ Nyquist band `[-1/2, 1/2]`.
 The explicit `Summable` conjunct records the convergence content of the
 cardinal series, rather than relying only on Lean's total `tsum`.
 -/
+@[category research solved, AMS 0]
 theorem nyquist_shannon_sampling (f : 𝓢(ℝ, ℂ)) (hf : FourierSupportedInNyquist f) :
     ∀ t : ℝ,
       Summable (fun n : ℤ ↦ f (n : ℝ) * sinc (Real.pi * ((n : ℝ) - t))) ∧

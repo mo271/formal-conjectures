@@ -21,6 +21,7 @@ function) **iff** it is computed by some Turing machine (mathlib's `FinTM2`
 model) under the standard binary encoding of `ℕ`. This is Knill's class
 equality; the backward direction (TM-computable ⇒ recursive) is absent from
 mathlib. -/
+@[category research solved, AMS 0]
 theorem turing_recursive_equiv (f : ℕ → ℕ) :
     Computable f ↔ Nonempty (TM2Computable encodeNat encodeNat f) := by
   sorry

@@ -33,6 +33,7 @@ squarefree integer and let `(x, y)` be a positive solution of Pell's equation
 `x² − d y² = 1`. Then the ratio `x / y` is one of the convergents of the
 regular continued fraction of `√d`: there is an index `n` with
 `(GenContFract.of √d).convs n = x / y`. -/
+@[category research solved, AMS 0]
 theorem pell_solution_is_convergent
     (d : ℤ) (_hd : Squarefree d) (_hd0 : 0 < d)
     (x y : ℤ) (_hx : 0 < x) (_hy : 0 < y)

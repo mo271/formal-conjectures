@@ -61,6 +61,7 @@ def rightTriangle (a b : ℝ) : Set Plane :=
 
 /-- **Hippocrates' theorem on lunes.** For a right triangle, the two lunes'
 areas sum to the triangle's area. -/
+@[category research solved, AMS 0]
 theorem hippocrates_lunes (a b : ℝ) (ha : 0 < a) (hb : 0 < b) :
     volume (horizontalLune a b) + volume (verticalLune a b) =
       volume (rightTriangle a b) := by

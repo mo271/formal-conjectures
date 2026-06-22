@@ -40,6 +40,7 @@ def IsMultiplyRecurrent {X : Type*} [TopologicalSpace X]
 /-- **Furstenberg–Weiss topological multiple recurrence** (single-
 transformation form). Every homeomorphism `T` of a nonempty compact
 metric space `X` has a multiply recurrent point. -/
+@[category research solved, AMS 0]
 theorem furstenberg_topological_recurrence {X : Type*} [MetricSpace X]
     [CompactSpace X] [Nonempty X] (T : X ≃ₜ X) :
     ∃ x : X, IsMultiplyRecurrent (T : X → X) x := by

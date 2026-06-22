@@ -52,6 +52,7 @@ def IsVariationalExtremum
 variational extremum `x` of the action `I(y) = ∫_a^b L(t, y(t), y'(t)) dt`, with
 `C²` Lagrangian `L`, satisfies the pointwise equation
 `∂L/∂x (t, x(t), x'(t)) = (d/dt)(∂L/∂x' (t, x(t), x'(t)))` on `(a, b)`. -/
+@[category research solved, AMS 0]
 theorem euler_lagrange_equation
     {a b : ℝ} (L : ℝ → ℝ → ℝ → ℝ) (x : ℝ → ℝ) (_hab : a < b)
     (_hL : ContDiff ℝ 2 (fun p : ℝ × ℝ × ℝ => L p.1 p.2.1 p.2.2))

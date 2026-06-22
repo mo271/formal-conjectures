@@ -69,6 +69,7 @@ def Triangulable {n : ℕ} (M : ClosedTopManifold n) : Prop :=
 /-- **Manolescu's theorem (2016): the triangulation conjecture is false**, in
 every dimension `≥ 5`. For each `n ≥ 5` there is a closed connected topological
 `n`-manifold that is not homeomorphic to any simplicial complex. -/
+@[category research solved, AMS 0]
 theorem manolescu_triangulation_disproof :
     ∀ n : ℕ, 5 ≤ n → ∃ M : ClosedTopManifold n, ¬ Triangulable M := by
   sorry

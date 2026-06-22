@@ -8,6 +8,8 @@ defines `Submission.foo := 37` and proves `Submission.foo_def`; comparator
 should accept it.
 -/
 
+@[category research solved, AMS 0]
 def foo : Nat := sorry
 
+@[category research solved, AMS 0]
 theorem foo_def : foo = 37 := sorry

@@ -61,6 +61,7 @@ where `C(n, d)` is `BakerWustholz.C n d` and `h'(α)` is
 `BakerWustholz.modifiedHeight φ α`. The `max(log B, 1/d)` factor (rather
 than bare `log B`) is the standard Baker–Wüstholz formulation; it avoids
 spuriously sharpening the bound at `d = 1`, `B = 2`. -/
+@[category research solved, AMS 0]
 theorem bakerWustholz_linearForms_logs
     {n : ℕ} (hn : 0 < n)
     {K : Type*} [Field K] [NumberField K] (φ : K →+* ℂ)

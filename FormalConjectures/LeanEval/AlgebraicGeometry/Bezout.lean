@@ -101,6 +101,7 @@ polynomials `f_k` in `n + 1` variables, each of total degree exactly
 projective zero set, the sum of intersection multiplicities equals
 `∏ d_k`. The `totalDegree` hypothesis rules out the zero polynomial
 (which is `IsHomogeneous d` for every `d` but has `totalDegree = 0`). -/
+@[category research solved, AMS 0]
 theorem bezout_multiplicity [IsAlgClosed K] {n : ℕ}
     (f : Fin n → MvPolynomial (Fin (n + 1)) K)
     (d : Fin n → ℕ) (_hd : ∀ k, (f k).IsHomogeneous (d k))

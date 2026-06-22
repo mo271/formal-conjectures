@@ -19,6 +19,7 @@ condition is stated as the closedness of the image of `S` under the canonical in
 into the corresponding type copy.
 -/
 
+@[category research solved, AMS 0]
 theorem vonNeumann_doubleCommutant_tfae
     {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]
     (S : StarSubalgebra ℂ (H →L[ℂ] H)) :

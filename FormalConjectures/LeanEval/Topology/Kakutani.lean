@@ -30,6 +30,7 @@ def IsUpperHemicontinuous {α β : Type*}
 /-- **Kakutani fixed-point theorem.** Every upper-hemicontinuous
 correspondence `F` from a nonempty compact convex `K ⊆ ℝᵈ` to itself, with
 nonempty convex closed values, has a fixed point `x ∈ F x`. -/
+@[category research solved, AMS 0]
 theorem kakutani_fixed_point {d : ℕ}
     {K : Set (EuclideanSpace ℝ (Fin d))}
     (_hK_compact : IsCompact K) (_hK_convex : Convex ℝ K)

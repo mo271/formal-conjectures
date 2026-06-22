@@ -60,6 +60,7 @@ def IsRokhlinTower {Ω : Type*} [MeasurableSpace Ω]
 automorphism `T` of a standard Borel probability space `(Ω, μ)`, every
 height `n ≥ 1`, and every `ε > 0`, there is a Rokhlin tower of height
 `n` whose union has measure at least `1 − ε`. -/
+@[category research solved, AMS 0]
 theorem rokhlin_lemma {Ω : Type*} [MeasurableSpace Ω]
     [StandardBorelSpace Ω]
     (μ : Measure Ω) [IsProbabilityMeasure μ] (T : Ω → Ω)

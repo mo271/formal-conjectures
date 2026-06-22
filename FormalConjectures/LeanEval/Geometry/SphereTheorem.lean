@@ -64,6 +64,7 @@ def QuarterPinched
 /-- **Topological sphere theorem** (Berger–Klingenberg–Rauch 1960). A closed,
 simply-connected, smooth `d`-manifold (`d ≥ 2`) whose Levi-Civita connection is
 strictly quarter-pinched is homeomorphic to the standard `d`-sphere. -/
+@[category research solved, AMS 0]
 theorem sphere_theorem
     [I.Boundaryless] [T2Space M] [CompactSpace M] [SimplyConnectedSpace M]
     (hdim : 2 ≤ Module.finrank ℝ E)
@@ -77,6 +78,7 @@ theorem sphere_theorem
 
 /-- **Differentiable sphere theorem** (Brendle–Schoen 2007). Under the same
 hypotheses, `M` is diffeomorphic to the standard `d`-sphere. -/
+@[category research solved, AMS 0]
 theorem differentiable_sphere_theorem
     [I.Boundaryless] [T2Space M] [CompactSpace M] [SimplyConnectedSpace M]
     (hdim : 2 ≤ Module.finrank ℝ E)

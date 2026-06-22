@@ -72,6 +72,7 @@ def IsCyclicCubeExchange {d : ℕ} (T : VolumePreservingEquiv d) (n : ℕ) : Pro
 /-- **Lax's approximation theorem.** Every toral dynamical system on `𝕋^d`
 (`d ≥ 1`) is approximated arbitrarily well in the metric `δ` by cyclic cube
 exchange transformations. -/
+@[category research solved, AMS 0]
 theorem lax_approximation {d : ℕ} (hd : 0 < d) (T : ToralDynamicalSystem d)
     {ε : ℝ≥0∞} (hε : 0 < ε) :
     ∃ (n : ℕ) (S : VolumePreservingEquiv d),

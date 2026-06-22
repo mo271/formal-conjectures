@@ -36,6 +36,7 @@ noncomputable def hVector {d : ℕ} (X : FiniteSimplicialSphere d) (j : ℕ) : �
 
 /-- **Dehn–Sommerville equations.** The h-vector of a finite simplicial sphere
 is symmetric: `h_j = h_{d-j}`. -/
+@[category research solved, AMS 0]
 theorem dehn_sommerville
     {d j : ℕ} (X : FiniteSimplicialSphere d) (hj : j ≤ d) :
     hVector X j = hVector X (d - j) := by

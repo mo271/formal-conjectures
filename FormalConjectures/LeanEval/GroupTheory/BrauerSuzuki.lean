@@ -31,6 +31,7 @@ operation.
 -/
 
 /-- **Brauer–Suzuki theorem (quaternion case).** -/
+@[category research solved, AMS 0]
 theorem brauer_suzuki {G : Type*} [Group G] [Finite G]
     (n : ℕ) (hn : 3 ≤ n)
     (P : Sylow 2 G)

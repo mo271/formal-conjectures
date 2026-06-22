@@ -37,6 +37,7 @@ open Topology
 /-- **Whitney embedding theorem** (Whitney 1944). Every smooth
 `n`-manifold (`n ≥ 1`, Hausdorff, second-countable) admits a smooth
 embedding into `ℝ^{2n}`. -/
+@[category research solved, AMS 0]
 theorem whitney_embedding (n : ℕ) (_hn : 1 ≤ n)
     {M : Type*} [TopologicalSpace M]
     [ChartedSpace (EuclideanSpace ℝ (Fin n)) M] [IsManifold (𝓡 n) ∞ M]

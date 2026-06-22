@@ -51,6 +51,7 @@ def IsNonexpansiveSelfMap (K : Set E) (T : K → K) : Prop :=
 /-- **Kirk's normal-structure fixed-point theorem** (§228).  A nonexpansive
 self-map of a nonempty bounded closed convex subset of a reflexive Banach
 space with normal structure has a fixed point. -/
+@[category research solved, AMS 0]
 theorem kirk_normal_structure [CompleteSpace E]
     (hE_reflexive : Function.Surjective (NormedSpace.inclusionInDoubleDual ℝ E))
     (K : Set E) (hK_nonempty : K.Nonempty) (hK_closed : IsClosed K)

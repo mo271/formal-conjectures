@@ -26,6 +26,7 @@ The companion `4`-transitive classification additionally allows
 `M₁₁` (`n = 11`, `|G| = 7920`) and `M₂₃` (`n = 23`, `|G| = 10 200 960`).
 -/
 
+@[category research solved, AMS 0]
 theorem five_transitive_card_classification
     (G X : Type) [Group G] [Fintype G] [Fintype X]
     [MulAction G X] [FaithfulSMul G X]

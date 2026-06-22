@@ -25,6 +25,7 @@ would additionally require scalar-extension scaffolding around
 `CyclotomicField n ℚ → ℂ`.
 -/
 
+@[category research solved, AMS 0]
 theorem brauer_character_in_cyclotomic
     (G : Type) [Group G] [Fintype G] :
     ∃ φ : CyclotomicField (Monoid.exponent G) ℚ →+* ℂ,

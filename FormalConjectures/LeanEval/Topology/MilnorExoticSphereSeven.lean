@@ -33,6 +33,7 @@ open Metric (sphere)
 
 /-- **Milnor's exotic 7-sphere.** There exists a smooth 7-manifold
 homeomorphic to the standard 7-sphere `𝕊⁷` but not diffeomorphic to it. -/
+@[category research solved, AMS 0]
 theorem milnor_exotic_sphere_seven :
     ∃ (M : Type) (_ : TopologicalSpace M)
       (_ : ChartedSpace (EuclideanSpace ℝ (Fin 7)) M)

@@ -46,6 +46,7 @@ noncomputable def HasShannonCapacity {V : Type*} [Fintype V] (G : SimpleGraph V)
 
 /-- **Lovász's theorem on Shannon capacity of the pentagon** (§238).
 The Shannon capacity of the five-cycle is `√5`. -/
+@[category research solved, AMS 0]
 theorem shannon_capacity_pentagon :
     HasShannonCapacity (SimpleGraph.cycleGraph 5) (Real.sqrt 5) := by
   sorry

@@ -25,6 +25,7 @@ open Metric (sphere)
 /-- **3D topological Poincaré conjecture** (Perelman, 2002–2003). Every
 simply connected compact Hausdorff 3-manifold is homeomorphic to the
 standard 3-sphere `𝕊³`. -/
+@[category research solved, AMS 0]
 theorem poincare_3d_topological
     {M : Type*} [TopologicalSpace M] [T2Space M]
     [ChartedSpace (EuclideanSpace ℝ (Fin 3)) M]

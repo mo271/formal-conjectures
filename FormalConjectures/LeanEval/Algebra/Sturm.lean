@@ -51,6 +51,7 @@ noncomputable def sigma (p : ℝ[X]) (x : ℝ) : ℕ :=
 /-- **Sturm's theorem.** For a squarefree real polynomial `p` and an interval
 `(a, b)` with `a < b` whose endpoints are not roots of `p`, the number of
 distinct roots of `p` in `(a, b)` equals `σ(a) − σ(b)`. -/
+@[category research solved, AMS 0]
 theorem sturm (p : ℝ[X]) (hp : Squarefree p) {a b : ℝ} (hab : a < b)
     (ha : p.eval a ≠ 0) (hb : p.eval b ≠ 0) :
     ((p.roots.toFinset).filter (fun x => a < x ∧ x < b)).card =

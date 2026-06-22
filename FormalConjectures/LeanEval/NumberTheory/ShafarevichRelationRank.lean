@@ -140,6 +140,7 @@ where `r₁ = nrRealPlaces F`, `r₂ = nrComplexPlaces F`, and `δ_p(F) = 1` iff
 contains a primitive `p`-th root of unity.
 
 References: Mayer, Theorem 5.1 (`S = ∅`); Koch, Theorems 11.5 and 11.8. -/
+@[category research solved, AMS 0]
 theorem shafarevich_relation_rank_bound
     (F : Type) [Field F] [NumberField F] (p : ℕ) [Fact p.Prime] (_hpOdd : Odd p) :
     H2Finite p (MaxUnramifiedProPGaloisGroup F p) ∧

@@ -21,6 +21,7 @@ delivers (the degree of `Q` is at most that of `P`, with equality generically).
 
 /-- If `P` is bounded by `1` on the unit circle, then there is a polynomial `Q` of degree at most
 that of `P` whose squared moduli complement `P` to `1` on the unit circle. -/
+@[category research solved, AMS 0]
 theorem exists_complementary_polynomial_on_unit_circle
     (P : ℂ[X])
     (hP : ∀ z : Circle, ‖P.eval (z : ℂ)‖ ≤ 1) :

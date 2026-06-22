@@ -96,6 +96,7 @@ def IsBoundarySubpolyhedron {P : Set (Fin k → ℝ)} (Q : Set P) : Prop :=
 
 /-- **Lemma B.0.1** of Morrison–Walker, *The Blob Complex*
 (arXiv:1009.5025, §B), continuous case. -/
+@[category research solved, AMS 0]
 theorem continuous
     {P : Set (Fin k → ℝ)} (_hP : IsPolyhedron P)
     [CompactSpace X]
@@ -117,6 +118,7 @@ theorem continuous
   sorry
 
 /-- **Lemma B.0.1**, bi-Lipschitz variant (part 4 of the paper). -/
+@[category research solved, AMS 0]
 theorem biLipschitz
     {X T : Type*} [MetricSpace X] [MetricSpace T] [CompactSpace X]
     {P : Set (Fin k → ℝ)} (_hP : IsPolyhedron P)

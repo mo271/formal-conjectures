@@ -56,6 +56,7 @@ for which some `n`-point set `P ⊆ ℝ²` has at least `n^{1+δ}`
 unit-distance pairs. Concretely: for every threshold `N` there exist
 `n ≥ N` and a finite `P ⊆ ℝ²` with `|P| = n` and
 `n^{1+δ} ≤ unitDist P`. -/
+@[category research solved, AMS 0]
 theorem erdos_unit_distance_conjecture_false :
     ∃ δ : ℝ, 0 < δ ∧
       ∀ N : ℕ, ∃ (n : ℕ) (P : Finset (EuclideanSpace ℝ (Fin 2))),

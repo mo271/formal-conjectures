@@ -52,6 +52,7 @@ noncomputable def interiorPts {n : ℕ} (v : Fin n → ℤ × ℤ) : ℕ :=
 
 /-- **Pick's theorem.** A simple lattice polygon with `n ≥ 3` vertices has area
 `I + B/2 − 1`. -/
+@[category research solved, AMS 0]
 theorem pick {n : ℕ} (hn : 3 ≤ n) (v : Fin n → ℤ × ℤ)
     (hsimple : IsSimple (latPoly v)) :
     area ((latPoly v).boundary (R := ℝ))

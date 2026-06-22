@@ -60,6 +60,7 @@ this exponent is sharp in every dimension `d ≥ 2`: for every
 `F'` with `|F'| ≥ Q` admits a Kakeya set `K' ⊆ F'^d` on which every
 probability measure has some nonzero frequency at which the Fourier
 transform satisfies `‖μ̂(ξ)‖ ≥ κ · q'^{-1}`. -/
+@[category research solved, AMS 0]
 theorem fraser_kakeya_fourier_decay_and_sharp
     {d : ℕ} (_hd : 2 ≤ d) {K : Set (Space F d)} (_hK : IsKakeya K)
     (χ : AddChar F ℂ) (_hχ : χ ≠ 1) :

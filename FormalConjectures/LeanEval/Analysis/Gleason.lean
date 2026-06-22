@@ -50,6 +50,7 @@ noncomputable def reTr [FiniteDimensional ℂ H] (A : H →L[ℂ] H) : ℝ :=
 /-- **Gleason's theorem**, finite-dimensional version. For `dim H ≥ 3`, every frame
 function on the projection lattice of `H` is given by `P ↦ re Tr(ρ P)` for the unique
 density operator `ρ` (positive, `re Tr ρ = 1`). -/
+@[category research solved, AMS 0]
 theorem gleason_theorem_finite
     {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]
       [CompleteSpace H] [FiniteDimensional ℂ H]
@@ -78,6 +79,7 @@ formulation). For a separable complex Hilbert space `H` of dimension at least `3
 frame function on the unit sphere of `H` is given by `x ↦ re ⟨x, ρ x⟩` for some positive
 bounded operator `ρ`. (The Lean conclusion does not separately assert trace-class /
 `Tr ρ = 1`; see the file docstring.) -/
+@[category research solved, AMS 0]
 theorem gleason_theorem_separable
     {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]
       [CompleteSpace H] [TopologicalSpace.SeparableSpace H]

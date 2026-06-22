@@ -20,6 +20,7 @@ open Filter Topology
 
 /-- Asymptotic decay rate for `y' = -y³, y(0) = 1`: the solution satisfies
 `y t · √t → 1/√2` as `t → ∞`. -/
+@[category research solved, AMS 0]
 theorem cubic_decay_asymptotic
     (y : ℝ → ℝ) (hy_diff : ∀ t : ℝ, 0 < t → HasDerivAt y (-(y t) ^ 3) t)
     (hy_cont : ContinuousWithinAt y (Set.Ici 0) 0)

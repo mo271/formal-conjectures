@@ -103,6 +103,7 @@ noncomputable def platonicCount (d : ℕ) : ℕ∞ :=
     ∃ P, S = {Q : regularPolytopes d | regularSimilar d P Q}}
 
 /-- **Schläfli classification.** `p_3 = 5 ∧ p_4 = 6 ∧ ∀ d ≥ 5, p_d = 3`. -/
+@[category research solved, AMS 0]
 theorem schlafli_classification :
     platonicCount 3 = 5 ∧
       platonicCount 4 = 6 ∧

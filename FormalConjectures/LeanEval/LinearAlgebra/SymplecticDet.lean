@@ -23,6 +23,7 @@ open Matrix
 
 /-- **Symplectic matrices have determinant 1.** For any commutative ring `R`
 and `2n × 2n` symplectic matrix `A` over `R`, `A.det = 1`. -/
+@[category research solved, AMS 0]
 theorem symplectic_matrix_det
     {l R : Type*} [DecidableEq l] [Fintype l] [CommRing R]
     {A : Matrix (l ⊕ l) (l ⊕ l) R} (_hA : A ∈ Matrix.symplecticGroup l R) :

@@ -29,6 +29,7 @@ open Matrix
 /-- **Lidskii's inequality.** For two self-adjoint complex `n × n` matrices
 `A, B`, with eigenvalues sorted in the same order and `p ≥ 1`,
 `∑ⱼ |αⱼ − βⱼ|^p ≤ ∑ⱼ |γⱼ|^p` where `γⱼ` are the eigenvalues of `B − A`. -/
+@[category research solved, AMS 0]
 theorem lidskii_inequality {n : Type*} [Fintype n] [DecidableEq n]
     {A B : Matrix n n ℂ} (hA : A.IsHermitian) (hB : B.IsHermitian)
     {p : ℝ} (_hp : 1 ≤ p) :

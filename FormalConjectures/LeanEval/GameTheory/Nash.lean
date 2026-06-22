@@ -53,6 +53,7 @@ def IsNashEquilibrium {n : ℕ} {S : Fin n → Type*} [∀ i, Fintype (S i)]
 /-- **Nash equilibrium existence theorem.** Every finite `n`-player game
 with nonempty finite pure-strategy sets and arbitrary real payoffs admits
 at least one mixed-strategy Nash equilibrium. -/
+@[category research solved, AMS 0]
 theorem nash_equilibrium_exists {n : ℕ} {S : Fin n → Type*}
     [∀ i, Fintype (S i)] [∀ i, Nonempty (S i)]
     (u : Fin n → StrategyProfile n S → ℝ) :

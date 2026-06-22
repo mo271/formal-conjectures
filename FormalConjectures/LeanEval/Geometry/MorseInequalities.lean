@@ -98,6 +98,7 @@ def alternatingPartialSum (a : ℕ → ℕ) (k : ℕ) : ℤ :=
 /-- **Morse inequalities** (Marston Morse, 1934). For a Morse function `f`
 on a closed smooth finite-dimensional manifold `M` and every `k ∈ ℕ`,
 `∑_{j≤k}(−1)^{k−j} c_j(f) ≥ ∑_{j≤k}(−1)^{k−j} b_j(M)`. -/
+@[category research solved, AMS 0]
 theorem morse_inequality
     {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E] [FiniteDimensional ℝ E]
     {H : Type*} [TopologicalSpace H] {I : ModelWithCorners ℝ E H} [I.Boundaryless]

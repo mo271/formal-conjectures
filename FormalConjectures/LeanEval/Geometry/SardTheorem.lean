@@ -56,6 +56,7 @@ def criticalValues {m n : ℕ} (f : E m → E n) : Set (E n) :=
 /-- **Sard's theorem** (Morse 1939 / Sard 1942), Knill's rank-
 deficient form. The image of the rank-deficient locus of a smooth
 map `f : ℝᵐ → ℝⁿ` has Lebesgue measure zero. -/
+@[category research solved, AMS 0]
 theorem sard {m n : ℕ} (f : E m → E n) (_hf : ContDiff ℝ ∞ f) :
     volume (criticalValues f) = 0 := by
   sorry

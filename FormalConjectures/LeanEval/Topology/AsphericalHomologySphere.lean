@@ -74,6 +74,7 @@ def Closed4Manifold.IsIntegerHomologySphere (M : Closed4Manifold) : Prop :=
 /-- **Existence of an aspherical integer homology 4-sphere** (Tschantz, answering
 `[Kir97, Problem 4.17]`). There is a closed topological 4-manifold that is both
 aspherical and an integer homology 4-sphere. -/
+@[category research solved, AMS 0]
 theorem aspherical_integer_homology_four_sphere :
     ∃ M : Closed4Manifold, M.IsAspherical ∧ M.IsIntegerHomologySphere := by
   sorry

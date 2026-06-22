@@ -68,6 +68,7 @@ def IsSymplecticOn {n : ℕ}
 `φ` (`OpenPartialHomeomorph`, smooth in both directions) whose source lies
 in `U` and contains `x`, such that on the target the pullback of `α` by
 `φ⁻¹` is in Darboux normal form (and hence equals `ω₀`) at every point. -/
+@[category research solved, AMS 0]
 theorem darboux {n : ℕ} {U : Set (E n)} (_hU : IsOpen U)
     (α : E n → E n [⋀^Fin 2]→L[ℝ] ℝ) (_hα : IsSymplecticOn α U)
     {x : E n} (_hx : x ∈ U) :

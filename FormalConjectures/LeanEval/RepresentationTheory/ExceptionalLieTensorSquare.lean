@@ -41,6 +41,7 @@ noncomputable instance lieModuleToEnvelopingModule
   Module.compHom M
     (UniversalEnvelopingAlgebra.lift R (LieModule.toEnd R L M)).toRingHom
 
+@[category research solved, AMS 0]
 theorem g2_irrep_tensor_square_decomp :
     ∃ (V : Type) (_ : AddCommGroup V) (_ : Module ℂ V)
       (_ : LieRingModule (LieAlgebra.g₂ ℂ) V) (_ : LieModule ℂ (LieAlgebra.g₂ ℂ) V),
@@ -50,6 +51,7 @@ theorem g2_irrep_tensor_square_decomp :
         (V ⊗[ℂ] V)).ncard = 14 := by
   sorry
 
+@[category research solved, AMS 0]
 theorem e8_irrep_tensor_square_decomp :
     ∃ (V : Type) (_ : AddCommGroup V) (_ : Module ℂ V)
       (_ : LieRingModule (LieAlgebra.e₈ ℂ) V) (_ : LieModule ℂ (LieAlgebra.e₈ ℂ) V),

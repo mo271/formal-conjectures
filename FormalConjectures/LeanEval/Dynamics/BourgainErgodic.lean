@@ -34,6 +34,7 @@ noncomputable def polynomialErgodicAverage (a : ℕ → ℕ) (T : X → X) (f : 
 /-- Bourgain's polynomial ergodic theorem: for every integer-polynomial
 iterate sequence and every `L^p`, `p > 1`, function, the polynomial ergodic
 averages converge pointwise almost everywhere. -/
+@[category research solved, AMS 0]
 theorem bourgain_polynomial_ergodic
     [IsProbabilityMeasure μ] {p : ℝ≥0∞} (hp : 1 < p) (hp_ne_top : p ≠ ∞)
     {T : X → X} (hT : MeasurePreserving T μ μ)

@@ -38,6 +38,7 @@ has a unique local analytic solution: for every `x₀ ∈ ℝᵈ` there is an op
 neighborhood `U` of `(x₀, 0)` and an analytic function `u : E d × ℝ → ℝ`
 satisfying the PDE and the initial condition on `U`, and `u` is unique among
 analytic functions on `U` with the same initial data. -/
+@[category research solved, AMS 0]
 theorem cauchy_kovalevskaya {d : ℕ}
     (F : E d × ℝ × ℝ → E d) (f : E d × ℝ × ℝ → ℝ) (u₀ : E d → ℝ)
     (_hF : AnalyticOnNhd ℝ F univ) (_hf : AnalyticOnNhd ℝ f univ)

@@ -69,6 +69,7 @@ noncomputable def crystallographicCount (d : ℕ) : ℕ∞ :=
       S = {H : CrystallographicGroup d | AffinelyEquivalent G₀.1 H.1}}
 
 /-- **There are exactly 17 wallpaper groups** (Pólya–Niggli 1924). -/
+@[category research solved, AMS 0]
 theorem there_are_17_wallpaper_groups :
     crystallographicCount 2 = 17 := by
   sorry

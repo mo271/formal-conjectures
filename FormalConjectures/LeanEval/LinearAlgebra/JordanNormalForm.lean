@@ -39,6 +39,7 @@ attribute [instance] JordanChainBasis.finite JordanChainBasis.decidableEq
 
 /-- **Jordan normal form.** Over an algebraically closed field, every
 endomorphism of `Kⁿ` admits a Jordan-chain basis. -/
+@[category research solved, AMS 0]
 theorem jordan_normal_form {K : Type*} [Field K] [IsAlgClosed K] (n : ℕ)
     (f : Module.End K (StdSpace K n)) :
     Nonempty (JordanChainBasis f) := by

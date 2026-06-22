@@ -42,52 +42,66 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [CompactSpace X] [Connect
   [ChartedSpace ℂ X] [IsManifold (modelWithCornersSelf ℂ ℂ) ω X]
 
 -- data
+@[category research solved, AMS 0]
 def genus (X : Type u) [TopologicalSpace X] [T2Space X] [CompactSpace X] [ConnectedSpace X]
     [Nonempty X] [ChartedSpace ℂ X] [IsManifold (modelWithCornersSelf ℂ ℂ) ω X] : ℕ := sorry
 
 -- this proof avoids the hack answer `∀ X, genus X = 0`
 -- Prop
+@[category research solved, AMS 0]
 theorem genus_eq_zero_iff_homeo :
     genus X = 0 ↔ Nonempty (X ≃ₜ (Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) 1)) :=
   sorry
 
 -- data
+@[category research solved, AMS 0]
 def Jacobian (X : Type u) [TopologicalSpace X] [T2Space X] [CompactSpace X] [ConnectedSpace X]
     [Nonempty X] [ChartedSpace ℂ X] [IsManifold (modelWithCornersSelf ℂ ℂ) ω X] : Type u := sorry
 
 namespace Jacobian
 
 -- data
+@[category research solved, AMS 0]
 instance instAddCommGroup : AddCommGroup (Jacobian X) := sorry
 
 -- data
+@[category research solved, AMS 0]
 instance instTopologicalSpace : TopologicalSpace (Jacobian X) := sorry
 
 -- Prop
+@[category research solved, AMS 0]
 instance instT2Space : T2Space (Jacobian X) := sorry
 
 -- Prop
+@[category research solved, AMS 0]
 instance instCompactSpace : CompactSpace (Jacobian X) := sorry
 
+@[category research solved, AMS 0]
 instance instChartedSpace : ChartedSpace (Fin (genus X) → ℂ) (Jacobian X) := sorry
 
 -- Prop
+@[category research solved, AMS 0]
 instance instIsManifold :
     IsManifold (modelWithCornersSelf ℂ (Fin (genus X) → ℂ)) ω (Jacobian X) := sorry
 
 -- Prop
+@[category research solved, AMS 0]
 instance instLieAddGroup :
     LieAddGroup (modelWithCornersSelf ℂ (Fin (genus X) → ℂ)) ω (Jacobian X) := sorry
 
+@[category research solved, AMS 0]
 def ofCurve (P : X) : X → Jacobian X := sorry
 
+@[category research solved, AMS 0]
 theorem ofCurve_contMDiff (P : X) :
     ContMDiff (modelWithCornersSelf ℂ ℂ)
       (modelWithCornersSelf ℂ (Fin (genus X) → ℂ)) ω (ofCurve P) := sorry
 
+@[category research solved, AMS 0]
 theorem ofCurve_self (P : X) : ofCurve P P = 0 := sorry
 
 -- this is the lemma which stops the hack answer "J(X)=0 for all X"
+@[category research solved, AMS 0]
 theorem ofCurve_inj (P : X) (h : 0 < genus X) : Function.Injective (ofCurve P) := sorry
 
 variable {Y : Type v} [TopologicalSpace Y] [T2Space Y] [CompactSpace Y] [ConnectedSpace Y]
@@ -95,16 +109,19 @@ variable {Y : Type v} [TopologicalSpace Y] [T2Space Y] [CompactSpace Y] [Connect
 
 variable (f : X → Y) (hf : ContMDiff (modelWithCornersSelf ℂ ℂ) (modelWithCornersSelf ℂ ℂ) ω f)
 
+@[category research solved, AMS 0]
 def pushforward (f : X → Y)
     (hf : ContMDiff (modelWithCornersSelf ℂ ℂ) (modelWithCornersSelf ℂ ℂ) ω f) :
     Jacobian X →ₜ+ Jacobian Y := sorry
 
+@[category research solved, AMS 0]
 theorem pushforward_contMDiff (f : X → Y)
     (hf : ContMDiff (modelWithCornersSelf ℂ ℂ) (modelWithCornersSelf ℂ ℂ) ω f) :
     ContMDiff (modelWithCornersSelf ℂ (Fin (genus X) → ℂ))
       (modelWithCornersSelf ℂ (Fin (genus Y) → ℂ)) ω (pushforward f hf) := sorry
 
 -- functoriality
+@[category research solved, AMS 0]
 theorem pushforward_id_apply (P : Jacobian X) :
     pushforward id contMDiff_id P = P := sorry
 
@@ -113,6 +130,7 @@ variable {Z : Type w} [TopologicalSpace Z] [T2Space Z] [CompactSpace Z] [Connect
 
 variable (g : Y → Z) (hg : ContMDiff (modelWithCornersSelf ℂ ℂ) (modelWithCornersSelf ℂ ℂ) ω g)
 
+@[category research solved, AMS 0]
 theorem pushforward_comp_apply (f : X → Y)
     (hf : ContMDiff (modelWithCornersSelf ℂ ℂ) (modelWithCornersSelf ℂ ℂ) ω f)
     (g : Y → Z) (hg : ContMDiff (modelWithCornersSelf ℂ ℂ) (modelWithCornersSelf ℂ ℂ) ω g)
@@ -122,28 +140,34 @@ theorem pushforward_comp_apply (f : X → Y)
 
 -- if f is constant then the pullback should be the zero map, otherwise it's
 -- the usual pullback
+@[category research solved, AMS 0]
 def pullback (f : X → Y)
     (hf : ContMDiff (modelWithCornersSelf ℂ ℂ) (modelWithCornersSelf ℂ ℂ) ω f) :
     Jacobian Y →ₜ+ Jacobian X := sorry
 
+@[category research solved, AMS 0]
 theorem pullback_contMDiff (f : X → Y)
     (hf : ContMDiff (modelWithCornersSelf ℂ ℂ) (modelWithCornersSelf ℂ ℂ) ω f) :
     ContMDiff (modelWithCornersSelf ℂ (Fin (genus Y) → ℂ))
       (modelWithCornersSelf ℂ (Fin (genus X) → ℂ)) ω (pullback f hf) := sorry
 
+@[category research solved, AMS 0]
 theorem pullback_id_apply (P : Jacobian X) :
     pullback id contMDiff_id P = P := sorry
 
+@[category research solved, AMS 0]
 theorem pullback_comp_apply (f : X → Y)
     (hf : ContMDiff (modelWithCornersSelf ℂ ℂ) (modelWithCornersSelf ℂ ℂ) ω f)
     (g : Y → Z) (hg : ContMDiff (modelWithCornersSelf ℂ ℂ) (modelWithCornersSelf ℂ ℂ) ω g)
     (P : Jacobian Z) :
     pullback (g.comp f) (hg.comp hf) P = pullback f hf (pullback g hg P) := sorry
 
+@[category research solved, AMS 0]
 def degree (f : X → Y)
     (hf : ContMDiff (modelWithCornersSelf ℂ ℂ) (modelWithCornersSelf ℂ ℂ) ω f) : ℕ :=
   sorry -- 0 for constant case
 
+@[category research solved, AMS 0]
 theorem pushforward_pullback (f : X → Y)
     (hf : ContMDiff (modelWithCornersSelf ℂ ℂ) (modelWithCornersSelf ℂ ℂ) ω f)
     (P : Jacobian Y) :

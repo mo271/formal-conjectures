@@ -41,6 +41,7 @@ For every compact smooth manifold-with-boundary `X` and every smooth family `F` 
 self-diffeomorphisms of `S³` parameterized by `X` whose boundary restriction already
 factors through the linear action of `O(4)`, there is a smooth isotopy of `F`, rel
 `∂X`, to a family fully factoring through `O(4)`. -/
+@[category research solved, AMS 0]
 theorem smale_conjecture
     {n : ℕ} [NeZero n]
     (X : Type) [TopologicalSpace X] [T2Space X] [SecondCountableTopology X]

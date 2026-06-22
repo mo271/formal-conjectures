@@ -35,6 +35,7 @@ abbrev E (n : ℕ) := EuclideanSpace ℝ (Fin n)
 /-- **Isoperimetric inequality** (`n`-dim, topological-frontier form).
 For any measurable bounded `B ⊆ ℝⁿ` with `n ≥ 2`,
 `n^n · volume B^{n−1} · volume (closedBall 0 1) ≤ μHE[n−1] (frontier B)^n`. -/
+@[category research solved, AMS 0]
 theorem isoperimetric (n : ℕ) (_hn : 2 ≤ n) (B : Set (E n))
     (_hB : MeasurableSet B) (_hBdd : Bornology.IsBounded B) :
     (n : ℝ≥0∞) ^ n * (volume B) ^ (n - 1) * volume (closedBall (0 : E n) 1)

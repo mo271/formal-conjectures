@@ -13,6 +13,7 @@ Mathlib's `NumberField.house` is exactly the "largest absolute value of all
 conjugates" appearing in the paper, so we use it directly.
 -/
 
+@[category research solved, AMS 0]
 theorem cyclotomic_integer_house_le_two
     {K : Type*} [Field K] [NumberField K] [Algebra ℚ K]
     (n : ℕ) [NeZero n] [IsCyclotomicExtension {n} ℚ K] {β : K}
@@ -22,6 +23,7 @@ theorem cyclotomic_integer_house_le_two
       house β = 2 ∨ ∃ m : ℕ, 0 < m ∧ house β = 2 * Real.cos (Real.pi / m) := by
   sorry
 
+@[category research solved, AMS 0]
 theorem cyclotomic_integer_house_between_two_and_76_33
     {K : Type*} [Field K] [NumberField K] [Algebra ℚ K]
     (n : ℕ) [NeZero n] [IsCyclotomicExtension {n} ℚ K] {β : K}

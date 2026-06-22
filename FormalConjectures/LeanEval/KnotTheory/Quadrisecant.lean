@@ -51,6 +51,7 @@ def HasQuadrisecant (r : ℝ → Space) : Prop :=
 
 /-- **Quadrisecant theorem** (Pannwitz–Kuperberg). Every smooth nontrivial knot
 has a quadrisecant. -/
+@[category research solved, AMS 0]
 theorem smooth_knot_has_quadrisecant
     {r : ℝ → Space} (_hknot : IsSmoothKnot r) (_hnontrivial : ¬ IsUnknotted r) :
     HasQuadrisecant r := by

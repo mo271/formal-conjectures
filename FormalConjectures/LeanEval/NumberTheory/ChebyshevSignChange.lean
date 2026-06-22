@@ -35,6 +35,7 @@ def chebyshevLead : Set ℕ :=
 (Hardy–Littlewood 1914, unconditional). The difference `π₃(n) − π₁(n)`
 changes sign infinitely often: both
 `{n : π₃(n) > π₁(n)}` and `{n : π₁(n) > π₃(n)}` are infinite. -/
+@[category research solved, AMS 0]
 theorem chebyshev_sign_change :
     chebyshevLead.Infinite ∧
     {n : ℕ | primeCountingMod 3 n < primeCountingMod 1 n}.Infinite := by

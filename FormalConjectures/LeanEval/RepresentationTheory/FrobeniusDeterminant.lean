@@ -33,6 +33,7 @@ a product of irreducible polynomials, each appearing to the power of its own
 (total) degree `d_j = deg p_j`, with the factors pairwise non-associated
 (*distinct*) and their number equal to the number of conjugacy classes of `G`.
 -/
+@[category research solved, AMS 0]
 theorem frobenius_group_determinant
     (G : Type*) [Group G] [Fintype G] [DecidableEq G] :
     ∃ (r : ℕ) (p : Fin r → MvPolynomial G ℂ),

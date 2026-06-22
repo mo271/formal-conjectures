@@ -83,6 +83,7 @@ def HasClosedReebOrbit (R : ∀ x : M, TangentSpace I x) : Prop :=
 /-- **Weinstein conjecture in dimension three** (Taubes 2007). Every
 Reeb vector field of a contact form on a closed smooth 3-manifold has
 a closed periodic orbit. -/
+@[category research solved, AMS 0]
 theorem weinstein_conjecture_dim_three
     (E' : Type*) [NormedAddCommGroup E'] [NormedSpace ℝ E']
     [FiniteDimensional ℝ E']

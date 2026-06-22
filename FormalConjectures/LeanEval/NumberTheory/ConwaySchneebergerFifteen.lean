@@ -48,6 +48,7 @@ The forward direction is immediate; the content is the converse — 15 is
 the smallest `N` such that representing `{1, …, N}` implies representing
 every positive integer. Bhargava's refinement reduces the critical set
 to `{1, 2, 3, 5, 6, 7, 10, 14, 15}` (9 elements). -/
+@[category research solved, AMS 0]
 theorem conway_schneeberger_fifteen {n : ℕ}
     (Q : Matrix (Fin n) (Fin n) ℤ)
     (_hsymm : Q.IsSymm) (_hpos : IsPositiveQ Q) :

@@ -29,6 +29,7 @@ instance innNormal (S : Type*) [Group S] :
     ext x
     simp [MulAut.conj_apply, map_mul, map_inv, MulEquiv.apply_symm_apply]
 
+@[category research solved, AMS 0]
 theorem schreier_conjecture
     (S : Type) [Group S] [Fintype S] [IsSimpleGroup S]
     (hS : ∃ a b : S, ¬ Commute a b) :

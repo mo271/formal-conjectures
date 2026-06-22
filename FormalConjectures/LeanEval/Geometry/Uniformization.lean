@@ -32,6 +32,7 @@ noncomputable abbrev mℂ := modelWithCornersSelf ℂ ℂ
 
 open scoped Manifold ContDiff
 
+@[category research solved, AMS 0]
 theorem uniformization {X : Type*} [TopologicalSpace X] [T2Space X] [ConnectedSpace X]
     [SecondCountableTopology X] [ChartedSpace ℂ X] [IsManifold mℂ 1 X]
     (hX : ¬ CompactSpace X) (x : X) [Subsingleton <| Additive (FundamentalGroup X x) →+ ℝ] :

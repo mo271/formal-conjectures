@@ -24,6 +24,7 @@ is a cornerstone of the classification of finite simple groups: it is what
 allows the local analysis to "fuse" 2-elements via odd-order normal subgroups.
 -/
 
+@[category research solved, AMS 0]
 theorem glauberman_zStar
     (G : Type) [Group G] [Fintype G]
     (t : G) (ht1 : t ≠ 1) (ht2 : t * t = 1)

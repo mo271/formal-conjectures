@@ -13,6 +13,7 @@ product satisfies `det(A) · ∏ᵢ B_{ii} ≤ det(A ⊙ B)`. This strengthens t
 theorem, which only asserts that `A ⊙ B` is positive semidefinite.
 -/
 
+@[category research solved, AMS 0]
 theorem oppenheim_inequality
     {n : Type*} [Fintype n] [DecidableEq n]
     {A B : Matrix n n ℝ} (hA : A.PosSemidef) (hB : B.PosSemidef) :

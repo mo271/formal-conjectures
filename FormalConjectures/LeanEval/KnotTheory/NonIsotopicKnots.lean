@@ -38,6 +38,7 @@ elementary ingredients:
   (3 of them); the trefoil admits 9.
 
 See <https://en.wikipedia.org/wiki/Knot_invariant> for a survey. -/
+@[category research solved, AMS 0]
 theorem exists_nonisotopic_knots : ∃ K₁ K₂ : Knot, ¬ K₁.Isotopic K₂ := by
   sorry
 

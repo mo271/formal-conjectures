@@ -52,6 +52,7 @@ noncomputable def totalCurvature (α : ℝ → ℝ) : ℝ :=
 
 /-- **Hopf Umlaufsatz.** A positively oriented simple closed unit-speed plane
 curve has total signed curvature `2π`. -/
+@[category research solved, AMS 0]
 theorem hopf_umlaufsatz
     {r : ℝ → Plane} {α : ℝ → ℝ}
     (_hr : IsPositiveSimpleClosedUnitSpeedCurve r)

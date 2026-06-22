@@ -57,6 +57,7 @@ lemma wignerMatrix_isHermitian {Ω : Type*} (X : ℕ → ℕ → Ω → ℝ) (n 
 mean-`0`, variance-`1` real random variables, the empirical spectral
 measure of the rescaled real-symmetric matrix `W_n / √n` converges
 weakly, almost surely, to the semicircle measure on `[−2, 2]`. -/
+@[category research solved, AMS 0]
 theorem wigner_semicircle
     {Ω : Type*} [MeasurableSpace Ω]
     (μ : Measure Ω) [IsProbabilityMeasure μ]

@@ -24,6 +24,7 @@ end ClosedSection
 
 variable {n : Type*} [Fintype n] [DecidableEq n]
 
+@[category research solved, AMS 0]
 theorem variable_binder_example
     (A : Matrix n n ℚ) (hA : A.IsHermitian) :
     A.trace = ∑ i, A i i := by

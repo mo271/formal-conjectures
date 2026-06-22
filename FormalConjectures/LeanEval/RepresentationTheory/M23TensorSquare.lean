@@ -51,6 +51,7 @@ diamond in `Representation.asModule` (which would otherwise force a
 extractor does not carry onto the generated `Challenge.lean`).
 -/
 
+@[category research solved, AMS 0]
 theorem m23_irrep_tensor_square_decomp :
     ∃ (G : Type) (_ : Group G) (_ : Fintype G),
       Fintype.card G = 10200960 ∧

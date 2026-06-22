@@ -24,6 +24,7 @@ Let `f` be a locally flat embedded `3`-sphere in `ℝ⁴` and `g` a second one n
 strictly inside `f`: the two images are disjoint and `g`'s image lies in the
 inside of `f`. Then the closed region between them is homeomorphic to the product
 `S³ × [0,1]`. -/
+@[category research solved, AMS 0]
 theorem annulus_theorem_dim_four
     (f g : FlatSphere 4)
     (hdisj : Disjoint (Set.range f.toFun) (Set.range g.toFun))

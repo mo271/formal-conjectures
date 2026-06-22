@@ -24,6 +24,7 @@ locally flat embedded `(n-1)`-sphere in `ℝⁿ` (`n ≥ 5`) and `g` a second on
 nested strictly inside `f`: the two images are disjoint and `g`'s image lies in
 the inside of `f`. Then the closed region between them is homeomorphic to the
 product `Sⁿ⁻¹ × [0,1]`. -/
+@[category research solved, AMS 0]
 theorem annulus_theorem_high_dim {n : ℕ} [NeZero n] (hn : 5 ≤ n)
     (f g : FlatSphere n)
     (hdisj : Disjoint (Set.range f.toFun) (Set.range g.toFun))

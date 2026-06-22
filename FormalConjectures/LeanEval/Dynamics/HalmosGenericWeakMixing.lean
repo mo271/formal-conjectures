@@ -58,6 +58,7 @@ def IsWeaklyMixing (m : Measure X) (T : Automorphism m) : Prop :=
 atomic standard probability space, the set of weakly mixing
 automorphisms is generic in the weak topology, and weakly mixing
 implies ergodic. -/
+@[category research solved, AMS 0]
 theorem generic_weakly_mixing [StandardBorelSpace X]
     (m : Measure X) [IsProbabilityMeasure m] [NoAtoms m] :
     (∃ G : Set (Automorphism m), IsGδ G ∧ Dense G ∧

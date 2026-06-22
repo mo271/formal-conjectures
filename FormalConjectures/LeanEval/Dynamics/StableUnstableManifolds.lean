@@ -46,6 +46,7 @@ carries the local stable set `Wˢ` (points whose forward orbit stays in
 `U` and converges to `x₀`) and the local unstable set `Wᵘ` (points
 admitting a backward orbit staying in `U` and converging to `x₀`), and
 `Wˢ ∩ Wᵘ = {x₀}`. -/
+@[category research solved, AMS 0]
 theorem stable_unstable_manifolds_exist (n : ℕ) (f : E n → E n) (x₀ : E n)
     (_hf : ContDiffAt ℝ 1 f x₀)
     (_hfix : f x₀ = x₀)

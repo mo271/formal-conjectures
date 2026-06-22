@@ -92,6 +92,7 @@ noncomputable def bettiNumber (M : Type) [TopologicalSpace M] (k : ℕ) : ℕ :=
 /-- **Weak Morse inequalities.** For a Morse function `f` on a closed
 smooth finite-dimensional manifold `M` and every `k ∈ ℕ`,
 `b_k(M) ≤ c_k(f)`. -/
+@[category research solved, AMS 0]
 theorem weak_morse_inequality
     {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E] [FiniteDimensional ℝ E]
     {H : Type*} [TopologicalSpace H] {I : ModelWithCorners ℝ E H} [I.Boundaryless]

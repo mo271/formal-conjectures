@@ -21,6 +21,7 @@ variable {n : Type*} [Fintype n] [DecidableEq n]
 (`Aᴴ A = A Aᴴ`, i.e. `IsStarNormal A`) **iff** it is **unitarily
 diagonalizable**: there is a unitary `U` and a diagonal matrix `diagonal d`
 with `A = U (diagonal d) Uᴴ`. -/
+@[category research solved, AMS 0]
 theorem normal_spectral_theorem (A : Matrix n n ℂ) :
     IsStarNormal A ↔
       ∃ U ∈ unitary (Matrix n n ℂ), ∃ d : n → ℂ,

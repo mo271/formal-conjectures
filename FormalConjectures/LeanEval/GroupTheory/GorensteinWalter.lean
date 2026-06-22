@@ -29,6 +29,7 @@ existential binds a `Fact p.Prime` term directly (rather than the bare
 -/
 
 /-- **Gorenstein–Walter theorem.** -/
+@[category research solved, AMS 0]
 theorem gorenstein_walter
     (G : Type) [Group G] [Finite G] [IsSimpleGroup G]
     (hnonab : ∃ a b : G, a * b ≠ b * a)

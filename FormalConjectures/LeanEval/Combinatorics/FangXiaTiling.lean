@@ -79,6 +79,7 @@ def IsPartitionTransitive {n : ℕ} (Y : Set (Equiv.Perm (Fin n)))
 /-- **Fang–Xia, Theorem 1.4.** A tiling `(T_n, Y)` of `S_n` forces
 λ-transitivity of `Y` for every partition `λ` of `n` whose Young-
 diagram content sum is nonnegative. -/
+@[category research solved, AMS 0]
 theorem fang_xia_partition_transitive_of_tiling
     {n : ℕ} {Y : Set (Equiv.Perm (Fin n))}
     (_h : IsTiling (transpositionsWithOne n) Y) :

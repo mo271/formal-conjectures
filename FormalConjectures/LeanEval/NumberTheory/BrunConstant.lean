@@ -29,6 +29,7 @@ noncomputable def twinPrimeReciprocalTerm (p : ℕ) : ℝ :=
     exact if IsTwinPrimeStart p then (1 / (p : ℝ)) + (1 / ((p + 2 : ℕ) : ℝ)) else 0
 
 /-- **Brun's theorem.** The reciprocal sum over twin-prime pairs converges. -/
+@[category research solved, AMS 0]
 theorem brun_constant_converges :
     Summable twinPrimeReciprocalTerm := by
   sorry

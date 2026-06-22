@@ -27,6 +27,7 @@ def HasTverbergPartition {d r n : ℕ} (f : Fin n → Space d) : Prop :=
 
 /-- **Tverberg's theorem.** Any `(r-1)(d+1)+1` points in `ℝ^d` admit an
 `r`-part Tverberg partition. -/
+@[category research solved, AMS 0]
 theorem tverberg_theorem (d r : ℕ) (hr : 1 ≤ r)
     (f : Fin ((r - 1) * (d + 1) + 1) → Space d) :
     HasTverbergPartition (r := r) f := by

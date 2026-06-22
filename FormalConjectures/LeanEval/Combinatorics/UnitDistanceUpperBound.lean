@@ -27,6 +27,7 @@ pairs in any finite planar set is `O(n^{4/3})`: there is an absolute
 constant `C > 0` such that every finite `P ⊆ ℝ²` satisfies
 
   `unitDist P ≤ C · |P|^{4/3}`. -/
+@[category research solved, AMS 0]
 theorem unit_distance_upper_bound :
     ∃ C : ℝ, 0 < C ∧
       ∀ P : Finset (EuclideanSpace ℝ (Fin 2)),

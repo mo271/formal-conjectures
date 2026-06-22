@@ -29,6 +29,7 @@ def Mandelbar : Set ℂ :=
   { c : ℂ | ∃ M : ℝ, ∀ n : ℕ, ‖(Tantibar c)^[n] 0‖ ≤ M }
 
 /-- **The mandelbar (tricorn) is not path-connected** (Hubbard–Schleicher). -/
+@[category research solved, AMS 0]
 theorem mandelbar_not_path_connected : ¬ IsPathConnected Mandelbar := by
   sorry
 

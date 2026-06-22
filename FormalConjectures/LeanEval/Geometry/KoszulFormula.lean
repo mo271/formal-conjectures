@@ -51,6 +51,7 @@ def IsMetricCompatible
 covariant derivative `cov` on `TM`, `2 ⟨∇_X Y, Z⟩` equals the cyclic sum
 of directional derivatives `X·⟨Y, Z⟩ + Y·⟨X, Z⟩ − Z·⟨X, Y⟩` minus the
 Lie-bracket cyclic sum `⟨X, [Y, Z]⟩ + ⟨Y, [X, Z]⟩ − ⟨Z, [X, Y]⟩`. -/
+@[category research solved, AMS 0]
 theorem koszul_formula
     {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
       [FiniteDimensional ℝ E] [CompleteSpace E]

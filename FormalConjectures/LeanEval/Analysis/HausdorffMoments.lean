@@ -77,6 +77,7 @@ def IsPositiveMomentConfiguration {d : ℕ} (a : (Fin d → ℕ) → ℝ) : Prop
 /-- **Hausdorff–Hildebrandt–Schoenberg theorem.** A multi-indexed real sequence
 is the moment sequence of a signed bounded-variation measure on the unit cube
 `Iᵈ` iff its moments are Hausdorff bounded. -/
+@[category research solved, AMS 0]
 theorem hausdorff_hildebrandt_schoenberg {d : ℕ} (a : (Fin d → ℕ) → ℝ) :
     IsMomentConfiguration a ↔ HausdorffBounded a := by
   sorry
@@ -85,6 +86,7 @@ theorem hausdorff_hildebrandt_schoenberg {d : ℕ} (a : (Fin d → ℕ) → ℝ)
 comes from a positive measure iff all its iterated backward differences are
 nonnegative — i.e. the sequence is *completely monotone*: `(Δᵏa)ₙ ≥ 0` for all
 `k ≤ n`. -/
+@[category research solved, AMS 0]
 theorem hausdorff_positivity {d : ℕ} (a : (Fin d → ℕ) → ℝ) :
     IsPositiveMomentConfiguration a ↔ ∀ k n : Fin d → ℕ, k ≤ n → 0 ≤ diff a k n := by
   sorry

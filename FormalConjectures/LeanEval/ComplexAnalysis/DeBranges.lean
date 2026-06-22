@@ -22,6 +22,7 @@ open Metric
 /-- De Branges's theorem (Bieberbach conjecture): a univalent function (injective holomorphic
 function from the unit disc to the complex plane) with Taylor coefficients a₀=0 and a₁=1 satisfies
 |aₙ|≤ n for all n. -/
+@[category research solved, AMS 0]
 theorem deBranges (f : ℂ → ℂ) (diff : DifferentiableOn ℂ f (ball 0 1)) (inj : (ball 0 1).InjOn f)
     (h0 : f 0 = 0) (h1 : deriv f 0 = 1) (n : ℕ) : ‖iteratedDeriv n f 0 / n.factorial‖ ≤ n := by
   sorry

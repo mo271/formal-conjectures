@@ -76,6 +76,7 @@ def SameOnSmooth
 `C^∞` finite-dimensional Riemannian manifold there exists a smooth
 torsion-free metric-compatible covariant derivative on `TM`, and any other
 such connection agrees with it on smooth vector fields. -/
+@[category research solved, AMS 0]
 theorem levi_civita_exists_unique
     {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
       [FiniteDimensional ℝ E] [CompleteSpace E]

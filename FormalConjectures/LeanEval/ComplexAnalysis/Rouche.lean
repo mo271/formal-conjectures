@@ -29,6 +29,7 @@ https://leanprover.zulipchat.com/#narrow/channel/583341-Model-comparisons-for-Le
 for a concrete counterexample to the previous `MeromorphicOn`-only formulation.
 -/
 
+@[category research solved, AMS 0]
 theorem rouche_zero_count_eq
     {f g : ℂ → ℂ} {R : ℝ}
     (hR : 0 < R)

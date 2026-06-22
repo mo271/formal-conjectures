@@ -19,6 +19,7 @@ def LagariasElementaryCriterion : Prop :=
         (harmonic n : ℝ) +
           Real.exp (harmonic n : ℝ) * Real.log (harmonic n : ℝ)
 
+@[category research solved, AMS 0]
 theorem riemann_hypothesis_iff_lagarias_elementary_criterion :
     RiemannHypothesis ↔ LagariasElementaryCriterion := by
   sorry

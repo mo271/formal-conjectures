@@ -20,6 +20,7 @@ Freedman (1982): every knot with trivial Alexander polynomial bounds a
 locally flat topological disk in the 4-ball. The Conway knot has
 `Δ_K(t) = 1`, so applying this theorem yields a locally flat topological
 slice disk. -/
+@[category research solved, AMS 0]
 theorem conway_knot_topologically_slice : conwayKnot.TopologicallySlice := by
   sorry
 

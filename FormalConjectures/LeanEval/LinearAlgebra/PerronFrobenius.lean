@@ -15,6 +15,7 @@ The `[Nonempty n]` assumption is necessary: for `n = Empty`, `Matrix.IsIrreducib
 but `Module.End.HasEigenvector` still requires a nonzero vector.
 -/
 
+@[category research solved, AMS 0]
 theorem irreducible_nonnegative_matrix_has_positive_eigenvector_at_spectralRadius
     {n : Type*} [Fintype n] [DecidableEq n] [Nonempty n]
     (A : Matrix n n ℝ)

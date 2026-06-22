@@ -78,6 +78,7 @@ def IsUnknotted (r : ℝ → Space) : Prop :=
 
 /-- **Fáry–Milnor theorem** (Fáry 1949 / Milnor 1950). A smooth knot
 with total curvature at most `4π` is unknotted. -/
+@[category research solved, AMS 0]
 theorem fary_milnor_total_curvature
     {r : ℝ → Space} (_hknot : IsSmoothKnot r)
     (_hK : totalCurvature r ≤ 4 * Real.pi) :

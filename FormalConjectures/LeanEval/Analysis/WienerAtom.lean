@@ -36,6 +36,7 @@ the circle `𝕋 = ℝ/2πℤ`, the Cesàro average of `|μ̂_k|²` for `k = 1, 
 converges to the sum of the squared masses of the atoms of `μ`. The right-hand
 side is automatically summable: the atoms of a finite measure are at most
 countable and their masses are bounded by `μ(𝕋) = 1`. -/
+@[category research solved, AMS 0]
 theorem wiener_atom_detection
     (μ : Measure (AddCircle (2 * Real.pi))) [IsProbabilityMeasure μ] :
     Tendsto

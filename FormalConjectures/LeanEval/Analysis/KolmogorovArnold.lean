@@ -33,6 +33,7 @@ admits a representation
 `f(x) = ∑_{k=0}^{2n} g(∑_{l=1}^{n} φ_{k,l}(x_l))` with a single
 continuous outer function `g : ℝ → ℝ` and continuous inner functions
 `φ_{k,l} : ℝ → ℝ`. -/
+@[category research solved, AMS 0]
 theorem kolmogorov_arnold (n : ℕ) (_hn : 1 ≤ n)
     (f : (Fin n → ℝ) → ℝ) (_hf : ContinuousOn f (Set.Icc 0 1)) :
     ∃ (g : ℝ → ℝ) (φ : Fin (2 * n + 1) → Fin n → ℝ → ℝ),

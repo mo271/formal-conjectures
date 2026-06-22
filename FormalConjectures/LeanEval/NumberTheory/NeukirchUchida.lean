@@ -14,6 +14,7 @@ Jürgen Neukirch, Alexander Schmidt, Kay Wingberg. *Cohomology of Number Fields*
 
 namespace LeanEval.NumberTheory
 
+@[category research solved, AMS 0]
 theorem neukirch_uchida {K₁ K₂ K₁' K₂' : Type*} [Field K₁] [Field K₂] [Field K₁'] [Field K₂']
     [NumberField K₁] [NumberField K₂] [Algebra K₁ K₁'] [Algebra K₂ K₂'] [IsSepClosure K₁ K₁']
     [IsSepClosure K₂ K₂'] (ϕ : Gal(K₁'/K₁) ≃* Gal(K₂'/K₂)) (he : IsHomeomorph ϕ) :

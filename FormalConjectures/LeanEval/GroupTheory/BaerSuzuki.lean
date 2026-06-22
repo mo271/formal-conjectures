@@ -33,6 +33,7 @@ normal `p`-subgroups of `G`.
 /-- **Baer–Suzuki theorem.** An element `x` of a finite group `G` lies in
 the `p`-core `O_p(G)` iff every pair `(x, x^g)` of conjugates generates a
 `p`-group. -/
+@[category research solved, AMS 0]
 theorem baer_suzuki {G : Type*} [Group G] [Finite G]
     {p : ℕ} [Fact p.Prime] (x : G) :
     x ∈ pCore p G ↔

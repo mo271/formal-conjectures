@@ -34,6 +34,7 @@ edges meeting only at their shared vertex. This certifies that `conwayKnot`
 is a genuine embedded knot — the subject the slice question is about — and
 is posed as its own hole so that the proof lives in the submission rather
 than as an unchecked field of `conwayKnot`. -/
+@[category research solved, AMS 0]
 theorem conwayKnot_isSimple : conwayKnot.IsSimple := by
   sorry
 
@@ -41,6 +42,7 @@ theorem conwayKnot_isSimple : conwayKnot.IsSimple := by
 
 The Conway knot 11n34 does not bound a smoothly properly embedded 2-disk
 in `ℝ³ × [0, ∞)`. -/
+@[category research solved, AMS 0]
 theorem conway_knot_not_smoothly_slice : ¬ conwayKnot.SmoothlySlice := by
   sorry
 

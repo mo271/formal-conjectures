@@ -36,6 +36,7 @@ open ComplexOrder
 /-- Strong subadditivity of quantum entropy. We relax the common assumption that M is a normalized
  density matrix to the simpler statement that it's PSD, which holds since normalization just produces
  a positive affine transformation on the entropy. -/
+@[category research solved, AMS 0]
 theorem strong_subadditivity (M_ABC : Matrix (A × B × C) (A × B × C) ℂ) (h : M_ABC.PosSemidef) :
     let M_AB : Matrix (A × B) (A × B) ℂ :=
       .traceRight <| M_ABC.reindex (.symm <| .prodAssoc ..) (.symm <| .prodAssoc ..)

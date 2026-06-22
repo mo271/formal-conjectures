@@ -16,6 +16,7 @@ This is a foundational result in geometric group theory, connecting algebraic ge
 to graph-theoretic connectivity.
 -/
 
+@[category research solved, AMS 0]
 theorem mulCayley_connected_iff_closure_eq_top
     {G : Type*} [Group G]
     (S : Set G) :

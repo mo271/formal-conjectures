@@ -9,12 +9,15 @@ independent comparator workspaces from these shared source files, so benchmark a
 do not need to hand-maintain per-problem packages.
 -/
 
+@[category research solved, AMS 0]
 theorem two_plus_two_eq_four : (2 : Nat) + 2 = 4 := by
   sorry
 
+@[category research solved, AMS 0]
 theorem list_append_singleton_length :
     (([1, 2] : List Nat).append [3]).length = 3 := by
   sorry
+@[category research solved, AMS 0]
 theorem ci_regenerate_main_check : True := by trivial
 
 def starterNumber : Nat := 4

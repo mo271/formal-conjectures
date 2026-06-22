@@ -25,6 +25,7 @@ open Matrix
 /-- **Lidskii–Last theorem.** For two self-adjoint complex `n × n` matrices
 `A, B`, with eigenvalues sorted in the same order,
 `∑ⱼ |αⱼ − βⱼ| ≤ ∑ᵢⱼ |Aᵢⱼ − Bᵢⱼ|`. -/
+@[category research solved, AMS 0]
 theorem lidskii_last {n : Type*} [Fintype n] [DecidableEq n]
     {A B : Matrix n n ℂ} (hA : A.IsHermitian) (hB : B.IsHermitian) :
     ∑ j, |hA.eigenvalues₀ j - hB.eigenvalues₀ j| ≤

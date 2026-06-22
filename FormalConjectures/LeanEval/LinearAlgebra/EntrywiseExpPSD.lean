@@ -19,6 +19,7 @@ positive semidefiniteness, with applications in statistics (correlation matrices
 quantum information theory (density matrices).
 -/
 
+@[category research solved, AMS 0]
 theorem posSemidef_map_exp
     {n : Type*} [Fintype n] [DecidableEq n]
     {A : Matrix n n ℝ} (hA : A.PosSemidef) :

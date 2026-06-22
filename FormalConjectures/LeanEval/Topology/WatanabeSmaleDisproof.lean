@@ -41,6 +41,7 @@ answering `[Kir97, Problems 4.34 and 4.126]`. The relative parameterized
 statement that `O(5) ↪ Diff(S⁴)` is a homotopy equivalence — the exact
 four-dimensional analogue of the (true) Smale conjecture for `S³` — does not
 hold. -/
+@[category research solved, AMS 0]
 theorem watanabe_four_dim_smale_disproof :
     ¬ (∀ {n : ℕ} [NeZero n]
         (X : Type) [TopologicalSpace X] [T2Space X] [SecondCountableTopology X]

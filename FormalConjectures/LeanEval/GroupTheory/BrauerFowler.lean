@@ -31,6 +31,7 @@ dihedral subgroup; no deep machinery is required.
 /-- **Brauer–Fowler theorem.** There is a function bounding the order
 of a finite nonabelian simple group by the order of any involution
 centralizer. -/
+@[category research solved, AMS 0]
 theorem brauer_fowler :
     ∃ f : ℕ → ℕ, ∀ (G : Type) [Group G] [Finite G],
       IsSimpleGroup G → (∃ a b : G, a * b ≠ b * a) →

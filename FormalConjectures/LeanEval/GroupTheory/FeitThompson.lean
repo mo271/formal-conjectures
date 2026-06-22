@@ -26,6 +26,7 @@ Simple Groups itself).
 
 /-- **Feit–Thompson odd-order theorem.** Every finite group of odd order is
 solvable. -/
+@[category research solved, AMS 0]
 theorem feit_thompson {G : Type*} [Group G] [Finite G]
     (_h : Odd (Nat.card G)) : IsSolvable G := by
   sorry

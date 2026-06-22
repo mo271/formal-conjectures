@@ -24,6 +24,7 @@ open Set
 
 /-- **Brouwer fixed-point theorem.** Every continuous self-map of a
 nonempty compact convex subset of `ℝᵈ` has a fixed point. -/
+@[category research solved, AMS 0]
 theorem brouwer_fixed_point {d : ℕ}
     {K : Set (EuclideanSpace ℝ (Fin d))}
     (_hK_compact : IsCompact K) (_hK_convex : Convex ℝ K)

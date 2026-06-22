@@ -35,6 +35,7 @@ noncomputable def fourier2 (f : ℝ × ℝ → ℂ) (k : ℝ × ℝ) : ℂ :=
 /-- **Radon's theorem (diagonalization + pseudo-inversion).** The Fourier slice
 theorem diagonalizes the Radon transform, and the transform admits a left
 inverse on the Schwartz space. -/
+@[category research solved, AMS 0]
 theorem radon_can_be_diagonalized_and_pseudo_inverted :
     (∀ φ : SchwartzMap (ℝ × ℝ) ℂ, ∀ θ k : ℝ,
         fourier1 (fun p => radon (φ : ℝ × ℝ → ℂ) (p, θ)) k =

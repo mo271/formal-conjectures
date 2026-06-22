@@ -39,6 +39,7 @@ Stateable with zero new definitions.
 /-- **Schauder fixed-point theorem.** Every continuous self-map of a
 nonempty compact convex subset of a real Banach space has a fixed
 point. -/
+@[category research solved, AMS 0]
 theorem schauder_fixed_point {E : Type*}
     [NormedAddCommGroup E] [NormedSpace ℝ E] [CompleteSpace E]
     {K : Set E}

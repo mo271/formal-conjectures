@@ -26,6 +26,7 @@ noncomputable def gaussS (q : ℤ) (p : ℕ) : ℂ :=
 
 /-- **Landsberg–Schaar relation.** For positive odd integers `p, q`,
 `S(2q, p) = e^{iπ/4} · S(−p, 2q)`. -/
+@[category research solved, AMS 0]
 theorem landsberg_schaar (p q : ℕ) (hp : Odd p) (hq : Odd q) :
     gaussS (2 * q : ℕ) p
       = Complex.exp ((Real.pi : ℂ) * Complex.I / 4) * gaussS (-(p : ℤ)) (2 * q) := by

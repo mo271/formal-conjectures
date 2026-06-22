@@ -52,6 +52,7 @@ axiom), every box size `N ≥ 1`, and every `ε > 0`, there is a
 measurable base `B` such that the translates `T v '' B` for
 `v ∈ [0, N)ᵈ` are pairwise disjoint and their union has measure at
 least `1 − ε`. -/
+@[category research solved, AMS 0]
 theorem ornstein_weiss_rokhlin {Ω : Type*} [MeasurableSpace Ω]
     [StandardBorelSpace Ω]
     {d : ℕ} (_hd : 1 ≤ d) (μ : Measure Ω) [IsProbabilityMeasure μ]

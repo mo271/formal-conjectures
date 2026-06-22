@@ -91,6 +91,7 @@ noncomputable def harmonicMeanLyapunov (lam1 lam2 : ℝ) : ℝ :=
 `C²`-diffeomorphism `T` of the plane with smooth inverse `T_inv` and an ergodic
 invariant probability measure `μ` on a compact invariant `K`,
 `h_μ(T) = dim(μ) · λ(T,μ) / 2`, with `λ(T,μ)` the harmonic mean of `λ₁, −λ₂`. -/
+@[category research solved, AMS 0]
 theorem entropy_dimension_lyapunov
     (T T_inv : EucPlane → EucPlane)
     (hT_smooth : ContDiff ℝ 2 T)
@@ -113,6 +114,7 @@ theorem entropy_dimension_lyapunov
 
 /-- **Pesin formula (1977).** Symplectic surface case (`λ₁ = −λ₂`,
 `dim(μ) = 2`): `h_μ(T) = λ₁`. -/
+@[category research solved, AMS 0]
 theorem pesin_formula
     (T T_inv : EucPlane → EucPlane)
     (hT_smooth : ContDiff ℝ 2 T)
@@ -133,6 +135,7 @@ theorem pesin_formula
   sorry
 
 /-- **Margulis–Ruelle inequality (1968/1978).** `h_μ(T) ≤ λ₁⁺ + λ₂⁺`. -/
+@[category research solved, AMS 0]
 theorem margulis_ruelle
     (T T_inv : EucPlane → EucPlane)
     (hT_smooth : ContDiff ℝ 2 T)
