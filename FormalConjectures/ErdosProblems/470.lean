@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -/
 
-import FormalConjectures.Util.ProblemImports
+import FormalConjecturesUtil
 
 /-!
 # Erdős Problem 470
@@ -92,7 +92,7 @@ well-known conjectures concerning prime gaps.
 -/
 @[category research solved, AMS 11]
 theorem erdos_470.variants.prime_gap_imp_inf_prim_weird :
-    ∀ᶠ n in Filter.atTop, primeGap n < √ (n.nth Nat.Prime) / 10 →
+    (∀ᶠ n in Filter.atTop, primeGap n < √ (n.nth Nat.Prime) / 10) →
       Set.Infinite PrimitiveWeird := by
   sorry
 
