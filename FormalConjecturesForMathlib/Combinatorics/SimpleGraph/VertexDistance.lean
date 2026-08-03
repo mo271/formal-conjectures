@@ -93,6 +93,7 @@ This is DeLaVina's `dist_max(S)` invariant ("distance between maximum degree
 vertices" when `S = M`), used in WOWII conjecture 18. It is distinct from
 `eccSet`, which measures distances from arbitrary vertices *to* the set. -/
 noncomputable def distMaxSet (G : SimpleGraph α) (S : Set α) : ℕ :=
+  open scoped Classical in
   let members := Finset.univ.filter (fun v : α => v ∈ S)
   (members ×ˢ members).sup (fun p => G.dist p.1 p.2)
 
