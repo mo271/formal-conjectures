@@ -61,7 +61,7 @@ From a combinatorial perspective, the tuple of summands (x_1, ..., x_t) mentione
 This is a precise statement about the set of values $n$ for which $a(n) = 1$ among $n \le 100$.
 -/
 @[category research open, AMS 11]
-theorem conjecture :
+theorem every_integer_appears :
   let S : Finset ℕ := {1, 3, 5, 9, 15, 23, 35, 63, 65, 67}
   ∀ n : ℕ, n ∈ S → a n = 1 :=
 by sorry

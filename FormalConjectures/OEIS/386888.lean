@@ -88,7 +88,7 @@ Also, a(n) > 1 for all n > 2258.
 (In the case k = m = 3 for the general conjecture by Sun.)
 -/
 @[category research open, AMS 11]
-theorem conjecture :
+theorem eventually_positive :
   (∀ n : ℕ,
     ((Odd n ∧ n > 905) ∨ (Even n ∧ n > 1466)) → a n > 0)
   ∧

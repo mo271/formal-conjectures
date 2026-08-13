@@ -58,11 +58,11 @@ theorem a_3 : a 3 = 6 := sorry
 theorem a_4 : a 4 = 12 := sorry
 
 /--
-oeis_385391_conjecture_0: a a(1) = A002110(0), a(2) = A002110(1), a(3) = A002110(2), a(6) = A002110(3), a(7) = A002110(4), a(10) = A002110(5), ...?
+a a(1) = A002110(0), a(2) = A002110(1), a(3) = A002110(2), a(6) = A002110(3), a(7) = A002110(4), a(10) = A002110(5), ...?
 This conjecture is formalized as a conjunction of the listed equalities, implying a general pattern related to A065295.
 -/
 @[category research open, AMS 11]
-theorem conjecture :
+theorem a_eq_primorial :
   a 1 = A002110 0 ∧
   a 2 = A002110 1 ∧
   a 3 = A002110 2 ∧

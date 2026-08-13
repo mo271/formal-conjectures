@@ -86,7 +86,7 @@ Conjecture (OEIS a, C-line): A zero has not appeared in the sequence $a(n)$.
 This is equivalent to $\forall n : \mathbb{N}, a(n) \neq 0$.
 -/
 @[category research open, AMS 11]
-theorem conjecture (n : ℕ) : a n ≠ 0 := by
+theorem never_zero (n : ℕ) : a n ≠ 0 := by
   sorry
 
 end OeisA359634

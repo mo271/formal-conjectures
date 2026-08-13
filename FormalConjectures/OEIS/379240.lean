@@ -106,7 +106,7 @@ $[\mathtt{A003415}(i), \mathtt{A085731}(i)]$ and $[\mathtt{A003415}(j), \mathtt{
 differ from each other.
 -/
 @[category research open, AMS 11]
-theorem conjecture (n : ℕ) : a n = A379240_conjecture n := by
+theorem a_eq_rgs_transform (n : ℕ) : a n = A379240_conjecture n := by
   sorry
 
 end OeisA379240

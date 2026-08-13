@@ -80,7 +80,7 @@ Is there an increasing arithmetic progression with a difference not exceeding 20
 consisting of 150 natural numbers, each of which is "lopsided"? (A. Chironov)
 -/
 @[category textbook, AMS 11]
-theorem conjecture :
+theorem every_integer_appears :
   answer(sorry) ↔
   ∃ (a d : ℕ),
     2 ≤ a ∧ -- The starting number 'a' must be lopsided, hence > 1. All subsequent terms will also be > 1.

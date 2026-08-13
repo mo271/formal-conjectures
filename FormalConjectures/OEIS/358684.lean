@@ -138,7 +138,7 @@ Substituting the definition of $a(n)$, this is equivalent to $\nu_2(P_n - 1) \le
 This is Conjecture 3.4 in [SA22].
 -/
 @[category research solved, AMS 11]
-theorem oeis_358684_conjecture_0 (n : ℕ) :
+theorem valuation_bound (n : ℕ) :
     padicValNat 2 (minFac (fermatNumber n) - 1) ≤ 2 ^ n - a n := by
   delta fermatNumber and a
   rw [Nat.sub_sub_self]

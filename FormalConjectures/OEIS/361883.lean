@@ -72,7 +72,7 @@ $u(n \cdot p^r) \equiv u(n \cdot p^{r-1}) \pmod{p^{3r}}$ for positive integers $
 and all primes $p \ge 5$. We conjecture that the present sequence $a(n)$ satisfies the same congruences.
 -/
 @[category research open, AMS 11]
-theorem conjecture {p n r : ℕ} (hp : p.Prime) (hp5 : 5 ≤ p) (hn : 0 < n) (hr : 0 < r) :
+theorem supercongruence {p n r : ℕ} (hp : p.Prime) (hp5 : 5 ≤ p) (hn : 0 < n) (hr : 0 < r) :
     a (n * p ^ r) ≡ a (n * p ^ (r - 1)) [MOD p ^ (3 * r)] := by
   sorry
 

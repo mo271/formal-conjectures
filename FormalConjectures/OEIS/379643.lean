@@ -84,6 +84,6 @@ noncomputable def b (n : ℕ) : ℤ :=
 /-- Conjecture: no prime appears on the negative y-axis.
 That is, for every $n \ge 1$, if the $x$-coordinate $a(n)$ is $0$, then the $y$-coordinate $b(n)$ must be non-negative. -/
 @[category research open, AMS 11]
-theorem conjecture : ∀ (n : ℕ), 0 < n → ¬ (a n = 0 ∧ b n < 0) := by sorry
+theorem not_zero_and_negative : ∀ (n : ℕ), 0 < n → ¬ (a n = 0 ∧ b n < 0) := by sorry
 
 end OeisA379643

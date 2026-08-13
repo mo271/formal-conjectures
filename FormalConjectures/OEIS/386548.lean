@@ -46,7 +46,7 @@ Conjecture: the stronger supercongruences $a(n \cdot p^k) \equiv a(n \cdot p^{k-
 hold for all primes $p \ge 5$ and all positive integers $n$ and $k$.
 -/
 @[category research open, AMS 11]
-theorem oeis_A386548_supercongruence_conjecture :
+theorem supercongruence :
   ∀ (p : ℕ), Nat.Prime p → p ≥ 5 →
   ∀ (n k : ℕ), n > 0 → k > 0 →
   a (n * p ^ k) ≡ a (n * p ^ (k - 1)) [ZMOD (p ^ (2 * k) : ℤ)] :=

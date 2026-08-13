@@ -84,7 +84,7 @@ a(n) = 0 only for n = 1.
 Also, a(n) = 1 only for n = 0, 2, 3, 5, 7, 14, 16, 19, 37, 43, 58, 61, 79.
 -/
 @[category research open, AMS 11]
-theorem conjecture :
+theorem a_eq_one_iff :
   (∀ (n : ℕ), a n = 0 ↔ n = 1) ∧
   (∀ (n : ℕ), a n = 1 ↔ n ∈ ({0, 2, 3, 5, 7, 14, 16, 19, 37, 43, 58, 61, 79} : Finset ℕ)) :=
 by sorry

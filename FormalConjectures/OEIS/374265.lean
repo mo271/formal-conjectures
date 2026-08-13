@@ -76,7 +76,7 @@ The sequence $a(n)$ is bounded if there exists an upper bound $B$ in $\mathbb{N}
 such that $a(n) \leq B$ for all $n$.
 -/
 @[category research open, AMS 11]
-theorem conjecture : ∃ B : ℕ, ∀ n : ℕ, a n ≤ B := by
+theorem is_bounded : ∃ B : ℕ, ∀ n : ℕ, a n ≤ B := by
   sorry
 
 end OeisA374265

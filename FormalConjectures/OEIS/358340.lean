@@ -80,7 +80,7 @@ Formalized as the conjecture that the set of natural numbers whose fourth power 
 This is equivalent to the statement that the set $\{ m : ℕ \mid \text{is\_n\_digit}(m, n) \land \text{is\_zeroless}(m^4) \}$ is non-empty for all $n \ge 1$, ensuring $a(n)$ is defined for all $n$.
 -/
 @[category research open, AMS 11]
-theorem conjecture : Set.Infinite { m : ℕ | is_zeroless (m ^ 4) } := by
+theorem infinitely_many_zeroless_fourth_powers : Set.Infinite { m : ℕ | is_zeroless (m ^ 4) } := by
   sorry
 
 end OeisA358340

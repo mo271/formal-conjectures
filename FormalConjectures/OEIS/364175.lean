@@ -70,7 +70,7 @@ hold for all primes $p \ge 5$ and all positive integers $n$ and $r$.
 Note: The expression $r-1$ is a natural number subtraction, which is safe since $r$ is positive.
 -/
 @[category research open, AMS 11]
-theorem conjecture (p n r : ℕ) (hp : p.Prime) (h_prime_ge_five : 5 ≤ p)
+theorem supercongruence (p n r : ℕ) (hp : p.Prime) (h_prime_ge_five : 5 ≤ p)
   (hn : 0 < n) (hr : 0 < r) :
   a (n * p ^ r) ≡ a (n * p ^ (r - 1)) [MOD p ^ (3 * r)] := by
   sorry

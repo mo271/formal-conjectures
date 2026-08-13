@@ -82,7 +82,7 @@ a If it exists, the limit of $\mathrm{a}(n)^{1/n}$ as $n \to \infty$.
 The conjecture is that this limit exists.
 -/
 @[category research open, AMS 11]
-theorem conjecture :
+theorem sequence_agrees :
   ∃ L : ℝ, Filter.Tendsto (fun n : ℕ => (a n : ℝ) ^ ((n : ℝ) ⁻¹)) Filter.atTop (nhds L) :=
 by sorry
 

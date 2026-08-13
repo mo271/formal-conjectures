@@ -53,11 +53,11 @@ theorem a_3 : a 3 = 5 := by
 theorem a_4 : a 4 = 7 := by
   sorry
 /--
-oeis_386660_conjecture_0: The limit of $a(n)^{1/n}$ exists.
+The limit of $a(n)^{1/n}$ exists.
 The numerical evidence suggests a limit of approximately $1.7086...$
 -/
 @[category research open, AMS 11]
-theorem conjecture :
+theorem limit_exists :
   let f (n : ℕ) : ℝ := (a n : ℝ) ^ (1 / (n : ℝ))
   ∃ L : ℝ, Filter.Tendsto f Filter.atTop (nhds L) := by
   sorry

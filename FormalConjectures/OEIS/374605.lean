@@ -49,7 +49,7 @@ Conjecture: for prime $p \ge 5$, $a(n)$ is divisible by $p^3$ for integer $n$ in
 The lower bound $\lceil\frac{2p + 1}{3}\rceil$ for $p \in \mathbb{N}$ is expressed using natural number division as $(2 * p + 1 + 2) / 3 = (2 * p + 3) / 3$.
 -/
 @[category research open, AMS 11]
-theorem conjecture (p : ℕ) (hp : Nat.Prime p) (hp5 : 5 ≤ p) :
+theorem supercongruence (p : ℕ) (hp : Nat.Prime p) (hp5 : 5 ≤ p) :
   ∀ n : ℕ,
     (2 * p + 3) / 3 ≤ n →
     n ≤ p - 1 →

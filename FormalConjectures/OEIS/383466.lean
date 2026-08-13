@@ -63,7 +63,7 @@ a(n) is the maximum number of regions that can be formed in the plane by drawing
 The "maximum" is formalized as the supremum of the set of all possible region counts.
 -/
 @[category research open, AMS 11]
-theorem conjecture (n : ℕ) :
+theorem max_regions (n : ℕ) :
   a n = sSup (Set.range (@number_of_regions n)) := by
   sorry
 

@@ -52,7 +52,7 @@ The maximum packing density $\eta_{\max}$ of congruent truncated tetrahedra in 3
 is conjectured to be $207/208$.
 -/
 @[category research open, AMS 11]
-theorem conjecture : max_packing_density_truncated_tetrahedra = (207 : Real) / 208 :=
+theorem max_packing_density : max_packing_density_truncated_tetrahedra = (207 : Real) / 208 :=
 by sorry
 
 end OeisA379732
