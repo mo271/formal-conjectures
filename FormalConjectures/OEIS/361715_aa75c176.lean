@@ -22,22 +22,26 @@ namespace OeisA361715
 
 
 /--
-A361715: $$a(n) = \sum_{k = 0}^{n-1} \binom{n}{k}^2 \binom{n+k-1}{k}$$
+a: $$a(n) = \sum_{k = 0}^{n-1} \binom{n}{k}^2 \binom{n+k-1}{k}$$
 -/
 def a (n : ℕ) : ℕ :=
   ∑ k ∈ range n, (n.choose k) ^ 2 * multichoose n k
 
 
-theorem a_zero : a 0 = 0 := by
+@[category test, AMS 11]
+theorem a_0 : a 0 = 0 := by
   sorry
 
-theorem a_one : a 1 = 1 := by
+@[category test, AMS 11]
+theorem a_1 : a 1 = 1 := by
   sorry
 
-theorem a_two : a 2 = 9 := by
+@[category test, AMS 11]
+theorem a_2 : a 2 = 9 := by
   sorry
 
-theorem a_three : a 3 = 82 := by
+@[category test, AMS 11]
+theorem a_3 : a 3 = 82 := by
   sorry
 
 

@@ -19,7 +19,7 @@ import FormalConjecturesUtil
 open Nat Finset Complex Real
 
 /--
-A363414: $a(n) = (1/2) \cdot \operatorname{Im}\left( \prod_{k = 0}^{n} (1 + k\sqrt{-4}) \right)$.
+a: $a(n) = (1/2) \cdot \operatorname{Im}\left( \prod_{k = 0}^{n} (1 + k\sqrt{-4}) \right)$.
 The sequence values are integers.
 -/
 noncomputable def a (n : ℕ) : ℤ :=
@@ -35,14 +35,14 @@ namespace OeisA363414
 
 
 /--
-The set of primes of type 2 for A363414 is conjecturally
+The set of primes of type 2 for a is conjecturally
 $\mathbb{P}_2 = \{p \mid p \equiv 1 \pmod 4\}$.
 -/
 def type_two_primes_conjectured : Set ℕ :=
   {p : ℕ | Nat.Prime p ∧ (p : ZMod 4) = 1}
 
 /--
-Conjecture A363414: Type 1 primes set is empty.
+Conjecture a: Type 1 primes set is empty.
 It appears that every prime p divides some term of the sequence.
 The claim formalizes: every prime $p$ divides some $a(n)$.
 -/

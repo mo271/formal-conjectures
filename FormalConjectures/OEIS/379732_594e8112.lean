@@ -23,7 +23,7 @@ namespace OeisA379732
 
 -- The provided Lean code for the sequence definition is replicated here.
 /--
-A379732: Decimal expansion of $207/208$.
+a: Decimal expansion of $207/208$.
 The $n$-th term of the sequence (for $n \ge 0$) is the $(n+1)$-th digit of $207/208$
 after the decimal point.
 The $k$-th digit after the decimal point (for $k \ge 1$) is $\lfloor 10^k x \rfloor \pmod{10}$.
@@ -44,7 +44,7 @@ def a (n : ℕ) : ℕ :=
 opaque max_packing_density_truncated_tetrahedra : Real
 
 /--
-A379732 Conjectured densest packing of truncated tetrahedra.
+a Conjectured densest packing of truncated tetrahedra.
 The maximum packing density $\eta_{\max}$ of congruent truncated tetrahedra in 3D Euclidean space
 is conjectured to be $207/208$.
 -/

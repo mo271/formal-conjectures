@@ -21,19 +21,23 @@ namespace OeisA357569
 
 
 /--
-A357569: $a(n) = \binom{3n}{n}^2 - 27 \binom{2n}{n}$.
+a: $a(n) = \binom{3n}{n}^2 - 27 \binom{2n}{n}$.
 -/
 def a (n : ℕ) : ℤ :=
   (Int.ofNat ((3 * n).choose n)) ^ 2 - (27 : ℤ) * Int.ofNat ((2 * n).choose n)
 
 
-theorem a_zero : a 0 = -26 := by sorry
+@[category test, AMS 11]
+theorem a_0 : a 0 = -26 := by sorry
 
-theorem a_one : a 1 = -45 := by sorry
+@[category test, AMS 11]
+theorem a_1 : a 1 = -45 := by sorry
 
-theorem a_two : a 2 = 63 := by sorry
+@[category test, AMS 11]
+theorem a_2 : a 2 = 63 := by sorry
 
-theorem a_three : a 3 = 6516 := by sorry
+@[category test, AMS 11]
+theorem a_3 : a 3 = 6516 := by sorry
 
 /-- Conjecture 1: a(p^r) \equiv a(p^(r-1)) ( mod p^(3*r+3) ) for r >= 2 and all primes p >= 3. -/
 theorem oeis_357569_conjecture_0 (p r : ℕ) (hp : Nat.Prime p) (hp3 : p ≥ 3) (hr : r ≥ 2) :

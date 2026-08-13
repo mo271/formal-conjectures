@@ -54,7 +54,7 @@ lemma reachable_nonempty (n : ℕ) : (reachable_zeroless_factorials n).Nonempty 
     exact ⟨prod, Finset.mem_biUnion.mpr ⟨m, hm, Finset.mem_insert_self prod _⟩⟩
 
 /--
-A374265: Minimized zeroless factorials.
+a: Minimized zeroless factorials.
 $a(n)$ is the smallest $f(n)$ such that $f(0) = 1$ and for $i > 0$,
 $f(i) = \operatorname{OpNoz}_i(i \cdot f(i-1))$, where $\operatorname{OpNoz}_i$
 is a function that either removes zeros or keeps the value unchanged.
@@ -63,7 +63,7 @@ noncomputable def a (n : ℕ) : ℕ :=
   (reachable_zeroless_factorials n).min' (reachable_nonempty n)
 
 /--
-Conjecture from OEIS A374265: Is this sequence bounded?
+Conjecture from OEIS a: Is this sequence bounded?
 Formalization of the affirmative claim: The sequence `a` is bounded.
 The sequence $a(n)$ is bounded if there exists an upper bound $B$ in $\mathbb{N}$
 such that $a(n) \leq B$ for all $n$.

@@ -21,17 +21,21 @@ namespace OeisA383466
 
 
 /--
-A383466: $a(0) = 1$; thereafter $a(n) = 10n^2 - 5n + 2$, which is
+a: $a(0) = 1$; thereafter $a(n) = 10n^2 - 5n + 2$, which is
 $a(n) = 5n(2n-1) + 2$ for $n \ge 1$.
 -/
 def a : ℕ → ℕ
   | 0 => 1
   | k + 1 => 5 * (k + 1) * (2 * (k + 1) - 1) + 2
 
-theorem a_zero : a 0 = 1 := by rfl
-theorem a_one : a 1 = 7 := by rfl
-theorem a_two : a 2 = 32 := by rfl
-theorem a_three : a 3 = 77 := by rfl
+@[category test, AMS 11]
+theorem a_0 : a 0 = 1 := by rfl
+@[category test, AMS 11]
+theorem a_1 : a 1 = 7 := by rfl
+@[category test, AMS 11]
+theorem a_2 : a 2 = 32 := by rfl
+@[category test, AMS 11]
+theorem a_3 : a 3 = 77 := by rfl
 
 -- We define abstract geometric concepts using axioms.
 -- This is the preferred way to introduce non-fully formalized concepts for conjecture statements.

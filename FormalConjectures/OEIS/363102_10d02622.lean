@@ -30,7 +30,7 @@ def a051403 (n : ℕ) : ℕ :=
   ((n + 2) * fact_sum) / 2
 
 /--
-A363102: Denominator of the continued fraction $1/(2-3/(3-4/(4-5/(...(n-1)-n/(-2)))))$.
+a: Denominator of the continued fraction $1/(2-3/(3-4/(4-5/(...(n-1)-n/(-2)))))$.
 The sequence is defined by the formula:
 $$a(n) = \frac{n^2 - 2}{\gcd(n^2 - 2, 2 \cdot A051403(n-3) + n \cdot A051403(n-4))}$$
 The formula is valid for $n \ge 3$.
@@ -43,7 +43,7 @@ def a (n : ℕ) : ℕ :=
   -- The subtraction n^2 - 2 is safe for n >= 3.
   num / Nat.gcd num denom_arg
 
-/-- A363102 Conjecture 1: The sequence contains only 1's and primes. -/
+/-- a Conjecture 1: The sequence contains only 1's and primes. -/
 theorem oeis_a363102_conjecture_1 :
   ∀ n : ℕ, 3 ≤ n → a n = 1 ∨ Nat.Prime (a n) := by
   sorry

@@ -22,9 +22,9 @@ namespace OeisA365179
 
 
 /--
-A365179: $a(1) = 2$; for $n \ge 2$, $a(n) = p^6$ if $p \equiv 2 \pmod 3$, $a(n) = p^7$ if $p = 3$ or $p \equiv 1 \pmod 3$, where $p = \text{prime}(n)$.
+a: $a(1) = 2$; for $n \ge 2$, $a(n) = p^6$ if $p \equiv 2 \pmod 3$, $a(n) = p^7$ if $p = 3$ or $p \equiv 1 \pmod 3$, where $p = \text{prime}(n)$.
 -/
-noncomputable def A365179 (n : ℕ) : ℕ :=
+noncomputable def a (n : ℕ) : ℕ :=
   match n with
   | 0 => 0
   | 1 => 2
@@ -45,13 +45,13 @@ We explicitly include Fintype (MulAut G) to satisfy the type checker's need for 
 theorem oeis_365179_conjecture_2 :
   ∀ (n : ℕ) (hn : 2 ≤ n),
     ∀ (G : Type u) [Group G] [Fintype G] [Fintype (MulAut G)],
-      (Fintype.card (MulAut G) = A365179 n) →
+      (Fintype.card (MulAut G) = a n) →
       -- Part 1: Order relation, substituting p_n = Nat.nth Nat.Prime (n - 1)
-      (Fintype.card G = A365179 n / Nat.nth Nat.Prime (n - 1)) ∧
+      (Fintype.card G = a n / Nat.nth Nat.Prime (n - 1)) ∧
       -- Part 2: Uniqueness up to isomorphism
       (Nat.nth Nat.Prime (n - 1) % 3 = 2 →
        ∀ (H : Type u) [Group H] [Fintype H] [Fintype (MulAut H)],
-          Fintype.card (MulAut H) = A365179 n →
+          Fintype.card (MulAut H) = a n →
           Nonempty (G ≃* H)) :=
   by sorry
 

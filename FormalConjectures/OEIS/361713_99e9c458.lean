@@ -22,23 +22,27 @@ namespace OeisA361713
 
 
 /--
-A361713: The sequence defined by
+a: The sequence defined by
 $$a(n) = \sum_{k = 0}^{n-1} \binom{n}{k}^2 \binom{n+k-1}{k}^2$$
 -/
 def a (n : ℕ) : ℕ :=
   Finset.sum (Finset.range n) fun k => (n.choose k) ^ 2 * ((n + k - 1).choose k) ^ 2
 
 
-theorem a_zero : a 0 = 0 := by
+@[category test, AMS 11]
+theorem a_0 : a 0 = 0 := by
   rfl
 
-theorem a_one : a 1 = 1 := by
+@[category test, AMS 11]
+theorem a_1 : a 1 = 1 := by
   rfl
 
-theorem a_two : a 2 = 17 := by
+@[category test, AMS 11]
+theorem a_2 : a 2 = 17 := by
   rfl
 
-theorem a_three : a 3 = 406 := by
+@[category test, AMS 11]
+theorem a_3 : a 3 = 406 := by
   rfl
 
 /--

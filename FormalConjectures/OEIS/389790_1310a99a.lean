@@ -31,7 +31,7 @@ noncomputable def next_prime (r : ℕ) : ℕ :=
 noncomputable def S_sum (r : ℕ) : ℕ := r + next_prime r
 
 /--
-A389790: Number of ways to write $2n$ as $p + p' + q + q'$, where $p$ and $q$ are primes with $p \le q$, and $r'$ is the first prime greater than $r$.
+a: Number of ways to write $2n$ as $p + p' + q + q'$, where $p$ and $q$ are primes with $p \le q$, and $r'$ is the first prime greater than $r$.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
   let target := 2 * n
@@ -47,7 +47,7 @@ def is_conjectured_largest_value (n_max k : ℕ) : Prop :=
   a n_max = k ∧ ∀ n > n_max, a n ≠ k
 
 /--
-  A389790 Conjecture: a(n) = k for a largest value of n given by the table below.
+  a Conjecture: a(n) = k for a largest value of n given by the table below.
 
   k     conjectured largest value of n for which a(n) = k
 ----------------

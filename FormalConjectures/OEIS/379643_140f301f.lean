@@ -22,7 +22,7 @@ namespace OeisA379643
 
 
 /--
-A379643: List of $x$ coordinates of prime numbers in a Cartesian grid.
+a: List of $x$ coordinates of prime numbers in a Cartesian grid.
 The sequence term $a(n)$ is given by the formula:
 $$a(n) = \pi_{8,3}(p_n) - \pi_{8,7}(p_n)$$
 where $\pi_{m,b}(x)$ is the number of primes $\le x$ which are congruent to $b \pmod m$
@@ -40,19 +40,23 @@ noncomputable def a (n : ℕ) : ℤ :=
   (count_primes_mod_b 3 : ℤ) - (count_primes_mod_b 7 : ℤ)
 
 
-theorem a_one : a 1 = 0 := by
+@[category test, AMS 11]
+theorem a_1 : a 1 = 0 := by
   inhabit Real
   norm_num[a]
 
-theorem a_two : a 2 = 1 := by
+@[category test, AMS 11]
+theorem a_2 : a 2 = 1 := by
   norm_num[a ]
   rfl
 
-theorem a_three : a 3 = 1 := by
+@[category test, AMS 11]
+theorem a_3 : a 3 = 1 := by
   delta a
   exact (5).nth_count Nat.prime_five▸rfl
 
-theorem a_four : a 4 = 0 := by
+@[category test, AMS 11]
+theorem a_4 : a 4 = 0 := by
   delta a
   push_cast +decide[show(3).nth _ = 7 from Nat.nth_count (by decide:(7).Prime)]
 

@@ -20,7 +20,7 @@ namespace OeisA375178
 
 
 /--
-A375178: $a(n) = \sum_{k = 0}^{n-1} \binom{n+k-1}{k}^3$.
+a: $a(n) = \sum_{k = 0}^{n-1} \binom{n+k-1}{k}^3$.
 This is equivalent to a sum of cubed multichoose coefficients: $\sum_{k=0}^{n-1} \left(\left(\!\binom{n}{k}\!\right)\right)^3$.
 -/
 def a (n : ℕ) : ℕ :=

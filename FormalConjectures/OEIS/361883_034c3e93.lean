@@ -39,18 +39,22 @@ def a (n : ℕ) : ℕ :=
     S / n
 
 
-theorem a_one : a 1 = 4 := by
+@[category test, AMS 11]
+theorem a_1 : a 1 = 4 := by
   -- original tactic: constructor. Let's use rfl/norm_num or sorry.
   rfl
 
-theorem a_two : a 2 = 98 := by
+@[category test, AMS 11]
+theorem a_2 : a 2 = 98 := by
   rfl
 
-theorem a_three : a 3 = 3550 := by
+@[category test, AMS 11]
+theorem a_3 : a 3 = 3550 := by
   -- Original tactic failed compilation in previous attempt.
   sorry
 
-theorem a_four : a 4 = 150722 := by
+@[category test, AMS 11]
+theorem a_4 : a 4 = 150722 := by
   -- Original tactic failed compilation in previous attempt.
   sorry
 

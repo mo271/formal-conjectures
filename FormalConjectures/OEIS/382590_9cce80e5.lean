@@ -19,25 +19,25 @@ import FormalConjecturesUtil
 open Int
 
 /--
-Helper function for A382590, computing the pair $(a(n), b(n))$ such that:
+Helper function for a, computing the pair $(a(n), b(n))$ such that:
 $a(n) = a(n-1)b(n-2) + a(n-2)b(n-1)$
 $b(n) = a(n-1)b(n-2) - a(n-2)b(n-1)$
 -/
-def A382590_pair : ℕ → ℤ × ℤ
+def pair : ℕ → ℤ × ℤ
 | 0 => (1, 1)
 | 1 => (2, 1)
 | n + 2 =>
-  let (a_n_plus_1, b_n_plus_1) := A382590_pair (n + 1)
-  let (a_n, b_n) := A382590_pair n
+  let (a_n_plus_1, b_n_plus_1) := pair (n + 1)
+  let (a_n, b_n) := pair n
   (a_n_plus_1 * b_n + a_n * b_n_plus_1, a_n_plus_1 * b_n - a_n * b_n_plus_1)
 
 /--
-A382590: $a(n)$ is the sequence defined by the mutual recurrence relations:
+a: $a(n)$ is the sequence defined by the mutual recurrence relations:
 $a(n) = a(n-1)b(n-2) + a(n-2)b(n-1)$ and $b(n) = a(n-1)b(n-2) - a(n-2)b(n-1)$
 starting with $a(0) = b(0) = b(1) = 1$ and a(1) = 2.
 The terms are in $\mathbb{Z}$ due to negative values.
 -/
-def A382590 (n : ℕ) : ℤ := (A382590_pair n).fst
+def a (n : ℕ) : ℤ := (pair n).fst
 
 open Nat
 
@@ -58,14 +58,14 @@ def kth_prime_factor (k : ℕ) (n : ℤ) : ℕ :=
   L[k - 1]
 
 /--
-A382590 This sequence appears to have a very peculiar (conjectured) property.
+a This sequence appears to have a very peculiar (conjectured) property.
 For any k > 1, if you take the k-th prime factor of each term, you get an eventually periodic sequence.
 This seems to hold even when we change a(1) as long as it is an integer > 1.
 -/
 theorem A382590_conjecture_kth_prime_factor_is_eventually_periodic :
   ∀ k : ℕ, k ≥ 2 →
     ∃ N₀ p : ℕ, p > 0 ∧ ∀ n : ℕ, n ≥ N₀ →
-      kth_prime_factor k (A382590 (n + p)) = kth_prime_factor k (A382590 n) :=
+      kth_prime_factor k (a (n + p)) = kth_prime_factor k (a n) :=
   by sorry
 
 end OeisA382590

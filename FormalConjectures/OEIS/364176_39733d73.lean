@@ -22,7 +22,7 @@ namespace OeisA364176
 
 
 /--
-A364176 term:
+a term:
 $$a(n) = \frac{(15n)! (5n/2)! (2n)!}{(15n/2)! (6n)! (5n)! n!}$$
 where integer factorials are evaluated using `Nat.factorial`, and fractional factorials $x!$ are defined as $\Gamma(x+1)$.
 -/
@@ -41,20 +41,24 @@ noncomputable def a (n : ℕ) : ℝ :=
   (den_frac_15_halves * den_int_6 * den_int_5 * den_int_1)
 
 
-theorem a_zero : a 0 = 1 := by
+@[category test, AMS 11]
+theorem a_0 : a 0 = 1 := by
   norm_num[a]
 
-theorem a_one : a 1 = 7168 := by
+@[category test, AMS 11]
+theorem a_1 : a 1 = 7168 := by
   simp_all[a]
   push_cast[mul_assoc,·!]
   use div_eq_of_eq_mul (by positivity)<|symm (.trans (by rw [ Real.Gamma_add_one (by norm_num)]) ? _)
   linarith [ ((7/2):ℝ).Gamma_add_one (by simp_all), (5/2+2:ℝ).Gamma_add_one (by norm_num), (5/2+3:ℝ).Gamma_add_one (by·norm_num), (5/2+4:Real).Gamma_add_one (by norm_num)]
 
-theorem a_two : a 2 = 168043980 := by
+@[category test, AMS 11]
+theorem a_2 : a 2 = 168043980 := by
   delta a
   classical norm_num
 
-theorem a_three : a 3 = 4488240824320 := by
+@[category test, AMS 11]
+theorem a_3 : a 3 = 4488240824320 := by
   delta a
   norm_num only[·!]
   use(div_eq_iff<|by positivity).2<|symm <|.trans (by rw [show (47/2:ℝ)=17/2+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1by ring,Real.Gamma_add_one (by bound)]) ?_

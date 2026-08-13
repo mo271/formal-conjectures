@@ -22,16 +22,20 @@ namespace OeisA378143
 
 
 /--
-A378143: $a(n)$ is the smallest prime of the form $(2p)^{2^n} + 1$ for some prime $p$.
+a: $a(n)$ is the smallest prime of the form $(2p)^{2^n} + 1$ for some prime $p$.
 -/
-noncomputable def A378143 (n : ℕ) : ℕ :=
+noncomputable def a (n : ℕ) : ℕ :=
   sInf { k : ℕ | Nat.Prime k ∧ ∃ p : ℕ, Nat.Prime p ∧ k = (2 * p) ^ (2 ^ n) + 1 }
 
 
-theorem a_zero : A378143 0 = 5 := by sorry
-theorem a_one : A378143 1 = 17 := by sorry
-theorem a_two : A378143 2 = 257 := by sorry
-theorem a_three : A378143 3 = 65537 := by sorry
+@[category test, AMS 11]
+theorem a_0 : a 0 = 5 := by sorry
+@[category test, AMS 11]
+theorem a_1 : a 1 = 17 := by sorry
+@[category test, AMS 11]
+theorem a_2 : a 2 = 257 := by sorry
+@[category test, AMS 11]
+theorem a_3 : a 3 = 65537 := by sorry
 
 
 /--

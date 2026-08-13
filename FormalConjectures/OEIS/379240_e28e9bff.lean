@@ -45,8 +45,8 @@ inductive A379240_F_val : Type
   | case_pair (a b : ℕ) : A379240_F_val
 deriving DecidableEq
 
-/-- The function $f(n)$ whose Restricted Growth Sequence transform is A379240. -/
-def A379240_f (n : ℕ) : A379240_F_val :=
+/-- The function $f(n)$ whose Restricted Growth Sequence transform is a. -/
+def f (n : ℕ) : A379240_F_val :=
   if n = 0 then A379240_F_val.case_n 0
   else
     if A359550 n = 1 then
@@ -69,13 +69,13 @@ def rgs_transform {α : Type} [DecidableEq α] (f : ℕ → α) (n : ℕ) : ℕ 
     distinct_f_values.idxOf target_f_val + 1
 
 /--
-A379240: Lexicographically earliest infinite sequence such that $a(i) = a(j) \Rightarrow f(i) = f(j)$,
+a: Lexicographically earliest infinite sequence such that $a(i) = a(j) \Rightarrow f(i) = f(j)$,
 for all $i, j$, where
 $$f(n) = \begin{cases} [\mathtt{A003415}(n), \mathtt{A085731}(n)] & \text{if } \mathtt{A359550}(n) = 1 \\ n & \text{otherwise} \end{cases}$$
 This is the Restricted Growth Sequence transform of $f$.
 -/
-def A379240 (n : ℕ) : ℕ :=
-  rgs_transform A379240_f n
+def a (n : ℕ) : ℕ :=
+  rgs_transform f n
 
 -- Auxiliary function for the conjectured RGS triple
 def A379240_conj_f_triple (n : ℕ) : ℕ × ℕ × ℕ :=
@@ -89,7 +89,7 @@ def A379240_conjecture (n : ℕ) : ℕ :=
   rgs_transform A379240_conj_f_triple n
 
 /--
-A379240 It is conjectured that this is also the lexicographically earliest infinite sequence such
+a It is conjectured that this is also the lexicographically earliest infinite sequence such
 that a(i) = a(j) => A003415(i) = A003415(j), A085731(i) = A085731(j) and A376418(i) = A376418(j),
 for all i, j >= 1, i.e., the restricted growth sequence transform of the triple
 [A003415(n), A085731(n), A376418(n)]. This is true if for every pair of $i$ and $j$ for which
@@ -97,7 +97,7 @@ $i \ne j$, and $\mathtt{A376418}(i) = \mathtt{A376418}(j) > 0$, the ordered pair
 $[\mathtt{A003415}(i), \mathtt{A085731}(i)]$ and $[\mathtt{A003415}(j), \mathtt{A085731}(j)]$
 differ from each other.
 -/
-theorem A379240_conjecture_equality (n : ℕ) : A379240 n = A379240_conjecture n := by
+theorem A379240_conjecture_equality (n : ℕ) : a n = A379240_conjecture n := by
   sorry
 
 end OeisA379240

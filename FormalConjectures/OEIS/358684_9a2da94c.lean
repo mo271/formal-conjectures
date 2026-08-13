@@ -22,7 +22,7 @@ namespace OeisA358684
 
 
 /--
-A358684: $a(n)$ is the minimum integer $k$ such that the smallest prime factor of the $n$-th Fermat number exceeds $2^{2^n - k}$.
+a: $a(n)$ is the minimum integer $k$ such that the smallest prime factor of the $n$-th Fermat number exceeds $2^{2^n - k}$.
 Let $F_n = 2^{2^n} + 1$ be the $n$-th Fermat number, and $P_n$ be its smallest prime factor.
 The definition of $a(n)$ is equivalent to the closed form:
 $$a(n) = 2^n - \lfloor \log_2(P_n) \rfloor$$
@@ -34,16 +34,20 @@ def a (n : ℕ) : ℕ :=
   (2 ^ n) - (log2 pn)
 
 
-theorem a_zero : a 0 = 0 := by
+@[category test, AMS 11]
+theorem a_0 : a 0 = 0 := by
   sorry
 
-theorem a_one : a 1 = 0 := by
+@[category test, AMS 11]
+theorem a_1 : a 1 = 0 := by
   sorry
 
-theorem a_two : a 2 = 0 := by
+@[category test, AMS 11]
+theorem a_2 : a 2 = 0 := by
   sorry
 
-theorem a_three : a 3 = 0 := by
+@[category test, AMS 11]
+theorem a_3 : a 3 = 0 := by
   sorry
 
 

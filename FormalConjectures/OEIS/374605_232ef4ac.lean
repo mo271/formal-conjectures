@@ -20,17 +20,21 @@ namespace OeisA374605
 
 
 /--
-A374605: The sequence $a(n) = \sum_{k = 0}^n \binom{n}{k}^2 \binom{n+k}{k} \binom{3n+2k}{n}$.
+a: The sequence $a(n) = \sum_{k = 0}^n \binom{n}{k}^2 \binom{n+k}{k} \binom{3n+2k}{n}$.
 -/
 def a (n : ℕ) : ℕ :=
   Finset.sum (Finset.range (n + 1)) fun k =>
     (Nat.choose n k) ^ 2 * (Nat.choose (n + k) k) * (Nat.choose (3 * n + 2 * k) n)
 
 -- Example computations from OEIS, included for completeness
-theorem a_zero : a 0 = 1 := rfl
-theorem a_one : a 1 = 13 := by rfl
-theorem a_two : a 2 = 621 := by rfl
-theorem a_three : a 3 = 40864 := by rfl
+@[category test, AMS 11]
+theorem a_0 : a 0 = 1 := rfl
+@[category test, AMS 11]
+theorem a_1 : a 1 = 13 := by rfl
+@[category test, AMS 11]
+theorem a_2 : a 2 = 621 := by rfl
+@[category test, AMS 11]
+theorem a_3 : a 3 = 40864 := by rfl
 
 /--
 Conjecture: for prime $p \ge 5$, $a(n)$ is divisible by $p^3$ for integer $n$ in the interval $[\lceil\frac{2p + 1}{3}\rceil, p - 1]$.

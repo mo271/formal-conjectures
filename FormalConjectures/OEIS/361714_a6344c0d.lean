@@ -22,7 +22,7 @@ namespace OeisA361714
 
 
 /--
-A361714: $a(n) = \sum_{k = 0}^{n-1} (-1)^{n+k+1} \binom{n}{k} \binom{n+k-1}{k}^2$.
+a: $a(n) = \sum_{k = 0}^{n-1} (-1)^{n+k+1} \binom{n}{k} \binom{n+k-1}{k}^2$.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
   (Finset.sum (Finset.range n) fun k : ℕ =>
@@ -34,7 +34,7 @@ noncomputable def a (n : ℕ) : ℕ :=
   ).natAbs
 
 /--
-Conjecture 2 from OEIS A361714: for $r \ge 2$, the supercongruence
+Conjecture 2 from OEIS a: for $r \ge 2$, the supercongruence
 $a(p^r) \equiv a(p^{r-1}) \pmod{p^{3r+3}}$ holds for all primes $p \ge 7$.
 -/
 theorem oeis_a361714_conjecture_2 {p r : ℕ} (hp : p.Prime) (hp_ge_7 : 7 ≤ p) (hr_ge_2 : 2 ≤ r) :

@@ -34,7 +34,7 @@ def A005258_seq (n : ℕ) : ℕ :=
   (range (n + 1)).sum fun k ↦ (n.choose k) ^ 2 * ((n + k).choose k)
 
 /--
-A357958: $a(n) = 5 \cdot A005259(n) + 14 \cdot A005258(n-1)$.
+a: $a(n) = 5 \cdot A005259(n) + 14 \cdot A005258(n-1)$.
 The sequence is indexed from $n=1$.
 -/
 def a (n : ℕ) : ℕ :=
@@ -47,16 +47,20 @@ def u (n : ℕ) : ℕ :=
   (A005259_seq n) ^ 25 * (A005258_seq (n - 1)) ^ 14
 
 -- The example theorems are included for completeness but are not strictly necessary for the formalization request.
-theorem a_one : a 1 = 39 := by rfl
+@[category test, AMS 11]
+theorem a_1 : a 1 = 39 := by rfl
 
-theorem a_two : a 2 = 407 := by rfl
+@[category test, AMS 11]
+theorem a_2 : a 2 = 407 := by rfl
 
-theorem a_three : a 3 = 7491 := by rfl
+@[category test, AMS 11]
+theorem a_3 : a 3 = 7491 := by rfl
 
-theorem a_four : a 4 = 167063 := by rfl
+@[category test, AMS 11]
+theorem a_4 : a 4 = 167063 := by rfl
 
 /--
-OEIS A357958 Conjecture 1:
+OEIS a Conjecture 1:
 a(p) ≡ a(1) (mod p^5) for all primes p ≥ 5.
 -/
 theorem oeis_357958_conjecture_01 :
@@ -64,7 +68,7 @@ theorem oeis_357958_conjecture_01 :
 by sorry
 
 /--
-OEIS A357958 Conjecture 2:
+OEIS a Conjecture 2:
 a(p^r) ≡ a(p^(r-1)) ( mod p^(3*r+3) ) for r ≥ 2 and for all primes p ≥ 3.
 -/
 theorem oeis_357958_conjecture_02 :
@@ -72,7 +76,7 @@ theorem oeis_357958_conjecture_02 :
 by sorry -- The exponent is 3*r + 3, which is p^(3*r + 3) or p^3 * p^(3*r). The formalization p^(3*r + 3) is easier.
 
 /--
-OEIS A357958 Conjecture 2 (Simplified exponent):
+OEIS a Conjecture 2 (Simplified exponent):
 a(p^r) ≡ a(p^(r-1)) ( mod p^(3*r+3) ) for r ≥ 2 and for all primes p ≥ 3.
 -/
 theorem oeis_357958_conjecture_02_simple :
@@ -80,7 +84,7 @@ theorem oeis_357958_conjecture_02_simple :
 by sorry
 
 /--
-OEIS A357958 Conjecture 3, Part 1 (analogue of Conjecture 1 for u(n)):
+OEIS a Conjecture 3, Part 1 (analogue of Conjecture 1 for u(n)):
 u(p) ≡ u(1) (mod p^5) for all primes p ≥ 5.
 -/
 theorem oeis_357958_conjecture_03a :
@@ -88,7 +92,7 @@ theorem oeis_357958_conjecture_03a :
 by sorry
 
 /--
-OEIS A357958 Conjecture 3, Part 2 (analogue of Conjecture 2 for u(n)):
+OEIS a Conjecture 3, Part 2 (analogue of Conjecture 2 for u(n)):
 u(p^r) ≡ u(p^(r-1)) ( mod p^(3*r+3) ) for r ≥ 2 and for all primes p ≥ 3.
 -/
 theorem oeis_357958_conjecture_03b :

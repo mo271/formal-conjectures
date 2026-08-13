@@ -46,7 +46,7 @@ noncomputable def b : ℕ → ℕ
   b_prev + b_prev * 2 / (p - 1)
 
 /--
-A385958: $a(n)$ is the largest prime $p$ such that $b(n) = b(n-1) \cdot \frac{p+1}{p-1}$ is an integer (A385959), where $b(0) = 1$.
+a: $a(n)$ is the largest prime $p$ such that $b(n) = b(n-1) \cdot \frac{p+1}{p-1}$ is an integer (A385959), where $b(0) = 1$.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
   if n > 0 then

@@ -29,23 +29,27 @@ noncomputable def a108625_aux (n k : ℕ) : ℕ :=
     (n.choose i) ^ 2 * ((n + k - i).choose (k - i))
 
 /--
-A376462: $a(n) = \sum_{k = 0..n} \binom{n}{k}^2 \binom{n+k}{k} A108625(n, n-k)$.
+a: $a(n) = \sum_{k = 0..n} \binom{n}{k}^2 \binom{n+k}{k} A108625(n, n-k)$.
 -/
-noncomputable def A376462 (n : ℕ) : ℕ :=
+noncomputable def a (n : ℕ) : ℕ :=
   (range (n + 1)).sum fun k =>
     (n.choose k) ^ 2 * (n + k).choose k * (a108625_aux n (n - k))
 
 
-theorem a_zero : A376462 0 = 1 := by
+@[category test, AMS 11]
+theorem a_0 : a 0 = 1 := by
   constructor
 
-theorem a_one : A376462 1 = 5 := by
+@[category test, AMS 11]
+theorem a_1 : a 1 = 5 := by
   rfl
 
-theorem a_two : A376462 2 = 109 := by
+@[category test, AMS 11]
+theorem a_2 : a 2 = 109 := by
   subsingleton
 
-theorem a_three : A376462 3 = 3317 := by
+@[category test, AMS 11]
+theorem a_3 : a 3 = 3317 := by
   econstructor
 
 /--
@@ -62,12 +66,12 @@ theorem oeis_376462_conjecture_0 :
     0 < n →
     0 < r →
     (  -- Supercongruence 1
-      (A376462 (n * p ^ r) : ℤ) ≡ (A376462 (n * p ^ (r - 1)) : ℤ) [ZMOD (p ^ (3 * r) : ℕ).cast]
+      (a (n * p ^ r) : ℤ) ≡ (a (n * p ^ (r - 1)) : ℤ) [ZMOD (p ^ (3 * r) : ℕ).cast]
     ∧
       -- Supercongruence 2
       let m_r := n * p ^ r - 1
       let m_r_minus_1 := n * p ^ (r - 1) - 1
-      (A376462 m_r : ℤ) ≡ (A376462 m_r_minus_1 : ℤ) [ZMOD (p ^ (3 * r) : ℕ).cast]
+      (a m_r : ℤ) ≡ (a m_r_minus_1 : ℤ) [ZMOD (p ^ (3 * r) : ℕ).cast]
     ) := by sorry
 
 end OeisA376462

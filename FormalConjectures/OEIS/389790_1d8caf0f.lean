@@ -31,7 +31,7 @@ noncomputable def next_prime (r : ℕ) : ℕ :=
 noncomputable def S_sum (r : ℕ) : ℕ := r + next_prime r
 
 /--
-A389790: Number of ways to write $2n$ as $p + p' + q + q'$, where $p$ and $q$ are primes with $p \le q$, and $r'$ is the first prime greater than $r$.
+a: Number of ways to write $2n$ as $p + p' + q + q'$, where $p$ and $q$ are primes with $p \le q$, and $r'$ is the first prime greater than $r$.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
   let target := 2 * n
@@ -43,15 +43,19 @@ noncomputable def a (n : ℕ) : ℕ :=
   ) (R ×ˢ R)
 
 
-theorem a_one : a 1 = 0 := by rfl
+@[category test, AMS 11]
+theorem a_1 : a 1 = 0 := by rfl
 
-theorem a_two : a 2 = 0 := by rfl
+@[category test, AMS 11]
+theorem a_2 : a 2 = 0 := by rfl
 
-theorem a_three : a 3 = 0 := by sorry
+@[category test, AMS 11]
+theorem a_3 : a 3 = 0 := by sorry
 
-theorem a_four : a 4 = 0 := by sorry
+@[category test, AMS 11]
+theorem a_4 : a 4 = 0 := by sorry
 
-/-- OEIS A389790 Conjecture: a(n) > 0 for all n >= 474.
+/-- OEIS a Conjecture: a(n) > 0 for all n >= 474.
 This is an analog of Goldbach's conjecture. It has been verified for n <= 2*10^5. -/
 theorem oeis_a389790_conjecture_1 : ∀ n : ℕ, 474 ≤ n → 0 < a n := by
   sorry

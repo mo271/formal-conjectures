@@ -22,7 +22,7 @@ namespace OeisA359634
 
 
 /--
-A359634: $a(0)=1$ and thereafter $a(n)$ is the length of the longest contiguous group of terms in the sequence thus far that add up to $n$; if no such group exists, set $a(n)=0$.
+a: $a(0)=1$ and thereafter $a(n)$ is the length of the longest contiguous group of terms in the sequence thus far that add up to $n$; if no such group exists, set $a(n)=0$.
 If a zero appears, it is not counted as a term in a contiguous grouping.
 -/
 noncomputable def a : ℕ → ℕ :=
@@ -55,22 +55,26 @@ noncomputable def a : ℕ → ℕ :=
   )
 
 
-theorem a_zero : a 0 = 1 := by
+@[category test, AMS 11]
+theorem a_0 : a 0 = 1 := by
   rfl
 
-theorem a_one : a 1 = 1 := by
+@[category test, AMS 11]
+theorem a_1 : a 1 = 1 := by
   trivial
 
-theorem a_two : a 2 = 2 := by
+@[category test, AMS 11]
+theorem a_2 : a 2 = 2 := by
   subsingleton
 
-theorem a_three : a 3 = 2 := by
+@[category test, AMS 11]
+theorem a_3 : a 3 = 2 := by
   delta a
   push_cast+decide[ WellFounded.fix_eq,List.ofFn_eq_map]
 
 
 /--
-Conjecture (OEIS A359634, C-line): A zero has not appeared in the sequence $a(n)$.
+Conjecture (OEIS a, C-line): A zero has not appeared in the sequence $a(n)$.
 This is equivalent to $\forall n : \mathbb{N}, a(n) \neq 0$.
 -/
 theorem a_never_zero (n : ℕ) : a n ≠ 0 := by

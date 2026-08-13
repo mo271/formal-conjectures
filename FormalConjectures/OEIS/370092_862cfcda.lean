@@ -22,7 +22,7 @@ namespace OeisA370092
 
 
 /--
-A370092: $a(0) = 1$,
+a: $a(0) = 1$,
 $$a(n) = (-1)^n + \frac{1}{2} \sum_{j=1}^n (1-(-1)^j-(-2)^j) \binom{n}{j} a(n-j) \quad \text{for } n > 0$$
 The sequence is defined in $\mathbb{Q}$ to directly translate the recurrence relation.
 The terms are conjectured to be integers.
@@ -43,16 +43,20 @@ noncomputable def a (n : ℕ) : ℚ :=
     (-1 : ℚ)^m_plus_one + (1 / 2) * sum_val
 
 
-theorem a_zero : a 0 = 1 := by
+@[category test, AMS 11]
+theorem a_0 : a 0 = 1 := by
   sorry
 
-theorem a_one : a 1 = 1 := by
+@[category test, AMS 11]
+theorem a_1 : a 1 = 1 := by
   sorry
 
-theorem a_two : a 2 = 3 := by
+@[category test, AMS 11]
+theorem a_2 : a 2 = 3 := by
   sorry
 
-theorem a_three : a 3 = 16 := by
+@[category test, AMS 11]
+theorem a_3 : a 3 = 16 := by
   sorry
 
 
@@ -70,7 +74,7 @@ noncomputable def a_mod_k (k : ℕ) (n : ℕ) : ZMod k :=
   Int.cast (a n).num
 
 /--
-%C A370092 Conjecture: Let k > 2 be a positive integer. The sequence obtained by reducing a(n) modulo k is eventually periodic with the period dividing phi(k) = A000010(k).
+%C a Conjecture: Let k > 2 be a positive integer. The sequence obtained by reducing a(n) modulo k is eventually periodic with the period dividing phi(k) = A000010(k).
 -/
 theorem oeis_370092_conjecture_0 (k : ℕ) (hk : 2 < k) :
     ∃ P : ℕ, P ∣ totient k ∧ eventually_periodic (a_mod_k k) P := by

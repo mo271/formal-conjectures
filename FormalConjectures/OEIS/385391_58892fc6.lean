@@ -26,7 +26,7 @@ def A384237 (n : ℕ) : ℕ :=
   (n.divisors.filter fun d : ℕ => (d ^ d) % n = d % n).card
 
 /--
-A385391: $a(n)$ is the smallest integer $k$ such that $A384237(k) = n$.
+a: $a(n)$ is the smallest integer $k$ such that $A384237(k) = n$.
 This is formalized using the set infimum ($\mathrm{sInf}$) of the preimage of $n$.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
@@ -38,16 +38,20 @@ noncomputable def A002110 (n : ℕ) : ℕ :=
   if n = 0 then 1
   else (Finset.range n).prod fun i => Nat.nth Nat.Prime i
 
-theorem a_one : a 1 = 1 := sorry
+@[category test, AMS 11]
+theorem a_1 : a 1 = 1 := sorry
 
-theorem a_two : a 2 = 2 := sorry
+@[category test, AMS 11]
+theorem a_2 : a 2 = 2 := sorry
 
-theorem a_three : a 3 = 6 := sorry
+@[category test, AMS 11]
+theorem a_3 : a 3 = 6 := sorry
 
-theorem a_four : a 4 = 12 := sorry
+@[category test, AMS 11]
+theorem a_4 : a 4 = 12 := sorry
 
 /--
-oeis_385391_conjecture_0: A385391 a(1) = A002110(0), a(2) = A002110(1), a(3) = A002110(2), a(6) = A002110(3), a(7) = A002110(4), a(10) = A002110(5), ...?
+oeis_385391_conjecture_0: a a(1) = A002110(0), a(2) = A002110(1), a(3) = A002110(2), a(6) = A002110(3), a(7) = A002110(4), a(10) = A002110(5), ...?
 This conjecture is formalized as a conjunction of the listed equalities, implying a general pattern related to A065295.
 -/
 theorem oeis_385391_conjecture_0 :

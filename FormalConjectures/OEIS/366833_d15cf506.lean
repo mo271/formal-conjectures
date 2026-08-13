@@ -22,12 +22,12 @@ namespace OeisA366833
 
 
 /--
-A366833: Number of times $n$ appears in A362965 (number of primes $\le$ the $n$-th prime power).
+a: Number of times $n$ appears in A362965 (number of primes $\le$ the $n$-th prime power).
 This is equivalent to: One less than the number of prime powers $q$ such that $\mathrm{prime}(n) \le q \le \mathrm{prime}(n+1)$, inclusive.
 Where $\mathrm{prime}(n)$ is the $n$-th prime ($p_1=2$).
 $$a(n) = \left|\left\{q \in \mathbb{N} : \text{IsPrimePow}(q) \land \mathrm{prime}(n) \le q \le \mathrm{prime}(n+1)\right\}\right| - 1$$
 -/
-noncomputable def A366833 (n : ℕ) : ℕ :=
+noncomputable def a (n : ℕ) : ℕ :=
   if h : n = 0 then 0
   else
     -- p_n (1-indexed) is Nat.nth Nat.Prime (n-1) (0-indexed). Since n > 0, n-1 is safe.
@@ -43,22 +43,26 @@ noncomputable def A366833 (n : ℕ) : ℕ :=
     count_prime_powers - 1
 
 
-theorem a_one : A366833 1 = 1 := by
+@[category test, AMS 11]
+theorem a_1 : a 1 = 1 := by
   sorry
 
-theorem a_two : A366833 2 = 2 := by
+@[category test, AMS 11]
+theorem a_2 : a 2 = 2 := by
   sorry
 
-theorem a_three : A366833 3 = 1 := by
+@[category test, AMS 11]
+theorem a_3 : a 3 = 1 := by
   sorry
 
-theorem a_four : A366833 4 = 3 := by
+@[category test, AMS 11]
+theorem a_4 : a 4 = 3 := by
   sorry
 
 /--
 Conjecture: a(n) can be only 1, 2, or 3 (with the first occurrences of 3 appearing at n = 4, 9, 30, 327 and 3512).
 -/
-theorem oeis_366833_conjecture_0 : ∀ (n : ℕ), 1 ≤ n → A366833 n ∈ ({1, 2, 3} : Finset ℕ) := by
+theorem oeis_366833_conjecture_0 : ∀ (n : ℕ), 1 ≤ n → a n ∈ ({1, 2, 3} : Finset ℕ) := by
   sorry
 
 end OeisA366833

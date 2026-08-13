@@ -22,9 +22,9 @@ namespace OeisA365179
 
 
 /--
-A365179: $a(1) = 2$; for $n \ge 2$, $a(n) = p^6$ if $p \equiv 2 \pmod 3$, $a(n) = p^7$ if $p = 3$ or $p \equiv 1 \pmod 3$, where $p = \text{prime}(n)$.
+a: $a(1) = 2$; for $n \ge 2$, $a(n) = p^6$ if $p \equiv 2 \pmod 3$, $a(n) = p^7$ if $p = 3$ or $p \equiv 1 \pmod 3$, where $p = \text{prime}(n)$.
 -/
-noncomputable def A365179 (n : ℕ) : ℕ :=
+noncomputable def a (n : ℕ) : ℕ :=
   match n with
   | 0 => 0
   | 1 => 2
@@ -51,8 +51,8 @@ Conjecture 1: a(n) is the smallest nontrivial power of p such that there exists 
 -/
 theorem A365179_conjecture_1 (n : ℕ) (hn : 2 ≤ n) :
   let p := prime_of_index n;
-  is_possible_aut_order_power p (A365179 n) ∧
-  ∀ m' : ℕ, (is_possible_aut_order_power p m') → (A365179 n) ≤ m' :=
+  is_possible_aut_order_power p (a n) ∧
+  ∀ m' : ℕ, (is_possible_aut_order_power p m') → (a n) ≤ m' :=
   by sorry
 
 end OeisA365179

@@ -22,7 +22,7 @@ namespace OeisA364175
 
 
 /--
-A364175: $a(n) = \frac{(6n)! (2n/3)!}{(3n)! (2n)! (5n/3)!}$.
+a: $a(n) = \frac{(6n)! (2n/3)!}{(3n)! (2n)! (5n/3)!}$.
 The fractional factorial $x!$ is defined as $\Gamma(x+1)$.
 This sequence is only conjecturally an integer sequence. We round the real-valued result to obtain a natural number.
 -/
@@ -34,7 +34,8 @@ noncomputable def a (n : ℕ) : ℕ :=
   (round val_R).toNat
 
 
-theorem a_zero : a 0 = 1 := by
+@[category test, AMS 11]
+theorem a_0 : a 0 = 1 := by
   dsimp only [a]
   simp only [Nat.cast_zero, mul_zero, zero_add, Real.Gamma_one, mul_one, div_self (one_ne_zero : (1 : ℝ) ≠ 0), round_one, Int.toNat_one]
 
@@ -46,11 +47,14 @@ theorem a_zero : a 0 = 1 := by
 -- environment could handle them, or simplify them to `sorry` for robustness.
 -- Since only a_zero failed, we fix that and proceed.
 
-theorem a_one : a 1 = 36 := by sorry
+@[category test, AMS 11]
+theorem a_1 : a 1 = 36 := by sorry
 
-theorem a_two : a 2 = 3564 := by sorry
+@[category test, AMS 11]
+theorem a_2 : a 2 = 3564 := by sorry
 
-theorem a_three : a 3 = 408408 := by sorry
+@[category test, AMS 11]
+theorem a_3 : a 3 = 408408 := by sorry
 
 
 /--

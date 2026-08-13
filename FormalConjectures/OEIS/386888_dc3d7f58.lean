@@ -22,7 +22,7 @@ namespace OeisA386888
 
 
 /--
-A386888: Number of ways to write $n$ as $u + (1+(n \bmod 2)) \cdot v$ with $v \le n/2$,
+a: Number of ways to write $n$ as $u + (1+(n \bmod 2)) \cdot v$ with $v \le n/2$,
 where $u$ and $v$ are both sums of three consecutive primes.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
@@ -57,16 +57,20 @@ noncomputable def a (n : ℕ) : ℕ :=
   ) (Finset.range max_index_bound)
 
 
-theorem a_one : a 1 = 0 := by
+@[category test, AMS 11]
+theorem a_1 : a 1 = 0 := by
   sorry
 
-theorem a_two : a 2 = 0 := by
+@[category test, AMS 11]
+theorem a_2 : a 2 = 0 := by
   sorry
 
-theorem a_three : a 3 = 0 := by
+@[category test, AMS 11]
+theorem a_3 : a 3 = 0 := by
   sorry
 
-theorem a_four : a 4 = 0 := by
+@[category test, AMS 11]
+theorem a_4 : a 4 = 0 := by
   sorry
 
 

@@ -28,23 +28,27 @@ def A005258 (n : ℕ) : ℕ :=
   Finset.sum (Finset.range (n + 1)) fun k => (n.choose k) ^ 2 * ((n + k).choose k)
 
 /--
-A357506: $a(n) = A005258(n)^3 \cdot A005258(n-1)$.
+a: $a(n) = A005258(n)^3 \cdot A005258(n-1)$.
 The sequence is indexed starting from $n=1$.
 -/
 def a (n : ℕ) : ℕ :=
   (A005258 n) ^ 3 * (A005258 (n - 1))
 
 
-theorem a_one : a 1 = 27 := by
+@[category test, AMS 11]
+theorem a_1 : a 1 = 27 := by
   sorry
 
-theorem a_two : a 2 = 20577 := by
+@[category test, AMS 11]
+theorem a_2 : a 2 = 20577 := by
   sorry
 
-theorem a_three : a 3 = 60353937 := by
+@[category test, AMS 11]
+theorem a_3 : a 3 = 60353937 := by
   sorry
 
-theorem a_four : a 4 = 287798988897 := by
+@[category test, AMS 11]
+theorem a_4 : a 4 = 287798988897 := by
   sorry
 
 /--

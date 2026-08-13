@@ -22,9 +22,9 @@ namespace OeisA369462
 
 
 /--
-A369462: Number of representations of $12n-1$ as a sum $(p \cdot q + p \cdot r + q \cdot r)$ with three odd primes $p \le q \le r$.
+a: Number of representations of $12n-1$ as a sum $(p \cdot q + p \cdot r + q \cdot r)$ with three odd primes $p \le q \le r$.
 -/
-noncomputable def A369462 (n : ℕ) : ℕ :=
+noncomputable def a (n : ℕ) : ℕ :=
   if 1 ≤ n then
     let N : ℕ := 12 * n - 1
     -- N is the target number. Since p*q < N, p, q, r are all bounded by N.
@@ -45,22 +45,26 @@ noncomputable def A369462 (n : ℕ) : ℕ :=
     0
 
 
-theorem a_one : A369462 1 = 0 := by
+@[category test, AMS 11]
+theorem a_1 : a 1 = 0 := by
   sorry
 
-theorem a_two : A369462 2 = 0 := by
+@[category test, AMS 11]
+theorem a_2 : a 2 = 0 := by
   sorry
 
-theorem a_three : A369462 3 = 0 := by
+@[category test, AMS 11]
+theorem a_3 : a 3 = 0 := by
   sorry
 
-theorem a_four : A369462 4 = 0 := by
+@[category test, AMS 11]
+theorem a_4 : a 4 = 0 := by
   sorry
 
 /--
-Conjecture A369462: Is there only a finite number of 0's in this sequence?
+Conjecture a: Is there only a finite number of 0's in this sequence?
 -/
-theorem oeis_369462_conjecture_0 : {n : ℕ | A369462 n = 0}.Finite := by
+theorem oeis_369462_conjecture_0 : {n : ℕ | a n = 0}.Finite := by
   sorry
 
 end OeisA369462

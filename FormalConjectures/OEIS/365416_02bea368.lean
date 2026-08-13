@@ -24,27 +24,31 @@ namespace OeisA365416
 /--
 Numbers $k$ such that $2k-1$ and $2k+1$ are both prime powers (A246655).
 -/
-def A365416_condition (k : ℕ) : Prop :=
+def condition (k : ℕ) : Prop :=
   IsPrimePow (2 * k - 1) ∧ IsPrimePow (2 * k + 1)
 
 /--
-The $n$-th term of A365416 (Numbers $k$ such that $2k-1$ and $2k+1$ are both prime powers).
+The $n$-th term of a (Numbers $k$ such that $2k-1$ and $2k+1$ are both prime powers).
 Defined for $n \ge 1$.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
-  (n - 1).nth A365416_condition
+  (n - 1).nth condition
 
 
-theorem a_one : a 1 = 2 := by
+@[category test, AMS 11]
+theorem a_1 : a 1 = 2 := by
   sorry
 
-theorem a_two : a 2 = 3 := by
+@[category test, AMS 11]
+theorem a_2 : a 2 = 3 := by
   sorry
 
-theorem a_three : a 3 = 4 := by
+@[category test, AMS 11]
+theorem a_3 : a 3 = 4 := by
   sorry
 
-theorem a_four : a 4 = 5 := by
+@[category test, AMS 11]
+theorem a_4 : a 4 = 5 := by
   sorry
 
 -- Formalization of the conjecture
@@ -57,7 +61,7 @@ def IsCompositePrimePow (m : ℕ) : Prop :=
   ∃ (p e : ℕ), Nat.Prime p ∧ 1 < e ∧ p ^ e = m
 
 /--
-A365416 According to Pillai's conjecture, k = 13 is the only term such that 2*k-1 and 2*k+1 both have exponent greater than 1.
+a According to Pillai's conjecture, k = 13 is the only term such that 2*k-1 and 2*k+1 both have exponent greater than 1.
 -/
 theorem oeis_365416_conjecture_0 :
   ∀ k : ℕ,

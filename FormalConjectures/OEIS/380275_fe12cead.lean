@@ -23,7 +23,7 @@ namespace OeisA380275
 
 -- [START USER PROVIDED CODE]
 /--
-A380275: Sum of the fourth powers of the coefficients of $q$ in the $q$-factorials.
+a: Sum of the fourth powers of the coefficients of $q$ in the $q$-factorials.
 The $q$-factorial polynomial $P_n(q)$ is given by
 $$P_n(q) = \prod_{j=1}^n \frac{1-q^j}{1-q} = \prod_{j=1}^n \sum_{i=0}^{j-1} q^i$$
 The sequence is defined by
@@ -42,10 +42,14 @@ noncomputable def a (n : ℕ) : ℕ :=
   Finset.sum (Finset.range (max_degree + 1)) fun k => (P.coeff k) ^ 4
 
 
-theorem a_zero : a 0 = 1 := by sorry
-theorem a_one : a 1 = 1 := by sorry
-theorem a_two : a 2 = 2 := by sorry
-theorem a_three : a 3 = 34 := by sorry
+@[category test, AMS 11]
+theorem a_0 : a 0 = 1 := by sorry
+@[category test, AMS 11]
+theorem a_1 : a 1 = 1 := by sorry
+@[category test, AMS 11]
+theorem a_2 : a 2 = 2 := by sorry
+@[category test, AMS 11]
+theorem a_3 : a 3 = 34 := by sorry
 -- [END USER PROVIDED CODE]
 
 /-- Generalized sequence: Sum of $k$-th powers of coefficients of $q$-factorial.

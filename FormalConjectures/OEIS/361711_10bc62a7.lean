@@ -22,9 +22,9 @@ namespace OeisA361711
 
 
 /--
-A361711: $a(1) = 1$ and $a(n) = \sum_{k = 0}^{n-2} (-1)^k \binom{n}{k}^2 \binom{n-2}{k}$ for $n \ge 2$.
+a: $a(1) = 1$ and $a(n) = \sum_{k = 0}^{n-2} (-1)^k \binom{n}{k}^2 \binom{n-2}{k}$ for $n \ge 2$.
 -/
-def A361711 (n : ℕ) : ℤ :=
+def a (n : ℕ) : ℤ :=
   match n with
   | 0 => 0
   | 1 => 1
@@ -40,10 +40,10 @@ def A361711 (n : ℕ) : ℤ :=
       sign_k * term_nat.cast
 
 /--
-A361711 Conjecture: the supercongruence a(p^k) == a(p^(k-1)) (mod p^(3*k)) holds for all primes p >= 5 and positive integer k.
+a Conjecture: the supercongruence a(p^k) == a(p^(k-1)) (mod p^(3*k)) holds for all primes p >= 5 and positive integer k.
 -/
 theorem A361711_conjecture (p : ℕ) (hp : Nat.Prime p) (h_geq_5 : 5 ≤ p) (k : ℕ) (hk : k > 0) :
-    A361711 (p ^ k) ≡ A361711 (p ^ (k - 1)) [ZMOD (p ^ (3 * k) : ℕ)] := by
+    a (p ^ k) ≡ a (p ^ (k - 1)) [ZMOD (p ^ (3 * k) : ℕ)] := by
   sorry
 
 end OeisA361711

@@ -34,43 +34,47 @@ A381587 $T_n$: The $n$-th row of the irregular triangle, following the recurrenc
 $T_1=[1], T_2=[1], T_3=[2]$. For $n \ge 4$, $T_n = \text{Runs}(\text{Reverse}(T_{n-1})) \frown T_{n-1}$.
 $n$ is 1-indexed here.
 -/
-private def A381587_T : ℕ → List ℕ
+private def t : ℕ → List ℕ
   | 0 => []
   | 1 => [1]
   | 2 => [1]
   | 3 => [2]
   | k + 4 => -- Covers indices >= 4. Recurses on k+3, which is n-1.
-    let prev_T := A381587_T (k + 3)
+    let prev_T := t (k + 3)
     run_lengths_nat prev_T.reverse ++ prev_T
 
 /--
-A381358: Row sums of irregular triangle A381587.
+a: Row sums of irregular triangle A381587.
 Row $n$ elements are $T_n$. The sequence $a(n)$ is the list sum of $T_n$.
 -/
-def A381358 (n : ℕ) : ℕ :=
-  (A381587_T n).sum
+def a (n : ℕ) : ℕ :=
+  (t n).sum
 
-theorem a_one : A381358 1 = 1 := by
+@[category test, AMS 11]
+theorem a_1 : a 1 = 1 := by
   rfl
 
-theorem a_two : A381358 2 = 1 := by
+@[category test, AMS 11]
+theorem a_2 : a 2 = 1 := by
   rfl
 
-theorem a_three : A381358 3 = 2 := by
+@[category test, AMS 11]
+theorem a_3 : a 3 = 2 := by
   rfl
 
-theorem a_four : A381358 4 = 3 := by
+@[category test, AMS 11]
+theorem a_4 : a 4 = 3 := by
   symm
-  norm_num [A381358]
-  norm_num [A381587_T]
+  norm_num [a]
+  norm_num [t]
   simp_all [run_lengths_nat]
 
 /--
-A381358 If it exists, the limit of $\mathrm{A381358}(n)^{1/n}$ as $n \to \infty$.
+a If it exists, the limit of $\mathrm{a}(n)^{1/n}$ as $n \to \infty$.
 The conjecture is that this limit exists.
 -/
 theorem A381358_limit_exists :
-  ∃ L : ℝ, Filter.Tendsto (fun n : ℕ => (A381358 n : ℝ) ^ ((n : ℝ) ⁻¹)) Filter.atTop (nhds L) :=
+  ∃ L : ℝ, Filter.Tendsto (fun n : ℕ => (a n : ℝ) ^ ((n : ℝ) ⁻¹)) Filter.atTop (nhds L) :=
 by sorry
 
 end OeisA381358

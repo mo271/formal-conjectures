@@ -22,7 +22,7 @@ namespace OeisA368692
 
 
 /--
-A368692:
+a:
 $$a(n) = \frac{(12n + 6)! \cdot (6n + 9)!}{108 \cdot (4n + 2)! \cdot (2n + 3)! \cdot ((6n + 5)!)^2}$$
 It is conjectured that $a(n)$ are integers.
 -/
@@ -32,21 +32,25 @@ def a (n : ℕ) : ℕ :=
   num / (108 * den_base)
 
 
-theorem a_zero : a 0 = 14 := by
+@[category test, AMS 11]
+theorem a_0 : a 0 = 14 := by
   rfl
 
-theorem a_one : a 1 = 563108 := by
+@[category test, AMS 11]
+theorem a_1 : a 1 = 563108 := by
   rfl
 
-theorem a_two : a 2 = 54231252075 := by
+@[category test, AMS 11]
+theorem a_2 : a 2 = 54231252075 := by
   sorry
 
-theorem a_three : a 3 = 6700034035890000 := by
+@[category test, AMS 11]
+theorem a_3 : a 3 = 6700034035890000 := by
   sorry
 
 
 /--
-Conjecture from OEIS A368692: $a(n)$ is an integer for all $n \in \mathbb{N}$.
+Conjecture from OEIS a: $a(n)$ is an integer for all $n \in \mathbb{N}$.
 According to A. Adolphson and S. Sperber, "On the integrality of hypergeometric series
 whose coefficients are factorial ratios", ArXiv: 2001.03296, s.page 14, first equation
 after Eq.(7.4): for any two integers K, L, the ratios $(3K)!(3L)!/(K!L!((K+L)!)^2)$

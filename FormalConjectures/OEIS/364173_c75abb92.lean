@@ -22,7 +22,7 @@ namespace OeisA364173
 
 
 /--
-A364173: The sequence defined by the factorial ratio
+a: The sequence defined by the factorial ratio
 $$a(n) = \frac{(9n)! (2n)! (3n/2)!}{(9n/2)! (4n)! (3n)! n!}$$
 where fractional factorials $x!$ are defined as $\Gamma(x+1)$.
 -/
@@ -32,16 +32,20 @@ noncomputable def a (n : ℕ) : ℝ :=
   (Real.Gamma (9 / 2 * n_r + 1) * Real.Gamma (4 * n_r + 1) * Real.Gamma (3 * n_r + 1) * Real.Gamma (n_r + 1))
 
 
-theorem a_zero : a 0 = 1 := by
+@[category test, AMS 11]
+theorem a_0 : a 0 = 1 := by
   sorry
 
-theorem a_one : a 1 = 128 := by
+@[category test, AMS 11]
+theorem a_1 : a 1 = 128 := by
   sorry
 
-theorem a_two : a 2 = 43758 := by
+@[category test, AMS 11]
+theorem a_2 : a 2 = 43758 := by
   sorry
 
-theorem a_three : a 3 = 17039360 := by
+@[category test, AMS 11]
+theorem a_3 : a 3 = 17039360 := by
   sorry
 
 /--

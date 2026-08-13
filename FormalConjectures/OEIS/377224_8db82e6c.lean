@@ -28,7 +28,7 @@ def Q1 (x : ℤ) : ℤ := x * (5 * x + 1)
 def Q2 (t : ℤ) : ℤ := (t * (5 * t + 1)) / 2
 
 /--
-A377224: Number of ways to write $n$ as $x(5x+1) + y(5y+1)/2 + z(5z+1)/2$,
+a: Number of ways to write $n$ as $x(5x+1) + y(5y+1)/2 + z(5z+1)/2$,
 where $x,y,z$ are integers with $y(5y+1) \le z(5z+1)$.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
@@ -57,7 +57,7 @@ noncomputable def a (n : ℕ) : ℕ :=
   |>.card
 
 /--
-Conjecture 1 from OEIS A377224:
+Conjecture 1 from OEIS a:
 a(n) = 0 only for n = 1.
 Also, a(n) = 1 only for n = 0, 2, 3, 5, 7, 14, 16, 19, 37, 43, 58, 61, 79.
 -/

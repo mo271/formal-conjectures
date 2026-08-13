@@ -22,25 +22,29 @@ namespace OeisA386660
 
 
 /--
-A386660: $a(n) = \sum_{k=1}^n \binom{n}{k} \pmod{2^k}$.
+a: $a(n) = \sum_{k=1}^n \binom{n}{k} \pmod{2^k}$.
 -/
 def a (n : ℕ) : ℕ :=
   (Finset.Icc 1 n).sum fun k => (n.choose k) % (2 ^ k)
 
 
-theorem a_one : a 1 = 1 := by
+@[category test, AMS 11]
+theorem a_1 : a 1 = 1 := by
   sorry
 
-theorem a_two : a 2 = 1 := by
+@[category test, AMS 11]
+theorem a_2 : a 2 = 1 := by
   sorry
 
-theorem a_three : a 3 = 5 := by
+@[category test, AMS 11]
+theorem a_3 : a 3 = 5 := by
   sorry
 
-theorem a_four : a 4 = 7 := by
+@[category test, AMS 11]
+theorem a_4 : a 4 = 7 := by
   sorry
 
--- Conjecture based on OEIS A386660, comment C.
+-- Conjecture based on OEIS a, comment C.
 /--
 oeis_386660_conjecture_0: The limit of $a(n)^{1/n}$ exists.
 The numerical evidence suggests a limit of approximately $1.7086...$

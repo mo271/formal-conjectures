@@ -59,7 +59,7 @@ noncomputable def continued_fraction_val (n : ℕ) : ℚ :=
     if val = 0 then 0 else 1 / val
 
 /--
-A372761: Denominator of the continued fraction
+a: Denominator of the continued fraction
 $$ \frac{1}{2 - \frac{3}{3 - \frac{4}{4 - \frac{5}{\dots - \frac{n-1}{(n-1) - \frac{n}{n+4}}}}}} $$
 -/
 noncomputable def a (n : ℕ) : ℕ :=
@@ -67,18 +67,22 @@ noncomputable def a (n : ℕ) : ℕ :=
   else (continued_fraction_val n).den
 
 
-theorem a_three : a 3 = 11 := by
+@[category test, AMS 11]
+theorem a_3 : a 3 = 11 := by
   inhabit ℝ
   rw[a]
   norm_num[continued_fraction_val]
 
-theorem a_four : a 4 = 4 := by
+@[category test, AMS 11]
+theorem a_4 : a 4 = 4 := by
   sorry -- Proof requires complex simplification of nested function calls, replaced with sorry to ensure compilation.
 
-theorem a_five : a 5 = 7 := by
+@[category test, AMS 11]
+theorem a_5 : a 5 = 7 := by
   sorry -- Proof requires complex simplification of nested function calls, replaced with sorry to ensure compilation.
 
-theorem a_six : a 6 = 13 := by
+@[category test, AMS 11]
+theorem a_6 : a 6 = 13 := by
   sorry -- Proof requires complex simplification of nested function calls, replaced with sorry to ensure compilation.
 
 /--
