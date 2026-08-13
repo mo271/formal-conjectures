@@ -52,12 +52,10 @@ theorem a_2 : a 2 = 20577 := by
   rfl
 
 @[category test, AMS 11]
-theorem a_3 : a 3 = 60353937 := by
-  sorry
+theorem a_3 : a 3 = 60353937 := by rfl
 
 @[category test, AMS 11]
-theorem a_4 : a 4 = 287798988897 := by
-  sorry
+theorem a_4 : a 4 = 287798988897 := by rfl
 
 /--
 The stronger congruence $a(p) \equiv 27 \pmod{p^5}$ holds for all primes $p \ge 3$.

@@ -76,7 +76,7 @@ theorem a_2 : a 2 = 2 := by
   rfl
 
 @[category test, AMS 11]
-theorem a_3 : a 3 = 2 := by sorry
+theorem a_3 : a 3 = 2 := by rfl
 
 
 /--

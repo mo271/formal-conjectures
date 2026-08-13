@@ -38,20 +38,16 @@ def a (n : ℕ) : ℕ :=
 
 
 @[category test, AMS 11]
-theorem a_1 : a 1 = 1 := by
-  sorry
+theorem a_1 : a 1 = 1 := by rfl
 
 @[category test, AMS 11]
-theorem a_2 : a 2 = 1 := by
-  sorry
+theorem a_2 : a 2 = 1 := by rfl
 
 @[category test, AMS 11]
-theorem a_3 : a 3 = 5 := by
-  sorry
+theorem a_3 : a 3 = 5 := by rfl
 
 @[category test, AMS 11]
-theorem a_4 : a 4 = 7 := by
-  sorry
+theorem a_4 : a 4 = 7 := by rfl
 /--
 The limit of $a(n)^{1/n}$ exists.
 The numerical evidence suggests a limit of approximately $1.7086...$

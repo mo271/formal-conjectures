@@ -47,13 +47,13 @@ def a (n : ℕ) : ℕ :=
 
 
 @[category test, AMS 11]
-theorem a_1 : a 1 = 1 := by sorry
+theorem a_1 : a 1 = 1 := by rfl
 @[category test, AMS 11]
-theorem a_2 : a 2 = 2 := by sorry
+theorem a_2 : a 2 = 2 := by rfl
 @[category test, AMS 11]
-theorem a_3 : a 3 = 1 := by sorry
+theorem a_3 : a 3 = 1 := by rfl
 @[category test, AMS 11]
-theorem a_4 : a 4 = 4 := by sorry
+theorem a_4 : a 4 = 4 := by rfl
 
 /--
 Conjecture based on OEIS a comment:

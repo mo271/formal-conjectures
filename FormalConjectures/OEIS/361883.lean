@@ -56,14 +56,10 @@ theorem a_2 : a 2 = 98 := by
   rfl
 
 @[category test, AMS 11]
-theorem a_3 : a 3 = 3550 := by
-  -- Original tactic failed compilation in previous attempt.
-  sorry
+theorem a_3 : a 3 = 3550 := by rfl
 
 @[category test, AMS 11]
-theorem a_4 : a 4 = 150722 := by
-  -- Original tactic failed compilation in previous attempt.
-  sorry
+theorem a_4 : a 4 = 150722 := by rfl
 
 
 /--
