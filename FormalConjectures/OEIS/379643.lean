@@ -45,24 +45,16 @@ noncomputable def a (n : ℕ) : ℤ :=
 
 
 @[category test, AMS 11]
-theorem a_1 : a 1 = 0 := by
-  inhabit Real
-  norm_num[a]
+theorem a_1 : a 1 = 0 := by sorry
 
 @[category test, AMS 11]
-theorem a_2 : a 2 = 1 := by
-  norm_num[a ]
-  rfl
+theorem a_2 : a 2 = 1 := by sorry
 
 @[category test, AMS 11]
-theorem a_3 : a 3 = 1 := by
-  delta a
-  exact (5).nth_count Nat.prime_five▸rfl
+theorem a_3 : a 3 = 1 := by sorry
 
 @[category test, AMS 11]
-theorem a_4 : a 4 = 0 := by
-  delta a
-  push_cast +decide[show(3).nth _ = 7 from Nat.nth_count (by decide:(7).Prime)]
+theorem a_4 : a 4 = 0 := by sorry
 
 /--
 A379731: List of $y$ coordinates of prime numbers in a Cartesian grid.

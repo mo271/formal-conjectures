@@ -48,20 +48,16 @@ noncomputable def a (n : ℕ) : ℕ :=
 
 
 @[category test, AMS 11]
-theorem a_0 : a 0 = 1 := by
-  constructor
+theorem a_0 : a 0 = 1 := by rfl
 
 @[category test, AMS 11]
-theorem a_1 : a 1 = 5 := by
-  rfl
+theorem a_1 : a 1 = 5 := by rfl
 
 @[category test, AMS 11]
-theorem a_2 : a 2 = 109 := by
-  subsingleton
+theorem a_2 : a 2 = 109 := by rfl
 
 @[category test, AMS 11]
-theorem a_3 : a 3 = 3317 := by
-  econstructor
+theorem a_3 : a 3 = 3317 := by rfl
 
 /--
 We conjecture that the present sequence satisfies the same pair of supercongruences

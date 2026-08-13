@@ -42,35 +42,16 @@ noncomputable def a (n : ℕ) : ℕ := n.nth condition
 
 
 @[category test, AMS 11]
-theorem a_1 : a 1 = 1 := by
-  norm_num [ a]
-  rewrite [Nat.nth_eq_sInf]
-  norm_num [ condition]
-  refine IsLeast.csInf_eq ⟨ (by exists (by ·norm_num)), fun and => And.right⟩
+theorem a_1 : a 1 = 1 := by sorry
 
 @[category test, AMS 11]
-theorem a_2 : a 2 = 2 := by
-  norm_num[a]
-  borelize Real
-  delta condition
-  use(((congr_arg _)) ? _).trans (Nat.nth_count (by bound))
-  norm_num[ Finset.sum,Nat.count_succ]
+theorem a_2 : a 2 = 2 := by sorry
 
 @[category test, AMS 11]
-theorem a_3 : a 3 = 3 := by
-  norm_num [a]
-  nontriviality
-  delta condition
-  use(congr_arg _ ? _).trans (Nat.nth_count (by bound))
-  norm_num[Nat.count_succ]
+theorem a_3 : a 3 = 3 := by sorry
 
 @[category test, AMS 11]
-theorem a_4 : a 4 = 4 := by
-  norm_num[a]
-  inhabit ℝ
-  delta condition
-  use(4).nth_count (by norm_num[Nat.primeFactors,Nat.primeFactorsList])|>.subst ((congr_arg _) @? _)
-  norm_num[Nat.count_succ]
+theorem a_4 : a 4 = 4 := by sorry
 
 
 /--

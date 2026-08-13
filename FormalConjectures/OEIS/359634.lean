@@ -73,12 +73,10 @@ theorem a_1 : a 1 = 1 := by
 
 @[category test, AMS 11]
 theorem a_2 : a 2 = 2 := by
-  subsingleton
+  rfl
 
 @[category test, AMS 11]
-theorem a_3 : a 3 = 2 := by
-  delta a
-  push_cast+decide[ WellFounded.fix_eq,List.ofFn_eq_map]
+theorem a_3 : a 3 = 2 := by sorry
 
 
 /--

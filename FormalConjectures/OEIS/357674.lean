@@ -62,7 +62,7 @@ theorem a_2 : a 2 = 8422734375 := by
 
 @[category test, AMS 11]
 theorem a_3 : a 3 = 202402468703748096 := by
-  subsingleton
+  rfl
 
 /--
 $a(p) \equiv a(1) \pmod{p^5}$ for all primes $p \ge 3$.

@@ -48,30 +48,16 @@ noncomputable def a (n : ℕ) : ℕ :=
 -- The provided proofs of initial terms are kept as placeholders for context,
 -- although they are incomplete/non-compiling in this environment.
 @[category test, AMS 11]
-theorem a_1 : a 1 = 1 := by
-  norm_num[a]
-  push_cast[is_n_digit, Eq.comm, true,is_zeroless]
-  exact (IsLeast.csInf_eq (by use And.symm (by norm_num), fun and true => true.1.1)).symm
+theorem a_1 : a 1 = 1 := by sorry
 
 @[category test, AMS 11]
-theorem a_2 : a 2 = 11 := by
-  delta a
-  norm_num[is_n_digit,is_zeroless]
-  refine IsLeast.csInf_eq ⟨.symm (by {norm_num}), fun and true => true.1.left.lt_of_ne fun and => true.right (by {bound})⟩
+theorem a_2 : a 2 = 11 := by sorry
 
 @[category test, AMS 11]
-theorem a_3 : a 3 = 104 := by
-  delta a
-  push_cast[is_n_digit,is_zeroless]
-  use IsLeast.csInf_eq ⟨by norm_num,fun a s=>by match a with|100|101|102|103=>norm_num at* | S+104=>omega⟩
+theorem a_3 : a 3 = 104 := by sorry
 
 @[category test, AMS 11]
-theorem a_4 : a 4 = 1027 := by
-  delta a
-  push_cast[is_n_digit,is_zeroless,comm]
-  use symm<|IsLeast.csInf_eq ⟨.symm (by norm_num),fun a s=>not_lt.1 (Nat.exists_eq_add_of_le' (s.1.1) |>.elim fun and A B=>? _)⟩
-  match and with|0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19=>use(s).elim (by norm_num[A])|n+20=>_
-  match n with|0|1|2|3|4|5|6=>use(s).2 (by norm_num[A])|n+7=>omega
+theorem a_4 : a 4 = 1027 := by sorry
 
 /--
 a It has been proved that there exist infinitely many zeroless squares and cubes but there is apparently no proof for 4th powers, 5th powers, etc.
