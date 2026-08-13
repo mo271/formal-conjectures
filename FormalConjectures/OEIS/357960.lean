@@ -17,14 +17,10 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A357960
+# Product of powers of Apéry numbers $A(n-1)^5 B(n)^6$
 
-$a(n) = A005259(n-1)^5 \cdot A005258(n)^6$.
-The sequence is defined by the combinatorial formula:
-$$a(n) = \left( \sum_{k = 0}^{n-1} \binom{n-1}{k}^2 \binom{n+k-1}{k}^2 \right)^5 \cdot \left( \sum_{k = 0}^{n} \binom{n}{k}^2 \binom{n+k}{k} \right)^6$$
-
-Conjecture 1 from OEIS a:
-$a(p) \equiv a(1) \pmod{p^5}$ for all primes $p \ge 3$.
+The sequence is defined by $a(n) = A(n-1)^5 B(n)^6$, where $A(n)$ are the Apéry numbers for $\zeta(3)$
+(A005259) and $B(n)$ are the Apéry numbers for $\zeta(2)$ (A005258).
 
 *References:*
 - [A357960](https://oeis.org/A357960)
@@ -35,9 +31,7 @@ namespace OeisA357960
 
 
 /--
-a: $a(n) = A005259(n-1)^5 \cdot A005258(n)^6$.
-The sequence is defined by the combinatorial formula:
-$$a(n) = \left( \sum_{k = 0}^{n-1} \binom{n-1}{k}^2 \binom{n+k-1}{k}^2 \right)^5 \cdot \left( \sum_{k = 0}^{n} \binom{n}{k}^2 \binom{n+k}{k} \right)^6$$
+The sequence $a(n) = A(n-1)^5 B(n)^6$ for $n \ge 1$.
 -/
 def a (n : ℕ) : ℕ :=
   let N := n - 1

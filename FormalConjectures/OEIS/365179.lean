@@ -17,9 +17,10 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A365179
+# Automorphism group orders of certain graphs
 
-$a(1) = 2$; for $n \ge 2$, $a(n) = p^6$ if $p \equiv 2 \pmod 3$, $a(n) = p^7$ if $p = 3$ or $p \equiv 1 \pmod 3$, where $p = \text{prime}(n)$.
+$a(1) = 2$, and for $n \ge 2$, $a(n) = p^6$ if $p \equiv 2 \pmod 3$, and $p^7$ if $p = 3$ or $p \equiv 1 \pmod 3$,
+where $p = p_n$ is the $n$-th prime.
 
 *References:*
 - [A365179](https://oeis.org/A365179)
@@ -30,7 +31,7 @@ open Nat Group Fintype MulAut
 namespace OeisA365179
 
 /--
-$a(1) = 2$; for $n \ge 2$, $a(n) = p^6$ if $p \equiv 2 \pmod 3$, $a(n) = p^7$ if $p = 3$ or $p \equiv 1 \pmod 3$, where $p = \text{prime}(n)$.
+$a(1) = 2$; for $n \ge 2$, $a(n) = p^6$ if $p \equiv 2 \pmod 3$, and $p^7$ if $p = 3$ or $p \equiv 1 \pmod 3$.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
   match n with

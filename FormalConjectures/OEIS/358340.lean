@@ -17,14 +17,9 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A358340
+# Smallest $n$-digit numbers with zeroless fourth powers
 
-$a(n)$ is the smallest $n$-digit number whose fourth power is zeroless.
-
-a It has been proved that there exist infinitely many zeroless squares and cubes but there is apparently no proof for 4th powers, 5th powers, etc.
-
-Formalized as the conjecture that the set of natural numbers whose fourth power is zeroless is infinite.
-This is equivalent to the statement that the set $\{ m : ℕ \mid \text{is\_n\_digit}(m, n) \land \text{is\_zeroless}(m^4) \}$ is non-empty for all $n \ge 1$, ensuring $a(n)$ is defined for all $n$.
+$a(n)$ is the smallest $n$-digit number whose fourth power contains no zeros in its decimal expansion.
 
 *References:*
 - [A358340](https://oeis.org/A358340)
@@ -41,7 +36,7 @@ def is_zeroless (k : ℕ) : Prop := 0 ∉ Nat.digits 10 k
 def is_n_digit (m n : ℕ) : Prop := 10^(n-1) ≤ m ∧ m < 10^n
 
 /--
-a: $a(n)$ is the smallest $n$-digit number whose fourth power is zeroless.
+The smallest $n$-digit number whose fourth power contains no zero in base 10.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
   if n = 0 then 0 else

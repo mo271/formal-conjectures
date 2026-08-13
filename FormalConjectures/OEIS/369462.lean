@@ -17,9 +17,9 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A369462
+# Representations of $12n-1$ as pairwise products of three odd primes
 
-Conjecture a: Is there only a finite number of 0's in this sequence?
+$a(n)$ is the number of representations of $12n-1$ in the form $pq + pr + qr$ with odd primes $p \le q \le r$.
 
 *References:*
 - [A369462](https://oeis.org/A369462)
@@ -30,7 +30,7 @@ namespace OeisA369462
 
 
 /--
-a: Number of representations of $12n-1$ as a sum $(p \cdot q + p \cdot r + q \cdot r)$ with three odd primes $p \le q \le r$.
+Number of representations of $12n-1$ as $pq + pr + qr$ with odd primes $p \le q \le r$.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
   if 1 ≤ n then

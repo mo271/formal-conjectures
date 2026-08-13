@@ -17,10 +17,10 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A357506
+# Product of Apéry numbers $B(n)^3 B(n-1)$
 
-$a(n) = A005258(n)^3 \cdot A005258(n-1)$.
-The sequence is indexed starting from $n=1$.
+The sequence is defined by $a(n) = B(n)^3 B(n-1)$, where $B(n) = \sum_{k=0}^n \binom{n}{k}^2 \binom{n+k}{k}$
+are the Apéry numbers (A005258).
 
 *References:*
 - [A357506](https://oeis.org/A357506)
@@ -37,8 +37,7 @@ def A005258 (n : ℕ) : ℕ :=
   Finset.sum (Finset.range (n + 1)) fun k => (n.choose k) ^ 2 * ((n + k).choose k)
 
 /--
-a: $a(n) = A005258(n)^3 \cdot A005258(n-1)$.
-The sequence is indexed starting from $n=1$.
+$a(n) = B(n)^3 B(n-1)$ for $n \ge 1$.
 -/
 def a (n : ℕ) : ℕ :=
   (A005258 n) ^ 3 * (A005258 (n - 1))

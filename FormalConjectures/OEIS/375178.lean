@@ -17,12 +17,10 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A375178
+# Sum of cubed binomial coefficients $\sum_{k=0}^{n-1} \binom{n+k-1}{k}^3$
 
-$a(n) = \sum_{k = 0}^{n-1} \binom{n+k-1}{k}^3$.
-This is equivalent to a sum of cubed multichoose coefficients: $\sum_{k=0}^{n-1} \left(\left(\!\binom{n}{k}\!\right)\right)^3$.
-
-The generalized sequence $b_m(n) = \sum_{k = 0}^{n-1} \binom{n+k-1}{k}^{2m+1}$.
+The sequence is defined by
+$$a(n) = \sum_{k=0}^{n-1} \binom{n+k-1}{k}^3$$
 
 *References:*
 - [A375178](https://oeis.org/A375178)
@@ -31,8 +29,7 @@ namespace OeisA375178
 
 
 /--
-a: $a(n) = \sum_{k = 0}^{n-1} \binom{n+k-1}{k}^3$.
-This is equivalent to a sum of cubed multichoose coefficients: $\sum_{k=0}^{n-1} \left(\left(\!\binom{n}{k}\!\right)\right)^3$.
+The sequence $a(n) = \sum_{k=0}^{n-1} \binom{n+k-1}{k}^3$.
 -/
 def a (n : ℕ) : ℕ :=
   Finset.sum (Finset.range n) fun k => (Nat.multichoose n k) ^ 3

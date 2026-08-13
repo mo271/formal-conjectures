@@ -17,15 +17,11 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A376462
+# Sum involving Catalan-like triangle coefficients
 
-$a(n) = \sum_{k = 0..n} \binom{n}{k}^2 \binom{n+k}{k} A108625(n, n-k)$.
-
-We conjecture that the present sequence satisfies the same pair of supercongruences
-as the Apéry numbers A005258. Specifically, for all primes $p \ge 5$ and all
-positive integers $n$ and $r$:
-1) $A(n p^r) \equiv A(n p^{r-1}) \pmod{p^{3r}}$
-2) $A(n p^r - 1) \equiv A(n p^{r-1} - 1) \pmod{p^{3r}}$
+The sequence is defined by
+$$a(n) = \sum_{k=0}^n \binom{n}{k}^2 \binom{n+k}{k} T(n, n-k)$$
+where $T(n, k)$ is the array defined in A108625.
 
 *References:*
 - [A376462](https://oeis.org/A376462)
@@ -44,7 +40,7 @@ noncomputable def a108625_aux (n k : ℕ) : ℕ :=
     (n.choose i) ^ 2 * ((n + k - i).choose (k - i))
 
 /--
-a: $a(n) = \sum_{k = 0..n} \binom{n}{k}^2 \binom{n+k}{k} A108625(n, n-k)$.
+The sequence $a(n) = \sum_{k=0}^n \binom{n}{k}^2 \binom{n+k}{k} T(n, n-k)$.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
   (range (n + 1)).sum fun k =>

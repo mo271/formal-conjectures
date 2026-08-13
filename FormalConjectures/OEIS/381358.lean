@@ -17,13 +17,9 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A381358
+# Row sums of irregular triangle A381587
 
-Row sums of irregular triangle A381587.
-Row $n$ elements are $T_n$. The sequence $a(n)$ is the list sum of $T_n$.
-
-a If it exists, the limit of $\mathrm{a}(n)^{1/n}$ as $n \to \infty$.
-The conjecture is that this limit exists.
+Row sums of the irregular triangle A381587, defined via run lengths of digital sequences.
 
 *References:*
 - [A381358](https://oeis.org/A381358)
@@ -57,8 +53,7 @@ private def t : ℕ → List ℕ
     run_lengths_nat prev_T.reverse ++ prev_T
 
 /--
-a: Row sums of irregular triangle A381587.
-Row $n$ elements are $T_n$. The sequence $a(n)$ is the list sum of $T_n$.
+Row sums of irregular triangle A381587.
 -/
 def a (n : ℕ) : ℕ :=
   (t n).sum

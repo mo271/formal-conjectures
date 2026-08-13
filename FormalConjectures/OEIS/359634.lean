@@ -17,13 +17,10 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A359634
+# Longest contiguous subsegment sum sequence
 
-$a(0)=1$ and thereafter $a(n)$ is the length of the longest contiguous group of terms in the sequence thus far that add up to $n$; if no such group exists, set $a(n)=0$.
-If a zero appears, it is not counted as a term in a contiguous grouping.
-
-Conjecture (OEIS a, C-line): A zero has not appeared in the sequence $a(n)$.
-This is equivalent to $\forall n : \mathbb{N}, a(n) \neq 0$.
+$a(0) = 1$, and for $n > 0$, $a(n)$ is the length of the longest contiguous block of preceding terms
+summing to $n$, or $0$ if no such block exists.
 
 *References:*
 - [A359634](https://oeis.org/A359634)
@@ -34,8 +31,7 @@ namespace OeisA359634
 
 
 /--
-a: $a(0)=1$ and thereafter $a(n)$ is the length of the longest contiguous group of terms in the sequence thus far that add up to $n$; if no such group exists, set $a(n)=0$.
-If a zero appears, it is not counted as a term in a contiguous grouping.
+$a(0) = 1$, and for $n > 0$, $a(n)$ is the length of the longest contiguous group of preceding terms summing to $n$.
 -/
 noncomputable def a : ℕ → ℕ :=
   WellFounded.fix Nat.lt_wfRel.wf (fun n IH =>

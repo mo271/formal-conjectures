@@ -17,10 +17,10 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A389790
+# Representations of $2n$ as $p + p' + q + q'$
 
-$a(n)$ is the number of ways to write $2n$ as $p + p' + q + q'$, where $p$ and $q$ are primes with
-$p \le q$, and $r'$ is the first prime greater than $r$.
+$a(n)$ is the number of ways to write $2n$ as $p + p' + q + q'$, where $p \le q$ are primes,
+and $r'$ denotes the smallest prime strictly greater than $r$.
 
 *References:*
 - [A389790](https://oeis.org/A389790)
@@ -38,8 +38,7 @@ noncomputable def next_prime (r : ℕ) : ℕ :=
 noncomputable def S_sum (r : ℕ) : ℕ := r + next_prime r
 
 /--
-Number of ways to write $2n$ as $p + p' + q + q'$, where $p$ and $q$ are primes with $p \le q$,
-and $r'$ is the first prime greater than $r$.
+Number of ways to write $2n$ as $p + p' + q + q'$.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
   let target := 2 * n

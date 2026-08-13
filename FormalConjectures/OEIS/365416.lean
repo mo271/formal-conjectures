@@ -17,9 +17,9 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A365416
+# Numbers $k$ such that $2k-1$ and $2k+1$ are prime powers
 
-a According to Pillai's conjecture, k = 13 is the only term such that 2*k-1 and 2*k+1 both have exponent greater than 1.
+Numbers $k$ such that both $2k-1$ and $2k+1$ are prime powers.
 
 *References:*
 - [A365416](https://oeis.org/A365416)
@@ -36,8 +36,7 @@ def condition (k : ℕ) : Prop :=
   IsPrimePow (2 * k - 1) ∧ IsPrimePow (2 * k + 1)
 
 /--
-The $n$-th term of a (Numbers $k$ such that $2k-1$ and $2k+1$ are both prime powers).
-Defined for $n \ge 1$.
+$a(n)$ is the $n$-th integer $k$ such that $2k-1$ and $2k+1$ are both prime powers.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
   (n - 1).nth condition

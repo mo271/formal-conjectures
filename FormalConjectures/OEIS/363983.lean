@@ -17,14 +17,10 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A363983
+# Alternating sum of triple binomial products
 
-The sequence defined by
-$$a(n) = \sum_{k = \lfloor\frac{n+1}{2}\rfloor}^n (-1)^{n+k} \binom{n}{k} \binom{n+k-1}{k} \binom{2k}{n}$$
-The sum is implemented over $k=0$ to $n$ in $\mathbb{Z}$ and then cast to $\mathbb{N}$, as the sequence is known to be non-negative.
-Note: The sum limits in the OEIS sequence definition are $\lfloor(n+1)/2\rfloor \le k \le n$. The definition below, summing $k=0$ to $n$, is equivalent because $\binom{2k}{n}=0$ for $2k < n$, i.e. $k < n/2$. The term $\binom{n+k-1}{k}$ is zero for $k < 0$ (vacuously true here) or when $n+k-1 < k$ and $k \ne 0$, i.e., $n-1 < 0$, or $n=0$ and $k>0$. For $n=0$, the only term is $k=0 \Rightarrow 1$. For $n>0$, $n+k-1 \ge k$ holds for non-negative $k$, and all terms for $k < \lceil n/2 \rceil$ are correct either way. Given the OEIS formula simplifies to the $k=0$ to $n$ sum via the identity shown in the comments, this definition is a standard equivalent form.
-
-oeis_363983_conjecture_0: The Franel numbers satisfy the supercongruences A000172(n*p^r) == A000172(n*p^(r-1)) (mod p^(3*r)) for all primes p >= 5 and positive integers n and r. We conjecture that the present sequence satisfies the same supercongruences.
+The sequence is defined by
+$$a(n) = \sum_{k=\lfloor(n+1)/2\rfloor}^n (-1)^{n+k} \binom{n}{k} \binom{n+k-1}{k} \binom{2k}{n}$$
 
 *References:*
 - [A363983](https://oeis.org/A363983)
@@ -35,10 +31,7 @@ namespace OeisA363983
 
 
 /--
-a: The sequence defined by
-$$a(n) = \sum_{k = \lfloor\frac{n+1}{2}\rfloor}^n (-1)^{n+k} \binom{n}{k} \binom{n+k-1}{k} \binom{2k}{n}$$
-The sum is implemented over $k=0$ to $n$ in $\mathbb{Z}$ and then cast to $\mathbb{N}$, as the sequence is known to be non-negative.
-Note: The sum limits in the OEIS sequence definition are $\lfloor(n+1)/2\rfloor \le k \le n$. The definition below, summing $k=0$ to $n$, is equivalent because $\binom{2k}{n}=0$ for $2k < n$, i.e. $k < n/2$. The term $\binom{n+k-1}{k}$ is zero for $k < 0$ (vacuously true here) or when $n+k-1 < k$ and $k \ne 0$, i.e., $n-1 < 0$, or $n=0$ and $k>0$. For $n=0$, the only term is $k=0 \Rightarrow 1$. For $n>0$, $n+k-1 \ge k$ holds for non-negative $k$, and all terms for $k < \lceil n/2 \rceil$ are correct either way. Given the OEIS formula simplifies to the $k=0$ to $n$ sum via the identity shown in the comments, this definition is a standard equivalent form.
+The sequence $a(n) = \sum_{k=\lfloor(n+1)/2\rfloor}^n (-1)^{n+k} \binom{n}{k} \binom{n+k-1}{k} \binom{2k}{n}$.
 -/
 def a (n : ℕ) : ℕ :=
   (Finset.sum (Finset.range (n + 1)) fun k : ℕ =>

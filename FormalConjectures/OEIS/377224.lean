@@ -17,11 +17,10 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A377224
+# Representations by ternary quadratic form $x(5x+1) + y(5y+1)/2 + z(5z+1)/2$
 
-Conjecture 1 from OEIS a:
-a(n) = 0 only for n = 1.
-Also, a(n) = 1 only for n = 0, 2, 3, 5, 7, 14, 16, 19, 37, 43, 58, 61, 79.
+$a(n)$ is the number of ways to write $n$ as $x(5x+1) + y(5y+1)/2 + z(5z+1)/2$, where $x, y, z \in \mathbb{Z}$
+with $y(5y+1) \le z(5z+1)$.
 
 *References:*
 - [A377224](https://oeis.org/A377224)
@@ -38,8 +37,7 @@ def Q1 (x : ℤ) : ℤ := x * (5 * x + 1)
 def Q2 (t : ℤ) : ℤ := (t * (5 * t + 1)) / 2
 
 /--
-a: Number of ways to write $n$ as $x(5x+1) + y(5y+1)/2 + z(5z+1)/2$,
-where $x,y,z$ are integers with $y(5y+1) \le z(5z+1)$.
+Number of ways to write $n$ as $x(5x+1) + y(5y+1)/2 + z(5z+1)/2$ with $y(5y+1) \le z(5z+1)$.
 -/
 def a (n : ℕ) : ℕ :=
   let N : ℤ := n

@@ -17,14 +17,10 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A364176
+# Factorial ratio $\frac{(15n)! (5n/2)! (2n)!}{(15n/2)! (6n)! (5n)! n!}$
 
-a term:
+The sequence is defined for even $n = 2m$ by
 $$a(n) = \frac{(15n)! (5n/2)! (2n)!}{(15n/2)! (6n)! (5n)! n!}$$
-where integer factorials are evaluated using `Nat.factorial`, and fractional factorials $x!$ are defined as $\Gamma(x+1)$.
-
-Conjecture: the supercongruences a(n*p^r) == a(n*p^(r-1)) (mod p^(3*r)) hold for all primes p >= 5 and all positive integers n and r.
-Note: The sequence a(n) is only conjecturally integer-valued. We formalize the congruence as divisibility of real numbers, requiring that the sequence terms are indeed integers.
 
 *References:*
 - [A364176](https://oeis.org/A364176)
@@ -35,9 +31,7 @@ namespace OeisA364176
 
 
 /--
-a term:
-$$a(n) = \frac{(15n)! (5n/2)! (2n)!}{(15n/2)! (6n)! (5n)! n!}$$
-where integer factorials are evaluated using `Nat.factorial`, and fractional factorials $x!$ are defined as $\Gamma(x+1)$.
+The sequence $a(n) = \frac{(15n)! (5n/2)! (2n)!}{(15n/2)! (6n)! (5n)! n!}$ for even $n$.
 -/
 noncomputable def a (n : ℕ) : ℝ :=
   let n_r : ℝ := n.cast

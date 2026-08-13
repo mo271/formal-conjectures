@@ -17,12 +17,10 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A386888
+# Representations as sum of three consecutive primes with parity factor
 
-Conjecture 2:
-If n is an odd number greater than 905, or an even number greater than 1466, then we have a(n) > 0.
-Also, a(n) > 1 for all n > 2258.
-(In the case k = m = 3 for the general conjecture by Sun.)
+$a(n)$ is the number of ways to write $n$ as $u + (1 + (n \bmod 2)) v$ with $v \le n/2$,
+where $u$ and $v$ are both sums of three consecutive primes.
 
 *References:*
 - [A386888](https://oeis.org/A386888)
@@ -33,8 +31,7 @@ namespace OeisA386888
 
 
 /--
-a: Number of ways to write $n$ as $u + (1+(n \bmod 2)) \cdot v$ with $v \le n/2$,
-where $u$ and $v$ are both sums of three consecutive primes.
+Number of ways to write $n$ as $u + (1+(n \bmod 2)) v$ with $v \le n/2$.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
   -- Define $p_k$ as the $k$-th prime, 0-indexed.

@@ -17,13 +17,9 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A386548
+# Laurent series power coefficients $[x^n] ((1-x)/(1-x+x^2))^n$
 
-The sequence $a(n) = [x^n] \left( \frac{1 - x}{1 - x + x^2} \right)^n$.
-This is formally defined by the combinatorial formula $a(n) = \sum_{k = 0}^{\lfloor n/2 \rfloor} (-1)^k \binom{n+k-1}{k} \binom{n-k-1}{n-2k}$.
-
-Conjecture: the stronger supercongruences $a(n \cdot p^k) \equiv a(n \cdot p^{k-1}) \pmod{p^{2k}}$
-hold for all primes $p \ge 5$ and all positive integers $n$ and $k$.
+The sequence is defined by $a(n) = [x^n] \left( \frac{1-x}{1-x+x^2} \right)^n$.
 
 *References:*
 - [A386548](https://oeis.org/A386548)
@@ -34,8 +30,7 @@ namespace OeisA386548
 
 
 /--
-a: The sequence $a(n) = [x^n] \left( \frac{1 - x}{1 - x + x^2} \right)^n$.
-This is formally defined by the combinatorial formula $a(n) = \sum_{k = 0}^{\lfloor n/2 \rfloor} (-1)^k \binom{n+k-1}{k} \binom{n-k-1}{n-2k}$.
+The sequence $a(n) = [x^n] \left( \frac{1-x}{1-x+x^2} \right)^n$.
 -/
 def a (n : ℕ) : ℤ :=
   Finset.sum (Finset.range (n / 2 + 1))

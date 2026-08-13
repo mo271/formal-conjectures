@@ -17,12 +17,10 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A386660
+# Sum of binomial coefficients modulo powers of 2
 
-$a(n) = \sum_{k=1}^n \binom{n}{k} \pmod{2^k}$.
-
-oeis_386660_conjecture_0: The limit of $a(n)^{1/n}$ exists.
-The numerical evidence suggests a limit of approximately $1.7086...$
+The sequence is defined by
+$$a(n) = \sum_{k=1}^n \left(\binom{n}{k} \bmod 2^k\right)$$
 
 *References:*
 - [A386660](https://oeis.org/A386660)
@@ -33,7 +31,7 @@ namespace OeisA386660
 
 
 /--
-a: $a(n) = \sum_{k=1}^n \binom{n}{k} \pmod{2^k}$.
+The sequence $a(n) = \sum_{k=1}^n \left(\binom{n}{k} \bmod 2^k\right)$.
 -/
 def a (n : ℕ) : ℕ :=
   (Finset.Icc 1 n).sum fun k => (n.choose k) % (2 ^ k)

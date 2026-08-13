@@ -17,16 +17,9 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A381159
+# Numbers whose prime divisors all end in the same digit
 
-a 51st All-Russian Mathematical Olympiad for Schoolchildren. Problem.
-Let us call a natural number "lopsided" if it is greater than 1 and all its prime divisors end with the same digit.
-Is there an increasing arithmetic progression with a difference not exceeding 2025,
-consisting of 150 natural numbers, each of which is "lopsided"? (A. Chironov)
-
-We formalize the positive answer to the question/conjecture.
-The condition for "lopsided" for n > 1 is exactly condition n.
-We require the starting term a to be at least 2 to ensure all terms are > 1.
+Sequence of natural numbers whose prime divisors all end in the same decimal digit (also called "lopsided" numbers).
 
 *References:*
 - [A381159](https://oeis.org/A381159)
@@ -43,7 +36,7 @@ def condition (n : ℕ) : Prop :=
   Finset.card (n.primeFactors.image (fun p => p % 10)) ≤ 1
 
 /--
-a: Numbers whose prime divisors all end in the same digit.
+Natural numbers whose prime divisors all end in the same decimal digit.
 -/
 noncomputable def a (n : ℕ) : ℕ := n.nth condition
 

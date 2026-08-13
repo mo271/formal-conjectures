@@ -17,14 +17,10 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A363414
+# Imaginary part of $\prod_{k=0}^n (1 + 2k i)$
 
-$a(n) = (1/2) \cdot \operatorname{Im}\left( \prod_{k = 0}^{n} (1 + k\sqrt{-4}) \right)$.
-The sequence values are integers.
-
-Conjecture a: Type 1 primes set is empty.
-It appears that every prime p divides some term of the sequence.
-The claim formalizes: every prime $p$ divides some $a(n)$.
+The sequence is defined by
+$$a(n) = \frac{1}{2} \operatorname{Im}\left( \prod_{k=0}^n (1 + 2k i) \right)$$
 
 *References:*
 - [A363414](https://oeis.org/A363414)
@@ -34,8 +30,7 @@ open Nat Finset Complex Real Filter Asymptotics ZMod Int
 namespace OeisA363414
 
 /--
-a: $a(n) = (1/2) \cdot \operatorname{Im}\left( \prod_{k = 0}^{n} (1 + k\sqrt{-4}) \right)$.
-The sequence values are integers.
+$a(n) = \frac{1}{2} \operatorname{Im}\left( \prod_{k=0}^n (1 + 2k i) \right)$.
 -/
 noncomputable def a (n : ℕ) : ℤ :=
   let P_n : Complex :=

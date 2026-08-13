@@ -17,11 +17,10 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A357958
+# Linear combination of Apéry numbers $5 A(n) + 14 B(n-1)$
 
-The Apéry number sequence $A(n) = \sum_{k = 0}^n \binom{n}{k}^2 \binom{n+k}{k}^2$.
-
-A005258: The related Apéry number sequence $C(n) = \sum_{k = 0}^n \binom{n}{k}^2 \binom{n+k}{k}$.
+The sequence is defined by $a(n) = 5 A(n) + 14 B(n-1)$, where $A(n)$ are the Apéry numbers for $\zeta(3)$
+(A005259) and $B(n)$ are the Apéry numbers for $\zeta(2)$ (A005258).
 
 *References:*
 - [A357958](https://oeis.org/A357958)
@@ -44,8 +43,7 @@ def A005258_seq (n : ℕ) : ℕ :=
   (range (n + 1)).sum fun k ↦ (n.choose k) ^ 2 * ((n + k).choose k)
 
 /--
-a: $a(n) = 5 \cdot A005259(n) + 14 \cdot A005258(n-1)$.
-The sequence is indexed from $n=1$.
+The sequence $a(n) = 5 A(n) + 14 B(n-1)$.
 -/
 def a (n : ℕ) : ℕ :=
   5 * A005259_seq n + 14 * A005258_seq (n - 1)

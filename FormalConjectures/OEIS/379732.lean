@@ -17,17 +17,9 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A379732
+# Decimal expansion of $207/208$
 
-Decimal expansion of $207/208$.
-The $n$-th term of the sequence (for $n \ge 0$) is the $(n+1)$-th digit of $207/208$
-after the decimal point.
-The $k$-th digit after the decimal point (for $k \ge 1$) is $\lfloor 10^k x \rfloor \pmod{10}$.
-Since the OEIS sequence is 0-indexed, $a(n)$ is the $(n+1)$-th digit, $k=n+1$.
-
-a Conjectured densest packing of truncated tetrahedra.
-The maximum packing density $\eta_{\max}$ of congruent truncated tetrahedra in 3D Euclidean space
-is conjectured to be $207/208$.
+Decimal expansion of the fraction $207/208$.
 
 *References:*
 - [A379732](https://oeis.org/A379732)
@@ -39,11 +31,7 @@ namespace OeisA379732
 
 -- The provided Lean code for the sequence definition is replicated here.
 /--
-a: Decimal expansion of $207/208$.
-The $n$-th term of the sequence (for $n \ge 0$) is the $(n+1)$-th digit of $207/208$
-after the decimal point.
-The $k$-th digit after the decimal point (for $k \ge 1$) is $\lfloor 10^k x \rfloor \pmod{10}$.
-Since the OEIS sequence is 0-indexed, $a(n)$ is the $(n+1)$-th digit, $k=n+1$.
+Decimal expansion of $207/208$.
 -/
 def a (n : ℕ) : ℕ :=
   let p := 207

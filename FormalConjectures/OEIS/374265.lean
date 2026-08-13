@@ -17,17 +17,10 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A374265
+# Minimized zeroless factorials
 
-The set of all possible values $f(n)$ resulting from a sequence of choices
-where $f(0)=1$ and $f(i) = \operatorname{OpNoz}_i(i \cdot f(i-1))$,
-with $\operatorname{OpNoz}_i(x)$ being either $x$ or $remove\_zeros(x)$.
-We use `biUnion` for the union of sets.
-
-a: Minimized zeroless factorials.
-$a(n)$ is the smallest $f(n)$ such that $f(0) = 1$ and for $i > 0$,
-$f(i) = \operatorname{OpNoz}_i(i \cdot f(i-1))$, where $\operatorname{OpNoz}_i$
-is a function that either removes zeros or keeps the value unchanged.
+$a(n)$ is the smallest positive integer obtained by greedily dividing out factors from $n!$
+to avoid the digit zero.
 
 *References:*
 - [A374265](https://oeis.org/A374265)
@@ -71,10 +64,7 @@ lemma reachable_nonempty (n : ℕ) : (reachable_zeroless_factorials n).Nonempty 
     exact ⟨prod, Finset.mem_biUnion.mpr ⟨m, hm, Finset.mem_insert_self prod _⟩⟩
 
 /--
-a: Minimized zeroless factorials.
-$a(n)$ is the smallest $f(n)$ such that $f(0) = 1$ and for $i > 0$,
-$f(i) = \operatorname{OpNoz}_i(i \cdot f(i-1))$, where $\operatorname{OpNoz}_i$
-is a function that either removes zeros or keeps the value unchanged.
+The minimized zeroless factorial function $a(n)$.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
   (reachable_zeroless_factorials n).min' (reachable_nonempty n)

@@ -17,13 +17,9 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A385391
+# Smallest integer with given count of self-power divisor congruences
 
-$a(n)$ is the smallest integer $k$ such that $A384237(k) = n$.
-This is formalized using the set infimum ($\mathrm{sInf}$) of the preimage of $n$.
-
-oeis_385391_conjecture_0: a a(1) = A002110(0), a(2) = A002110(1), a(3) = A002110(2), a(6) = A002110(3), a(7) = A002110(4), a(10) = A002110(5), ...?
-This conjecture is formalized as a conjunction of the listed equalities, implying a general pattern related to A065295.
+$a(n)$ is the smallest integer $k$ such that the number of divisors $d \mid k$ satisfying $d^d \equiv d \pmod k$ equals $n$.
 
 *References:*
 - [A385391](https://oeis.org/A385391)
@@ -38,8 +34,7 @@ def A384237 (n : ℕ) : ℕ :=
   (n.divisors.filter fun d : ℕ => (d ^ d) % n = d % n).card
 
 /--
-a: $a(n)$ is the smallest integer $k$ such that $A384237(k) = n$.
-This is formalized using the set infimum ($\mathrm{sInf}$) of the preimage of $n$.
+The smallest integer $k$ such that $A384237(k) = n$.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
   sInf {k : ℕ | A384237 k = n}

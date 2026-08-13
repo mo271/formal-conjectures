@@ -17,13 +17,9 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A378143
+# Smallest primes of the form $(2p)^{2^n} + 1$
 
 $a(n)$ is the smallest prime of the form $(2p)^{2^n} + 1$ for some prime $p$.
-
-The conjecture is equivalent to the claim that a(n) is not 10^(2^n) + 1 for any n,
-which in turn is equivalent to the claim that, if 10^(2^n) + 1 is prime,
-then either 4^(2^n) + 1 or 6^(2^n) + 1 is prime. - Charles R Greathouse IV, Nov 17 2024
 
 *References:*
 - [A378143](https://oeis.org/A378143)
@@ -34,7 +30,7 @@ namespace OeisA378143
 
 
 /--
-a: $a(n)$ is the smallest prime of the form $(2p)^{2^n} + 1$ for some prime $p$.
+The smallest prime of the form $(2p)^{2^n} + 1$ for some prime $p$.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
   sInf { k : ℕ | Nat.Prime k ∧ ∃ p : ℕ, Nat.Prime p ∧ k = (2 * p) ^ (2 ^ n) + 1 }

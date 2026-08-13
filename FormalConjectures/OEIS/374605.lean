@@ -17,12 +17,10 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A374605
+# Sum of products $\binom{n}{k}^2 \binom{n+k}{k} \binom{3n+2k}{n}$
 
-The sequence $a(n) = \sum_{k = 0}^n \binom{n}{k}^2 \binom{n+k}{k} \binom{3n+2k}{n}$.
-
-Conjecture: for prime $p \ge 5$, $a(n)$ is divisible by $p^3$ for integer $n$ in the interval $[\lceil\frac{2p + 1}{3}\rceil, p - 1]$.
-The lower bound $\lceil\frac{2p + 1}{3}\rceil$ for $p \in \mathbb{N}$ is expressed using natural number division as $(2 * p + 1 + 2) / 3 = (2 * p + 3) / 3$.
+The sequence is defined by
+$$a(n) = \sum_{k=0}^n \binom{n}{k}^2 \binom{n+k}{k} \binom{3n+2k}{n}$$
 
 *References:*
 - [A374605](https://oeis.org/A374605)
@@ -31,7 +29,7 @@ namespace OeisA374605
 
 
 /--
-a: The sequence $a(n) = \sum_{k = 0}^n \binom{n}{k}^2 \binom{n+k}{k} \binom{3n+2k}{n}$.
+The sequence $a(n) = \sum_{k=0}^n \binom{n}{k}^2 \binom{n+k}{k} \binom{3n+2k}{n}$.
 -/
 def a (n : ℕ) : ℕ :=
   Finset.sum (Finset.range (n + 1)) fun k =>

@@ -17,15 +17,10 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A364175
+# Factorial ratio $\frac{(6n)! (2n/3)!}{(3n)! (2n)! (5n/3)!}$
 
-$a(n) = \frac{(6n)! (2n/3)!}{(3n)! (2n)! (5n/3)!}$.
-The fractional factorial $x!$ is defined as $\Gamma(x+1)$.
-This sequence is only conjecturally an integer sequence. We round the real-valued result to obtain a natural number.
-
-Conjecture: the supercongruences $a(n p^r) \equiv a(n p^{r-1}) \pmod{p^{3r}}$
-hold for all primes $p \ge 5$ and all positive integers $n$ and $r$.
-Note: The expression $r-1$ is a natural number subtraction, which is safe since $r$ is positive.
+The sequence is defined for $n$ divisible by $3$ ($n = 3m$) by
+$$a(n) = \frac{(6n)! (2n/3)!}{(3n)! (2n)! (5n/3)!}$$
 
 *References:*
 - [A364175](https://oeis.org/A364175)
@@ -36,9 +31,7 @@ namespace OeisA364175
 
 
 /--
-a: $a(n) = \frac{(6n)! (2n/3)!}{(3n)! (2n)! (5n/3)!}$.
-The fractional factorial $x!$ is defined as $\Gamma(x+1)$.
-This sequence is only conjecturally an integer sequence. We round the real-valued result to obtain a natural number.
+The sequence $a(n) = \frac{(6n)! (2n/3)!}{(3n)! (2n)! (5n/3)!}$ for $n$ divisible by 3.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
   let n_r : ℝ := n.cast

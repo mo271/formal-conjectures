@@ -17,15 +17,9 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A385958
+# Largest prime preserving integrality in reciprocal product recurrence
 
-A helper function to find the largest prime $p$ such that $p-1$ divides $2 \cdot k$.
-This is the definition of $a(n)$ given $b(n-1)=k$.
-Since $k \ge 1$, $2k \ge 2$, and the set of such primes is non-empty (it always contains $p=2$).
-
-A385959: The auxiliary sequence $b(n)$.
-$b(0) = 1$.
-$b(n) = b(n-1) \cdot \frac{a(n)+1}{a(n)-1}$.
+$a(n)$ is the largest prime $p$ such that $b(n) = b(n-1) \frac{p+1}{p-1}$ is an integer (A385959), where $b(0) = 1$.
 
 *References:*
 - [A385958](https://oeis.org/A385958)
@@ -60,7 +54,7 @@ noncomputable def b : ℕ → ℕ
   b_prev + b_prev * 2 / (p - 1)
 
 /--
-a: $a(n)$ is the largest prime $p$ such that $b(n) = b(n-1) \cdot \frac{p+1}{p-1}$ is an integer (A385959), where $b(0) = 1$.
+The largest prime $p$ such that $b(n) = b(n-1) \frac{p+1}{p-1}$ is an integer.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
   if n > 0 then

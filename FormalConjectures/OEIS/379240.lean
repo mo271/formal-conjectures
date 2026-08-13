@@ -17,13 +17,10 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A379240
+# Arithmetic derivative equivalence sequence
 
-The function $f(n)$ whose Restricted Growth Sequence transform is a.
-
-The Restricted Growth Sequence (RGS) Transform of a sequence $f: \mathbb{N}_{\ge 1} \to \alpha$.
-$a(n)$ is 1 plus the index of $f(n)$ in the list of distinct values of $f(1), \dots, f(n)$,
-ordered by first appearance.
+Lexicographically earliest infinite sequence such that $a(i) = a(j) \implies f(i) = f(j)$, where $f(n)$
+is defined using the arithmetic derivative $A003415(n)$ and its iteration $A085731(n)$.
 
 *References:*
 - [A379240](https://oeis.org/A379240)
@@ -81,10 +78,7 @@ def rgs_transform {α : Type} [DecidableEq α] (f : ℕ → α) (n : ℕ) : ℕ 
     distinct_f_values.idxOf target_f_val + 1
 
 /--
-a: Lexicographically earliest infinite sequence such that $a(i) = a(j) \Rightarrow f(i) = f(j)$,
-for all $i, j$, where
-$$f(n) = \begin{cases} [\mathtt{A003415}(n), \mathtt{A085731}(n)] & \text{if } \mathtt{A359550}(n) = 1 \\ n & \text{otherwise} \end{cases}$$
-This is the Restricted Growth Sequence transform of $f$.
+Lexicographically earliest infinite sequence preserving the equivalence relation of $f(n)$.
 -/
 def a (n : ℕ) : ℕ :=
   rgs_transform f n

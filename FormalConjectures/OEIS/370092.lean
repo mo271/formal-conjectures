@@ -17,14 +17,10 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A370092
+# Binomial recurrence with powers of $-1$ and $-2$
 
-$a(0) = 1$,
-$$a(n) = (-1)^n + \frac{1}{2} \sum_{j=1}^n (1-(-1)^j-(-2)^j) \binom{n}{j} a(n-j) \quad \text{for } n > 0$$
-The sequence is defined in $\mathbb{Q}$ to directly translate the recurrence relation.
-The terms are conjectured to be integers.
-
-A sequence `f` is eventually periodic with period `P` if after some index `N`, `f(n + P) = f(n)`.
+$a(0) = 1$, and for $n > 0$,
+$$a(n) = (-1)^n + \frac{1}{2} \sum_{j=1}^n (1 - (-1)^j - (-2)^j) \binom{n}{j} a(n-j)$$
 
 *References:*
 - [A370092](https://oeis.org/A370092)
@@ -35,10 +31,7 @@ namespace OeisA370092
 
 
 /--
-a: $a(0) = 1$,
-$$a(n) = (-1)^n + \frac{1}{2} \sum_{j=1}^n (1-(-1)^j-(-2)^j) \binom{n}{j} a(n-j) \quad \text{for } n > 0$$
-The sequence is defined in $\mathbb{Q}$ to directly translate the recurrence relation.
-The terms are conjectured to be integers.
+$a(0) = 1$, and $a(n) = (-1)^n + \frac{1}{2} \sum_{j=1}^n (1 - (-1)^j - (-2)^j) \binom{n}{j} a(n-j)$ for $n > 0$.
 -/
 noncomputable def a (n : ℕ) : ℚ :=
   match n with

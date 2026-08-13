@@ -17,12 +17,10 @@ limitations under the License.
 import FormalConjecturesUtil
 
 /-!
-# OEIS A361713
+# Sum of products $\binom{n}{k}^2 \binom{n+k-1}{k}^2$
 
-The sequence defined by
-$$a(n) = \sum_{k = 0}^{n-1} \binom{n}{k}^2 \binom{n+k-1}{k}^2$$
-
-Conjecture 2: for $r \ge 2$, the supercongruence $a(p^r) \equiv a(p^{r-1}) \pmod{p^{4r+1}}$ holds for all primes $p \ge 7$.
+The sequence is defined by
+$$a(n) = \sum_{k=0}^{n-1} \binom{n}{k}^2 \binom{n+k-1}{k}^2$$
 
 *References:*
 - [A361713](https://oeis.org/A361713)
@@ -33,8 +31,7 @@ namespace OeisA361713
 
 
 /--
-a: The sequence defined by
-$$a(n) = \sum_{k = 0}^{n-1} \binom{n}{k}^2 \binom{n+k-1}{k}^2$$
+The sequence $a(n) = \sum_{k=0}^{n-1} \binom{n}{k}^2 \binom{n+k-1}{k}^2$.
 -/
 def a (n : ℕ) : ℕ :=
   Finset.sum (Finset.range n) fun k => (n.choose k) ^ 2 * ((n + k - 1).choose k) ^ 2
