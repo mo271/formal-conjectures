@@ -59,7 +59,7 @@ def reachable_zeroless_factorials : ℕ → Finset ℕ
       {prod, remove_zeros prod}
 
 -- The set of reachable values is always nonempty.
-@[category API]
+@[category API, AMS 11]
 lemma reachable_nonempty (n : ℕ) : (reachable_zeroless_factorials n).Nonempty := by
   induction n with
   | zero => exact Finset.singleton_nonempty 1

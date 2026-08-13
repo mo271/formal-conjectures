@@ -39,7 +39,7 @@ If a zero appears, it is not counted as a term in a contiguous grouping.
 -/
 noncomputable def a : ℕ → ℕ :=
   WellFounded.fix Nat.lt_wfRel.wf (fun n IH =>
-    if h0 : n = 0 then 1
+    if n = 0 then 1
     else
       let target : ℕ := n
 
@@ -54,7 +54,7 @@ noncomputable def a : ℕ → ℕ :=
       let max_contiguous_length : ℕ :=
         Finset.sup (Finset.range n) fun i => -- start index i
           Finset.sup (Finset.range n) fun j => -- end index j
-            if h : i ≤ j then
+            if i ≤ j then
               let sublist_len := j - i + 1
               let sublist := prefix_list.drop i |>.take sublist_len
               if sublist.sum = target then

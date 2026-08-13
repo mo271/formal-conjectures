@@ -27,7 +27,7 @@ Also, a(n) > 1 for all n > 2258.
 *References:*
 - [A386888](https://oeis.org/A386888)
 -/
-open Nat Finset Classical
+open Nat Finset
 
 namespace OeisA386888
 

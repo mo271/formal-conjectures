@@ -46,7 +46,7 @@ where $\pi_{m,b}(x)$ is the number of primes $\le x$ which are congruent to $b \
 and $p_n$ is the $n$-th prime.
 -/
 noncomputable def a (n : ℕ) : ℤ :=
-  if hn : n = 0 then 0 else
+  if n = 0 then 0 else
   -- $p_n$ is the $n$-th prime. Nat.nth Nat.Prime is 0-indexed.
   let p_n : ℕ := Nat.nth Nat.Prime (n - 1)
 
@@ -84,7 +84,7 @@ $$b(n) = \pi_{8,5}(p_n) - \pi_{8,1}(p_n)$$
 where $p_n$ is the $n$-th prime.
 -/
 noncomputable def b (n : ℕ) : ℤ :=
-  if hn : n = 0 then 0 else
+  if n = 0 then 0 else
   -- $p_n$ is the $n$-th prime. Nat.nth Nat.Prime is 0-indexed.
   let p_n : ℕ := Nat.nth Nat.Prime (n - 1)
 

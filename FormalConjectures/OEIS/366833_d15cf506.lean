@@ -29,10 +29,9 @@ Conjecture: a(n) can be only 1, 2, or 3 (with the first occurrences of 3 appeari
 *References:*
 - [A366833](https://oeis.org/A366833)
 -/
-open Nat Classical
+open Nat
 
 namespace OeisA366833
-
 
 /--
 a: Number of times $n$ appears in A362965 (number of primes $\le$ the $n$-th prime power).
@@ -41,7 +40,7 @@ Where $\mathrm{prime}(n)$ is the $n$-th prime ($p_1=2$).
 $$a(n) = \left|\left\{q \in \mathbb{N} : \text{IsPrimePow}(q) \land \mathrm{prime}(n) \le q \le \mathrm{prime}(n+1)\right\}\right| - 1$$
 -/
 noncomputable def a (n : ℕ) : ℕ :=
-  if h : n = 0 then 0
+  if n = 0 then 0
   else
     -- p_n (1-indexed) is Nat.nth Nat.Prime (n-1) (0-indexed). Since n > 0, n-1 is safe.
     let p_n   : ℕ := Nat.nth Nat.Prime (n - 1)
