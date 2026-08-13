@@ -16,6 +16,20 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A364175
+
+$a(n) = \frac{(6n)! (2n/3)!}{(3n)! (2n)! (5n/3)!}$.
+The fractional factorial $x!$ is defined as $\Gamma(x+1)$.
+This sequence is only conjecturally an integer sequence. We round the real-valued result to obtain a natural number.
+
+Conjecture: the supercongruences $a(n p^r) \equiv a(n p^{r-1}) \pmod{p^{3r}}$
+hold for all primes $p \ge 5$ and all positive integers $n$ and $r$.
+Note: The expression $r-1$ is a natural number subtraction, which is safe since $r$ is positive.
+
+*References:*
+- [A364175](https://oeis.org/A364175)
+-/
 open Real Nat Int
 
 namespace OeisA364175

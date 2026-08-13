@@ -16,6 +16,19 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A363347
+
+Denominator of the continued fraction
+$$\frac{1}{2 - \frac{3}{3 - \frac{4}{4 - \frac{5}{\dots - \frac{n-1}{(n-1) - \frac{n}{-4}}}}}} $$
+The value of the continued fraction is $C_n = 1/R_2(n)$. If $R_2(n) = N/D$ in reduced form, $C_n = D/N$.
+The sequence $a(n)$ is the denominator of the final fraction, which is $\vert N \vert$.
+
+a Conjecture 2: The sequence contains all prime numbers which end with a 1 or 9.
+
+*References:*
+- [A363347](https://oeis.org/A363347)
+-/
 open Rat Nat
 
 namespace OeisA363347

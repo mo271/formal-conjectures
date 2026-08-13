@@ -16,6 +16,18 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A379240
+
+The function $f(n)$ whose Restricted Growth Sequence transform is a.
+
+The Restricted Growth Sequence (RGS) Transform of a sequence $f: \mathbb{N}_{\ge 1} \to \alpha$.
+$a(n)$ is 1 plus the index of $f(n)$ in the list of distinct values of $f(1), \dots, f(n)$,
+ordered by first appearance.
+
+*References:*
+- [A379240](https://oeis.org/A379240)
+-/
 open Nat List Finset
 
 namespace OeisA379240

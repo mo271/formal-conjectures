@@ -16,6 +16,22 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A374265
+
+The set of all possible values $f(n)$ resulting from a sequence of choices
+where $f(0)=1$ and $f(i) = \operatorname{OpNoz}_i(i \cdot f(i-1))$,
+with $\operatorname{OpNoz}_i(x)$ being either $x$ or $remove\_zeros(x)$.
+We use `biUnion` for the union of sets.
+
+a: Minimized zeroless factorials.
+$a(n)$ is the smallest $f(n)$ such that $f(0) = 1$ and for $i > 0$,
+$f(i) = \operatorname{OpNoz}_i(i \cdot f(i-1))$, where $\operatorname{OpNoz}_i$
+is a function that either removes zeros or keeps the value unchanged.
+
+*References:*
+- [A374265](https://oeis.org/A374265)
+-/
 open Nat Finset
 
 namespace OeisA374265

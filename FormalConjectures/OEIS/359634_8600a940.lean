@@ -16,6 +16,18 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A359634
+
+$a(0)=1$ and thereafter $a(n)$ is the length of the longest contiguous group of terms in the sequence thus far that add up to $n$; if no such group exists, set $a(n)=0$.
+If a zero appears, it is not counted as a term in a contiguous grouping.
+
+Conjecture (OEIS a, C-line): A zero has not appeared in the sequence $a(n)$.
+This is equivalent to $\forall n : \mathbb{N}, a(n) \neq 0$.
+
+*References:*
+- [A359634](https://oeis.org/A359634)
+-/
 open List Finset
 
 namespace OeisA359634

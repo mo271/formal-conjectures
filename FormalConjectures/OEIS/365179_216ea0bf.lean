@@ -16,6 +16,18 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A365179
+
+$a(1) = 2$; for $n \ge 2$, $a(n) = p^6$ if $p \equiv 2 \pmod 3$, $a(n) = p^7$ if $p = 3$ or $p \equiv 1 \pmod 3$, where $p = \text{prime}(n)$.
+
+Conjecture 2: for n >= 2, if |Aut(G)| = a(n), then |G| = a(n)/p, where p = prime(n).
+Moreover, G is unique up to isomorphism if p == 2 (mod 3).
+We explicitly include Fintype (MulAut G) to satisfy the type checker's need for finiteness instance on card.
+
+*References:*
+- [A365179](https://oeis.org/A365179)
+-/
 open Nat Group Fintype MulAut
 
 namespace OeisA365179

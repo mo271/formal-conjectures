@@ -16,6 +16,18 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A364178
+
+The conjecturally integral sequence
+$$a(n) = \frac{(10n)! (3n)! (n/2)!}{(6n)! (5n)! (3n/2)! n!}$$
+where $x! := \Gamma(x+1)$ for real $x$.
+
+a Conjecture: the supercongruences a(n*p^r) == a(n*p^(r-1)) (mod p^(3*r)) hold for all primes p >= 5 and all positive integers n and r.
+
+*References:*
+- [A364178](https://oeis.org/A364178)
+-/
 open Real
 open Nat
 

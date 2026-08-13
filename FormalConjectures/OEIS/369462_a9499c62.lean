@@ -16,6 +16,14 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A369462
+
+Conjecture a: Is there only a finite number of 0's in this sequence?
+
+*References:*
+- [A369462](https://oeis.org/A369462)
+-/
 open Nat Finset
 
 namespace OeisA369462

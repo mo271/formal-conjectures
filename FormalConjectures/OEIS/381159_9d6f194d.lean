@@ -16,6 +16,21 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A381159
+
+a 51st All-Russian Mathematical Olympiad for Schoolchildren. Problem.
+Let us call a natural number "lopsided" if it is greater than 1 and all its prime divisors end with the same digit.
+Is there an increasing arithmetic progression with a difference not exceeding 2025,
+consisting of 150 natural numbers, each of which is "lopsided"? (A. Chironov)
+
+We formalize the positive answer to the question/conjecture.
+The condition for "lopsided" for n > 1 is exactly condition n.
+We require the starting term a to be at least 2 to ensure all terms are > 1.
+
+*References:*
+- [A381159](https://oeis.org/A381159)
+-/
 open Nat
 
 namespace OeisA381159

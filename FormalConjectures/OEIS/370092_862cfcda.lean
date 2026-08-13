@@ -16,6 +16,19 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A370092
+
+$a(0) = 1$,
+$$a(n) = (-1)^n + \frac{1}{2} \sum_{j=1}^n (1-(-1)^j-(-2)^j) \binom{n}{j} a(n-j) \quad \text{for } n > 0$$
+The sequence is defined in $\mathbb{Q}$ to directly translate the recurrence relation.
+The terms are conjectured to be integers.
+
+A sequence `f` is eventually periodic with period `P` if after some index `N`, `f(n + P) = f(n)`.
+
+*References:*
+- [A370092](https://oeis.org/A370092)
+-/
 open Finset Nat
 
 namespace OeisA370092

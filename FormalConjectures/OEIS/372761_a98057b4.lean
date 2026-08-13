@@ -16,6 +16,16 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A372761
+
+Conjecture 2: Except for 3 and 5, all odd primes appear in the sequence once.
+Formally: for every natural number $p$ that is an odd prime and $p \ne 3$ and $p \ne 5$,
+there is exactly one index $n \ge 3$ such that $a(n) = p$.
+
+*References:*
+- [A372761](https://oeis.org/A372761)
+-/
 open Rat
 
 namespace OeisA372761

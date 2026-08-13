@@ -16,6 +16,16 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A357958
+
+The Apéry number sequence $A(n) = \sum_{k = 0}^n \binom{n}{k}^2 \binom{n+k}{k}^2$.
+
+A005258: The related Apéry number sequence $C(n) = \sum_{k = 0}^n \binom{n}{k}^2 \binom{n+k}{k}$.
+
+*References:*
+- [A357958](https://oeis.org/A357958)
+-/
 open Nat Finset
 
 namespace OeisA357958

@@ -16,6 +16,17 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A386660
+
+$a(n) = \sum_{k=1}^n \binom{n}{k} \pmod{2^k}$.
+
+oeis_386660_conjecture_0: The limit of $a(n)^{1/n}$ exists.
+The numerical evidence suggests a limit of approximately $1.7086...$
+
+*References:*
+- [A386660](https://oeis.org/A386660)
+-/
 open Nat
 
 namespace OeisA386660

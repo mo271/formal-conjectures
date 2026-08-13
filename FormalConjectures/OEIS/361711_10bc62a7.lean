@@ -16,6 +16,16 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A361711
+
+$a(1) = 1$ and $a(n) = \sum_{k = 0}^{n-2} (-1)^k \binom{n}{k}^2 \binom{n-2}{k}$ for $n \ge 2$.
+
+a Conjecture: the supercongruence a(p^k) == a(p^(k-1)) (mod p^(3*k)) holds for all primes p >= 5 and positive integer k.
+
+*References:*
+- [A361711](https://oeis.org/A361711)
+-/
 open Nat Int Finset BigOperators
 
 namespace OeisA361711

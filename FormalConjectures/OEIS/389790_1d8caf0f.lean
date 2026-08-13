@@ -15,6 +15,16 @@ limitations under the License.
 -/
 
 import FormalConjecturesUtil
+
+/-!
+# OEIS A389790
+
+OEIS a Conjecture: a(n) > 0 for all n >= 474.
+This is an analog of Goldbach's conjecture. It has been verified for n <= 2*10^5.
+
+*References:*
+- [A389790](https://oeis.org/A389790)
+-/
 open Classical
 open Nat
 

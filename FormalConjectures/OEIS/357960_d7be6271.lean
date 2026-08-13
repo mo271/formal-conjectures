@@ -16,6 +16,19 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A357960
+
+$a(n) = A005259(n-1)^5 \cdot A005258(n)^6$.
+The sequence is defined by the combinatorial formula:
+$$a(n) = \left( \sum_{k = 0}^{n-1} \binom{n-1}{k}^2 \binom{n+k-1}{k}^2 \right)^5 \cdot \left( \sum_{k = 0}^{n} \binom{n}{k}^2 \binom{n+k}{k} \right)^6$$
+
+Conjecture 1 from OEIS a:
+$a(p) \equiv a(1) \pmod{p^5}$ for all primes $p \ge 3$.
+
+*References:*
+- [A357960](https://oeis.org/A357960)
+-/
 open Nat Finset
 
 namespace OeisA357960

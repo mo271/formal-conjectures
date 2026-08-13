@@ -15,6 +15,19 @@ limitations under the License.
 -/
 
 import FormalConjecturesUtil
+
+/-!
+# OEIS A383466
+
+$a(0) = 1$; thereafter $a(n) = 10n^2 - 5n + 2$, which is
+$a(n) = 5n(2n-1) + 2$ for $n \ge 1$.
+
+Conjecture 2: a(n) is the maximum number of regions that can be formed in the plane by drawing n regular pentagrams with any radii and any centers.
+The "maximum" is formalized as the supremum of the set of all possible region counts.
+
+*References:*
+- [A383466](https://oeis.org/A383466)
+-/
 open Set
 
 namespace OeisA383466

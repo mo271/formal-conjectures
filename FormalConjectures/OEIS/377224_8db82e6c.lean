@@ -16,6 +16,16 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A377224
+
+Conjecture 1 from OEIS a:
+a(n) = 0 only for n = 1.
+Also, a(n) = 1 only for n = 0, 2, 3, 5, 7, 14, 16, 19, 37, 43, 58, 61, 79.
+
+*References:*
+- [A377224](https://oeis.org/A377224)
+-/
 open Int Finset
 
 namespace OeisA377224

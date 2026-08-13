@@ -15,6 +15,17 @@ limitations under the License.
 -/
 
 import FormalConjecturesUtil
+
+/-!
+# OEIS A357569
+
+$a(n) = \binom{3n}{n}^2 - 27 \binom{2n}{n}$.
+
+Conjecture 1: a(p^r) \equiv a(p^(r-1)) ( mod p^(3*r+3) ) for r >= 2 and all primes p >= 3.
+
+*References:*
+- [A357569](https://oeis.org/A357569)
+-/
 open Nat
 
 namespace OeisA357569

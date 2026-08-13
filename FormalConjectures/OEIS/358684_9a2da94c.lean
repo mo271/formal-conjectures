@@ -16,6 +16,19 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A358684
+
+$a(n)$ is the minimum integer $k$ such that the smallest prime factor of the $n$-th Fermat number exceeds $2^{2^n - k}$.
+Let $F_n = 2^{2^n} + 1$ be the $n$-th Fermat number, and $P_n$ be its smallest prime factor.
+The definition of $a(n)$ is equivalent to the closed form:
+$$a(n) = 2^n - \lfloor \log_2(P_n) \rfloor$$
+where $P_n = \operatorname{minFac}(\operatorname{fermatNumber} n)$.
+The subtraction is defined in $\mathbb{N}$ and is safe since $P_n \le F_n$, implying $\log_2 P_n < 2^n$.
+
+*References:*
+- [A358684](https://oeis.org/A358684)
+-/
 open Nat
 
 namespace OeisA358684

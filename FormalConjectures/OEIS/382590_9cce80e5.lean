@@ -16,7 +16,24 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
-open Int
+/-!
+# OEIS A382590
+
+Helper function for a, computing the pair $(a(n), b(n))$ such that:
+$a(n) = a(n-1)b(n-2) + a(n-2)b(n-1)$
+$b(n) = a(n-1)b(n-2) - a(n-2)b(n-1)$
+
+a: $a(n)$ is the sequence defined by the mutual recurrence relations:
+$a(n) = a(n-1)b(n-2) + a(n-2)b(n-1)$ and $b(n) = a(n-1)b(n-2) - a(n-2)b(n-1)$
+starting with $a(0) = b(0) = b(1) = 1$ and a(1) = 2.
+The terms are in $\mathbb{Z}$ due to negative values.
+
+*References:*
+- [A382590](https://oeis.org/A382590)
+-/
+open Int Nat
+
+namespace OeisA382590
 
 /--
 Helper function for a, computing the pair $(a(n), b(n))$ such that:
@@ -39,10 +56,17 @@ The terms are in $\mathbb{Z}$ due to negative values.
 -/
 def a (n : ℕ) : ℤ := (pair n).fst
 
-open Nat
+@[category test, AMS 11]
+theorem a_0 : a 0 = 1 := by
+  rfl
 
-namespace OeisA382590
+@[category test, AMS 11]
+theorem a_1 : a 1 = 2 := by
+  rfl
 
+@[category test, AMS 11]
+theorem a_2 : a 2 = 3 := by
+  rfl
 
 /--
 The k-th prime factor of an integer n (where k>=1), counted with multiplicity.

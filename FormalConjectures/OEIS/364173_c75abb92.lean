@@ -16,6 +16,20 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A364173
+
+The sequence defined by the factorial ratio
+$$a(n) = \frac{(9n)! (2n)! (3n/2)!}{(9n/2)! (4n)! (3n)! n!}$$
+where fractional factorials $x!$ are defined as $\Gamma(x+1)$.
+
+Conjecture: the supercongruences a(n*p^r) == a(n*p^(r-1)) (mod p^(3*r)) hold for all primes p >= 5 and all positive integers n and r.
+Note: This conjecture requires that a(n) is an integer for all n, which is only conjectural.
+We assume integrality for the purpose of stating the congruence.
+
+*References:*
+- [A364173](https://oeis.org/A364173)
+-/
 open scoped Real
 
 namespace OeisA364173

@@ -15,6 +15,19 @@ limitations under the License.
 -/
 
 import FormalConjecturesUtil
+
+/-!
+# OEIS A381358
+
+Row sums of irregular triangle A381587.
+Row $n$ elements are $T_n$. The sequence $a(n)$ is the list sum of $T_n$.
+
+a If it exists, the limit of $\mathrm{a}(n)^{1/n}$ as $n \to \infty$.
+The conjecture is that this limit exists.
+
+*References:*
+- [A381358](https://oeis.org/A381358)
+-/
 open List Nat
 
 namespace OeisA381358

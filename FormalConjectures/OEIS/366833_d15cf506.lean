@@ -16,6 +16,19 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A366833
+
+Number of times $n$ appears in A362965 (number of primes $\le$ the $n$-th prime power).
+This is equivalent to: One less than the number of prime powers $q$ such that $\mathrm{prime}(n) \le q \le \mathrm{prime}(n+1)$, inclusive.
+Where $\mathrm{prime}(n)$ is the $n$-th prime ($p_1=2$).
+$$a(n) = \left|\left\{q \in \mathbb{N} : \text{IsPrimePow}(q) \land \mathrm{prime}(n) \le q \le \mathrm{prime}(n+1)\right\}\right| - 1$$
+
+Conjecture: a(n) can be only 1, 2, or 3 (with the first occurrences of 3 appearing at n = 4, 9, 30, 327 and 3512).
+
+*References:*
+- [A366833](https://oeis.org/A366833)
+-/
 open Nat Classical
 
 namespace OeisA366833

@@ -16,6 +16,17 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A386888
+
+Conjecture 2:
+If n is an odd number greater than 905, or an even number greater than 1466, then we have a(n) > 0.
+Also, a(n) > 1 for all n > 2258.
+(In the case k = m = 3 for the general conjecture by Sun.)
+
+*References:*
+- [A386888](https://oeis.org/A386888)
+-/
 open Nat Finset Classical
 
 namespace OeisA386888

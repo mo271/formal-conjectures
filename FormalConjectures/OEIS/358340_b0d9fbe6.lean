@@ -16,6 +16,19 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A358340
+
+$a(n)$ is the smallest $n$-digit number whose fourth power is zeroless.
+
+a It has been proved that there exist infinitely many zeroless squares and cubes but there is apparently no proof for 4th powers, 5th powers, etc.
+
+Formalized as the conjecture that the set of natural numbers whose fourth power is zeroless is infinite.
+This is equivalent to the statement that the set $\{ m : ℕ \mid \text{is\_n\_digit}(m, n) \land \text{is\_zeroless}(m^4) \}$ is non-empty for all $n \ge 1$, ensuring $a(n)$ is defined for all $n$.
+
+*References:*
+- [A358340](https://oeis.org/A358340)
+-/
 open Nat List Set
 
 namespace OeisA358340

@@ -16,7 +16,22 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
-open Nat Finset Complex Real
+/-!
+# OEIS A363414
+
+$a(n) = (1/2) \cdot \operatorname{Im}\left( \prod_{k = 0}^{n} (1 + k\sqrt{-4}) \right)$.
+The sequence values are integers.
+
+Conjecture a: Type 1 primes set is empty.
+It appears that every prime p divides some term of the sequence.
+The claim formalizes: every prime $p$ divides some $a(n)$.
+
+*References:*
+- [A363414](https://oeis.org/A363414)
+-/
+open Nat Finset Complex Real Filter Asymptotics ZMod Int
+
+namespace OeisA363414
 
 /--
 a: $a(n) = (1/2) \cdot \operatorname{Im}\left( \prod_{k = 0}^{n} (1 + k\sqrt{-4}) \right)$.
@@ -28,11 +43,6 @@ noncomputable def a (n : ℕ) : ℤ :=
     (fun k : ℕ ↦ (1 : Complex) + ((2 * k : ℕ) : ℝ) * Complex.I)
 
   Int.floor (P_n.im / 2)
-
-open Filter Asymptotics ZMod Int
-
-namespace OeisA363414
-
 
 /--
 The set of primes of type 2 for a is conjecturally

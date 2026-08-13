@@ -15,6 +15,21 @@ limitations under the License.
 -/
 
 import FormalConjecturesUtil
+
+/-!
+# OEIS A376462
+
+$a(n) = \sum_{k = 0..n} \binom{n}{k}^2 \binom{n+k}{k} A108625(n, n-k)$.
+
+We conjecture that the present sequence satisfies the same pair of supercongruences
+as the Apéry numbers A005258. Specifically, for all primes $p \ge 5$ and all
+positive integers $n$ and $r$:
+1) $A(n p^r) \equiv A(n p^{r-1}) \pmod{p^{3r}}$
+2) $A(n p^r - 1) \equiv A(n p^{r-1} - 1) \pmod{p^{3r}}$
+
+*References:*
+- [A376462](https://oeis.org/A376462)
+-/
 open Nat Finset
 
 namespace OeisA376462

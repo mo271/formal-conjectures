@@ -16,6 +16,23 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A379643
+
+List of $x$ coordinates of prime numbers in a Cartesian grid.
+The sequence term $a(n)$ is given by the formula:
+$$a(n) = \pi_{8,3}(p_n) - \pi_{8,7}(p_n)$$
+where $\pi_{m,b}(x)$ is the number of primes $\le x$ which are congruent to $b \pmod m$
+and $p_n$ is the $n$-th prime.
+
+A379731: List of $y$ coordinates of prime numbers in a Cartesian grid.
+The sequence term $b(n)$ is given by the formula:
+$$b(n) = \pi_{8,5}(p_n) - \pi_{8,1}(p_n)$$
+where $p_n$ is the $n$-th prime.
+
+*References:*
+- [A379643](https://oeis.org/A379643)
+-/
 open Nat Finset
 
 namespace OeisA379643

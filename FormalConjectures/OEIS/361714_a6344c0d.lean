@@ -16,6 +16,17 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A361714
+
+$a(n) = \sum_{k = 0}^{n-1} (-1)^{n+k+1} \binom{n}{k} \binom{n+k-1}{k}^2$.
+
+Conjecture 2 from OEIS a: for $r \ge 2$, the supercongruence
+$a(p^r) \equiv a(p^{r-1}) \pmod{p^{3r+3}}$ holds for all primes $p \ge 7$.
+
+*References:*
+- [A361714](https://oeis.org/A361714)
+-/
 open Nat Int Finset
 
 namespace OeisA361714

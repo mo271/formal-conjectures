@@ -16,6 +16,21 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A380275
+
+Sum of the fourth powers of the coefficients of $q$ in the $q$-factorials.
+The $q$-factorial polynomial $P_n(q)$ is given by
+$$P_n(q) = \prod_{j=1}^n \frac{1-q^j}{1-q} = \prod_{j=1}^n \sum_{i=0}^{j-1} q^i$$
+The sequence is defined by
+$$a(n) : \sum_{k \ge 0} \left([q^k] P_n(q)\right)^4$$
+
+Generalized sequence: Sum of $k$-th powers of coefficients of $q$-factorial.
+We cast to $\mathbb{R}$ for asymptotic analysis.
+
+*References:*
+- [A380275](https://oeis.org/A380275)
+-/
 open Polynomial Finset Real Asymptotics Filter
 
 namespace OeisA380275

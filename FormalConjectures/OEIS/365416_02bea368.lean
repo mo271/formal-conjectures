@@ -16,6 +16,14 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A365416
+
+a According to Pillai's conjecture, k = 13 is the only term such that 2*k-1 and 2*k+1 both have exponent greater than 1.
+
+*References:*
+- [A365416](https://oeis.org/A365416)
+-/
 open Nat
 
 namespace OeisA365416

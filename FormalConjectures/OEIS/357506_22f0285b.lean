@@ -16,6 +16,15 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A357506
+
+$a(n) = A005258(n)^3 \cdot A005258(n-1)$.
+The sequence is indexed starting from $n=1$.
+
+*References:*
+- [A357506](https://oeis.org/A357506)
+-/
 open Nat
 
 namespace OeisA357506

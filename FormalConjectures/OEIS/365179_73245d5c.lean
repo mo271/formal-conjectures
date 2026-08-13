@@ -16,6 +16,16 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A365179
+
+$a(1) = 2$; for $n \ge 2$, $a(n) = p^6$ if $p \equiv 2 \pmod 3$, $a(n) = p^7$ if $p = 3$ or $p \equiv 1 \pmod 3$, where $p = \text{prime}(n)$.
+
+Conjecture 1: a(n) is the smallest nontrivial power of p such that there exists a finite nontrivial group whose automorphism group is of order a(n).
+
+*References:*
+- [A365179](https://oeis.org/A365179)
+-/
 open Nat
 
 namespace OeisA365179

@@ -15,6 +15,29 @@ limitations under the License.
 -/
 
 import FormalConjecturesUtil
+
+/-!
+# OEIS A389790
+
+The statement that $n_{max}$ is the conjectured largest value of $n$ such that $a(n) = k$.
+
+a Conjecture: a(n) = k for a largest value of n given by the table below.
+
+  k     conjectured largest value of n for which a(n) = k
+----------------
+  2      833
+  3     1487
+  4     1411
+  5     1523
+  6     1747
+  7     2621
+  8     2153
+  9     3091
+  10     3238
+
+*References:*
+- [A389790](https://oeis.org/A389790)
+-/
 open Classical
 open Nat
 

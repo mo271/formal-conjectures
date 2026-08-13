@@ -16,6 +16,20 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A361883
+
+The sequence $a(n)$ defined by
+$$a(n) = \frac{1}{n} \sum_{k = 0}^n (n+2k) \binom{n+k-1}{k}^3$$
+for $n \ge 1$.
+
+The central binomial coefficients $u(n) := \binom{2n}{n}$ satisfy the supercongruences
+$u(n \cdot p^r) \equiv u(n \cdot p^{r-1}) \pmod{p^{3r}}$ for positive integers $n$ and $r$
+and all primes $p \ge 5$. We conjecture that the present sequence $a(n)$ satisfies the same congruences.
+
+*References:*
+- [A361883](https://oeis.org/A361883)
+-/
 open Nat Finset
 
 namespace OeisA361883

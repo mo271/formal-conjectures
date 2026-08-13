@@ -16,6 +16,20 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A385958
+
+A helper function to find the largest prime $p$ such that $p-1$ divides $2 \cdot k$.
+This is the definition of $a(n)$ given $b(n-1)=k$.
+Since $k \ge 1$, $2k \ge 2$, and the set of such primes is non-empty (it always contains $p=2$).
+
+A385959: The auxiliary sequence $b(n)$.
+$b(0) = 1$.
+$b(n) = b(n-1) \cdot \frac{a(n)+1}{a(n)-1}$.
+
+*References:*
+- [A385958](https://oeis.org/A385958)
+-/
 open Nat Finset
 
 namespace OeisA385958

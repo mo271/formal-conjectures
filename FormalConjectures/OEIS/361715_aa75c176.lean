@@ -16,6 +16,16 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A361715
+
+$$a(n) = \sum_{k = 0}^{n-1} \binom{n}{k}^2 \binom{n+k-1}{k}$$
+
+Conjecture 2: for r >= 2, the supercongruence a(p^r) == a(p^(r-1)) (mod p^(3*r+3)) holds for all primes p >= 5.
+
+*References:*
+- [A361715](https://oeis.org/A361715)
+-/
 open Nat Finset
 
 namespace OeisA361715

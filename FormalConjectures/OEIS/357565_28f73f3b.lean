@@ -16,6 +16,18 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A357565
+
+$a(n) = 3 \sum_{k = 0}^n \binom{n+k-1}{k}^2 + 2 \sum_{k = 0}^n \binom{n+k-1}{k}^3$.
+
+The generalized sequence $u(n, m)$ from the conjecture section:
+$u(n, m) = (m + 2) \sum_{k = 0}^{m \cdot n} \binom{n+k-1}{k}^2 + 2m \sum_{k = 0}^{m \cdot n} \binom{n+k-1}{k}^3$.
+Note that $a(n) = a\_u(n, 1)$.
+
+*References:*
+- [A357565](https://oeis.org/A357565)
+-/
 open Finset Nat
 
 namespace OeisA357565

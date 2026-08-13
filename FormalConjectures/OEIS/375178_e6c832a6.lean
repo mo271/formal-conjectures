@@ -16,6 +16,17 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A375178
+
+$a(n) = \sum_{k = 0}^{n-1} \binom{n+k-1}{k}^3$.
+This is equivalent to a sum of cubed multichoose coefficients: $\sum_{k=0}^{n-1} \left(\left(\!\binom{n}{k}\!\right)\right)^3$.
+
+The generalized sequence $b_m(n) = \sum_{k = 0}^{n-1} \binom{n+k-1}{k}^{2m+1}$.
+
+*References:*
+- [A375178](https://oeis.org/A375178)
+-/
 namespace OeisA375178
 
 
@@ -45,6 +56,10 @@ theorem conjecture_2a (m : ℕ) (hm : 0 < m) (p : ℕ) (hp : Nat.Prime p) :
   p ≥ 2 * m + 5 → b m p ≡ 1 [MOD p ^ (2 * m + 3)] :=
 by sorry
 
+/--
+Conjecture 2b: for $r \ge 2$, the supercongruence
+$b_m(p^r) \equiv b_m(p^{r-1}) \pmod{p^{3r+2m+1}}$ holds for all primes $p \ge 2m + 5$.
+-/
 @[category research open, AMS 11]
 theorem conjecture_2b (m : ℕ) (hm : 0 < m) (r : ℕ) (hr : 2 ≤ r) (p : ℕ) (hp : Nat.Prime p) :
   p ≥ 2 * m + 5 → b m (p^r) ≡ b m (p^(r - 1)) [MOD p ^ (3 * r + 2 * m + 1)] :=

@@ -16,6 +16,21 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+/-!
+# OEIS A357674
+
+$a(n) = \left( \sum_{k = 0}^{2n} \binom{n+k-1}{k} \right)^4 \cdot \left( \sum_{k = 0}^{2n} \binom{n+k-1}{k}^2 \right)^3$.
+
+The terms $\sum_{k = 0}^{2n} \binom{n+k-1}{k}$ and $\sum_{k = 0}^{2n} \binom{n+k-1}{k}^2$ are the summations required.
+For $n \ge 1$, the first sum is equal to $\binom{3n}{n}$. We keep the summation structure for fidelity to the OEIS definition, using Finset.sum and Nat.choose.
+
+The general sequence $u(n, m)$ from conjecture 3.
+$u(n, m) = \left( \sum_{k = 0}^{m*n} \binom{n+k-1}{k} \right)^{2m} \cdot \left( \sum_{k = 0}^{m*n} \binom{n+k-1}{k}^2 \right)^{m+1}$.
+Note that `a n = u n 2`.
+
+*References:*
+- [A357674](https://oeis.org/A357674)
+-/
 open Nat Finset BigOperators
 
 namespace OeisA357674
