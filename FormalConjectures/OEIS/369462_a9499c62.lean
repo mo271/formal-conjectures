@@ -73,7 +73,7 @@ theorem a_4 : a 4 = 0 := by
 Conjecture a: Is there only a finite number of 0's in this sequence?
 -/
 @[category research open, AMS 11]
-theorem conjecture : {n : ℕ | a n = 0}.Finite := by
+theorem conjecture : answer(sorry) ↔ {n : ℕ | a n = 0}.Finite := by
   sorry
 
 end OeisA369462

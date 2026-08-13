@@ -80,25 +80,16 @@ by sorry
 
 /--
 OEIS a Conjecture 2:
-a(p^r) ≡ a(p^(r-1)) ( mod p^(3*r+3) ) for r ≥ 2 and for all primes p ≥ 3.
+$a(p^r) \equiv a(p^{r-1}) \pmod{p^{3r+3}}$ for $r \ge 2$ and for all primes $p \ge 3$.
 -/
 @[category research open, AMS 11]
 theorem conjecture_2 :
-  ∀ (p r : ℕ), Nat.Prime p → 3 ≤ p → 2 ≤ r → (a (p^r)) ≡ (a (p^(r-1))) [MOD p^3 * p^r * p^(2*r) * p^3] :=
-by sorry -- The exponent is 3*r + 3, which is p^(3*r + 3) or p^3 * p^(3*r). The formalization p^(3*r + 3) is easier.
-
-/--
-OEIS a Conjecture 2 (Simplified exponent):
-a(p^r) ≡ a(p^(r-1)) ( mod p^(3*r+3) ) for r ≥ 2 and for all primes p ≥ 3.
--/
-@[category research open, AMS 11]
-theorem conjecture_2_simple :
   ∀ (p r : ℕ), Nat.Prime p → 3 ≤ p → 2 ≤ r → (a (p^r)) ≡ (a (p^(r-1))) [MOD p^(3*r + 3)] :=
 by sorry
 
 /--
 OEIS a Conjecture 3, Part 1 (analogue of Conjecture 1 for u(n)):
-u(p) ≡ u(1) (mod p^5) for all primes p ≥ 5.
+$u(p) \equiv u(1) \pmod{p^5}$ for all primes $p \ge 5$.
 -/
 @[category research open, AMS 11]
 theorem conjecture_3a :
@@ -107,11 +98,12 @@ by sorry
 
 /--
 OEIS a Conjecture 3, Part 2 (analogue of Conjecture 2 for u(n)):
-u(p^r) ≡ u(p^(r-1)) ( mod p^(3*r+3) ) for r ≥ 2 and for all primes p ≥ 3.
+$u(p^r) \equiv u(p^{r-1}) \pmod{p^{3r+3}}$ for $r \ge 2$ and for all primes $p \ge 5$
+(at $p = 3$, the valuation is $3r + 2$).
 -/
 @[category research open, AMS 11]
 theorem conjecture_3b :
-  ∀ (p r : ℕ), Nat.Prime p → 3 ≤ p → 2 ≤ r → (u (p^r)) ≡ (u (p^(r-1))) [MOD p^(3*r + 3)] :=
+  ∀ (p r : ℕ), Nat.Prime p → 5 ≤ p → 2 ≤ r → (u (p^r)) ≡ (u (p^(r-1))) [MOD p^(3*r + 3)] :=
 by sorry
 
 end OeisA357958

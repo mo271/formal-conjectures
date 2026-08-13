@@ -36,7 +36,7 @@ namespace OeisA376930
 /--
 a: $a(0)=0, a(1)=1$; for $n>1$, $a(n) = a(n-1)+a(n-2)$, except where $a(n-1)$ is a prime greater than 2, in which case $a(n) = a(n-1)-a(n-2)$.
 -/
-noncomputable def a : ℕ → ℕ
+def a : ℕ → ℕ
 | 0 => 0
 | 1 => 1
 | n + 2 =>
@@ -46,6 +46,24 @@ noncomputable def a : ℕ → ℕ
     an_1 - an_2
   else
     an_1 + an_2
+
+@[category test, AMS 11]
+theorem a_0 : a 0 = 0 := by rfl
+
+@[category test, AMS 11]
+theorem a_1 : a 1 = 1 := by rfl
+
+@[category test, AMS 11]
+theorem a_2 : a 2 = 1 := by rfl
+
+@[category test, AMS 11]
+theorem a_3 : a 3 = 2 := by rfl
+
+@[category test, AMS 11]
+theorem a_4 : a 4 = 3 := by rfl
+
+@[category test, AMS 11]
+theorem a_5 : a 5 = 1 := by rfl
 
 /--
 oeis_376930_conjecture_0: It is not known if the sequence contains any negative terms (which may happen if two primes are adjacent or separated by one other term).

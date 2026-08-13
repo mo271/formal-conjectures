@@ -49,6 +49,15 @@ def a (n : ℕ) : ℤ :=
       let sign_k : ℤ := (-1 : ℤ) ^ k
       sign_k * term_nat.cast
 
+@[category test, AMS 11]
+theorem a_1 : a 1 = 1 := by rfl
+
+@[category test, AMS 11]
+theorem a_2 : a 2 = 1 := by rfl
+
+@[category test, AMS 11]
+theorem a_3 : a 3 = -8 := by rfl
+
 /--
 a Conjecture: the supercongruence a(p^k) == a(p^(k-1)) (mod p^(3*k)) holds for all primes p >= 5 and positive integer k.
 -/

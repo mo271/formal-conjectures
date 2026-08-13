@@ -85,18 +85,15 @@ a 51st All-Russian Mathematical Olympiad for Schoolchildren. Problem.
 Let us call a natural number "lopsided" if it is greater than 1 and all its prime divisors end with the same digit.
 Is there an increasing arithmetic progression with a difference not exceeding 2025,
 consisting of 150 natural numbers, each of which is "lopsided"? (A. Chironov)
-
-We formalize the positive answer to the question/conjecture.
-The condition for "lopsided" for n > 1 is exactly condition n.
-We require the starting term a to be at least 2 to ensure all terms are > 1.
 -/
-@[category research open, AMS 11]
+@[category textbook, AMS 11]
 theorem conjecture :
+  answer(sorry) ↔
   ∃ (a d : ℕ),
     2 ≤ a ∧ -- The starting number 'a' must be lopsided, hence > 1. All subsequent terms will also be > 1.
     1 ≤ d ∧ -- 'd' must be positive for an increasing arithmetic progression
     d ≤ 2025 ∧ -- difference not exceeding 2025
-    ∀ (i : Fin 150), condition (a + i.val * d)
-  := by sorry
+    ∀ (i : Fin 150), condition (a + i.val * d) := by
+  sorry
 
 end OeisA381159

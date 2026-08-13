@@ -41,7 +41,7 @@ def Q2 (t : ℤ) : ℤ := (t * (5 * t + 1)) / 2
 a: Number of ways to write $n$ as $x(5x+1) + y(5y+1)/2 + z(5z+1)/2$,
 where $x,y,z$ are integers with $y(5y+1) \le z(5z+1)$.
 -/
-noncomputable def a (n : ℕ) : ℕ :=
+def a (n : ℕ) : ℕ :=
   let N : ℤ := n
   -- A conservative absolute bound for the variables is $n+1$.
   let B : ℤ := n + 1
@@ -65,6 +65,21 @@ noncomputable def a (n : ℕ) : ℕ :=
     N = Q1 x + y_term + z_term ∧ y_term ≤ z_term
   )
   |>.card
+
+@[category test, AMS 11]
+theorem a_0 : a 0 = 1 := by decide
+
+@[category test, AMS 11]
+theorem a_1 : a 1 = 0 := by decide
+
+@[category test, AMS 11]
+theorem a_2 : a 2 = 1 := by decide
+
+@[category test, AMS 11]
+theorem a_3 : a 3 = 1 := by sorry
+
+@[category test, AMS 11]
+theorem a_4 : a 4 = 2 := by sorry
 
 /--
 Conjecture 1 from OEIS a:

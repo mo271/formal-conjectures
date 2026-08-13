@@ -50,12 +50,21 @@ def u (n m : ℕ) : ℕ :=
   (range (m * n + 1)).sum fun k =>
     (m + 2) * (choose (n + k - 1) k) ^ 2 + (2 * m) * (choose (n + k - 1) k) ^ 3
 
+@[category test, AMS 11]
+theorem a_0 : a 0 = 5 := by rfl
+
+@[category test, AMS 11]
+theorem a_1 : a 1 = 10 := by rfl
+
+@[category test, AMS 11]
+theorem a_2 : a 2 = 114 := by rfl
+
 -- Formalizing Conjecture 1
 /--
 Conjecture 1 for a: $a(p) \equiv a(1) \pmod{p^5}$ for all odd primes $p$ except $p = 5$.
 -/
 @[category research open, AMS 11]
-theorem conjecture_1 (p : ℕ) (hp : Nat.Prime p) (h_odd : p % 2 ≠ 0) (h_ne5 : p ≠ 5) :
+theorem conjecture_1 (p : ℕ) (hp : Nat.Prime p) (h_ne2 : p ≠ 2) (h_ne5 : p ≠ 5) :
     (a p) ≡ (a 1) [MOD (p ^ 5)] := by
   sorry
 

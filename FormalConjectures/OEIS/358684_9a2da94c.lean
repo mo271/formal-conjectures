@@ -29,10 +29,9 @@ The subtraction is defined in $\mathbb{N}$ and is safe since $P_n \le F_n$, impl
 *References:*
 - [A358684](https://oeis.org/A358684)
 -/
-open Nat
+open Nat Asymptotics Filter
 
 namespace OeisA358684
-
 
 /--
 a: $a(n)$ is the minimum integer $k$ such that the smallest prime factor of the $n$-th Fermat number exceeds $2^{2^n - k}$.
@@ -40,45 +39,38 @@ Let $F_n = 2^{2^n} + 1$ be the $n$-th Fermat number, and $P_n$ be its smallest p
 The definition of $a(n)$ is equivalent to the closed form:
 $$a(n) = 2^n - \lfloor \log_2(P_n) \rfloor$$
 where $P_n = \operatorname{minFac}(\operatorname{fermatNumber} n)$.
-The subtraction is defined in $\mathbb{N}$ and is safe since $P_n \le F_n$, implying $\log_2 P_n < 2^n$.
 -/
 def a (n : ℕ) : ℕ :=
   let pn := minFac (fermatNumber n)
   (2 ^ n) - (log2 pn)
 
+@[category test, AMS 11]
+theorem a_0 : a 0 = 0 := by sorry
 
 @[category test, AMS 11]
-theorem a_0 : a 0 = 0 := by
-  sorry
+theorem a_1 : a 1 = 0 := by sorry
 
 @[category test, AMS 11]
-theorem a_1 : a 1 = 0 := by
-  sorry
+theorem a_2 : a 2 = 0 := by sorry
 
 @[category test, AMS 11]
-theorem a_2 : a 2 = 0 := by
-  sorry
-
-@[category test, AMS 11]
-theorem a_3 : a 3 = 0 := by
-  sorry
-
+theorem a_3 : a 3 = 0 := by sorry
 
 /--
-a(14) is probably equal to 16208; a(15) to a(19) are 32738, 65507, 131028, 262121, 524252;
-a(20) is unknown; a(21) to a(23) are 2097110, 4194189, 8388581; a(24) is unknown.
+Conjecture I: The dyadic valuation of $\operatorname{minFac}(F_n) - 1$ does not exceed $2^n - a(n)$.
+Note: Proved by AlphaProof using the inequality $\nu_2(k-1) \le \lfloor \log_2 k \rfloor$.
+-/
+@[category research solved, AMS 11]
+theorem conjecture_1 (n : ℕ) :
+    padicValNat 2 (minFac (fermatNumber n) - 1) ≤ 2 ^ n - a n := by
+  sorry
+
+/--
+Conjecture II: $a(n) \sim 2^n$ as $n \to \infty$.
 -/
 @[category research open, AMS 11]
-theorem conjecture :
-    a 14 = 16208 ∧
-    a 15 = 32738 ∧
-    a 16 = 65507 ∧
-    a 17 = 131028 ∧
-    a 18 = 262121 ∧
-    a 19 = 524252 ∧
-    a 21 = 2097110 ∧
-    a 22 = 4194189 ∧
-    a 23 = 8388581 := by
+theorem conjecture_2 :
+    (fun n ↦ (a n : ℝ)) ~[atTop] (fun n ↦ ((2 ^ n : ℕ) : ℝ)) := by
   sorry
 
 end OeisA358684

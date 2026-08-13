@@ -39,21 +39,37 @@ def a (n : ℕ) : ℤ :=
 
 
 @[category test, AMS 11]
-theorem a_0 : a 0 = -26 := by sorry
+theorem a_0 : a 0 = -26 := by rfl
 
 @[category test, AMS 11]
-theorem a_1 : a 1 = -45 := by sorry
+theorem a_1 : a 1 = -45 := by rfl
 
 @[category test, AMS 11]
-theorem a_2 : a 2 = 63 := by sorry
+theorem a_2 : a 2 = 63 := by rfl
 
 @[category test, AMS 11]
-theorem a_3 : a 3 = 6516 := by sorry
+theorem a_3 : a 3 = 6516 := by rfl
 
-/-- Conjecture 1: a(p^r) \equiv a(p^(r-1)) ( mod p^(3*r+3) ) for r >= 2 and all primes p >= 3. -/
+/--
+The generalized sequence $u(k, n) = 2 \binom{3n}{n}^k - k \cdot 3^{k+1} \binom{2n}{n}$ for $k \ge 1$.
+Note that $u(2, n) = 2 \cdot a(n)$.
+-/
+def u (k n : ℕ) : ℤ :=
+  2 * (Int.ofNat ((3 * n).choose n)) ^ k - (k : ℤ) * ((3 : ℤ) ^ (k + 1)) * Int.ofNat ((2 * n).choose n)
+
+/-- Conjecture 1: $a(p^r) \equiv a(p^{r-1}) \pmod{p^{3r+3}}$ for $r \ge 2$ and all primes $p \ge 3$. -/
 @[category research open, AMS 11]
-theorem conjecture (p r : ℕ) (hp : Nat.Prime p) (hp3 : p ≥ 3) (hr : r ≥ 2) :
+theorem conjecture_1 (p r : ℕ) (hp : Nat.Prime p) (hp3 : p ≥ 3) (hr : r ≥ 2) :
   a (p ^ r) ≡ a (p ^ (r - 1)) [ZMOD ((p : ℤ) ^ (3 * r + 3))] :=
+by sorry
+
+/--
+Conjecture 2: For $k \ge 1$, the sequence $u(k, n)$ satisfies the same supercongruences
+$u(k, p^r) \equiv u(k, p^{r-1}) \pmod{p^{3r+3}}$ for $r \ge 2$ and all primes $p \ge 3$.
+-/
+@[category research open, AMS 11]
+theorem conjecture_2 (k p r : ℕ) (hk : 1 ≤ k) (hp : Nat.Prime p) (hp3 : p ≥ 3) (hr : r ≥ 2) :
+  u k (p ^ r) ≡ u k (p ^ (r - 1)) [ZMOD ((p : ℤ) ^ (3 * r + 3))] :=
 by sorry
 
 end OeisA357569

@@ -46,11 +46,11 @@ def a (n : ℕ) : ℕ :=
 
 @[category test, AMS 11]
 theorem a_1 : a 1 = 27 := by
-  sorry
+  rfl
 
 @[category test, AMS 11]
 theorem a_2 : a 2 = 20577 := by
-  sorry
+  rfl
 
 @[category test, AMS 11]
 theorem a_3 : a 3 = 60353937 := by
@@ -61,10 +61,18 @@ theorem a_4 : a 4 = 287798988897 := by
   sorry
 
 /--
-The stronger congruence $a(p) \equiv 27 \pmod{p^5}$ holds for all primes $p \ge 3$.
+Conjecture 1: The stronger congruence $a(p) \equiv 27 \pmod{p^5}$ holds for all primes $p \ge 3$.
 -/
 @[category research open, AMS 11]
-theorem conjecture : ∀ (p : ℕ), Nat.Prime p → p ≥ 3 → a p ≡ 27 [MOD (p ^ 5)] := by
+theorem conjecture_1 : ∀ (p : ℕ), Nat.Prime p → p ≥ 3 → a p ≡ 27 [MOD (p ^ 5)] := by
+  sorry
+
+/--
+Conjecture 2: for $r \ge 2$, $a(p^r) \equiv a(p^{r-1}) \pmod{p^{3r+3}}$ for all primes $p \ge 5$.
+-/
+@[category research open, AMS 11]
+theorem conjecture_2 :
+    ∀ (p r : ℕ), Nat.Prime p → 5 ≤ p → 2 ≤ r → a (p ^ r) ≡ a (p ^ (r - 1)) [MOD p ^ (3 * r + 3)] := by
   sorry
 
 end OeisA357506

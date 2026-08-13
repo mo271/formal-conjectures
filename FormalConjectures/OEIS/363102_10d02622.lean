@@ -57,9 +57,15 @@ def a (n : ℕ) : ℕ :=
   -- The subtraction n^2 - 2 is safe for n >= 3.
   num / Nat.gcd num denom_arg
 
+@[category test, AMS 11]
+theorem a_3 : a 3 = 7 := by rfl
+
+@[category test, AMS 11]
+theorem a_4 : a 4 = 7 := by rfl
+
 /-- a Conjecture 1: The sequence contains only 1's and primes. -/
 @[category research open, AMS 11]
-theorem conjecture :
+theorem conjecture_1 :
   ∀ n : ℕ, 3 ≤ n → a n = 1 ∨ Nat.Prime (a n) := by
   sorry
 

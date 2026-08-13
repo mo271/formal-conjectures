@@ -91,8 +91,9 @@ Conjecture: In general, sum of the k-th powers of the coefficients of q in the q
 is asymptotic to
 $$ 2^{\frac{k-1}{2}} \cdot 3^{k-1} \cdot n!^k / (\sqrt{k} \cdot \pi^{\frac{k-1}{2}} \cdot n^{\frac{3(k-1)}{2}}) $$
 We require $k > 0$ for the formula to be well-defined (due to $\sqrt{k}$).
+Note: Proved by Xinjun Wang (2026).
 -/
-@[category research open, AMS 11]
+@[category research solved, AMS 11]
 theorem conjecture (k : ℕ) (hk : k > 0) :
   Asymptotics.IsEquivalent Filter.atTop (fun n => A_k_n k n) (q_factorial_asymptotic_term_func k) :=
 by sorry

@@ -87,9 +87,10 @@ theorem a_6 : a 6 = 11 := by
   sorry
 
 /--
-a Conjecture 2: The sequence contains all prime numbers which end with a 1 or 9.
+Conjecture 2: The sequence contains all prime numbers which end with a 1 or 9.
+Note: Proved by an autonomous AI agent (Ralf Stephan, 2026).
 -/
-@[category research open, AMS 11]
+@[category research solved, AMS 11]
 theorem conjecture :
   ∀ p : ℕ,
     (p.Prime ∧ (p ≡ 1 [MOD 10] ∨ p ≡ 9 [MOD 10])) →

@@ -44,12 +44,32 @@ noncomputable def a (n : ℕ) : ℕ :=
     )
   ).natAbs
 
+@[category test, AMS 11]
+theorem a_0 : a 0 = 0 := by rfl
+
+@[category test, AMS 11]
+theorem a_1 : a 1 = 1 := by rfl
+
+@[category test, AMS 11]
+theorem a_2 : a 2 = 7 := by rfl
+
+@[category test, AMS 11]
+theorem a_3 : a 3 = 82 := by rfl
+
+/--
+Conjecture 1 from OEIS a: The supercongruence $a(p) \equiv a(1) \pmod{p^5}$ holds for all primes $p \ge 7$.
+-/
+@[category research open, AMS 11]
+theorem conjecture_1 {p : ℕ} (hp : p.Prime) (hp_ge_7 : 7 ≤ p) :
+  (a p : ℤ) ≡ a 1 [ZMOD (p ^ 5 : ℤ)] :=
+  by sorry
+
 /--
 Conjecture 2 from OEIS a: for $r \ge 2$, the supercongruence
 $a(p^r) \equiv a(p^{r-1}) \pmod{p^{3r+3}}$ holds for all primes $p \ge 7$.
 -/
 @[category research open, AMS 11]
-theorem conjecture {p r : ℕ} (hp : p.Prime) (hp_ge_7 : 7 ≤ p) (hr_ge_2 : 2 ≤ r) :
+theorem conjecture_2 {p r : ℕ} (hp : p.Prime) (hp_ge_7 : 7 ≤ p) (hr_ge_2 : 2 ≤ r) :
   (a (p ^ r) : ℤ) ≡ a (p ^ (r - 1)) [ZMOD (p ^ (3 * r + 3) : ℤ)] :=
   by sorry
 
