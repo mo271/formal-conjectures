@@ -19,39 +19,34 @@ import FormalConjecturesUtil
 /-!
 # OEIS A389790
 
-OEIS a Conjecture: a(n) > 0 for all n >= 474.
-This is an analog of Goldbach's conjecture. It has been verified for n <= 2*10^5.
+$a(n)$ is the number of ways to write $2n$ as $p + p' + q + q'$, where $p$ and $q$ are primes with
+$p \le q$, and $r'$ is the first prime greater than $r$.
 
 *References:*
 - [A389790](https://oeis.org/A389790)
 -/
-open Classical
+
 open Nat
 
 namespace OeisA389790
 
-
 /-- The smallest prime strictly greater than $r$. Defined non-computably using the set infimum. -/
 noncomputable def next_prime (r : ℕ) : ℕ :=
-  -- Nat.sInf finds the minimum element in a set of natural numbers.
-  -- The set of primes greater than r is non-empty by Euclid's theorem.
   sInf {k : ℕ | Nat.Prime k ∧ r < k}
 
 /-- $r + r'$, where $r'$ is the next prime after $r$. -/
 noncomputable def S_sum (r : ℕ) : ℕ := r + next_prime r
 
 /--
-a: Number of ways to write $2n$ as $p + p' + q + q'$, where $p$ and $q$ are primes with $p \le q$, and $r'$ is the first prime greater than $r$.
+Number of ways to write $2n$ as $p + p' + q + q'$, where $p$ and $q$ are primes with $p \le q$,
+and $r'$ is the first prime greater than $r$.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
   let target := 2 * n
-  -- The finset range is taken from the original user code.
   let R := Finset.range n
-
   Finset.card $ Finset.filter (fun ⟨p, q⟩ =>
     Nat.Prime p ∧ Nat.Prime q ∧ p ≤ q ∧ S_sum p + S_sum q = target
   ) (R ×ˢ R)
-
 
 @[category test, AMS 11]
 theorem a_1 : a 1 = 0 := by rfl
@@ -65,10 +60,35 @@ theorem a_3 : a 3 = 0 := by sorry
 @[category test, AMS 11]
 theorem a_4 : a 4 = 0 := by sorry
 
-/-- OEIS a Conjecture: a(n) > 0 for all n >= 474.
-This is an analog of Goldbach's conjecture. It has been verified for n <= 2*10^5. -/
+/--
+Conjecture 1: $a(n) > 0$ for all $n \ge 474$.
+This is an analog of Goldbach's conjecture.
+-/
 @[category research open, AMS 11]
-theorem conjecture : ∀ n : ℕ, 474 ≤ n → 0 < a n := by
+theorem conjecture_1 : ∀ n : ℕ, 474 ≤ n → 0 < a n := by
+  sorry
+
+/-- The statement that $n_{max}$ is the conjectured largest value of $n$ such that $a(n) = k$. -/
+def is_conjectured_largest_value (n_max k : ℕ) : Prop :=
+  a n_max = k ∧ ∀ n > n_max, a n ≠ k
+
+/--
+Conjecture 2: $a(n) = k$ for a largest value of $n$ given by the table:
+$k=2 \implies 833$, $k=3 \implies 1487$, $k=4 \implies 1411$, $k=5 \implies 1523$,
+$k=6 \implies 1747$, $k=7 \implies 2621$, $k=8 \implies 2153$, $k=9 \implies 3091$,
+$k=10 \implies 3238$.
+-/
+@[category research open, AMS 11]
+theorem conjecture_2 :
+    is_conjectured_largest_value 833 2 ∧
+    is_conjectured_largest_value 1487 3 ∧
+    is_conjectured_largest_value 1411 4 ∧
+    is_conjectured_largest_value 1523 5 ∧
+    is_conjectured_largest_value 1747 6 ∧
+    is_conjectured_largest_value 2621 7 ∧
+    is_conjectured_largest_value 2153 8 ∧
+    is_conjectured_largest_value 3091 9 ∧
+    is_conjectured_largest_value 3238 10 := by
   sorry
 
 end OeisA389790

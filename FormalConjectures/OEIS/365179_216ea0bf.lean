@@ -21,20 +21,16 @@ import FormalConjecturesUtil
 
 $a(1) = 2$; for $n \ge 2$, $a(n) = p^6$ if $p \equiv 2 \pmod 3$, $a(n) = p^7$ if $p = 3$ or $p \equiv 1 \pmod 3$, where $p = \text{prime}(n)$.
 
-Conjecture 2: for n >= 2, if |Aut(G)| = a(n), then |G| = a(n)/p, where p = prime(n).
-Moreover, G is unique up to isomorphism if p == 2 (mod 3).
-We explicitly include Fintype (MulAut G) to satisfy the type checker's need for finiteness instance on card.
-
 *References:*
 - [A365179](https://oeis.org/A365179)
 -/
+
 open Nat Group Fintype MulAut
 
 namespace OeisA365179
 
-
 /--
-a: $a(1) = 2$; for $n \ge 2$, $a(n) = p^6$ if $p \equiv 2 \pmod 3$, $a(n) = p^7$ if $p = 3$ or $p \equiv 1 \pmod 3$, where $p = \text{prime}(n)$.
+$a(1) = 2$; for $n \ge 2$, $a(n) = p^6$ if $p \equiv 2 \pmod 3$, $a(n) = p^7$ if $p = 3$ or $p \equiv 1 \pmod 3$, where $p = \text{prime}(n)$.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
   match n with
@@ -47,25 +43,53 @@ noncomputable def a (n : ℕ) : ℕ :=
     else
       p ^ 7
 
+@[category test, AMS 11]
+theorem a_1 : a 1 = 2 := by rfl
+
+@[category test, AMS 11]
+theorem a_2 : a 2 = 729 := by sorry
+
+@[category test, AMS 11]
+theorem a_3 : a 3 = 15625 := by sorry
+
+/-- The $n$-th prime number, where $\text{prime}(1)=2$. -/
+noncomputable def prime_of_index (n : ℕ) : ℕ :=
+  Nat.nth Nat.Prime (n - 1)
+
+/-- The property that a natural number $m$ is the order of the automorphism group
+of a finite, non-trivial group, and $m$ is a positive power of $p$. -/
+def is_possible_aut_order_power (p m : ℕ) : Prop :=
+  (∃ (k : ℕ) (_ : 0 < k), m = p ^ k) ∧
+  (∃ (G : Type) (_ : Group G) (_ : Fintype G) (_ : Fintype (MulAut G)),
+    1 < Fintype.card G ∧ Fintype.card (MulAut G) = m)
+
+/--
+Conjecture 1: $a(n)$ is the smallest nontrivial power of $p$ such that there exists a finite
+nontrivial group whose automorphism group is of order $a(n)$.
+-/
+@[category research open, AMS 11]
+theorem conjecture_1 (n : ℕ) (hn : 2 ≤ n) :
+    let p := prime_of_index n
+    is_possible_aut_order_power p (a n) ∧
+    ∀ m' : ℕ, is_possible_aut_order_power p m' → a n ≤ m' := by
+  sorry
+
 universe u
 
 /--
-Conjecture 2: for n >= 2, if |Aut(G)| = a(n), then |G| = a(n)/p, where p = prime(n).
-Moreover, G is unique up to isomorphism if p == 2 (mod 3).
-We explicitly include Fintype (MulAut G) to satisfy the type checker's need for finiteness instance on card.
+Conjecture 2: for $n \ge 2$, if $|\operatorname{Aut}(G)| = a(n)$, then $|G| = a(n)/p$, where $p = \operatorname{prime}(n)$.
+Moreover, $G$ is unique up to isomorphism if $p \equiv 2 \pmod 3$.
 -/
 @[category research open, AMS 11]
-theorem conjecture :
-  ∀ (n : ℕ) (hn : 2 ≤ n),
-    ∀ (G : Type u) [Group G] [Fintype G] [Fintype (MulAut G)],
-      (Fintype.card (MulAut G) = a n) →
-      -- Part 1: Order relation, substituting p_n = Nat.nth Nat.Prime (n - 1)
-      (Fintype.card G = a n / Nat.nth Nat.Prime (n - 1)) ∧
-      -- Part 2: Uniqueness up to isomorphism
-      (Nat.nth Nat.Prime (n - 1) % 3 = 2 →
-       ∀ (H : Type u) [Group H] [Fintype H] [Fintype (MulAut H)],
-          Fintype.card (MulAut H) = a n →
-          Nonempty (G ≃* H)) :=
-  by sorry
+theorem conjecture_2 :
+    ∀ (n : ℕ) (_ : 2 ≤ n),
+      ∀ (G : Type u) [Group G] [Fintype G] [Fintype (MulAut G)],
+        (Fintype.card (MulAut G) = a n) →
+        (Fintype.card G = a n / Nat.nth Nat.Prime (n - 1)) ∧
+        (Nat.nth Nat.Prime (n - 1) % 3 = 2 →
+         ∀ (H : Type u) [Group H] [Fintype H] [Fintype (MulAut H)],
+            Fintype.card (MulAut H) = a n →
+            Nonempty (G ≃* H)) := by
+  sorry
 
 end OeisA365179
