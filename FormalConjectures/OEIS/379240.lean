@@ -83,7 +83,9 @@ Lexicographically earliest infinite sequence preserving the equivalence relation
 def a (n : ℕ) : ℕ :=
   rgs_transform f n
 
--- Auxiliary function for the conjectured RGS triple
+/--
+Auxiliary function for the conjectured RGS triple.
+-/
 def A379240_conj_f_triple (n : ℕ) : ℕ × ℕ × ℕ :=
   (A003415 n, A085731 n, A376418 n)
 

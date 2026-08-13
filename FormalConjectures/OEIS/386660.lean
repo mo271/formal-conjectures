@@ -52,8 +52,6 @@ theorem a_3 : a 3 = 5 := by
 @[category test, AMS 11]
 theorem a_4 : a 4 = 7 := by
   sorry
-
--- Conjecture based on OEIS a, comment C.
 /--
 oeis_386660_conjecture_0: The limit of $a(n)^{1/n}$ exists.
 The numerical evidence suggests a limit of approximately $1.7086...$

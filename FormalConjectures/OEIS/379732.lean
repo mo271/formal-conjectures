@@ -41,10 +41,9 @@ def a (n : ℕ) : ℕ :=
   let I := (p * power_of_10) / q
   I % 10
 
--- We must introduce a constant for the geometric quantity being conjectured.
--- Since the concept of "densest packing of truncated tetrahedra" is not in Mathlib,
--- we introduce an `opaque` constant to represent the maximum packing density $\eta_{\max}$.
--- For formalization purposes, we give it a type `Real`.
+/--
+The maximum packing density $\eta_{\max}$ of truncated tetrahedra.
+-/
 opaque max_packing_density_truncated_tetrahedra : Real
 
 /--

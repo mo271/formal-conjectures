@@ -58,8 +58,6 @@ theorem a_3 : a 3 = 4 := by
 theorem a_4 : a 4 = 5 := by
   sorry
 
--- Formalization of the conjecture
-
 /--
 Predicate for a number to be a prime power with exponent strictly greater than 1.
 This is equivalent to being a composite prime power (a perfect power whose base is prime).

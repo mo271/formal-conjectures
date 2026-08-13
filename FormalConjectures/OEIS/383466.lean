@@ -44,9 +44,6 @@ theorem a_1 : a 1 = 7 := by rfl
 theorem a_2 : a 2 = 32 := by rfl
 @[category test, AMS 11]
 theorem a_3 : a 3 = 77 := by rfl
-
--- We define abstract geometric concepts using axioms.
--- This is the preferred way to introduce non-fully formalized concepts for conjecture statements.
 noncomputable section
 
 /--
