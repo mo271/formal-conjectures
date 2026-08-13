@@ -56,14 +56,14 @@ Note that $u(2, n) = 2 \cdot a(n)$.
 def u (k n : ℕ) : ℤ :=
   2 * (Int.ofNat ((3 * n).choose n)) ^ k - (k : ℤ) * ((3 : ℤ) ^ (k + 1)) * Int.ofNat ((2 * n).choose n)
 
-/-- Conjecture 1: $a(p^r) \equiv a(p^{r-1}) \pmod{p^{3r+3}}$ for $r \ge 2$ and all primes $p \ge 3$. -/
+/-- $a(p^r) \equiv a(p^{r-1}) \pmod{p^{3r+3}}$ for $r \ge 2$ and all primes $p \ge 3$. -/
 @[category research open, AMS 11]
 theorem conjecture_1 (p r : ℕ) (hp : Nat.Prime p) (hp3 : p ≥ 3) (hr : r ≥ 2) :
   a (p ^ r) ≡ a (p ^ (r - 1)) [ZMOD ((p : ℤ) ^ (3 * r + 3))] :=
 by sorry
 
 /--
-Conjecture 2: For $k \ge 1$, the sequence $u(k, n)$ satisfies the same supercongruences
+For $k \ge 1$, the sequence $u(k, n)$ satisfies the same supercongruences
 $u(k, p^r) \equiv u(k, p^{r-1}) \pmod{p^{3r+3}}$ for $r \ge 2$ and all primes $p \ge 3$.
 -/
 @[category research open, AMS 11]

@@ -41,7 +41,7 @@ noncomputable def a (n : ℕ) : ℕ :=
   ).toNat
 
 
-/-- a Conjecture: the supercongruences a(n*p^r) == a(n*p^(r-1)) (mod p^(3*r)) hold for all primes p >= 5 and all positive integers n and r. -/
+/-- The supercongruences $a(n p^r) \equiv a(n p^{r-1}) \pmod{p^{3r}}$ hold for all primes $p \ge 5$ and all positive integers $n$ and $r$. -/
 @[category research open, AMS 11]
 theorem conjecture (p n r : ℕ) (hp : Nat.Prime p) (h5 : 5 ≤ p) (hn : 1 ≤ n) (hr : 1 ≤ r) :
   a (n * p ^ r) ≡ a (n * p ^ (r - 1)) [MOD p ^ (3 * r)] :=

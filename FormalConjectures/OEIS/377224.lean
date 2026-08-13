@@ -80,7 +80,6 @@ theorem a_3 : a 3 = 1 := by sorry
 theorem a_4 : a 4 = 2 := by sorry
 
 /--
-Conjecture 1 from OEIS a:
 a(n) = 0 only for n = 1.
 Also, a(n) = 1 only for n = 0, 2, 3, 5, 7, 14, 16, 19, 37, 43, 58, 61, 79.
 -/

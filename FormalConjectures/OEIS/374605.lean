@@ -35,7 +35,6 @@ def a (n : ℕ) : ℕ :=
   Finset.sum (Finset.range (n + 1)) fun k =>
     (Nat.choose n k) ^ 2 * (Nat.choose (n + k) k) * (Nat.choose (3 * n + 2 * k) n)
 
--- Example computations from OEIS, included for completeness
 @[category test, AMS 11]
 theorem a_0 : a 0 = 1 := rfl
 @[category test, AMS 11]

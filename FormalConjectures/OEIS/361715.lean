@@ -48,12 +48,12 @@ theorem a_2 : a 2 = 9 := by rfl
 @[category test, AMS 11]
 theorem a_3 : a 3 = 82 := by rfl
 
-/-- Conjecture 1: The supercongruence $a(p) \equiv a(1) \pmod{p^5}$ holds for all primes $p \ge 7$. -/
+/-- The supercongruence $a(p) \equiv a(1) \pmod{p^5}$ holds for all primes $p \ge 7$. -/
 @[category research open, AMS 11]
 theorem conjecture_1 (p : ℕ) (hp : Nat.Prime p) (hp7 : 7 ≤ p) :
   (a p : ℤ) ≡ a 1 [ZMOD (p ^ 5 : ℕ)] := by sorry
 
-/-- Conjecture 2: for $r \ge 2$, the supercongruence $a(p^r) \equiv a(p^{r-1}) \pmod{p^{3r+3}}$ holds for all primes $p \ge 5$. -/
+/-- for $r \ge 2$, the supercongruence $a(p^r) \equiv a(p^{r-1}) \pmod{p^{3r+3}}$ holds for all primes $p \ge 5$. -/
 @[category research open, AMS 11]
 theorem conjecture_2 (p r : ℕ) (hp : Nat.Prime p) (hp5 : 5 ≤ p) (hr : 2 ≤ r) :
   (a (p ^ r) : ℤ) ≡ a (p ^ (r - 1)) [ZMOD (p ^ (3 * r + 3) : ℕ)] := by sorry

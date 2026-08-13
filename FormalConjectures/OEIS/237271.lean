@@ -100,7 +100,7 @@ lemma a_5 : a 5 = 2 := by native_decide
 
 
 /--
-Conjecture 2: "a(n) is the number of 2-dense sublists of divisors of n.
+"a(n) is the number of 2-dense sublists of divisors of n.
 We call '2-dense sublists of divisors of n' to the maximal sublists of divisors of n whose terms
 increase by a factor of at most 2." - _Omar E. Pol_, Jul 31 2025
 
@@ -140,7 +140,7 @@ theorem a_odd_prime_pow (p k : ℕ) (hp : p.Prime) (ho : Odd p) :
   sorry
 
 /--
-Conjecture 3: "a(n) is the number of divisors p of n such that p is greater than
+"a(n) is the number of divisors p of n such that p is greater than
 twice the adjacent previous divisor of n. The divisors p give the n-th row of A379288."
 - _Omar E. Pol_, Aug 02 2025
 
@@ -155,7 +155,7 @@ theorem conjecture_3 (n : ℕ) :
   conjecture_2 n
 
 /--
-Conjecture 4: "a(A000290(n)) is odd." - _Omar E. Pol_, Oct 21 2025
+"a(A000290(n)) is odd." - _Omar E. Pol_, Oct 21 2025
 
 That is, the number of parts in the symmetric representation of $\sigma(n^2)$ is always odd.
 -/
@@ -166,7 +166,7 @@ theorem conjecture_4 (n : ℕ) (hn : 0 < n) : Odd (a (n ^ 2)) := by
   sorry
 
 /--
-Conjecture 5: "a(A000384(n)) is odd." - _Omar E. Pol_, Oct 21 2025
+"a(A000384(n)) is odd." - _Omar E. Pol_, Oct 21 2025
 
 That is, the number of parts in the symmetric representation of $\sigma(n(2n-1))$ is always odd,
 where $n(2n-1)$ is the $n$-th hexagonal number.

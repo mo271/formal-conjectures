@@ -60,14 +60,14 @@ theorem a_4 : a 4 = 287798988897 := by
   sorry
 
 /--
-Conjecture 1: The stronger congruence $a(p) \equiv 27 \pmod{p^5}$ holds for all primes $p \ge 3$.
+The stronger congruence $a(p) \equiv 27 \pmod{p^5}$ holds for all primes $p \ge 3$.
 -/
 @[category research open, AMS 11]
 theorem conjecture_1 : ∀ (p : ℕ), Nat.Prime p → p ≥ 3 → a p ≡ 27 [MOD (p ^ 5)] := by
   sorry
 
 /--
-Conjecture 2: for $r \ge 2$, $a(p^r) \equiv a(p^{r-1}) \pmod{p^{3r+3}}$ for all primes $p \ge 5$.
+for $r \ge 2$, $a(p^r) \equiv a(p^{r-1}) \pmod{p^{3r+3}}$ for all primes $p \ge 5$.
 -/
 @[category research open, AMS 11]
 theorem conjecture_2 :

@@ -58,7 +58,7 @@ theorem a_2 : a 2 = 1 := by rfl
 theorem a_3 : a 3 = -8 := by rfl
 
 /--
-a Conjecture: the supercongruence a(p^k) == a(p^(k-1)) (mod p^(3*k)) holds for all primes p >= 5 and positive integer k.
+The supercongruence $a(p^k) \equiv a(p^{k-1}) \pmod{p^{3k}}$ holds for all primes $p \ge 5$ and positive integers $k$.
 -/
 @[category research open, AMS 11]
 theorem conjecture (p : ℕ) (hp : Nat.Prime p) (h_geq_5 : 5 ≤ p) (k : ℕ) (hk : k > 0) :

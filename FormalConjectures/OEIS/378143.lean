@@ -46,14 +46,13 @@ theorem a_2 : a 2 = 257 := by sorry
 theorem a_3 : a 3 = 65537 := by sorry
 
 /--
-Conjecture 1: The last digit of each value of $a(n)$, where $n \ge 1$, is 7.
+The last digit of each value of $a(n)$, where $n \ge 1$, is 7.
 -/
 @[category research open, AMS 11]
 theorem conjecture_1 : ∀ (n : ℕ), 1 ≤ n → a n % 10 = 7 := by
   sorry
 
 /--
-Conjecture 2 (Equivalent formulation by Charles R Greathouse IV):
 If $10^{2^n} + 1$ is prime, then either $4^{2^n} + 1$ or $6^{2^n} + 1$ is prime.
 -/
 @[category research open, AMS 11]

@@ -60,7 +60,7 @@ theorem a_3 : a 3 = 0 := by sorry
 theorem a_4 : a 4 = 0 := by sorry
 
 /--
-Conjecture 1: $a(n) > 0$ for all $n \ge 474$.
+$a(n) > 0$ for all $n \ge 474$.
 This is an analog of Goldbach's conjecture.
 -/
 @[category research open, AMS 11]
@@ -72,7 +72,7 @@ def is_conjectured_largest_value (n_max k : ℕ) : Prop :=
   a n_max = k ∧ ∀ n > n_max, a n ≠ k
 
 /--
-Conjecture 2: $a(n) = k$ for a largest value of $n$ given by the table:
+$a(n) = k$ for a largest value of $n$ given by the table:
 $k=2 \implies 833$, $k=3 \implies 1487$, $k=4 \implies 1411$, $k=5 \implies 1523$,
 $k=6 \implies 1747$, $k=7 \implies 2621$, $k=8 \implies 2153$, $k=9 \implies 3091$,
 $k=10 \implies 3238$.

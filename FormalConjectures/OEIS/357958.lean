@@ -31,13 +31,13 @@ namespace OeisA357958
 
 
 /--
-A005259: The Apéry number sequence $A(n) = \sum_{k = 0}^n \binom{n}{k}^2 \binom{n+k}{k}^2$.
+The Apéry number sequence $A(n) = \sum_{k = 0}^n \binom{n}{k}^2 \binom{n+k}{k}^2$.
 -/
 def A005259_seq (n : ℕ) : ℕ :=
   (range (n + 1)).sum fun k ↦ (n.choose k) ^ 2 * ((n + k).choose k) ^ 2
 
 /--
-A005258: The related Apéry number sequence $C(n) = \sum_{k = 0}^n \binom{n}{k}^2 \binom{n+k}{k}$.
+The related Apéry number sequence $C(n) = \sum_{k = 0}^n \binom{n}{k}^2 \binom{n+k}{k}$.
 -/
 def A005258_seq (n : ℕ) : ℕ :=
   (range (n + 1)).sum fun k ↦ (n.choose k) ^ 2 * ((n + k).choose k)
@@ -49,12 +49,11 @@ def a (n : ℕ) : ℕ :=
   5 * A005259_seq n + 14 * A005258_seq (n - 1)
 
 /--
-The sequence u(n) defined by u(n) = A005259(n)^25 * A005258(n-1)^14, used in Conjecture 3.
+The sequence $u(n)$ defined by $u(n) = A(n)^{25} B(n-1)^{14}$.
 -/
 def u (n : ℕ) : ℕ :=
   (A005259_seq n) ^ 25 * (A005258_seq (n - 1)) ^ 14
 
--- The example theorems are included for completeness but are not strictly necessary for the formalization request.
 @[category test, AMS 11]
 theorem a_1 : a 1 = 39 := by rfl
 
@@ -68,8 +67,7 @@ theorem a_3 : a 3 = 7491 := by rfl
 theorem a_4 : a 4 = 167063 := by rfl
 
 /--
-OEIS a Conjecture 1:
-a(p) ≡ a(1) (mod p^5) for all primes p ≥ 5.
+$a(p) \equiv a(1) \pmod{p^5}$ for all primes $p \ge 5$.
 -/
 @[category research open, AMS 11]
 theorem conjecture_1 :
@@ -77,7 +75,6 @@ theorem conjecture_1 :
 by sorry
 
 /--
-OEIS a Conjecture 2:
 $a(p^r) \equiv a(p^{r-1}) \pmod{p^{3r+3}}$ for $r \ge 2$ and for all primes $p \ge 3$.
 -/
 @[category research open, AMS 11]
@@ -86,7 +83,6 @@ theorem conjecture_2 :
 by sorry
 
 /--
-OEIS a Conjecture 3, Part 1 (analogue of Conjecture 1 for u(n)):
 $u(p) \equiv u(1) \pmod{p^5}$ for all primes $p \ge 5$.
 -/
 @[category research open, AMS 11]
@@ -95,7 +91,6 @@ theorem conjecture_3a :
 by sorry
 
 /--
-OEIS a Conjecture 3, Part 2 (analogue of Conjecture 2 for u(n)):
 $u(p^r) \equiv u(p^{r-1}) \pmod{p^{3r+3}}$ for $r \ge 2$ and for all primes $p \ge 5$
 (at $p = 3$, the valuation is $3r + 2$).
 -/

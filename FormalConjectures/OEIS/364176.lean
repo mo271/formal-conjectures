@@ -73,7 +73,7 @@ theorem a_3 : a 3 = 4488240824320 := by
   ring
 
 /--
-Conjecture: the supercongruences a(n*p^r) == a(n*p^(r-1)) (mod p^(3*r)) hold for all primes p >= 5 and all positive integers n and r.
+The supercongruences $a(n p^r) \equiv a(n p^{r-1}) \pmod{p^{3r}}$ hold for all primes $p \ge 5$ and all positive integers $n$ and $r$.
 Note: The sequence a(n) is only conjecturally integer-valued. We formalize the congruence as divisibility of real numbers, requiring that the sequence terms are indeed integers.
 -/
 @[category research open, AMS 11]

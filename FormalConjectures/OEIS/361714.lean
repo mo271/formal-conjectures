@@ -55,7 +55,7 @@ theorem a_2 : a 2 = 7 := by rfl
 theorem a_3 : a 3 = 82 := by rfl
 
 /--
-Conjecture 1 from OEIS a: The supercongruence $a(p) \equiv a(1) \pmod{p^5}$ holds for all primes $p \ge 7$.
+The supercongruence $a(p) \equiv a(1) \pmod{p^5}$ holds for all primes $p \ge 7$.
 -/
 @[category research open, AMS 11]
 theorem conjecture_1 {p : ℕ} (hp : p.Prime) (hp_ge_7 : 7 ≤ p) :
@@ -63,7 +63,7 @@ theorem conjecture_1 {p : ℕ} (hp : p.Prime) (hp_ge_7 : 7 ≤ p) :
   by sorry
 
 /--
-Conjecture 2 from OEIS a: for $r \ge 2$, the supercongruence
+For $r \ge 2$, the supercongruence
 $a(p^r) \equiv a(p^{r-1}) \pmod{p^{3r+3}}$ holds for all primes $p \ge 7$.
 -/
 @[category research open, AMS 11]

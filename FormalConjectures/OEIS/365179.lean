@@ -65,7 +65,7 @@ def is_possible_aut_order_power (p m : ℕ) : Prop :=
     1 < Fintype.card G ∧ Fintype.card (MulAut G) = m)
 
 /--
-Conjecture 1: $a(n)$ is the smallest nontrivial power of $p$ such that there exists a finite
+$a(n)$ is the smallest nontrivial power of $p$ such that there exists a finite
 nontrivial group whose automorphism group is of order $a(n)$.
 -/
 @[category research open, AMS 11]
@@ -78,7 +78,7 @@ theorem conjecture_1 (n : ℕ) (hn : 2 ≤ n) :
 universe u
 
 /--
-Conjecture 2: for $n \ge 2$, if $|\operatorname{Aut}(G)| = a(n)$, then $|G| = a(n)/p$, where $p = \operatorname{prime}(n)$.
+for $n \ge 2$, if $|\operatorname{Aut}(G)| = a(n)$, then $|G| = a(n)/p$, where $p = \operatorname{prime}(n)$.
 Moreover, $G$ is unique up to isomorphism if $p \equiv 2 \pmod 3$.
 -/
 @[category research open, AMS 11]

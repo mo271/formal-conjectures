@@ -56,7 +56,7 @@ theorem a_3 : a 3 = 17039360 := by
   sorry
 
 /--
-Conjecture: the supercongruences a(n*p^r) == a(n*p^(r-1)) (mod p^(3*r)) hold for all primes p >= 5 and all positive integers n and r.
+The supercongruences $a(n p^r) \equiv a(n p^{r-1}) \pmod{p^{3r}}$ hold for all primes $p \ge 5$ and all positive integers $n$ and $r$.
 Note: This conjecture requires that a(n) is an integer for all n, which is only conjectural.
 We assume integrality for the purpose of stating the congruence.
 -/
