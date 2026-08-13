@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Polynomial Finset Real Asymptotics Filter
 
+namespace OeisA380275
+
+
 -- [START USER PROVIDED CODE]
 /--
 A380275: Sum of the fourth powers of the coefficients of $q$ in the $q$-factorials.
@@ -73,3 +76,5 @@ We require $k > 0$ for the formula to be well-defined (due to $\sqrt{k}$).
 theorem oeis_380275_conjecture_general (k : ℕ) (hk : k > 0) :
   Asymptotics.IsEquivalent Filter.atTop (fun n => A_k_n k n) (q_factorial_asymptotic_term_func k) :=
 by sorry
+
+end OeisA380275

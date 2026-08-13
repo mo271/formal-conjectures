@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Int Finset
 
+namespace OeisA377224
+
+
 /-- The quadratic form $x(5x+1)$. -/
 def Q1 (x : ℤ) : ℤ := x * (5 * x + 1)
 
@@ -62,3 +65,5 @@ theorem oeis_A377224_conjecture1 :
   (∀ (n : ℕ), a n = 0 ↔ n = 1) ∧
   (∀ (n : ℕ), a n = 1 ↔ n ∈ ({0, 2, 3, 5, 7, 14, 16, 19, 37, 43, 58, 61, 79} : Finset ℕ)) :=
 by sorry
+
+end OeisA377224

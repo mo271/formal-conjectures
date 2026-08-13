@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Nat Finset
 
+namespace OeisA369462
+
+
 /--
 A369462: Number of representations of $12n-1$ as a sum $(p \cdot q + p \cdot r + q \cdot r)$ with three odd primes $p \le q \le r$.
 -/
@@ -59,3 +62,5 @@ Conjecture A369462: Is there only a finite number of 0's in this sequence?
 -/
 theorem oeis_369462_conjecture_0 : {n : ℕ | A369462 n = 0}.Finite := by
   sorry
+
+end OeisA369462

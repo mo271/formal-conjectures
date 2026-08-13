@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Finset Nat
 
+namespace OeisA361713
+
+
 /--
 A361713: The sequence defined by
 $$a(n) = \sum_{k = 0}^{n-1} \binom{n}{k}^2 \binom{n+k-1}{k}^2$$
@@ -47,3 +50,5 @@ theorem oeis_361713_conjecture_2 (p r : ℕ) :
   r ≥ 2 →
   a (p ^ r) ≡ a (p ^ (r - 1)) [MOD (p ^ (4 * r + 1))] :=
 by sorry
+
+end OeisA361713

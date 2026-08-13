@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Real Nat
 
+namespace OeisA364176
+
+
 /--
 A364176 term:
 $$a(n) = \frac{(15n)! (5n/2)! (2n)!}{(15n/2)! (6n)! (5n)! n!}$$
@@ -76,3 +79,5 @@ theorem oeis_364176_conjecture_0
   -- This is formalized as the quotient being an integer.
   (a k_r - a k_r_minus_1) / modulus ∈ Set.range (Int.cast : ℤ → ℝ)
 := by sorry
+
+end OeisA364176

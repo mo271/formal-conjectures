@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open scoped Real
 
+namespace OeisA364173
+
+
 /--
 A364173: The sequence defined by the factorial ratio
 $$a(n) = \frac{(9n)! (2n)! (3n/2)!}{(9n/2)! (4n)! (3n)! n!}$$
@@ -54,3 +57,5 @@ theorem oeis_364173_conjecture_0
   ≡ (Classical.choose (h_int (n * p ^ (r - 1))) : ℤ)
   [ZMOD ((p : ℤ) ^ (3 * r))] :=
 by sorry
+
+end OeisA364173

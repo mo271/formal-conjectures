@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Real Nat Int
 
+namespace OeisA364175
+
+
 /--
 A364175: $a(n) = \frac{(6n)! (2n/3)!}{(3n)! (2n)! (5n/3)!}$.
 The fractional factorial $x!$ is defined as $\Gamma(x+1)$.
@@ -59,3 +62,5 @@ theorem oeis_364175_conjecture_0 (p n r : ℕ) (hp : p.Prime) (h_prime_ge_five :
   (hn : 0 < n) (hr : 0 < r) :
   a (n * p ^ r) ≡ a (n * p ^ (r - 1)) [MOD p ^ (3 * r)] := by
   sorry
+
+end OeisA364175

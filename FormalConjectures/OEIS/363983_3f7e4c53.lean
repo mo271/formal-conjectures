@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Nat Finset Int
 
+namespace OeisA363983
+
+
 /--
 A363983: The sequence defined by
 $$a(n) = \sum_{k = \lfloor\frac{n+1}{2}\rfloor}^n (-1)^{n+k} \binom{n}{k} \binom{n+k-1}{k} \binom{2k}{n}$$
@@ -38,3 +41,5 @@ def A363983 (n : ℕ) : ℕ :=
 theorem oeis_A363983_conjecture_supercongruence (p n r : ℕ) (hp : Nat.Prime p) (h_p_ge_5 : p ≥ 5) (hn : n > 0) (hr : r > 0) :
   (A363983 (n * p ^ r) : ℤ) ≡ A363983 (n * p ^ (r - 1)) [ZMOD (p : ℤ) ^ (3 * r)] := by
   sorry
+
+end OeisA363983

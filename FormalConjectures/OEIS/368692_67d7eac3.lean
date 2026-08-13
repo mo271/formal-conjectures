@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Nat
 
+namespace OeisA368692
+
+
 /--
 A368692:
 $$a(n) = \frac{(12n + 6)! \cdot (6n + 9)!}{108 \cdot (4n + 2)! \cdot (2n + 3)! \cdot ((6n + 5)!)^2}$$
@@ -54,3 +57,5 @@ of $a(n)$.
 -/
 theorem oeis_a368692_conjecture_integrality (n : ℕ) :
   108 * ((4 * n + 2)! * (2 * n + 3)! * ((6 * n + 5)!)^2) ∣ (12 * n + 6)! * (6 * n + 9)! := by sorry
+
+end OeisA368692

@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Nat Finset
 
+namespace OeisA357958
+
+
 /--
 A005259: The Apéry number sequence $A(n) = \sum_{k = 0}^n \binom{n}{k}^2 \binom{n+k}{k}^2$.
 -/
@@ -91,3 +94,5 @@ u(p^r) ≡ u(p^(r-1)) ( mod p^(3*r+3) ) for r ≥ 2 and for all primes p ≥ 3.
 theorem oeis_357958_conjecture_03b :
   ∀ (p r : ℕ), Nat.Prime p → 3 ≤ p → 2 ≤ r → (u (p^r)) ≡ (u (p^(r-1))) [MOD p^(3*r + 3)] :=
 by sorry
+
+end OeisA357958

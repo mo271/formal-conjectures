@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Nat Finset
 
+namespace OeisA374265
+
+
 -- The function that removes all '0' digits from a number
 def remove_zeros (n : ℕ) : ℕ :=
   -- Nat.digits returns the list of digits in reverse order.
@@ -67,3 +70,5 @@ such that $a(n) \leq B$ for all $n$.
 -/
 theorem oeis_a374265_conjecture_1_boundedness : ∃ B : ℕ, ∀ n : ℕ, a n ≤ B := by
   sorry
+
+end OeisA374265

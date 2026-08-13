@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Nat
 
+namespace OeisA365416
+
+
 /--
 Numbers $k$ such that $2k-1$ and $2k+1$ are both prime powers (A246655).
 -/
@@ -60,3 +63,5 @@ theorem oeis_365416_conjecture_0 :
   ∀ k : ℕ,
     (IsCompositePrimePow (2 * k - 1) ∧ IsCompositePrimePow (2 * k + 1)) ↔ k = 13 :=
 by sorry
+
+end OeisA365416

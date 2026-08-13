@@ -41,6 +41,9 @@ def A382590 (n : ℕ) : ℤ := (A382590_pair n).fst
 
 open Nat
 
+namespace OeisA382590
+
+
 /--
 The k-th prime factor of an integer n (where k>=1), counted with multiplicity.
 This is defined as the k-th element (0-indexed k-1) of `Nat.primeFactorsList n.natAbs`.
@@ -64,3 +67,5 @@ theorem A382590_conjecture_kth_prime_factor_is_eventually_periodic :
     ∃ N₀ p : ℕ, p > 0 ∧ ∀ n : ℕ, n ≥ N₀ →
       kth_prime_factor k (A382590 (n + p)) = kth_prime_factor k (A382590 n) :=
   by sorry
+
+end OeisA382590

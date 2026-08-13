@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Rat
 
+namespace OeisA372761
+
+
 /--
 Recursive function to compute $A_k(n)$, the denominator tail $k - \frac{k+1}{A_{k+1}(n)}$.
 The base case is at $k = n - 1$, where $A_{n-1} = (n-1) - \frac{n}{n+4}$.
@@ -86,3 +89,5 @@ there is exactly one index $n \ge 3$ such that $a(n) = p$.
 theorem oeis_372761_conjecture_2 :
   ∀ p : ℕ, Nat.Prime p ∧ p % 2 = 1 ∧ p ≠ 3 ∧ p ≠ 5 →
     ∃! n, n ≥ 3 ∧ a n = p := by sorry
+
+end OeisA372761

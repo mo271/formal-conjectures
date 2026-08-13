@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 open Classical
 open Nat
 
+namespace OeisA389790
+
+
 /-- The smallest prime strictly greater than $r$. Defined non-computably using the set infimum. -/
 noncomputable def next_prime (r : ℕ) : ℕ :=
   -- Nat.sInf finds the minimum element in a set of natural numbers.
@@ -69,3 +72,5 @@ theorem oeis_A389790_conjecture_max_n :
   is_conjectured_largest_value 3091 9 ∧
   is_conjectured_largest_value 3238 10
 := by sorry
+
+end OeisA389790

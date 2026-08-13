@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 open Classical
 open Nat
 
+namespace OeisA389790
+
+
 /-- The smallest prime strictly greater than $r$. Defined non-computably using the set infimum. -/
 noncomputable def next_prime (r : ℕ) : ℕ :=
   -- Nat.sInf finds the minimum element in a set of natural numbers.
@@ -52,3 +55,5 @@ theorem a_four : a 4 = 0 := by sorry
 This is an analog of Goldbach's conjecture. It has been verified for n <= 2*10^5. -/
 theorem oeis_a389790_conjecture_1 : ∀ n : ℕ, 474 ≤ n → 0 < a n := by
   sorry
+
+end OeisA389790

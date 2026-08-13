@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Nat Set
 
+namespace OeisA378143
+
+
 /--
 A378143: $a(n)$ is the smallest prime of the form $(2p)^{2^n} + 1$ for some prime $p$.
 -/
@@ -41,3 +44,5 @@ theorem oeis_378143_conjecture_claim :
     Nat.Prime (10 ^ (2 ^ n) + 1) →
       Nat.Prime (4 ^ (2 ^ n) + 1) ∨ Nat.Prime (6 ^ (2 ^ n) + 1) :=
   by sorry
+
+end OeisA378143

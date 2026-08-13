@@ -17,6 +17,9 @@ limitations under the License.
 import FormalConjecturesUtil
 open Nat
 
+namespace OeisA357569
+
+
 /--
 A357569: $a(n) = \binom{3n}{n}^2 - 27 \binom{2n}{n}$.
 -/
@@ -36,3 +39,5 @@ theorem a_three : a 3 = 6516 := by sorry
 theorem oeis_357569_conjecture_0 (p r : ℕ) (hp : Nat.Prime p) (hp3 : p ≥ 3) (hr : r ≥ 2) :
   a (p ^ r) ≡ a (p ^ (r - 1)) [ZMOD ((p : ℤ) ^ (3 * r + 3))] :=
 by sorry
+
+end OeisA357569

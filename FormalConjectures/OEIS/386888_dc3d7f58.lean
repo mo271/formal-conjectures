@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Nat Finset Classical
 
+namespace OeisA386888
+
+
 /--
 A386888: Number of ways to write $n$ as $u + (1+(n \bmod 2)) \cdot v$ with $v \le n/2$,
 where $u$ and $v$ are both sums of three consecutive primes.
@@ -79,3 +82,5 @@ theorem oeis_386888_conjecture_2 :
   ∧
   (∀ n : ℕ, n > 2258 → a n > 1) :=
 by sorry
+
+end OeisA386888

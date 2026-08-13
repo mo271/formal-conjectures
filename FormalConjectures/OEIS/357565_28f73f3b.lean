@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Finset Nat
 
+namespace OeisA357565
+
+
 /--
 A357565: $a(n) = 3 \sum_{k = 0}^n \binom{n+k-1}{k}^2 + 2 \sum_{k = 0}^n \binom{n+k-1}{k}^3$.
 -/
@@ -66,3 +69,5 @@ Conjecture 4 for generalized sequence $u(n, m)$: $u(p^r) \equiv u(p^{r-1}) \pmod
 theorem A357565_conjecture_4 (m p r : ℕ) (hm : m > 0) (hp : Nat.Prime p) (h_pge3 : p ≥ 3) (hr : r ≥ 2) :
     (A357565_u (p ^ r) m) ≡ (A357565_u (p ^ (r - 1)) m) [MOD (p ^ (3 * r + 3))] := by
   sorry
+
+end OeisA357565

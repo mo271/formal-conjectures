@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Nat Int Finset
 
+namespace OeisA361714
+
+
 /--
 A361714: $a(n) = \sum_{k = 0}^{n-1} (-1)^{n+k+1} \binom{n}{k} \binom{n+k-1}{k}^2$.
 -/
@@ -37,3 +40,5 @@ $a(p^r) \equiv a(p^{r-1}) \pmod{p^{3r+3}}$ holds for all primes $p \ge 7$.
 theorem oeis_a361714_conjecture_2 {p r : ℕ} (hp : p.Prime) (hp_ge_7 : 7 ≤ p) (hr_ge_2 : 2 ≤ r) :
   (a (p ^ r) : ℤ) ≡ a (p ^ (r - 1)) [ZMOD (p ^ (3 * r + 3) : ℤ)] :=
   by sorry
+
+end OeisA361714

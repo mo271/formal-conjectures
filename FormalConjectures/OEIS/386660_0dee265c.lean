@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Nat
 
+namespace OeisA386660
+
+
 /--
 A386660: $a(n) = \sum_{k=1}^n \binom{n}{k} \pmod{2^k}$.
 -/
@@ -46,3 +49,5 @@ theorem oeis_386660_conjecture_0 :
   let f (n : ℕ) : ℝ := (a n : ℝ) ^ (1 / (n : ℝ))
   ∃ L : ℝ, Filter.Tendsto f Filter.atTop (nhds L) := by
   sorry
+
+end OeisA386660

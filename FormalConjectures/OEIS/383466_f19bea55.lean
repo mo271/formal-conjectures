@@ -17,6 +17,9 @@ limitations under the License.
 import FormalConjecturesUtil
 open Set
 
+namespace OeisA383466
+
+
 /--
 A383466: $a(0) = 1$; thereafter $a(n) = 10n^2 - 5n + 2$, which is
 $a(n) = 5n(2n-1) + 2$ for $n \ge 1$.
@@ -55,3 +58,5 @@ theorem oeis_a383466_conjecture_2 (n : ℕ) :
   sorry
 
 end
+
+end OeisA383466

@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open List Finset
 
+namespace OeisA359634
+
+
 /--
 A359634: $a(0)=1$ and thereafter $a(n)$ is the length of the longest contiguous group of terms in the sequence thus far that add up to $n$; if no such group exists, set $a(n)=0$.
 If a zero appears, it is not counted as a term in a contiguous grouping.
@@ -72,3 +75,5 @@ This is equivalent to $\forall n : \mathbb{N}, a(n) \neq 0$.
 -/
 theorem a_never_zero (n : ℕ) : a n ≠ 0 := by
   sorry
+
+end OeisA359634

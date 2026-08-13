@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Nat
 
+namespace OeisA379732
+
+
 -- The provided Lean code for the sequence definition is replicated here.
 /--
 A379732: Decimal expansion of $207/208$.
@@ -47,3 +50,5 @@ is conjectured to be $207/208$.
 -/
 theorem oeis_379732_conjecture_0 : max_packing_density_truncated_tetrahedra = (207 : Real) / 208 :=
 by sorry
+
+end OeisA379732

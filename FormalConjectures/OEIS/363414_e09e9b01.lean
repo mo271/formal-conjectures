@@ -31,6 +31,9 @@ noncomputable def a (n : ℕ) : ℤ :=
 
 open Filter Asymptotics ZMod Int
 
+namespace OeisA363414
+
+
 /--
 The set of primes of type 2 for A363414 is conjecturally
 $\mathbb{P}_2 = \{p \mid p \equiv 1 \pmod 4\}$.
@@ -55,3 +58,5 @@ This is formalized using asymptotic equivalence (`~[atTop]`) for the p-adic valu
 theorem oeis_363414_conjecture_type2_asymptotics :
   ∀ p : ℕ, Nat.Prime p → p ∈ type_two_primes_conjectured →
   (fun n ↦ (padicValInt p (a n) : ℝ)) ~[atTop] (fun n ↦ (n : ℝ) / ((p : ℝ) - 1)) := by sorry
+
+end OeisA363414

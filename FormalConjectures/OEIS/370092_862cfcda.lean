@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Finset Nat
 
+namespace OeisA370092
+
+
 /--
 A370092: $a(0) = 1$,
 $$a(n) = (-1)^n + \frac{1}{2} \sum_{j=1}^n (1-(-1)^j-(-2)^j) \binom{n}{j} a(n-j) \quad \text{for } n > 0$$
@@ -72,3 +75,5 @@ noncomputable def a_mod_k (k : ℕ) (n : ℕ) : ZMod k :=
 theorem oeis_370092_conjecture_0 (k : ℕ) (hk : 2 < k) :
     ∃ P : ℕ, P ∣ totient k ∧ eventually_periodic (a_mod_k k) P := by
   sorry
+
+end OeisA370092

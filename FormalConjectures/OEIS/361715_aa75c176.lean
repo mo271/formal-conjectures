@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Nat Finset
 
+namespace OeisA361715
+
+
 /--
 A361715: $$a(n) = \sum_{k = 0}^{n-1} \binom{n}{k}^2 \binom{n+k-1}{k}$$
 -/
@@ -41,3 +44,5 @@ theorem a_three : a 3 = 82 := by
 /-- Conjecture 2: for r >= 2, the supercongruence a(p^r) == a(p^(r-1)) (mod p^(3*r+3)) holds for all primes p >= 5. -/
 theorem oeis_361715_conjecture_2 (p r : ℕ) (hp : Nat.Prime p) (hp5 : 5 ≤ p) (hr : 2 ≤ r) :
   (a (p ^ r) : ℤ) ≡ a (p ^ (r - 1)) [ZMOD (p ^ (3 * r + 3) : ℕ)] := by sorry
+
+end OeisA361715

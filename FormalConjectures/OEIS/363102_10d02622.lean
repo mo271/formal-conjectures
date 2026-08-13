@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Nat Finset
 
+namespace OeisA363102
+
+
 /--
 Auxiliary sequence A051403, defined as
 $$\frac{(n+2) \sum_{k=0}^n k!}{2}$$
@@ -44,3 +47,5 @@ def a (n : ℕ) : ℕ :=
 theorem oeis_a363102_conjecture_1 :
   ∀ n : ℕ, 3 ≤ n → a n = 1 ∨ Nat.Prime (a n) := by
   sorry
+
+end OeisA363102

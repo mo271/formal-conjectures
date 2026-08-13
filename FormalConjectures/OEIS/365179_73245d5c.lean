@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Nat
 
+namespace OeisA365179
+
+
 /--
 A365179: $a(1) = 2$; for $n \ge 2$, $a(n) = p^6$ if $p \equiv 2 \pmod 3$, $a(n) = p^7$ if $p = 3$ or $p \equiv 1 \pmod 3$, where $p = \text{prime}(n)$.
 -/
@@ -51,3 +54,5 @@ theorem A365179_conjecture_1 (n : ℕ) (hn : 2 ≤ n) :
   is_possible_aut_order_power p (A365179 n) ∧
   ∀ m' : ℕ, (is_possible_aut_order_power p m') → (A365179 n) ≤ m' :=
   by sorry
+
+end OeisA365179

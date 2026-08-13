@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Nat List Set
 
+namespace OeisA358340
+
+
 /-- A number is zeroless if its decimal digits are all non-zero. -/
 def is_zeroless (k : ℕ) : Prop := 0 ∉ Nat.digits 10 k
 
@@ -66,3 +69,5 @@ This is equivalent to the statement that the set $\{ m : ℕ \mid \text{is\_n\_d
 -/
 theorem oeis_a358340_conjecture_k4 : Set.Infinite { m : ℕ | is_zeroless (m ^ 4) } := by
   sorry
+
+end OeisA358340

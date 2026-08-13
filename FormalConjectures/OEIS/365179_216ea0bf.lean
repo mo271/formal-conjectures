@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Nat Group Fintype MulAut
 
+namespace OeisA365179
+
+
 /--
 A365179: $a(1) = 2$; for $n \ge 2$, $a(n) = p^6$ if $p \equiv 2 \pmod 3$, $a(n) = p^7$ if $p = 3$ or $p \equiv 1 \pmod 3$, where $p = \text{prime}(n)$.
 -/
@@ -51,3 +54,5 @@ theorem oeis_365179_conjecture_2 :
           Fintype.card (MulAut H) = A365179 n →
           Nonempty (G ≃* H)) :=
   by sorry
+
+end OeisA365179

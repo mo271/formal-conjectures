@@ -17,6 +17,9 @@ limitations under the License.
 import FormalConjecturesUtil
 open List Nat
 
+namespace OeisA381358
+
+
 /-- Computes the run lengths of a list of natural numbers. -/
 private def run_lengths_nat : List ℕ → List ℕ
   | [] => []
@@ -69,3 +72,5 @@ The conjecture is that this limit exists.
 theorem A381358_limit_exists :
   ∃ L : ℝ, Filter.Tendsto (fun n : ℕ => (A381358 n : ℝ) ^ ((n : ℝ) ⁻¹)) Filter.atTop (nhds L) :=
 by sorry
+
+end OeisA381358

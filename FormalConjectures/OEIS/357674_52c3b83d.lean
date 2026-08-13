@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Nat Finset BigOperators
 
+namespace OeisA357674
+
+
 /--
 A357674: $a(n) = \left( \sum_{k = 0}^{2n} \binom{n+k-1}{k} \right)^4 \cdot \left( \sum_{k = 0}^{2n} \binom{n+k-1}{k}^2 \right)^3$.
 
@@ -74,3 +77,5 @@ for all primes $p \ge 7$. This is the case $m = 2$.
 theorem A357674_conjecture_3 (p m : ℕ) (hp : p.Prime) (hp7 : p ≥ 7) (hm : m ≥ 1) :
     u_A357674 p m ≡ u_A357674 1 m [MOD p ^ 5] := by
   sorry
+
+end OeisA357674

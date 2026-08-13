@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Nat
 
+namespace OeisA381159
+
+
 /--
 Numbers whose prime divisors all end in the same digit.
 -/
@@ -75,3 +78,5 @@ theorem oeis_381159_conjecture_0 :
     d ≤ 2025 ∧ -- difference not exceeding 2025
     ∀ (i : Fin 150), A381159_condition (a + i.val * d)
   := by sorry
+
+end OeisA381159

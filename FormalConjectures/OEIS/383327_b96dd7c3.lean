@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Nat
 
+namespace OeisA383327
+
+
 /--
 A383327: $a(n)$ is the number of occurrences of $n$ in A049802.
 A049802(m) is the sum of $(m \bmod 2^k)$ for $k=1, \dots, \lfloor \log_2 m \rfloor$.
@@ -50,3 +53,5 @@ theorem oeis_383327_conjecture_0 :
   let S : Finset ℕ := {1, 3, 5, 9, 15, 23, 35, 63, 65, 67}
   ∀ n : ℕ, n ∈ S → a n = 1 :=
 by sorry
+
+end OeisA383327

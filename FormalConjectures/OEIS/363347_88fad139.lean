@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Rat Nat
 
+namespace OeisA363347
+
+
 /--
 Helper function for A363347, which computes the denominator $R_k(n)$ of the continued fraction expression.
 For $2 \le k \le n-1$, $R_k(n)$ is defined recursively:
@@ -74,3 +77,5 @@ theorem oeis_363347_conjecture_2 :
     (p.Prime ∧ (p ≡ 1 [MOD 10] ∨ p ≡ 9 [MOD 10])) →
     ∃ n : ℕ, A363347 n = p :=
   by sorry
+
+end OeisA363347

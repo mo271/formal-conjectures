@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Nat
 
+namespace OeisA357506
+
+
 /--
 A005258(n): The Apéry numbers $B(n) = \sum_{k = 0}^n \binom{n}{k}^2 \binom{n+k}{k}$.
 -/
@@ -49,3 +52,5 @@ The stronger congruence $a(p) \equiv 27 \pmod{p^5}$ holds for all primes $p \ge 
 -/
 theorem oeis_a357506_conjecture_0 : ∀ (p : ℕ), Nat.Prime p → p ≥ 3 → a p ≡ 27 [MOD (p ^ 5)] := by
   sorry
+
+end OeisA357506

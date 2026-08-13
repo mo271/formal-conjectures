@@ -16,6 +16,9 @@ limitations under the License.
 
 import FormalConjecturesUtil
 
+namespace OeisA374605
+
+
 /--
 A374605: The sequence $a(n) = \sum_{k = 0}^n \binom{n}{k}^2 \binom{n+k}{k} \binom{3n+2k}{n}$.
 -/
@@ -38,3 +41,5 @@ theorem oeis_374605_conjecture_0 (p : ℕ) (hp : Nat.Prime p) (hp5 : 5 ≤ p) :
     (2 * p + 3) / 3 ≤ n →
     n ≤ p - 1 →
     (p ^ 3 : ℕ) ∣ a n := by sorry
+
+end OeisA374605

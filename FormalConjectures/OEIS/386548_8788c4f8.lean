@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Finset Nat BigOperators Int
 
+namespace OeisA386548
+
+
 /--
 A386548: The sequence $a(n) = [x^n] \left( \frac{1 - x}{1 - x + x^2} \right)^n$.
 This is formally defined by the combinatorial formula $a(n) = \sum_{k = 0}^{\lfloor n/2 \rfloor} (-1)^k \binom{n+k-1}{k} \binom{n-k-1}{n-2k}$.
@@ -40,3 +43,5 @@ theorem oeis_A386548_supercongruence_conjecture :
   ∀ (n k : ℕ), n > 0 → k > 0 →
   a (n * p ^ k) ≡ a (n * p ^ (k - 1)) [ZMOD (p ^ (2 * k) : ℤ)] :=
 by sorry
+
+end OeisA386548

@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Nat Finset
 
+namespace OeisA385958
+
+
 /--
 A helper function to find the largest prime $p$ such that $p-1$ divides $2 \cdot k$.
 This is the definition of $a(n)$ given $b(n-1)=k$.
@@ -56,3 +59,5 @@ Formalization: For every odd prime $p$, there exists $n \in \mathbb{N}^+$ such t
 -/
 theorem oeis_385958_conjecture_0 : ∀ (p : ℕ), Nat.Prime p → p ≠ 2 → ∃ (n : ℕ+), a n = p := by
   sorry
+
+end OeisA385958

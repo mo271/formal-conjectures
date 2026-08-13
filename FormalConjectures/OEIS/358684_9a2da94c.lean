@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Nat
 
+namespace OeisA358684
+
+
 /--
 A358684: $a(n)$ is the minimum integer $k$ such that the smallest prime factor of the $n$-th Fermat number exceeds $2^{2^n - k}$.
 Let $F_n = 2^{2^n} + 1$ be the $n$-th Fermat number, and $P_n$ be its smallest prime factor.
@@ -59,3 +62,5 @@ theorem oeis_358684_conjecture_1 :
     a 22 = 4194189 ∧
     a 23 = 8388581 := by
   sorry
+
+end OeisA358684

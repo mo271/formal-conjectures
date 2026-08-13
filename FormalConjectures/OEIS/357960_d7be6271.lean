@@ -18,6 +18,9 @@ import FormalConjecturesUtil
 
 open Nat Finset
 
+namespace OeisA357960
+
+
 /--
 A357960: $a(n) = A005259(n-1)^5 \cdot A005258(n)^6$.
 The sequence is defined by the combinatorial formula:
@@ -56,3 +59,5 @@ $a(p^r) \equiv a(p^{r-1}) \pmod{p^{3r+3}}$ for $r \ge 2$ and for all primes $p \
 theorem oeis_A357960_conjecture_2 (p r : ℕ) (hp : p.Prime) (hp_ge_3 : 3 ≤ p) (hr_ge_2 : 2 ≤ r) :
     a (p^r) ≡ a (p^(r-1)) [MOD p^(3*r + 3)] := by
   sorry
+
+end OeisA357960
