@@ -77,7 +77,8 @@ theorem a_3 : a 3 = 2 := by
 Conjecture (OEIS a, C-line): A zero has not appeared in the sequence $a(n)$.
 This is equivalent to $\forall n : \mathbb{N}, a(n) \neq 0$.
 -/
-theorem a_never_zero (n : ℕ) : a n ≠ 0 := by
+@[category research open, AMS 11]
+theorem conjecture (n : ℕ) : a n ≠ 0 := by
   sorry
 
 end OeisA359634

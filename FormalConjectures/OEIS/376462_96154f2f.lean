@@ -59,7 +59,8 @@ positive integers $n$ and $r$:
 1) $A(n p^r) \equiv A(n p^{r-1}) \pmod{p^{3r}}$
 2) $A(n p^r - 1) \equiv A(n p^{r-1} - 1) \pmod{p^{3r}}$
 -/
-theorem oeis_376462_conjecture_0 :
+@[category research open, AMS 11]
+theorem conjecture :
   ∀ (p n r : ℕ),
     Nat.Prime p →
     5 ≤ p →

@@ -76,7 +76,8 @@ theorem a_6 : a 6 = 11 := by
 /--
 a Conjecture 2: The sequence contains all prime numbers which end with a 1 or 9.
 -/
-theorem oeis_363347_conjecture_2 :
+@[category research open, AMS 11]
+theorem conjecture :
   ∀ p : ℕ,
     (p.Prime ∧ (p ≡ 1 [MOD 10] ∨ p ≡ 9 [MOD 10])) →
     ∃ n : ℕ, a n = p :=

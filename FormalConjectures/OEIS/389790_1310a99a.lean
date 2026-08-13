@@ -61,7 +61,8 @@ def is_conjectured_largest_value (n_max k : ℕ) : Prop :=
   9     3091
   10     3238
 -/
-theorem oeis_A389790_conjecture_max_n :
+@[category research open, AMS 11]
+theorem conjecture :
   is_conjectured_largest_value 833 2 ∧
   is_conjectured_largest_value 1487 3 ∧
   is_conjectured_largest_value 1411 4 ∧

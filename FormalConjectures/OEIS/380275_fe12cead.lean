@@ -77,7 +77,8 @@ is asymptotic to
 $$ 2^{\frac{k-1}{2}} \cdot 3^{k-1} \cdot n!^k / (\sqrt{k} \cdot \pi^{\frac{k-1}{2}} \cdot n^{\frac{3(k-1)}{2}}) $$
 We require $k > 0$ for the formula to be well-defined (due to $\sqrt{k}$).
 -/
-theorem oeis_380275_conjecture_general (k : ℕ) (hk : k > 0) :
+@[category research open, AMS 11]
+theorem conjecture (k : ℕ) (hk : k > 0) :
   Asymptotics.IsEquivalent Filter.atTop (fun n => A_k_n k n) (q_factorial_asymptotic_term_func k) :=
 by sorry
 

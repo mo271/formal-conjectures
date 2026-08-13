@@ -57,7 +57,8 @@ axiom number_of_regions {n : ℕ} (C : pentagram_configuration n) : ℕ
 Conjecture 2: a(n) is the maximum number of regions that can be formed in the plane by drawing n regular pentagrams with any radii and any centers.
 The "maximum" is formalized as the supremum of the set of all possible region counts.
 -/
-theorem oeis_a383466_conjecture_2 (n : ℕ) :
+@[category research open, AMS 11]
+theorem conjecture (n : ℕ) :
   a n = sSup (Set.range (@number_of_regions n)) := by
   sorry
 

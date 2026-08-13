@@ -52,7 +52,8 @@ theorem a_4 : a 4 = 24148107115850058575342740485778125 := by
 Conjecture 1 from OEIS a:
 $a(p) \equiv a(1) \pmod{p^5}$ for all primes $p \ge 3$.
 -/
-theorem oeis_A357960_conjecture_1 (p : ℕ) (hp : p.Prime) (hp_ge_3 : 3 ≤ p) :
+@[category research open, AMS 11]
+theorem conjecture_1 (p : ℕ) (hp : p.Prime) (hp_ge_3 : 3 ≤ p) :
     a p ≡ a 1 [MOD p ^ 5] := by
   sorry
 
@@ -60,7 +61,8 @@ theorem oeis_A357960_conjecture_1 (p : ℕ) (hp : p.Prime) (hp_ge_3 : 3 ≤ p) :
 Conjecture 2 from OEIS a:
 $a(p^r) \equiv a(p^{r-1}) \pmod{p^{3r+3}}$ for $r \ge 2$ and for all primes $p \ge 3$.
 -/
-theorem oeis_A357960_conjecture_2 (p r : ℕ) (hp : p.Prime) (hp_ge_3 : 3 ≤ p) (hr_ge_2 : 2 ≤ r) :
+@[category research open, AMS 11]
+theorem conjecture_2 (p r : ℕ) (hp : p.Prime) (hp_ge_3 : 3 ≤ p) (hr_ge_2 : 2 ≤ r) :
     a (p^r) ≡ a (p^(r-1)) [MOD p^(3*r + 3)] := by
   sorry
 

@@ -59,7 +59,8 @@ It is conjectured here that $a(n)$ are integers.
 This is equivalent to the denominator dividing the numerator exactly in the definition
 of $a(n)$.
 -/
-theorem oeis_a368692_conjecture_integrality (n : ℕ) :
+@[category research open, AMS 11]
+theorem conjecture (n : ℕ) :
   108 * ((4 * n + 2)! * (2 * n + 3)! * ((6 * n + 5)!)^2) ∣ (12 * n + 6)! * (6 * n + 9)! := by sorry
 
 end OeisA368692

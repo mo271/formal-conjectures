@@ -62,7 +62,8 @@ a This sequence appears to have a very peculiar (conjectured) property.
 For any k > 1, if you take the k-th prime factor of each term, you get an eventually periodic sequence.
 This seems to hold even when we change a(1) as long as it is an integer > 1.
 -/
-theorem A382590_conjecture_kth_prime_factor_is_eventually_periodic :
+@[category research open, AMS 11]
+theorem conjecture :
   ∀ k : ℕ, k ≥ 2 →
     ∃ N₀ p : ℕ, p > 0 ∧ ∀ n : ℕ, n ≥ N₀ →
       kth_prime_factor k (a (n + p)) = kth_prime_factor k (a n) :=

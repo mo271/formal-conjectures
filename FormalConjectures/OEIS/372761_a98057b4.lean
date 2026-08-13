@@ -90,7 +90,8 @@ Conjecture 2: Except for 3 and 5, all odd primes appear in the sequence once.
 Formally: for every natural number $p$ that is an odd prime and $p \ne 3$ and $p \ne 5$,
 there is exactly one index $n \ge 3$ such that $a(n) = p$.
 -/
-theorem oeis_372761_conjecture_2 :
+@[category research open, AMS 11]
+theorem conjecture :
   ∀ p : ℕ, Nat.Prime p ∧ p % 2 = 1 ∧ p ≠ 3 ∧ p ≠ 5 →
     ∃! n, n ≥ 3 ∧ a n = p := by sorry
 

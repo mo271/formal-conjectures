@@ -43,6 +43,7 @@ def reachable_zeroless_factorials : ℕ → Finset ℕ
       {prod, remove_zeros prod}
 
 -- The set of reachable values is always nonempty.
+@[category API]
 lemma reachable_nonempty (n : ℕ) : (reachable_zeroless_factorials n).Nonempty := by
   induction n with
   | zero => exact Finset.singleton_nonempty 1
@@ -68,7 +69,8 @@ Formalization of the affirmative claim: The sequence `a` is bounded.
 The sequence $a(n)$ is bounded if there exists an upper bound $B$ in $\mathbb{N}$
 such that $a(n) \leq B$ for all $n$.
 -/
-theorem oeis_a374265_conjecture_1_boundedness : ∃ B : ℕ, ∀ n : ℕ, a n ≤ B := by
+@[category research open, AMS 11]
+theorem conjecture : ∃ B : ℕ, ∀ n : ℕ, a n ≤ B := by
   sorry
 
 end OeisA374265

@@ -53,7 +53,8 @@ Conjecture: the supercongruences a(n*p^r) == a(n*p^(r-1)) (mod p^(3*r)) hold for
 Note: This conjecture requires that a(n) is an integer for all n, which is only conjectural.
 We assume integrality for the purpose of stating the congruence.
 -/
-theorem oeis_364173_conjecture_0
+@[category research open, AMS 11]
+theorem conjecture
     (h_int : ∀ m : ℕ, a m ∈ (Set.range (fun (x : ℤ) => (x : ℝ)))) :
   ∀ (p : ℕ) (hp : Nat.Prime p) (h_p_ge_5 : 5 ≤ p)
     (n r : ℕ) (hn : n > 0) (hr : r > 0),

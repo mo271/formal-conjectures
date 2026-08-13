@@ -40,11 +40,13 @@ We conjecture that the supercongruence $b_m(p) \equiv 1 \pmod{p^{2m+3}}$ holds
 for all primes $p \ge 2m + 5$, and for $r \ge 2$, the supercongruence
 $b_m(p^r) \equiv b_m(p^{r-1}) \pmod{p^{3r+2m+1}}$ also holds for all primes $p \ge 2m + 5$.
 -/
-theorem oeis_375178_conjecture_2a (m : ℕ) (hm : 0 < m) (p : ℕ) (hp : Nat.Prime p) :
+@[category research open, AMS 11]
+theorem conjecture_2a (m : ℕ) (hm : 0 < m) (p : ℕ) (hp : Nat.Prime p) :
   p ≥ 2 * m + 5 → b m p ≡ 1 [MOD p ^ (2 * m + 3)] :=
 by sorry
 
-theorem oeis_375178_conjecture_2b (m : ℕ) (hm : 0 < m) (r : ℕ) (hr : 2 ≤ r) (p : ℕ) (hp : Nat.Prime p) :
+@[category research open, AMS 11]
+theorem conjecture_2b (m : ℕ) (hm : 0 < m) (r : ℕ) (hr : 2 ≤ r) (p : ℕ) (hp : Nat.Prime p) :
   p ≥ 2 * m + 5 → b m (p^r) ≡ b m (p^(r - 1)) [MOD p ^ (3 * r + 2 * m + 1)] :=
 by sorry
 

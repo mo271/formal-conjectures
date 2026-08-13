@@ -48,7 +48,8 @@ theorem a_3 : a 3 = 406 := by
 /--
 Conjecture 2: for $r \ge 2$, the supercongruence $a(p^r) \equiv a(p^{r-1}) \pmod{p^{4r+1}}$ holds for all primes $p \ge 7$.
 -/
-theorem oeis_361713_conjecture_2 (p r : ℕ) :
+@[category research open, AMS 11]
+theorem conjecture (p r : ℕ) :
   Nat.Prime p →
   p ≥ 7 →
   r ≥ 2 →

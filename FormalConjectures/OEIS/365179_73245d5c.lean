@@ -49,7 +49,8 @@ def is_possible_aut_order_power (p m : ℕ) : Prop :=
 /--
 Conjecture 1: a(n) is the smallest nontrivial power of p such that there exists a finite nontrivial group whose automorphism group is of order a(n).
 -/
-theorem A365179_conjecture_1 (n : ℕ) (hn : 2 ≤ n) :
+@[category research open, AMS 11]
+theorem conjecture (n : ℕ) (hn : 2 ≤ n) :
   let p := prime_of_index n;
   is_possible_aut_order_power p (a n) ∧
   ∀ m' : ℕ, (is_possible_aut_order_power p m') → (a n) ≤ m' :=

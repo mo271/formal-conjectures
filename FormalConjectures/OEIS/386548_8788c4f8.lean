@@ -38,6 +38,7 @@ def a (n : ℕ) : ℤ :=
 Conjecture: the stronger supercongruences $a(n \cdot p^k) \equiv a(n \cdot p^{k-1}) \pmod{p^{2k}}$
 hold for all primes $p \ge 5$ and all positive integers $n$ and $k$.
 -/
+@[category research open, AMS 11]
 theorem oeis_A386548_supercongruence_conjecture :
   ∀ (p : ℕ), Nat.Prime p → p ≥ 5 →
   ∀ (n k : ℕ), n > 0 → k > 0 →

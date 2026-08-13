@@ -55,7 +55,8 @@ theorem a_3 : a 3 = 0 := by
 a(14) is probably equal to 16208; a(15) to a(19) are 32738, 65507, 131028, 262121, 524252;
 a(20) is unknown; a(21) to a(23) are 2097110, 4194189, 8388581; a(24) is unknown.
 -/
-theorem oeis_358684_conjecture_1 :
+@[category research open, AMS 11]
+theorem conjecture :
     a 14 = 16208 ∧
     a 15 = 32738 ∧
     a 16 = 65507 ∧

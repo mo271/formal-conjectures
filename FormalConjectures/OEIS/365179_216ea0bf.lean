@@ -42,7 +42,8 @@ Conjecture 2: for n >= 2, if |Aut(G)| = a(n), then |G| = a(n)/p, where p = prime
 Moreover, G is unique up to isomorphism if p == 2 (mod 3).
 We explicitly include Fintype (MulAut G) to satisfy the type checker's need for finiteness instance on card.
 -/
-theorem oeis_365179_conjecture_2 :
+@[category research open, AMS 11]
+theorem conjecture :
   ∀ (n : ℕ) (hn : 2 ≤ n),
     ∀ (G : Type u) [Group G] [Fintype G] [Fintype (MulAut G)],
       (Fintype.card (MulAut G) = a n) →

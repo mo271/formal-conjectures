@@ -76,7 +76,8 @@ noncomputable def a_mod_k (k : ℕ) (n : ℕ) : ZMod k :=
 /--
 %C a Conjecture: Let k > 2 be a positive integer. The sequence obtained by reducing a(n) modulo k is eventually periodic with the period dividing phi(k) = A000010(k).
 -/
-theorem oeis_370092_conjecture_0 (k : ℕ) (hk : 2 < k) :
+@[category research open, AMS 11]
+theorem conjecture (k : ℕ) (hk : 2 < k) :
     ∃ P : ℕ, P ∣ totient k ∧ eventually_periodic (a_mod_k k) P := by
   sorry
 

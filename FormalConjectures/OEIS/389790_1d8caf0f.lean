@@ -57,7 +57,8 @@ theorem a_4 : a 4 = 0 := by sorry
 
 /-- OEIS a Conjecture: a(n) > 0 for all n >= 474.
 This is an analog of Goldbach's conjecture. It has been verified for n <= 2*10^5. -/
-theorem oeis_a389790_conjecture_1 : ∀ n : ℕ, 474 ≤ n → 0 < a n := by
+@[category research open, AMS 11]
+theorem conjecture : ∀ n : ℕ, 474 ≤ n → 0 < a n := by
   sorry
 
 end OeisA389790

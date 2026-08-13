@@ -63,7 +63,8 @@ def IsCompositePrimePow (m : ℕ) : Prop :=
 /--
 a According to Pillai's conjecture, k = 13 is the only term such that 2*k-1 and 2*k+1 both have exponent greater than 1.
 -/
-theorem oeis_365416_conjecture_0 :
+@[category research open, AMS 11]
+theorem conjecture :
   ∀ k : ℕ,
     (IsCompositePrimePow (2 * k - 1) ∧ IsCompositePrimePow (2 * k + 1)) ↔ k = 13 :=
 by sorry

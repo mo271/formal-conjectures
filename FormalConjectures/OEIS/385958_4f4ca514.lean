@@ -57,7 +57,8 @@ noncomputable def a (n : ℕ) : ℕ :=
 Conjecture: Does this sequence contain all odd primes?
 Formalization: For every odd prime $p$, there exists $n \in \mathbb{N}^+$ such that $a(n) = p$.
 -/
-theorem oeis_385958_conjecture_0 : ∀ (p : ℕ), Nat.Prime p → p ≠ 2 → ∃ (n : ℕ+), a n = p := by
+@[category research open, AMS 11]
+theorem conjecture : ∀ (p : ℕ), Nat.Prime p → p ≠ 2 → ∃ (n : ℕ+), a n = p := by
   sorry
 
 end OeisA385958

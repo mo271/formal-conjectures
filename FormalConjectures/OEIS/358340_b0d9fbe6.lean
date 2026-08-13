@@ -71,7 +71,8 @@ a It has been proved that there exist infinitely many zeroless squares and cubes
 Formalized as the conjecture that the set of natural numbers whose fourth power is zeroless is infinite.
 This is equivalent to the statement that the set $\{ m : ℕ \mid \text{is\_n\_digit}(m, n) \land \text{is\_zeroless}(m^4) \}$ is non-empty for all $n \ge 1$, ensuring $a(n)$ is defined for all $n$.
 -/
-theorem oeis_a358340_conjecture_k4 : Set.Infinite { m : ℕ | is_zeroless (m ^ 4) } := by
+@[category research open, AMS 11]
+theorem conjecture : Set.Infinite { m : ℕ | is_zeroless (m ^ 4) } := by
   sorry
 
 end OeisA358340

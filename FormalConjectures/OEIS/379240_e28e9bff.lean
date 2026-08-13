@@ -97,7 +97,8 @@ $i \ne j$, and $\mathtt{A376418}(i) = \mathtt{A376418}(j) > 0$, the ordered pair
 $[\mathtt{A003415}(i), \mathtt{A085731}(i)]$ and $[\mathtt{A003415}(j), \mathtt{A085731}(j)]$
 differ from each other.
 -/
-theorem A379240_conjecture_equality (n : ℕ) : a n = A379240_conjecture n := by
+@[category research open, AMS 11]
+theorem conjecture (n : ℕ) : a n = A379240_conjecture n := by
   sorry
 
 end OeisA379240

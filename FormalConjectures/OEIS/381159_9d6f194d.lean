@@ -75,7 +75,8 @@ We formalize the positive answer to the question/conjecture.
 The condition for "lopsided" for n > 1 is exactly condition n.
 We require the starting term a to be at least 2 to ensure all terms are > 1.
 -/
-theorem oeis_381159_conjecture_0 :
+@[category research open, AMS 11]
+theorem conjecture :
   ∃ (a d : ℕ),
     2 ≤ a ∧ -- The starting number 'a' must be lopsided, hence > 1. All subsequent terms will also be > 1.
     1 ≤ d ∧ -- 'd' must be positive for an increasing arithmetic progression

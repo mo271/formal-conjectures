@@ -48,7 +48,8 @@ a Conjectured densest packing of truncated tetrahedra.
 The maximum packing density $\eta_{\max}$ of congruent truncated tetrahedra in 3D Euclidean space
 is conjectured to be $207/208$.
 -/
-theorem oeis_379732_conjecture_0 : max_packing_density_truncated_tetrahedra = (207 : Real) / 208 :=
+@[category research open, AMS 11]
+theorem conjecture : max_packing_density_truncated_tetrahedra = (207 : Real) / 208 :=
 by sorry
 
 end OeisA379732

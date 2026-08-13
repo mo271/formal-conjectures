@@ -69,7 +69,8 @@ theorem a_3 : a 3 = 4488240824320 := by
 Conjecture: the supercongruences a(n*p^r) == a(n*p^(r-1)) (mod p^(3*r)) hold for all primes p >= 5 and all positive integers n and r.
 Note: The sequence a(n) is only conjecturally integer-valued. We formalize the congruence as divisibility of real numbers, requiring that the sequence terms are indeed integers.
 -/
-theorem oeis_364176_conjecture_0
+@[category research open, AMS 11]
+theorem conjecture
   (p : ℕ) (hp : Nat.Prime p) (hp_ge_five : 5 ≤ p)
   (n r : ℕ) (hn_pos : 0 < n) (hr_pos : 0 < r) :
   -- Define the arguments for a, ensuring r-1 is safe (guaranteed by hr_pos)

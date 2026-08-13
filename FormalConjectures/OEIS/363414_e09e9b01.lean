@@ -46,7 +46,8 @@ Conjecture a: Type 1 primes set is empty.
 It appears that every prime p divides some term of the sequence.
 The claim formalizes: every prime $p$ divides some $a(n)$.
 -/
-theorem oeis_363414_conjecture_type1_empty :
+@[category research open, AMS 11]
+theorem conjecture_type1_empty :
   ∀ p : ℕ, Nat.Prime p → ∃ n : ℕ, (p : ℤ) ∣ a n := by sorry
 
 /--
@@ -55,7 +56,8 @@ for the primes of type 2, the p-adic valuation $\nu_p(a(n)) \sim n/(p - 1)$ as $
 This is formalized using asymptotic equivalence (`~[atTop]`) for the p-adic valuation
 (`padicValInt`) converted to a real number.
 -/
-theorem oeis_363414_conjecture_type2_asymptotics :
+@[category research open, AMS 11]
+theorem conjecture_type2_asymptotics :
   ∀ p : ℕ, Nat.Prime p → p ∈ type_two_primes_conjectured →
   (fun n ↦ (padicValInt p (a n) : ℝ)) ~[atTop] (fun n ↦ (n : ℝ) / ((p : ℝ) - 1)) := by sorry
 

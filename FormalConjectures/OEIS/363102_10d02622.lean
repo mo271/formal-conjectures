@@ -44,7 +44,8 @@ def a (n : ℕ) : ℕ :=
   num / Nat.gcd num denom_arg
 
 /-- a Conjecture 1: The sequence contains only 1's and primes. -/
-theorem oeis_a363102_conjecture_1 :
+@[category research open, AMS 11]
+theorem conjecture :
   ∀ n : ℕ, 3 ≤ n → a n = 1 ∨ Nat.Prime (a n) := by
   sorry
 

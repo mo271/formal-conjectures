@@ -40,7 +40,8 @@ oeis_376930_conjecture_0: It is not known if the sequence contains any negative 
 
 Formalization: Since the sequence is defined in $\mathbb{N}$, all terms are non-negative by definition. The conjecture's mathematical content is that whenever the subtraction rule $a(n+2) = a(n+1) - a(n)$ is applied, the result in $\mathbb{Z}$ is non-negative. In the context of $\mathbb{N}$ arithmetic, this is equivalent to asserting that $a(n+1) \ge a(n)$.
 -/
-theorem oeis_376930_conjecture_0 :
+@[category research open, AMS 11]
+theorem conjecture :
   ∀ n : ℕ, (Nat.Prime (a (n + 1)) ∧ a (n + 1) > 2) → a (n + 1) ≥ a n := by sorry
 
 end OeisA376930

@@ -43,7 +43,8 @@ The conjecture is equivalent to the claim that a(n) is not 10^(2^n) + 1 for any 
 which in turn is equivalent to the claim that, if 10^(2^n) + 1 is prime,
 then either 4^(2^n) + 1 or 6^(2^n) + 1 is prime. - Charles R Greathouse IV, Nov 17 2024
 -/
-theorem oeis_378143_conjecture_claim :
+@[category research open, AMS 11]
+theorem conjecture :
   ∀ (n : ℕ),
     Nat.Prime (10 ^ (2 ^ n) + 1) →
       Nat.Prime (4 ^ (2 ^ n) + 1) ∨ Nat.Prime (6 ^ (2 ^ n) + 1) :=

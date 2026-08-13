@@ -53,7 +53,8 @@ Conjecture based on OEIS a comment:
 From a combinatorial perspective, the tuple of summands (x_1, ..., x_t) mentioned above can be seen as a set of t counters, where the j-th counter cycles through 0 to 2^j-1. The natural question 'which m in A049802 appear k times?' becomes a question about how this cycling condition restricts the number of tuples which sum to m. For example, for n <= 100, when n = 1, 3, 5, 9, 15, 23, 35, 63, 65, and 67 there is only one m such that the tuple of summands sums to n (a trivial tuple consisting of n 1s, trivial because there is such a tuple for every n >= 1, i.e. for every m = 2^n+1).
 This is a precise statement about the set of values $n$ for which $a(n) = 1$ among $n \le 100$.
 -/
-theorem oeis_383327_conjecture_0 :
+@[category research open, AMS 11]
+theorem conjecture :
   let S : Finset ℕ := {1, 3, 5, 9, 15, 23, 35, 63, 65, 67}
   ∀ n : ℕ, n ∈ S → a n = 1 :=
 by sorry

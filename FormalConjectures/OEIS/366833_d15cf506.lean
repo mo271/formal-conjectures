@@ -62,7 +62,8 @@ theorem a_4 : a 4 = 3 := by
 /--
 Conjecture: a(n) can be only 1, 2, or 3 (with the first occurrences of 3 appearing at n = 4, 9, 30, 327 and 3512).
 -/
-theorem oeis_366833_conjecture_0 : ∀ (n : ℕ), 1 ≤ n → a n ∈ ({1, 2, 3} : Finset ℕ) := by
+@[category research open, AMS 11]
+theorem conjecture : ∀ (n : ℕ), 1 ≤ n → a n ∈ ({1, 2, 3} : Finset ℕ) := by
   sorry
 
 end OeisA366833
