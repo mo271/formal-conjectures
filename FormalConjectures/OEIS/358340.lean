@@ -45,8 +45,6 @@ noncomputable def a (n : ℕ) : ℕ :=
   -- sInf returns the minimum element of the set S.
   sInf S
 
--- The provided proofs of initial terms are kept as placeholders for context,
--- although they are incomplete/non-compiling in this environment.
 @[category test, AMS 11]
 theorem a_1 : a 1 = 1 := by
   dsimp [a]
