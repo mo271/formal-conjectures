@@ -52,4 +52,19 @@ theorem supercongruence :
   a (n * p ^ k) ≡ a (n * p ^ (k - 1)) [ZMOD (p ^ (2 * k) : ℤ)] :=
 by sorry
 
+@[category test, AMS 11]
+theorem a_0 : a 0 = 1 := by rfl
+
+@[category test, AMS 11]
+theorem a_1 : a 1 = 0 := by rfl
+
+@[category test, AMS 11]
+theorem a_2 : a 2 = -2 := by rfl
+
+@[category test, AMS 11]
+theorem a_3 : a 3 = -3 := by rfl
+
+@[category test, AMS 11]
+theorem a_4 : a 4 = 6 := by rfl
+
 end OeisA386548

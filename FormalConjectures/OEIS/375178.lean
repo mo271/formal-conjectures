@@ -62,4 +62,19 @@ theorem conjecture_2b (m : ℕ) (hm : 0 < m) (r : ℕ) (hr : 2 ≤ r) (p : ℕ) 
   p ≥ 2 * m + 5 → b m (p^r) ≡ b m (p^(r - 1)) [MOD p ^ (3 * r + 2 * m + 1)] :=
 by sorry
 
+@[category test, AMS 11]
+theorem a_0 : a 0 = 0 := by rfl
+
+@[category test, AMS 11]
+theorem a_1 : a 1 = 1 := by rfl
+
+@[category test, AMS 11]
+theorem a_2 : a 2 = 9 := by rfl
+
+@[category test, AMS 11]
+theorem a_3 : a 3 = 244 := by rfl
+
+@[category test, AMS 11]
+theorem a_4 : a 4 = 9065 := by rfl
+
 end OeisA375178

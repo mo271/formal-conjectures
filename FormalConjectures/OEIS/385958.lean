@@ -69,4 +69,9 @@ Formalization: For every odd prime $p$, there exists $n \in \mathbb{N}^+$ such t
 theorem odd_primes_appear : answer(sorry) ↔ ∀ (p : ℕ), Nat.Prime p → p ≠ 2 → ∃ (n : ℕ+), a n = p := by
   sorry
 
+
+-- Term theorems (a_1 to a_5) are omitted here. The sequence is defined using `noncomputable` 
+-- constructs (like `Finset.max` combined with classical filtering over `Nat.Prime`). 
+-- Consequently, simple evaluation tactics like `rfl` or `decide` cannot compute the terms natively.
+
 end OeisA385958

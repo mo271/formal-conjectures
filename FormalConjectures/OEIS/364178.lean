@@ -47,4 +47,10 @@ theorem supercongruence (p n r : ℕ) (hp : Nat.Prime p) (h5 : 5 ≤ p) (hn : 1 
   a (n * p ^ r) ≡ a (n * p ^ (r - 1)) [MOD p ^ (3 * r)] :=
 by sorry
 
+
+-- Term theorems (a_0 to a_4) are omitted here. The definition of `a n` relies on `Real.Gamma` 
+-- applied to half-integers and arbitrary reals, followed by division and rounding. Automated 
+-- tactics like `norm_num` or `decide` cannot evaluate these noncomputable analytic functions 
+-- directly without complex manual calculus lemmas.
+
 end OeisA364178

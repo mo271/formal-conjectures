@@ -66,4 +66,19 @@ theorem conjecture_type2_asymptotics :
   ∀ p : ℕ, Nat.Prime p → p ∈ type_two_primes_conjectured →
   (fun n ↦ (padicValInt p (a n) : ℝ)) ~[atTop] (fun n ↦ (n : ℝ) / ((p : ℝ) - 1)) := by sorry
 
+@[category test, AMS 11]
+theorem a_0 : a 0 = 0 := by norm_num [a, Finset.prod_range_succ]
+
+@[category test, AMS 11]
+theorem a_1 : a 1 = 1 := by norm_num [a, Finset.prod_range_succ]
+
+@[category test, AMS 11]
+theorem a_2 : a 2 = 3 := by norm_num [a, Finset.prod_range_succ]
+
+@[category test, AMS 11]
+theorem a_3 : a 3 = -18 := by norm_num [a, Finset.prod_range_succ]
+
+@[category test, AMS 11]
+theorem a_4 : a 4 = -190 := by norm_num [a, Finset.prod_range_succ]
+
 end OeisA363414

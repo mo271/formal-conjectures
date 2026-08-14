@@ -54,4 +54,19 @@ is conjectured to be $207/208$.
 theorem max_packing_density : max_packing_density_truncated_tetrahedra = (207 : Real) / 208 :=
 by sorry
 
+@[category test, AMS 11]
+theorem a_0 : a 0 = 9 := by rfl
+
+@[category test, AMS 11]
+theorem a_1 : a 1 = 9 := by rfl
+
+@[category test, AMS 11]
+theorem a_2 : a 2 = 5 := by rfl
+
+@[category test, AMS 11]
+theorem a_3 : a 3 = 1 := by rfl
+
+@[category test, AMS 11]
+theorem a_4 : a 4 = 9 := by rfl
+
 end OeisA379732

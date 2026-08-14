@@ -109,4 +109,9 @@ differ from each other.
 theorem a_eq_rgs_transform (n : ℕ) : a n = A379240_conjecture n := by
   sorry
 
+
+-- Term theorems (a_1 to a_5) are omitted here. While the sequence is theoretically computable, 
+-- deep structural definitions and custom types block `rfl`, and the generated `Decidable` 
+-- instances fail to reduce natively within the `decide` tactic, making automated evaluation stall.
+
 end OeisA379240
