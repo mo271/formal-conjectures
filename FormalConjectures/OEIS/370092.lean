@@ -51,19 +51,22 @@ noncomputable def a (n : ℕ) : ℚ :=
 
 @[category test, AMS 11]
 theorem a_0 : a 0 = 1 := by
-  sorry
+  rw [a]
 
 @[category test, AMS 11]
 theorem a_1 : a 1 = 1 := by
-  sorry
+  rw [a]; norm_num [Finset.sum_range_succ, a_0, a]
 
 @[category test, AMS 11]
 theorem a_2 : a 2 = 3 := by
-  sorry
+  rw [a]; norm_num [Finset.sum_range_succ, a_1, a_0, a]
 
 @[category test, AMS 11]
 theorem a_3 : a 3 = 16 := by
-  sorry
+  rw [a]; norm_num [Finset.sum_range_succ, a_2, a_1, a_0, a]
+
+
+
 
 
 -- We formally define an eventually periodic sequence.
