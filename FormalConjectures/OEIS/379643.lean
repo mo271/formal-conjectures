@@ -44,17 +44,83 @@ noncomputable def a (n : ℕ) : ℤ :=
   (count_primes_mod_b 3 : ℤ) - (count_primes_mod_b 7 : ℤ)
 
 
+lemma nth_prime_zero : Nat.nth Nat.Prime 0 = 2 := by
+  rw [Nat.nth_zero]
+  exact IsLeast.csInf_eq ⟨by norm_num, fun x hx => by rcases Nat.lt_or_ge x 2 with h|h; interval_cases x; norm_num at hx; norm_num at hx; exact h⟩
+
+lemma nth_prime_one : Nat.nth Nat.Prime 1 = 3 := by
+  rw [Nat.nth_eq_sInf Nat.Prime 1]
+  exact IsLeast.csInf_eq ⟨⟨by norm_num, by intro k hk; interval_cases k; rw [nth_prime_zero]; norm_num⟩, fun x ⟨hx_prime, hx_lt⟩ => by
+    have h0 := hx_lt 0 (by decide); rw [nth_prime_zero] at h0
+    rcases Nat.lt_or_ge x 3 with h|h
+    · have : x = 2 := by omega
+      subst this; revert h0; norm_num
+    · exact h⟩
+
+lemma nth_prime_two : Nat.nth Nat.Prime 2 = 5 := by
+  rw [Nat.nth_eq_sInf Nat.Prime 2]
+  exact IsLeast.csInf_eq ⟨⟨by norm_num, by intro k hk; interval_cases k; rw [nth_prime_zero]; norm_num; rw [nth_prime_one]; norm_num⟩, fun x ⟨hx_prime, hx_lt⟩ => by
+    have h1 := hx_lt 1 (by decide); rw [nth_prime_one] at h1
+    rcases Nat.lt_or_ge x 5 with h|h
+    · have : x = 4 := by omega
+      subst this; norm_num at hx_prime
+    · exact h⟩
+
+lemma nth_prime_three : Nat.nth Nat.Prime 3 = 7 := by
+  rw [Nat.nth_eq_sInf Nat.Prime 3]
+  exact IsLeast.csInf_eq ⟨⟨by norm_num, by intro k hk; interval_cases k; rw [nth_prime_zero]; norm_num; rw [nth_prime_one]; norm_num; rw [nth_prime_two]; norm_num⟩, fun x ⟨hx_prime, hx_lt⟩ => by
+    have h2 := hx_lt 2 (by decide); rw [nth_prime_two] at h2
+    rcases Nat.lt_or_ge x 7 with h|h
+    · have : x = 6 := by omega
+      subst this; norm_num at hx_prime
+    · exact h⟩
+
 @[category test, AMS 11]
 theorem a_1 : a 1 = 0 := by unfold a; norm_num
 
 @[category test, AMS 11]
-theorem a_2 : a 2 = 1 := by sorry
+theorem a_2 : a 2 = 1 := by
+  unfold a
+  have hn : 2 ≠ 0 := by decide
+  rw [if_neg hn]
+  have h_pn : Nat.nth Nat.Prime (2 - 1) = 3 := nth_prime_one
+  rw [h_pn]
+  dsimp
+  have h3 : (Finset.filter (fun p => Nat.Prime p ∧ p % 8 = 3) (Finset.range (3 + 1))).card = 1 := by rfl
+  rw [h3]
+  have h7 : (Finset.filter (fun p => Nat.Prime p ∧ p % 8 = 7) (Finset.range (3 + 1))).card = 0 := by rfl
+  rw [h7]
+  norm_num
 
 @[category test, AMS 11]
-theorem a_3 : a 3 = 1 := by sorry
+theorem a_3 : a 3 = 1 := by
+  unfold a
+  have hn : 3 ≠ 0 := by decide
+  rw [if_neg hn]
+  have h_pn : Nat.nth Nat.Prime (3 - 1) = 5 := nth_prime_two
+  rw [h_pn]
+  dsimp
+  have h3 : (Finset.filter (fun p => Nat.Prime p ∧ p % 8 = 3) (Finset.range (5 + 1))).card = 1 := by rfl
+  rw [h3]
+  have h7 : (Finset.filter (fun p => Nat.Prime p ∧ p % 8 = 7) (Finset.range (5 + 1))).card = 0 := by rfl
+  rw [h7]
+  norm_num
 
 @[category test, AMS 11]
-theorem a_4 : a 4 = 0 := by sorry
+theorem a_4 : a 4 = 0 := by
+  unfold a
+  have hn : 4 ≠ 0 := by decide
+  rw [if_neg hn]
+  have h_pn : Nat.nth Nat.Prime (4 - 1) = 7 := nth_prime_three
+  rw [h_pn]
+  dsimp
+  have h3 : (Finset.filter (fun p => Nat.Prime p ∧ p % 8 = 3) (Finset.range (7 + 1))).card = 1 := by rfl
+  rw [h3]
+  have h7 : (Finset.filter (fun p => Nat.Prime p ∧ p % 8 = 7) (Finset.range (7 + 1))).card = 1 := by rfl
+  rw [h7]
+  norm_num
+
+
 
 /--
 A379731: List of $y$ coordinates of prime numbers in a Cartesian grid.
