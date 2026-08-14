@@ -180,13 +180,13 @@ theorem a_4 : a 4 = 4 := by unfold a; rw [h4]
 
 
 /--
-a 51st All-Russian Mathematical Olympiad for Schoolchildren. Problem.
+51st All-Russian Mathematical Olympiad for Schoolchildren. Problem.
 Let us call a natural number "lopsided" if it is greater than 1 and all its prime divisors end with the same digit.
 Is there an increasing arithmetic progression with a difference not exceeding 2025,
 consisting of 150 natural numbers, each of which is "lopsided"? (A. Chironov)
 -/
 @[category textbook, AMS 11]
-theorem every_integer_appears :
+theorem lopsided_arithmetic_progression :
   answer(sorry) ↔
   ∃ (a d : ℕ),
     2 ≤ a ∧ -- The starting number 'a' must be lopsided, hence > 1. All subsequent terms will also be > 1.

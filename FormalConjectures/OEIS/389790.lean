@@ -126,11 +126,18 @@ theorem a_4 : a 4 = 0 := by
 
 
 /--
-$a(n) > 0$ for all $n \ge 474$.
+Conjecture 1: $a(n) > 0$ for all $n \ge 474$.
 This is an analog of Goldbach's conjecture.
 -/
 @[category research open, AMS 11]
 theorem conjecture_1 : ∀ n : ℕ, 474 ≤ n → 0 < a n := by
+  sorry
+
+/--
+Conjecture 2: For all $k$, there exists $n_k$ such that $a(m) > k$ for all $m \ge n_k$.
+-/
+@[category research open, AMS 11]
+theorem conjecture_2 : ∀ k : ℕ, ∃ n_k : ℕ, ∀ m : ℕ, n_k ≤ m → k < a m := by
   sorry
 
 /-- The statement that $n_{max}$ is the conjectured largest value of $n$ such that $a(n) = k$. -/
@@ -138,13 +145,13 @@ def is_conjectured_largest_value (n_max k : ℕ) : Prop :=
   a n_max = k ∧ ∀ n > n_max, a n ≠ k
 
 /--
-$a(n) = k$ for a largest value of $n$ given by the table:
+Conjecture 3: $a(n) = k$ for a largest value of $n$ given by the table:
 $k=2 \implies 833$, $k=3 \implies 1487$, $k=4 \implies 1411$, $k=5 \implies 1523$,
 $k=6 \implies 1747$, $k=7 \implies 2621$, $k=8 \implies 2153$, $k=9 \implies 3091$,
 $k=10 \implies 3238$.
 -/
 @[category research open, AMS 11]
-theorem conjecture_2 :
+theorem conjecture_3 :
     is_conjectured_largest_value 833 2 ∧
     is_conjectured_largest_value 1487 3 ∧
     is_conjectured_largest_value 1411 4 ∧

@@ -121,7 +121,7 @@ def A379240_conjecture (n : ℕ) : ℕ :=
   rgs_transform A379240_conj_f_triple n
 
 /--
-a It is conjectured that this is also the lexicographically earliest infinite sequence such
+It is conjectured that this is also the lexicographically earliest infinite sequence such
 that a(i) = a(j) => A003415(i) = A003415(j), A085731(i) = A085731(j) and A376418(i) = A376418(j),
 for all i, j >= 1, i.e., the restricted growth sequence transform of the triple
 [A003415(n), A085731(n), A376418(n)]. This is true if for every pair of $i$ and $j$ for which

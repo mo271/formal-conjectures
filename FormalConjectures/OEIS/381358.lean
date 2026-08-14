@@ -82,11 +82,11 @@ theorem a_4 : a 4 = 3 := by
   simp_all [run_lengths_nat]
 
 /--
-a If it exists, the limit of $\mathrm{a}(n)^{1/n}$ as $n \to \infty$.
+If it exists, the limit of $\mathrm{a}(n)^{1/n}$ as $n \to \infty$.
 The conjecture is that this limit exists.
 -/
 @[category research open, AMS 11]
-theorem sequence_agrees :
+theorem limit_exists :
   ∃ L : ℝ, Filter.Tendsto (fun n : ℕ => (a n : ℝ) ^ ((n : ℝ) ⁻¹)) Filter.atTop (nhds L) :=
 by sorry
 

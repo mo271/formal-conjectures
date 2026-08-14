@@ -70,7 +70,7 @@ positive integers $n$ and $r$:
 2) $A(n p^r - 1) \equiv A(n p^{r-1} - 1) \pmod{p^{3r}}$
 -/
 @[category research open, AMS 11]
-theorem unbounded :
+theorem supercongruences :
   ∀ (p n r : ℕ),
     Nat.Prime p →
     5 ≤ p →

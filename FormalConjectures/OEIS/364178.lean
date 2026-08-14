@@ -143,7 +143,9 @@ theorem a_4 : a 4 = 29966636700 := by
   rw [Real.Gamma_nat_eq_factorial 24, Real.Gamma_nat_eq_factorial 20, Real.Gamma_nat_eq_factorial 6, Real.Gamma_nat_eq_factorial 4]
   norm_num; rfl
 
-/-- The supercongruences $a(n p^r) \equiv a(n p^{r-1}) \pmod{p^{3r}}$ hold for all primes $p \ge 5$ and all positive integers $n$ and $r$. -/
+/--
+Conjecture: the supercongruences $a(n p^r) \equiv a(n p^{r-1}) \pmod{p^{3r}}$ hold for all primes $p \ge 5$ and all positive integers $n$ and $r$.
+-/
 @[category research open, AMS 11]
 theorem supercongruence (p n r : ℕ) (hp : Nat.Prime p) (h5 : 5 ≤ p) (hn : 1 ≤ n) (hr : 1 ≤ r) :
   a (n * p ^ r) ≡ a (n * p ^ (r - 1)) [MOD p ^ (3 * r)] :=

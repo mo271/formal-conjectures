@@ -30,7 +30,7 @@ namespace OeisA380275
 
 
 /--
-a: Sum of the fourth powers of the coefficients of $q$ in the $q$-factorials.
+Sum of the fourth powers of the coefficients of $q$ in the $q$-factorials.
 The $q$-factorial polynomial $P_n(q)$ is given by
 $$P_n(q) = \prod_{j=1}^n \frac{1-q^j}{1-q} = \prod_{j=1}^n \sum_{i=0}^{j-1} q^i$$
 The sequence is defined by
@@ -187,7 +187,7 @@ We require $k > 0$ for the formula to be well-defined (due to $\sqrt{k}$).
 Note: Proved by Xinjun Wang (2026).
 -/
 @[category research solved, AMS 11]
-theorem no_isolated_cycles (k : ℕ) (hk : k > 0) :
+theorem asymptotic_k_th_powers (k : ℕ) (hk : k > 0) :
   Asymptotics.IsEquivalent Filter.atTop (fun n => A_k_n k n) (q_factorial_asymptotic_term_func k) :=
 by sorry
 

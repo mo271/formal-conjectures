@@ -129,12 +129,17 @@ theorem a_4 : a 4 = 7012604550 := by
   norm_num
 
 /--
-The supercongruences $a(n p^r) \equiv a(n p^{r-1}) \pmod{p^{3r}}$ hold for all primes $p \ge 5$ and all positive integers $n$ and $r$.
-Note: This conjecture requires that a(n) is an integer for all n, which is only conjectural.
-We assume integrality for the purpose of stating the congruence.
+Conjecture 1: This sequence is an integer sequence, i.e., $a(n) \in \mathbb{Z}$ for all $n$.
 -/
 @[category research open, AMS 11]
-theorem conjecture
+theorem conjecture_1_integrality : ∀ (n : ℕ), a n ∈ Set.range (Int.cast : ℤ → ℝ) := by
+  sorry
+
+/--
+Conjecture 2: The supercongruences $a(n p^r) \equiv a(n p^{r-1}) \pmod{p^{3r}}$ hold for all primes $p \ge 5$ and all positive integers $n$ and $r$.
+-/
+@[category research open, AMS 11]
+theorem conjecture_2_supercongruence
     (h_int : ∀ m : ℕ, a m ∈ (Set.range (fun (x : ℤ) => (x : ℝ)))) :
   ∀ (p : ℕ) (hp : Nat.Prime p) (h_p_ge_5 : 5 ≤ p)
     (n r : ℕ) (hn : n > 0) (hr : r > 0),

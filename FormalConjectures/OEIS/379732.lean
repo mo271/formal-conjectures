@@ -61,7 +61,7 @@ The maximum packing density $\eta_{\max}$ of truncated tetrahedra.
 opaque max_packing_density_truncated_tetrahedra : Real
 
 /--
-a Conjectured densest packing of truncated tetrahedra.
+Conjectured densest packing of truncated tetrahedra.
 The maximum packing density $\eta_{\max}$ of congruent truncated tetrahedra in 3D Euclidean space
 is conjectured to be $207/208$.
 -/
