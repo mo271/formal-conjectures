@@ -46,16 +46,57 @@ noncomputable def A002110 (n : ℕ) : ℕ :=
   else (Finset.range n).prod fun i => Nat.nth Nat.Prime i
 
 @[category test, AMS 11]
-theorem a_1 : a 1 = 1 := sorry
+theorem a_1 : a 1 = 1 := by
+  unfold a
+  exact IsLeast.csInf_eq ⟨by decide, fun x hx => by
+    rcases Nat.lt_or_ge x 1 with h|h
+    · interval_cases x
+      · revert hx; decide
+    · exact h⟩
 
 @[category test, AMS 11]
-theorem a_2 : a 2 = 2 := sorry
+theorem a_2 : a 2 = 2 := by
+  unfold a
+  exact IsLeast.csInf_eq ⟨by decide, fun x hx => by
+    rcases Nat.lt_or_ge x 2 with h|h
+    · interval_cases x
+      · revert hx; decide
+      · revert hx; decide
+    · exact h⟩
 
 @[category test, AMS 11]
-theorem a_3 : a 3 = 6 := sorry
+theorem a_3 : a 3 = 6 := by
+  unfold a
+  exact IsLeast.csInf_eq ⟨by decide, fun x hx => by
+    rcases Nat.lt_or_ge x 6 with h|h
+    · interval_cases x
+      · revert hx; decide
+      · revert hx; decide
+      · revert hx; decide
+      · revert hx; decide
+      · revert hx; decide
+      · revert hx; decide
+    · exact h⟩
 
 @[category test, AMS 11]
-theorem a_4 : a 4 = 12 := sorry
+theorem a_4 : a 4 = 12 := by
+  unfold a
+  exact IsLeast.csInf_eq ⟨by decide, fun x hx => by
+    rcases Nat.lt_or_ge x 12 with h|h
+    · interval_cases x
+      · revert hx; decide
+      · revert hx; decide
+      · revert hx; decide
+      · revert hx; decide
+      · revert hx; decide
+      · revert hx; decide
+      · revert hx; decide
+      · revert hx; decide
+      · revert hx; decide
+      · revert hx; decide
+      · revert hx; decide
+      · revert hx; decide
+    · exact h⟩
 
 /--
 a a(1) = A002110(0), a(2) = A002110(1), a(3) = A002110(2), a(6) = A002110(3), a(7) = A002110(4), a(10) = A002110(5), ...?
