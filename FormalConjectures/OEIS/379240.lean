@@ -72,7 +72,7 @@ def rgs_transform {α : Type} [DecidableEq α] (f : ℕ → α) (n : ℕ) : ℕ 
   if n = 0 then 0
   else
     let f_prefix : List α := (List.range n).map (fun i => f (i + 1))
-    let distinct_f_values : List α := f_prefix.dedup
+    let distinct_f_values : List α := f_prefix.eraseDups
     let target_f_val : α := f n
     -- List.idxOf returns the 0-based index.
     distinct_f_values.idxOf target_f_val + 1
@@ -111,18 +111,27 @@ theorem a_eq_rgs_transform (n : ℕ) : a n = A379240_conjecture n := by
 
 
 @[category test, AMS 11]
-theorem a_1 : a 1 = 1 := by sorry
+theorem a_1 : a 1 = 1 := by decide +native
 
 @[category test, AMS 11]
-theorem a_2 : a 2 = 2 := by sorry
+theorem a_2 : a 2 = 2 := by decide +native
 
 @[category test, AMS 11]
-theorem a_3 : a 3 = 2 := by sorry
+theorem a_3 : a 3 = 2 := by decide +native
 
 @[category test, AMS 11]
-theorem a_4 : a 4 = 3 := by sorry
+theorem a_4 : a 4 = 3 := by decide +native
 
 @[category test, AMS 11]
-theorem a_5 : a 5 = 2 := by sorry
+theorem a_5 : a 5 = 2 := by decide +native
+
+@[category test, AMS 11]
+theorem a_6 : a 6 = 4 := by decide +native
+
+@[category test, AMS 11]
+theorem a_7 : a 7 = 2 := by decide +native
+
+@[category test, AMS 11]
+theorem a_8 : a 8 = 5 := by decide +native
 
 end OeisA379240
