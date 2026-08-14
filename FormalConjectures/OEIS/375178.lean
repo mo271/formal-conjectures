@@ -64,18 +64,18 @@ by sorry
 
 
 @[category test, AMS 11]
-theorem a_0 : a 0 = 0 := by sorry
+theorem a_0 : a 0 = 0 := by rfl
 
 @[category test, AMS 11]
-theorem a_1 : a 1 = 1 := by sorry
+theorem a_1 : a 1 = 1 := by simp [a, Nat.multichoose_eq]
 
 @[category test, AMS 11]
-theorem a_2 : a 2 = 9 := by sorry
+theorem a_2 : a 2 = 9 := by simp [a, Nat.multichoose_eq, Finset.sum_range_succ]
 
 @[category test, AMS 11]
-theorem a_3 : a 3 = 244 := by sorry
+theorem a_3 : a 3 = 244 := by simp [a, Nat.multichoose_eq, Finset.sum_range_succ]; decide
 
 @[category test, AMS 11]
-theorem a_4 : a 4 = 9065 := by sorry
+theorem a_4 : a 4 = 9065 := by simp [a, Nat.multichoose_eq, Finset.sum_range_succ]; decide
 
 end OeisA375178

@@ -80,19 +80,93 @@ theorem is_bounded : ∃ B : ℕ, ∀ n : ℕ, a n ≤ B := by
   sorry
 
 
-@[category test, AMS 11]
-theorem a_0 : a 0 = 1 := by sorry
+@[category API, AMS 11]
+lemma singleton_min' (x : ℕ) (s : Finset ℕ) (h : s = {x}) (hn : s.Nonempty) : s.min' hn = x := by
+  have hmem : x ∈ s := by rw [h]; exact Finset.mem_singleton_self x
+  have hle : ∀ y ∈ s, x ≤ y := by
+    intro y hy
+    rw [h, Finset.mem_singleton] at hy
+    rw [hy]
+  exact le_antisymm (Finset.min'_le s x hmem) (Finset.le_min' s hn x hle)
+
+@[category API, AMS 11]
+lemma digits_lt_10 {n : ℕ} (h : n < 10) (hn : 0 < n) : Nat.digits 10 n = [n] := by
+  rw [Nat.digits_def' (by decide : (1 : ℕ) < 10) hn, show n / 10 = 0 from Nat.div_eq_of_lt h, Nat.digits_zero]
+  rw [Nat.mod_eq_of_lt h]
+
+@[category API, AMS 11]
+lemma digits_24 : Nat.digits 10 24 = [4, 2] := by
+  rw [Nat.digits_def' (by decide : (1 : ℕ) < 10) (by decide), show 24 / 10 = 2 by rfl]
+  rw [digits_lt_10 (by decide) (by decide)]
+
+@[category API, AMS 11]
+lemma remove_zeros_1 : remove_zeros 1 = 1 := by
+  unfold remove_zeros
+  rw [digits_lt_10 (by decide) (by decide)]
+  rfl
+
+@[category API, AMS 11]
+lemma remove_zeros_2 : remove_zeros 2 = 2 := by
+  unfold remove_zeros
+  rw [digits_lt_10 (by decide) (by decide)]
+  rfl
+
+@[category API, AMS 11]
+lemma remove_zeros_6 : remove_zeros 6 = 6 := by
+  unfold remove_zeros
+  rw [digits_lt_10 (by decide) (by decide)]
+  rfl
+
+@[category API, AMS 11]
+lemma remove_zeros_24 : remove_zeros 24 = 24 := by
+  unfold remove_zeros
+  rw [digits_24]
+  rfl
+
+@[category API, AMS 11]
+lemma reachable_0 : reachable_zeroless_factorials 0 = {1} := rfl
+
+@[category API, AMS 11]
+lemma reachable_1 : reachable_zeroless_factorials 1 = {1} := by
+  change ({1} : Finset ℕ).biUnion (fun m => {1 * m, remove_zeros (1 * m)}) = {1}
+  rw [Finset.singleton_biUnion]
+  rw [show 1 * 1 = 1 by rfl, remove_zeros_1]
+  exact Finset.pair_eq_singleton 1
+
+@[category API, AMS 11]
+lemma reachable_2 : reachable_zeroless_factorials 2 = {2} := by
+  change (reachable_zeroless_factorials 1).biUnion (fun m => {2 * m, remove_zeros (2 * m)}) = {2}
+  rw [reachable_1, Finset.singleton_biUnion]
+  rw [show 2 * 1 = 2 by rfl, remove_zeros_2]
+  exact Finset.pair_eq_singleton 2
+
+@[category API, AMS 11]
+lemma reachable_3 : reachable_zeroless_factorials 3 = {6} := by
+  change (reachable_zeroless_factorials 2).biUnion (fun m => {3 * m, remove_zeros (3 * m)}) = {6}
+  rw [reachable_2, Finset.singleton_biUnion]
+  rw [show 3 * 2 = 6 by rfl, remove_zeros_6]
+  exact Finset.pair_eq_singleton 6
+
+@[category API, AMS 11]
+lemma reachable_4 : reachable_zeroless_factorials 4 = {24} := by
+  change (reachable_zeroless_factorials 3).biUnion (fun m => {4 * m, remove_zeros (4 * m)}) = {24}
+  rw [reachable_3, Finset.singleton_biUnion]
+  rw [show 4 * 6 = 24 by rfl, remove_zeros_24]
+  exact Finset.pair_eq_singleton 24
 
 @[category test, AMS 11]
-theorem a_1 : a 1 = 1 := by sorry
+theorem a_0 : a 0 = 1 := singleton_min' 1 _ reachable_0 _
 
 @[category test, AMS 11]
-theorem a_2 : a 2 = 2 := by sorry
+theorem a_1 : a 1 = 1 := singleton_min' 1 _ reachable_1 _
 
 @[category test, AMS 11]
-theorem a_3 : a 3 = 6 := by sorry
+theorem a_2 : a 2 = 2 := singleton_min' 2 _ reachable_2 _
 
 @[category test, AMS 11]
-theorem a_4 : a 4 = 24 := by sorry
+theorem a_3 : a 3 = 6 := singleton_min' 6 _ reachable_3 _
+
+@[category test, AMS 11]
+theorem a_4 : a 4 = 24 := singleton_min' 24 _ reachable_4 _
 
 end OeisA374265
