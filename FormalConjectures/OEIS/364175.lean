@@ -56,8 +56,7 @@ theorem a_0 : a 0 = 1 := by
 
 @[category test, AMS 11]
 theorem a_1 : a 1 = 36 := by
-  unfold a
-  have h_val : (Real.Gamma (6 * ↑1 + 1) * Real.Gamma (2 / 3 * ↑1 + 1)) / (Real.Gamma (3 * ↑1 + 1) * Real.Gamma (2 * ↑1 + 1) * Real.Gamma (5 / 3 * ↑1 + 1)) = 36 := by
+  have h_val : (Real.Gamma (6 * (1:ℝ) + 1) * Real.Gamma (2 / 3 * (1:ℝ) + 1)) / (Real.Gamma (3 * (1:ℝ) + 1) * Real.Gamma (2 * (1:ℝ) + 1) * Real.Gamma (5 / 3 * (1:ℝ) + 1)) = 36 := by
     have h_eq : (Real.Gamma (6 * (1 : ℝ) + 1) * Real.Gamma (2 / 3 * (1 : ℝ) + 1)) / (Real.Gamma (3 * (1 : ℝ) + 1) * Real.Gamma (2 * (1 : ℝ) + 1) * Real.Gamma (5 / 3 * (1 : ℝ) + 1)) = (Real.Gamma 7 * Real.Gamma (5/3)) / (Real.Gamma 4 * Real.Gamma 3 * Real.Gamma (8/3)) := by
       congr 2 <;> congr 1 <;> congr 1 <;> norm_num
     rw [h_eq]
@@ -71,25 +70,28 @@ theorem a_1 : a 1 = 36 := by
     rw [h_int_7, h_int_4, h_int_3]
     have hG : Real.Gamma (5/3) ≠ 0 := ne_of_gt (by positivity)
     have Hnum : 720 * Real.Gamma (5/3) = 720 * Real.Gamma (5/3) := by ring
-    have Hden : (6 * 2 * (5/3) * Real.Gamma (5/3)) = (20 : ℝ) * Real.Gamma (5/3) := by ring
+    have Hden : 6 * 2 * (5/3 * Real.Gamma (5/3)) = (20 : ℝ) * Real.Gamma (5/3) := by ring
     rw [Hnum, Hden]
     rw [mul_div_mul_right _ _ hG]
     norm_num
+  unfold a
+  dsimp
+  push_cast
   rw [h_val]
   norm_num
+  rfl
+
 
 @[category test, AMS 11]
 theorem a_2 : a 2 = 3564 := by
-  unfold a
-  have h_val : (Real.Gamma (6 * ↑2 + 1) * Real.Gamma (2 / 3 * ↑2 + 1)) / (Real.Gamma (3 * ↑2 + 1) * Real.Gamma (2 * ↑2 + 1) * Real.Gamma (5 / 3 * ↑2 + 1)) = 3564 := by
+  have h_val : (Real.Gamma (6 * (2:ℝ) + 1) * Real.Gamma (2 / 3 * (2:ℝ) + 1)) / (Real.Gamma (3 * (2:ℝ) + 1) * Real.Gamma (2 * (2:ℝ) + 1) * Real.Gamma (5 / 3 * (2:ℝ) + 1)) = 3564 := by
     have h_eq : (Real.Gamma (6 * (2 : ℝ) + 1) * Real.Gamma (2 / 3 * (2 : ℝ) + 1)) / (Real.Gamma (3 * (2 : ℝ) + 1) * Real.Gamma (2 * (2 : ℝ) + 1) * Real.Gamma (5 / 3 * (2 : ℝ) + 1)) = (Real.Gamma 13 * Real.Gamma (7/3)) / (Real.Gamma 7 * Real.Gamma 5 * Real.Gamma (13/3)) := by
       congr 2 <;> congr 1 <;> congr 1 <;> norm_num
     rw [h_eq]
     have h1 : Real.Gamma (13/3) = (10/3) * (7/3) * Real.Gamma (7/3) := by
       have r1 : (13/3 : ℝ) = 10/3 + 1 := by norm_num
       have r2 : (10/3 : ℝ) = 7/3 + 1 := by norm_num
-      rw [r1, Real.Gamma_add_one (by norm_num)]
-      rw [r2, Real.Gamma_add_one (by norm_num)]
+      rw [r1, Real.Gamma_add_one (by norm_num), r2, Real.Gamma_add_one (by norm_num)]
       ring
     rw [h1]
     have h_int_13 : Real.Gamma 13 = 479001600 := by norm_num
@@ -98,29 +100,38 @@ theorem a_2 : a 2 = 3564 := by
     rw [h_int_13, h_int_7, h_int_5]
     have hG : Real.Gamma (7/3) ≠ 0 := ne_of_gt (by positivity)
     have Hnum : 479001600 * Real.Gamma (7/3) = 479001600 * Real.Gamma (7/3) := by ring
-    have Hden : (720 * 24 * (10/3) * (7/3) * Real.Gamma (7/3)) = (134400 : ℝ) * Real.Gamma (7/3) := by ring
+    have Hden : 720 * 24 * (10/3 * (7/3) * Real.Gamma (7/3)) = (134400 : ℝ) * Real.Gamma (7/3) := by ring
     rw [Hnum, Hden]
     rw [mul_div_mul_right _ _ hG]
     norm_num
+  unfold a
+  dsimp
+  push_cast
   rw [h_val]
   norm_num
+  rfl
+
 
 @[category test, AMS 11]
 theorem a_3 : a 3 = 408408 := by
-  unfold a
-  have h_val : (Real.Gamma (6 * ↑3 + 1) * Real.Gamma (2 / 3 * ↑3 + 1)) / (Real.Gamma (3 * ↑3 + 1) * Real.Gamma (2 * ↑3 + 1) * Real.Gamma (5 / 3 * ↑3 + 1)) = 408408 := by
+  have h_val : (Real.Gamma (6 * (3:ℝ) + 1) * Real.Gamma (2 / 3 * (3:ℝ) + 1)) / (Real.Gamma (3 * (3:ℝ) + 1) * Real.Gamma (2 * (3:ℝ) + 1) * Real.Gamma (5 / 3 * (3:ℝ) + 1)) = 408408 := by
     have h_eq : (Real.Gamma (6 * (3 : ℝ) + 1) * Real.Gamma (2 / 3 * (3 : ℝ) + 1)) / (Real.Gamma (3 * (3 : ℝ) + 1) * Real.Gamma (2 * (3 : ℝ) + 1) * Real.Gamma (5 / 3 * (3 : ℝ) + 1)) = (Real.Gamma 19 * Real.Gamma 3) / (Real.Gamma 10 * Real.Gamma 7 * Real.Gamma 6) := by
       congr 2 <;> congr 1 <;> congr 1 <;> norm_num
     rw [h_eq]
     have h_int_19 : Real.Gamma 19 = 6402373705728000 := by norm_num
+    have h_int_3 : Real.Gamma 3 = 2 := by norm_num
     have h_int_10 : Real.Gamma 10 = 362880 := by norm_num
     have h_int_7 : Real.Gamma 7 = 720 := by norm_num
     have h_int_6 : Real.Gamma 6 = 120 := by norm_num
-    have h_int_3 : Real.Gamma 3 = 2 := by norm_num
-    rw [h_int_19, h_int_10, h_int_7, h_int_6, h_int_3]
+    rw [h_int_19, h_int_3, h_int_10, h_int_7, h_int_6]
     norm_num
+  unfold a
+  dsimp
+  push_cast
   rw [h_val]
   norm_num
+  rfl
+
 
 
 /--
