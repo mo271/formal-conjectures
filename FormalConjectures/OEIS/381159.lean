@@ -41,17 +41,124 @@ Natural numbers whose prime divisors all end in the same decimal digit.
 noncomputable def a (n : ℕ) : ℕ := n.nth condition
 
 
-@[category test, AMS 11]
-theorem a_1 : a 1 = 1 := by sorry
+lemma primeFactors_zero : primeFactors 0 = ∅ := by simp
+lemma primeFactors_one : primeFactors 1 = ∅ := by simp
+
+lemma primeFactors_two : primeFactors 2 = {2} := by
+  ext x
+  simp only [mem_primeFactors, Finset.mem_singleton]
+  constructor
+  · rintro ⟨hx_prime, hx_div, _⟩
+    have : x ≤ 2 := le_of_dvd (by decide) hx_div
+    have : 2 ≤ x := hx_prime.two_le
+    omega
+  · rintro rfl
+    exact ⟨prime_two, by decide, by decide⟩
+
+lemma primeFactors_three : primeFactors 3 = {3} := by
+  ext x
+  simp only [mem_primeFactors, Finset.mem_singleton]
+  constructor
+  · rintro ⟨hx_prime, hx_div, _⟩
+    have : x ≤ 3 := le_of_dvd (by decide) hx_div
+    have : 2 ≤ x := hx_prime.two_le
+    interval_cases x
+    · revert hx_div; decide
+    · rfl
+  · rintro rfl
+    exact ⟨prime_three, by decide, by decide⟩
+
+lemma primeFactors_four : primeFactors 4 = {2} := by
+  ext x
+  simp only [mem_primeFactors, Finset.mem_singleton]
+  constructor
+  · rintro ⟨hx_prime, hx_div, _⟩
+    have : x ≤ 4 := le_of_dvd (by decide) hx_div
+    have : 2 ≤ x := hx_prime.two_le
+    interval_cases x
+    · rfl
+    · revert hx_div; decide
+    · revert hx_prime; decide
+  · rintro rfl
+    exact ⟨prime_two, by decide, by decide⟩
+
+lemma hc0 : condition 0 := by unfold condition; rw [primeFactors_zero]; decide
+lemma hc1 : condition 1 := by unfold condition; rw [primeFactors_one]; decide
+lemma hc2 : condition 2 := by unfold condition; rw [primeFactors_two]; decide
+lemma hc3 : condition 3 := by unfold condition; rw [primeFactors_three]; decide
+lemma hc4 : condition 4 := by unfold condition; rw [primeFactors_four]; decide
+
+lemma h0 : Nat.nth condition 0 = 0 := by
+  rw [Nat.nth_zero]
+  exact IsLeast.csInf_eq ⟨hc0, fun x _ => Nat.zero_le x⟩
+
+lemma h1 : Nat.nth condition 1 = 1 := by
+  rw [Nat.nth_eq_sInf condition 1]
+  exact IsLeast.csInf_eq ⟨⟨hc1, fun k hk => by
+    rcases Nat.lt_or_ge k 1 with hk'|hk'
+    · interval_cases k
+      rw [h0]; decide
+    · omega⟩, fun x ⟨_, hx_lt⟩ => by
+    have hx_lt0 := hx_lt 0 (by decide); rw [h0] at hx_lt0
+    rcases Nat.lt_or_ge x 1 with h|h
+    · interval_cases x
+    · exact h⟩
+
+lemma h2 : Nat.nth condition 2 = 2 := by
+  rw [Nat.nth_eq_sInf condition 2]
+  exact IsLeast.csInf_eq ⟨⟨hc2, fun k hk => by
+    rcases Nat.lt_or_ge k 2 with hk'|hk'
+    · interval_cases k
+      · rw [h0]; decide
+      · rw [h1]; decide
+    · omega⟩, fun x ⟨_, hx_lt⟩ => by
+    have hx_lt1 := hx_lt 1 (by decide); rw [h1] at hx_lt1
+    rcases Nat.lt_or_ge x 2 with h|h
+    · interval_cases x
+    · exact h⟩
+
+lemma h3 : Nat.nth condition 3 = 3 := by
+  rw [Nat.nth_eq_sInf condition 3]
+  exact IsLeast.csInf_eq ⟨⟨hc3, fun k hk => by
+    rcases Nat.lt_or_ge k 3 with hk'|hk'
+    · interval_cases k
+      · rw [h0]; decide
+      · rw [h1]; decide
+      · rw [h2]; decide
+    · omega⟩, fun x ⟨_, hx_lt⟩ => by
+    have hx_lt2 := hx_lt 2 (by decide); rw [h2] at hx_lt2
+    rcases Nat.lt_or_ge x 3 with h|h
+    · interval_cases x
+    · exact h⟩
+
+lemma h4 : Nat.nth condition 4 = 4 := by
+  rw [Nat.nth_eq_sInf condition 4]
+  exact IsLeast.csInf_eq ⟨⟨hc4, fun k hk => by
+    rcases Nat.lt_or_ge k 4 with hk'|hk'
+    · interval_cases k
+      · rw [h0]; decide
+      · rw [h1]; decide
+      · rw [h2]; decide
+      · rw [h3]; decide
+    · omega⟩, fun x ⟨_, hx_lt⟩ => by
+    have hx_lt3 := hx_lt 3 (by decide); rw [h3] at hx_lt3
+    rcases Nat.lt_or_ge x 4 with h|h
+    · interval_cases x
+    · exact h⟩
 
 @[category test, AMS 11]
-theorem a_2 : a 2 = 2 := by sorry
+theorem a_1 : a 1 = 1 := by unfold a; rw [h1]
 
 @[category test, AMS 11]
-theorem a_3 : a 3 = 3 := by sorry
+theorem a_2 : a 2 = 2 := by unfold a; rw [h2]
 
 @[category test, AMS 11]
-theorem a_4 : a 4 = 4 := by sorry
+theorem a_3 : a 3 = 3 := by unfold a; rw [h3]
+
+@[category test, AMS 11]
+theorem a_4 : a 4 = 4 := by unfold a; rw [h4]
+
+
 
 
 /--
