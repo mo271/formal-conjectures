@@ -57,6 +57,12 @@ theorem a_2 : a 2 = 1 := by rfl
 @[category test, AMS 11]
 theorem a_3 : a 3 = -8 := by rfl
 
+@[category test, AMS 11]
+theorem a_4 : a 4 = 5 := by rfl
+
+@[category test, AMS 11]
+theorem a_5 : a 5 = 126 := by rfl
+
 /--
 The supercongruence $a(p^k) \equiv a(p^{k-1}) \pmod{p^{3k}}$ holds for all primes $p \ge 5$ and positive integers $k$.
 -/

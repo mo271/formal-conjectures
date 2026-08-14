@@ -53,6 +53,12 @@ theorem a_2 : a 2 = 2187 := by unfold a; norm_num
 @[category test, AMS 11]
 theorem a_3 : a 3 = 15625 := by unfold a; norm_num
 
+@[category test, AMS 11]
+theorem a_4 : a 4 = 823543 := by unfold a; norm_num
+
+@[category test, AMS 11]
+theorem a_5 : a 5 = 1771561 := by unfold a; norm_num
+
 /-- The $n$-th prime number, where $\text{prime}(1)=2$. -/
 noncomputable def prime_of_index (n : ℕ) : ℕ :=
   Nat.nth Nat.Prime (n - 1)

@@ -55,6 +55,12 @@ theorem a_1 : a 1 = 10 := by rfl
 
 @[category test, AMS 11]
 theorem a_2 : a 2 = 114 := by rfl
+@[category test, AMS 11]
+theorem a_3 : a 3 = 2926 := by rfl
+
+@[category test, AMS 11]
+theorem a_4 : a 4 = 109106 := by rfl
+
 /--
 $a(p) \equiv a(1) \pmod{p^5}$ for all odd primes $p$ except $p = 5$.
 -/
