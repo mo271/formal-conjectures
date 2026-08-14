@@ -65,21 +65,41 @@ noncomputable def a (n : ℕ) : ℕ :=
   ) (Finset.range max_index_bound)
 
 
-@[category test, AMS 11]
-theorem a_1 : a 1 = 0 := by
-  sorry
+lemma a_zero_for_small (n : ℕ) (hn : n ≤ 11) : a n = 0 := by
+  unfold a
+  apply Finset.card_eq_zero.mpr
+  ext j
+  simp only [mem_filter, mem_range]
+  constructor
+  · rintro ⟨_, h1, _⟩
+    have hp (x : ℕ) : 2 ≤ Nat.nth Nat.Prime x := by
+      apply Nat.Prime.two_le
+      apply Nat.nth_mem
+      intro h
+      exfalso
+      exact Nat.infinite_setOf_prime h
+    have h_S (k : ℕ) : 6 ≤ Nat.nth Nat.Prime k + Nat.nth Nat.Prime (k + 1) + Nat.nth Nat.Prime (k + 2) := by
+      have hk := hp k
+      have hk1 := hp (k+1)
+      have hk2 := hp (k+2)
+      omega
+    have hj := h_S j
+    omega
+  · intro h; exfalso; simp_all
 
 @[category test, AMS 11]
-theorem a_2 : a 2 = 0 := by
-  sorry
+theorem a_1 : a 1 = 0 := a_zero_for_small 1 (by decide)
 
 @[category test, AMS 11]
-theorem a_3 : a 3 = 0 := by
-  sorry
+theorem a_2 : a 2 = 0 := a_zero_for_small 2 (by decide)
 
 @[category test, AMS 11]
-theorem a_4 : a 4 = 0 := by
-  sorry
+theorem a_3 : a 3 = 0 := a_zero_for_small 3 (by decide)
+
+@[category test, AMS 11]
+theorem a_4 : a 4 = 0 := a_zero_for_small 4 (by decide)
+
+
 
 
 /--
