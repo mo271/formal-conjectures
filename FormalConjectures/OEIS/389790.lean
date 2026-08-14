@@ -47,6 +47,31 @@ noncomputable def a (n : ℕ) : ℕ :=
     Nat.Prime p ∧ Nat.Prime q ∧ p ≤ q ∧ S_sum p + S_sum q = target
   ) (R ×ˢ R)
 
+lemma next_prime_2 : next_prime 2 = 3 := by
+  unfold next_prime
+  refine IsLeast.csInf_eq ⟨⟨by decide, by decide⟩, fun k hk => ?_⟩
+  rcases Nat.lt_or_ge k 3 with h|h
+  · interval_cases k
+    · exfalso; revert hk; decide
+    · exfalso; revert hk; decide
+    · exfalso; revert hk; decide
+  · exact h
+
+lemma next_prime_3 : next_prime 3 = 5 := by
+  unfold next_prime
+  refine IsLeast.csInf_eq ⟨⟨by decide, by decide⟩, fun k hk => ?_⟩
+  rcases Nat.lt_or_ge k 5 with h|h
+  · interval_cases k
+    · exfalso; revert hk; decide
+    · exfalso; revert hk; decide
+    · exfalso; revert hk; decide
+    · exfalso; revert hk; decide
+    · exfalso; revert hk; decide
+  · exact h
+
+lemma S_sum_2 : S_sum 2 = 5 := by unfold S_sum; rw [next_prime_2]
+lemma S_sum_3 : S_sum 3 = 8 := by unfold S_sum; rw [next_prime_3]
+
 @[category test, AMS 11]
 theorem a_1 : a 1 = 0 := by rfl
 
@@ -54,10 +79,43 @@ theorem a_1 : a 1 = 0 := by rfl
 theorem a_2 : a 2 = 0 := by rfl
 
 @[category test, AMS 11]
-theorem a_3 : a 3 = 0 := by sorry
+theorem a_3 : a 3 = 0 := by
+  unfold a
+  apply Finset.card_eq_zero.mpr
+  ext ⟨p, q⟩
+  simp only [Finset.mem_filter, Finset.mem_product, Finset.mem_range]
+  constructor
+  · rintro ⟨⟨hp_lt, hq_lt⟩, hp_prime, hq_prime, hp_le_q, h_eq⟩
+    interval_cases p
+    · exfalso; revert hp_prime; decide
+    · exfalso; revert hp_prime; decide
+    · interval_cases q
+      rw [S_sum_2] at h_eq
+      exfalso; revert h_eq; decide
+  · intro h; exfalso; simp_all
 
 @[category test, AMS 11]
-theorem a_4 : a 4 = 0 := by sorry
+theorem a_4 : a 4 = 0 := by
+  unfold a
+  apply Finset.card_eq_zero.mpr
+  ext ⟨p, q⟩
+  simp only [Finset.mem_filter, Finset.mem_product, Finset.mem_range]
+  constructor
+  · rintro ⟨⟨hp_lt, hq_lt⟩, hp_prime, hq_prime, hp_le_q, h_eq⟩
+    interval_cases p
+    · exfalso; revert hp_prime; decide
+    · exfalso; revert hp_prime; decide
+    · interval_cases q
+      · rw [S_sum_2] at h_eq
+        exfalso; revert h_eq; decide
+      · rw [S_sum_2, S_sum_3] at h_eq
+        exfalso; revert h_eq; decide
+    · interval_cases q
+      rw [S_sum_3] at h_eq
+      exfalso; revert h_eq; decide
+  · intro h; exfalso; simp_all
+
+
 
 /--
 $a(n) > 0$ for all $n \ge 474$.
