@@ -110,8 +110,19 @@ theorem a_eq_rgs_transform (n : ℕ) : a n = A379240_conjecture n := by
   sorry
 
 
--- Term theorems (a_1 to a_5) are omitted here. While the sequence is theoretically computable, 
--- deep structural definitions and custom types block `rfl`, and the generated `Decidable` 
--- instances fail to reduce natively within the `decide` tactic, making automated evaluation stall.
+@[category test, AMS 11]
+theorem a_1 : a 1 = 1 := by sorry
+
+@[category test, AMS 11]
+theorem a_2 : a 2 = 2 := by sorry
+
+@[category test, AMS 11]
+theorem a_3 : a 3 = 2 := by sorry
+
+@[category test, AMS 11]
+theorem a_4 : a 4 = 3 := by sorry
+
+@[category test, AMS 11]
+theorem a_5 : a 5 = 2 := by sorry
 
 end OeisA379240

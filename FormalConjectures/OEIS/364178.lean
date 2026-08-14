@@ -48,9 +48,19 @@ theorem supercongruence (p n r : ℕ) (hp : Nat.Prime p) (h5 : 5 ≤ p) (hn : 1 
 by sorry
 
 
--- Term theorems (a_0 to a_4) are omitted here. The definition of `a n` relies on `Real.Gamma` 
--- applied to half-integers and arbitrary reals, followed by division and rounding. Automated 
--- tactics like `norm_num` or `decide` cannot evaluate these noncomputable analytic functions 
--- directly without complex manual calculus lemmas.
+@[category test, AMS 11]
+theorem a_0 : a 0 = 1 := by sorry
+
+@[category test, AMS 11]
+theorem a_1 : a 1 = 168 := by sorry
+
+@[category test, AMS 11]
+theorem a_2 : a 2 = 83980 := by sorry
+
+@[category test, AMS 11]
+theorem a_3 : a 3 = 48664320 := by sorry
+
+@[category test, AMS 11]
+theorem a_4 : a 4 = 29966636700 := by sorry
 
 end OeisA364178

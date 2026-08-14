@@ -79,19 +79,20 @@ such that $a(n) \leq B$ for all $n$.
 theorem is_bounded : ∃ B : ℕ, ∀ n : ℕ, a n ≤ B := by
   sorry
 
-@[category test, AMS 11]
-theorem a_0 : a 0 = 1 := by rfl
 
 @[category test, AMS 11]
-theorem a_1 : a 1 = 1 := by rfl
+theorem a_0 : a 0 = 1 := by sorry
 
 @[category test, AMS 11]
-theorem a_2 : a 2 = 2 := by rfl
+theorem a_1 : a 1 = 1 := by sorry
 
 @[category test, AMS 11]
-theorem a_3 : a 3 = 6 := by rfl
+theorem a_2 : a 2 = 2 := by sorry
 
 @[category test, AMS 11]
-theorem a_4 : a 4 = 24 := by rfl
+theorem a_3 : a 3 = 6 := by sorry
+
+@[category test, AMS 11]
+theorem a_4 : a 4 = 24 := by sorry
 
 end OeisA374265

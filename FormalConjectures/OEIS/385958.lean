@@ -70,8 +70,19 @@ theorem odd_primes_appear : answer(sorry) ↔ ∀ (p : ℕ), Nat.Prime p → p �
   sorry
 
 
--- Term theorems (a_1 to a_5) are omitted here. The sequence is defined using `noncomputable` 
--- constructs (like `Finset.max` combined with classical filtering over `Nat.Prime`). 
--- Consequently, simple evaluation tactics like `rfl` or `decide` cannot compute the terms natively.
+@[category test, AMS 11]
+theorem a_1 : a 1 = 3 := by sorry
+
+@[category test, AMS 11]
+theorem a_2 : a 2 = 5 := by sorry
+
+@[category test, AMS 11]
+theorem a_3 : a 3 = 7 := by sorry
+
+@[category test, AMS 11]
+theorem a_4 : a 4 = 5 := by sorry
+
+@[category test, AMS 11]
+theorem a_5 : a 5 = 13 := by sorry
 
 end OeisA385958
