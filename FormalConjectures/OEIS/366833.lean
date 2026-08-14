@@ -19,7 +19,8 @@ import FormalConjecturesUtil
 /-!
 # Multiplicities in prime-counting sequence A362965
 
-$a(n)$ is the number of times $n$ appears in the sequence A362965 (the number of primes $\le$ the $n$-th prime power).
+$a(n)$ is the number of times $n$ appears in the sequence A362965 (the number of primes $\le$
+the $n$-th prime power).
 
 *References:*
 - [A366833](https://oeis.org/A366833)
@@ -143,8 +144,10 @@ lemma filter_Icc_2_3 : (Finset.Icc 2 3).filter IsPrimePow = {2, 3} := by
     · left; rfl
     · right; rfl
   · rintro (rfl | rfl)
-    · exact ⟨⟨by norm_num, by norm_num⟩, ⟨2, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
-    · exact ⟨⟨by norm_num, by norm_num⟩, ⟨3, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
+    · exact ⟨⟨by norm_num, by norm_num⟩,
+        ⟨2, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
+    · exact ⟨⟨by norm_num, by norm_num⟩,
+        ⟨3, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
 
 @[category API, AMS 11]
 lemma filter_Icc_3_5 : (Finset.Icc 3 5).filter IsPrimePow = {3, 4, 5} := by
@@ -157,9 +160,12 @@ lemma filter_Icc_3_5 : (Finset.Icc 3 5).filter IsPrimePow = {3, 4, 5} := by
     · right; left; rfl
     · right; right; rfl
   · rintro (rfl | rfl | rfl)
-    · exact ⟨⟨by norm_num, by norm_num⟩, ⟨3, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
-    · exact ⟨⟨by norm_num, by norm_num⟩, ⟨2, 2, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
-    · exact ⟨⟨by norm_num, by norm_num⟩, ⟨5, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
+    · exact ⟨⟨by norm_num, by norm_num⟩,
+        ⟨3, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
+    · exact ⟨⟨by norm_num, by norm_num⟩,
+        ⟨2, 2, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
+    · exact ⟨⟨by norm_num, by norm_num⟩,
+        ⟨5, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
 
 @[category API, AMS 11]
 lemma filter_Icc_5_7 : (Finset.Icc 5 7).filter IsPrimePow = {5, 7} := by
@@ -172,8 +178,10 @@ lemma filter_Icc_5_7 : (Finset.Icc 5 7).filter IsPrimePow = {5, 7} := by
     · exact False.elim ((by decide : ¬ IsPrimePow 6) h3)
     · right; rfl
   · rintro (rfl | rfl)
-    · exact ⟨⟨by norm_num, by norm_num⟩, ⟨5, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
-    · exact ⟨⟨by norm_num, by norm_num⟩, ⟨7, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
+    · exact ⟨⟨by norm_num, by norm_num⟩,
+        ⟨5, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
+    · exact ⟨⟨by norm_num, by norm_num⟩,
+        ⟨7, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
 
 @[category API, AMS 11]
 lemma filter_Icc_7_11 : (Finset.Icc 7 11).filter IsPrimePow = {7, 8, 9, 11} := by
@@ -188,10 +196,14 @@ lemma filter_Icc_7_11 : (Finset.Icc 7 11).filter IsPrimePow = {7, 8, 9, 11} := b
     · exact False.elim ((by decide : ¬ IsPrimePow 10) h3)
     · right; right; right; rfl
   · rintro (rfl | rfl | rfl | rfl)
-    · exact ⟨⟨by norm_num, by norm_num⟩, ⟨7, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
-    · exact ⟨⟨by norm_num, by norm_num⟩, ⟨2, 3, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
-    · exact ⟨⟨by norm_num, by norm_num⟩, ⟨3, 2, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
-    · exact ⟨⟨by norm_num, by norm_num⟩, ⟨11, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
+    · exact ⟨⟨by norm_num, by norm_num⟩,
+        ⟨7, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
+    · exact ⟨⟨by norm_num, by norm_num⟩,
+        ⟨2, 3, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
+    · exact ⟨⟨by norm_num, by norm_num⟩,
+        ⟨3, 2, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
+    · exact ⟨⟨by norm_num, by norm_num⟩,
+        ⟨11, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
 
 @[category test, AMS 11]
 theorem a_0 : a 0 = 0 := by rfl
@@ -229,7 +241,8 @@ theorem a_4 : a 4 = 3 := by
   rfl
 
 /--
-Conjecture: a(n) can be only 1, 2, or 3 (with the first occurrences of 3 appearing at n = 4, 9, 30, 327 and 3512).
+Conjecture: a(n) can be only 1, 2, or 3 (with the first occurrences of 3 appearing at n = 4, 9,
+30, 327 and 3512).
 -/
 @[category research open, AMS 11]
 theorem values_in_one_two_three : ∀ (n : ℕ), 1 ≤ n → a n ∈ ({1, 2, 3} : Finset ℕ) := by

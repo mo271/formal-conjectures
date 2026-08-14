@@ -31,7 +31,8 @@ namespace OeisA363983
 
 
 /--
-The sequence $a(n) = \sum_{k=\lfloor(n+1)/2\rfloor}^n (-1)^{n+k} \binom{n}{k} \binom{n+k-1}{k} \binom{2k}{n}$.
+The sequence $a(n) = \sum_{k=\lfloor(n+1)/2\rfloor}^n (-1)^{n+k} \binom{n}{k} \binom{n+k-1}{k}
+\binom{2k}{n}$.
 -/
 def a (n : ℕ) : ℕ :=
   (Finset.sum (Finset.range (n + 1)) fun k : ℕ =>
@@ -58,9 +59,15 @@ theorem a_3 : a 3 = 128 := by rfl
 @[category test, AMS 11]
 theorem a_4 : a 4 = 1310 := by rfl
 
-/-- The Franel numbers satisfy the supercongruences $A000172(n p^r) \equiv A000172(n p^{r-1}) \pmod{p^{3r}}$ for all primes $p \ge 5$ and positive integers $n$ and $r$. The present sequence satisfies the same supercongruences. -/
+/--
+The Franel numbers satisfy the supercongruences
+$A000172(n p^r) \equiv A000172(n p^{r-1}) \pmod{p^{3r}}$
+for all primes $p \ge 5$ and positive integers $n$ and $r$.
+The present sequence satisfies the same supercongruences.
+-/
 @[category research open, AMS 11]
-theorem supercongruence (p n r : ℕ) (hp : Nat.Prime p) (h_p_ge_5 : p ≥ 5) (hn : n > 0) (hr : r > 0) :
+theorem supercongruence (p n r : ℕ) (hp : Nat.Prime p) (h_p_ge_5 : p ≥ 5) (hn : n > 0) (hr : r
+> 0) :
   (a (n * p ^ r) : ℤ) ≡ a (n * p ^ (r - 1)) [ZMOD (p : ℤ) ^ (3 * r)] := by
   sorry
 

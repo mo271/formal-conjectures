@@ -44,13 +44,22 @@ noncomputable def a (n : ℕ) : ℕ :=
 @[category test, AMS 11]
 theorem a_0 : a 0 = 1 := by
   dsimp only [a]
-  simp only [Nat.cast_zero, mul_zero, zero_add, Real.Gamma_one, mul_one, div_self (one_ne_zero : (1 : ℝ) ≠ 0), round_one, Int.toNat_one]
+  simp only [Nat.cast_zero, mul_zero, zero_add, Real.Gamma_one, mul_one,
+    div_self (one_ne_zero : (1 : ℝ) ≠ 0), round_one, Int.toNat_one]
 
 
 @[category test, AMS 11]
 theorem a_1 : a 1 = 36 := by
-  have h_val : (Real.Gamma (6 * (1:ℝ) + 1) * Real.Gamma (2 / 3 * (1:ℝ) + 1)) / (Real.Gamma (3 * (1:ℝ) + 1) * Real.Gamma (2 * (1:ℝ) + 1) * Real.Gamma (5 / 3 * (1:ℝ) + 1)) = 36 := by
-    have h_eq : (Real.Gamma (6 * (1 : ℝ) + 1) * Real.Gamma (2 / 3 * (1 : ℝ) + 1)) / (Real.Gamma (3 * (1 : ℝ) + 1) * Real.Gamma (2 * (1 : ℝ) + 1) * Real.Gamma (5 / 3 * (1 : ℝ) + 1)) = (Real.Gamma 7 * Real.Gamma (5/3)) / (Real.Gamma 4 * Real.Gamma 3 * Real.Gamma (8/3)) := by
+  have h_val :
+      (Real.Gamma (6 * (1:ℝ) + 1) * Real.Gamma (2 / 3 * (1:ℝ) + 1)) /
+        (Real.Gamma (3 * (1:ℝ) + 1) * Real.Gamma (2 * (1:ℝ) + 1) *
+         Real.Gamma (5 / 3 * (1:ℝ) + 1)) =
+        36 := by
+    have h_eq :
+        (Real.Gamma (6 * (1 : ℝ) + 1) * Real.Gamma (2 / 3 * (1 : ℝ) + 1)) /
+          (Real.Gamma (3 * (1 : ℝ) + 1) * Real.Gamma (2 * (1 : ℝ) + 1) *
+           Real.Gamma (5 / 3 * (1 : ℝ) + 1)) =
+        (Real.Gamma 7 * Real.Gamma (5/3)) / (Real.Gamma 4 * Real.Gamma 3 * Real.Gamma (8/3)) := by
       congr 2 <;> congr 1 <;> congr 1 <;> norm_num
     rw [h_eq]
     have h1 : Real.Gamma (8/3) = (5/3) * Real.Gamma (5/3) := by
@@ -77,8 +86,16 @@ theorem a_1 : a 1 = 36 := by
 
 @[category test, AMS 11]
 theorem a_2 : a 2 = 3564 := by
-  have h_val : (Real.Gamma (6 * (2:ℝ) + 1) * Real.Gamma (2 / 3 * (2:ℝ) + 1)) / (Real.Gamma (3 * (2:ℝ) + 1) * Real.Gamma (2 * (2:ℝ) + 1) * Real.Gamma (5 / 3 * (2:ℝ) + 1)) = 3564 := by
-    have h_eq : (Real.Gamma (6 * (2 : ℝ) + 1) * Real.Gamma (2 / 3 * (2 : ℝ) + 1)) / (Real.Gamma (3 * (2 : ℝ) + 1) * Real.Gamma (2 * (2 : ℝ) + 1) * Real.Gamma (5 / 3 * (2 : ℝ) + 1)) = (Real.Gamma 13 * Real.Gamma (7/3)) / (Real.Gamma 7 * Real.Gamma 5 * Real.Gamma (13/3)) := by
+  have h_val :
+      (Real.Gamma (6 * (2:ℝ) + 1) * Real.Gamma (2 / 3 * (2:ℝ) + 1)) /
+        (Real.Gamma (3 * (2:ℝ) + 1) * Real.Gamma (2 * (2:ℝ) + 1) *
+         Real.Gamma (5 / 3 * (2:ℝ) + 1)) =
+        3564 := by
+    have h_eq :
+        (Real.Gamma (6 * (2 : ℝ) + 1) * Real.Gamma (2 / 3 * (2 : ℝ) + 1)) /
+          (Real.Gamma (3 * (2 : ℝ) + 1) * Real.Gamma (2 * (2 : ℝ) + 1) *
+           Real.Gamma (5 / 3 * (2 : ℝ) + 1)) =
+        (Real.Gamma 13 * Real.Gamma (7/3)) / (Real.Gamma 7 * Real.Gamma 5 * Real.Gamma (13/3)) := by
       congr 2 <;> congr 1 <;> congr 1 <;> norm_num
     rw [h_eq]
     have h1 : Real.Gamma (13/3) = (10/3) * (7/3) * Real.Gamma (7/3) := by
@@ -93,7 +110,8 @@ theorem a_2 : a 2 = 3564 := by
     rw [h_int_13, h_int_7, h_int_5]
     have hG : Real.Gamma (7/3) ≠ 0 := ne_of_gt (by positivity)
     have Hnum : 479001600 * Real.Gamma (7/3) = 479001600 * Real.Gamma (7/3) := by ring
-    have Hden : 720 * 24 * (10/3 * (7/3) * Real.Gamma (7/3)) = (134400 : ℝ) * Real.Gamma (7/3) := by ring
+    have Hden : 720 * 24 * (10/3 * (7/3) * Real.Gamma (7/3)) = (134400 : ℝ) * Real.Gamma (7/3) :=
+      by ring
     rw [Hnum, Hden]
     rw [mul_div_mul_right _ _ hG]
     norm_num
@@ -106,8 +124,16 @@ theorem a_2 : a 2 = 3564 := by
 
 @[category test, AMS 11]
 theorem a_3 : a 3 = 408408 := by
-  have h_val : (Real.Gamma (6 * (3:ℝ) + 1) * Real.Gamma (2 / 3 * (3:ℝ) + 1)) / (Real.Gamma (3 * (3:ℝ) + 1) * Real.Gamma (2 * (3:ℝ) + 1) * Real.Gamma (5 / 3 * (3:ℝ) + 1)) = 408408 := by
-    have h_eq : (Real.Gamma (6 * (3 : ℝ) + 1) * Real.Gamma (2 / 3 * (3 : ℝ) + 1)) / (Real.Gamma (3 * (3 : ℝ) + 1) * Real.Gamma (2 * (3 : ℝ) + 1) * Real.Gamma (5 / 3 * (3 : ℝ) + 1)) = (Real.Gamma 19 * Real.Gamma 3) / (Real.Gamma 10 * Real.Gamma 7 * Real.Gamma 6) := by
+  have h_val :
+      (Real.Gamma (6 * (3:ℝ) + 1) * Real.Gamma (2 / 3 * (3:ℝ) + 1)) /
+        (Real.Gamma (3 * (3:ℝ) + 1) * Real.Gamma (2 * (3:ℝ) + 1) *
+         Real.Gamma (5 / 3 * (3:ℝ) + 1)) =
+        408408 := by
+    have h_eq :
+        (Real.Gamma (6 * (3 : ℝ) + 1) * Real.Gamma (2 / 3 * (3 : ℝ) + 1)) /
+          (Real.Gamma (3 * (3 : ℝ) + 1) * Real.Gamma (2 * (3 : ℝ) + 1) *
+           Real.Gamma (5 / 3 * (3 : ℝ) + 1)) =
+        (Real.Gamma 19 * Real.Gamma 3) / (Real.Gamma 10 * Real.Gamma 7 * Real.Gamma 6) := by
       congr 2 <;> congr 1 <;> congr 1 <;> norm_num
     rw [h_eq]
     have h_int_19 : Real.Gamma 19 = 6402373705728000 := by norm_num
@@ -125,8 +151,17 @@ theorem a_3 : a 3 = 408408 := by
 
 @[category test, AMS 11]
 theorem a_4 : a 4 = 49697388 := by
-  have h_val : (Real.Gamma (6 * (4:ℝ) + 1) * Real.Gamma (2 / 3 * (4:ℝ) + 1)) / (Real.Gamma (3 * (4:ℝ) + 1) * Real.Gamma (2 * (4:ℝ) + 1) * Real.Gamma (5 / 3 * (4:ℝ) + 1)) = 49697388 := by
-    have h_eq : (Real.Gamma (6 * (4 : ℝ) + 1) * Real.Gamma (2 / 3 * (4 : ℝ) + 1)) / (Real.Gamma (3 * (4 : ℝ) + 1) * Real.Gamma (2 * (4 : ℝ) + 1) * Real.Gamma (5 / 3 * (4 : ℝ) + 1)) = (Real.Gamma 25 * Real.Gamma (11/3)) / (Real.Gamma 13 * Real.Gamma 9 * Real.Gamma (23/3)) := by
+  have h_val :
+      (Real.Gamma (6 * (4:ℝ) + 1) * Real.Gamma (2 / 3 * (4:ℝ) + 1)) /
+        (Real.Gamma (3 * (4:ℝ) + 1) * Real.Gamma (2 * (4:ℝ) + 1) *
+         Real.Gamma (5 / 3 * (4:ℝ) + 1)) =
+        49697388 := by
+    have h_eq :
+        (Real.Gamma (6 * (4 : ℝ) + 1) * Real.Gamma (2 / 3 * (4 : ℝ) + 1)) /
+          (Real.Gamma (3 * (4 : ℝ) + 1) * Real.Gamma (2 * (4 : ℝ) + 1) *
+           Real.Gamma (5 / 3 * (4 : ℝ) + 1)) =
+        (Real.Gamma 25 * Real.Gamma (11/3)) /
+          (Real.Gamma 13 * Real.Gamma 9 * Real.Gamma (23/3)) := by
       congr 2 <;> congr 1 <;> congr 1 <;> norm_num
     rw [h_eq]
     have h1 : Real.Gamma (23/3) = (20/3) * (17/3) * (14/3) * (11/3) * Real.Gamma (11/3) := by
@@ -145,7 +180,10 @@ theorem a_4 : a 4 = 49697388 := by
     have h_int_9 : Real.Gamma 9 = 40320 := by norm_num
     rw [h_int_25, h_int_13, h_int_9]
     have hG : Real.Gamma (11/3) ≠ 0 := ne_of_gt (by positivity)
-    have Hden : 479001600 * 40320 * ((20 / 3) * (17 / 3) * (14 / 3) * (11 / 3) * Real.Gamma (11/3)) = (479001600 * 40320 * (20 / 3) * (17 / 3) * (14 / 3) * (11 / 3) : ℝ) * Real.Gamma (11/3) := by ring
+    have Hden :
+      479001600 * 40320 * ((20 / 3) * (17 / 3) * (14 / 3) * (11 / 3) * Real.Gamma (11/3)) =
+        (479001600 * 40320 * (20 / 3) * (17 / 3) * (14 / 3) * (11 / 3) : ℝ) * Real.Gamma (11/3) :=
+      by ring
     rw [Hden]
     rw [mul_div_mul_right _ _ hG]
     norm_num

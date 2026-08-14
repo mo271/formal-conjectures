@@ -43,15 +43,20 @@ noncomputable def a (n : ℕ) : ℕ :=
 
 
 @[category API, AMS 11]
-lemma isPrimePow_3 : IsPrimePow 3 := ⟨3, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩
+lemma isPrimePow_3 : IsPrimePow 3 :=
+  ⟨3, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩
 @[category API, AMS 11]
-lemma isPrimePow_5 : IsPrimePow 5 := ⟨5, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩
+lemma isPrimePow_5 : IsPrimePow 5 :=
+  ⟨5, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩
 @[category API, AMS 11]
-lemma isPrimePow_7 : IsPrimePow 7 := ⟨7, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩
+lemma isPrimePow_7 : IsPrimePow 7 :=
+  ⟨7, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩
 @[category API, AMS 11]
-lemma isPrimePow_9 : IsPrimePow 9 := ⟨3, 2, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩
+lemma isPrimePow_9 : IsPrimePow 9 :=
+  ⟨3, 2, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩
 @[category API, AMS 11]
-lemma isPrimePow_11 : IsPrimePow 11 := ⟨11, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩
+lemma isPrimePow_11 : IsPrimePow 11 :=
+  ⟨11, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩
 
 @[category API, AMS 11]
 lemma not_cond_0 : ¬ condition 0 := by
@@ -144,7 +149,8 @@ theorem a_3 : a 3 = 4 := by
   ⟩
 
 @[category API, AMS 11]
-lemma isPrimePow_13 : IsPrimePow 13 := ⟨13, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩
+lemma isPrimePow_13 : IsPrimePow 13 :=
+  ⟨13, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩
 
 @[category API, AMS 11]
 lemma cond_6 : condition 6 := by
@@ -205,7 +211,8 @@ def IsCompositePrimePow (m : ℕ) : Prop :=
   ∃ (p e : ℕ), Nat.Prime p ∧ 1 < e ∧ p ^ e = m
 
 /--
-According to Pillai's conjecture, k = 13 is the only term such that 2*k-1 and 2*k+1 both have exponent greater than 1.
+According to Pillai's conjecture, k = 13 is the only term such that 2*k-1 and 2*k+1 both have
+exponent greater than 1.
 -/
 @[category research open, AMS 11]
 theorem only_thirteen :

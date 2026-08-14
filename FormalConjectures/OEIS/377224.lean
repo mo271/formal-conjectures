@@ -19,7 +19,8 @@ import FormalConjecturesUtil
 /-!
 # Representations by ternary quadratic form $x(5x+1) + y(5y+1)/2 + z(5z+1)/2$
 
-$a(n)$ is the number of ways to write $n$ as $x(5x+1) + y(5y+1)/2 + z(5z+1)/2$, where $x, y, z \in \mathbb{Z}$
+$a(n)$ is the number of ways to write $n$ as $x(5x+1) + y(5y+1)/2 + z(5z+1)/2$, where $x, y, z
+\in \mathbb{Z}$
 with $y(5y+1) \le z(5z+1)$.
 
 *References:*

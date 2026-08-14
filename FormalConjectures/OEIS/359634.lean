@@ -31,7 +31,8 @@ namespace OeisA359634
 
 
 /--
-$a(0) = 1$, and for $n > 0$, $a(n)$ is the length of the longest contiguous group of preceding terms summing to $n$.
+$a(0) = 1$, and for $n > 0$, $a(n)$ is the length of the longest contiguous group of preceding
+terms summing to $n$.
 -/
 noncomputable def a : ℕ → ℕ :=
   WellFounded.fix Nat.lt_wfRel.wf (fun n IH =>

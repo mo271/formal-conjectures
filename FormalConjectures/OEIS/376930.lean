@@ -19,7 +19,8 @@ import FormalConjecturesUtil
 /-!
 # Prime-triggered subtraction Fibonacci-like recurrence
 
-$a(0)=0, a(1)=1$; for $n>1$, $a(n) = a(n-1)+a(n-2)$, except when $a(n-1)$ is an odd prime, in which case $a(n) = a(n-1)-a(n-2)$.
+$a(0)=0, a(1)=1$; for $n>1$, $a(n) = a(n-1)+a(n-2)$, except when $a(n-1)$ is an odd prime, in
+which case $a(n) = a(n-1)-a(n-2)$.
 
 *References:*
 - [A376930](https://oeis.org/A376930)
@@ -30,7 +31,8 @@ namespace OeisA376930
 
 
 /--
-$a(0)=0, a(1)=1$; for $n>1$, $a(n) = a(n-1)+a(n-2)$, except when $a(n-1)$ is an odd prime, in which case $a(n) = a(n-1)-a(n-2)$.
+$a(0)=0, a(1)=1$; for $n>1$, $a(n) = a(n-1)+a(n-2)$, except when $a(n-1)$ is an odd prime, in
+which case $a(n) = a(n-1)-a(n-2)$.
 -/
 def a : ℕ → ℕ
 | 0 => 0
@@ -62,9 +64,13 @@ theorem a_4 : a 4 = 3 := by rfl
 theorem a_5 : a 5 = 1 := by rfl
 
 /--
-It is not known if the sequence contains any negative terms (which may happen if two primes are adjacent or separated by one other term).
+It is not known if the sequence contains any negative terms (which may happen if two primes are
+adjacent or separated by one other term).
 
-Formalization: Since the sequence is defined in $\mathbb{N}$, all terms are non-negative by definition. The conjecture's mathematical content is that whenever the subtraction rule $a(n+2) = a(n+1) - a(n)$ is applied, the result in $\mathbb{Z}$ is non-negative. In the context of $\mathbb{N}$ arithmetic, this is equivalent to asserting that $a(n+1) \ge a(n)$.
+Formalization: Since the sequence is defined in $\mathbb{N}$, all terms are non-negative by
+definition. The conjecture's mathematical content is that whenever the subtraction rule $a(n+2)
+= a(n+1) - a(n)$ is applied, the result in $\mathbb{Z}$ is non-negative. In the context of
+$\mathbb{N}$ arithmetic, this is equivalent to asserting that $a(n+1) \ge a(n)$.
 -/
 @[category research open, AMS 11]
 theorem monotonically_increasing_at_primes :

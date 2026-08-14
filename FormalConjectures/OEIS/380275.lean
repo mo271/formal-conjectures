@@ -19,7 +19,8 @@ import FormalConjecturesUtil
 /-!
 # Fourth power sum of $q$-factorial polynomial coefficients
 
-Sum of the fourth powers of the coefficients of $q$ in the $q$-factorials $[n]_q! = \prod_{j=1}^n \sum_{i=0}^{j-1} q^i$.
+Sum of the fourth powers of the coefficients of $q$ in the $q$-factorials $[n]_q! =
+\prod_{j=1}^n \sum_{i=0}^{j-1} q^i$.
 
 *References:*
 - [A380275](https://oeis.org/A380275)
@@ -88,10 +89,12 @@ lemma P_3 : P_q_factorial_poly 3 = 1 + 2 * X + 2 * X ^ 2 + X ^ 3 := by
   ring
 
 @[category API, AMS 11]
-lemma P_4 : P_q_factorial_poly 4 = 1 + 3 * X + 5 * X ^ 2 + 6 * X ^ 3 + 5 * X ^ 4 + 3 * X ^ 5 + X ^ 6 := by
+lemma P_4 :
+    P_q_factorial_poly 4 = 1 + 3 * X + 5 * X ^ 2 + 6 * X ^ 3 + 5 * X ^ 4 + 3 * X ^ 5 + X ^ 6 := by
   unfold P_q_factorial_poly
   have : Icc 1 4 = {1, 2, 3, 4} := rfl
-  rw [this, prod_insert (by decide), prod_insert (by decide), prod_insert (by decide), prod_singleton]
+  rw [this, prod_insert (by decide), prod_insert (by decide), prod_insert (by decide),
+      prod_singleton]
   have : range 1 = {0} := rfl
   rw [this, sum_singleton]
   have : range 2 = {0, 1} := rfl
@@ -134,10 +137,14 @@ theorem a_3 : a 3 = 34 := by
   rw [P_3]
   dsimp
   simp only [sum_range_succ]
-  have h0 : coeff (1 + 2 * X + 2 * X ^ 2 + X ^ 3 : Polynomial ℕ) 0 = 1 := by simp [coeff_one, coeff_X]
-  have h1 : coeff (1 + 2 * X + 2 * X ^ 2 + X ^ 3 : Polynomial ℕ) 1 = 2 := by simp [coeff_one, coeff_X]
-  have h2 : coeff (1 + 2 * X + 2 * X ^ 2 + X ^ 3 : Polynomial ℕ) 2 = 2 := by simp [coeff_one, coeff_X]
-  have h3 : coeff (1 + 2 * X + 2 * X ^ 2 + X ^ 3 : Polynomial ℕ) 3 = 1 := by simp [coeff_one, coeff_X]
+  have h0 : coeff (1 + 2 * X + 2 * X ^ 2 + X ^ 3 : Polynomial ℕ) 0 = 1 :=
+    by simp [coeff_one, coeff_X]
+  have h1 : coeff (1 + 2 * X + 2 * X ^ 2 + X ^ 3 : Polynomial ℕ) 1 = 2 :=
+    by simp [coeff_one, coeff_X]
+  have h2 : coeff (1 + 2 * X + 2 * X ^ 2 + X ^ 3 : Polynomial ℕ) 2 = 2 :=
+    by simp [coeff_one, coeff_X]
+  have h3 : coeff (1 + 2 * X + 2 * X ^ 2 + X ^ 3 : Polynomial ℕ) 3 = 1 :=
+    by simp [coeff_one, coeff_X]
   rw [h0, h1, h2, h3]
   norm_num
 
@@ -147,13 +154,34 @@ theorem a_4 : a 4 = 2710 := by
   rw [P_4]
   dsimp
   simp only [sum_range_succ]
-  have h0 : coeff (1 + 3 * X + 5 * X ^ 2 + 6 * X ^ 3 + 5 * X ^ 4 + 3 * X ^ 5 + X ^ 6 : Polynomial ℕ) 0 = 1 := by simp [coeff_one, coeff_X]
-  have h1 : coeff (1 + 3 * X + 5 * X ^ 2 + 6 * X ^ 3 + 5 * X ^ 4 + 3 * X ^ 5 + X ^ 6 : Polynomial ℕ) 1 = 3 := by simp [coeff_one, coeff_X]
-  have h2 : coeff (1 + 3 * X + 5 * X ^ 2 + 6 * X ^ 3 + 5 * X ^ 4 + 3 * X ^ 5 + X ^ 6 : Polynomial ℕ) 2 = 5 := by simp [coeff_one, coeff_X]
-  have h3 : coeff (1 + 3 * X + 5 * X ^ 2 + 6 * X ^ 3 + 5 * X ^ 4 + 3 * X ^ 5 + X ^ 6 : Polynomial ℕ) 3 = 6 := by simp [coeff_one, coeff_X]
-  have h4 : coeff (1 + 3 * X + 5 * X ^ 2 + 6 * X ^ 3 + 5 * X ^ 4 + 3 * X ^ 5 + X ^ 6 : Polynomial ℕ) 4 = 5 := by simp [coeff_one, coeff_X]
-  have h5 : coeff (1 + 3 * X + 5 * X ^ 2 + 6 * X ^ 3 + 5 * X ^ 4 + 3 * X ^ 5 + X ^ 6 : Polynomial ℕ) 5 = 3 := by simp [coeff_one, coeff_X]
-  have h6 : coeff (1 + 3 * X + 5 * X ^ 2 + 6 * X ^ 3 + 5 * X ^ 4 + 3 * X ^ 5 + X ^ 6 : Polynomial ℕ) 6 = 1 := by simp [coeff_one, coeff_X]
+  have h0 :
+      coeff
+        (1 + 3 * X + 5 * X ^ 2 + 6 * X ^ 3 + 5 * X ^ 4 + 3 * X ^ 5 + X ^ 6 : Polynomial ℕ) 0 = 1 :=
+    by simp [coeff_one, coeff_X]
+  have h1 :
+      coeff
+        (1 + 3 * X + 5 * X ^ 2 + 6 * X ^ 3 + 5 * X ^ 4 + 3 * X ^ 5 + X ^ 6 : Polynomial ℕ) 1 = 3 :=
+    by simp [coeff_one, coeff_X]
+  have h2 :
+      coeff
+        (1 + 3 * X + 5 * X ^ 2 + 6 * X ^ 3 + 5 * X ^ 4 + 3 * X ^ 5 + X ^ 6 : Polynomial ℕ) 2 = 5 :=
+    by simp [coeff_one, coeff_X]
+  have h3 :
+      coeff
+        (1 + 3 * X + 5 * X ^ 2 + 6 * X ^ 3 + 5 * X ^ 4 + 3 * X ^ 5 + X ^ 6 : Polynomial ℕ) 3 = 6 :=
+    by simp [coeff_one, coeff_X]
+  have h4 :
+      coeff
+        (1 + 3 * X + 5 * X ^ 2 + 6 * X ^ 3 + 5 * X ^ 4 + 3 * X ^ 5 + X ^ 6 : Polynomial ℕ) 4 = 5 :=
+    by simp [coeff_one, coeff_X]
+  have h5 :
+      coeff
+        (1 + 3 * X + 5 * X ^ 2 + 6 * X ^ 3 + 5 * X ^ 4 + 3 * X ^ 5 + X ^ 6 : Polynomial ℕ) 5 = 3 :=
+    by simp [coeff_one, coeff_X]
+  have h6 :
+      coeff
+        (1 + 3 * X + 5 * X ^ 2 + 6 * X ^ 3 + 5 * X ^ 4 + 3 * X ^ 5 + X ^ 6 : Polynomial ℕ) 6 = 1 :=
+    by simp [coeff_one, coeff_X]
   rw [h0, h1, h2, h3, h4, h5, h6]
   norm_num
 
@@ -168,21 +196,25 @@ noncomputable def A_k_n (k n : ℕ) : ℝ :=
   let max_degree : ℕ := n * (n - 1) / 2
   (Finset.range (max_degree + 1)).sum fun j : ℕ => ((P.coeff j : ℝ) ^ k)
 
-/-- The conjectured asymptotic formula for the sum of $k$-th powers of coefficients of the $q$-factorial.
-Note: this function is only relevant for $k>0$ and large $n$. -/
+/--
+The conjectured asymptotic formula for the sum of $k$-th powers of coefficients of the
+$q$-factorial. Note: this function is only relevant for $k>0$ and large $n$.
+-/
 noncomputable def q_factorial_asymptotic_term_func (k n : ℕ) : ℝ :=
   let k_r : ℝ := k
   let n_r : ℝ := n
   let k_minus_one_half := (k_r - 1) / 2
   -- Define Constant C_k
-  let c_k : ℝ := ((2 : ℝ) ^ k_minus_one_half * (3 : ℝ) ^ (k_r - 1)) / (sqrt k_r * Real.pi ^ k_minus_one_half)
+  let c_k : ℝ :=
+    ((2 : ℝ) ^ k_minus_one_half * (3 : ℝ) ^ (k_r - 1)) / (sqrt k_r * Real.pi ^ k_minus_one_half)
 
   -- Define the N-dependent term
   c_k * ((n.factorial : ℝ) ^ k_r / (n_r ^ (3 * k_minus_one_half)))
 
 /-- Conjecture: In general, sum of the k-th powers of the coefficients of q in the q-factorials
 is asymptotic to
-$$ 2^{\frac{k-1}{2}} \cdot 3^{k-1} \cdot n!^k / (\sqrt{k} \cdot \pi^{\frac{k-1}{2}} \cdot n^{\frac{3(k-1)}{2}}) $$
+$$ 2^{\frac{k-1}{2}} \cdot 3^{k-1} \cdot n!^k / (\sqrt{k} \cdot \pi^{\frac{k-1}{2}} \cdot
+   n^{\frac{3(k-1)}{2}}) $$
 We require $k > 0$ for the formula to be well-defined (due to $\sqrt{k}$).
 Note: Proved by Xinjun Wang (2026).
 -/

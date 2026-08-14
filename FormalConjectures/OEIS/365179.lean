@@ -19,7 +19,8 @@ import FormalConjecturesUtil
 /-!
 # Automorphism group orders of certain graphs
 
-$a(1) = 2$, and for $n \ge 2$, $a(n) = p^6$ if $p \equiv 2 \pmod 3$, and $p^7$ if $p = 3$ or $p \equiv 1 \pmod 3$,
+$a(1) = 2$, and for $n \ge 2$, $a(n) = p^6$ if $p \equiv 2 \pmod 3$, and $p^7$ if $p = 3$ or $p
+\equiv 1 \pmod 3$,
 where $p = p_n$ is the $n$-th prime.
 
 *References:*
@@ -31,7 +32,8 @@ open Nat Group Fintype MulAut
 namespace OeisA365179
 
 /--
-$a(1) = 2$; for $n \ge 2$, $a(n) = p^6$ if $p \equiv 2 \pmod 3$, and $p^7$ if $p = 3$ or $p \equiv 1 \pmod 3$.
+$a(1) = 2$; for $n \ge 2$, $a(n) = p^6$ if $p \equiv 2 \pmod 3$, and $p^7$ if $p = 3$ or $p
+\equiv 1 \pmod 3$.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
   match n with
@@ -84,7 +86,8 @@ theorem conjecture_1 (n : ℕ) (hn : 2 ≤ n) :
 universe u
 
 /--
-for $n \ge 2$, if $|\operatorname{Aut}(G)| = a(n)$, then $|G| = a(n)/p$, where $p = \operatorname{prime}(n)$.
+for $n \ge 2$, if $|\operatorname{Aut}(G)| = a(n)$, then $|G| = a(n)/p$, where $p =
+\operatorname{prime}(n)$.
 Moreover, $G$ is unique up to isomorphism if $p \equiv 2 \pmod 3$.
 -/
 @[category research open, AMS 11]

@@ -36,7 +36,8 @@ The sequence $a(n) = \frac{(9n)! (2n)! (3n/2)!}{(9n/2)! (4n)! (3n)! n!}$ for eve
 noncomputable def a (n : ℕ) : ℝ :=
   let n_r : ℝ := n
   (Real.Gamma (9 * n_r + 1) * Real.Gamma (2 * n_r + 1) * Real.Gamma (3 / 2 * n_r + 1)) /
-  (Real.Gamma (9 / 2 * n_r + 1) * Real.Gamma (4 * n_r + 1) * Real.Gamma (3 * n_r + 1) * Real.Gamma (n_r + 1))
+  (Real.Gamma (9 / 2 * n_r + 1) * Real.Gamma (4 * n_r + 1) *
+   Real.Gamma (3 * n_r + 1) * Real.Gamma (n_r + 1))
 
 
 @[category test, AMS 11]
@@ -44,7 +45,9 @@ theorem a_0 : a 0 = 1 := by unfold a; norm_num
 
 @[category test, AMS 11]
 theorem a_1 : a 1 = 128 := by
-  have h_eq : a 1 = (Real.Gamma 10 * Real.Gamma 3 * Real.Gamma (5/2)) / (Real.Gamma (11/2) * Real.Gamma 5 * Real.Gamma 4 * Real.Gamma 2) := by
+  have h_eq :
+      a 1 = (Real.Gamma 10 * Real.Gamma 3 * Real.Gamma (5/2)) /
+        (Real.Gamma (11/2) * Real.Gamma 5 * Real.Gamma 4 * Real.Gamma 2) := by
     unfold a; dsimp; congr 2 <;> congr 1 <;> congr 1 <;> norm_num
   rw [h_eq]
   have h1 : Real.Gamma (11/2) = (9/2) * (7/2) * (5/2) * Real.Gamma (5/2) := by
@@ -64,14 +67,18 @@ theorem a_1 : a 1 = 128 := by
   rw [h_int_10, h_int_3, h_int_5, h_int_4, h_int_2]
   have hG : Real.Gamma (5/2) ≠ 0 := ne_of_gt (by positivity)
   have Hnum : 362880 * 2 * Real.Gamma (5/2) = 725760 * Real.Gamma (5/2) := by ring
-  have Hden : (9/2 * (7/2) * (5/2) * Real.Gamma (5/2) * 24 * 6 * 1) = (5670 : ℝ) * Real.Gamma (5/2) := by ring
+  have Hden :
+      (9/2 * (7/2) * (5/2) * Real.Gamma (5/2) * 24 * 6 * 1) = (5670 : ℝ) * Real.Gamma (5/2) :=
+    by ring
   rw [Hnum, Hden]
   rw [mul_div_mul_right _ _ hG]
   norm_num
 
 @[category test, AMS 11]
 theorem a_2 : a 2 = 43758 := by
-  have h_eq : a 2 = (Real.Gamma 19 * Real.Gamma 5 * Real.Gamma 4) / (Real.Gamma 10 * Real.Gamma 9 * Real.Gamma 7 * Real.Gamma 3) := by
+  have h_eq :
+      a 2 = (Real.Gamma 19 * Real.Gamma 5 * Real.Gamma 4) /
+        (Real.Gamma 10 * Real.Gamma 9 * Real.Gamma 7 * Real.Gamma 3) := by
     unfold a; dsimp; congr 2 <;> congr 1 <;> congr 1 <;> norm_num
   rw [h_eq]
   have h_int_19 : Real.Gamma 19 = 6402373705728000 := by norm_num
@@ -86,10 +93,15 @@ theorem a_2 : a 2 = 43758 := by
 
 @[category test, AMS 11]
 theorem a_3 : a 3 = 17039360 := by
-  have h_eq : a 3 = (Real.Gamma 28 * Real.Gamma 7 * Real.Gamma (11/2)) / (Real.Gamma (29/2) * Real.Gamma 13 * Real.Gamma 10 * Real.Gamma 4) := by
+  have h_eq :
+      a 3 = (Real.Gamma 28 * Real.Gamma 7 * Real.Gamma (11/2)) /
+        (Real.Gamma (29/2) * Real.Gamma 13 * Real.Gamma 10 * Real.Gamma 4) := by
     unfold a; dsimp; congr 2 <;> congr 1 <;> congr 1 <;> norm_num
   rw [h_eq]
-  have h1 : Real.Gamma (29/2) = (27/2) * (25/2) * (23/2) * (21/2) * (19/2) * (17/2) * (15/2) * (13/2) * (11/2) * Real.Gamma (11/2) := by
+  have h1 :
+      Real.Gamma (29/2) =
+        (27/2) * (25/2) * (23/2) * (21/2) * (19/2) * (17/2) * (15/2) * (13/2) * (11/2) *
+        Real.Gamma (11/2) := by
     have r1 : (29/2 : ℝ) = 27/2 + 1 := by norm_num
     have r2 : (27/2 : ℝ) = 25/2 + 1 := by norm_num
     have r3 : (25/2 : ℝ) = 23/2 + 1 := by norm_num
@@ -117,8 +129,13 @@ theorem a_3 : a 3 = 17039360 := by
   have h_int_4 : Real.Gamma 4 = 6 := by norm_num
   rw [h_int_28, h_int_7, h_int_13, h_int_10, h_int_4]
   have hG : Real.Gamma (11/2) ≠ 0 := ne_of_gt (by positivity)
-  have Hnum : 10888869450418352160768000000 * 720 * Real.Gamma (11/2) = 7839986004301213555752960000000 * Real.Gamma (11/2) := by ring
-  have Hden : ((27/2) * (25/2) * (23/2) * (21/2) * (19/2) * (17/2) * (15/2) * (13/2) * (11/2) * Real.Gamma (11/2) * 479001600 * 362880 * 6) = (460110356509940136000000 : ℝ) * Real.Gamma (11/2) := by ring
+  have Hnum : 10888869450418352160768000000 * 720 * Real.Gamma (11/2) =
+      7839986004301213555752960000000 * Real.Gamma (11/2) :=
+    by ring
+  have Hden : ((27/2) * (25/2) * (23/2) * (21/2) * (19/2) * (17/2) * (15/2) * (13/2) * (11/2) *
+      Real.Gamma (11/2) * 479001600 * 362880 * 6) =
+      (460110356509940136000000 : ℝ) * Real.Gamma (11/2) :=
+    by ring
   rw [Hnum, Hden]
   rw [mul_div_mul_right _ _ hG]
   norm_num
@@ -136,7 +153,8 @@ theorem conjecture_1_integrality : ∀ (n : ℕ), a n ∈ Set.range (Int.cast : 
   sorry
 
 /--
-Conjecture 2: The supercongruences $a(n p^r) \equiv a(n p^{r-1}) \pmod{p^{3r}}$ hold for all primes $p \ge 5$ and all positive integers $n$ and $r$.
+Conjecture 2: The supercongruences $a(n p^r) \equiv a(n p^{r-1}) \pmod{p^{3r}}$ hold for all
+primes $p \ge 5$ and all positive integers $n$ and $r$.
 -/
 @[category research open, AMS 11]
 theorem conjecture_2_supercongruence

@@ -79,7 +79,8 @@ lemma a_zero_for_small (n : ℕ) (hn : n ≤ 11) : a n = 0 := by
       intro h
       exfalso
       exact Nat.infinite_setOf_prime h
-    have h_S (k : ℕ) : 6 ≤ Nat.nth Nat.Prime k + Nat.nth Nat.Prime (k + 1) + Nat.nth Nat.Prime (k + 2) := by
+    have h_S (k : ℕ) :
+        6 ≤ Nat.nth Nat.Prime k + Nat.nth Nat.Prime (k + 1) + Nat.nth Nat.Prime (k + 2) := by
       have hk := hp k
       have hk1 := hp (k+1)
       have hk2 := hp (k+2)

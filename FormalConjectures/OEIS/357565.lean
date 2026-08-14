@@ -40,7 +40,8 @@ def a (n : ℕ) : ℕ :=
 
 /--
 The generalized sequence $u(n, m)$ from the conjecture section:
-$u(n, m) = (m + 2) \sum_{k = 0}^{m \cdot n} \binom{n+k-1}{k}^2 + 2m \sum_{k = 0}^{m \cdot n} \binom{n+k-1}{k}^3$.
+$u(n, m) = (m + 2) \sum_{k = 0}^{m \cdot n} \binom{n+k-1}{k}^2 + 2m \sum_{k = 0}^{m \cdot n}
+\binom{n+k-1}{k}^3$.
 Note that $a(n) = a\_u(n, 1)$.
 -/
 def u (n m : ℕ) : ℕ :=
@@ -83,7 +84,8 @@ theorem conjecture_3 (m p : ℕ) (hm : m > 0) (hp : Nat.Prime p) (h_pge7 : p ≥
     (u p m) ≡ (u 1 m) [MOD (p ^ 5)] := by
   sorry
 /--
-$u(p^r) \equiv u(p^{r-1}) \pmod{p^{3r+3}}$ for $r \ge 2$, all primes $p \ge 3$, and all positive integers $m$.
+$u(p^r) \equiv u(p^{r-1}) \pmod{p^{3r+3}}$ for $r \ge 2$, all primes $p \ge 3$, and all
+positive integers $m$.
 -/
 @[category research open, AMS 11]
 theorem conjecture_4 (m p r : ℕ) (hm : m > 0) (hp : Nat.Prime p) (h_pge3 : p ≥ 3) (hr : r ≥ 2) :

@@ -19,7 +19,8 @@ import FormalConjecturesUtil
 /-!
 # Product of powers of Apéry numbers $A(n-1)^5 B(n)^6$
 
-The sequence is defined by $a(n) = A(n-1)^5 B(n)^6$, where $A(n)$ are the Apéry numbers for $\zeta(3)$
+The sequence is defined by $a(n) = A(n-1)^5 B(n)^6$, where $A(n)$ are the Apéry numbers for
+$\zeta(3)$
 (A005259) and $B(n)$ are the Apéry numbers for $\zeta(2)$ (A005258).
 
 *References:*

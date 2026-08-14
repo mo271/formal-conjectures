@@ -19,7 +19,8 @@ import FormalConjecturesUtil
 /-!
 # Smallest $n$-digit numbers with zeroless fourth powers
 
-$a(n)$ is the smallest $n$-digit number whose fourth power contains no zeros in its decimal expansion.
+$a(n)$ is the smallest $n$-digit number whose fourth power contains no zeros in its decimal
+expansion.
 
 *References:*
 - [A358340](https://oeis.org/A358340)
@@ -78,10 +79,14 @@ theorem a_4 : a 4 = 1027 := by
   interval_cases x <;> (revert hx; norm_num [is_zeroless, is_n_digit])
 
 /--
-It has been proved that there exist infinitely many zeroless squares and cubes but there is apparently no proof for 4th powers, 5th powers, etc.
+It has been proved that there exist infinitely many zeroless squares and cubes but there is
+apparently no proof for 4th powers, 5th powers, etc.
 
-Formalized as the conjecture that the set of natural numbers whose fourth power is zeroless is infinite.
-This is equivalent to the statement that the set $\{ m : ℕ \mid \text{is\_n\_digit}(m, n) \land \text{is\_zeroless}(m^4) \}$ is non-empty for all $n \ge 1$, ensuring $a(n)$ is defined for all $n$.
+Formalized as the conjecture that the set of natural numbers whose fourth power is zeroless is
+infinite.
+This is equivalent to the statement that the set $\{ m : ℕ \mid \text{is\_n\_digit}(m, n) \land
+\text{is\_zeroless}(m^4) \}$ is non-empty for all $n \ge 1$, ensuring $a(n)$ is defined for all
+$n$.
 -/
 @[category research open, AMS 11]
 theorem infinitely_many_zeroless_fourth_powers : Set.Infinite { m : ℕ | is_zeroless (m ^ 4) } := by

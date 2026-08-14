@@ -19,7 +19,8 @@ import FormalConjecturesUtil
 /-!
 # Arithmetic derivative equivalence sequence
 
-Lexicographically earliest infinite sequence such that $a(i) = a(j) \implies f(i) = f(j)$, where $f(n)$
+Lexicographically earliest infinite sequence such that $a(i) = a(j) \implies f(i) = f(j)$,
+where $f(n)$
 is defined using the arithmetic derivative $A003415(n)$ and its iteration $A085731(n)$.
 
 *References:*
@@ -30,7 +31,10 @@ open Nat List Finset
 namespace OeisA379240
 
 
-/-- A003415(n): The function $n \cdot \sum_{p \mid n} v_p(n)/p$, calculated as $\sum_{p \mid n} v_p(n) \cdot \frac{n}{p}$. -/
+/--
+A003415(n): The function $n \cdot \sum_{p \mid n} v_p(n)/p$, calculated as
+$\sum_{p \mid n} v_p(n) \cdot \frac{n}{p}$.
+-/
 def A003415 (n : ℕ) : ℕ :=
   if n = 0 then 0
   else (n.factorization.support).sum fun p => (n / p) * (n.factorization p)

@@ -80,7 +80,8 @@ lemma singleton_min' (x : ℕ) (s : Finset ℕ) (h : s = {x}) (hn : s.Nonempty) 
 
 @[category API, AMS 11]
 lemma digits_lt_10 {n : ℕ} (h : n < 10) (hn : 0 < n) : Nat.digits 10 n = [n] := by
-  rw [Nat.digits_def' (by decide : (1 : ℕ) < 10) hn, show n / 10 = 0 from Nat.div_eq_of_lt h, Nat.digits_zero]
+  rw [Nat.digits_def' (by decide : (1 : ℕ) < 10) hn, show n / 10 = 0 from Nat.div_eq_of_lt h,
+      Nat.digits_zero]
   rw [Nat.mod_eq_of_lt h]
 
 @[category API, AMS 11]

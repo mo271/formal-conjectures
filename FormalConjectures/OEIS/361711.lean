@@ -64,7 +64,8 @@ theorem a_4 : a 4 = 5 := by rfl
 theorem a_5 : a 5 = 126 := by rfl
 
 /--
-The supercongruence $a(p^k) \equiv a(p^{k-1}) \pmod{p^{3k}}$ holds for all primes $p \ge 5$ and positive integers $k$.
+The supercongruence $a(p^k) \equiv a(p^{k-1}) \pmod{p^{3k}}$ holds for all primes $p \ge 5$ and
+positive integers $k$.
 -/
 @[category research open, AMS 11]
 theorem conjecture (p : ℕ) (hp : Nat.Prime p) (h_geq_5 : 5 ≤ p) (k : ℕ) (hk : k > 0) :

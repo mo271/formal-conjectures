@@ -19,7 +19,8 @@ import FormalConjecturesUtil
 /-!
 # Linear combination of Apéry numbers $5 A(n) + 14 B(n-1)$
 
-The sequence is defined by $a(n) = 5 A(n) + 14 B(n-1)$, where $A(n)$ are the Apéry numbers for $\zeta(3)$
+The sequence is defined by $a(n) = 5 A(n) + 14 B(n-1)$, where $A(n)$ are the Apéry numbers for
+$\zeta(3)$
 (A005259) and $B(n)$ are the Apéry numbers for $\zeta(2)$ (A005258).
 
 *References:*

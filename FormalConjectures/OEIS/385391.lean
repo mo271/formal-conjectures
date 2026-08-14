@@ -19,7 +19,8 @@ import FormalConjecturesUtil
 /-!
 # Smallest integer with given count of self-power divisor congruences
 
-$a(n)$ is the smallest integer $k$ such that the number of divisors $d \mid k$ satisfying $d^d \equiv d \pmod k$ equals $n$.
+$a(n)$ is the smallest integer $k$ such that the number of divisors $d \mid k$ satisfying $d^d
+\equiv d \pmod k$ equals $n$.
 
 *References:*
 - [A385391](https://oeis.org/A385391)
@@ -84,8 +85,10 @@ theorem a_4 : a 4 = 12 := by
     · exact h⟩
 
 /--
-a(1) = A002110(0), a(2) = A002110(1), a(3) = A002110(2), a(6) = A002110(3), a(7) = A002110(4), a(10) = A002110(5), ...?
-This conjecture is formalized as a conjunction of the listed equalities, implying a general pattern related to A065295.
+a(1) = A002110(0), a(2) = A002110(1), a(3) = A002110(2), a(6) = A002110(3), a(7) = A002110(4),
+a(10) = A002110(5), ...?
+This conjecture is formalized as a conjunction of the listed equalities, implying a general
+pattern related to A065295.
 -/
 @[category research open, AMS 11]
 theorem a_eq_primorial :

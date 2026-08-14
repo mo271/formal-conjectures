@@ -40,7 +40,8 @@ termination_by l => l.length
 
 /--
 A381587 $T_n$: The $n$-th row of the irregular triangle, following the recurrence:
-$T_1=[1], T_2=[1], T_3=[2]$. For $n \ge 4$, $T_n = \text{Runs}(\text{Reverse}(T_{n-1})) \frown T_{n-1}$.
+$T_1=[1], T_2=[1], T_3=[2]$. For $n \ge 4$, $T_n = \text{Runs}(\text{Reverse}(T_{n-1})) \frown
+T_{n-1}$.
 $n$ is 1-indexed here.
 -/
 private def t : ℕ → List ℕ

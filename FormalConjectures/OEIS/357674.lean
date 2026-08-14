@@ -20,7 +20,8 @@ import FormalConjecturesUtil
 # Product of powers of binomial sums
 
 The sequence is defined by
-$$a(n) = \left( \sum_{k=0}^{2n} \binom{n+k-1}{k} \right)^4 \left( \sum_{k=0}^{2n} \binom{n+k-1}{k}^2 \right)^3$$
+$$a(n) = \left( \sum_{k=0}^{2n} \binom{n+k-1}{k} \right)^4
+  \left( \sum_{k=0}^{2n} \binom{n+k-1}{k}^2 \right)^3$$
 
 *References:*
 - [A357674](https://oeis.org/A357674)
@@ -31,7 +32,8 @@ namespace OeisA357674
 
 
 /--
-The sequence $a(n) = \left( \sum_{k=0}^{2n} \binom{n+k-1}{k} \right)^4 \left( \sum_{k=0}^{2n} \binom{n+k-1}{k}^2 \right)^3$.
+The sequence $a(n) = \left( \sum_{k=0}^{2n} \binom{n+k-1}{k} \right)^4 \left( \sum_{k=0}^{2n}
+\binom{n+k-1}{k}^2 \right)^3$.
 -/
 def a (n : ℕ) : ℕ :=
   let S1 : ℕ := Finset.sum (range (2 * n + 1)) (fun k => (n + k - 1).choose k)
@@ -40,7 +42,8 @@ def a (n : ℕ) : ℕ :=
 
 /--
 The general sequence $u(n, m)$ from conjecture 3.
-$u(n, m) = \left( \sum_{k = 0}^{m*n} \binom{n+k-1}{k} \right)^{2m} \cdot \left( \sum_{k = 0}^{m*n} \binom{n+k-1}{k}^2 \right)^{m+1}$.
+$u(n, m) = \left( \sum_{k = 0}^{m*n} \binom{n+k-1}{k} \right)^{2m} \cdot \left( \sum_{k =
+0}^{m*n} \binom{n+k-1}{k}^2 \right)^{m+1}$.
 Note that `a n = u n 2`.
 -/
 def u (n m : ℕ) : ℕ :=
@@ -86,7 +89,8 @@ theorem conjecture_2 (p r : ℕ) (hp : p.Prime) (hp3 : p ≥ 3) (hr : r ≥ 2) :
   sorry
 
 /--
-Let $m$ be a positive integer and set $u(n) = \left( \sum_{k = 0}^{m*n} \binom{n+k-1}{k} \right)^{2m} \cdot \left( \sum_{k = 0}^{m*n} \binom{n+k-1}{k}^2 \right)^{m+1}$.
+Let $m$ be a positive integer and set $u(n) = \left( \sum_{k = 0}^{m*n} \binom{n+k-1}{k}
+\right)^{2m} \cdot \left( \sum_{k = 0}^{m*n} \binom{n+k-1}{k}^2 \right)^{m+1}$.
 Then the sequence $\{u(n, m)\}$ satisfies the supercongruence $u(p, m) \equiv u(1, m) \pmod{p^5}$
 for all primes $p \ge 7$. This is the case $m = 2$.
 -/

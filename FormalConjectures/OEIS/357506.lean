@@ -19,7 +19,8 @@ import FormalConjecturesUtil
 /-!
 # Product of Apéry numbers $B(n)^3 B(n-1)$
 
-The sequence is defined by $a(n) = B(n)^3 B(n-1)$, where $B(n) = \sum_{k=0}^n \binom{n}{k}^2 \binom{n+k}{k}$
+The sequence is defined by $a(n) = B(n)^3 B(n-1)$, where $B(n) = \sum_{k=0}^n \binom{n}{k}^2
+\binom{n+k}{k}$
 are the Apéry numbers (A005258).
 
 *References:*
@@ -73,7 +74,8 @@ for $r \ge 2$, $a(p^r) \equiv a(p^{r-1}) \pmod{p^{3r+3}}$ for all primes $p \ge 
 -/
 @[category research open, AMS 11]
 theorem conjecture_2 :
-    ∀ (p r : ℕ), Nat.Prime p → 5 ≤ p → 2 ≤ r → a (p ^ r) ≡ a (p ^ (r - 1)) [MOD p ^ (3 * r + 3)] := by
+    ∀ (p r : ℕ), Nat.Prime p → 5 ≤ p → 2 ≤ r →
+      a (p ^ r) ≡ a (p ^ (r - 1)) [MOD p ^ (3 * r + 3)] := by
   sorry
 
 end OeisA357506

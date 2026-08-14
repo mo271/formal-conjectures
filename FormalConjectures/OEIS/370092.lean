@@ -31,7 +31,8 @@ namespace OeisA370092
 
 
 /--
-$a(0) = 1$, and $a(n) = (-1)^n + \frac{1}{2} \sum_{j=1}^n (1 - (-1)^j - (-2)^j) \binom{n}{j} a(n-j)$ for $n > 0$.
+$a(0) = 1$, and $a(n) = (-1)^n + \frac{1}{2} \sum_{j=1}^n (1 - (-1)^j - (-2)^j) \binom{n}{j}
+a(n-j)$ for $n > 0$.
 -/
 noncomputable def a (n : ℕ) : ℚ :=
   match n with
@@ -73,20 +74,24 @@ theorem a_4 : a 4 = 105 := by
 
 
 
-/-- A sequence `f` is eventually periodic with period `P` if after some index `N`, `f(n + P) = f(n)`. -/
+/--
+A sequence `f` is eventually periodic with period `P` if after some index `N`, `f(n + P) = f(n)`.
+-/
 def eventually_periodic {α : Type*} (f : ℕ → α) (P : ℕ) : Prop :=
   ∃ N : ℕ, ∀ n : ℕ, N ≤ n → f (n + P) = f n
 
 /--
 The reduction of `a n` modulo `k`. Since all terms of `a n` are integers, we take the
-numerator of the rational number representation, which is the integer value, and reduce it modulo `k`.
+numerator of the rational number representation, which is the integer value, and reduce it
+modulo `k`.
 This requires `k > 0`, which is guaranteed by `2 < k`.
 -/
 noncomputable def a_mod_k (k : ℕ) (n : ℕ) : ZMod k :=
   Int.cast (a n).num
 
 /--
-%C a Conjecture: Let k > 2 be a positive integer. The sequence obtained by reducing a(n) modulo k is eventually periodic with the period dividing phi(k) = A000010(k).
+%C a Conjecture: Let k > 2 be a positive integer. The sequence obtained by reducing a(n) modulo
+k is eventually periodic with the period dividing phi(k) = A000010(k).
 -/
 @[category research open, AMS 11]
 theorem bounds (k : ℕ) (hk : 2 < k) :

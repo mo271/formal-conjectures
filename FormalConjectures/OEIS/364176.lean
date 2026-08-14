@@ -55,7 +55,10 @@ theorem a_0 : a 0 = 1 := by
 @[category test, AMS 11]
 theorem a_1 : a 1 = 7168 := by
   unfold a
-  have h_eq : ( (((15 * 1:ℕ).factorial : ℝ) * Real.Gamma (5 * (1:ℕ) / 2 + 1) * ((2 * 1:ℕ).factorial : ℝ)) / (Real.Gamma (15 * (1:ℕ) / 2 + 1) * ((6 * 1:ℕ).factorial : ℝ) * ((5 * 1:ℕ).factorial : ℝ) * ((1:ℕ).factorial : ℝ)) ) = 7168 := by
+  have h_eq :
+      ( (((15 * 1:ℕ).factorial : ℝ) * Real.Gamma (5 * (1:ℕ) / 2 + 1) * ((2 * 1:ℕ).factorial : ℝ)) /
+        (Real.Gamma (15 * (1:ℕ) / 2 + 1) * ((6 * 1:ℕ).factorial : ℝ) * ((5 * 1:ℕ).factorial : ℝ) *
+         ((1:ℕ).factorial : ℝ)) ) = 7168 := by
     push_cast
     have h_num_gamma : Real.Gamma (5 * (1:ℝ) / 2 + 1) = Real.Gamma (7/2) := by norm_num
     have h_den_gamma : Real.Gamma (15 * (1:ℝ) / 2 + 1) = Real.Gamma (17/2) := by norm_num
@@ -66,14 +69,22 @@ theorem a_1 : a 1 = 7168 := by
       have r3 : (13/2 : ℝ) = 11/2 + 1 := by norm_num
       have r4 : (11/2 : ℝ) = 9/2 + 1 := by norm_num
       have r5 : (9/2 : ℝ) = 7/2 + 1 := by norm_num
-      rw [r1, Real.Gamma_add_one (by norm_num), r2, Real.Gamma_add_one (by norm_num), r3, Real.Gamma_add_one (by norm_num), r4, Real.Gamma_add_one (by norm_num), r5, Real.Gamma_add_one (by norm_num)]
+      rw [r1, Real.Gamma_add_one (by norm_num), r2, Real.Gamma_add_one (by norm_num), r3,
+          Real.Gamma_add_one (by norm_num), r4, Real.Gamma_add_one (by norm_num), r5,
+          Real.Gamma_add_one (by norm_num)]
       ring
 
     have hG : Real.Gamma (7/2) ≠ 0 := ne_of_gt (by positivity)
     have Hden_sub : (15/2 * 13/2 * 11/2 * 9/2 * 7/2) = (135135/32 : ℝ) := by norm_num
-    have h_eval : (1307674368000 * Real.Gamma (7/2) * 2) / ((135135/32 * Real.Gamma (7/2)) * 720 * 120 * 1) = 7168 := by
-      have Hnum : 1307674368000 * Real.Gamma (7/2) * 2 = (2615348736000 : ℝ) * Real.Gamma (7/2) := by ring
-      have Hden : ((135135/32) * Real.Gamma (7/2)) * 720 * 120 * 1 = ((135135/32 * 720 * 120 * 1) : ℝ) * Real.Gamma (7/2) := by ring
+    have h_eval :
+        (1307674368000 * Real.Gamma (7/2) * 2) /
+        ((135135/32 * Real.Gamma (7/2)) * 720 * 120 * 1) = 7168 := by
+      have Hnum : 1307674368000 * Real.Gamma (7/2) * 2 = (2615348736000 : ℝ) * Real.Gamma (7/2) :=
+        by ring
+      have Hden :
+        ((135135/32) * Real.Gamma (7/2)) * 720 * 120 * 1 =
+        ((135135/32 * 720 * 120 * 1) : ℝ) * Real.Gamma (7/2) :=
+        by ring
       rw [Hnum, Hden]
       rw [mul_div_mul_right _ _ hG]
       norm_num
@@ -95,12 +106,18 @@ theorem a_2 : a 2 = 168043980 := by unfold a; norm_num
 @[category test, AMS 11]
 theorem a_3 : a 3 = 4488240824320 := by
   unfold a
-  have h_eq : ( (((15 * 3:ℕ).factorial : ℝ) * Real.Gamma (5 * (3:ℕ) / 2 + 1) * ((2 * 3:ℕ).factorial : ℝ)) / (Real.Gamma (15 * (3:ℕ) / 2 + 1) * ((6 * 3:ℕ).factorial : ℝ) * ((5 * 3:ℕ).factorial : ℝ) * ((3:ℕ).factorial : ℝ)) ) = 4488240824320 := by
+  have h_eq :
+      ( (((15 * 3:ℕ).factorial : ℝ) * Real.Gamma (5 * (3:ℕ) / 2 + 1) * ((2 * 3:ℕ).factorial : ℝ)) /
+        (Real.Gamma (15 * (3:ℕ) / 2 + 1) * ((6 * 3:ℕ).factorial : ℝ) * ((5 * 3:ℕ).factorial : ℝ) *
+         ((3:ℕ).factorial : ℝ)) ) = 4488240824320 := by
     push_cast
     have h_num_gamma : Real.Gamma (5 * (3:ℝ) / 2 + 1) = Real.Gamma (17/2) := by norm_num
     have h_den_gamma : Real.Gamma (15 * (3:ℝ) / 2 + 1) = Real.Gamma (47/2) := by norm_num
     rw [h_num_gamma, h_den_gamma]
-    have h1 : Real.Gamma (47/2) = 45/2 * 43/2 * 41/2 * 39/2 * 37/2 * 35/2 * 33/2 * 31/2 * 29/2 * 27/2 * 25/2 * 23/2 * 21/2 * 19/2 * 17/2 * Real.Gamma (17/2) := by
+    have h1 :
+        Real.Gamma (47/2) =
+          45/2 * 43/2 * 41/2 * 39/2 * 37/2 * 35/2 * 33/2 * 31/2 * 29/2 * 27/2 * 25/2 * 23/2 *
+          21/2 * 19/2 * 17/2 * Real.Gamma (17/2) := by
       have r1 : (47/2 : ℝ) = 45/2 + 1 := by norm_num
       have r2 : (45/2 : ℝ) = 43/2 + 1 := by norm_num
       have r3 : (43/2 : ℝ) = 41/2 + 1 := by norm_num
@@ -116,18 +133,42 @@ theorem a_3 : a 3 = 4488240824320 := by
       have r13 : (23/2 : ℝ) = 21/2 + 1 := by norm_num
       have r14 : (21/2 : ℝ) = 19/2 + 1 := by norm_num
       have r15 : (19/2 : ℝ) = 17/2 + 1 := by norm_num
-      rw [r1, Real.Gamma_add_one (by norm_num), r2, Real.Gamma_add_one (by norm_num), r3, Real.Gamma_add_one (by norm_num), r4, Real.Gamma_add_one (by norm_num), r5, Real.Gamma_add_one (by norm_num), r6, Real.Gamma_add_one (by norm_num), r7, Real.Gamma_add_one (by norm_num), r8, Real.Gamma_add_one (by norm_num), r9, Real.Gamma_add_one (by norm_num), r10, Real.Gamma_add_one (by norm_num), r11, Real.Gamma_add_one (by norm_num), r12, Real.Gamma_add_one (by norm_num), r13, Real.Gamma_add_one (by norm_num), r14, Real.Gamma_add_one (by norm_num), r15, Real.Gamma_add_one (by norm_num)]
+      rw [r1, Real.Gamma_add_one (by norm_num), r2, Real.Gamma_add_one (by norm_num), r3,
+          Real.Gamma_add_one (by norm_num), r4, Real.Gamma_add_one (by norm_num), r5,
+          Real.Gamma_add_one (by norm_num), r6, Real.Gamma_add_one (by norm_num), r7,
+          Real.Gamma_add_one (by norm_num), r8, Real.Gamma_add_one (by norm_num), r9,
+          Real.Gamma_add_one (by norm_num), r10, Real.Gamma_add_one (by norm_num), r11,
+          Real.Gamma_add_one (by norm_num), r12, Real.Gamma_add_one (by norm_num), r13,
+          Real.Gamma_add_one (by norm_num), r14, Real.Gamma_add_one (by norm_num), r15,
+          Real.Gamma_add_one (by norm_num)]
       ring
 
     have hG : Real.Gamma (17/2) ≠ 0 := ne_of_gt (by positivity)
-    have Hden_sub : (45/2 * 43/2 * 41/2 * 39/2 * 37/2 * 35/2 * 33/2 * 31/2 * 29/2 * 27/2 * 25/2 * 23/2 * 21/2 * 19/2 * 17/2) = (12517749576658530579375/32768 : ℝ) := by norm_num
-    have h_eval : (119622220865480194561963161495657715064383733760000000000 * Real.Gamma (17/2) * 720) / ((12517749576658530579375/32768 * Real.Gamma (17/2)) * 6402373705728000 * 1307674368000 * 6) = 4488240824320 := by
-      have Hnum : 119622220865480194561963161495657715064383733760000000000 * Real.Gamma (17/2) * 720 = (86127999023145740084613476276873554846356288307200000000000 : ℝ) * Real.Gamma (17/2) := by ring
-      have Hden : ((12517749576658530579375/32768) * Real.Gamma (17/2)) * 6402373705728000 * 1307674368000 * 6 = ((12517749576658530579375/32768 * 6402373705728000 * 1307674368000 * 6) : ℝ) * Real.Gamma (17/2) := by ring
+    have Hden_sub :
+        (45/2 * 43/2 * 41/2 * 39/2 * 37/2 * 35/2 * 33/2 * 31/2 * 29/2 * 27/2 * 25/2 * 23/2 * 21/2 *
+         19/2 * 17/2) = (12517749576658530579375/32768 : ℝ) :=
+      by norm_num
+    have h_eval :
+        (119622220865480194561963161495657715064383733760000000000 * Real.Gamma (17/2) * 720) /
+        ((12517749576658530579375/32768 * Real.Gamma (17/2)) * 6402373705728000 *
+         1307674368000 * 6) =
+        4488240824320 := by
+      have Hnum :
+        119622220865480194561963161495657715064383733760000000000 * Real.Gamma (17/2) * 720 =
+          (86127999023145740084613476276873554846356288307200000000000 : ℝ) * Real.Gamma (17/2) :=
+        by ring
+      have Hden :
+        ((12517749576658530579375/32768) * Real.Gamma (17/2)) * 6402373705728000 *
+        1307674368000 * 6 =
+          ((12517749576658530579375/32768 * 6402373705728000 * 1307674368000 * 6) : ℝ) *
+          Real.Gamma (17/2) :=
+        by ring
       rw [Hnum, Hden]
       rw [mul_div_mul_right _ _ hG]
       norm_num
-    have hf15 : (((45 : ℕ).factorial : ℝ)) = 119622220865480194561963161495657715064383733760000000000 := by norm_num
+    have hf15 : (((45 : ℕ).factorial : ℝ)) =
+        119622220865480194561963161495657715064383733760000000000 :=
+      by norm_num
     have hf2 : (((6 : ℕ).factorial : ℝ)) = 720 := by norm_num
     have hf6 : (((18 : ℕ).factorial : ℝ)) = 6402373705728000 := by norm_num
     have hf5 : (((15 : ℕ).factorial : ℝ)) = 1307674368000 := by norm_num
@@ -151,7 +192,8 @@ theorem conjecture_1_integrality : ∀ (n : ℕ), a n ∈ Set.range (Int.cast : 
   sorry
 
 /--
-Conjecture 2: The supercongruences $a(n p^r) \equiv a(n p^{r-1}) \pmod{p^{3r}}$ hold for all primes $p \ge 5$ and all positive integers $n$ and $r$.
+Conjecture 2: The supercongruences $a(n p^r) \equiv a(n p^{r-1}) \pmod{p^{3r}}$ hold for all
+primes $p \ge 5$ and all positive integers $n$ and $r$.
 -/
 @[category research open, AMS 11]
 theorem conjecture_2_supercongruence
@@ -162,7 +204,8 @@ theorem conjecture_2_supercongruence
   let k_r_minus_1 := n * p ^ (r - 1)
   -- Define the modulus as a real number
   let modulus : ℝ := (p ^ (3 * r)).cast
-  -- The premise is the conjectural integrality of the two relevant terms, i.e., they are in the image of Int.cast
+  -- The premise is the conjectural integrality of the two relevant terms,
+  -- i.e., they are in the image of Int.cast
   (a k_r ∈ Set.range (Int.cast : ℤ → ℝ)) ∧ (a k_r_minus_1 ∈ Set.range (Int.cast : ℤ → ℝ)) →
   -- The conclusion is the divisibility condition: modulus divides the difference.
   -- This is formalized as the quotient being an integer.

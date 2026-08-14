@@ -61,7 +61,8 @@ of $n$ regular pentagrams.
 axiom number_of_regions {n : ℕ} (C : pentagram_configuration n) : ℕ
 
 /--
-a(n) is the maximum number of regions that can be formed in the plane by drawing n regular pentagrams with any radii and any centers.
+a(n) is the maximum number of regions that can be formed in the plane by drawing n regular
+pentagrams with any radii and any centers.
 The "maximum" is formalized as the supremum of the set of all possible region counts.
 -/
 @[category research open, AMS 11]
