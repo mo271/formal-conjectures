@@ -56,7 +56,7 @@ theorem a_0 : a 0 = 1 := by
 theorem a_1 : a 1 = 7168 := by sorry
 
 @[category test, AMS 11]
-theorem a_2 : a 2 = 168043980 := by sorry
+theorem a_2 : a 2 = 168043980 := by unfold a; norm_num
 
 @[category test, AMS 11]
 theorem a_3 : a 3 = 4488240824320 := by sorry

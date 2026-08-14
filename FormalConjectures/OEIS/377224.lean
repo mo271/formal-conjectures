@@ -27,6 +27,7 @@ with $y(5y+1) \le z(5z+1)$.
 -/
 open Int Finset
 
+set_option maxRecDepth 1000000
 namespace OeisA377224
 
 
@@ -74,10 +75,10 @@ theorem a_1 : a 1 = 0 := by decide
 theorem a_2 : a 2 = 1 := by decide
 
 @[category test, AMS 11]
-theorem a_3 : a 3 = 1 := by sorry
+theorem a_3 : a 3 = 1 := by decide
 
 @[category test, AMS 11]
-theorem a_4 : a 4 = 2 := by sorry
+theorem a_4 : a 4 = 2 := by decide
 
 /--
 a(n) = 0 only for n = 1.

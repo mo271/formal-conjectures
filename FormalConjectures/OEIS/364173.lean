@@ -40,8 +40,7 @@ noncomputable def a (n : ℕ) : ℝ :=
 
 
 @[category test, AMS 11]
-theorem a_0 : a 0 = 1 := by
-  sorry
+theorem a_0 : a 0 = 1 := by unfold a; norm_num
 
 @[category test, AMS 11]
 theorem a_1 : a 1 = 128 := by

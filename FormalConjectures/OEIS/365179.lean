@@ -48,10 +48,10 @@ noncomputable def a (n : ℕ) : ℕ :=
 theorem a_1 : a 1 = 2 := by rfl
 
 @[category test, AMS 11]
-theorem a_2 : a 2 = 729 := by sorry
+theorem a_2 : a 2 = 2187 := by unfold a; norm_num
 
 @[category test, AMS 11]
-theorem a_3 : a 3 = 15625 := by sorry
+theorem a_3 : a 3 = 15625 := by unfold a; norm_num
 
 /-- The $n$-th prime number, where $\text{prime}(1)=2$. -/
 noncomputable def prime_of_index (n : ℕ) : ℕ :=

@@ -26,6 +26,7 @@ $a(n)$ is the number of representations of $12n-1$ in the form $pq + pr + qr$ wi
 -/
 open Nat Finset
 
+set_option maxRecDepth 1000000
 namespace OeisA369462
 
 
