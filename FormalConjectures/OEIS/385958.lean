@@ -61,15 +61,6 @@ noncomputable def a (n : ℕ) : ℕ :=
     largest_prime_divisor_property (b (n - 1))
   else 0
 
-/--
-Conjecture: Does this sequence contain all odd primes?
-Formalization: For every odd prime $p$, there exists $n \in \mathbb{N}^+$ such that $a(n) = p$.
--/
-@[category research open, AMS 11]
-theorem odd_primes_appear : answer(sorry) ↔ ∀ (p : ℕ), Nat.Prime p → p ≠ 2 → ∃ (n : ℕ+), a n = p := by
-  sorry
-
-
 @[category API, AMS 11]
 lemma max_2_3 : (Finset.max ({2, 3} : Finset ℕ)) = some 3 := by
   rw [Finset.max_insert, Finset.max_singleton]
@@ -221,5 +212,13 @@ theorem a_4 : a 4 = 5 := by unfold a; rw [b_3, prop_4]; rfl
 
 @[category test, AMS 11]
 theorem a_5 : a 5 = 13 := by unfold a; rw [b_4, prop_6]; rfl
+
+/--
+Conjecture: Does this sequence contain all odd primes?
+Formalization: For every odd prime $p$, there exists $n \in \mathbb{N}^+$ such that $a(n) = p$.
+-/
+@[category research open, AMS 11]
+theorem odd_primes_appear : answer(sorry) ↔ ∀ (p : ℕ), Nat.Prime p → p ≠ 2 → ∃ (n : ℕ+), a n = p := by
+  sorry
 
 end OeisA385958

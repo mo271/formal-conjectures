@@ -41,17 +41,6 @@ def a (n : ℕ) : ℤ :=
       let term2 : ℕ := (n - k - 1).choose (n - 2 * k)
       sign * (term1 : ℤ) * (term2 : ℤ))
 
-/--
-Conjecture: the stronger supercongruences $a(n \cdot p^k) \equiv a(n \cdot p^{k-1}) \pmod{p^{2k}}$
-hold for all primes $p \ge 5$ and all positive integers $n$ and $k$.
--/
-@[category research open, AMS 11]
-theorem supercongruence :
-  ∀ (p : ℕ), Nat.Prime p → p ≥ 5 →
-  ∀ (n k : ℕ), n > 0 → k > 0 →
-  a (n * p ^ k) ≡ a (n * p ^ (k - 1)) [ZMOD (p ^ (2 * k) : ℤ)] :=
-by sorry
-
 @[category test, AMS 11]
 theorem a_0 : a 0 = 1 := by rfl
 
@@ -66,5 +55,16 @@ theorem a_3 : a 3 = -3 := by rfl
 
 @[category test, AMS 11]
 theorem a_4 : a 4 = 6 := by rfl
+
+/--
+Conjecture: the stronger supercongruences $a(n \cdot p^k) \equiv a(n \cdot p^{k-1}) \pmod{p^{2k}}$
+hold for all primes $p \ge 5$ and all positive integers $n$ and $k$.
+-/
+@[category research open, AMS 11]
+theorem supercongruence :
+  ∀ (p : ℕ), Nat.Prime p → p ≥ 5 →
+  ∀ (n k : ℕ), n > 0 → k > 0 →
+  a (n * p ^ k) ≡ a (n * p ^ (k - 1)) [ZMOD (p ^ (2 * k) : ℤ)] :=
+by sorry
 
 end OeisA386548

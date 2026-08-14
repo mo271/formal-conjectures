@@ -69,17 +69,6 @@ The minimized zeroless factorial function $a(n)$.
 noncomputable def a (n : ℕ) : ℕ :=
   (reachable_zeroless_factorials n).min' (reachable_nonempty n)
 
-/--
-Conjecture from OEIS a: Is this sequence bounded?
-Formalization of the affirmative claim: The sequence `a` is bounded.
-The sequence $a(n)$ is bounded if there exists an upper bound $B$ in $\mathbb{N}$
-such that $a(n) \leq B$ for all $n$.
--/
-@[category research open, AMS 11]
-theorem is_bounded : ∃ B : ℕ, ∀ n : ℕ, a n ≤ B := by
-  sorry
-
-
 @[category API, AMS 11]
 lemma singleton_min' (x : ℕ) (s : Finset ℕ) (h : s = {x}) (hn : s.Nonempty) : s.min' hn = x := by
   have hmem : x ∈ s := by rw [h]; exact Finset.mem_singleton_self x
@@ -168,5 +157,15 @@ theorem a_3 : a 3 = 6 := singleton_min' 6 _ reachable_3 _
 
 @[category test, AMS 11]
 theorem a_4 : a 4 = 24 := singleton_min' 24 _ reachable_4 _
+
+/--
+Conjecture from OEIS a: Is this sequence bounded?
+Formalization of the affirmative claim: The sequence `a` is bounded.
+The sequence $a(n)$ is bounded if there exists an upper bound $B$ in $\mathbb{N}$
+such that $a(n) \leq B$ for all $n$.
+-/
+@[category research open, AMS 11]
+theorem is_bounded : ∃ B : ℕ, ∀ n : ℕ, a n ≤ B := by
+  sorry
 
 end OeisA374265

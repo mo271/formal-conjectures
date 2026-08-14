@@ -34,6 +34,21 @@ The sequence $a(n) = \sum_{k=0}^{n-1} \binom{n+k-1}{k}^3$.
 def a (n : ℕ) : ℕ :=
   Finset.sum (Finset.range n) fun k => (Nat.multichoose n k) ^ 3
 
+@[category test, AMS 11]
+theorem a_0 : a 0 = 0 := by rfl
+
+@[category test, AMS 11]
+theorem a_1 : a 1 = 1 := by simp [a, Nat.multichoose_eq]
+
+@[category test, AMS 11]
+theorem a_2 : a 2 = 9 := by simp [a, Nat.multichoose_eq, Finset.sum_range_succ]
+
+@[category test, AMS 11]
+theorem a_3 : a 3 = 244 := by simp [a, Nat.multichoose_eq, Finset.sum_range_succ]; decide
+
+@[category test, AMS 11]
+theorem a_4 : a 4 = 9065 := by simp [a, Nat.multichoose_eq, Finset.sum_range_succ]; decide
+
 /--
 The generalized sequence $b_m(n) = \sum_{k = 0}^{n-1} \binom{n+k-1}{k}^{2m+1}$.
 -/
@@ -61,21 +76,5 @@ $b_m(p^r) \equiv b_m(p^{r-1}) \pmod{p^{3r+2m+1}}$ holds for all primes $p \ge 2m
 theorem conjecture_2b (m : ℕ) (hm : 0 < m) (r : ℕ) (hr : 2 ≤ r) (p : ℕ) (hp : Nat.Prime p) :
   p ≥ 2 * m + 5 → b m (p^r) ≡ b m (p^(r - 1)) [MOD p ^ (3 * r + 2 * m + 1)] :=
 by sorry
-
-
-@[category test, AMS 11]
-theorem a_0 : a 0 = 0 := by rfl
-
-@[category test, AMS 11]
-theorem a_1 : a 1 = 1 := by simp [a, Nat.multichoose_eq]
-
-@[category test, AMS 11]
-theorem a_2 : a 2 = 9 := by simp [a, Nat.multichoose_eq, Finset.sum_range_succ]
-
-@[category test, AMS 11]
-theorem a_3 : a 3 = 244 := by simp [a, Nat.multichoose_eq, Finset.sum_range_succ]; decide
-
-@[category test, AMS 11]
-theorem a_4 : a 4 = 9065 := by simp [a, Nat.multichoose_eq, Finset.sum_range_succ]; decide
 
 end OeisA375178

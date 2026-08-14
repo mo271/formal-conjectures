@@ -83,6 +83,30 @@ Lexicographically earliest infinite sequence preserving the equivalence relation
 def a (n : ℕ) : ℕ :=
   rgs_transform f n
 
+@[category test, AMS 11]
+theorem a_1 : a 1 = 1 := by decide +native
+
+@[category test, AMS 11]
+theorem a_2 : a 2 = 2 := by decide +native
+
+@[category test, AMS 11]
+theorem a_3 : a 3 = 2 := by decide +native
+
+@[category test, AMS 11]
+theorem a_4 : a 4 = 3 := by decide +native
+
+@[category test, AMS 11]
+theorem a_5 : a 5 = 2 := by decide +native
+
+@[category test, AMS 11]
+theorem a_6 : a 6 = 4 := by decide +native
+
+@[category test, AMS 11]
+theorem a_7 : a 7 = 2 := by decide +native
+
+@[category test, AMS 11]
+theorem a_8 : a 8 = 5 := by decide +native
+
 /--
 Auxiliary function for the conjectured RGS triple.
 -/
@@ -108,30 +132,5 @@ differ from each other.
 @[category research open, AMS 11]
 theorem a_eq_rgs_transform (n : ℕ) : a n = A379240_conjecture n := by
   sorry
-
-
-@[category test, AMS 11]
-theorem a_1 : a 1 = 1 := by decide +native
-
-@[category test, AMS 11]
-theorem a_2 : a 2 = 2 := by decide +native
-
-@[category test, AMS 11]
-theorem a_3 : a 3 = 2 := by decide +native
-
-@[category test, AMS 11]
-theorem a_4 : a 4 = 3 := by decide +native
-
-@[category test, AMS 11]
-theorem a_5 : a 5 = 2 := by decide +native
-
-@[category test, AMS 11]
-theorem a_6 : a 6 = 4 := by decide +native
-
-@[category test, AMS 11]
-theorem a_7 : a 7 = 2 := by decide +native
-
-@[category test, AMS 11]
-theorem a_8 : a 8 = 5 := by decide +native
 
 end OeisA379240
