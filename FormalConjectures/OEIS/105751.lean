@@ -84,7 +84,7 @@ Moll's conjecture 5.5 extends to this sequence and takes the form:
 (ii) for the other primes of type $2$, the p-adic valuation
 $\nu_p(a(n)) \sim n/(p - 1)$ as $n \rightarrow \infty$.
 
-(Type 2 primes consists of primes $p \equiv 1 \pmod 4$)
+(Type 2 primes consists of primes p == 1 (mod 4))
 -/
 @[category research open, AMS 11]
 theorem conjecture.variants.moll_p_mod_4_eq_1 {p : ℕ} (hp : p.Prime) (h_mod : p % 4 = 1) :

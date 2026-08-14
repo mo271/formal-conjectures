@@ -27,7 +27,6 @@ It is conjectured that $a(n)$ are integers.
 *References:*
 - [A368692](https://oeis.org/A368692)
 - [arxiv/2605.22763](https://arxiv.org/abs/2605.22763) *Advancing Mathematics Research with AI-Driven Formal Proof Search* by George Tsoukalas et al.
-- [arxiv/2001.03296](https://arxiv.org/abs/2001.03296) *On the integrality of hypergeometric series whose coefficients are factorial ratios* by Alan Adolphson and Steven Sperber
 -/
 
 namespace OeisA368692

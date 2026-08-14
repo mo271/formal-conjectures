@@ -129,10 +129,10 @@ theorem general_divisibility (r : ℕ) (hr : 1 ≤ r) :
   sorry
 
 /--
-Supercongruence: "$a(p^k) \equiv a(p^{k-1}) \pmod{p^{3k}}$ for any prime $p \ge 5$ and any positive
+Supercongruence: "a(p^k) == a(p^(k-1)) ( mod p^(3*k) ) for any prime p >= 5 and any positive
 integer k." - _Peter Bala_, Jan 24 2020
 
-More generally, "the congruences $a(n p^k) \equiv a(n p^{k-1}) \pmod{p^{3k}}$ may hold for any
+More generally, "the congruences a(n*p^k) == a(n*p^(k-1)) ( mod p^(3*k) ) may hold for any
 prime p >= 5 and any positive integers n and k."
 -/
 @[category research open, AMS 11]

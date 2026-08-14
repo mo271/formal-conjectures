@@ -89,7 +89,7 @@ noncomputable def u (m : ℕ) (n : ℕ) : ℕ :=
     ((n.choose k : ℚ) ^ 2 * ((n + k).choose k : ℚ) ^ 2) / k ^ (2 * m + 1) |>.num.natAbs
 
 /--
-We conjecture that $u(p-1) \equiv 0 \pmod{p^4}$ for all primes $p$,
+We conjecture that $u(p-1) == 0 (mod p^4)$ for all primes $p$,
 with a finite number of exceptions that depend on $m$.
 -/
 @[category research open, AMS 11]

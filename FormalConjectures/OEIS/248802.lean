@@ -63,7 +63,7 @@ lemma a_4 : a 4 = 262147 := by native_decide
 
 
 /--
-$a(10n+2) = 67$ for $n \ge 0$. - _Chai Wah Wu_, Oct 21 2019
+Conjecture 1: $a(10n+2) = 67$ for $n \ge 0$. - _Chai Wah Wu_, Oct 21 2019
 
 A formal proof has been found with the methods described in
 [arxiv/2605.22763](https://arxiv.org/abs/2605.22763).
@@ -75,7 +75,7 @@ theorem a_ten_mul_add_two_eq (n : ℕ) : a (10 * n + 2) = 67 := by
 
 
 /--
-$a(58n+26) = 1399$ for $n \ge 0$ and when it is not covered by Conjectures 1-3. - _Chai Wah Wu_, Oct 21 2019
+Conjecture 4: $a(58n+26) = 1399$ for $n \ge 0$ and when it is not covered by Conjectures 1-3. - _Chai Wah Wu_, Oct 21 2019
 
 A formal proof has been found with the methods described in
 [arxiv/2605.22763](https://arxiv.org/abs/2605.22763).

@@ -20,7 +20,7 @@ import FormalConjecturesUtil
 # Numerator of $\sum_{k=1}^n 2^k/k$.
 
 Conjecture: for $n > 3$,
-$\textrm{numerator}(-2/n + \sum_{k=1}^{n} \frac{2^k}{k}) \equiv 0 \pmod{n^2}$
+$\textrm{numerator}(-2/n + \sum_{k=1}^{n} \frac{2^k}{k}) == 0 (\textrm{mod} n^2)$
 if and only if n is prime.
 
 *References:*
@@ -66,7 +66,7 @@ noncomputable def ratExpression (n : ℕ) : ℚ :=
 
 /--
 Conjecture: for $n > 3$,
-$\textrm{numerator}(-2/n + \sum_{k=1}^{n} \frac{2^k}{k}) \equiv 0 \pmod{n^2}$
+$\textrm{numerator}(-2/n + \sum_{k=1}^{n} \frac{2^k}{k}) == 0 (\textrm{mod} n^2)$
 if and only if n is prime.
 -/
 @[category research open, AMS 11]
