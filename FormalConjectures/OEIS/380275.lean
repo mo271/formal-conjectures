@@ -50,14 +50,81 @@ noncomputable def a (n : ℕ) : ℕ :=
   Finset.sum (Finset.range (max_degree + 1)) fun k => (P.coeff k) ^ 4
 
 
+lemma P_0 : P_q_factorial_poly 0 = 1 := by
+  unfold P_q_factorial_poly; rfl
+
+lemma P_1 : P_q_factorial_poly 1 = 1 := by
+  unfold P_q_factorial_poly
+  have : Icc 1 1 = {1} := rfl
+  rw [this, prod_singleton]
+  have : range 1 = {0} := rfl
+  rw [this, sum_singleton]
+  simp
+
+lemma P_2 : P_q_factorial_poly 2 = 1 + X := by
+  unfold P_q_factorial_poly
+  have : Icc 1 2 = {1, 2} := rfl
+  rw [this, prod_insert (by decide), prod_singleton]
+  have : range 1 = {0} := rfl
+  rw [this, sum_singleton]
+  have : range 2 = {0, 1} := rfl
+  rw [this, sum_insert (by decide), sum_singleton]
+  simp
+
+lemma P_3 : P_q_factorial_poly 3 = 1 + 2 * X + 2 * X ^ 2 + X ^ 3 := by
+  unfold P_q_factorial_poly
+  have : Icc 1 3 = {1, 2, 3} := rfl
+  rw [this, prod_insert (by decide), prod_insert (by decide), prod_singleton]
+  have : range 1 = {0} := rfl
+  rw [this, sum_singleton]
+  have : range 2 = {0, 1} := rfl
+  rw [this, sum_insert (by decide), sum_singleton]
+  have : range 3 = {0, 1, 2} := rfl
+  rw [this, sum_insert (by decide), sum_insert (by decide), sum_singleton]
+  simp
+  ring
+
 @[category test, AMS 11]
-theorem a_0 : a 0 = 1 := by sorry
+theorem a_0 : a 0 = 1 := by
+  unfold a
+  rw [P_0]
+  dsimp
+  norm_num
+
 @[category test, AMS 11]
-theorem a_1 : a 1 = 1 := by sorry
+theorem a_1 : a 1 = 1 := by
+  unfold a
+  rw [P_1]
+  dsimp
+  norm_num
+
 @[category test, AMS 11]
-theorem a_2 : a 2 = 2 := by sorry
+theorem a_2 : a 2 = 2 := by
+  unfold a
+  rw [P_2]
+  dsimp
+  simp only [sum_range_succ]
+  have h0 : coeff (1 + X : Polynomial ℕ) 0 = 1 := by simp [coeff_one, coeff_X]
+  have h1 : coeff (1 + X : Polynomial ℕ) 1 = 1 := by simp [coeff_one, coeff_X]
+  rw [h0, h1]
+  norm_num
+
 @[category test, AMS 11]
-theorem a_3 : a 3 = 34 := by sorry
+theorem a_3 : a 3 = 34 := by
+  unfold a
+  rw [P_3]
+  dsimp
+  simp only [sum_range_succ]
+  have h0 : coeff (1 + 2 * X + 2 * X ^ 2 + X ^ 3 : Polynomial ℕ) 0 = 1 := by simp [coeff_one, coeff_X]
+  have h1 : coeff (1 + 2 * X + 2 * X ^ 2 + X ^ 3 : Polynomial ℕ) 1 = 2 := by simp [coeff_one, coeff_X]
+  have h2 : coeff (1 + 2 * X + 2 * X ^ 2 + X ^ 3 : Polynomial ℕ) 2 = 2 := by simp [coeff_one, coeff_X]
+  have h3 : coeff (1 + 2 * X + 2 * X ^ 2 + X ^ 3 : Polynomial ℕ) 3 = 1 := by simp [coeff_one, coeff_X]
+  rw [h0, h1, h2, h3]
+  norm_num
+
+
+
+
 -- [END USER PROVIDED CODE]
 
 /-- Generalized sequence: Sum of $k$-th powers of coefficients of $q$-factorial.
