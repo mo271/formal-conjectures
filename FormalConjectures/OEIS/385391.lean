@@ -59,9 +59,7 @@ theorem a_2 : a 2 = 2 := by
   unfold a
   exact IsLeast.csInf_eq ⟨by decide, fun x hx => by
     rcases Nat.lt_or_ge x 2 with h|h
-    · interval_cases x
-      · revert hx; decide
-      · revert hx; decide
+    · interval_cases x <;> revert hx <;> decide
     · exact h⟩
 
 @[category test, AMS 11]
@@ -69,13 +67,7 @@ theorem a_3 : a 3 = 6 := by
   unfold a
   exact IsLeast.csInf_eq ⟨by decide, fun x hx => by
     rcases Nat.lt_or_ge x 6 with h|h
-    · interval_cases x
-      · revert hx; decide
-      · revert hx; decide
-      · revert hx; decide
-      · revert hx; decide
-      · revert hx; decide
-      · revert hx; decide
+    · interval_cases x <;> revert hx <;> decide
     · exact h⟩
 
 @[category test, AMS 11]
@@ -83,19 +75,7 @@ theorem a_4 : a 4 = 12 := by
   unfold a
   exact IsLeast.csInf_eq ⟨by decide, fun x hx => by
     rcases Nat.lt_or_ge x 12 with h|h
-    · interval_cases x
-      · revert hx; decide
-      · revert hx; decide
-      · revert hx; decide
-      · revert hx; decide
-      · revert hx; decide
-      · revert hx; decide
-      · revert hx; decide
-      · revert hx; decide
-      · revert hx; decide
-      · revert hx; decide
-      · revert hx; decide
-      · revert hx; decide
+    · interval_cases x <;> revert hx <;> decide
     · exact h⟩
 
 /--
