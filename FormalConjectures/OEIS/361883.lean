@@ -48,7 +48,6 @@ def a (n : ℕ) : ℕ :=
 
 @[category test, AMS 11]
 theorem a_1 : a 1 = 4 := by
-  -- original tactic: constructor. Let's use rfl/norm_num or sorry.
   rfl
 
 @[category test, AMS 11]

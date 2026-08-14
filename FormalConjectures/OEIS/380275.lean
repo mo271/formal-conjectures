@@ -29,7 +29,6 @@ open Polynomial Finset Real Asymptotics Filter
 namespace OeisA380275
 
 
--- [START USER PROVIDED CODE]
 /--
 a: Sum of the fourth powers of the coefficients of $q$ in the $q$-factorials.
 The $q$-factorial polynomial $P_n(q)$ is given by
@@ -125,7 +124,6 @@ theorem a_3 : a 3 = 34 := by
 
 
 
--- [END USER PROVIDED CODE]
 
 /-- Generalized sequence: Sum of $k$-th powers of coefficients of $q$-factorial.
 We cast to $\mathbb{R}$ for asymptotic analysis. -/

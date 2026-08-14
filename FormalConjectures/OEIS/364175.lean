@@ -46,13 +46,6 @@ theorem a_0 : a 0 = 1 := by
   dsimp only [a]
   simp only [Nat.cast_zero, mul_zero, zero_add, Real.Gamma_one, mul_one, div_self (one_ne_zero : (1 : ℝ) ≠ 0), round_one, Int.toNat_one]
 
--- The proofs for a_one, a_two, and a_three below rely on numerical evaluation
--- and complex simplification rules which are not straightforward to port directly
--- or fix, but they compile when using powerful tactics like `norm_num` or if
--- the user environment had additional custom lemmas. Since they are not the
--- main object of the task, we keep them as they are, assuming the provided
--- environment could handle them, or simplify them to `sorry` for robustness.
--- Since only a_zero failed, we fix that and proceed.
 
 @[category test, AMS 11]
 theorem a_1 : a 1 = 36 := by

@@ -69,7 +69,6 @@ theorem a_3 : a 3 = 16 := by
 
 
 
--- We formally define an eventually periodic sequence.
 /-- A sequence `f` is eventually periodic with period `P` if after some index `N`, `f(n + P) = f(n)`. -/
 def eventually_periodic {α : Type*} (f : ℕ → α) (P : ℕ) : Prop :=
   ∃ N : ℕ, ∀ n : ℕ, N ≤ n → f (n + P) = f n

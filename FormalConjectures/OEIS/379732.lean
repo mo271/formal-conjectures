@@ -29,7 +29,6 @@ open Nat
 namespace OeisA379732
 
 
--- The provided Lean code for the sequence definition is replicated here.
 /--
 Decimal expansion of $207/208$.
 -/
