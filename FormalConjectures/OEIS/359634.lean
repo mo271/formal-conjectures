@@ -79,6 +79,10 @@ theorem a_2 : a 2 = 2 := by
 theorem a_3 : a 3 = 2 := by rfl
 
 
+
+@[category test, AMS 11]
+theorem a_4 : a 4 = 3 := by rfl
+
 /--
 Conjecture (OEIS a, C-line): A zero has not appeared in the sequence $a(n)$.
 This is equivalent to $\forall n : \mathbb{N}, a(n) \neq 0$.

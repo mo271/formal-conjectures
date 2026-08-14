@@ -49,9 +49,11 @@ noncomputable def a (n : ℕ) : ℕ :=
   Finset.sum (Finset.range (max_degree + 1)) fun k => (P.coeff k) ^ 4
 
 
+@[category API, AMS 11]
 lemma P_0 : P_q_factorial_poly 0 = 1 := by
   unfold P_q_factorial_poly; rfl
 
+@[category API, AMS 11]
 lemma P_1 : P_q_factorial_poly 1 = 1 := by
   unfold P_q_factorial_poly
   have : Icc 1 1 = {1} := rfl
@@ -60,6 +62,7 @@ lemma P_1 : P_q_factorial_poly 1 = 1 := by
   rw [this, sum_singleton]
   simp
 
+@[category API, AMS 11]
 lemma P_2 : P_q_factorial_poly 2 = 1 + X := by
   unfold P_q_factorial_poly
   have : Icc 1 2 = {1, 2} := rfl
@@ -70,6 +73,7 @@ lemma P_2 : P_q_factorial_poly 2 = 1 + X := by
   rw [this, sum_insert (by decide), sum_singleton]
   simp
 
+@[category API, AMS 11]
 lemma P_3 : P_q_factorial_poly 3 = 1 + 2 * X + 2 * X ^ 2 + X ^ 3 := by
   unfold P_q_factorial_poly
   have : Icc 1 3 = {1, 2, 3} := rfl
@@ -80,6 +84,22 @@ lemma P_3 : P_q_factorial_poly 3 = 1 + 2 * X + 2 * X ^ 2 + X ^ 3 := by
   rw [this, sum_insert (by decide), sum_singleton]
   have : range 3 = {0, 1, 2} := rfl
   rw [this, sum_insert (by decide), sum_insert (by decide), sum_singleton]
+  simp
+  ring
+
+@[category API, AMS 11]
+lemma P_4 : P_q_factorial_poly 4 = 1 + 3 * X + 5 * X ^ 2 + 6 * X ^ 3 + 5 * X ^ 4 + 3 * X ^ 5 + X ^ 6 := by
+  unfold P_q_factorial_poly
+  have : Icc 1 4 = {1, 2, 3, 4} := rfl
+  rw [this, prod_insert (by decide), prod_insert (by decide), prod_insert (by decide), prod_singleton]
+  have : range 1 = {0} := rfl
+  rw [this, sum_singleton]
+  have : range 2 = {0, 1} := rfl
+  rw [this, sum_insert (by decide), sum_singleton]
+  have : range 3 = {0, 1, 2} := rfl
+  rw [this, sum_insert (by decide), sum_insert (by decide), sum_singleton]
+  have : range 4 = {0, 1, 2, 3} := rfl
+  rw [this, sum_insert (by decide), sum_insert (by decide), sum_insert (by decide), sum_singleton]
   simp
   ring
 
@@ -119,6 +139,22 @@ theorem a_3 : a 3 = 34 := by
   have h2 : coeff (1 + 2 * X + 2 * X ^ 2 + X ^ 3 : Polynomial ℕ) 2 = 2 := by simp [coeff_one, coeff_X]
   have h3 : coeff (1 + 2 * X + 2 * X ^ 2 + X ^ 3 : Polynomial ℕ) 3 = 1 := by simp [coeff_one, coeff_X]
   rw [h0, h1, h2, h3]
+  norm_num
+
+@[category test, AMS 11]
+theorem a_4 : a 4 = 2710 := by
+  unfold a
+  rw [P_4]
+  dsimp
+  simp only [sum_range_succ]
+  have h0 : coeff (1 + 3 * X + 5 * X ^ 2 + 6 * X ^ 3 + 5 * X ^ 4 + 3 * X ^ 5 + X ^ 6 : Polynomial ℕ) 0 = 1 := by simp [coeff_one, coeff_X]
+  have h1 : coeff (1 + 3 * X + 5 * X ^ 2 + 6 * X ^ 3 + 5 * X ^ 4 + 3 * X ^ 5 + X ^ 6 : Polynomial ℕ) 1 = 3 := by simp [coeff_one, coeff_X]
+  have h2 : coeff (1 + 3 * X + 5 * X ^ 2 + 6 * X ^ 3 + 5 * X ^ 4 + 3 * X ^ 5 + X ^ 6 : Polynomial ℕ) 2 = 5 := by simp [coeff_one, coeff_X]
+  have h3 : coeff (1 + 3 * X + 5 * X ^ 2 + 6 * X ^ 3 + 5 * X ^ 4 + 3 * X ^ 5 + X ^ 6 : Polynomial ℕ) 3 = 6 := by simp [coeff_one, coeff_X]
+  have h4 : coeff (1 + 3 * X + 5 * X ^ 2 + 6 * X ^ 3 + 5 * X ^ 4 + 3 * X ^ 5 + X ^ 6 : Polynomial ℕ) 4 = 5 := by simp [coeff_one, coeff_X]
+  have h5 : coeff (1 + 3 * X + 5 * X ^ 2 + 6 * X ^ 3 + 5 * X ^ 4 + 3 * X ^ 5 + X ^ 6 : Polynomial ℕ) 5 = 3 := by simp [coeff_one, coeff_X]
+  have h6 : coeff (1 + 3 * X + 5 * X ^ 2 + 6 * X ^ 3 + 5 * X ^ 4 + 3 * X ^ 5 + X ^ 6 : Polynomial ℕ) 6 = 1 := by simp [coeff_one, coeff_X]
+  rw [h0, h1, h2, h3, h4, h5, h6]
   norm_num
 
 

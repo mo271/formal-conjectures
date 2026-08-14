@@ -123,6 +123,11 @@ theorem a_3 : a 3 = 17039360 := by
   rw [mul_div_mul_right _ _ hG]
   norm_num
 
+@[category test, AMS 11]
+theorem a_4 : a 4 = 7012604550 := by
+  unfold a
+  norm_num
+
 /--
 The supercongruences $a(n p^r) \equiv a(n p^{r-1}) \pmod{p^{3r}}$ hold for all primes $p \ge 5$ and all positive integers $n$ and $r$.
 Note: This conjecture requires that a(n) is an integer for all n, which is only conjectural.

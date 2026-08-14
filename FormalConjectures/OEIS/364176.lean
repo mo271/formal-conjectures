@@ -138,6 +138,10 @@ theorem a_3 : a 3 = 4488240824320 := by
     exact h_eval
   exact h_eq
 
+@[category test, AMS 11]
+theorem a_4 : a 4 = 126694219977836700 := by
+  norm_num [a]
+
 
 /--
 The supercongruences $a(n p^r) \equiv a(n p^{r-1}) \pmod{p^{3r}}$ hold for all primes $p \ge 5$ and all positive integers $n$ and $r$.

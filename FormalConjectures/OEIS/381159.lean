@@ -41,9 +41,12 @@ Natural numbers whose prime divisors all end in the same decimal digit.
 noncomputable def a (n : ℕ) : ℕ := n.nth condition
 
 
+@[category API, AMS 11]
 lemma primeFactors_zero : primeFactors 0 = ∅ := by simp
+@[category API, AMS 11]
 lemma primeFactors_one : primeFactors 1 = ∅ := by simp
 
+@[category API, AMS 11]
 lemma primeFactors_two : primeFactors 2 = {2} := by
   ext x
   simp only [mem_primeFactors, Finset.mem_singleton]
@@ -55,6 +58,7 @@ lemma primeFactors_two : primeFactors 2 = {2} := by
   · rintro rfl
     exact ⟨prime_two, by decide, by decide⟩
 
+@[category API, AMS 11]
 lemma primeFactors_three : primeFactors 3 = {3} := by
   ext x
   simp only [mem_primeFactors, Finset.mem_singleton]
@@ -68,6 +72,7 @@ lemma primeFactors_three : primeFactors 3 = {3} := by
   · rintro rfl
     exact ⟨prime_three, by decide, by decide⟩
 
+@[category API, AMS 11]
 lemma primeFactors_four : primeFactors 4 = {2} := by
   ext x
   simp only [mem_primeFactors, Finset.mem_singleton]
@@ -82,16 +87,23 @@ lemma primeFactors_four : primeFactors 4 = {2} := by
   · rintro rfl
     exact ⟨prime_two, by decide, by decide⟩
 
+@[category API, AMS 11]
 lemma hc0 : condition 0 := by unfold condition; rw [primeFactors_zero]; decide
+@[category API, AMS 11]
 lemma hc1 : condition 1 := by unfold condition; rw [primeFactors_one]; decide
+@[category API, AMS 11]
 lemma hc2 : condition 2 := by unfold condition; rw [primeFactors_two]; decide
+@[category API, AMS 11]
 lemma hc3 : condition 3 := by unfold condition; rw [primeFactors_three]; decide
+@[category API, AMS 11]
 lemma hc4 : condition 4 := by unfold condition; rw [primeFactors_four]; decide
 
+@[category API, AMS 11]
 lemma h0 : Nat.nth condition 0 = 0 := by
   rw [Nat.nth_zero]
   exact IsLeast.csInf_eq ⟨hc0, fun x _ => Nat.zero_le x⟩
 
+@[category API, AMS 11]
 lemma h1 : Nat.nth condition 1 = 1 := by
   rw [Nat.nth_eq_sInf condition 1]
   exact IsLeast.csInf_eq ⟨⟨hc1, fun k hk => by
@@ -104,6 +116,7 @@ lemma h1 : Nat.nth condition 1 = 1 := by
     · interval_cases x
     · exact h⟩
 
+@[category API, AMS 11]
 lemma h2 : Nat.nth condition 2 = 2 := by
   rw [Nat.nth_eq_sInf condition 2]
   exact IsLeast.csInf_eq ⟨⟨hc2, fun k hk => by
@@ -117,6 +130,7 @@ lemma h2 : Nat.nth condition 2 = 2 := by
     · interval_cases x
     · exact h⟩
 
+@[category API, AMS 11]
 lemma h3 : Nat.nth condition 3 = 3 := by
   rw [Nat.nth_eq_sInf condition 3]
   exact IsLeast.csInf_eq ⟨⟨hc3, fun k hk => by
@@ -131,6 +145,7 @@ lemma h3 : Nat.nth condition 3 = 3 := by
     · interval_cases x
     · exact h⟩
 
+@[category API, AMS 11]
 lemma h4 : Nat.nth condition 4 = 4 := by
   rw [Nat.nth_eq_sInf condition 4]
   exact IsLeast.csInf_eq ⟨⟨hc4, fun k hk => by
@@ -145,6 +160,9 @@ lemma h4 : Nat.nth condition 4 = 4 := by
     rcases Nat.lt_or_ge x 4 with h|h
     · interval_cases x
     · exact h⟩
+
+@[category test, AMS 11]
+theorem a_0 : a 0 = 0 := by unfold a; rw [h0]
 
 @[category test, AMS 11]
 theorem a_1 : a 1 = 1 := by unfold a; rw [h1]

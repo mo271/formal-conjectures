@@ -46,6 +46,9 @@ noncomputable def a (n : ℕ) : ℕ :=
   sInf S
 
 @[category test, AMS 11]
+theorem a_0 : a 0 = 0 := by rfl
+
+@[category test, AMS 11]
 theorem a_1 : a 1 = 1 := by
   dsimp [a]
   refine IsLeast.csInf_eq ⟨by norm_num [is_zeroless, is_n_digit], fun x hx => hx.1.1⟩
@@ -56,7 +59,7 @@ theorem a_2 : a 2 = 11 := by
   refine IsLeast.csInf_eq ⟨by norm_num [is_zeroless, is_n_digit], fun x hx => ?_⟩
   by_contra! h_lt
   have h_ge := hx.1.1
-  interval_cases x <;> { revert hx; norm_num [is_zeroless, is_n_digit] }
+  interval_cases x; revert hx; norm_num [is_zeroless, is_n_digit]
 
 @[category test, AMS 11]
 theorem a_3 : a 3 = 104 := by
@@ -64,7 +67,7 @@ theorem a_3 : a 3 = 104 := by
   refine IsLeast.csInf_eq ⟨by norm_num [is_zeroless, is_n_digit], fun x hx => ?_⟩
   by_contra! h_lt
   have h_ge := hx.1.1
-  interval_cases x <;> { revert hx; norm_num [is_zeroless, is_n_digit] }
+  interval_cases x <;> (revert hx; norm_num [is_zeroless, is_n_digit])
 
 @[category test, AMS 11]
 theorem a_4 : a 4 = 1027 := by
@@ -72,7 +75,7 @@ theorem a_4 : a 4 = 1027 := by
   refine IsLeast.csInf_eq ⟨by norm_num [is_zeroless, is_n_digit], fun x hx => ?_⟩
   by_contra! h_lt
   have h_ge := hx.1.1
-  interval_cases x <;> { revert hx; norm_num [is_zeroless, is_n_digit] }
+  interval_cases x <;> (revert hx; norm_num [is_zeroless, is_n_digit])
 
 /--
 a It has been proved that there exist infinitely many zeroless squares and cubes but there is apparently no proof for 4th powers, 5th powers, etc.

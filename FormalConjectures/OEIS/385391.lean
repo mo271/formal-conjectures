@@ -46,6 +46,11 @@ noncomputable def A002110 (n : ℕ) : ℕ :=
   else (Finset.range n).prod fun i => Nat.nth Nat.Prime i
 
 @[category test, AMS 11]
+theorem a_0 : a 0 = 0 := by
+  unfold a
+  exact IsLeast.csInf_eq ⟨by decide, fun x _ => Nat.zero_le x⟩
+
+@[category test, AMS 11]
 theorem a_1 : a 1 = 1 := by
   unfold a
   exact IsLeast.csInf_eq ⟨by decide, fun x hx => by

@@ -47,6 +47,8 @@ def a (n : ℕ) : ℕ :=
 
 
 @[category test, AMS 11]
+theorem a_0 : a 0 = 0 := by rfl
+@[category test, AMS 11]
 theorem a_1 : a 1 = 1 := by rfl
 @[category test, AMS 11]
 theorem a_2 : a 2 = 2 := by rfl

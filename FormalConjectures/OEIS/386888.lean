@@ -65,6 +65,7 @@ noncomputable def a (n : ℕ) : ℕ :=
   ) (Finset.range max_index_bound)
 
 
+@[category API, AMS 11]
 lemma a_zero_for_small (n : ℕ) (hn : n ≤ 11) : a n = 0 := by
   unfold a
   apply Finset.card_eq_zero.mpr
@@ -88,6 +89,9 @@ lemma a_zero_for_small (n : ℕ) (hn : n ≤ 11) : a n = 0 := by
   · intro h; exfalso; simp_all
 
 @[category test, AMS 11]
+theorem a_0 : a 0 = 0 := a_zero_for_small 0 (by decide)
+
+@[category test, AMS 11]
 theorem a_1 : a 1 = 0 := a_zero_for_small 1 (by decide)
 
 @[category test, AMS 11]
@@ -98,6 +102,9 @@ theorem a_3 : a 3 = 0 := a_zero_for_small 3 (by decide)
 
 @[category test, AMS 11]
 theorem a_4 : a 4 = 0 := a_zero_for_small 4 (by decide)
+
+@[category test, AMS 11]
+theorem a_5 : a 5 = 0 := a_zero_for_small 5 (by decide)
 
 
 

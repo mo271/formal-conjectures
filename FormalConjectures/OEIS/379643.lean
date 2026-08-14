@@ -44,10 +44,12 @@ noncomputable def a (n : ℕ) : ℤ :=
   (count_primes_mod_b 3 : ℤ) - (count_primes_mod_b 7 : ℤ)
 
 
+@[category API, AMS 11]
 lemma nth_prime_zero : Nat.nth Nat.Prime 0 = 2 := by
   rw [Nat.nth_zero]
   exact IsLeast.csInf_eq ⟨by norm_num, fun x hx => by rcases Nat.lt_or_ge x 2 with h|h; interval_cases x; norm_num at hx; norm_num at hx; exact h⟩
 
+@[category API, AMS 11]
 lemma nth_prime_one : Nat.nth Nat.Prime 1 = 3 := by
   rw [Nat.nth_eq_sInf Nat.Prime 1]
   exact IsLeast.csInf_eq ⟨⟨by norm_num, by intro k hk; interval_cases k; rw [nth_prime_zero]; norm_num⟩, fun x ⟨hx_prime, hx_lt⟩ => by
@@ -57,6 +59,7 @@ lemma nth_prime_one : Nat.nth Nat.Prime 1 = 3 := by
       subst this; revert h0; norm_num
     · exact h⟩
 
+@[category API, AMS 11]
 lemma nth_prime_two : Nat.nth Nat.Prime 2 = 5 := by
   rw [Nat.nth_eq_sInf Nat.Prime 2]
   exact IsLeast.csInf_eq ⟨⟨by norm_num, by intro k hk; interval_cases k; rw [nth_prime_zero]; norm_num; rw [nth_prime_one]; norm_num⟩, fun x ⟨hx_prime, hx_lt⟩ => by
@@ -66,6 +69,7 @@ lemma nth_prime_two : Nat.nth Nat.Prime 2 = 5 := by
       subst this; norm_num at hx_prime
     · exact h⟩
 
+@[category API, AMS 11]
 lemma nth_prime_three : Nat.nth Nat.Prime 3 = 7 := by
   rw [Nat.nth_eq_sInf Nat.Prime 3]
   exact IsLeast.csInf_eq ⟨⟨by norm_num, by intro k hk; interval_cases k; rw [nth_prime_zero]; norm_num; rw [nth_prime_one]; norm_num; rw [nth_prime_two]; norm_num⟩, fun x ⟨hx_prime, hx_lt⟩ => by
@@ -74,6 +78,9 @@ lemma nth_prime_three : Nat.nth Nat.Prime 3 = 7 := by
     · have : x = 6 := by omega
       subst this; norm_num at hx_prime
     · exact h⟩
+
+@[category test, AMS 11]
+theorem a_0 : a 0 = 0 := by rfl
 
 @[category test, AMS 11]
 theorem a_1 : a 1 = 0 := by unfold a; norm_num

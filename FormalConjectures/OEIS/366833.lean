@@ -47,6 +47,7 @@ noncomputable def a (n : ℕ) : ℕ :=
     count_prime_powers - 1
 
 
+@[category API, AMS 11]
 lemma prime_0 : Nat.nth Nat.Prime 0 = 2 := by
   rw [Nat.nth_zero]
   exact IsLeast.csInf_eq (s := setOf Nat.Prime) ⟨Nat.prime_two, fun x hx => by
@@ -56,6 +57,7 @@ lemma prime_0 : Nat.nth Nat.Prime 0 = 2 := by
       · exact (Nat.not_prime_one hx).elim
     · exact h⟩
 
+@[category API, AMS 11]
 lemma prime_1 : Nat.nth Nat.Prime 1 = 3 := by
   rw [Nat.nth_eq_sInf]
   exact IsLeast.csInf_eq (s := {x | Nat.Prime x ∧ ∀ k < 1, Nat.nth Nat.Prime k < x}) ⟨
@@ -70,6 +72,7 @@ lemma prime_1 : Nat.nth Nat.Prime 1 = 3 := by
       exact h0
   ⟩
 
+@[category API, AMS 11]
 lemma prime_2 : Nat.nth Nat.Prime 2 = 5 := by
   rw [Nat.nth_eq_sInf]
   exact IsLeast.csInf_eq (s := {x | Nat.Prime x ∧ ∀ k < 2, Nat.nth Nat.Prime k < x}) ⟨
@@ -88,6 +91,7 @@ lemma prime_2 : Nat.nth Nat.Prime 2 = 5 := by
       omega
   ⟩
 
+@[category API, AMS 11]
 lemma prime_3 : Nat.nth Nat.Prime 3 = 7 := by
   rw [Nat.nth_eq_sInf]
   exact IsLeast.csInf_eq (s := {x | Nat.Prime x ∧ ∀ k < 3, Nat.nth Nat.Prime k < x}) ⟨
@@ -107,6 +111,7 @@ lemma prime_3 : Nat.nth Nat.Prime 3 = 7 := by
       omega
   ⟩
 
+@[category API, AMS 11]
 lemma prime_4 : Nat.nth Nat.Prime 4 = 11 := by
   rw [Nat.nth_eq_sInf]
   exact IsLeast.csInf_eq (s := {x | Nat.Prime x ∧ ∀ k < 4, Nat.nth Nat.Prime k < x}) ⟨
@@ -128,6 +133,7 @@ lemma prime_4 : Nat.nth Nat.Prime 4 = 11 := by
       omega
   ⟩
 
+@[category API, AMS 11]
 lemma filter_Icc_2_3 : (Finset.Icc 2 3).filter IsPrimePow = {2, 3} := by
   ext x
   simp only [Finset.mem_filter, Finset.mem_Icc, Finset.mem_insert, Finset.mem_singleton]
@@ -140,6 +146,7 @@ lemma filter_Icc_2_3 : (Finset.Icc 2 3).filter IsPrimePow = {2, 3} := by
     · exact ⟨⟨by norm_num, by norm_num⟩, ⟨2, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
     · exact ⟨⟨by norm_num, by norm_num⟩, ⟨3, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
 
+@[category API, AMS 11]
 lemma filter_Icc_3_5 : (Finset.Icc 3 5).filter IsPrimePow = {3, 4, 5} := by
   ext x
   simp only [Finset.mem_filter, Finset.mem_Icc, Finset.mem_insert, Finset.mem_singleton]
@@ -154,6 +161,7 @@ lemma filter_Icc_3_5 : (Finset.Icc 3 5).filter IsPrimePow = {3, 4, 5} := by
     · exact ⟨⟨by norm_num, by norm_num⟩, ⟨2, 2, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
     · exact ⟨⟨by norm_num, by norm_num⟩, ⟨5, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
 
+@[category API, AMS 11]
 lemma filter_Icc_5_7 : (Finset.Icc 5 7).filter IsPrimePow = {5, 7} := by
   ext x
   simp only [Finset.mem_filter, Finset.mem_Icc, Finset.mem_insert, Finset.mem_singleton]
@@ -167,6 +175,7 @@ lemma filter_Icc_5_7 : (Finset.Icc 5 7).filter IsPrimePow = {5, 7} := by
     · exact ⟨⟨by norm_num, by norm_num⟩, ⟨5, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
     · exact ⟨⟨by norm_num, by norm_num⟩, ⟨7, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
 
+@[category API, AMS 11]
 lemma filter_Icc_7_11 : (Finset.Icc 7 11).filter IsPrimePow = {7, 8, 9, 11} := by
   ext x
   simp only [Finset.mem_filter, Finset.mem_Icc, Finset.mem_insert, Finset.mem_singleton]
@@ -183,6 +192,9 @@ lemma filter_Icc_7_11 : (Finset.Icc 7 11).filter IsPrimePow = {7, 8, 9, 11} := b
     · exact ⟨⟨by norm_num, by norm_num⟩, ⟨2, 3, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
     · exact ⟨⟨by norm_num, by norm_num⟩, ⟨3, 2, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
     · exact ⟨⟨by norm_num, by norm_num⟩, ⟨11, 1, Nat.prime_iff.mp (by norm_num), by norm_num, by norm_num⟩⟩
+
+@[category test, AMS 11]
+theorem a_0 : a 0 = 0 := by rfl
 
 @[category test, AMS 11]
 theorem a_1 : a 1 = 1 := by

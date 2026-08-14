@@ -46,6 +46,10 @@ def a (n : ℕ) : ℕ :=
     S / n
 
 
+
+@[category test, AMS 11]
+theorem a_0 : a 0 = 0 := by rfl
+
 @[category test, AMS 11]
 theorem a_1 : a 1 = 4 := by
   rfl

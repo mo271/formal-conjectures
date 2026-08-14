@@ -59,6 +59,9 @@ theorem a_2 : a 2 = 109 := by rfl
 @[category test, AMS 11]
 theorem a_3 : a 3 = 3317 := by rfl
 
+@[category test, AMS 11]
+theorem a_4 : a 4 = 121501 := by rfl
+
 /--
 We conjecture that the present sequence satisfies the same pair of supercongruences
 as the Apéry numbers A005258. Specifically, for all primes $p \ge 5$ and all

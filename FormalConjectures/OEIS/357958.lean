@@ -66,6 +66,10 @@ theorem a_3 : a 3 = 7491 := by rfl
 @[category test, AMS 11]
 theorem a_4 : a 4 = 167063 := by rfl
 
+
+@[category test, AMS 11]
+theorem a_5 : a 5 = 4112539 := by rfl
+
 /--
 $a(p) \equiv a(1) \pmod{p^5}$ for all primes $p \ge 5$.
 -/

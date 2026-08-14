@@ -44,6 +44,8 @@ theorem a_1 : a 1 = 7 := by rfl
 theorem a_2 : a 2 = 32 := by rfl
 @[category test, AMS 11]
 theorem a_3 : a 3 = 77 := by rfl
+@[category test, AMS 11]
+theorem a_4 : a 4 = 142 := by rfl
 noncomputable section
 
 /--

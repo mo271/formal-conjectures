@@ -36,6 +36,7 @@ noncomputable def a (n : ℕ) : ℕ :=
   sInf { k : ℕ | Nat.Prime k ∧ ∃ p : ℕ, Nat.Prime p ∧ k = (2 * p) ^ (2 ^ n) + 1 }
 
 
+@[category API, AMS 11]
 lemma a_val {n : ℕ} {k : ℕ} (hk_prime : k.Prime) (hk_eq : k = 4 ^ (2 ^ n) + 1) : a n = k := by
   unfold a
   have h_mem : k ∈ { k : ℕ | Nat.Prime k ∧ ∃ p : ℕ, Nat.Prime p ∧ k = (2 * p) ^ (2 ^ n) + 1 } := by
@@ -59,6 +60,9 @@ theorem a_1 : a 1 = 17 := a_val (by norm_num) (by norm_num)
 theorem a_2 : a 2 = 257 := a_val (by norm_num) (by norm_num)
 @[category test, AMS 11]
 theorem a_3 : a 3 = 65537 := a_val (by norm_num) (by norm_num)
+@[category test, AMS 11]
+theorem a_4 : a 4 = 808551180810136214718004658177 := by
+  sorry
 
 
 

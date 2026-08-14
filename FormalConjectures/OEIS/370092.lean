@@ -65,6 +65,10 @@ theorem a_2 : a 2 = 3 := by
 theorem a_3 : a 3 = 16 := by
   rw [a]; norm_num [Finset.sum_range_succ, a_2, a_1, a_0, a]
 
+@[category test, AMS 11]
+theorem a_4 : a 4 = 105 := by
+  rw [a]; norm_num [Finset.sum_range_succ, a_3, a_2, a_1, a_0, a, Nat.choose]
+
 
 
 

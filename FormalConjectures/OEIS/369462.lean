@@ -55,6 +55,7 @@ noncomputable def a (n : ℕ) : ℕ :=
 
 
 
+@[category API, AMS 11]
 lemma a_eq_0_of_N_le_50 {n : ℕ} (hn1 : 1 ≤ n) (hn2 : 12 * n - 1 ≤ 50) : a n = 0 := by
   unfold a
   rw [if_pos hn1]
@@ -129,6 +130,9 @@ lemma a_eq_0_of_N_le_50 {n : ℕ} (hn1 : 1 ≤ n) (hn2 : 12 * n - 1 ≤ 50) : a 
       (Finset.range (12 * n - 1 + 1) ×ˢ Finset.range (12 * n - 1 + 1) ×ˢ Finset.range (12 * n - 1 + 1)) = ∅ := h_empty
   rw [h_eq]
   exact rfl
+
+@[category test, AMS 11]
+theorem a_0 : a 0 = 0 := by rfl
 
 @[category test, AMS 11]
 theorem a_1 : a 1 = 0 := a_eq_0_of_N_le_50 (by norm_num) (by norm_num)

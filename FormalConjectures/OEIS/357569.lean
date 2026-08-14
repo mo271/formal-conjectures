@@ -49,6 +49,10 @@ theorem a_2 : a 2 = 63 := by rfl
 @[category test, AMS 11]
 theorem a_3 : a 3 = 6516 := by rfl
 
+
+@[category test, AMS 11]
+theorem a_4 : a 4 = 243135 := by rfl
+
 /--
 The generalized sequence $u(k, n) = 2 \binom{3n}{n}^k - k \cdot 3^{k+1} \binom{2n}{n}$ for $k \ge 1$.
 Note that $u(2, n) = 2 \cdot a(n)$.

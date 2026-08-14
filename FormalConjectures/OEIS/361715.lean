@@ -48,6 +48,10 @@ theorem a_2 : a 2 = 9 := by rfl
 @[category test, AMS 11]
 theorem a_3 : a 3 = 82 := by rfl
 
+
+@[category test, AMS 11]
+theorem a_4 : a 4 = 745 := by rfl
+
 /-- The supercongruence $a(p) \equiv a(1) \pmod{p^5}$ holds for all primes $p \ge 7$. -/
 @[category research open, AMS 11]
 theorem conjecture_1 (p : ℕ) (hp : Nat.Prime p) (hp7 : 7 ≤ p) :

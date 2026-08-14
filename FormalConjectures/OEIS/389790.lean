@@ -47,6 +47,7 @@ noncomputable def a (n : ℕ) : ℕ :=
     Nat.Prime p ∧ Nat.Prime q ∧ p ≤ q ∧ S_sum p + S_sum q = target
   ) (R ×ˢ R)
 
+@[category API, AMS 11]
 lemma next_prime_2 : next_prime 2 = 3 := by
   unfold next_prime
   refine IsLeast.csInf_eq ⟨⟨by decide, by decide⟩, fun k hk => ?_⟩
@@ -57,6 +58,7 @@ lemma next_prime_2 : next_prime 2 = 3 := by
     · exfalso; revert hk; decide
   · exact h
 
+@[category API, AMS 11]
 lemma next_prime_3 : next_prime 3 = 5 := by
   unfold next_prime
   refine IsLeast.csInf_eq ⟨⟨by decide, by decide⟩, fun k hk => ?_⟩
@@ -69,8 +71,14 @@ lemma next_prime_3 : next_prime 3 = 5 := by
     · exfalso; revert hk; decide
   · exact h
 
+@[category API, AMS 11]
 lemma S_sum_2 : S_sum 2 = 5 := by unfold S_sum; rw [next_prime_2]
+@[category API, AMS 11]
 lemma S_sum_3 : S_sum 3 = 8 := by unfold S_sum; rw [next_prime_3]
+
+
+@[category test, AMS 11]
+theorem a_0 : a 0 = 0 := by rfl
 
 @[category test, AMS 11]
 theorem a_1 : a 1 = 0 := by rfl
