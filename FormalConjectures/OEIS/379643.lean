@@ -45,7 +45,7 @@ noncomputable def a (n : ℕ) : ℤ :=
 
 
 @[category test, AMS 11]
-theorem a_1 : a 1 = 0 := by sorry
+theorem a_1 : a 1 = 0 := by unfold a; norm_num
 
 @[category test, AMS 11]
 theorem a_2 : a 2 = 1 := by sorry
