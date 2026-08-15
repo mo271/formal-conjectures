@@ -28,6 +28,7 @@ public import FormalConjecturesUtil.Linters.FormalProofLinter
 public import FormalConjecturesUtil.Linters.LatexDocstringLinter
 public import FormalConjecturesUtil.Linters.ModuleDocstringLinter
 public import FormalConjecturesUtil.Linters.NamespaceLinter
+public import FormalConjecturesUtil.Linters.OpaqueLinter
 
 /-!
 # Standard imports for open problems
