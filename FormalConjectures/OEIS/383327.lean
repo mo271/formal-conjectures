@@ -58,19 +58,17 @@ theorem a_3 : a 3 = 1 := by rfl
 theorem a_4 : a 4 = 4 := by rfl
 
 /--
-Conjecture based on OEIS a comment:
-From a combinatorial perspective, the tuple of summands (x_1, ..., x_t) mentioned above can be
-seen as a set of t counters, where the j-th counter cycles through 0 to 2^j-1. The natural
-question 'which m in A049802 appear k times?' becomes a question about how this cycling
-condition restricts the number of tuples which sum to m. For example, for n <= 100, when n = 1,
-3, 5, 9, 15, 23, 35, 63, 65, and 67 there is only one m such that the tuple of summands sums to
-n (a trivial tuple consisting of n 1s, trivial because there is such a tuple for every n >= 1,
-i.e. for every m = 2^n+1).
-This is a precise statement about the set of values $n$ for which $a(n) = 1$ among $n \le 100$.
+Conjecture based on OEIS comment:
+For $n \le 100$, when $n \in \{1, 3, 5, 9, 15, 23, 35, 63, 65, 69\}$, there is only one $m$
+such that $A049802(m) = n$, so $a(n) = 1$.
+
+Note: The OEIS comment lists $67$ instead of $69$, but this is a typo in the OEIS comment:
+the sequence terms in OEIS have $a(67) = 5$ (e.g. $A049802(147) = A049802(2055) = 67$) and
+$a(69) = 1$.
 -/
 @[category research open, AMS 11]
 theorem single_occurrence_values_le_100 :
-  let S : Finset ℕ := {1, 3, 5, 9, 15, 23, 35, 63, 65, 67}
+  let S : Finset ℕ := {1, 3, 5, 9, 15, 23, 35, 63, 65, 69}
   ∀ n : ℕ, n ∈ S → a n = 1 :=
 by sorry
 

@@ -48,9 +48,34 @@ def A359550 (n : ℕ) : ℕ :=
 /-- A085731(n): $\gcd(\mathtt{A003415}(n), n)$. -/
 def A085731 (n : ℕ) : ℕ := Nat.gcd (A003415 n) n
 
-/-- A376418(n): Number of $k \ge 1$ such that $k^k \mid n$. -/
+/--
+A276085(n): Primorial base log-function.
+For $n > 1$ with prime factorization $n = \prod p_i^{e_i}$,
+$A276085(n) = \sum e_i \cdot \text{primorial}(p_i - 1)$.
+-/
+def A276085 (n : ℕ) : ℕ :=
+  if n ≤ 1 then 0
+  else n.factorization.support.sum fun p => (n.factorization p) * primorial (p - 1)
+
+/-- Auxiliary loop for the primorial base exp-function A276086. -/
+def A276086_loop : ℕ → ℕ → ℕ → ℕ
+  | 0, _, _ => 1
+  | _fuel + 1, 0, _p => 1
+  | fuel + 1, n, p =>
+    (p ^ (n % p)) * A276086_loop fuel (n / p) (Nat.find (Nat.exists_infinite_primes (p + 1)))
+
+/--
+A276086(n): Primorial base exp-function.
+-/
+def A276086 (n : ℕ) : ℕ :=
+  A276086_loop (n + 1) n 2
+
+/--
+A376418(n) = $n - A276086(A276085(n))$, where A276085 and A276086 are the primorial base log
+and exp-functions.
+-/
 def A376418 (n : ℕ) : ℕ :=
-  (Finset.filter (fun k : ℕ => k ≥ 1 ∧ Pow.pow k k ∣ n) (Finset.range (n + 2))).card
+  n - A276086 (A276085 n)
 
 /-- Intermediate type for the values of the function $f(n)$ used in the RGS transform. -/
 inductive A379240_F_val : Type
@@ -110,6 +135,12 @@ theorem a_7 : a 7 = 2 := by decide +native
 
 @[category test, AMS 11]
 theorem a_8 : a 8 = 5 := by decide +native
+
+@[category test, AMS 11]
+theorem a376418_56 : A376418 56 = 14 := by decide +native
+
+@[category test, AMS 11]
+theorem a376418_60 : A376418 60 = 15 := by decide +native
 
 /--
 Auxiliary function for the conjectured RGS triple.

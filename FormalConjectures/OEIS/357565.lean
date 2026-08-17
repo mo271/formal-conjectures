@@ -84,11 +84,15 @@ theorem conjecture_3 (m p : ℕ) (hm : m > 0) (hp : Nat.Prime p) (h_pge7 : p ≥
     (u p m) ≡ (u 1 m) [MOD (p ^ 5)] := by
   sorry
 /--
-$u(p^r) \equiv u(p^{r-1}) \pmod{p^{3r+3}}$ for $r \ge 2$, all primes $p \ge 3$, and all
+$u(p^r, m) \equiv u(p^{r-1}, m) \pmod{p^{3r+3}}$ for $r \ge 2$, all primes $p \ge 5$, and all
 positive integers $m$.
+
+Note: The OEIS entry states this conjecture for $p \ge 3$, but for $(m, p, r) = (2, 3, 2)$
+we have $u(9, 2) - u(3, 2) \equiv 2 \cdot 3^8 \not\equiv 0 \pmod{3^9}$, so $p = 3$ fails for $m \ge 2$.
+The condition $p \ge 5$ is required for the generalization to hold.
 -/
 @[category research open, AMS 11]
-theorem conjecture_4 (m p r : ℕ) (hm : m > 0) (hp : Nat.Prime p) (h_pge3 : p ≥ 3) (hr : r ≥ 2) :
+theorem conjecture_4 (m p r : ℕ) (hm : m > 0) (hp : Nat.Prime p) (h_pge5 : p ≥ 5) (hr : r ≥ 2) :
     (u (p ^ r) m) ≡ (u (p ^ (r - 1)) m) [MOD (p ^ (3 * r + 3))] := by
   sorry
 

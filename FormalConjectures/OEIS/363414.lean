@@ -62,13 +62,12 @@ def type_two_primes_conjectured : Set ℕ :=
   {p : ℕ | Nat.Prime p ∧ (p : ZMod 4) = 1}
 
 /--
-Conjecture a: Type 1 primes set is empty.
-It appears that every prime p divides some term of the sequence.
-The claim formalizes: every prime $p$ divides some $a(n)$.
+Conjecture:
+The set of type 1 primes is empty; every prime $p$ divides some term $a(n)$ with $n > 0$.
 -/
 @[category research open, AMS 11]
 theorem conjecture_type1_empty :
-  ∀ p : ℕ, Nat.Prime p → ∃ n : ℕ, (p : ℤ) ∣ a n := by sorry
+  ∀ p : ℕ, Nat.Prime p → ∃ n : ℕ, 0 < n ∧ (p : ℤ) ∣ a n := by sorry
 
 /--
 Moll's conjecture 5.5 extends to this sequence:
