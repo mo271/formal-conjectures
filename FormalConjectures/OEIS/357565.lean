@@ -34,8 +34,7 @@ The sequence $a(n) = 3 \sum_{k=0}^n \binom{n+k-1}{k}^2 + 2 \sum_{k=0}^n \binom{n
 -/
 def a (n : ℕ) : ℕ :=
   (range (n + 1)).sum fun k =>
-    let b := choose (n + k - 1) k
-    3 * b ^ 2 + 2 * b ^ 3
+    3 * (choose (n + k - 1) k) ^ 2 + 2 * (choose (n + k - 1) k) ^ 3
 
 /--
 The generalized sequence $u(n, m)$ from the conjecture section:
