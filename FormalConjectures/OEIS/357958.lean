@@ -74,7 +74,7 @@ $a(p) \equiv a(1) \pmod{p^5}$ for all primes $p \ge 5$.
 -/
 @[category research open, AMS 11]
 theorem conjecture_1 :
-  ∀ (p : ℕ), Nat.Prime p → 5 ≤ p → (a p) ≡ (a 1) [MOD p^5] :=
+  ∀ (p : ℕ), p.Prime → 5 ≤ p → (a p) ≡ (a 1) [MOD p^5] :=
 by sorry
 
 /--
@@ -82,7 +82,7 @@ $a(p^r) \equiv a(p^{r-1}) \pmod{p^{3r+3}}$ for $r \ge 2$ and for all primes $p \
 -/
 @[category research open, AMS 11]
 theorem conjecture_2 :
-  ∀ (p r : ℕ), Nat.Prime p → 3 ≤ p → 2 ≤ r → (a (p^r)) ≡ (a (p^(r-1))) [MOD p^(3*r + 3)] :=
+  ∀ (p r : ℕ), p.Prime → 3 ≤ p → 2 ≤ r → (a (p^r)) ≡ (a (p^(r-1))) [MOD p^(3*r + 3)] :=
 by sorry
 
 /--
@@ -90,7 +90,7 @@ $u(p) \equiv u(1) \pmod{p^5}$ for all primes $p \ge 5$.
 -/
 @[category research open, AMS 11]
 theorem conjecture_3a :
-  ∀ (p : ℕ), Nat.Prime p → 5 ≤ p → (u p) ≡ (u 1) [MOD p^5] :=
+  ∀ (p : ℕ), p.Prime → 5 ≤ p → (u p) ≡ (u 1) [MOD p^5] :=
 by sorry
 
 /--
@@ -99,7 +99,7 @@ $u(p^r) \equiv u(p^{r-1}) \pmod{p^{3r+3}}$ for $r \ge 2$ and for all primes $p \
 -/
 @[category research open, AMS 11]
 theorem conjecture_3b :
-  ∀ (p r : ℕ), Nat.Prime p → 5 ≤ p → 2 ≤ r → (u (p^r)) ≡ (u (p^(r-1))) [MOD p^(3*r + 3)] :=
+  ∀ (p r : ℕ), p.Prime → 5 ≤ p → 2 ≤ r → (u (p^r)) ≡ (u (p^(r-1))) [MOD p^(3*r + 3)] :=
 by sorry
 
 end OeisA357958

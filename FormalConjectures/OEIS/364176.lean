@@ -193,7 +193,7 @@ primes $p \ge 5$ and all positive integers $n$ and $r$.
 -/
 @[category research open, AMS 11]
 theorem conjecture_2_supercongruence
-  (p : ℕ) (hp : Nat.Prime p) (hp_ge_five : 5 ≤ p)
+  (p : ℕ) (hp : p.Prime) (hp_ge_five : 5 ≤ p)
   (n r : ℕ) (hn_pos : 0 < n) (hr_pos : 0 < r) :
   -- Define the arguments for a, ensuring r-1 is safe (guaranteed by hr_pos)
   let k_r := n * p ^ r

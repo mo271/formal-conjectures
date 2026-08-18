@@ -236,7 +236,7 @@ Formalization: For every odd prime $p$, there exists $n \in \mathbb{N}^+$ such t
 -/
 @[category research open, AMS 11]
 theorem odd_primes_appear :
-    answer(sorry) ↔ ∀ (p : ℕ), Nat.Prime p → p ≠ 2 → ∃ (n : ℕ+), a n = p := by
+    answer(sorry) ↔ ∀ (p : ℕ), p.Prime → p ≠ 2 → ∃ (n : ℕ+), a n = p := by
   sorry
 
 end OeisA385958

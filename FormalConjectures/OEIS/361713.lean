@@ -58,7 +58,7 @@ theorem a_4 : a 4 = 10257 := by rfl
 The supercongruence $a(p) \equiv a(1) \pmod{p^5}$ holds for all primes $p \ge 7$.
 -/
 @[category research open, AMS 11]
-theorem conjecture_1 (p : ℕ) (hp : Nat.Prime p) (hp7 : 7 ≤ p) :
+theorem conjecture_1 (p : ℕ) (hp : p.Prime) (hp7 : 7 ≤ p) :
     a p ≡ a 1 [MOD p ^ 5] := by
   sorry
 
@@ -68,7 +68,7 @@ primes $p \ge 7$.
 -/
 @[category research open, AMS 11]
 theorem conjecture_2 (p r : ℕ) :
-  Nat.Prime p →
+  p.Prime →
   p ≥ 7 →
   r ≥ 2 →
   a (p ^ r) ≡ a (p ^ (r - 1)) [MOD (p ^ (4 * r + 1))] :=

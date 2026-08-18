@@ -65,7 +65,7 @@ for all primes $p \ge 5$ and positive integers $n$ and $r$.
 The present sequence satisfies the same supercongruences.
 -/
 @[category research open, AMS 11]
-theorem supercongruence (p n r : ℕ) (hp : Nat.Prime p) (h_p_ge_5 : p ≥ 5) (hn : n > 0) (hr : r
+theorem supercongruence (p n r : ℕ) (hp : p.Prime) (h_p_ge_5 : p ≥ 5) (hn : n > 0) (hr : r
 > 0) :
   (a (n * p ^ r) : ℤ) ≡ a (n * p ^ (r - 1)) [ZMOD (p : ℤ) ^ (3 * r)] := by
   sorry

@@ -32,7 +32,7 @@ namespace OeisA389790
 
 /-- The smallest prime strictly greater than $r$. Defined non-computably using the set infimum. -/
 noncomputable def next_prime (r : ℕ) : ℕ :=
-  sInf {k : ℕ | Nat.Prime k ∧ r < k}
+  sInf {k : ℕ | k.Prime ∧ r < k}
 
 /-- $r + r'$, where $r'$ is the next prime after $r$. -/
 noncomputable def S_sum (r : ℕ) : ℕ := r + next_prime r
@@ -44,7 +44,7 @@ noncomputable def a (n : ℕ) : ℕ :=
   let target := 2 * n
   let R := Finset.range n
   Finset.card $ Finset.filter (fun ⟨p, q⟩ =>
-    Nat.Prime p ∧ Nat.Prime q ∧ p ≤ q ∧ S_sum p + S_sum q = target
+    p.Prime ∧ q.Prime ∧ p ≤ q ∧ S_sum p + S_sum q = target
   ) (R ×ˢ R)
 
 @[category API, AMS 11]

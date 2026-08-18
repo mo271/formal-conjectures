@@ -39,7 +39,7 @@ def a : ℕ → ℕ
 | n + 2 =>
   let an_1 := a (n + 1)
   let an_2 := a n
-  if Nat.Prime an_1 ∧ an_1 > 2 then
+  if an_1.Prime ∧ an_1 > 2 then
     an_1 - an_2
   else
     an_1 + an_2

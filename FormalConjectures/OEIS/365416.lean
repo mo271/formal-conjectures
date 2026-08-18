@@ -206,7 +206,7 @@ Predicate for a number to be a prime power with exponent strictly greater than 1
 This is equivalent to being a composite prime power (a perfect power whose base is prime).
 -/
 def IsCompositePrimePow (m : ℕ) : Prop :=
-  ∃ (p e : ℕ), Nat.Prime p ∧ 1 < e ∧ p ^ e = m
+  ∃ (p e : ℕ), p.Prime ∧ 1 < e ∧ p ^ e = m
 
 /--
 According to Pillai's conjecture, k = 13 is the only term such that 2*k-1 and 2*k+1 both have

@@ -64,21 +64,21 @@ theorem a_4 : a 4 = 109106 := by rfl
 $a(p) \equiv a(1) \pmod{p^5}$ for all odd primes $p$ except $p = 5$.
 -/
 @[category research open, AMS 11]
-theorem conjecture_1 (p : ℕ) (hp : Nat.Prime p) (h_ne2 : p ≠ 2) (h_ne5 : p ≠ 5) :
+theorem conjecture_1 (p : ℕ) (hp : p.Prime) (h_ne2 : p ≠ 2) (h_ne5 : p ≠ 5) :
     (a p) ≡ (a 1) [MOD (p ^ 5)] := by
   sorry
 /--
 $a(p^r) \equiv a(p^{r-1}) \pmod{p^{3r+3}}$ for $r \ge 2$ and all primes $p \ge 3$.
 -/
 @[category research open, AMS 11]
-theorem conjecture_2 (p r : ℕ) (hp : Nat.Prime p) (h_pge3 : p ≥ 3) (hr : r ≥ 2) :
+theorem conjecture_2 (p r : ℕ) (hp : p.Prime) (h_pge3 : p ≥ 3) (hr : r ≥ 2) :
     (a (p ^ r)) ≡ (a (p ^ (r - 1))) [MOD (p ^ (3 * r + 3))] := by
   sorry
 /--
 $u(p) \equiv u(1) \pmod{p^5}$ holds for all primes $p \ge 7$ and positive integer $m$.
 -/
 @[category research open, AMS 11]
-theorem conjecture_3 (m p : ℕ) (hm : m > 0) (hp : Nat.Prime p) (h_pge7 : p ≥ 7) :
+theorem conjecture_3 (m p : ℕ) (hm : m > 0) (hp : p.Prime) (h_pge7 : p ≥ 7) :
     (u p m) ≡ (u 1 m) [MOD (p ^ 5)] := by
   sorry
 /--
@@ -90,7 +90,7 @@ we have $u(9, 2) - u(3, 2) \equiv 2 \cdot 3^8 \not\equiv 0 \pmod{3^9}$, so $p = 
 The condition $p \ge 5$ is required for the generalization to hold.
 -/
 @[category research open, AMS 11]
-theorem conjecture_4 (m p r : ℕ) (hm : m > 0) (hp : Nat.Prime p) (h_pge5 : p ≥ 5) (hr : r ≥ 2) :
+theorem conjecture_4 (m p r : ℕ) (hm : m > 0) (hp : p.Prime) (h_pge5 : p ≥ 5) (hr : r ≥ 2) :
     (u (p ^ r) m) ≡ (u (p ^ (r - 1)) m) [MOD (p ^ (3 * r + 3))] := by
   sorry
 

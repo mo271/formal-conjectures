@@ -70,7 +70,7 @@ positive integers $n$ and $r$:
 @[category research open, AMS 11]
 theorem supercongruences :
   ∀ (p n r : ℕ),
-    Nat.Prime p →
+    p.Prime →
     5 ≤ p →
     0 < n →
     0 < r →

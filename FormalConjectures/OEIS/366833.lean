@@ -60,7 +60,7 @@ lemma prime_0 : Nat.nth Nat.Prime 0 = 2 := by
 @[category API, AMS 11]
 lemma prime_1 : Nat.nth Nat.Prime 1 = 3 := by
   rw [Nat.nth_eq_sInf]
-  exact IsLeast.csInf_eq (s := {x | Nat.Prime x ∧ ∀ k < 1, Nat.nth Nat.Prime k < x}) ⟨
+  exact IsLeast.csInf_eq (s := {x | x.Prime ∧ ∀ k < 1, Nat.nth Nat.Prime k < x}) ⟨
     ⟨Nat.prime_three, by
       intro k hk
       interval_cases k
@@ -75,7 +75,7 @@ lemma prime_1 : Nat.nth Nat.Prime 1 = 3 := by
 @[category API, AMS 11]
 lemma prime_2 : Nat.nth Nat.Prime 2 = 5 := by
   rw [Nat.nth_eq_sInf]
-  exact IsLeast.csInf_eq (s := {x | Nat.Prime x ∧ ∀ k < 2, Nat.nth Nat.Prime k < x}) ⟨
+  exact IsLeast.csInf_eq (s := {x | x.Prime ∧ ∀ k < 2, Nat.nth Nat.Prime k < x}) ⟨
     ⟨by norm_num, by
       intro k hk
       interval_cases k
@@ -94,7 +94,7 @@ lemma prime_2 : Nat.nth Nat.Prime 2 = 5 := by
 @[category API, AMS 11]
 lemma prime_3 : Nat.nth Nat.Prime 3 = 7 := by
   rw [Nat.nth_eq_sInf]
-  exact IsLeast.csInf_eq (s := {x | Nat.Prime x ∧ ∀ k < 3, Nat.nth Nat.Prime k < x}) ⟨
+  exact IsLeast.csInf_eq (s := {x | x.Prime ∧ ∀ k < 3, Nat.nth Nat.Prime k < x}) ⟨
     ⟨by norm_num, by
       intro k hk
       interval_cases k
@@ -114,7 +114,7 @@ lemma prime_3 : Nat.nth Nat.Prime 3 = 7 := by
 @[category API, AMS 11]
 lemma prime_4 : Nat.nth Nat.Prime 4 = 11 := by
   rw [Nat.nth_eq_sInf]
-  exact IsLeast.csInf_eq (s := {x | Nat.Prime x ∧ ∀ k < 4, Nat.nth Nat.Prime k < x}) ⟨
+  exact IsLeast.csInf_eq (s := {x | x.Prime ∧ ∀ k < 4, Nat.nth Nat.Prime k < x}) ⟨
     ⟨by norm_num, by
       intro k hk
       interval_cases k

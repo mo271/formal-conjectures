@@ -61,7 +61,7 @@ def u (k n : ℕ) : ℤ :=
 
 /-- $a(p^r) \equiv a(p^{r-1}) \pmod{p^{3r+3}}$ for $r \ge 2$ and all primes $p \ge 3$. -/
 @[category research open, AMS 11]
-theorem conjecture_1 (p r : ℕ) (hp : Nat.Prime p) (hp3 : p ≥ 3) (hr : r ≥ 2) :
+theorem conjecture_1 (p r : ℕ) (hp : p.Prime) (hp3 : p ≥ 3) (hr : r ≥ 2) :
   a (p ^ r) ≡ a (p ^ (r - 1)) [ZMOD ((p : ℤ) ^ (3 * r + 3))] :=
 by sorry
 
@@ -70,7 +70,7 @@ For $k \ge 1$, the sequence $u(k, n)$ satisfies the same supercongruences
 $u(k, p^r) \equiv u(k, p^{r-1}) \pmod{p^{3r+3}}$ for $r \ge 2$ and all primes $p \ge 3$.
 -/
 @[category research open, AMS 11]
-theorem conjecture_2 (k p r : ℕ) (hk : k ≥ 1) (hp : Nat.Prime p) (hp3 : p ≥ 3) (hr : r ≥ 2) :
+theorem conjecture_2 (k p r : ℕ) (hk : k ≥ 1) (hp : p.Prime) (hp3 : p ≥ 3) (hr : r ≥ 2) :
   u k (p ^ r) ≡ u k (p ^ (r - 1)) [ZMOD ((p : ℤ) ^ (3 * r + 3))] :=
 by sorry
 

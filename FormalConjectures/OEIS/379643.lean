@@ -40,7 +40,7 @@ noncomputable def a (n : ℕ) : ℤ :=
   -- Define $\pi_{8,b}(p_n)$ as the cardinality of the set of primes $\le p_n$ congruent to
   -- $b \pmod 8$.
   let count_primes_mod_b (b : ℕ) : ℕ :=
-    ((Finset.range (p_n + 1)).filter (fun p => Nat.Prime p ∧ p % 8 = b)).card
+    ((Finset.range (p_n + 1)).filter (fun p => p.Prime ∧ p % 8 = b)).card
 
   (count_primes_mod_b 3 : ℤ) - (count_primes_mod_b 7 : ℤ)
 
@@ -107,10 +107,10 @@ theorem a_2 : a 2 = 1 := by
   have h_pn : Nat.nth Nat.Prime (2 - 1) = 3 := nth_prime_one
   rw [h_pn]
   dsimp
-  have h3 : (Finset.filter (fun p => Nat.Prime p ∧ p % 8 = 3) (Finset.range (3 + 1))).card = 1 :=
+  have h3 : (Finset.filter (fun p => p.Prime ∧ p % 8 = 3) (Finset.range (3 + 1))).card = 1 :=
     by rfl
   rw [h3]
-  have h7 : (Finset.filter (fun p => Nat.Prime p ∧ p % 8 = 7) (Finset.range (3 + 1))).card = 0 :=
+  have h7 : (Finset.filter (fun p => p.Prime ∧ p % 8 = 7) (Finset.range (3 + 1))).card = 0 :=
     by rfl
   rw [h7]
   norm_num
@@ -123,10 +123,10 @@ theorem a_3 : a 3 = 1 := by
   have h_pn : Nat.nth Nat.Prime (3 - 1) = 5 := nth_prime_two
   rw [h_pn]
   dsimp
-  have h3 : (Finset.filter (fun p => Nat.Prime p ∧ p % 8 = 3) (Finset.range (5 + 1))).card = 1 :=
+  have h3 : (Finset.filter (fun p => p.Prime ∧ p % 8 = 3) (Finset.range (5 + 1))).card = 1 :=
     by rfl
   rw [h3]
-  have h7 : (Finset.filter (fun p => Nat.Prime p ∧ p % 8 = 7) (Finset.range (5 + 1))).card = 0 :=
+  have h7 : (Finset.filter (fun p => p.Prime ∧ p % 8 = 7) (Finset.range (5 + 1))).card = 0 :=
     by rfl
   rw [h7]
   norm_num
@@ -139,10 +139,10 @@ theorem a_4 : a 4 = 0 := by
   have h_pn : Nat.nth Nat.Prime (4 - 1) = 7 := nth_prime_three
   rw [h_pn]
   dsimp
-  have h3 : (Finset.filter (fun p => Nat.Prime p ∧ p % 8 = 3) (Finset.range (7 + 1))).card = 1 :=
+  have h3 : (Finset.filter (fun p => p.Prime ∧ p % 8 = 3) (Finset.range (7 + 1))).card = 1 :=
     by rfl
   rw [h3]
-  have h7 : (Finset.filter (fun p => Nat.Prime p ∧ p % 8 = 7) (Finset.range (7 + 1))).card = 1 :=
+  have h7 : (Finset.filter (fun p => p.Prime ∧ p % 8 = 7) (Finset.range (7 + 1))).card = 1 :=
     by rfl
   rw [h7]
   norm_num
@@ -161,7 +161,7 @@ noncomputable def b (n : ℕ) : ℤ :=
   -- Define $\pi_{8,b}(p_n)$ as the cardinality of the set of primes $\le p_n$ congruent to
   -- $b \pmod 8$.
   let count_primes_mod_b (b : ℕ) : ℕ :=
-    ((Finset.range (p_n + 1)).filter (fun p => Nat.Prime p ∧ p % 8 = b)).card
+    ((Finset.range (p_n + 1)).filter (fun p => p.Prime ∧ p % 8 = b)).card
 
   (count_primes_mod_b 5 : ℤ) - (count_primes_mod_b 1 : ℤ)
 

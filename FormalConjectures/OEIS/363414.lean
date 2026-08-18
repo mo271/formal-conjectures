@@ -59,7 +59,7 @@ The set of primes of type 2 for a is conjecturally
 $\mathbb{P}_2 = \{p \mid p \equiv 1 \pmod 4\}$.
 -/
 def type_two_primes_conjectured : Set ℕ :=
-  {p : ℕ | Nat.Prime p ∧ (p : ZMod 4) = 1}
+  {p : ℕ | p.Prime ∧ (p : ZMod 4) = 1}
 
 /--
 Conjecture:
@@ -67,7 +67,7 @@ The set of type 1 primes is empty; every prime $p$ divides some term $a(n)$ with
 -/
 @[category research open, AMS 11]
 theorem conjecture_type1_empty :
-  ∀ p : ℕ, Nat.Prime p → ∃ n : ℕ, 0 < n ∧ (p : ℤ) ∣ a n := by sorry
+  ∀ p : ℕ, p.Prime → ∃ n : ℕ, 0 < n ∧ (p : ℤ) ∣ a n := by sorry
 
 /--
 Moll's conjecture 5.5 extends to this sequence:
@@ -77,7 +77,7 @@ This is formalized using asymptotic equivalence (`~[atTop]`) for the p-adic valu
 -/
 @[category research open, AMS 11]
 theorem conjecture_type2_asymptotics :
-  ∀ p : ℕ, Nat.Prime p → p ∈ type_two_primes_conjectured →
+  ∀ p : ℕ, p.Prime → p ∈ type_two_primes_conjectured →
   (fun n ↦ (padicValInt p (a n) : ℝ)) ~[atTop] (fun n ↦ (n : ℝ) / ((p : ℝ) - 1)) := by sorry
 
 end OeisA363414

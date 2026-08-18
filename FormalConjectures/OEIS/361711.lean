@@ -67,7 +67,7 @@ The supercongruence $a(p^k) \equiv a(p^{k-1}) \pmod{p^{3k}}$ holds for all prime
 positive integers $k$.
 -/
 @[category research open, AMS 11]
-theorem conjecture (p : ℕ) (hp : Nat.Prime p) (h_geq_5 : 5 ≤ p) (k : ℕ) (hk : k > 0) :
+theorem conjecture (p : ℕ) (hp : p.Prime) (h_geq_5 : 5 ≤ p) (k : ℕ) (hk : k > 0) :
     a (p ^ k) ≡ a (p ^ (k - 1)) [ZMOD (p ^ (3 * k) : ℕ)] := by
   sorry
 

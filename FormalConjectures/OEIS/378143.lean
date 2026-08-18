@@ -32,16 +32,16 @@ namespace OeisA378143
 The smallest prime of the form $(2p)^{2^n} + 1$ for some prime $p$.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
-  sInf { k : ℕ | Nat.Prime k ∧ ∃ p : ℕ, Nat.Prime p ∧ k = (2 * p) ^ (2 ^ n) + 1 }
+  sInf { k : ℕ | k.Prime ∧ ∃ p : ℕ, p.Prime ∧ k = (2 * p) ^ (2 ^ n) + 1 }
 
 @[category API, AMS 11]
 lemma a_val {n : ℕ} {k : ℕ} (hk_prime : k.Prime) (hk_eq : k = 4 ^ (2 ^ n) + 1) : a n = k := by
   unfold a
-  have h_mem : k ∈ { k : ℕ | Nat.Prime k ∧ ∃ p : ℕ, Nat.Prime p ∧ k = (2 * p) ^ (2 ^ n) + 1 } := by
+  have h_mem : k ∈ { k : ℕ | k.Prime ∧ ∃ p : ℕ, p.Prime ∧ k = (2 * p) ^ (2 ^ n) + 1 } := by
     refine ⟨hk_prime, 2, by norm_num, ?_⟩
     exact hk_eq
   have h_bounds :
-      ∀ x ∈ { k : ℕ | Nat.Prime k ∧ ∃ p : ℕ, Nat.Prime p ∧ k = (2 * p) ^ (2 ^ n) + 1 }, k ≤ x := by
+      ∀ x ∈ { k : ℕ | k.Prime ∧ ∃ p : ℕ, p.Prime ∧ k = (2 * p) ^ (2 ^ n) + 1 }, k ≤ x := by
     rintro x ⟨hx_prime, p, hp_prime, hx_eq⟩
     have hp : 2 ≤ p := hp_prime.two_le
     have h1 : 4 ≤ 2 * p := by omega
