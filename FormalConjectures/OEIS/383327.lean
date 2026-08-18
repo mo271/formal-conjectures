@@ -24,7 +24,7 @@ $a(n)$ is the number of occurrences of $n$ in the sequence A049802.
 *References:*
 - [A383327](https://oeis.org/A383327)
 -/
-open Nat
+open Nat Finset
 
 namespace OeisA383327
 
@@ -38,11 +38,11 @@ def a (n : ℕ) : ℕ :=
     let A049802_val (m : ℕ) : ℕ :=
       let r := Nat.log 2 m
       -- Sum over k=1 to r. We use index i in {0, ..., r-1} such that k = i+1.
-      (Finset.range r).sum (fun i => m % (2 ^ (i + 1)))
+      ∑ i ∈ range r, m % (2 ^ (i + 1))
 
     -- Since $A049802(m) = n$ implies $m < 2^{n+1}$, we use $B = 2^{n+1}$ as a sufficient bound.
     let B : ℕ := 2 ^ (n + 1)
-    Finset.card (Finset.filter (fun m => A049802_val m = n) (Finset.range B))
+    (filter (fun m => A049802_val m = n) (range B)).card
 
 @[category test, AMS 11]
 theorem a_0 : a 0 = 0 := by rfl

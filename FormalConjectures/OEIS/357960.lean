@@ -35,8 +35,8 @@ The sequence $a(n) = A(n-1)^5 B(n)^6$ for $n \ge 1$.
 -/
 def a (n : ℕ) : ℕ :=
   let N := n - 1
-  ( (range n).sum fun k => (N.choose k) ^ 2 * ((N + k).choose k) ^ 2 ) ^ 5 *
-  ( (range (n + 1)).sum fun k => (n.choose k) ^ 2 * ((n + k).choose k) ) ^ 6
+  ( ∑ k ∈ range n, (N.choose k) ^ 2 * ((N + k).choose k) ^ 2 ) ^ 5 *
+  ( ∑ k ∈ range (n + 1), (n.choose k) ^ 2 * ((n + k).choose k) ) ^ 6
 
 @[category test, AMS 11]
 theorem a_1 : a 1 = 729 := by

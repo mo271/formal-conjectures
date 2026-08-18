@@ -38,14 +38,13 @@ noncomputable def a (n : ℕ) : ℚ :=
   | 0 => 1
   | m_plus_one@(m + 1) =>
     -- The sum is over j from 1 to m_plus_one. k runs from 0 to m.
-    let sum_val : ℚ := Finset.sum (Finset.range m_plus_one) (fun k =>
+    let sum_val : ℚ := ∑ k ∈ range m_plus_one,
       let j : ℕ := k + 1 -- j is the index for the sum
 
       let a_term : ℚ := a (m_plus_one - j)
       let coeff_factor : ℚ := 1 - (-1 : ℚ)^j - (-2 : ℚ)^j
 
       (m_plus_one.choose j : ℚ) * coeff_factor * a_term
-    )
     (-1 : ℚ)^m_plus_one + (1 / 2) * sum_val
 
 @[category test, AMS 11]

@@ -25,7 +25,7 @@ $$a(n) = \sum_{k=0}^{n-2} (-1)^k \binom{n}{k}^2 \binom{n-2}{k}$$
 *References:*
 - [A361711](https://oeis.org/A361711)
 -/
-open Nat Int Finset BigOperators
+open Nat Int Finset
 
 namespace OeisA361711
 
@@ -41,8 +41,8 @@ def a (n : ℕ) : ℤ :=
     -- $n-2$ is the upper limit of summation.
     let m : ℕ := N - 2
 
-    -- The sum is over k from 0 to m, which is Finset.range (m + 1).
-    (Finset.range (m + 1)).sum fun k : ℕ =>
+    -- The sum is over k from 0 to m, which is range (m + 1).
+    ∑ k ∈ range (m + 1),
       let term_nat : ℕ := (N.choose k) * (N.choose k) * (m.choose k)
       let sign_k : ℤ := (-1 : ℤ) ^ k
       sign_k * term_nat.cast

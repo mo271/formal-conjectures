@@ -26,7 +26,7 @@ are the Apéry numbers (A005258).
 *References:*
 - [A357506](https://oeis.org/A357506)
 -/
-open Nat
+open Nat Finset
 
 namespace OeisA357506
 
@@ -34,7 +34,7 @@ namespace OeisA357506
 A005258(n): The Apéry numbers $B(n) = \sum_{k = 0}^n \binom{n}{k}^2 \binom{n+k}{k}$.
 -/
 def A005258 (n : ℕ) : ℕ :=
-  Finset.sum (Finset.range (n + 1)) fun k => (n.choose k) ^ 2 * ((n + k).choose k)
+  ∑ k ∈ range (n + 1), (n.choose k) ^ 2 * ((n + k).choose k)
 
 /--
 $a(n) = B(n)^3 B(n-1)$ for $n \ge 1$.

@@ -48,8 +48,8 @@ noncomputable def a : ℕ → ℕ :=
       -- Find the maximum length of a contiguous sublist that sums to target.
       -- We iterate over all possible start indices i and end indices j such that 0 ≤ i ≤ j < n.
       let max_contiguous_length : ℕ :=
-        Finset.sup (Finset.range n) fun i => -- start index i
-          Finset.sup (Finset.range n) fun j => -- end index j
+        Finset.sup (range n) fun i => -- start index i
+          Finset.sup (range n) fun j => -- end index j
             if i ≤ j then
               let sublist_len := j - i + 1
               let sublist := prefix_list.drop i |>.take sublist_len

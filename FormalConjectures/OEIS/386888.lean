@@ -61,7 +61,7 @@ noncomputable def a (n : ℕ) : ℕ :=
     -- Bounded search for an index $k$ such that $S k = u$.
     ∃ k ∈ range max_index_bound, S k = u
 
-  ) (Finset.range max_index_bound)
+  ) (range max_index_bound)
 
 @[category API, AMS 11]
 lemma a_zero_for_small (n : ℕ) (hn : n ≤ 11) : a n = 0 := by

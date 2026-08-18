@@ -26,7 +26,7 @@ $$a(n) = \left( \sum_{k=0}^{2n} \binom{n+k-1}{k} \right)^4
 *References:*
 - [A357674](https://oeis.org/A357674)
 -/
-open Nat Finset BigOperators
+open Nat Finset
 
 namespace OeisA357674
 
@@ -35,8 +35,8 @@ The sequence $a(n) = \left( \sum_{k=0}^{2n} \binom{n+k-1}{k} \right)^4 \left( \s
 \binom{n+k-1}{k}^2 \right)^3$.
 -/
 def a (n : ℕ) : ℕ :=
-  let S1 : ℕ := Finset.sum (range (2 * n + 1)) (fun k => (n + k - 1).choose k)
-  let S2 : ℕ := Finset.sum (range (2 * n + 1)) (fun k => ((n + k - 1).choose k) ^ 2)
+  let S1 : ℕ := ∑ k ∈ range (2 * n + 1), (n + k - 1).choose k
+  let S2 : ℕ := ∑ k ∈ range (2 * n + 1), ((n + k - 1).choose k) ^ 2
   S1 ^ 4 * S2 ^ 3
 
 /--
@@ -46,8 +46,8 @@ $u(n, m) = \left( \sum_{k = 0}^{m*n} \binom{n+k-1}{k} \right)^{2m} \cdot \left( 
 Note that `a n = u n 2`.
 -/
 def u (n m : ℕ) : ℕ :=
-  let S1 : ℕ := Finset.sum (range (m * n + 1)) (fun k => (n + k - 1).choose k)
-  let S2 : ℕ := Finset.sum (range (m * n + 1)) (fun k => ((n + k - 1).choose k) ^ 2)
+  let S1 : ℕ := ∑ k ∈ range (m * n + 1), (n + k - 1).choose k
+  let S2 : ℕ := ∑ k ∈ range (m * n + 1), ((n + k - 1).choose k) ^ 2
   S1 ^ (2 * m) * S2 ^ (m + 1)
 
 @[category test, AMS 11]

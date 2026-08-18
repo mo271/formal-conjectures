@@ -61,8 +61,8 @@ lemma a_eq_0_of_N_le_50 {n : ℕ} (hn1 : 1 ≤ n) (hn2 : 12 * n - 1 ≤ 50) : a 
   have h_empty : (Finset.filter (fun t : ℕ × ℕ × ℕ =>
       t.1.Prime ∧ t.1 ≠ 2 ∧ t.2.1.Prime ∧ t.2.1 ≠ 2 ∧ t.2.2.Prime ∧ t.2.2 ≠ 2 ∧
       t.1 ≤ t.2.1 ∧ t.2.1 ≤ t.2.2 ∧ t.1 * t.2.1 + t.1 * t.2.2 + t.2.1 * t.2.2 = 12 * n - 1)
-    ((Finset.range (12 * n - 1 + 1)) ×ˢ
-     ((Finset.range (12 * n - 1 + 1)) ×ˢ (Finset.range (12 * n - 1 + 1))))) = ∅ := by
+    ((range (12 * n - 1 + 1)) ×ˢ
+     ((range (12 * n - 1 + 1)) ×ˢ (range (12 * n - 1 + 1))))) = ∅ := by
     rw [Finset.filter_eq_empty_iff]
     rintro ⟨p, q, r⟩ _
     simp only [not_and]
@@ -127,8 +127,8 @@ lemma a_eq_0_of_N_le_50 {n : ℕ} (hn1 : 1 ≤ n) (hn2 : 12 * n - 1 ≤ 50) : a 
                 t.2.2.Prime ∧
                   ¬t.2.2 = 2 ∧ t.1 ≤ t.2.1 ∧ t.2.1 ≤ t.2.2 ∧
                   t.1 * t.2.1 + t.1 * t.2.2 + t.2.1 * t.2.2 = 12 * n - 1)
-      (Finset.range (12 * n - 1 + 1) ×ˢ
-       Finset.range (12 * n - 1 + 1) ×ˢ Finset.range (12 * n - 1 + 1)) = ∅ := h_empty
+      (range (12 * n - 1 + 1) ×ˢ
+       range (12 * n - 1 + 1) ×ˢ range (12 * n - 1 + 1)) = ∅ := h_empty
   rw [h_eq]
   exact rfl
 

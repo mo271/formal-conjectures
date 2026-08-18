@@ -25,7 +25,7 @@ $$a(n) = \sum_{k=1}^n \left(\binom{n}{k} \bmod 2^k\right)$$
 *References:*
 - [A386660](https://oeis.org/A386660)
 -/
-open Nat
+open Nat Finset
 
 namespace OeisA386660
 
@@ -33,7 +33,7 @@ namespace OeisA386660
 The sequence $a(n) = \sum_{k=1}^n \left(\binom{n}{k} \bmod 2^k\right)$.
 -/
 def a (n : ℕ) : ℕ :=
-  (Finset.Icc 1 n).sum fun k => (n.choose k) % (2 ^ k)
+  ∑ k ∈ Icc 1 n, (n.choose k) % (2 ^ k)
 
 @[category test, AMS 11]
 theorem a_0 : a 0 = 0 := by rfl

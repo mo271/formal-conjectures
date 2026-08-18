@@ -25,35 +25,38 @@ $$a(n) = \sum_{k=0}^{n-1} \binom{n+k-1}{k}^3$$
 *References:*
 - [A375178](https://oeis.org/A375178)
 -/
+
+open Nat Finset
+
 namespace OeisA375178
 
 /--
 The sequence $a(n) = \sum_{k=0}^{n-1} \binom{n+k-1}{k}^3$.
 -/
 def a (n : ℕ) : ℕ :=
-  Finset.sum (Finset.range n) fun k => (Nat.multichoose n k) ^ 3
+  ∑ k ∈ range n, (multichoose n k) ^ 3
 
 @[category test, AMS 11]
 theorem a_0 : a 0 = 0 := by rfl
 
 @[category test, AMS 11]
-theorem a_1 : a 1 = 1 := by simp [a, Nat.multichoose_eq]
+theorem a_1 : a 1 = 1 := by simp [a, multichoose_eq]
 
 @[category test, AMS 11]
-theorem a_2 : a 2 = 9 := by simp [a, Nat.multichoose_eq, Finset.sum_range_succ]
+theorem a_2 : a 2 = 9 := by simp [a, multichoose_eq, sum_range_succ]
 
 @[category test, AMS 11]
-theorem a_3 : a 3 = 244 := by simp [a, Nat.multichoose_eq, Finset.sum_range_succ]; decide
+theorem a_3 : a 3 = 244 := by simp [a, multichoose_eq, sum_range_succ]; decide
 
 @[category test, AMS 11]
-theorem a_4 : a 4 = 9065 := by simp [a, Nat.multichoose_eq, Finset.sum_range_succ]; decide
+theorem a_4 : a 4 = 9065 := by simp [a, multichoose_eq, sum_range_succ]; decide
 
 /--
 The generalized sequence $b_m(n) = \sum_{k = 0}^{n-1} \binom{n+k-1}{k}^{2m+1}$.
 -/
 noncomputable
 def b (m : ℕ) (n : ℕ) : ℕ :=
-  Finset.sum (Finset.range n) fun k => (Nat.multichoose n k) ^ (2 * m + 1)
+  ∑ k ∈ range n, (multichoose n k) ^ (2 * m + 1)
 
 /--
 Conjecture: for a positive integer m, define a sequence $b_m(n)$ as

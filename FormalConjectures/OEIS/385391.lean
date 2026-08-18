@@ -43,7 +43,7 @@ noncomputable def a (n : ℕ) : ℕ :=
   Note: Nat.nth Nat.Prime 0 = 2, Nat.nth Nat.Prime 1 = 3, etc. -/
 noncomputable def A002110 (n : ℕ) : ℕ :=
   if n = 0 then 1
-  else (Finset.range n).prod fun i => Nat.nth Nat.Prime i
+  else (range n).prod fun i => Nat.nth Nat.Prime i
 
 @[category test, AMS 11]
 theorem a_0 : a 0 = 0 := by

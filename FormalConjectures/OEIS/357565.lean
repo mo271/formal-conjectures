@@ -33,8 +33,8 @@ namespace OeisA357565
 The sequence $a(n) = 3 \sum_{k=0}^n \binom{n+k-1}{k}^2 + 2 \sum_{k=0}^n \binom{n+k-1}{k}^3$.
 -/
 def a (n : ℕ) : ℕ :=
-  (range (n + 1)).sum fun k =>
-    3 * (choose (n + k - 1) k) ^ 2 + 2 * (choose (n + k - 1) k) ^ 3
+  ∑ k ∈ range (n + 1),
+    (3 * (choose (n + k - 1) k) ^ 2 + 2 * (choose (n + k - 1) k) ^ 3)
 
 /--
 The generalized sequence $u(n, m)$ from the conjecture section:
@@ -43,8 +43,8 @@ $u(n, m) = (m + 2) \sum_{k = 0}^{m \cdot n} \binom{n+k-1}{k}^2 + 2m \sum_{k = 0}
 Note that $a(n) = u(n, 1)$.
 -/
 def u (n m : ℕ) : ℕ :=
-  (range (m * n + 1)).sum fun k =>
-    (m + 2) * (choose (n + k - 1) k) ^ 2 + (2 * m) * (choose (n + k - 1) k) ^ 3
+  ∑ k ∈ range (m * n + 1),
+    ((m + 2) * (choose (n + k - 1) k) ^ 2 + (2 * m) * (choose (n + k - 1) k) ^ 3)
 
 @[category test, AMS 11]
 theorem a_0 : a 0 = 5 := by rfl

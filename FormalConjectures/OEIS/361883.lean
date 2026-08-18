@@ -38,7 +38,7 @@ def a (n : ℕ) : ℕ :=
     -- Calculate the numerator sum S in ℕ
     -- We use binomial(n+k-1, n-1) which is equal to binomial(n+k-1, k)
     -- This makes the dependency on 'n - 1' explicit for the lower index.
-    let S : ℕ := Finset.sum (range (n + 1)) fun k =>
+    let S : ℕ := ∑ k ∈ range (n + 1),
       (n + 2 * k) * (Nat.choose (n + k - 1) (n - 1)) ^ 3
 
     -- Division is exact since a(n) is an integer sequence.

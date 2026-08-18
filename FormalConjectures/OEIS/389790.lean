@@ -26,7 +26,7 @@ and $r'$ denotes the smallest prime strictly greater than $r$.
 - [A389790](https://oeis.org/A389790)
 -/
 
-open Nat
+open Nat Finset
 
 namespace OeisA389790
 
@@ -42,10 +42,10 @@ Number of ways to write $2n$ as $p + p' + q + q'$.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
   let target := 2 * n
-  let R := Finset.range n
-  Finset.card $ Finset.filter (fun ⟨p, q⟩ =>
+  let R := range n
+  ((R ×ˢ R).filter (fun ⟨p, q⟩ =>
     p.Prime ∧ q.Prime ∧ p ≤ q ∧ S_sum p + S_sum q = target
-  ) (R ×ˢ R)
+  )).card
 
 @[category API, AMS 11]
 lemma next_prime_2 : next_prime 2 = 3 := by

@@ -34,13 +34,13 @@ namespace OeisA357958
 The Apéry number sequence $A(n) = \sum_{k = 0}^n \binom{n}{k}^2 \binom{n+k}{k}^2$.
 -/
 def A005259_seq (n : ℕ) : ℕ :=
-  (range (n + 1)).sum fun k ↦ (n.choose k) ^ 2 * ((n + k).choose k) ^ 2
+  ∑ k ∈ range (n + 1), (n.choose k) ^ 2 * ((n + k).choose k) ^ 2
 
 /--
 The related Apéry number sequence $C(n) = \sum_{k = 0}^n \binom{n}{k}^2 \binom{n+k}{k}$.
 -/
 def A005258_seq (n : ℕ) : ℕ :=
-  (range (n + 1)).sum fun k ↦ (n.choose k) ^ 2 * ((n + k).choose k)
+  ∑ k ∈ range (n + 1), (n.choose k) ^ 2 * ((n + k).choose k)
 
 /--
 The sequence $a(n) = 5 A(n) + 14 B(n-1)$.

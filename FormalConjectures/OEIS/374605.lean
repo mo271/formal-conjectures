@@ -25,14 +25,17 @@ $$a(n) = \sum_{k=0}^n \binom{n}{k}^2 \binom{n+k}{k} \binom{3n+2k}{n}$$
 *References:*
 - [A374605](https://oeis.org/A374605)
 -/
+
+open Nat Finset
+
 namespace OeisA374605
 
 /--
 The sequence $a(n) = \sum_{k=0}^n \binom{n}{k}^2 \binom{n+k}{k} \binom{3n+2k}{n}$.
 -/
 def a (n : ℕ) : ℕ :=
-  Finset.sum (Finset.range (n + 1)) fun k =>
-    (Nat.choose n k) ^ 2 * (Nat.choose (n + k) k) * (Nat.choose (3 * n + 2 * k) n)
+  ∑ k ∈ range (n + 1),
+    (choose n k) ^ 2 * (choose (n + k) k) * (choose (3 * n + 2 * k) n)
 
 @[category test, AMS 11]
 theorem a_0 : a 0 = 1 := rfl

@@ -24,7 +24,7 @@ The sequence is defined by $a(n) = [x^n] \left( \frac{1-x}{1-x+x^2} \right)^n$.
 *References:*
 - [A386548](https://oeis.org/A386548)
 -/
-open Finset Nat BigOperators Int
+open Finset Nat Int
 
 namespace OeisA386548
 
@@ -32,13 +32,12 @@ namespace OeisA386548
 The sequence $a(n) = [x^n] \left( \frac{1-x}{1-x+x^2} \right)^n$.
 -/
 def a (n : ℕ) : ℤ :=
-  Finset.sum (Finset.range (n / 2 + 1))
-    (fun k ↦
+  ∑ k ∈ range (n / 2 + 1),
       let sign : ℤ := if k % 2 = 0 then 1 else -1
       -- Nat.choose handles binomial(n, k) = 0 if k > n due to truncated subtraction on Nat.
       let term1 : ℕ := (n + k - 1).choose k
       let term2 : ℕ := (n - k - 1).choose (n - 2 * k)
-      sign * (term1 : ℤ) * (term2 : ℤ))
+      sign * (term1 : ℤ) * (term2 : ℤ)
 
 @[category test, AMS 11]
 theorem a_0 : a 0 = 1 := by rfl

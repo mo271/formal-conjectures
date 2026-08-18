@@ -34,7 +34,7 @@ The sequence $a(n) = \sum_{k=\lfloor(n+1)/2\rfloor}^n (-1)^{n+k} \binom{n}{k} \b
 \binom{2k}{n}$.
 -/
 def a (n : ℕ) : ℕ :=
-  (Finset.sum (Finset.range (n + 1)) fun k : ℕ =>
+  (∑ k ∈ range (n + 1),
     -- The expression must result in ℤ due to the alternating sign.
     let sign_factor : ℤ := (-1) ^ (n + k)
     -- Binomial coefficients (Nat.choose) are implicitly coerced to ℤ for multiplication.

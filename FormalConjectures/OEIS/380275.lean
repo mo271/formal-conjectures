@@ -39,14 +39,14 @@ $$a(n) : \sum_{k \ge 0} \left([q^k] P_n(q)\right)^4$$
 noncomputable def P_q_factorial_poly (n : ℕ) : Polynomial ℕ :=
  (Icc 1 n).prod fun j =>
   -- $\sum_{i=0}^{j-1} X^i$
-  (Finset.range j).sum fun i => C (1 : ℕ) * (X : Polynomial ℕ) ^ i
+  ∑ i ∈ range j, C (1 : ℕ) * (X : Polynomial ℕ) ^ i
 
 noncomputable def a (n : ℕ) : ℕ :=
   let P := P_q_factorial_poly n
   -- The maximum degree of $P_n$ is $n(n-1)/2$.
   let max_degree : ℕ := n * (n - 1) / 2
 
-  Finset.sum (Finset.range (max_degree + 1)) fun k => (P.coeff k) ^ 4
+  ∑ k ∈ range (max_degree + 1), (P.coeff k) ^ 4
 
 @[category API, AMS 11]
 lemma P_0 : P_q_factorial_poly 0 = 1 := by
@@ -188,7 +188,7 @@ We cast to $\mathbb{R}$ for asymptotic analysis. -/
 noncomputable def A_k_n (k n : ℕ) : ℝ :=
   let P := P_q_factorial_poly n
   let max_degree : ℕ := n * (n - 1) / 2
-  (Finset.range (max_degree + 1)).sum fun j : ℕ => ((P.coeff j : ℝ) ^ k)
+  ∑ j ∈ range (max_degree + 1), ((P.coeff j : ℝ) ^ k)
 
 /--
 The conjectured asymptotic formula for the sum of $k$-th powers of coefficients of the

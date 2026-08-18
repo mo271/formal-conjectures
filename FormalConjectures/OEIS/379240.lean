@@ -36,7 +36,7 @@ $\sum_{p \mid n} v_p(n) \cdot \frac{n}{p}$.
 -/
 def A003415 (n : ℕ) : ℕ :=
   if n = 0 then 0
-  else (n.factorization.support).sum fun p => (n / p) * (n.factorization p)
+  else ∑ p ∈ n.factorization.support, (n / p) * (n.factorization p)
 
 /-- A359550(n) is 1 if $n$ is not divisible by any $p^p$, and 0 otherwise. -/
 def A359550 (n : ℕ) : ℕ :=
@@ -54,7 +54,7 @@ $A276085(n) = \sum e_i \cdot \text{primorial}(p_i - 1)$.
 -/
 def A276085 (n : ℕ) : ℕ :=
   if n ≤ 1 then 0
-  else n.factorization.support.sum fun p => (n.factorization p) * primorial (p - 1)
+  else ∑ p ∈ n.factorization.support, (n.factorization p) * primorial (p - 1)
 
 /-- Auxiliary loop for the primorial base exp-function A276086. -/
 def A276086_loop : ℕ → ℕ → ℕ → ℕ

@@ -33,7 +33,7 @@ namespace OeisA361714
 The sequence $a(n) = \sum_{k=0}^{n-1} (-1)^{n+k+1} \binom{n}{k} \binom{n+k-1}{k}^2$.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
-  (Finset.sum (Finset.range n) fun k : ℕ =>
+  (∑ k ∈ range n,
     (
       (-1 : ℤ) ^ (n + k + 1) *
       (n.choose k : ℤ) *
