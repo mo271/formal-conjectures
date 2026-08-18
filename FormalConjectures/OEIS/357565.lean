@@ -54,6 +54,7 @@ theorem a_1 : a 1 = 10 := by rfl
 
 @[category test, AMS 11]
 theorem a_2 : a 2 = 114 := by rfl
+
 @[category test, AMS 11]
 theorem a_3 : a 3 = 2926 := by rfl
 
