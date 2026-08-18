@@ -33,7 +33,7 @@ namespace OeisA357569
 The sequence $a(n) = \binom{3n}{n}^2 - 27 \binom{2n}{n}$.
 -/
 def a (n : ℕ) : ℤ :=
-  (Int.ofNat ((3 * n).choose n)) ^ 2 - (27 : ℤ) * Int.ofNat ((2 * n).choose n)
+  (((3 * n).choose n : ℤ)) ^ 2 - (27 : ℤ) * ((2 * n).choose n : ℤ)
 
 @[category test, AMS 11]
 theorem a_0 : a 0 = -26 := by rfl
@@ -56,8 +56,8 @@ The generalized sequence $u(k, n) = 2 \binom{3n}{n}^k - k \cdot 3^{k+1} \binom{2
 Note that $u(2, n) = 2 \cdot a(n)$.
 -/
 def u (k n : ℕ) : ℤ :=
-  2 * (Int.ofNat ((3 * n).choose n)) ^ k -
-  (k : ℤ) * ((3 : ℤ) ^ (k + 1)) * Int.ofNat ((2 * n).choose n)
+  2 * (((3 * n).choose n : ℤ)) ^ k -
+  (k : ℤ) * ((3 : ℤ) ^ (k + 1)) * ((2 * n).choose n : ℤ)
 
 /-- $a(p^r) \equiv a(p^{r-1}) \pmod{p^{3r+3}}$ for $r \ge 2$ and all primes $p \ge 3$. -/
 @[category research open, AMS 11]
