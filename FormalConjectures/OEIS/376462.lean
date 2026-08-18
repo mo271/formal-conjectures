@@ -30,7 +30,6 @@ open Nat Finset
 
 namespace OeisA376462
 
-
 /--
 A helper function for the $A108625$ array:
 $$A108625(n, k) = \sum_{i=0}^k \binom{n}{i}^2 \binom{n+k-i}{k-i}$$
@@ -45,7 +44,6 @@ The sequence $a(n) = \sum_{k=0}^n \binom{n}{k}^2 \binom{n+k}{k} T(n, n-k)$.
 noncomputable def a (n : ℕ) : ℕ :=
   (range (n + 1)).sum fun k =>
     (n.choose k) ^ 2 * (n + k).choose k * (a108625_aux n (n - k))
-
 
 @[category test, AMS 11]
 theorem a_0 : a 0 = 1 := by rfl

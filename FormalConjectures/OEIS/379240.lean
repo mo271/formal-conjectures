@@ -30,7 +30,6 @@ open Nat List Finset
 
 namespace OeisA379240
 
-
 /--
 A003415(n): The function $n \cdot \sum_{p \mid n} v_p(n)/p$, calculated as
 $\sum_{p \mid n} v_p(n) \cdot \frac{n}{p}$.

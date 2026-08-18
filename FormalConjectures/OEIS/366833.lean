@@ -47,7 +47,6 @@ noncomputable def a (n : ℕ) : ℕ :=
     -- Subtracting 1 is safe since both p_n and p_{n+1} are prime powers, giving a count >= 2.
     count_prime_powers - 1
 
-
 @[category API, AMS 11]
 lemma prime_0 : Nat.nth Nat.Prime 0 = 2 := by
   rw [Nat.nth_zero]

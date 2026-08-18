@@ -29,7 +29,6 @@ open Nat Finset
 
 namespace OeisA385958
 
-
 /--
 A helper function to find the largest prime $p$ such that $p-1$ divides $2 \cdot k$.
 This is the definition of $a(n)$ given $b(n-1)=k$.

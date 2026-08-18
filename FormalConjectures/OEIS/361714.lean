@@ -29,7 +29,6 @@ open Nat Int Finset
 
 namespace OeisA361714
 
-
 /--
 The sequence $a(n) = \sum_{k=0}^{n-1} (-1)^{n+k+1} \binom{n}{k} \binom{n+k-1}{k}^2$.
 -/
@@ -53,7 +52,6 @@ theorem a_2 : a 2 = 7 := by rfl
 
 @[category test, AMS 11]
 theorem a_3 : a 3 = 82 := by rfl
-
 
 @[category test, AMS 11]
 theorem a_4 : a 4 = 1063 := by rfl

@@ -29,7 +29,6 @@ open Nat Finset
 
 namespace OeisA361715
 
-
 /--
 The sequence $a(n) = \sum_{k=0}^{n-1} \binom{n}{k}^2 \binom{n+k-1}{k}$.
 -/
@@ -47,7 +46,6 @@ theorem a_2 : a 2 = 9 := by rfl
 
 @[category test, AMS 11]
 theorem a_3 : a 3 = 82 := by rfl
-
 
 @[category test, AMS 11]
 theorem a_4 : a 4 = 745 := by rfl

@@ -31,7 +31,6 @@ open Int Finset
 set_option maxRecDepth 1000000
 namespace OeisA377224
 
-
 /-- The quadratic form $x(5x+1)$. -/
 def Q1 (x : ℤ) : ℤ := x * (5 * x + 1)
 

@@ -29,7 +29,6 @@ open Real Nat Int
 
 namespace OeisA364175
 
-
 /--
 The sequence $a(n) = \frac{(6n)! (2n/3)!}{(3n)! (2n)! (5n/3)!}$ for $n$ divisible by 3.
 -/
@@ -40,13 +39,11 @@ noncomputable def a (n : ℕ) : ℕ :=
     (Real.Gamma (3 * n_r + 1) * Real.Gamma (2 * n_r + 1) * Real.Gamma (5 / 3 * n_r + 1))
   (round val_R).toNat
 
-
 @[category test, AMS 11]
 theorem a_0 : a 0 = 1 := by
   dsimp only [a]
   simp only [Nat.cast_zero, mul_zero, zero_add, Real.Gamma_one, mul_one,
     div_self (one_ne_zero : (1 : ℝ) ≠ 0), round_one, Int.toNat_one]
-
 
 @[category test, AMS 11]
 theorem a_1 : a 1 = 36 := by
@@ -82,7 +79,6 @@ theorem a_1 : a 1 = 36 := by
   rw [h_val]
   norm_num
   rfl
-
 
 @[category test, AMS 11]
 theorem a_2 : a 2 = 3564 := by
@@ -120,7 +116,6 @@ theorem a_2 : a 2 = 3564 := by
   rw [h_val]
   norm_num
   rfl
-
 
 @[category test, AMS 11]
 theorem a_3 : a 3 = 408408 := by
@@ -192,9 +187,6 @@ theorem a_4 : a 4 = 49697388 := by
   rw [h_val]
   norm_num
   rfl
-
-
-
 
 /--
 Conjecture: the supercongruences $a(n p^r) \equiv a(n p^{r-1}) \pmod{p^{3r}}$

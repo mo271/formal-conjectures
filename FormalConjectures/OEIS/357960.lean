@@ -30,7 +30,6 @@ open Nat Finset
 
 namespace OeisA357960
 
-
 /--
 The sequence $a(n) = A(n-1)^5 B(n)^6$ for $n \ge 1$.
 -/
@@ -38,7 +37,6 @@ def a (n : ℕ) : ℕ :=
   let N := n - 1
   ( (range n).sum fun k => (N.choose k) ^ 2 * ((N + k).choose k) ^ 2 ) ^ 5 *
   ( (range (n + 1)).sum fun k => (n.choose k) ^ 2 * ((n + k).choose k) ) ^ 6
-
 
 @[category test, AMS 11]
 theorem a_1 : a 1 = 729 := by
@@ -55,7 +53,6 @@ theorem a_3 : a 3 = 20917910914764786689697 := by
 @[category test, AMS 11]
 theorem a_4 : a 4 = 24148107115850058575342740485778125 := by
   rfl
-
 
 @[category test, AMS 11]
 theorem a_5 : a 5 = 79477722547796770983047586179643766765851375729 := by rfl

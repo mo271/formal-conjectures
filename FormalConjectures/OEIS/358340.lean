@@ -29,7 +29,6 @@ open Nat List Set
 
 namespace OeisA358340
 
-
 /-- A number is zeroless if its decimal digits are all non-zero. -/
 def is_zeroless (k : ℕ) : Prop := 0 ∉ Nat.digits 10 k
 

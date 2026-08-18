@@ -29,7 +29,6 @@ open Polynomial Finset Real Asymptotics Filter
 
 namespace OeisA380275
 
-
 /--
 Sum of the fourth powers of the coefficients of $q$ in the $q$-factorials.
 The $q$-factorial polynomial $P_n(q)$ is given by
@@ -48,7 +47,6 @@ noncomputable def a (n : ℕ) : ℕ :=
   let max_degree : ℕ := n * (n - 1) / 2
 
   Finset.sum (Finset.range (max_degree + 1)) fun k => (P.coeff k) ^ 4
-
 
 @[category API, AMS 11]
 lemma P_0 : P_q_factorial_poly 0 = 1 := by
@@ -184,10 +182,6 @@ theorem a_4 : a 4 = 2710 := by
     by simp [coeff_one, coeff_X]
   rw [h0, h1, h2, h3, h4, h5, h6]
   norm_num
-
-
-
-
 
 /-- Generalized sequence: Sum of $k$-th powers of coefficients of $q$-factorial.
 We cast to $\mathbb{R}$ for asymptotic analysis. -/

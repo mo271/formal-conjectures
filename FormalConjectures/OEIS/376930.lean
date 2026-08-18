@@ -29,7 +29,6 @@ open Nat
 
 namespace OeisA376930
 
-
 /--
 $a(0)=0, a(1)=1$; for $n>1$, $a(n) = a(n-1)+a(n-2)$, except when $a(n-1)$ is an odd prime, in
 which case $a(n) = a(n-1)-a(n-2)$.

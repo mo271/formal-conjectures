@@ -29,13 +29,11 @@ open Finset Nat
 
 namespace OeisA361713
 
-
 /--
 The sequence $a(n) = \sum_{k=0}^{n-1} \binom{n}{k}^2 \binom{n+k-1}{k}^2$.
 -/
 def a (n : ℕ) : ℕ :=
   Finset.sum (Finset.range n) fun k => (n.choose k) ^ 2 * ((n + k - 1).choose k) ^ 2
-
 
 @[category test, AMS 11]
 theorem a_0 : a 0 = 0 := by
@@ -52,7 +50,6 @@ theorem a_2 : a 2 = 17 := by
 @[category test, AMS 11]
 theorem a_3 : a 3 = 406 := by
   rfl
-
 
 @[category test, AMS 11]
 theorem a_4 : a 4 = 10257 := by rfl

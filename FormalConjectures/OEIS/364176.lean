@@ -29,7 +29,6 @@ open Real Nat
 
 namespace OeisA364176
 
-
 /--
 The sequence $a(n) = \frac{(15n)! (5n/2)! (2n)!}{(15n/2)! (6n)! (5n)! n!}$ for even $n$.
 -/
@@ -46,7 +45,6 @@ noncomputable def a (n : ℕ) : ℝ :=
 
   (num_int_15 * num_frac_5_halves * num_int_2) /
   (den_frac_15_halves * den_int_6 * den_int_5 * den_int_1)
-
 
 @[category test, AMS 11]
 theorem a_0 : a 0 = 1 := by
@@ -98,7 +96,6 @@ theorem a_1 : a 1 = 7168 := by
     rw [hf15, hf2, hf6, hf5, hf1]
     exact h_eval
   exact h_eq
-
 
 @[category test, AMS 11]
 theorem a_2 : a 2 = 168043980 := by unfold a; norm_num
@@ -182,7 +179,6 @@ theorem a_3 : a 3 = 4488240824320 := by
 @[category test, AMS 11]
 theorem a_4 : a 4 = 126694219977836700 := by
   norm_num [a]
-
 
 /--
 Conjecture 1: This sequence is an integer sequence, i.e., $a(n) \in \mathbb{Z}$ for all $n$.

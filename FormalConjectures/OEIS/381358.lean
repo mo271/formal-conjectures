@@ -28,7 +28,6 @@ open List Nat
 
 namespace OeisA381358
 
-
 /-- Computes the run lengths of a list of natural numbers. -/
 private def run_lengths_nat : List ℕ → List ℕ
   | [] => []

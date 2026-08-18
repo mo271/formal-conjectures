@@ -29,7 +29,6 @@ open Nat Finset
 
 namespace OeisA386888
 
-
 /--
 Number of ways to write $n$ as $u + (1+(n \bmod 2)) v$ with $v \le n/2$.
 -/
@@ -63,7 +62,6 @@ noncomputable def a (n : ℕ) : ℕ :=
     ∃ k ∈ range max_index_bound, S k = u
 
   ) (Finset.range max_index_bound)
-
 
 @[category API, AMS 11]
 lemma a_zero_for_small (n : ℕ) (hn : n ≤ 11) : a n = 0 := by
@@ -106,9 +104,6 @@ theorem a_4 : a 4 = 0 := a_zero_for_small 4 (by decide)
 
 @[category test, AMS 11]
 theorem a_5 : a 5 = 0 := a_zero_for_small 5 (by decide)
-
-
-
 
 /--
 If n is an odd number greater than 905, or an even number greater than 1466, then we have a(n) > 0.

@@ -28,7 +28,6 @@ open Nat
 
 namespace OeisA365416
 
-
 /--
 Numbers $k$ such that $2k-1$ and $2k+1$ are both prime powers (A246655).
 -/
@@ -40,7 +39,6 @@ $a(n)$ is the $n$-th integer $k$ such that $2k-1$ and $2k+1$ are both prime powe
 -/
 noncomputable def a (n : ℕ) : ℕ :=
   (n - 1).nth condition
-
 
 @[category API, AMS 11]
 lemma isPrimePow_3 : IsPrimePow 3 :=

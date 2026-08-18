@@ -29,7 +29,6 @@ open Nat Finset
 
 namespace OeisA374265
 
-
 -- The function that removes all '0' digits from a number
 def remove_zeros (n : ℕ) : ℕ :=
   -- Nat.digits returns the list of digits in reverse order.

@@ -30,7 +30,6 @@ open Nat
 
 namespace OeisA357506
 
-
 /--
 A005258(n): The Apéry numbers $B(n) = \sum_{k = 0}^n \binom{n}{k}^2 \binom{n+k}{k}$.
 -/
@@ -42,7 +41,6 @@ $a(n) = B(n)^3 B(n-1)$ for $n \ge 1$.
 -/
 def a (n : ℕ) : ℕ :=
   (A005258 n) ^ 3 * (A005258 (n - 1))
-
 
 @[category test, AMS 11]
 theorem a_1 : a 1 = 27 := by
@@ -57,7 +55,6 @@ theorem a_3 : a 3 = 60353937 := by rfl
 
 @[category test, AMS 11]
 theorem a_4 : a 4 = 287798988897 := by rfl
-
 
 @[category test, AMS 11]
 theorem a_5 : a 5 = 1782634331587527 := by rfl

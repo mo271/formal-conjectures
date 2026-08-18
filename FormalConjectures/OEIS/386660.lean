@@ -29,13 +29,11 @@ open Nat
 
 namespace OeisA386660
 
-
 /--
 The sequence $a(n) = \sum_{k=1}^n \left(\binom{n}{k} \bmod 2^k\right)$.
 -/
 def a (n : ℕ) : ℕ :=
   (Finset.Icc 1 n).sum fun k => (n.choose k) % (2 ^ k)
-
 
 @[category test, AMS 11]
 theorem a_0 : a 0 = 0 := by rfl

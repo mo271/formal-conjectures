@@ -28,7 +28,6 @@ open Nat
 
 namespace OeisA379732
 
-
 /--
 Decimal expansion of $207/208$.
 -/

@@ -29,7 +29,6 @@ open Nat Finset
 
 namespace OeisA379643
 
-
 /--
 The $x$-coordinate sequence of primes on the 2D Cartesian grid.
 -/
@@ -44,7 +43,6 @@ noncomputable def a (n : ℕ) : ℤ :=
     ((Finset.range (p_n + 1)).filter (fun p => Nat.Prime p ∧ p % 8 = b)).card
 
   (count_primes_mod_b 3 : ℤ) - (count_primes_mod_b 7 : ℤ)
-
 
 @[category API, AMS 11]
 lemma nth_prime_zero : Nat.nth Nat.Prime 0 = 2 := by
@@ -148,8 +146,6 @@ theorem a_4 : a 4 = 0 := by
     by rfl
   rw [h7]
   norm_num
-
-
 
 /--
 A379731: List of $y$ coordinates of prime numbers in a Cartesian grid.

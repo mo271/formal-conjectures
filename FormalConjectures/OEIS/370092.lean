@@ -29,7 +29,6 @@ open Finset Nat
 
 namespace OeisA370092
 
-
 /--
 $a(0) = 1$, and $a(n) = (-1)^n + \frac{1}{2} \sum_{j=1}^n (1 - (-1)^j - (-2)^j) \binom{n}{j}
 a(n-j)$ for $n > 0$.
@@ -48,7 +47,6 @@ noncomputable def a (n : ℕ) : ℚ :=
       (m_plus_one.choose j : ℚ) * coeff_factor * a_term
     )
     (-1 : ℚ)^m_plus_one + (1 / 2) * sum_val
-
 
 @[category test, AMS 11]
 theorem a_0 : a 0 = 1 := by
@@ -69,10 +67,6 @@ theorem a_3 : a 3 = 16 := by
 @[category test, AMS 11]
 theorem a_4 : a 4 = 105 := by
   rw [a]; norm_num [Finset.sum_range_succ, a_3, a_2, a_1, a_0, a, Nat.choose]
-
-
-
-
 
 /--
 A sequence `f` is eventually periodic with period `P` if after some index `N`, `f(n + P) = f(n)`.

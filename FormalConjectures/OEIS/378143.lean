@@ -28,13 +28,11 @@ open Nat Set
 
 namespace OeisA378143
 
-
 /--
 The smallest prime of the form $(2p)^{2^n} + 1$ for some prime $p$.
 -/
 noncomputable def a (n : ℕ) : ℕ :=
   sInf { k : ℕ | Nat.Prime k ∧ ∃ p : ℕ, Nat.Prime p ∧ k = (2 * p) ^ (2 ^ n) + 1 }
-
 
 @[category API, AMS 11]
 lemma a_val {n : ℕ} {k : ℕ} (hk_prime : k.Prime) (hk_eq : k = 4 ^ (2 ^ n) + 1) : a n = k := by
@@ -64,8 +62,6 @@ theorem a_3 : a 3 = 65537 := a_val (by norm_num) (by norm_num)
 @[category test, AMS 11]
 theorem a_4 : a 4 = 808551180810136214718004658177 := by
   sorry
-
-
 
 /--
 The last digit of each value of $a(n)$, where $n \ge 1$, is 7.

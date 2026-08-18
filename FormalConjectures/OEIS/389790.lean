@@ -76,7 +76,6 @@ lemma S_sum_2 : S_sum 2 = 5 := by unfold S_sum; rw [next_prime_2]
 @[category API, AMS 11]
 lemma S_sum_3 : S_sum 3 = 8 := by unfold S_sum; rw [next_prime_3]
 
-
 @[category test, AMS 11]
 theorem a_0 : a 0 = 0 := by rfl
 
@@ -122,8 +121,6 @@ theorem a_4 : a 4 = 0 := by
       rw [S_sum_3] at h_eq
       exfalso; revert h_eq; decide
   · intro h; exfalso; simp_all
-
-
 
 /--
 Conjecture 1: $a(n) > 0$ for all $n \ge 474$.

@@ -28,7 +28,6 @@ open Set
 
 namespace OeisA383466
 
-
 /--
 $a(0) = 1$; thereafter $a(n) = 10n^2 - 5n + 2$.
 -/

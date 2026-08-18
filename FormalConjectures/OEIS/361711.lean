@@ -29,7 +29,6 @@ open Nat Int Finset BigOperators
 
 namespace OeisA361711
 
-
 /--
 $a(1) = 1$, and for $n \ge 2$, $a(n) = \sum_{k=0}^{n-2} (-1)^k \binom{n}{k}^2 \binom{n-2}{k}$.
 -/

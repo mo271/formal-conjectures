@@ -29,7 +29,6 @@ open Nat Finset Int
 
 namespace OeisA363983
 
-
 /--
 The sequence $a(n) = \sum_{k=\lfloor(n+1)/2\rfloor}^n (-1)^{n+k} \binom{n}{k} \binom{n+k-1}{k}
 \binom{2k}{n}$.

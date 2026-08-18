@@ -29,13 +29,11 @@ open Nat
 
 namespace OeisA357569
 
-
 /--
 The sequence $a(n) = \binom{3n}{n}^2 - 27 \binom{2n}{n}$.
 -/
 def a (n : ℕ) : ℤ :=
   (Int.ofNat ((3 * n).choose n)) ^ 2 - (27 : ℤ) * Int.ofNat ((2 * n).choose n)
-
 
 @[category test, AMS 11]
 theorem a_0 : a 0 = -26 := by rfl
@@ -48,7 +46,6 @@ theorem a_2 : a 2 = 63 := by rfl
 
 @[category test, AMS 11]
 theorem a_3 : a 3 = 6516 := by rfl
-
 
 @[category test, AMS 11]
 theorem a_4 : a 4 = 243135 := by rfl

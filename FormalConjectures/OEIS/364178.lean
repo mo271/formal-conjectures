@@ -30,7 +30,6 @@ open Nat
 
 namespace OeisA364178
 
-
 /--
 The sequence $a(n) = \frac{(10n)! (3n)! (n/2)!}{(6n)! (5n)! (3n/2)! n!}$ for even $n$.
 -/

@@ -29,7 +29,6 @@ open Nat Finset
 
 namespace OeisA361883
 
-
 /--
 The sequence $a(n) = \frac{1}{n} \sum_{k=0}^n (n+2k) \binom{n+k-1}{k}^3$.
 -/
@@ -44,8 +43,6 @@ def a (n : ℕ) : ℕ :=
 
     -- Division is exact since a(n) is an integer sequence.
     S / n
-
-
 
 @[category test, AMS 11]
 theorem a_0 : a 0 = 0 := by rfl
@@ -63,7 +60,6 @@ theorem a_3 : a 3 = 3550 := by rfl
 
 @[category test, AMS 11]
 theorem a_4 : a 4 = 150722 := by rfl
-
 
 /--
 The central binomial coefficients $u(n) := \binom{2n}{n}$ satisfy the supercongruences

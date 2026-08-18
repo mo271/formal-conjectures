@@ -29,7 +29,6 @@ open Finset Nat
 
 namespace OeisA357565
 
-
 /--
 The sequence $a(n) = 3 \sum_{k=0}^n \binom{n+k-1}{k}^2 + 2 \sum_{k=0}^n \binom{n+k-1}{k}^3$.
 -/

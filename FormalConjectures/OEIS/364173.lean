@@ -29,7 +29,6 @@ open scoped Real
 
 namespace OeisA364173
 
-
 /--
 The sequence $a(n) = \frac{(9n)! (2n)! (3n/2)!}{(9n/2)! (4n)! (3n)! n!}$ for even $n$.
 -/
@@ -38,7 +37,6 @@ noncomputable def a (n : ℕ) : ℝ :=
   (Real.Gamma (9 * n_r + 1) * Real.Gamma (2 * n_r + 1) * Real.Gamma (3 / 2 * n_r + 1)) /
   (Real.Gamma (9 / 2 * n_r + 1) * Real.Gamma (4 * n_r + 1) *
    Real.Gamma (3 * n_r + 1) * Real.Gamma (n_r + 1))
-
 
 @[category test, AMS 11]
 theorem a_0 : a 0 = 1 := by unfold a; norm_num

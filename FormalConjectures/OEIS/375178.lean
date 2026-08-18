@@ -27,7 +27,6 @@ $$a(n) = \sum_{k=0}^{n-1} \binom{n+k-1}{k}^3$$
 -/
 namespace OeisA375178
 
-
 /--
 The sequence $a(n) = \sum_{k=0}^{n-1} \binom{n+k-1}{k}^3$.
 -/

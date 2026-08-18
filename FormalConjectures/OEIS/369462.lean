@@ -30,7 +30,6 @@ open Nat Finset
 set_option maxRecDepth 1000000
 namespace OeisA369462
 
-
 /--
 Number of representations of $12n-1$ as $pq + pr + qr$ with odd primes $p \le q \le r$.
 -/
@@ -53,8 +52,6 @@ noncomputable def a (n : ℕ) : ℕ :=
     )).card
   else
     0
-
-
 
 @[category API, AMS 11]
 lemma a_eq_0_of_N_le_50 {n : ℕ} (hn1 : 1 ≤ n) (hn2 : 12 * n - 1 ≤ 50) : a n = 0 := by
@@ -149,7 +146,6 @@ theorem a_3 : a 3 = 0 := a_eq_0_of_N_le_50 (by norm_num) (by norm_num)
 
 @[category test, AMS 11]
 theorem a_4 : a 4 = 0 := a_eq_0_of_N_le_50 (by norm_num) (by norm_num)
-
 
 /--
 Conjecture a: Is there only a finite number of 0's in this sequence?

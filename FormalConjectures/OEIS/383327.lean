@@ -28,7 +28,6 @@ open Nat
 
 namespace OeisA383327
 
-
 /--
 The number of occurrences of $n$ in A049802.
 -/
@@ -44,7 +43,6 @@ def a (n : ℕ) : ℕ :=
     -- Since $A049802(m) = n$ implies $m < 2^{n+1}$, we use $B = 2^{n+1}$ as a sufficient bound.
     let B : ℕ := 2 ^ (n + 1)
     Finset.card (Finset.filter (fun m => A049802_val m = n) (Finset.range B))
-
 
 @[category test, AMS 11]
 theorem a_0 : a 0 = 0 := by rfl

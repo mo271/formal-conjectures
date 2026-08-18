@@ -30,7 +30,6 @@ open Nat Finset
 
 namespace OeisA357958
 
-
 /--
 The Apéry number sequence $A(n) = \sum_{k = 0}^n \binom{n}{k}^2 \binom{n+k}{k}^2$.
 -/
@@ -66,7 +65,6 @@ theorem a_3 : a 3 = 7491 := by rfl
 
 @[category test, AMS 11]
 theorem a_4 : a 4 = 167063 := by rfl
-
 
 @[category test, AMS 11]
 theorem a_5 : a 5 = 4112539 := by rfl

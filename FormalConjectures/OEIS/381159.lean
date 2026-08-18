@@ -29,7 +29,6 @@ open Nat
 
 namespace OeisA381159
 
-
 /--
 Numbers whose prime divisors all end in the same digit.
 -/
@@ -40,7 +39,6 @@ def condition (n : ℕ) : Prop :=
 Natural numbers whose prime divisors all end in the same decimal digit.
 -/
 noncomputable def a (n : ℕ) : ℕ := n.nth condition
-
 
 @[category API, AMS 11]
 lemma primeFactors_zero : primeFactors 0 = ∅ := by simp
@@ -176,9 +174,6 @@ theorem a_3 : a 3 = 3 := by unfold a; rw [h3]
 
 @[category test, AMS 11]
 theorem a_4 : a 4 = 4 := by unfold a; rw [h4]
-
-
-
 
 /--
 51st All-Russian Mathematical Olympiad for Schoolchildren. Problem.

@@ -30,7 +30,6 @@ open Nat Finset BigOperators
 
 namespace OeisA357674
 
-
 /--
 The sequence $a(n) = \left( \sum_{k=0}^{2n} \binom{n+k-1}{k} \right)^4 \left( \sum_{k=0}^{2n}
 \binom{n+k-1}{k}^2 \right)^3$.
@@ -66,7 +65,6 @@ theorem a_2 : a 2 = 8422734375 := by
 @[category test, AMS 11]
 theorem a_3 : a 3 = 202402468703748096 := by
   rfl
-
 
 @[category test, AMS 11]
 theorem a_4 : a 4 = 9223976224194016590174375 := by rfl

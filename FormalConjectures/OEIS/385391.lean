@@ -29,7 +29,6 @@ open Nat Set Finset
 
 namespace OeisA385391
 
-
 /-- A384237: Number of divisors $d$ of $n$ such that $d^d \equiv d \pmod n$. -/
 def A384237 (n : ℕ) : ℕ :=
   (n.divisors.filter fun d : ℕ => (d ^ d) % n = d % n).card

@@ -29,7 +29,6 @@ open List Finset
 
 namespace OeisA359634
 
-
 /--
 $a(0) = 1$, and for $n > 0$, $a(n)$ is the length of the longest contiguous group of preceding
 terms summing to $n$.
@@ -63,7 +62,6 @@ noncomputable def a : ℕ → ℕ :=
       max_contiguous_length
   )
 
-
 @[category test, AMS 11]
 theorem a_0 : a 0 = 1 := by
   rfl
@@ -78,8 +76,6 @@ theorem a_2 : a 2 = 2 := by
 
 @[category test, AMS 11]
 theorem a_3 : a 3 = 2 := by rfl
-
-
 
 @[category test, AMS 11]
 theorem a_4 : a 4 = 3 := by rfl

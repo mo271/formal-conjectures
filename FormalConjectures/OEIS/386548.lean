@@ -28,7 +28,6 @@ open Finset Nat BigOperators Int
 
 namespace OeisA386548
 
-
 /--
 The sequence $a(n) = [x^n] \left( \frac{1-x}{1-x+x^2} \right)^n$.
 -/

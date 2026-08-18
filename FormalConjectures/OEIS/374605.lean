@@ -27,7 +27,6 @@ $$a(n) = \sum_{k=0}^n \binom{n}{k}^2 \binom{n+k}{k} \binom{3n+2k}{n}$$
 -/
 namespace OeisA374605
 
-
 /--
 The sequence $a(n) = \sum_{k=0}^n \binom{n}{k}^2 \binom{n+k}{k} \binom{3n+2k}{n}$.
 -/
