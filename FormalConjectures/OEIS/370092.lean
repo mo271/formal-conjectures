@@ -83,7 +83,7 @@ noncomputable def a_mod_k (k : ℕ) (n : ℕ) : ZMod k :=
   Int.cast (a n).num
 
 /--
-%C a Conjecture: Let k > 2 be a positive integer. The sequence obtained by reducing a(n) modulo
+Conjecture: Let k > 2 be a positive integer. The sequence obtained by reducing a(n) modulo
 k is eventually periodic with the period dividing phi(k) = A000010(k).
 -/
 @[category research open, AMS 11]

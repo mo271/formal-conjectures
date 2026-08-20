@@ -41,7 +41,8 @@ def a (n : ℕ) : ℕ :=
     let S : ℕ := ∑ k ∈ range (n + 1),
       (n + 2 * k) * (Nat.choose (n + k - 1) (n - 1)) ^ 3
 
-    -- Division is exact since a(n) is an integer sequence.
+    -- Division is exact since each term is divisible by n:
+    -- (n + 2*k) * choose(n+k-1, k) = n * (choose(n+k, k) + choose(n+k-1, k-1))
     S / n
 
 @[category test, AMS 11]
