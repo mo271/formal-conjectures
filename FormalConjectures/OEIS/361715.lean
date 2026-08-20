@@ -56,7 +56,7 @@ theorem conjecture_1 (p : ℕ) (hp : p.Prime) (hp7 : 7 ≤ p) :
   (a p : ℤ) ≡ a 1 [ZMOD (p ^ 5 : ℕ)] := by sorry
 
 /--
-for $r \ge 2$, the supercongruence $a(p^r) \equiv a(p^{r-1}) \pmod{p^{3r+3}}$ holds for
+For $r \ge 2$, the supercongruence $a(p^r) \equiv a(p^{r-1}) \pmod{p^{3r+3}}$ holds for
 all primes $p \ge 5$.
 -/
 @[category research open, AMS 11]

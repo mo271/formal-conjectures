@@ -86,7 +86,7 @@ theorem conjecture_1 (n : ℕ) (hn : 2 ≤ n) :
 universe u
 
 /--
-for $n \ge 2$, if $|\operatorname{Aut}(G)| = a(n)$, then $|G| = a(n)/p$, where $p =
+For $n \ge 2$, if $|\operatorname{Aut}(G)| = a(n)$, then $|G| = a(n)/p$, where $p =
 \operatorname{prime}(n)$.
 Moreover, $G$ is unique up to isomorphism if $p \equiv 2 \pmod 3$.
 -/

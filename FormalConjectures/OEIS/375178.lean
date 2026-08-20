@@ -71,7 +71,7 @@ theorem conjecture_2a (m : ℕ) (hm : 0 < m) (p : ℕ) (hp : Nat.Prime p) :
 by sorry
 
 /--
-for $r \ge 2$, the supercongruence
+For $r \ge 2$, the supercongruence
 $b_m(p^r) \equiv b_m(p^{r-1}) \pmod{p^{3r+2m+1}}$ holds for all primes $p \ge 2m + 5$.
 -/
 @[category research open, AMS 11]

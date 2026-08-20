@@ -67,7 +67,8 @@ theorem conjecture_1 : ∀ (p : ℕ), p.Prime → 3 ≤ p → a p ≡ 27 [MOD (p
   sorry
 
 /--
-for $r \ge 2$, $a(p^r) \equiv a(p^{r-1}) \pmod{p^{3r+3}}$ for all primes $p \ge 5$.
+For $r \ge 2$, $a(p^r) \equiv a(p^{r-1}) \pmod{p^{3r+3}}$ for all primes $p \ge 5$.
+Peter Bala, Oct 13 2022
 -/
 @[category research open, AMS 11]
 theorem conjecture_2 :

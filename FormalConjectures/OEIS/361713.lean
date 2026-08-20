@@ -63,7 +63,7 @@ theorem conjecture_1 (p : ℕ) (hp : p.Prime) (hp7 : 7 ≤ p) :
   sorry
 
 /--
-for $r \ge 2$, the supercongruence $a(p^r) \equiv a(p^{r-1}) \pmod{p^{4r+1}}$ holds for all
+For $r \ge 2$, the supercongruence $a(p^r) \equiv a(p^{r-1}) \pmod{p^{4r+1}}$ holds for all
 primes $p \ge 7$.
 -/
 @[category research open, AMS 11]
