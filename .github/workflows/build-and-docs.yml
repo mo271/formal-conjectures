@@ -130,6 +130,15 @@ jobs:
           lake exe cache unpack
           lake exe cache get
 
+      - name: Cache local lake build
+        if: steps.mode.outputs.website_only != 'true'
+        uses: actions/cache@v4
+        with:
+          path: .lake/build
+          key: lake-build-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-${{ github.sha }}
+          restore-keys: |
+            lake-build-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+
       - name: Generate FormalConjecturesForMathlib.lean
         if: steps.mode.outputs.website_only != 'true'
         run: |
