@@ -130,6 +130,22 @@ jobs:
           lake exe cache unpack
           lake exe cache get
 
+      - name: Restore local lake build
+        if: steps.mode.outputs.website_only != 'true'
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .lake/build
+          key: lake-build-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-${{ github.sha }}
+          restore-keys: |
+            lake-build-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+
+      - name: Save local lake build
+        if: steps.mode.outputs.website_only != 'true' && github.event_name == 'push'
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .lake/build
+          key: lake-build-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-${{ github.sha }}
+
       - name: Generate FormalConjecturesForMathlib.lean
         if: steps.mode.outputs.website_only != 'true'
         run: |
@@ -191,7 +207,7 @@ jobs:
         if: steps.mode.outputs.website_only != 'true' && github.event_name == 'push'
         uses: actions/cache/save@6f8efc29b200d32929f49075959781ed54ec270c # v3
         with:
-          path: ~/.cache
+          path: ~/.cache/mathlib
           key: oleans-${{ hashFiles('lake-manifest.json') }}-${{ hashFiles('**/*.lean') }}
 
       - name: Set up Python
