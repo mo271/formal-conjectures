@@ -24,9 +24,12 @@ partitioned into $n + 1$ sets, each of strictly smaller diameter. The hypothesis
 answer is positive became known as **Borsuk's conjecture**.
 
 The conjecture is true for $n = 2$ [Bo33] and $n = 3$ [Pe47, Eg55]. It is false in general:
-Kahn and Kalai [KK93] disproved it for $n = 1325$ and for all $n > 2014$. The smallest
-dimension in which it is currently known to fail is $n = 64$ [JB14], building on Bondarenko's
-counterexample in dimension $65$ [Bo14]. The cases $4 \leq n \leq 63$ are open.
+Kahn and Kalai [KK93] disproved it for $n = 1325$ and for all $n > 2014$. Bondarenko [Bo14]
+gave a counterexample in dimension $65$, and Jenrich and Brouwer [JB14] one in dimension $64$,
+the smallest refereed counterexample. In 2026 Grinsztajn [Gr26] posted a 321-point
+counterexample in dimension $63$, obtained with AI assistance and verified by exact
+computation; the same configuration was found independently by Konz and by Ji [Ji26]. The
+cases $4 \leq n \leq 62$ are open.
 
 A closely related formulation, using `Metric.diam` on sets of positive diameter, is
 `erdos_505` in `FormalConjectures.ErdosProblems.«505»`.
@@ -47,6 +50,12 @@ A closely related formulation, using `Metric.diam` on sets of positive diameter,
   Discrete & Computational Geometry 51(3), 509–515. https://doi.org/10.1007/s00454-014-9579-4
 - [JB14] Jenrich, T., Brouwer, A. E. (2014). *A 64-dimensional counterexample to Borsuk's
   conjecture*. Electronic Journal of Combinatorics 21(4), P4.29. https://doi.org/10.37236/4069
+- [Gr26] Grinsztajn, M. (2026). *A 63-dimensional counterexample to Borsuk's conjecture*.
+  Proof note and verification script, https://github.com/maaxgrin/borsuk-63-counterexample
+- [Ji26] Ji, Y. (2026). *An AI generated counterexample to Borsuk problem in dimension 63*.
+  https://arxiv.org/abs/2608.12561 (withdrawn as a duplicate of [Gr26])
+- [OP28a] Tao, T. et al., *Optimization problems*, constant 28a (smallest Borsuk
+  counterexample dimension). https://teorth.github.io/optimizationproblems/constants/28a.html
 - [Ka15] Kalai, G. (2015). *Some old and new problems in combinatorial geometry I: Around
   Borsuk's problem*. https://arxiv.org/abs/1505.04952
 -/
@@ -82,12 +91,12 @@ def BorsukConjecture (n : ℕ) : Prop :=
 /--
 **Borsuk's conjecture**, open range: every bounded subset of $\mathbb{R}^n$ with at least two
 points can be partitioned into $n + 1$ sets of strictly smaller diameter, for
-$4 \leq n \leq 63$.
+$4 \leq n \leq 62$.
 
-The conjecture is known to be true for $n \leq 3$ and false for $n \geq 64$.
+The conjecture is known to be true for $n \leq 3$ and false for $n \geq 63$.
 -/
 @[category research open, AMS 52]
-theorem borsuk_conjecture (n : ℕ) (hn : 4 ≤ n) (hn' : n ≤ 63) : BorsukConjecture n := by
+theorem borsuk_conjecture (n : ℕ) (hn : 4 ≤ n) (hn' : n ≤ 62) : BorsukConjecture n := by
   sorry
 
 /-- **Borsuk's conjecture** in dimension $4$, the smallest open case. -/
@@ -120,10 +129,19 @@ theorem borsuk_conjecture.not_sixty_five : ¬ BorsukConjecture 65 := by
 
 /--
 **Borsuk's conjecture** fails in dimension $64$, by Jenrich and Brouwer [JB14]. This is the
-smallest dimension in which the conjecture is currently known to be false.
+smallest dimension with a refereed counterexample.
 -/
 @[category research solved, AMS 52]
 theorem borsuk_conjecture.not_sixty_four : ¬ BorsukConjecture 64 := by
+  sorry
+
+/--
+**Borsuk's conjecture** fails in dimension $63$, by a 321-point configuration found in 2026
+by Grinsztajn [Gr26] and independently by Konz and Ji [Ji26]. This is the smallest dimension
+in which the conjecture is currently known to be false.
+-/
+@[category research solved, AMS 52]
+theorem borsuk_conjecture.not_sixty_three : ¬ BorsukConjecture 63 := by
   sorry
 
 end Borsuk

@@ -27,7 +27,8 @@ the union of at most $n + 1$ sets of diameter strictly less than 1?
 
 Erdős [Er44] suspected this is false for sufficiently large $n$. Confirmed
 by Kahn–Kalai [KK93], who disproved the conjecture for $n \geq 2015$.
-The current best is $n \geq 64$ (Jenrich–Brouwer, 2014).
+The current best is $n \geq 63$ (Grinsztajn, 2026); the smallest refereed
+counterexample is $n = 64$ (Jenrich–Brouwer, 2014).
 
 The conjecture is true for $n \leq 3$ (Eggleston [Eg55] for $n = 3$).
 
@@ -60,7 +61,7 @@ $S \subseteq \mathbb{R}^n$ with at least two points that cannot be
 covered by $n + 1$ subsets each of strictly smaller diameter.
 
 Erdős [Er44] suspected this. Disproved by Kahn–Kalai [KK93] for
-$n \geq 2015$. Currently known to be false for $n \geq 64$.
+$n \geq 2015$. Currently known to be false for $n \geq 63$.
 A formal proof was formalised by Boris Alexeev using Aristotle. -/
 @[category research solved, AMS 52,
   formal_proof using lean4 at
