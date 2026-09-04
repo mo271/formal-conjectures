@@ -19,11 +19,12 @@ import FormalConjectures.Wikipedia.Borsuk.TwoDistance
 import FormalConjectures.Wikipedia.Borsuk.Hyperplane
 import FormalConjectures.Wikipedia.Borsuk.G2Four.Representation
 import FormalConjectures.Wikipedia.Borsuk.G2Four.Partition
+import FormalConjectures.Wikipedia.Borsuk.G2Four.Dim63
 
 /-!
 # Counterexamples to Borsuk's conjecture
 
-This file derives the falsity of Borsuk's conjecture in dimensions $64$ and $65$ from
+This file derives the falsity of Borsuk's conjecture in dimensions $63$, $64$ and $65$ from
 the existence of the record point configurations, all of which are proved from the explicit
 $G_2(4)$ construction in `FormalConjectures/Wikipedia/Borsuk/G2Four/` (with `native_decide`
 used for the large finite graph facts, which are tagged `category test`):
@@ -31,6 +32,7 @@ used for the large finite graph facts, which are tagged `category test`):
 * `exists_bondarenko_vectors`: Bondarenko's 416 vectors in $\mathbb{R}^{65}$ [Bo14];
 * `exists_jenrichBrouwer_vectors_in_hyperplane`: 352 of them orthogonal to a common
   nonzero vector [JB14];
+* `exists_borsuk63_vectors`: the 321-point configuration in $\mathbb{R}^{63}$ [Gr26].
 
 ## The constructions
 
@@ -51,11 +53,21 @@ used for the large finite graph facts, which are tagged `category test`):
   $u = \sum_{y \in B_2} \bar y - \sum_{y \in B_3} \bar y$, which is nonzero, hence they lie in
   a hyperplane; the reduction to $\mathbb{R}^{64}$ is `exists_isometric_map_of_inner_eq_zero`.
 
+* **Grinsztajn (2026), dimension 63.** The 320 vectors indexed by $V(\Gamma) \setminus B$ are
+  orthogonal to two independent vectors, hence lie in a 63-dimensional subspace. Adding the
+  orthogonal projection of one deleted $B_1$-vertex onto that subspace, rescaled by
+  $\mu = (-1 + \sqrt{222})/13$ so that its far distance is exactly $\sqrt{192}$, gives 321
+  points of diameter $\sqrt{192}$ in which every subset avoiding the distance $\sqrt{192}$ has
+  at most 5 points. The construction was found with AI assistance and verified by exact
+  computation in [Gr26]; it was found independently by Konz and by Ji.
+
 *References:*
 - [Bo14] Bondarenko, A. (2014). *On Borsuk's conjecture for two-distance sets*.
   Discrete & Computational Geometry 51(3), 509–515. https://arxiv.org/abs/1305.2584
 - [JB14] Jenrich, T., Brouwer, A. E. (2014). *A 64-dimensional counterexample to Borsuk's
   conjecture*. Electronic Journal of Combinatorics 21(4), P4.29. https://arxiv.org/abs/1308.0206
+- [Gr26] Grinsztajn, M. (2026). *A 63-dimensional counterexample to Borsuk's conjecture*.
+  https://github.com/maaxgrin/borsuk-63-counterexample
 -/
 
 namespace Borsuk
@@ -174,6 +186,45 @@ theorem not_borsukConjecture_of_jenrichBrouwer_set
   obtain ⟨T, hfin, hcard, -, hm⟩ := h
   exact not_borsukConjecture_of_bad_set T hfin hcard (by norm_num) hm (by norm_num)
 
+/-- **The mathematical core of the dimension-63 counterexample** [Gr26]: the 320 vectors
+of the `C`-part of Bondarenko's configuration lie in a 63-dimensional subspace (they are
+orthogonal to the two independent vectors `u₁₂ = ∑_{B₁} v - ∑_{B₂} v` and
+`u₂₃ = ∑_{B₂} v - ∑_{B₃} v`), and adding the orthogonal projection of one deleted
+`B₁`-vertex onto that subspace, rescaled by `μ = (-1 + √222)/13` (so that its far
+distance is exactly `√192`), yields 321 points with diameter `√192` in which every subset
+avoiding the distance `√192` has at most 5 points. The resulting set has three distinct
+distances, not two. Proved in `FormalConjectures/Wikipedia/Borsuk/G2Four/Dim63.lean`. -/
+@[category API, AMS 52]
+theorem exists_borsuk63_vectors :
+    ∃ v : Fin 321 → EuclideanSpace ℝ (Fin 63),
+      Function.Injective v ∧
+      (∀ i j, dist (v i) (v j) ≤ Real.sqrt 192) ∧
+      (∃ i j, dist (v i) (v j) = Real.sqrt 192) ∧
+      ∀ s : Finset (Fin 321),
+        (∀ i ∈ s, ∀ j ∈ s, dist (v i) (v j) < Real.sqrt 192) → s.card ≤ 5 :=
+  G2Four.exists_borsuk63
+
+/-- **The dimension-63 configuration**: 321 points in `ℝ⁶³` in which every subset of
+smaller diameter has at most 5 points. -/
+@[category API, AMS 52]
+theorem exists_borsuk63_set :
+    ∃ T : Set (EuclideanSpace ℝ (Fin 63)),
+      T.Finite ∧ T.ncard = 321 ∧ SmallPartsLE T 5 := by
+  obtain ⟨v, hv, hle, hfar, hclique⟩ := exists_borsuk63_vectors
+  obtain ⟨hfin, hcard, hsmall⟩ :=
+    finite_farGraph_package v hv hle hfar hclique
+  exact ⟨Set.range v, hfin, by simpa using hcard, hsmall⟩
+
+/-- The dimension-63 configuration refutes Borsuk's conjecture in dimension 63: covering
+321 points by 64 parts of at most 5 points each is impossible, as `64 * 5 = 320 < 321`. -/
+@[category API, AMS 52]
+theorem not_borsukConjecture_of_borsuk63_set
+    (h : ∃ T : Set (EuclideanSpace ℝ (Fin 63)),
+      T.Finite ∧ T.ncard = 321 ∧ SmallPartsLE T 5) :
+    ¬ BorsukConjecture 63 := by
+  obtain ⟨T, hfin, hcard, hm⟩ := h
+  exact not_borsukConjecture_of_bad_set T hfin hcard (by norm_num) hm (by norm_num)
+
 /-- **Borsuk's conjecture is false in dimension 65** (Bondarenko 2013). -/
 @[category API, AMS 52]
 theorem not_borsukConjecture_65 : ¬ BorsukConjecture 65 :=
@@ -184,6 +235,12 @@ dimension with a refereed counterexample. -/
 @[category API, AMS 52]
 theorem not_borsukConjecture_64 : ¬ BorsukConjecture 64 :=
   not_borsukConjecture_of_jenrichBrouwer_set exists_jenrichBrouwer_set
+
+/-- **Borsuk's conjecture is false in dimension 63** (Grinsztajn 2026), the current record
+for the smallest dimension of a counterexample. -/
+@[category API, AMS 52]
+theorem not_borsukConjecture_63 : ¬ BorsukConjecture 63 :=
+  not_borsukConjecture_of_borsuk63_set exists_borsuk63_set
 
 /-- **Borsuk's conjecture is false**: there is a dimension in which it fails. -/
 @[category API, AMS 52]

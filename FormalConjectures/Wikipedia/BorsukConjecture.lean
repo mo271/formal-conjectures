@@ -163,7 +163,7 @@ by Grinsztajn [Gr26] and independently by Konz and Ji [Ji26]. This is the smalle
 in which the conjecture is currently known to be false.
 -/
 @[category research solved, AMS 52]
-theorem borsuk_conjecture.not_sixty_three : ¬ BorsukConjecture 63 := by
-  sorry
+theorem borsuk_conjecture.not_sixty_three : ¬ BorsukConjecture 63 :=
+  not_borsukConjecture_63
 
 end Borsuk
