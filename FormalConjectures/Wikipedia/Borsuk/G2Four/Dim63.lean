@@ -26,8 +26,8 @@ The 320 vertices of `C = V(Γ) \ (B₁ ∪ B₂ ∪ B₃)` have vanishing `Nint`
 independent (`⟪u₁₂, u₁₂⟫ = ⟪u₂₃, u₂₃⟫ = 36864`, `⟪u₁₂, u₂₃⟫ = -18432`).  Hence the
 `C`-vectors lie in a subspace of dimension `65 - 2 = 63`.
 
-Following the AI-generated construction of August 2026 (arXiv:2608.12561, withdrawn as
-previously posted elsewhere; independently verified for this repository), one more point
+Following the construction of Grinsztajn (2026, found with AI assistance and verified by
+exact computation; see `FormalConjectures.Wikipedia.BorsukConjecture`), one more point
 is added: the orthogonal projection `p = v̄₀ - u₁₂/48 - u₂₃/96` of the deleted
 `B₁`-vertex `0` into that subspace (`⟪p, p⟫ = 78`, `⟪p, v̄ₓ⟫ = ⟪v̄₀, v̄ₓ⟫` for `x ∈ C`),
 rescaled by `μ = (-1 + √222)/13`, the positive root of `13μ² + 2μ - 17 = 0`.  This makes

@@ -21,7 +21,7 @@ import FormalConjectures.Wikipedia.Borsuk.G2Four.Defs
 # Verified facts about the `G₂(4)` graph
 
 The combinatorial facts about the explicit `G₂(4)` graph of `FormalConjectures/Wikipedia/Borsuk/G2Four/Defs.lean`,
-established by `native_decide` (as agreed for this repository, the compiler is trusted
+established by `native_decide` (the compiler is trusted
 for these large finite computations):
 
 * it has `416` vertices, is `100`-regular, and any two distinct vertices have `36` or
