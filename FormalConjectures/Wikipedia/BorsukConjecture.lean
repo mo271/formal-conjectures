@@ -29,7 +29,8 @@ gave a counterexample in dimension $65$, and Jenrich and Brouwer [JB14] one in d
 the smallest refereed counterexample. In 2026 Grinsztajn [Gr26] posted a 321-point
 counterexample in dimension $63$, obtained with AI assistance and verified by exact
 computation; the same configuration was found independently by Konz and by Ji [Ji26]. The
-cases $4 \leq n \leq 62$ are open.
+cases $4 \leq n \leq 62$ are open. In dimension $4$, every bounded set can be partitioned into
+$9$ parts of smaller diameter [La82], and a 2026 preprint reduces this to $8$ parts [TV26].
 
 A closely related formulation, using `Metric.diam` on sets of positive diameter, is
 `erdos_505` in `FormalConjectures.ErdosProblems.«505»`.
@@ -43,6 +44,8 @@ A closely related formulation, using `Metric.diam` on sets of positive diameter,
 - [Eg55] Eggleston, H. G. (1955). *Covering a three-dimensional set with sets of smaller
   diameter*. Journal of the London Mathematical Society 30, 11–24.
   https://doi.org/10.1112/jlms/s1-30.1.11
+- [La82] Lassak, M. (1982). *An estimate concerning Borsuk partition problem*.
+  Bulletin of the Polish Academy of Sciences, Mathematics 30(9–10), 449–451.
 - [KK93] Kahn, J., Kalai, G. (1993). *A counterexample to Borsuk's conjecture*.
   Bulletin of the American Mathematical Society 29(1), 60–62.
   https://arxiv.org/abs/math/9307229
@@ -54,6 +57,8 @@ A closely related formulation, using `Metric.diam` on sets of positive diameter,
   Proof note and verification script, https://github.com/maaxgrin/borsuk-63-counterexample
 - [Ji26] Ji, Y. (2026). *An AI generated counterexample to Borsuk problem in dimension 63*.
   https://arxiv.org/abs/2608.12561 (withdrawn as a duplicate of [Gr26])
+- [TV26] Tolmachev, A., Voronov, V. (2026). *Reducing the upper bound for the Borsuk number
+  in $\mathbb{R}^4$ to 8*. https://arxiv.org/abs/2605.19068
 - [OP28a] Tao, T. et al., *Optimization problems*, constant 28a (smallest Borsuk
   counterexample dimension). https://teorth.github.io/optimizationproblems/constants/28a.html
 - [Ka15] Kalai, G. (2015). *Some old and new problems in combinatorial geometry I: Around
@@ -102,6 +107,27 @@ theorem borsuk_conjecture (n : ℕ) (hn : 4 ≤ n) (hn' : n ≤ 62) : BorsukConj
 /-- **Borsuk's conjecture** in dimension $4$, the smallest open case. -/
 @[category research open, AMS 52]
 theorem borsuk_conjecture.four : BorsukConjecture 4 := by
+  sorry
+
+/--
+**Partial result in dimension $4$**: every bounded subset of $\mathbb{R}^4$ with at least two
+points can be partitioned into $9$ sets of strictly smaller diameter. Proved by Lassak [La82],
+who showed more generally that $2^{n-1} + 1$ parts suffice in $\mathbb{R}^n$.
+-/
+@[category research solved, AMS 52]
+theorem borsuk_conjecture.four.nine_parts (s : Set (ℝ^4)) (hs : IsBounded s)
+    (hs' : s.Nontrivial) : HasBorsukCover 9 s := by
+  sorry
+
+/--
+**Partial result in dimension $4$**: every bounded subset of $\mathbb{R}^4$ with at least two
+points can be partitioned into $8$ sets of strictly smaller diameter. Claimed by Tolmachev and
+Voronov [TV26] via computer-assisted partitions of a truncated Lassak cover, with floating-point
+verification; the preprint is not yet refereed.
+-/
+@[category research solved, AMS 52]
+theorem borsuk_conjecture.four.eight_parts (s : Set (ℝ^4)) (hs : IsBounded s)
+    (hs' : s.Nontrivial) : HasBorsukCover 8 s := by
   sorry
 
 /-- **Borsuk's conjecture** in the plane, proved by Borsuk [Bo33]. -/
