@@ -17,6 +17,7 @@ limitations under the License.
 import FormalConjecturesUtil
 import FormalConjectures.Wikipedia.Borsuk.LowDimensions
 import FormalConjectures.Wikipedia.Borsuk.Plane.BorsukTwo
+import FormalConjectures.Wikipedia.Borsuk.Space.BorsukThree
 
 /-!
 # Borsuk's conjecture
@@ -131,8 +132,8 @@ theorem borsuk_conjecture.two : BorsukConjecture 2 :=
 
 /-- **Borsuk's conjecture** in dimension $3$, proved by Perkal [Pe47] and Eggleston [Eg55]. -/
 @[category research solved, AMS 52]
-theorem borsuk_conjecture.three : BorsukConjecture 3 := by
-  sorry
+theorem borsuk_conjecture.three : BorsukConjecture 3 :=
+  borsukConjecture_three
 
 /--
 **Borsuk's conjecture** is false in general: Kahn and Kalai [KK93] gave counterexamples in
