@@ -15,10 +15,7 @@ limitations under the License.
 -/
 
 import FormalConjecturesUtil
-import FormalConjectures.Wikipedia.Borsuk.LowDimensions
-import FormalConjectures.Wikipedia.Borsuk.Plane.BorsukTwo
-import FormalConjectures.Wikipedia.Borsuk.Space.BorsukThree
-import FormalConjectures.Wikipedia.Borsuk.Counterexamples
+import FormalConjectures.Wikipedia.Borsuk.Definitions
 
 /-!
 # Borsuk's conjecture
@@ -36,8 +33,10 @@ computation; the same configuration was found independently by Konz and by Ji [J
 cases $4 \leq n \leq 62$ are open. In dimension $4$, every bounded set can be partitioned into
 $9$ parts of smaller diameter [La82], and a 2026 preprint reduces this to $8$ parts [TV26].
 
-The definitions `HasBorsukCover` and `BorsukConjecture` and the proofs of the results below
-are in `FormalConjectures/Wikipedia/Borsuk/`. Erdős Problem 505
+The definitions `HasBorsukCover` and `BorsukConjecture` are in
+`FormalConjectures.Wikipedia.Borsuk.Definitions`. The results below that carry a
+`formal_proof` attribute are proved in `FormalConjectures/Wikipedia/Borsuk/` at the linked
+commit. Erdős Problem 505
 (`FormalConjectures.ErdosProblems.«505»`) points to this file.
 
 *References:*
@@ -114,56 +113,72 @@ theorem borsuk_conjecture.four.eight_parts (s : Set (ℝ^4)) (hs : IsBounded s)
   sorry
 
 /-- **Borsuk's conjecture** holds vacuously in dimension $0$: the space is a single point. -/
-@[category test, AMS 52]
-theorem borsuk_conjecture.zero : BorsukConjecture 0 :=
-  borsukConjecture_zero
+@[category test, AMS 52,
+  formal_proof using formal_conjectures at
+    "https://github.com/mo271/formal-conjectures/blob/07a6d25f07ba0e16a916be14e9830c36cfcb9777/FormalConjectures/Wikipedia/BorsukConjecture.lean#L118"]
+theorem borsuk_conjecture.zero : BorsukConjecture 0 := by
+  sorry
 
 /--
 **Borsuk's conjecture** in dimension $1$: a bounded set of reals with at least two points
 splits at the midpoint of its smallest enclosing interval into two parts of smaller diameter.
 -/
-@[category textbook, AMS 52]
-theorem borsuk_conjecture.one : BorsukConjecture 1 :=
-  borsukConjecture_one
+@[category textbook, AMS 52,
+  formal_proof using formal_conjectures at
+    "https://github.com/mo271/formal-conjectures/blob/07a6d25f07ba0e16a916be14e9830c36cfcb9777/FormalConjectures/Wikipedia/BorsukConjecture.lean#L126"]
+theorem borsuk_conjecture.one : BorsukConjecture 1 := by
+  sorry
 
 /-- **Borsuk's conjecture** in the plane, proved by Borsuk [Bo33]. -/
-@[category research solved, AMS 52]
-theorem borsuk_conjecture.two : BorsukConjecture 2 :=
-  borsukConjecture_two
+@[category research solved, AMS 52,
+  formal_proof using formal_conjectures at
+    "https://github.com/mo271/formal-conjectures/blob/07a6d25f07ba0e16a916be14e9830c36cfcb9777/FormalConjectures/Wikipedia/BorsukConjecture.lean#L131"]
+theorem borsuk_conjecture.two : BorsukConjecture 2 := by
+  sorry
 
 /-- **Borsuk's conjecture** in dimension $3$, proved by Perkal [Pe47] and Eggleston [Eg55]. -/
-@[category research solved, AMS 52]
-theorem borsuk_conjecture.three : BorsukConjecture 3 :=
-  borsukConjecture_three
+@[category research solved, AMS 52,
+  formal_proof using formal_conjectures at
+    "https://github.com/mo271/formal-conjectures/blob/07a6d25f07ba0e16a916be14e9830c36cfcb9777/FormalConjectures/Wikipedia/BorsukConjecture.lean#L136"]
+theorem borsuk_conjecture.three : BorsukConjecture 3 := by
+  sorry
 
 /--
 **Borsuk's conjecture** is false in general: Kahn and Kalai [KK93] gave counterexamples in
 dimension $1325$ and in every dimension $n > 2014$.
 -/
-@[category research solved, AMS 52]
-theorem borsuk_conjecture.not_forall : ¬ ∀ n, BorsukConjecture n :=
-  not_forall_borsukConjecture
+@[category research solved, AMS 52,
+  formal_proof using formal_conjectures at
+    "https://github.com/mo271/formal-conjectures/blob/07a6d25f07ba0e16a916be14e9830c36cfcb9777/FormalConjectures/Wikipedia/BorsukConjecture.lean#L144"]
+theorem borsuk_conjecture.not_forall : ¬ ∀ n, BorsukConjecture n := by
+  sorry
 
 /-- **Borsuk's conjecture** fails in dimension $65$, by Bondarenko [Bo14]. -/
-@[category research solved, AMS 52]
-theorem borsuk_conjecture.not_sixty_five : ¬ BorsukConjecture 65 :=
-  not_borsukConjecture_65
+@[category research solved, AMS 52,
+  formal_proof using formal_conjectures at
+    "https://github.com/mo271/formal-conjectures/blob/07a6d25f07ba0e16a916be14e9830c36cfcb9777/FormalConjectures/Wikipedia/BorsukConjecture.lean#L149"]
+theorem borsuk_conjecture.not_sixty_five : ¬ BorsukConjecture 65 := by
+  sorry
 
 /--
 **Borsuk's conjecture** fails in dimension $64$, by Jenrich and Brouwer [JB14]. This is the
 smallest dimension with a refereed counterexample.
 -/
-@[category research solved, AMS 52]
-theorem borsuk_conjecture.not_sixty_four : ¬ BorsukConjecture 64 :=
-  not_borsukConjecture_64
+@[category research solved, AMS 52,
+  formal_proof using formal_conjectures at
+    "https://github.com/mo271/formal-conjectures/blob/07a6d25f07ba0e16a916be14e9830c36cfcb9777/FormalConjectures/Wikipedia/BorsukConjecture.lean#L157"]
+theorem borsuk_conjecture.not_sixty_four : ¬ BorsukConjecture 64 := by
+  sorry
 
 /--
 **Borsuk's conjecture** fails in dimension $63$, by a 321-point configuration found in 2026
 by Grinsztajn [Gr26] and independently by Konz and Ji [Ji26]. This is the smallest dimension
 in which the conjecture is currently known to be false.
 -/
-@[category research solved, AMS 52]
-theorem borsuk_conjecture.not_sixty_three : ¬ BorsukConjecture 63 :=
-  not_borsukConjecture_63
+@[category research solved, AMS 52,
+  formal_proof using formal_conjectures at
+    "https://github.com/mo271/formal-conjectures/blob/07a6d25f07ba0e16a916be14e9830c36cfcb9777/FormalConjectures/Wikipedia/BorsukConjecture.lean#L166"]
+theorem borsuk_conjecture.not_sixty_three : ¬ BorsukConjecture 63 := by
+  sorry
 
 end Borsuk
