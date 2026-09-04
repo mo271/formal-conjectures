@@ -154,8 +154,8 @@ theorem borsuk_conjecture.not_sixty_five : ¬ BorsukConjecture 65 :=
 smallest dimension with a refereed counterexample.
 -/
 @[category research solved, AMS 52]
-theorem borsuk_conjecture.not_sixty_four : ¬ BorsukConjecture 64 := by
-  sorry
+theorem borsuk_conjecture.not_sixty_four : ¬ BorsukConjecture 64 :=
+  not_borsukConjecture_64
 
 /--
 **Borsuk's conjecture** fails in dimension $63$, by a 321-point configuration found in 2026
