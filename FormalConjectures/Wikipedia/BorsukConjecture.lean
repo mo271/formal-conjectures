@@ -15,7 +15,6 @@ limitations under the License.
 -/
 
 import FormalConjecturesUtil
-import FormalConjectures.Wikipedia.Borsuk.Definitions
 
 /-!
 # Borsuk's conjecture
@@ -33,10 +32,8 @@ computation; the same configuration was found independently by Konz and by Ji [J
 cases $4 \leq n \leq 62$ are open. In dimension $4$, every bounded set can be partitioned into
 $9$ parts of smaller diameter [La82], and a 2026 preprint reduces this to $8$ parts [TV26].
 
-The definitions `HasBorsukCover` and `BorsukConjecture` are in
-`FormalConjectures.Wikipedia.Borsuk.Definitions`. The results below that carry a
-`formal_proof` attribute are proved in `FormalConjectures/Wikipedia/Borsuk/` at the linked
-commit. Erdős Problem 505
+Formal proofs of the results below that carry a `formal_proof` attribute are available at the
+linked locations. Erdős Problem 505
 (`FormalConjectures.ErdosProblems.«505»`) points to this file.
 
 *References:*
@@ -74,6 +71,28 @@ open Metric Bornology
 open scoped EuclideanGeometry
 
 namespace Borsuk
+
+variable {E : Type*} [PseudoEMetricSpace E]
+
+/--
+`HasBorsukCover k s` means that the set `s` can be covered by `k` sets, each of strictly
+smaller extended diameter than `s`.
+
+We use the extended diameter `Metric.ediam` rather than `Metric.diam`: the latter takes the
+junk value `0` on unbounded sets, which would make `Set.univ` a covering set of "small"
+diameter. With `Metric.ediam`, a set of diameter `0` has no Borsuk cover, and an unbounded
+set has no finite Borsuk cover, matching Borsuk's formulation for bounded sets with at
+least two points.
+-/
+def HasBorsukCover (k : ℕ) (s : Set E) : Prop :=
+  ∃ c : Fin k → Set E, s ⊆ ⋃ i, c i ∧ ∀ i, ediam (c i) < ediam s
+
+/--
+**Borsuk's conjecture** in dimension `n`: every bounded subset of $\mathbb{R}^n$ with at
+least two points can be partitioned into $n + 1$ sets of strictly smaller diameter.
+-/
+def BorsukConjecture (n : ℕ) : Prop :=
+  ∀ s : Set (ℝ^n), IsBounded s → s.Nontrivial → HasBorsukCover (n + 1) s
 
 /--
 **Borsuk's conjecture**, open range: every bounded subset of $\mathbb{R}^n$ with at least two
