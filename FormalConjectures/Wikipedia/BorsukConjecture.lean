@@ -16,6 +16,7 @@ limitations under the License.
 
 import FormalConjecturesUtil
 import FormalConjectures.Wikipedia.Borsuk.LowDimensions
+import FormalConjectures.Wikipedia.Borsuk.Plane.BorsukTwo
 
 /-!
 # Borsuk's conjecture
@@ -125,8 +126,8 @@ theorem borsuk_conjecture.one : BorsukConjecture 1 :=
 
 /-- **Borsuk's conjecture** in the plane, proved by Borsuk [Bo33]. -/
 @[category research solved, AMS 52]
-theorem borsuk_conjecture.two : BorsukConjecture 2 := by
-  sorry
+theorem borsuk_conjecture.two : BorsukConjecture 2 :=
+  borsukConjecture_two
 
 /-- **Borsuk's conjecture** in dimension $3$, proved by Perkal [Pe47] and Eggleston [Eg55]. -/
 @[category research solved, AMS 52]
