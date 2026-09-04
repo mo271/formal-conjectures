@@ -18,6 +18,7 @@ import FormalConjecturesUtil
 import FormalConjectures.Wikipedia.Borsuk.LowDimensions
 import FormalConjectures.Wikipedia.Borsuk.Plane.BorsukTwo
 import FormalConjectures.Wikipedia.Borsuk.Space.BorsukThree
+import FormalConjectures.Wikipedia.Borsuk.Counterexamples
 
 /-!
 # Borsuk's conjecture
@@ -140,13 +141,13 @@ theorem borsuk_conjecture.three : BorsukConjecture 3 :=
 dimension $1325$ and in every dimension $n > 2014$.
 -/
 @[category research solved, AMS 52]
-theorem borsuk_conjecture.not_forall : ¬ ∀ n, BorsukConjecture n := by
-  sorry
+theorem borsuk_conjecture.not_forall : ¬ ∀ n, BorsukConjecture n :=
+  not_forall_borsukConjecture
 
 /-- **Borsuk's conjecture** fails in dimension $65$, by Bondarenko [Bo14]. -/
 @[category research solved, AMS 52]
-theorem borsuk_conjecture.not_sixty_five : ¬ BorsukConjecture 65 := by
-  sorry
+theorem borsuk_conjecture.not_sixty_five : ¬ BorsukConjecture 65 :=
+  not_borsukConjecture_65
 
 /--
 **Borsuk's conjecture** fails in dimension $64$, by Jenrich and Brouwer [JB14]. This is the
