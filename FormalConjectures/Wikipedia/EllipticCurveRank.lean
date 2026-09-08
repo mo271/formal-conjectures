@@ -32,6 +32,8 @@ import FormalConjecturesUtil
    conjecture, https://arxiv.org/abs/2503.17619
 - [Wikipedia](https://en.wikipedia.org/wiki/Rank_of_an_elliptic_curve)
 - [ICARM](https://elliptic-rank.icarm.cloud/curve/273)
+- [Stoll] Michael Stoll. EllipticCurves, a Lean 4 formalization of the Mordell–Weil theorem
+   and explicit 2-descent, https://github.com/MichaelStollBayreuth/EllipticCurves
 -/
 
 namespace EllipticCurveRank
@@ -53,11 +55,15 @@ open WeierstrassCurve
 
 /-- The rank of an elliptic curve over a number field is always finite by the Mordell–Weil theorem.
 Consequently, the rank is always finite, so `finrank ℤ E⟮K⟯ = 0` really means that the group of
-rational points is torsion, not that it is of infinite rank. -/
+rational points is torsion, not that it is of infinite rank.
+
+The proof is Michael Stoll's formalization of the Mordell–Weil theorem [Stoll]
+(`WeierstrassCurve.Affine.fg_point_of_numberField`), ported to
+`FormalConjecturesForMathlib.AlgebraicGeometry.EllipticCurve.MordellWeil`. -/
 @[category research solved, AMS 11 14]
 theorem mordell_weil {K} [Field K] [NumberField K] [DecidableEq K] (E : Affine K) [E.IsElliptic] :
-    Module.Finite ℤ E.Point := by
-  sorry
+    Module.Finite ℤ E.Point :=
+  Module.Finite.iff_addGroup_fg.mpr Affine.fg_point_of_numberField
 
 namespace RatEllipticCurve
 
