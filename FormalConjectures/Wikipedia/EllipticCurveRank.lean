@@ -57,13 +57,13 @@ open WeierstrassCurve
 Consequently, the rank is always finite, so `finrank ℤ E⟮K⟯ = 0` really means that the group of
 rational points is torsion, not that it is of infinite rank.
 
-The proof is Michael Stoll's formalization of the Mordell–Weil theorem [Stoll]
-(`WeierstrassCurve.Affine.fg_point_of_numberField`), ported to
-`FormalConjecturesForMathlib.AlgebraicGeometry.EllipticCurve.MordellWeil`. -/
-@[category research solved, AMS 11 14]
+The proof linked via `formal_proof` is  Michael Stoll's formalization of the Mordell–Weil theorem
+[Stoll]-/
+@[category research solved, AMS 11 14, formal_proof using formal_conjectures at
+"https://github.com/mo271/formal-conjectures/blob/e58a03a23e0efb40f891f34d3afceca2ce4ccf9b/FormalConjectures/Wikipedia/EllipticCurveRank.lean#L64"]
 theorem mordell_weil {K} [Field K] [NumberField K] [DecidableEq K] (E : Affine K) [E.IsElliptic] :
     Module.Finite ℤ E.Point :=
-  Module.Finite.iff_addGroup_fg.mpr Affine.fg_point_of_numberField
+  sorry
 
 namespace RatEllipticCurve
 
