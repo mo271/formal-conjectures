@@ -161,6 +161,7 @@ public import FormalConjecturesForMathlib.NumberTheory.Primitive
 public import FormalConjecturesForMathlib.NumberTheory.SierpinskiNumber
 public import FormalConjecturesForMathlib.NumberTheory.SmoothScale
 public import FormalConjecturesForMathlib.NumberTheory.WallSunSunPrimes
+public import FormalConjecturesForMathlib.NumberTheory.WieferichPrime
 public import FormalConjecturesForMathlib.Order.Bounds.Basic
 public import FormalConjecturesForMathlib.Order.Filter.Cofinite
 public import FormalConjecturesForMathlib.Order.Filter.atTopBot.Finset
