@@ -35,6 +35,8 @@ import FormalConjecturesUtil
   numbers." Journal of Combinatorial Theory, Series A 115.7 (2008): 1304-1309.
 - [LiSh10] Li, Yusheng, and Jinlong Shu. "A lower bound for off-diagonal van der Waerden numbers."
   Advances in Applied Mathematics 44.3 (2010): 243-247.
+- [Ko15] Kouril, Michal. "Leveraging FPGA clusters for SAT computations." Parallel Computing:
+  On the Road to Exascale (2015): 525-532.
 -/
 
 open Filter Set Topology
@@ -214,13 +216,16 @@ theorem W_3_19 : W 3 19 = 349 := by sorry
 
 -- Lower bounds for W(3,r) from [AKS14, Table 2], established by the good partitions
 -- (certificates) in [AKS14, Appendix A]; [AKS14] conjectures these bounds to be exact.
-/-- $W(3, 20) \ge 389$ from [AKS14, Table 2], proved by an explicit good partition. -/
-@[category research solved, AMS 5 11]
+/-- $W(3, 20) \ge 389$ from [AKS14, Table 2], proved by an explicit good partition.
+A kernel-checked Lean proof from the certificate was given by Dominic Dabish. -/
+@[category research solved, AMS 5 11, formal_proof using lean4 at
+  "https://github.com/DomTheDeveloper/formal-conjectures/blob/013a0f04de0057d2bd1034c7cc4caf10ac8dc2cf/FormalConjectures/GreensOpenProblems/Green14FastKernel20.lean"]
 theorem W_3_20_lower : answer(True) ↔ W 3 20 ≥ 389 := sorry
 
-/-- [AKS14, Table 2] conjectures that $W(3, 20) = 389$. -/
-@[category research open, AMS 5 11]
-theorem W_3_20_eq : answer(sorry) ↔ W 3 20 = 389 := sorry
+/-- $W(3, 20) = 389$, conjectured in [AKS14, Table 2] and established by Kouril [Ko15] using
+FPGA-based SAT solving. -/
+@[category research solved, AMS 5 11]
+theorem W_3_20 : W 3 20 = 389 := by sorry
 
 /-- $W(3, 21) \ge 416$ from [AKS14, Table 2], proved by an explicit good partition. -/
 @[category research solved, AMS 5 11]
