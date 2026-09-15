@@ -134,7 +134,7 @@ theorem KotherConjecture.variants.two_by_two_matrix {I : TwoSidedIdeal R} (hI : 
   sorry
 
 open scoped Classical in
-/-- The **Köthe conjecture**: for any positive integer `n`, the Köthe radical of `R` is the matrix ideal `M_2(Nil*(R))`. -/
+/-- The **Köthe conjecture**: for any positive integer `n`, the Köthe radical of `R` is the matrix ideal `M_n(Nil*(R))`. -/
 @[category research open, AMS 16]
 theorem KotherConjecture.variants.matrixOver_KotherRadical
     {I : TwoSidedIdeal R} (hI : IsNil I) (n : Type*) [Fintype n] :
