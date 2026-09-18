@@ -72,8 +72,8 @@ def IsExactAdditiveComplement (A B : Set ℕ) : Prop :=
     Tendsto (fun x : ℕ => (counting A x * counting B x : ℝ) / (x : ℝ)) atTop (𝓝 1)
 
 /--
-Let $A,B\subseteq \mathbb{N}$ be infinite sets such that $A+B$ contains all large integers.
-Let $A(x)=\lvert A\cap [1,x]\rvert$ and similarly for $B(x)$. Is it true that if
+Let $A,B\subseteq \mathbb{N}$ be infinite sets of positive integers such that $A+B$ contains all
+large integers. Let $A(x)=\lvert A\cap [1,x]\rvert$ and similarly for $B(x)$. Is it true that if
 $A(x)B(x)\sim x$ then
 $$A(x)B(x)-x\to \infty$$
 as $x\to \infty$?
@@ -89,7 +89,7 @@ follows by translating both sets by $1$ (see the conventions in the module docst
 @[category research solved, AMS 11, formal_proof using lean4 at
 "https://github.com/Woett/Lean-files/blob/main/ErdosProblem785.lean"]
 theorem erdos_785 : answer(True) ↔
-    ∀ A B : Set ℕ, A.Infinite → B.Infinite → IsExactAdditiveComplement A B →
+    ∀ A B : Set ℕ, A.Infinite → B.Infinite → 0 ∉ A → 0 ∉ B → IsExactAdditiveComplement A B →
       Tendsto (fun x : ℕ => (counting A x * counting B x : ℝ) - (x : ℝ)) atTop atTop := by
   sorry
 
@@ -99,7 +99,7 @@ do not exist, as reported in [Er57] and [Er61]).
 -/
 @[category research solved, AMS 11]
 theorem erdos_785.variants.danzer :
-    ∃ A B : Set ℕ, A.Infinite ∧ B.Infinite ∧ IsExactAdditiveComplement A B := by
+    ∃ A B : Set ℕ, A.Infinite ∧ B.Infinite ∧ 0 ∉ A ∧ 0 ∉ B ∧ IsExactAdditiveComplement A B := by
   sorry
 
 /--
@@ -111,7 +111,7 @@ here does not fix which of the two sets is thinner, it is stated with $\min(A(x)
 -/
 @[category research solved, AMS 11]
 theorem erdos_785.variants.sarkozy_szemeredi (A B : Set ℕ) (hA : A.Infinite) (hB : B.Infinite)
-    (h : IsExactAdditiveComplement A B) :
+    (hA₀ : 0 ∉ A) (hB₀ : 0 ∉ B) (h : IsExactAdditiveComplement A B) :
     ¬ (fun x : ℕ => (counting A x * counting B x : ℝ) - (x : ℝ)) =o[atTop]
       (fun x : ℕ => (min (counting A x) (counting B x) : ℝ)) := by
   sorry
@@ -124,7 +124,7 @@ set $B$ the bound $A(x)B(x) - x \ll B(x)^2$ holds trivially.
 -/
 @[category research solved, AMS 11]
 theorem erdos_785.variants.chen_fang (A B : Set ℕ) (hA : A.Infinite) (hB : B.Infinite)
-    (h : IsExactAdditiveComplement A B) (c : ℝ) (hc : 0 < c) :
+    (hA₀ : 0 ∉ A) (hB₀ : 0 ∉ B) (h : IsExactAdditiveComplement A B) (c : ℝ) (hc : 0 < c) :
     ¬ (fun x : ℕ => (counting A x * counting B x : ℝ) - (x : ℝ)) =O[atTop]
       (fun x : ℕ => (min (counting A x) (counting B x) : ℝ) ^ c) := by
   sorry
@@ -135,7 +135,7 @@ we must have $A(2x)/A(x)\to 1$ and $B(2x)/B(x)\to 2$.
 -/
 @[category research solved, AMS 11]
 theorem erdos_785.variants.narkiewicz (A B : Set ℕ) (hA : A.Infinite) (hB : B.Infinite)
-    (h : IsExactAdditiveComplement A B) :
+    (hA₀ : 0 ∉ A) (hB₀ : 0 ∉ B) (h : IsExactAdditiveComplement A B) :
     (Tendsto (fun x : ℕ => (counting A (2 * x) : ℝ) / (counting A x : ℝ)) atTop (𝓝 1) ∧
       Tendsto (fun x : ℕ => (counting B (2 * x) : ℝ) / (counting B x : ℝ)) atTop (𝓝 2)) ∨
     (Tendsto (fun x : ℕ => (counting B (2 * x) : ℝ) / (counting B x : ℝ)) atTop (𝓝 1) ∧
@@ -150,7 +150,7 @@ for infinitely many $x$.
 -/
 @[category research solved, AMS 11]
 theorem erdos_785.variants.ruzsa_upper_bound (w : ℕ → ℝ) (hw : Tendsto w atTop atTop) :
-    ∃ A B : Set ℕ, A.Infinite ∧ B.Infinite ∧ IsExactAdditiveComplement A B ∧
+    ∃ A B : Set ℕ, A.Infinite ∧ B.Infinite ∧ 0 ∉ A ∧ 0 ∉ B ∧ IsExactAdditiveComplement A B ∧
       ∃ᶠ x : ℕ in atTop, (counting A x * counting B x : ℝ) - (x : ℝ) < w x := by
   sorry
 
@@ -161,7 +161,7 @@ $$A(x)B(x)-x > (1-o(1))\frac{a^*(x)}{A(x)}.$$
 -/
 @[category research solved, AMS 11]
 theorem erdos_785.variants.ruzsa_lower_bound (A B : Set ℕ) (hA : A.Infinite) (hB : B.Infinite)
-    (h : IsExactAdditiveComplement A B) :
+    (hA₀ : 0 ∉ A) (hB₀ : 0 ∉ B) (h : IsExactAdditiveComplement A B) :
     (∀ ε > (0 : ℝ), ∀ᶠ x : ℕ in atTop,
         (1 - ε) * (aStar A x : ℝ) / (counting A x : ℝ)
           < (counting A x * counting B x : ℝ) - (x : ℝ)) ∨
@@ -178,7 +178,7 @@ They later [ChFa14] improved $5/4$ to $3-\sqrt{3}\approx 1.268$.
 -/
 @[category research solved, AMS 11]
 theorem erdos_785.variants.chen_fang_limsup (A B : Set ℕ) (hA : A.Infinite) (hB : B.Infinite)
-    (h : IsAdditiveComplement A B)
+    (hA₀ : 0 ∉ A) (hB₀ : 0 ∉ B) (h : IsAdditiveComplement A B)
     (hlim : limsup (fun x : ℕ => ((counting A x * counting B x : ℝ) / (x : ℝ) : EReal)) atTop
       < ((3 - Real.sqrt 3 : ℝ) : EReal)) :
     Tendsto (fun x : ℕ => (counting A x * counting B x : ℝ) - (x : ℝ)) atTop atTop := by
@@ -189,7 +189,7 @@ Chen conjectures that this should be true with $3/2$.
 -/
 @[category research open, AMS 11]
 theorem erdos_785.variants.chen_conjecture : answer(sorry) ↔
-    ∀ A B : Set ℕ, A.Infinite → B.Infinite → IsAdditiveComplement A B →
+    ∀ A B : Set ℕ, A.Infinite → B.Infinite → 0 ∉ A → 0 ∉ B → IsAdditiveComplement A B →
       limsup (fun x : ℕ => ((counting A x * counting B x : ℝ) / (x : ℝ) : EReal)) atTop
           < ((3 / 2 : ℝ) : EReal) →
         Tendsto (fun x : ℕ => (counting A x * counting B x : ℝ) - (x : ℝ)) atTop atTop := by
@@ -202,7 +202,7 @@ for which $A(x)B(x)-x=1$ for infinitely many $x$.
 -/
 @[category research solved, AMS 11]
 theorem erdos_785.variants.chen_fang_sharp :
-    ∃ A B : Set ℕ, A.Infinite ∧ B.Infinite ∧ IsAdditiveComplement A B ∧
+    ∃ A B : Set ℕ, A.Infinite ∧ B.Infinite ∧ 0 ∉ A ∧ 0 ∉ B ∧ IsAdditiveComplement A B ∧
       limsup (fun x : ℕ => ((counting A x * counting B x : ℝ) / (x : ℝ) : EReal)) atTop
           = ((3 / 2 : ℝ) : EReal) ∧
       ∃ᶠ x : ℕ in atTop, (counting A x * counting B x : ℝ) - (x : ℝ) = 1 := by
