@@ -42,7 +42,7 @@ unbounded exponent (e.g. $q = 2^k$, as in [Ar25, Lemma 1]). It is *not* the join
 $p, k \to \infty$, which would be a strictly stronger assumption.
 -/
 def LimsupPrimePowEqTop (f : ArithmeticFunction ℝ) : Prop :=
-  (atTop ⊓ 𝓟 {q : ℕ | IsPrimePow q}).limsup (fun q => (f q / Real.log q : EReal)) = ⊤
+  (atTop ⊓ 𝓟 {q : ℕ | IsPrimePow q}).limsup (fun q ↦ (f q / Real.log q : EReal)) = ⊤
 
 /--
 Let $f(n)$ be an additive function (so that $f(ab)=f(a)+f(b)$
