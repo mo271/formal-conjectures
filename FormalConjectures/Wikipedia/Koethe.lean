@@ -134,10 +134,10 @@ theorem KotherConjecture.variants.two_by_two_matrix {I : TwoSidedIdeal R} (hI : 
   sorry
 
 open scoped Classical in
-/-- The **Köthe conjecture**: for any positive integer `n`, the Köthe radical of `R` is the matrix ideal `M_n(Nil*(R))`. -/
+/-- The **Köthe conjecture**: for any positive integer `n`, the Köthe radical of `R` is the matrix
+ideal `M_n(Nil*(R))`. -/
 @[category research open, AMS 16]
-theorem KotherConjecture.variants.matrixOver_KotherRadical
-    {I : TwoSidedIdeal R} (hI : IsNil I) (n : Type*) [Fintype n] :
+theorem KotherConjecture.variants.matrixOver_KotherRadical (n : Type*) [Fintype n] :
     matrix n (Nil* R) = Nil* (Matrix n n R) := by
   sorry
 
@@ -164,12 +164,10 @@ variable {n : Type*} [Fintype n] [DecidableEq n]
 supported on the `j`-th column. -/
 def columnIdeal (I : TwoSidedIdeal R) (j : n) : Ideal (Matrix n n R) where
   carrier := {M | ∀ i k, M i k ∈ I ∧ (k ≠ j → M i k = 0)}
-  zero_mem' := fun _ _ => ⟨I.zero_mem, fun _ => rfl⟩
-  add_mem' := by
-    rintro M N hM hN i k
-    exact ⟨add_mem (hM i k).1 (hN i k).1, fun hk => by simp [(hM i k).2 hk, (hN i k).2 hk]⟩
-  smul_mem' := by
-    rintro B M hM i k
+  zero_mem' _ _ := ⟨I.zero_mem, fun _ => rfl⟩
+  add_mem' hM hN i k :=
+    ⟨add_mem (hM i k).1 (hN i k).1, fun hk => by simp [(hM i k).2 hk, (hN i k).2 hk]⟩
+  smul_mem' B _ hM i k := by
     simp only [smul_eq_mul, Matrix.mul_apply]
     refine ⟨sum_mem fun l _ => I.mul_mem_left _ _ (hM l k).1, fun hk => ?_⟩
     exact Finset.sum_eq_zero fun l _ => by rw [(hM l k).2 hk, mul_zero]
@@ -370,7 +368,7 @@ theorem KotherConjecture.variants.general_matrix_of_matrixOver_KotherRadical
   classical
   intro R _ I hI n _
   refine (isNil_kotheRadical (Matrix n n R)).mono ?_
-  rw [← h hI n]
+  rw [← h n]
   exact TwoSidedIdeal.le_iff.mp (TwoSidedIdeal.matrix_monotone n (le_sSup hI))
 
 /-- The general matrix formulation of the Köthe conjecture implies the formulation in terms of
@@ -380,7 +378,7 @@ theorem KotherConjecture.variants.matrixOver_KotherRadical_of_general_matrix
     (h : type_of% @KotherConjecture.variants.general_matrix.{u, v}) :
     type_of% @KotherConjecture.variants.matrixOver_KotherRadical.{u, v} := by
   classical
-  intro R _ I _ n _
+  intro R _ n _
   refine le_antisymm (le_sSup (h (isNil_kotheRadical R) n)) ?_
   intro N hN i j
   have : Nonempty n := ⟨i⟩
