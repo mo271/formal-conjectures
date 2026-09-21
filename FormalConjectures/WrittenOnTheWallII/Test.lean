@@ -16,7 +16,10 @@ limitations under the License.
 module
 
 public import FormalConjecturesUtil
-meta import FormalConjecturesUtil
+meta import FormalConjecturesForMathlib.Combinatorics.SimpleGraph.Domination
+meta import FormalConjecturesForMathlib.Combinatorics.SimpleGraph.Eccentricity
+meta import FormalConjecturesForMathlib.Combinatorics.SimpleGraph.Residue
+meta import Mathlib.Combinatorics.SimpleGraph.CycleGraph
 
 /-!
 # Testing Graph Invariants

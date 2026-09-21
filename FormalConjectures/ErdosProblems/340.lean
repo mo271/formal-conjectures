@@ -16,7 +16,7 @@ limitations under the License.
 module
 
 public import FormalConjecturesUtil
-meta import FormalConjecturesUtil
+meta import FormalConjecturesForMathlib.Combinatorics.Basic
 
 /-!
 # Erdős Problem 340

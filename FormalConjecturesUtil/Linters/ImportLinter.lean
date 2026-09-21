@@ -28,6 +28,12 @@ This file implements a linter that enforces import conventions in `FormalConject
    `import FormalConjecturesUtil` instead.
 2. **Require `FormalConjecturesUtil`**: Problem files in `FormalConjectures` must
    import `FormalConjecturesUtil`.
+
+`meta import`s are exempt from the first rule. A `meta import` does not bring any declarations
+into scope; it only loads the compiled code of the imported module (and of its transitive imports),
+which is what `native_decide` and `#eval` need under the module system. Problem files that
+evaluate a definition from `Mathlib` or `FormalConjecturesForMathlib` natively should
+`meta import` just the module defining it, rather than all of `FormalConjecturesUtil`.
 -/
 
 public meta section
@@ -41,10 +47,37 @@ register_option linter.style.imports : Bool := {
 
 namespace ImportLinter
 
-/-- Checks an array of import identifiers against Formal Conjectures import rules. -/
-def checkImports (importIds : Array Syntax) (isFormalConjecturesModule : Bool := true)
+/-- Whether an `import` syntax node carries the `meta` modifier. -/
+def isMetaImport (stx : Syntax) : Bool :=
+  -- the modifier is parsed as an `optional` node wrapping a `Lean.Parser.Module.meta` node
+  stx.getArgs.any fun arg ↦ arg.isOfKind ``Lean.Parser.Module.meta ||
+    arg.getArgs.any (·.isOfKind ``Lean.Parser.Module.meta)
+
+/--
+Collects the module name identifier of every `import` in a parsed header, paired with whether
+the import is a `meta` import. This mirrors `Mathlib.Linter.getImportIds`, which discards the
+modifiers.
+-/
+partial def getImports (stx : Syntax) : Array (Syntax × Bool) :=
+  let rest := (stx.getArgs.map getImports).flatten
+  if stx.isOfKind `Lean.Parser.Module.import then
+    -- The module name is the last identifier in the import node arguments
+    match stx.getArgs.filter (·.isIdent) |>.back? with
+    | some n => rest.push (n, isMetaImport stx)
+    | none => rest
+  else
+    rest
+
+/--
+Checks the imports of a header against Formal Conjectures import rules. Each entry pairs the
+module name identifier with whether the import is a `meta` import; `meta` imports are exempt
+from the rules on direct `Mathlib` and `FormalConjecturesForMathlib` imports.
+-/
+def checkImports (imports : Array (Syntax × Bool)) (isFormalConjecturesModule : Bool := true)
     (firstCmdStx : Syntax := .missing) : CommandElabM Unit := do
-  for imp in importIds do
+  let importIds := imports.map (·.1)
+  for (imp, isMeta) in imports do
+    if isMeta then continue
     let modName := imp.getId
     if modName == `Mathlib || modName.getRoot == `Mathlib then
       Linter.logLintIf linter.style.imports imp
@@ -56,7 +89,7 @@ def checkImports (importIds : Array Syntax) (isFormalConjecturesModule : Bool :=
            Use 'import FormalConjecturesUtil' instead."
 
   if isFormalConjecturesModule then
-    let hasUtil := importIds.any fun id ↦ id.getId == `FormalConjecturesUtil
+    let hasUtil := imports.any fun (id, isMeta) ↦ !isMeta && id.getId == `FormalConjecturesUtil
     unless hasUtil do
       let targetStx := importIds[0]? |>.getD firstCmdStx
       Linter.logLintIf linter.style.imports targetStx
@@ -83,8 +116,7 @@ def importLinter : Linter where run := withSetOptionIn fun stx ↦ do
 
   let fm ← getFileMap
   let (headerStx, _) ← Parser.parseHeader { inputString := fm.source, fileName := fileName, fileMap := fm }
-  let importIds := Mathlib.Linter.getImportIds headerStx
-  checkImports importIds (isFormalConjecturesModule := true) stx
+  checkImports (getImports headerStx) (isFormalConjecturesModule := true) stx
 
 initialize addLinter importLinter
 
@@ -93,7 +125,6 @@ elab "#check_imports " headerStr:str : command => do
   let s := headerStr.getString
   let fm : FileMap := { source := s, positions := #[0] }
   let (headerStx, _) ← Parser.parseHeader { inputString := s, fileName := "test.lean", fileMap := fm }
-  let importIds := Mathlib.Linter.getImportIds headerStx
-  checkImports importIds (isFormalConjecturesModule := true) headerStr
+  checkImports (getImports headerStx) (isFormalConjecturesModule := true) headerStr
 
 end ImportLinter

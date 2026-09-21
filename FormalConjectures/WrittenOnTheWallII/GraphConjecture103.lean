@@ -16,7 +16,8 @@ limitations under the License.
 module
 
 public import FormalConjecturesUtil
-meta import FormalConjecturesUtil
+meta import FormalConjecturesForMathlib.Combinatorics.SimpleGraph.Independence
+meta import FormalConjecturesForMathlib.Combinatorics.SimpleGraph.Induced
 
 /-!
 # Written on the Wall II - Conjecture 103

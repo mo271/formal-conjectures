@@ -87,3 +87,19 @@ set_option linter.style.imports false in
 set_option linter.style.imports false in
 #guard_msgs in
 #check_imports "import FormalConjecturesForMathlib.Combinatorics.Basic"
+
+-- `meta import`s only load compiled code and are exempt from the direct-import rules
+#guard_msgs in
+#check_imports "module\npublic import FormalConjecturesUtil\nmeta import FormalConjecturesForMathlib.Combinatorics.Basic"
+
+#guard_msgs in
+#check_imports "module\npublic import FormalConjecturesUtil\nmeta import Mathlib.Combinatorics.Enumerative.Partition"
+
+-- but a `meta import` of `FormalConjecturesUtil` does not count as importing it
+/--
+warning: Files in 'FormalConjectures' must import 'FormalConjecturesUtil'.
+
+Note: This linter can be disabled with `set_option linter.style.imports false`
+-/
+#guard_msgs in
+#check_imports "module\nmeta import FormalConjecturesUtil"
