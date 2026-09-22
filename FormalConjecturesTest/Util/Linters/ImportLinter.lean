@@ -95,8 +95,37 @@ set_option linter.style.imports false in
 #guard_msgs in
 #check_imports "module\npublic import FormalConjecturesUtil\nmeta import Mathlib.Combinatorics.Enumerative.Partition"
 
--- but a `meta import` of `FormalConjecturesUtil` does not count as importing it
+-- `meta import`ing a whole library is disallowed
 /--
+warning: 'meta import FormalConjecturesUtil' loads the compiled code of the whole library. Instead, 'meta import' only the module defining the declaration that is evaluated (for example by 'native_decide').
+
+Note: This linter can be disabled with `set_option linter.style.imports false`
+-/
+#guard_msgs in
+#check_imports "module\npublic import FormalConjecturesUtil\nmeta import FormalConjecturesUtil"
+
+/--
+warning: 'meta import FormalConjecturesForMathlib' loads the compiled code of the whole library. Instead, 'meta import' only the module defining the declaration that is evaluated (for example by 'native_decide').
+
+Note: This linter can be disabled with `set_option linter.style.imports false`
+-/
+#guard_msgs in
+#check_imports "module\npublic import FormalConjecturesUtil\nmeta import FormalConjecturesForMathlib"
+
+/--
+warning: 'meta import Mathlib' loads the compiled code of the whole library. Instead, 'meta import' only the module defining the declaration that is evaluated (for example by 'native_decide').
+
+Note: This linter can be disabled with `set_option linter.style.imports false`
+-/
+#guard_msgs in
+#check_imports "module\npublic import FormalConjecturesUtil\nmeta import Mathlib"
+
+-- a `meta import` of `FormalConjecturesUtil` also does not count as importing it
+/--
+warning: 'meta import FormalConjecturesUtil' loads the compiled code of the whole library. Instead, 'meta import' only the module defining the declaration that is evaluated (for example by 'native_decide').
+
+Note: This linter can be disabled with `set_option linter.style.imports false`
+---
 warning: Files in 'FormalConjectures' must import 'FormalConjecturesUtil'.
 
 Note: This linter can be disabled with `set_option linter.style.imports false`

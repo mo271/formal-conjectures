@@ -29,11 +29,12 @@ This file implements a linter that enforces import conventions in `FormalConject
 2. **Require `FormalConjecturesUtil`**: Problem files in `FormalConjectures` must
    import `FormalConjecturesUtil`.
 
-`meta import`s are exempt from the first rule. A `meta import` does not bring any declarations
-into scope; it only loads the compiled code of the imported module (and of its transitive imports),
-which is what `native_decide` and `#eval` need under the module system. Problem files that
-evaluate a definition from `Mathlib` or `FormalConjecturesForMathlib` natively should
-`meta import` just the module defining it, rather than all of `FormalConjecturesUtil`.
+3. **Keep `meta import`s narrow**: A `meta import` does not bring any declarations into scope;
+   it only loads the compiled code of the imported module (and of its transitive imports), which
+   is what `native_decide` and `#eval` need under the module system. `meta import`s are therefore
+   exempt from the first rule, but they must name the module defining the evaluated declaration:
+   `meta import FormalConjecturesUtil`, `meta import FormalConjecturesForMathlib` and
+   `meta import Mathlib` load the compiled code of the whole library and are disallowed.
 -/
 
 public meta section
@@ -77,8 +78,14 @@ def checkImports (imports : Array (Syntax × Bool)) (isFormalConjecturesModule :
     (firstCmdStx : Syntax := .missing) : CommandElabM Unit := do
   let importIds := imports.map (·.1)
   for (imp, isMeta) in imports do
-    if isMeta then continue
     let modName := imp.getId
+    if isMeta then
+      if modName ∈ [`FormalConjecturesUtil, `FormalConjecturesForMathlib, `Mathlib] then
+        Linter.logLintIf linter.style.imports imp
+          m!"'meta import {modName}' loads the compiled code of the whole library. \
+             Instead, 'meta import' only the module defining the declaration that is evaluated \
+             (for example by 'native_decide')."
+      continue
     if modName == `Mathlib || modName.getRoot == `Mathlib then
       Linter.logLintIf linter.style.imports imp
         m!"Direct imports from 'Mathlib' (such as '{modName}') are disallowed in 'FormalConjectures'. \
@@ -101,6 +108,8 @@ private initialize checkedFiles : IO.Ref (Std.HashSet String) ← IO.mkRef {}
 /-- The import linter ensures that:
 - Files in `FormalConjectures` do not import `Mathlib`, `Mathlib.*`, `FormalConjecturesForMathlib`, or `FormalConjecturesForMathlib.*` directly.
 - Files in `FormalConjectures` import `FormalConjecturesUtil`.
+- Files in `FormalConjectures` do not `meta import` a whole library (`FormalConjecturesUtil`,
+  `FormalConjecturesForMathlib` or `Mathlib`).
 -/
 def importLinter : Linter where run := withSetOptionIn fun stx ↦ do
   if stx.getKind == ``Lean.Parser.Command.moduleDoc then return
