@@ -35,44 +35,25 @@ namespace ArithmeticFunction
 variable {R : Type*} [AddMonoid R]
 
 /-- Additive functions -/
-def IsAdditive (f : ArithmeticFunction R) : Prop :=
-  f 1 = 0 ∧ ∀ {m n : ℕ}, m.Coprime n → f (m * n) = f m + f n
+structure IsAdditive (f : ArithmeticFunction R) : Prop where
+  map_one : f 1 = 0
+  map_mul_of_coprime : ∀ {m n : ℕ}, m.Coprime n → f (m * n) = f m + f n
 
 /-- Completely additive functions -/
-def IsCompletelyAdditive (f : ArithmeticFunction R) : Prop :=
-  f 1 = 0 ∧ ∀ {m n : ℕ}, m ≠ 0 → n ≠ 0 → f (m * n) = f m + f n
+structure IsCompletelyAdditive (f : ArithmeticFunction R) : Prop where
+  map_one : f 1 = 0
+  map_mul : ∀ {m n : ℕ}, m ≠ 0 → n ≠ 0 → f (m * n) = f m + f n
 
 /-- Strongly additive functions: additive functions with `f (p ^ k) = f p` for every prime `p`
 and every `k ≠ 0`. -/
-def IsStronglyAdditive (f : ArithmeticFunction R) : Prop :=
-  f.IsAdditive ∧ ∀ {p k : ℕ}, p.Prime → k ≠ 0 → f (p ^ k) = f p
+structure IsStronglyAdditive (f : ArithmeticFunction R) : Prop extends f.IsAdditive where
+  map_prime_pow : ∀ {p k : ℕ}, p.Prime → k ≠ 0 → f (p ^ k) = f p
 
-namespace IsAdditive
-
-variable {f : ArithmeticFunction R}
-
-@[simp]
-theorem map_one (h : f.IsAdditive) : f 1 = 0 :=
-  h.1
-
-@[simp]
-theorem map_mul_of_coprime (hf : f.IsAdditive) {m n : ℕ} (h : m.Coprime n) :
-    f (m * n) = f m + f n :=
-  hf.2 h
-
-end IsAdditive
+attribute [simp] IsAdditive.map_one IsAdditive.map_mul_of_coprime IsCompletelyAdditive.map_one
 
 namespace IsCompletelyAdditive
 
 variable {f : ArithmeticFunction R}
-
-@[simp]
-theorem map_one (h : f.IsCompletelyAdditive) : f 1 = 0 :=
-  h.1
-
-theorem map_mul (hf : f.IsCompletelyAdditive) {m n : ℕ} (hm : m ≠ 0) (hn : n ≠ 0) :
-    f (m * n) = f m + f n :=
-  hf.2 hm hn
 
 theorem isAdditive (hf : f.IsCompletelyAdditive) : f.IsAdditive := by
   refine ⟨hf.map_one, fun {m n} hmn => ?_⟩
@@ -95,18 +76,5 @@ theorem map_prime_pow (hf : f.IsCompletelyAdditive) {p : ℕ} (hp : p.Prime) (k 
   hf.map_pow hp.ne_zero k
 
 end IsCompletelyAdditive
-
-namespace IsStronglyAdditive
-
-variable {f : ArithmeticFunction R}
-
-theorem isAdditive (hf : f.IsStronglyAdditive) : f.IsAdditive :=
-  hf.1
-
-theorem map_prime_pow (hf : f.IsStronglyAdditive) {p k : ℕ} (hp : p.Prime) (hk : k ≠ 0) :
-    f (p ^ k) = f p :=
-  hf.2 hp hk
-
-end IsStronglyAdditive
 
 end ArithmeticFunction
