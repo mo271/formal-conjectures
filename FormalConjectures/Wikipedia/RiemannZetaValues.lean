@@ -27,7 +27,8 @@ namespace RiemannZetaValues
 /--
 $\zeta(5)$ is irrational.
 
-[Fa26] A. Fauzan (2026). _$\zeta(5)$ is irrational_. Preprint, 17 September 2026.
+[Fa26] A. Fauzan (2026). [_$\zeta(5)$ is irrational_](https://zenodo.org/records/22826419).
+Preprint, 17 September 2026.
 
 The proof is `Apery.irrational_five` from the dependency
 [mo271/zeta5](https://github.com/mo271/zeta5/blob/a06a073ea6b0e475e6bbf96beff2d8330faaa65e/Apery/Main.lean),
