@@ -13,14 +13,17 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -/
-import FormalConjecturesUtil
-import Apery.Main
+module
+
+public import FormalConjecturesUtil
 
 /-!
 # Particular values of the Riemann zeta function
 
 *Reference:* [Wikipedia](https://en.wikipedia.org/wiki/Particular_values_of_the_Riemann_zeta_function)
 -/
+
+@[expose] public section
 
 namespace RiemannZetaValues
 
@@ -30,13 +33,13 @@ $\zeta(5)$ is irrational.
 [Fa26] A. Fauzan (2026). [_$\zeta(5)$ is irrational_](https://zenodo.org/records/22826419).
 Preprint, 17 September 2026.
 
-The proof is `Apery.irrational_five` from the dependency
-[mo271/zeta5](https://github.com/mo271/zeta5/blob/a06a073ea6b0e475e6bbf96beff2d8330faaa65e/Apery/Main.lean),
-which formalises [Fa26].
 -/
-@[category research solved, AMS 11 33]
-theorem irrational_five : ∃ x, Irrational x ∧ riemannZeta 5 = x :=
-  Apery.irrational_five
+@[category research solved, AMS 11 33, formal_proof using formal_conjectures at
+"https://github.com/mo271/formal-conjectures/blob/a14b09f420e81b662b9b3e18d0b9b7ccefbdbeef/FormalConjectures/Wikipedia/RiemannZetaValues.lean#L38",
+formal_proof using lean4 at
+"https://github.com/mo271/Zeta5/blob/2c80b320d06b4395605edbd413649d19094507af/Apery/Main.lean#L26"]
+theorem irrational_five : ∃ x, Irrational x ∧ riemannZeta 5 = x := by
+  sorry
 
 /--
 $\zeta(7)$ is irrational.

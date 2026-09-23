@@ -193,13 +193,7 @@ jobs:
       - name: Build problems
         if: steps.mode.outputs.website_only != 'true'
         run: |
-          # Do not use `--wfail` here. It also fails on warnings in dependencies, and
-          # `Apery` (mo271/zeta5) and `PrimeNumberTheoremAnd` log many warnings that we
-          # cannot fix: linter warnings, deprecations, and `sorry` in unused parts of
-          # `PrimeNumberTheoremAnd`. The script below fails on warnings from this
-          # repository's own modules only.
-          python3 scripts/lake-build-wrapper.py /tmp/build_summary_problems.json lake build
-          python3 scripts/check_build_warnings.py /tmp/build_summary_problems.json
+          python3 scripts/lake-build-wrapper.py /tmp/build_summary_problems.json lake --wfail build
           rm -f FormalConjectures/All.lean
 
       - name: End Lean problem matcher

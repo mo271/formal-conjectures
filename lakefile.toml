@@ -32,12 +32,6 @@ name = "mathlib"
 scope = "leanprover-community"
 rev = "v4.33.1"
 
-# A formal proof that $\zeta(5)$ is irrational, used in `FormalConjectures.Wikipedia.RiemannZetaValues`.
-[[require]]
-name = "Apery"
-git = "https://github.com/mo271/zeta5"
-rev = "a06a073ea6b0e475e6bbf96beff2d8330faaa65e"
-
 # We make this a separate library so that we can apply different lean options.
 [[lean_lib]]
 name = "FormalConjecturesForMathlib"
