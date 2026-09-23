@@ -61,6 +61,7 @@ weak.linter.style.conditional_formal_proof = true
 weak.linter.style.moduleDocstring = true
 weak.linter.style.latex_docstring = true
 weak.linter.style.imports = true
+weak.linter.style.answer_explicit = true
 
 [[lean_lib]]
 name = "FormalConjecturesAnswerPostpone"
@@ -76,6 +77,7 @@ weak.linter.style.conditional_formal_proof = true
 weak.linter.style.moduleDocstring = true
 weak.linter.style.latex_docstring = true
 weak.linter.style.imports = true
+weak.linter.style.answer_explicit = true
 weak.google.answer = "postpone"
 
 
@@ -84,4 +86,11 @@ name = "extract_names"
 srcDir = "scripts"
 root = "extract_names"
 exeName = "extract_names"
+supportInterpreter = true
+
+[[lean_exe]]
+name = "check_answers"
+srcDir = "scripts"
+root = "check_answers"
+exeName = "check_answers"
 supportInterpreter = true

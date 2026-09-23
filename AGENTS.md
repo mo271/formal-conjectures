@@ -38,6 +38,8 @@ inputs. See [STATEMENTS.md](STATEMENTS.md) for the detailed checks.
 
 Use `answer(sorry)` only for the information that the problem asks to determine. Put all
 quantifiers after it. A tautological term inside `answer()` is not a mathematical solution.
+The `ExplicitAnswerLinter` rejects a filled answer that restates the problem. Use
+`@[answer_allow c]` only for a constant that the problem defines as its intended answer.
 
 ## Write clear documentation
 

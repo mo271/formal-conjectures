@@ -221,7 +221,8 @@ theorem one_le_sofaConstant : 1 ≤ sofaConstant := by
 
 /-- What is the sofa constant? -/
 @[category research solved, AMS 49,
-  formal_proof using lean4 at "https://github.com/deancureton/MovingSofa/releases/tag/v1.0.0"]
+  formal_proof using lean4 at "https://github.com/deancureton/MovingSofa/releases/tag/v1.0.0",
+  answer_allow MeasureTheory.MeasureSpace.volume, gerversSofa]
 theorem sofaConstant_eq : sofaConstant = answer(volume gerversSofa) := by
   sorry
 

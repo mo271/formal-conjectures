@@ -307,6 +307,32 @@ e.g. the set `{n : ℕ | P n}` itself. The question of whether the answer
 provided corresponds to a mathematically meaningful solution of the problem
 is outside of the scope of this repository.
 
+### Explicit answers
+
+The `ExplicitAnswerLinter` rejects the most common trivial answers. It checks
+the elaborated term of every filled `answer( )` in a problem file:
+
+- An answer of type `Prop` must be `True` or `False`.
+- Every other constant in the answer must be in the allowlist
+  `Google.explicitConstants` in `FormalConjecturesUtil/Answer/Explicit.lean`.
+  The list covers numerals, arithmetic, common functions and constants,
+  intervals, set operations and limits. Type class instances are exempt, but a
+  `Decidable` instance must be computable.
+- Constants that define a value by a property, such as `sInf`, `Nat.find`,
+  `Nat.card` and everything in the `Classical` namespace, are never allowed.
+- A constant defined in the same file as the theorem is not allowed by
+  default.
+
+If the intended answer needs another constant, list it on the theorem with
+`@[answer_allow c₁, c₂]`, for instance the shape whose volume answers the
+moving sofa problem. Extend the default allowlist instead when the constant is
+a general construction.
+
+`lake exe check_answers <module>` runs the same check on a compiled module and
+prints one JSON object per theorem with an answer. Build the module with
+`lake build FormalConjecturesAnswerPostpone` first, so that an unfilled
+`answer(sorry)` of type `Prop` is visible.
+
 ## Style guidelines
 
 - One problem per file (variants and special cases may share a file).
