@@ -57,8 +57,8 @@ $$\sum_{n\geq 1} \frac{1}{(n+1)\cdots (n+f(n))}=\alpha.$$
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos270.lean#L1027"]
-theorem erdos_270 : answer(False) ↔
-    ∀ f : ℕ → ℕ, Tendsto f atTop atTop → Irrational (series f) := by
+theorem erdos_270 :
+    ¬ ∀ f : ℕ → ℕ, Tendsto f atTop atTop → Irrational (series f) := by
   sorry
 
 /--

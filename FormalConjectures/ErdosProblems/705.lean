@@ -42,7 +42,7 @@ chromatic number $4$ and arbitrarily large girth.
 @[category research solved, question, AMS 5, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos705.lean#L8323"]
 theorem erdos_705:
-  answer(False) ↔ ∃ k, ∀ V : Set ℝ², V.Finite →
+  ¬ ∃ k, ∀ V : Set ℝ², V.Finite →
     (UnitDistancePlaneGraph V).girth ≥ k → (UnitDistancePlaneGraph V).chromaticNumber ≤ 3 := by
   sorry
 

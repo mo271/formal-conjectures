@@ -72,7 +72,7 @@ denominator $19$.
   formal_proof using lean4 at
     "https://github.com/KitaKen1/oeis-a078590-counterexample/blob/3bdf1cee8e7e4cbc4fe83354e4be8ca1eee46de3/lean/OeisA78590CounterexampleFC.lean#L55-L61"]
 theorem conjecture :
-    answer(False) ↔ ∀ n : ℕ, 3 ≤ n → a (n - 2) ∣ 2 ^ a (n - 1) + 1 := by
+    ¬ ∀ n : ℕ, 3 ≤ n → a (n - 2) ∣ 2 ^ a (n - 1) + 1 := by
   sorry
 
 end OeisA78590

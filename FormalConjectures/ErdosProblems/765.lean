@@ -71,8 +71,8 @@ in [Er75]. This is false: Ma and Yang [MaYa23] proved that, for some absolute co
 a positive density set of $n$, $\mathrm{ex}(n; C_4) \le \frac{n^{3/2}}{2} + (\frac14 - c) n$.
 -/
 @[category research solved, question, AMS 5]
-theorem erdos_765.variants.second_term : answer(False) ↔
-    (fun n : ℕ ↦ (SimpleGraph.extremalNumber n (SimpleGraph.cycleGraph 4) : ℝ) -
+theorem erdos_765.variants.second_term :
+    ¬ (fun n : ℕ ↦ (SimpleGraph.extremalNumber n (SimpleGraph.cycleGraph 4) : ℝ) -
       (n : ℝ) ^ (3 / 2 : ℝ) / 2 - (n : ℝ) / 4) =O[atTop] fun n : ℕ ↦ (n : ℝ) ^ (1 / 2 : ℝ) := by
   sorry
 

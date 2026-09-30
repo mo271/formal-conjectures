@@ -91,8 +91,8 @@ case $k = 6$.
 -/
 @[category research solved, question, AMS 12, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos477.lean#L42"]
-theorem erdos_477.variants.monomial : answer(False) ↔
-    ∀ (k : ℕ), 2 ≤ k →
+theorem erdos_477.variants.monomial :
+    ¬ ∀ (k : ℕ), 2 ≤ k →
       letI f := X ^ k
       ∀ A : Set ℤ, ∃ z, ¬ ∃! a ∈ A ×ˢ (Set.range f.eval), z = a.1 + a.2 := by
   sorry

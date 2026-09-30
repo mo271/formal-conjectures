@@ -113,7 +113,7 @@ as a convex combination of proper tiling measures.
   formal_proof using lean4 at
     "https://github.com/KitaKen1/weak-tiling-counterexample/blob/5bf93234cc51f02fd7681407d77dcebde592f3ac/formal-conjectures-v4.27.0/WeakTilingCounterexample.lean"]
 theorem problem_4_3 :
-    answer(False) ↔ ∀ (Ω : Set ℝ) (_ : IsFiniteUnionOfIntervals Ω)
+    ¬ ∀ (Ω : Set ℝ) (_ : IsFiniteUnionOfIntervals Ω)
       (ν : Measure ℝ) (_ : IsWeakTilingMeasure Ω ν),
       ∃ (T : ℕ → Set ℝ) (c : ℕ → ℝ≥0), (∀ i, IsProperTiling Ω (T i)) ∧ ∑' i : ℕ, c i = 1 ∧
       ν = Measure.sum

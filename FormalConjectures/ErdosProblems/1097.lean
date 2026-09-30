@@ -62,7 +62,7 @@ the Kakeya conjecture. Under this equivalence:
 -/
 @[category research solved, question, AMS 11, formal_proof using formal_conjectures at
 "https://github.com/mo271/formal-conjectures/blob/f13dd54b520cdf2136fdd3a04f0f9fa50e311358/FormalConjectures/ErdosProblems/1097.lean#L306"]
-theorem erdos_1097 : answer(False) ↔ ∃ C > (0 : ℝ), ∀ (A : Finset ℤ),
+theorem erdos_1097 : ¬ ∃ C > (0 : ℝ), ∀ (A : Finset ℤ),
     (CommonDifferencesThreeTermAP A).ncard ≤ C * (A.card : ℝ) ^ (3 / 2 : ℝ) := by
   sorry
 

@@ -94,8 +94,8 @@ $x\in (0,\infty)$ for which the best underapproximations are eventually 'greedy'
 measure zero.
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/68da20b96673899166e94638f5a7fffeb7231d35/src/latest/ErdosProblems/Erdos206.lean"]
-theorem erdos_206 : answer(False) ↔
-    ∀ᵐ x ∂(volume.restrict (Set.Ioi (0 : ℝ))), EventuallyGreedy x := by
+theorem erdos_206 :
+    ¬ ∀ᵐ x ∂(volume.restrict (Set.Ioi (0 : ℝ))), EventuallyGreedy x := by
   sorry
 
 end Erdos206

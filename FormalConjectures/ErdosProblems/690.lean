@@ -58,8 +58,8 @@ over any function `d` recording them.
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos690.lean#L2162"]
-theorem erdos_690 : answer(False) ↔
-    ∀ k ≥ 1, ∀ d : ℕ → ℝ,
+theorem erdos_690 :
+    ¬ ∀ k ≥ 1, ∀ d : ℕ → ℝ,
       (∀ p, p.Prime → (kthPrimeFactorSet k p).HasDensity (d p)) → IsUnimodalOnPrimes d := by
   sorry
 

@@ -92,7 +92,7 @@ The source records this as disproved: "This is a stronger form of the unit dista
 `False`.
 -/
 @[category research solved, question, AMS 52]
-theorem erdos_92.variants.weak : answer(False) ↔ ∃ o : ℕ → ℝ,
+theorem erdos_92.variants.weak : ¬ ∃ o : ℕ → ℝ,
   o =o[atTop] (1 : ℕ → ℝ) ∧ ∀ n, (f n : ℝ) ≤ n^(o n) := by
   sorry
 
@@ -104,8 +104,8 @@ $n^{c/\log\log n}$ is of the form $n^{o(1)}$, so this statement implies
 `erdos_92.variants.weak` and is false whenever that one is.
 -/
 @[category research solved, question, AMS 52]
-theorem erdos_92.variants.strong : answer(False) ↔
-    ∃ c > 0, ∀ᶠ n in atTop, (f n : ℝ) ≤ n^(c / (n : ℝ).log.log) := by
+theorem erdos_92.variants.strong :
+    ¬ ∃ c > 0, ∀ᶠ n in atTop, (f n : ℝ) ≤ n^(c / (n : ℝ).log.log) := by
   sorry
 
 -- TODO(firsching): formalize the rest of the remarks

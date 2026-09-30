@@ -56,8 +56,8 @@ This was formalized in Lean by Alexeev using Aristotle.
 -/
 @[category research solved, question, AMS 5, formal_proof using lean4 at
 "https://github.com/plby/lean-proofs/blob/main/src/latest/ErdosProblems/Erdos1022.lean"]
-theorem erdos_1022 : answer(False) ↔
-    ∃ c : ℕ → ℝ, Filter.Tendsto c Filter.atTop Filter.atTop ∧
+theorem erdos_1022 :
+    ¬ ∃ c : ℕ → ℝ, Filter.Tendsto c Filter.atTop Filter.atTop ∧
       ∀ t : ℕ, SparseImpliesPropertyB t (c t) := by
   sorry
 

@@ -72,8 +72,8 @@ family of connected bipartite graphs, none of them acyclic, for which no single 
 the family extremal number. See `erdos_180.variants.counterexample`.
 -/
 @[category research solved, question, AMS 5]
-theorem erdos_180 : answer(False) ↔
-    ∀ family : Finset FiniteGraph,
+theorem erdos_180 :
+    ¬ ∀ family : Finset FiniteGraph,
       family.Nonempty → IsCyclicFamily family → IsCompactFamily family := by
   sorry
 

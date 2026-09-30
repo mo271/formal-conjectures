@@ -49,8 +49,8 @@ $12168 = 2^3 3^2 13^2$ is another such pair, already known to Golomb [Go70].
 -/
 @[category research solved, question, AMS 11]
 theorem erdos_366.variants.three_two :
-    answer(False) ↔ ∀ n > 0, (3).Full n ∧ (2).Full (n + 1) → n = 8 := by
-  refine ⟨False.elim, fun h ↦ absurd (h 12167 (by norm_num) ?_) (by norm_num)⟩
+    ¬ ∀ n > 0, (3).Full n ∧ (2).Full (n + 1) → n = 8 := by
+  refine fun h ↦ absurd (h 12167 (by norm_num) ?_) (by norm_num)
   norm_num +contextual [Nat.Full, Nat.primeFactors, Nat.primeFactorsList]
 
 /--

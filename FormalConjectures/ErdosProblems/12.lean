@@ -73,7 +73,7 @@ The DeepMind prover agent has found a formal disproof of this statement.
 -/
 @[category research solved, question, AMS 11,
 formal_proof using formal_conjectures at "https://github.com/mo271/formal-conjectures/blob/118a6a60df73a9f47d6c89f3cdb3786eaa2e8d0a/FormalConjectures/ErdosProblems/12.lean#L740"]
-theorem erdos_12.parts.ii : answer(False) ↔ ∃ c > (0 : ℝ), ∀ (A : Set ℕ), IsGood A →
+theorem erdos_12.parts.ii : ¬ ∃ c > (0 : ℝ), ∀ (A : Set ℕ), IsGood A →
     {N : ℕ| (A ∩ Icc 1 N).ncard < (N : ℝ) ^ (1 - c)}.Infinite := by
   sorry
 

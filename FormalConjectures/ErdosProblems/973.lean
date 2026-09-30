@@ -49,12 +49,11 @@ fixed $\lambda>0$ once $n$ is large, so it decays subexponentially and no such $
 -/
 @[category research solved, question, AMS 11]
 theorem erdos_973 :
-    answer(False) ↔
-      ∃ C : ℝ, C > 1 ∧
-        ∀ n : ℕ, n ≥ 2 → ∃ z : ℕ → ℂ,
-          z 1 = 1 ∧
-          (∀ i ∈ Icc 1 n, 1 ≤ ‖z i‖) ∧
-          (∀ k ∈ Icc 2 (n + 1), ‖∑ i ∈ Icc 1 n, z i ^ k‖ < C ^ (-(n : ℝ))) := by
+    ¬ ∃ C : ℝ, C > 1 ∧
+      ∀ n : ℕ, n ≥ 2 → ∃ z : ℕ → ℂ,
+        z 1 = 1 ∧
+        (∀ i ∈ Icc 1 n, 1 ≤ ‖z i‖) ∧
+        (∀ k ∈ Icc 2 (n + 1), ‖∑ i ∈ Icc 1 n, z i ^ k‖ < C ^ (-(n : ℝ))) := by
   sorry
 
 /--

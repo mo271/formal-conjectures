@@ -143,7 +143,7 @@ This certificate shows that the obstruction $v^\top B$ annihilates $\ker A$, mak
   formal_proof using lean4 at
     "https://github.com/KitaKen1/microscopic-weighting-counterexample/blob/eff8979/lean/MicroscopicWeightingCounterexampleFC.lean#L886-L894"]
 theorem microscopic_weighting_iff_finite_concentration :
-    answer(False) ↔ ∀ (X : Type) [Fintype X] [DecidableEq X] [Nonempty X] [MetricSpace X],
+    ¬ ∀ (X : Type) [Fintype X] [DecidableEq X] [Nonempty X] [MetricSpace X],
       HasMicroscopicWeighting X ↔ HasFiniteConcentration (distanceMatrix X) := by
   sorry
 

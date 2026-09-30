@@ -46,8 +46,8 @@ The answer is no, as witnessed by $C_5[K_4]$.
 -/
 @[category research solved, question, AMS 5, formal_proof using lean4 at
 "https://github.com/Kuberwastaken/wowii-63-85-counterexample/blob/cba739842ec59adf7426c180009175b31935701d/lean/WOWII85.lean#L171-L183"]
-theorem conjecture85 : answer(False) ↔
-    ∀ (α : Type) [Fintype α] [DecidableEq α] [Nontrivial α]
+theorem conjecture85 :
+    ¬ ∀ (α : Type) [Fintype α] [DecidableEq α] [Nontrivial α]
       (G : SimpleGraph α) (_h : G.Connected),
       let minDistEven := (Finset.univ.image (G.distEven ·)).min' (by simp)
       ⌈Real.sqrt (1 + 2 * (minDistEven : ℝ))⌉ ≤

@@ -74,7 +74,7 @@ $r = 4$ and $r = 5$. The category is unchanged because the construction is recor
 comments and not in the literature.
 -/
 @[category research solved, question, AMS 11]
-theorem erdos_939.variants.finite : answer(False) ↔ ∀ r ≥ 4, (Erdos939Sums r).Finite := by
+theorem erdos_939.variants.finite : ¬ ∀ r ≥ 4, (Erdos939Sums r).Finite := by
   sorry
 
 /--

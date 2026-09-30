@@ -67,7 +67,7 @@ Their proof is given in [La16]. This problem is repeated by Guy [Gu83b] in an ar
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1134.lean#L79"]
-theorem erdos_1134 : answer(False) ↔ 0 < A.lowerDensity := by
+theorem erdos_1134 : ¬ 0 < A.lowerDensity := by
   sorry
 
 /-- The counting function of $A$ is sublinear: $\lvert A\cap [1,X]\rvert \ll X^{\tau+o(1)}$ with

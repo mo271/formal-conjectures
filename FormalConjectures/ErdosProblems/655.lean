@@ -50,7 +50,7 @@ The disproof — the regular `n`-gon construction together with its supporting l
 at the linked commit. -/
 @[category research solved, question, AMS 5 52, formal_proof using formal_conjectures at "https://github.com/AlperTheKing/formal-conjectures/blob/4aaaf544b6ed0ef22580787a8d8a19e85dc49556/FormalConjectures/ErdosProblems/655.lean"]
 theorem erdos_655 :
-    answer(False) ↔ ∃ c > (0 : ℝ), ∀ᶠ n in atTop, ∀ (X : Finset ℝ²), #X = n → IsValid X →
+    ¬ ∃ c > (0 : ℝ), ∀ᶠ n in atTop, ∀ (X : Finset ℝ²), #X = n → IsValid X →
       (1 + c) * n / 2 ≤ distinctDistances X := by
   sorry
 

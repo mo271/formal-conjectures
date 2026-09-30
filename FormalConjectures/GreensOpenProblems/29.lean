@@ -47,12 +47,11 @@ The answer is negative. A counterexample is given, for arbitrarily large finite 
   formal_proof using lean4 at
     "https://github.com/KitaKen1/green-29-counterexample/blob/1cbf80c3d5a333b2b79c203c0d60129924c8c712/lean/Green29FC.lean#L280-L287"]
 theorem green_29 :
-    answer(False) ↔
-      ∃ C c : ℝ, 0 < C ∧ 0 < c ∧
-        ∀ {G : Type*} [Group G] [DecidableEq G] (K : ℝ) (A : Finset G),
-          1 ≤ K → IsApproximateSubgroup K (A : Set G) →
-            ∃ S ⊆ A, C * K ^ (-c) * (A.card : ℝ) ≤ (S.card : ℝ) ∧
-            S ^ 8 ⊆ A ^ 4 := by
+    ¬ ∃ C c : ℝ, 0 < C ∧ 0 < c ∧
+      ∀ {G : Type*} [Group G] [DecidableEq G] (K : ℝ) (A : Finset G),
+        1 ≤ K → IsApproximateSubgroup K (A : Set G) →
+          ∃ S ⊆ A, C * K ^ (-c) * (A.card : ℝ) ≤ (S.card : ℝ) ∧
+          S ^ 8 ⊆ A ^ 4 := by
   sorry
 
 /-- Such a conclusion is known with $|S| \gg_K |A|$ [Br13 Problem 6.5, CrSi10, Sa10]. -/

@@ -143,7 +143,7 @@ $2$ whenever it is finite. Disproved by Merkurjev, who constructed a field of $u
 -/
 @[category research solved, question, AMS 11 12]
 theorem u_invariant_values.variants.kaplansky_conjecture :
-    answer(False) ↔ ∀ n, IsUInvariant n → ∃ k, n = 2 ^ k := by
+    ¬ ∀ n, IsUInvariant n → ∃ k, n = 2 ^ k := by
   sorry
 
 /-- The $u$-invariant is never $3$ [Kaplansky1953, Theorem 2]; see also

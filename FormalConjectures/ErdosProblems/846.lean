@@ -54,7 +54,7 @@ In other words, prove or disprove the following statement: every infinite `ε`-n
 plane is weakly non-trilinar.
 -/
 @[category research solved, question, AMS 11, formal_proof using formal_conjectures at "https://github.com/google-deepmind/formal-conjectures/blob/2404258180688283e5141021c75464dc2acfb798/FormalConjectures/ErdosProblems/846.lean"]
-theorem erdos_846 : answer(False) ↔ ∀ᵉ (A : Set ℝ²) (ε > 0), A.Infinite → NonTrilinearFor A ε →
+theorem erdos_846 : ¬ ∀ᵉ (A : Set ℝ²) (ε > 0), A.Infinite → NonTrilinearFor A ε →
     WeaklyNonTrilinear A := by
   sorry
 

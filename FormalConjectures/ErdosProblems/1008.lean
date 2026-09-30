@@ -54,8 +54,8 @@ replaced by $m^{3/4}$. Folkman showed this is false with the counterexample $K_{
 $n^3$ edges, and yet every subgraph with $>n^2+\binom{n}{2}$ edges contains a $C_4$.
 -/
 @[category research solved, question, AMS 5]
-theorem erdos_1008.variants.three_quarters : answer(False) ↔
-    ∃ c > (0 : ℝ), ∀ (V : Type) [Fintype V] (G : SimpleGraph V),
+theorem erdos_1008.variants.three_quarters :
+    ¬ ∃ c > (0 : ℝ), ∀ (V : Type) [Fintype V] (G : SimpleGraph V),
       ∃ H ≤ G, (cycleGraph 4).Free H ∧
         c * (G.edgeSet.ncard : ℝ) ^ (3 / 4 : ℝ) ≤ (H.edgeSet.ncard : ℝ) := by
   sorry

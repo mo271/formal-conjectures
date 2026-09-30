@@ -96,7 +96,7 @@ Answer: No.
   formal_proof using lean4 at
     "https://github.com/KitaKen1/oeis-a159829-conjecture1-counterexample/blob/6632e626baa7f28ad14045aa7408a84178ec128d/lean/A159829Conjecture1FC.lean#L52-L61"]
 theorem conjecture1 :
-    answer(False) ↔ ∀ (k : ℕ), 3 ≤ k →
+    ¬ ∀ (k : ℕ), 3 ≤ k →
       Set.Infinite {p : ℕ | ∃ n m : ℕ, 1 ≤ n ∧ 1 ≤ m ∧ p.Prime ∧
         p = n ^ k + m ^ k} := by
   sorry

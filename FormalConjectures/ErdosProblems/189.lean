@@ -54,7 +54,7 @@ This was formalized in Lean by Alexeev and Kovac using Aristotle.
 -/
 @[category research solved, question, AMS 5 51, formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/main/src/v4.24.0/ErdosProblems/Erdos189.lean"]
 theorem erdos_189 :
-    answer(False) ↔ Erdos189For
+    ¬ Erdos189For
       (fun a b c d ↦
         line[ℝ, a, b].direction ⟂ line[ℝ, b, c].direction ∧
         line[ℝ, b, c].direction ⟂ line[ℝ, c, d].direction ∧

@@ -60,8 +60,8 @@ The answer is no: Beck [Be83b] proved that in fact $\hat{R}(P_n)\ll n$.
 -/
 @[category research solved, question, AMS 5, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos720.lean#L39"]
-theorem erdos_720.parts.i : answer(False) ↔
-    Tendsto (fun n : ℕ ↦ (sizeRamseyNumber (pathGraph (n + 1)) : ℝ) / n) atTop atTop := by
+theorem erdos_720.parts.i :
+    ¬ Tendsto (fun n : ℕ ↦ (sizeRamseyNumber (pathGraph (n + 1)) : ℝ) / n) atTop atTop := by
   sorry
 
 /--

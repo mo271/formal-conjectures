@@ -51,8 +51,8 @@ construction of a graph on $n$ vertices with at least $\frac{3}{4}n$ distinct de
 degree appears at most twice, and the largest trivial subgraph has size $O(\log n)$.
 -/
 @[category research solved, question, AMS 5, formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/main/src/v4.29.1/ErdosProblems/Erdos1037.lean"]
-theorem erdos_1037 : answer(False) ↔
-    ∀ ε : ℝ, 0 < ε → ∀ C : ℝ, ∀ᶠ n : ℕ in atTop, ∀ G : SimpleGraph (Fin n),
+theorem erdos_1037 :
+    ¬ ∀ ε : ℝ, 0 < ε → ∀ C : ℝ, ∀ᶠ n : ℕ in atTop, ∀ G : SimpleGraph (Fin n),
       (∀ d : ℕ, {v : Fin n | (G.neighborSet v).ncard = d}.ncard ≤ 2) →
       ((1 / 2 + ε) * (n : ℝ) <
         ((Set.range fun v : Fin n => (G.neighborSet v).ncard).ncard : ℝ)) →

@@ -87,11 +87,10 @@ See also [erdosproblems.com/429] and [erdosproblems.com/1102].
 -/
 @[category research solved, question, AMS 11]
 theorem erdos_1209.parts.i :
-    answer(False) ↔
-      ∃ f : ℕ → ℕ, ∀ a : ℕ → ℕ, StrictMono a → (∀ k, f k ≤ a k) →
-        (∃ n, ∀ k, (n + a k).Prime) →
-        {n | ∀ k, (n + a k).Prime}.Infinite := by
-  refine ⟨fun h => h.elim, fun ⟨f, hf⟩ => ?_⟩
+    ¬ ∃ f : ℕ → ℕ, ∀ a : ℕ → ℕ, StrictMono a → (∀ k, f k ≤ a k) →
+      (∃ n, ∀ k, (n + a k).Prime) →
+      {n | ∀ k, (n + a k).Prime}.Infinite := by
+  rintro ⟨f, hf⟩
   have hmono : StrictMono (seq f) :=
     strictMono_nat_of_lt_succ fun k => lt_of_le_of_lt (le_max_left _ _) (seq_succ_spec f k).1
   have hbound : ∀ k, f k ≤ seq f k := by
@@ -156,11 +155,10 @@ A similar construction provides a counterexample to the squarefree question.
 -/
 @[category research solved, question, AMS 11]
 theorem erdos_1209.parts.ii :
-    answer(False) ↔
-      ∃ f : ℕ → ℕ, ∀ a : ℕ → ℕ, StrictMono a → (∀ k, f k ≤ a k) →
-        (∃ n, ∀ k, Squarefree (n + a k)) →
-        {n | ∀ k, Squarefree (n + a k)}.Infinite := by
-  refine ⟨fun h => h.elim, fun ⟨f, hf⟩ => ?_⟩
+    ¬ ∃ f : ℕ → ℕ, ∀ a : ℕ → ℕ, StrictMono a → (∀ k, f k ≤ a k) →
+      (∃ n, ∀ k, Squarefree (n + a k)) →
+      {n | ∀ k, Squarefree (n + a k)}.Infinite := by
+  rintro ⟨f, hf⟩
   have h0 := Classical.choose_spec (Nat.exists_infinite_primes (f 0))
   have hmono : StrictMono (seq' f) :=
     strictMono_nat_of_lt_succ fun k => lt_of_le_of_lt (le_max_left _ _) (seq'_succ_spec f k).1
@@ -196,7 +194,7 @@ This was formalized in Lean by Barschkis using ChatGPT.
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at "https://github.com/ebarschkis/ErdosProblem/blob/main/Problem1209/Formalization.lean"]
 theorem erdos_1209.parts.iii.a :
-    answer(False) ↔ ∃ n : ℕ, ∀ k : ℕ, (n + 2 ^ (2 ^ k)).Prime := by
+    ¬ ∃ n : ℕ, ∀ k : ℕ, (n + 2 ^ (2 ^ k)).Prime := by
   sorry
 
 /--

@@ -93,12 +93,10 @@ largest induced bipartite subgraph size $10$, and average eccentricity $30/11$. 
 $1 < \ln(30/11) < 2$, the proposed upper bound is $8$.
 -/
 @[category research solved, question, AMS 5]
-theorem conjecture103 : answer(False) ↔
-    ∀ (α : Type) [Fintype α] [DecidableEq α] [Nontrivial α]
+theorem conjecture103 :
+    ¬ ∀ (α : Type) [Fintype α] [DecidableEq α] [Nontrivial α]
       (G : SimpleGraph α) (_h : G.Connected),
       (G.indepNum : ℝ) ≤ ⌊b G - Real.log (averageEccentricity G)⌋ := by
-  show False ↔ _
-  rw [false_iff]
   intro h
   have hbad := h (Fin 11) wowii103Counterexample wowii103Counterexample_connected
   rw [wowii103Counterexample_indepNum, b, wowii103Counterexample_bipartiteSize,

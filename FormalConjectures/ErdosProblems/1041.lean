@@ -79,7 +79,7 @@ one-dimensional Hausdorff measure greater than $2$.
 @[category research solved, question, AMS 32, formal_proof using lean4 at
   "https://github.com/wcook04/plectis-erdos/blob/0ee31b3a99ef93d2b679a427b474b23710597bad/lean/ErdosProblems/Erdos1041/Counterexample/HausdorffLength.lean#L449-L454"]
 theorem erdos_1041 :
-    answer(False) ↔ ∀ (n : ℕ) (f : ℂ[X]), n ≥ 2 → f.natDegree = n → f.Monic →
+    ¬ ∀ (n : ℕ) (f : ℂ[X]), n ≥ 2 → f.natDegree = n → f.Monic →
       f.rootSet ℂ ⊆ Metric.ball 0 1 →
       ∃ (z₁ z₂ : ℂ) (h : ({z₁, z₂} : Multiset ℂ) ≤ f.roots) (γ : Path z₁ z₂),
         Set.range γ ⊆ { z : ℂ | ‖f.eval z‖ < 1 } ∧ length (Set.range γ) < 2 := by

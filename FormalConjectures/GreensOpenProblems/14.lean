@@ -74,7 +74,7 @@ growth for one $k \ge 4$ would therefore force polynomial growth for $k = 3$, co
 -/
 @[category research solved, question, AMS 5 11]
 theorem green_14_polynomial :
-    answer(False) ↔ ∀ k ≥ 4, ∃ d : ℕ, (fun r => (W k r : ℝ)) =O[atTop] fun r => (r : ℝ) ^ d := by
+    ¬ ∀ k ≥ 4, ∃ d : ℕ, (fun r => (W k r : ℝ)) =O[atTop] fun r => (r : ℝ) ^ d := by
   sorry
 
 /-- We know $W(3, r)$ does not have polynomial growth in $r$ [Gr21, p.3]. -/
@@ -90,7 +90,7 @@ Is $W(3, r) \ll r^2$?
 -/
 @[category research solved, question, AMS 5 11]
 theorem green_14_quadratic :
-    answer(False) ↔ (fun r => (W 3 r : ℝ)) =O[atTop] fun r => (r : ℝ) ^ 2 := by
+    ¬ (fun r => (W 3 r : ℝ)) =O[atTop] fun r => (r : ℝ) ^ 2 := by
   sorry
 
 /-- [Gr21] proved a lower bound of shape $W(3, r) \gg \exp(c(\log r)^{4/3-o(1)})$. -/

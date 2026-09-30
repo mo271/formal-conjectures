@@ -42,7 +42,7 @@ at least `6 / 5`, but has subsequences of successive ratios tending to two diffe
 `(1 + √5) / 2` and `(1 + √5) / 2 + 1 / 4`.
 -/
 @[category research solved, question, AMS 11]
-theorem erdos_346 : answer(False) ↔ ∀ {A : ℕ → ℕ}, IsLacunary A → IsAddStronglyCompleteNatSeq A →
+theorem erdos_346 : ¬ ∀ {A : ℕ → ℕ}, IsLacunary A → IsAddStronglyCompleteNatSeq A →
     (∀ B : Set ℕ, B ⊆ range A → B.Infinite → ¬ IsAddComplete (range A \ B)) →
     Tendsto (fun n => A (n + 1) / (A n : ℝ)) atTop (𝓝 ((1 + √5) / 2)) := by
   sorry

@@ -82,7 +82,7 @@ negative answer to the above question of Erdős and Nešetřil.
 -/
 @[category research solved, question, AMS 5]
 theorem erdos_150.variants.erdos_nesetril :
-    answer(False) ↔ ∀ m : ℕ, maxMinimalCuts (3 * m + 2) = 3 ^ m := by
+    ¬ ∀ m : ℕ, maxMinimalCuts (3 * m + 2) = 3 ^ m := by
   sorry
 
 /--

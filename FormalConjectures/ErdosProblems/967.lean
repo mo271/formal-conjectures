@@ -51,8 +51,8 @@ This was formalized in Lean by Wu using Aristotle.
 -/
 @[category research solved, question, AMS 11 30, formal_proof using lean4 at
 "https://gist.githubusercontent.com/llllvvuu/d25f037d1f1000bdabd6ca928c74c9bb/raw/c2d3e4ed5d88520993b508f84be029cf8808f565/967.lean"]
-theorem erdos_967 : answer(False) ↔
-    ∀ a : ℕ → ℕ, StrictMono a → 1 < a 0 → Summable (fun k : ℕ => 1 / (a k : ℝ)) →
+theorem erdos_967 :
+    ¬ ∀ a : ℕ → ℕ, StrictMono a → 1 < a 0 → Summable (fun k : ℕ => 1 / (a k : ℝ)) →
       ∀ t : ℝ, 1 + (∑' k, summand t (a k)) ≠ 0 := by
   sorry
 

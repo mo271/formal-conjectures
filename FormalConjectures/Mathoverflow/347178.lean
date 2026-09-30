@@ -41,7 +41,7 @@ Answer: No. A counterexample in $\mathbb R^2$ is recorded in the linked formal p
   formal_proof using formal_conjectures at
     "https://github.com/google-deepmind/formal-conjectures/blob/fc20c0b55eab6fc26e2bb5b24fb3005303a0910b/FormalConjectures/Mathoverflow/347178.lean#L670"]
 theorem mathoverflow_347178 :
-    answer(False) ↔ ∀ᵉ (n ≥ 2) (f : ℝ^n → ℝ) (_ : ContDiff ℝ 1 f),
+    ¬ ∀ᵉ (n ≥ 2) (f : ℝ^n → ℝ) (_ : ContDiff ℝ 1 f),
         (BddAbove (range f) ↔ BddAbove (range (fun x ↦ f (x + gradient f x)))) ∧
         (⨆ x, (f x : EReal)) = ⨆ x, (f (x + gradient f x) : EReal) := by
   sorry
@@ -56,7 +56,7 @@ Answer: No. The same counterexample is recorded in the linked formal proof.
   formal_proof using formal_conjectures at
     "https://github.com/google-deepmind/formal-conjectures/blob/fc20c0b55eab6fc26e2bb5b24fb3005303a0910b/FormalConjectures/Mathoverflow/347178.lean#L690"]
 theorem mathoverflow_347178.variants.bounded_iff :
-    answer(False) ↔ ∀ᵉ (n ≥ 2) (f : ℝ^n → ℝ) (_ : ContDiff ℝ 1 f),
+    ¬ ∀ᵉ (n ≥ 2) (f : ℝ^n → ℝ) (_ : ContDiff ℝ 1 f),
         BddAbove (range f) ↔ BddAbove (range fun x ↦ f (x + gradient f x)) := by
   sorry
 

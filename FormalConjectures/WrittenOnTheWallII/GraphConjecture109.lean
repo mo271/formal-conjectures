@@ -52,8 +52,8 @@ right-hand side is $6$.
     "https://github.com/DomTheDeveloper/formal-conjectures/blob/cf59008ef1cd432bf9803275dcf5d62ab1f094a3/FormalConjectures/WrittenOnTheWallII/GraphConjecture109.lean",
   formal_proof using lean4 at
     "https://github.com/chelokot/wowii-109-counterexample/blob/543a66ee78565b553f4ba6dc7fd32b5610557913/lean/GraphConjecture109.lean#L29-L139"]
-theorem conjecture109 : answer(False) ↔
-    ∀ (α : Type) [Fintype α] [DecidableEq α] [Nontrivial α]
+theorem conjecture109 :
+    ¬ ∀ (α : Type) [Fintype α] [DecidableEq α] [Nontrivial α]
       (G : SimpleGraph α) [DecidableRel G.Adj] (_h : G.Connected),
       (G.indepNum : ℝ) ≤ ⌊((residue G : ℝ) + 2 * b G) / 3⌋ := by
   sorry

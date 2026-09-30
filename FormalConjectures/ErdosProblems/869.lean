@@ -46,8 +46,8 @@ order $2$.
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos869.lean#L3490"]
-theorem erdos_869 : answer(False) ↔
-    ∀ (A₁ A₂ : Set ℕ), Disjoint A₁ A₂ →
+theorem erdos_869 :
+    ¬ ∀ (A₁ A₂ : Set ℕ), Disjoint A₁ A₂ →
       A₁.IsAsymptoticAddBasisOfOrder 2 → A₂.IsAsymptoticAddBasisOfOrder 2 →
       ∃ D ⊆ A₁ ∪ A₂, D.IsAsymptoticAddBasisOfOrder 2 ∧
         ∀ d ∈ D, ¬ (D \ {d}).IsAsymptoticAddBasisOfOrder 2 := by

@@ -55,8 +55,8 @@ $$\gg \left(\frac{\log n}{\log\log n}\right)^{1/2}$$
 many prime factors.
 -/
 @[category research solved, question, AMS 11]
-theorem erdos_205.parts.i : answer(False) ↔
-    ∀ᶠ n : ℕ in atTop, IsRepresentable (fun m => Real.log (Real.log m)) n := by
+theorem erdos_205.parts.i :
+    ¬ ∀ᶠ n : ℕ in atTop, IsRepresentable (fun m => Real.log (Real.log m)) n := by
   sorry
 
 /--
@@ -68,8 +68,8 @@ Barreto and Leeham, using ChatGPT and Aristotle, have proved a negative answer, 
 quantified by Tao and Alexeev (see the comments).
 -/
 @[category research solved, question, AMS 11]
-theorem erdos_205.parts.ii : answer(False) ↔
-    ∀ ε > (0 : ℝ), ∀ᶠ n : ℕ in atTop,
+theorem erdos_205.parts.ii :
+    ¬ ∀ ε > (0 : ℝ), ∀ᶠ n : ℕ in atTop,
       IsRepresentable (fun m => ε * Real.log (Real.log m)) n := by
   sorry
 
@@ -82,8 +82,8 @@ Barreto and Leeham, using ChatGPT and Aristotle, have proved a negative answer, 
 quantified by Tao and Alexeev (see the comments).
 -/
 @[category research solved, question, AMS 11]
-theorem erdos_205.parts.iii : answer(False) ↔
-    ∃ f : ℕ → ℝ, f =o[atTop] (fun m : ℕ => Real.log (Real.log m)) ∧
+theorem erdos_205.parts.iii :
+    ¬ ∃ f : ℕ → ℝ, f =o[atTop] (fun m : ℕ => Real.log (Real.log m)) ∧
       ∀ᶠ n : ℕ in atTop, IsRepresentable f n := by
   sorry
 

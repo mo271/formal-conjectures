@@ -51,8 +51,8 @@ exactly when $(m_j)\subseteq (m_i)$.
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos586.lean#L186"]
-theorem erdos_586 : answer(False) ↔
-    ∃ c : CoveringSystem ℤ, Pairwise fun i j ↦ ¬ c.moduli j ≤ c.moduli i := by
+theorem erdos_586 :
+    ¬ ∃ c : CoveringSystem ℤ, Pairwise fun i j ↦ ¬ c.moduli j ≤ c.moduli i := by
   sorry
 
 end Erdos586

@@ -64,8 +64,8 @@ $2 - \frac{1}{r-1}$ is not meaningful).
 -/
 @[category research solved, question, AMS 5, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos147.lean#L799"]
-theorem erdos_147 : answer(False) ↔
-    ∀ (V : Type) [Fintype V] [Nonempty V] (H : SimpleGraph V) [DecidableRel H.Adj],
+theorem erdos_147 :
+    ¬ ∀ (V : Type) [Fintype V] [Nonempty V] (H : SimpleGraph V) [DecidableRel H.Adj],
       H.IsBipartite → 2 ≤ H.minDegree → ∃ ε : ℝ, 0 < ε ∧
         (fun n : ℕ => (n : ℝ) ^ (2 - 1 / ((H.minDegree : ℝ) - 1) + ε)) =O[atTop]
           fun n : ℕ => (extremalNumber n H : ℝ) := by

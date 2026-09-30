@@ -49,8 +49,8 @@ such that $\lvert B\cap A_j\rvert \gg \log n$.
 -/
 @[category research solved, question, AMS 5, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos664.lean#L214"]
-theorem erdos_664 : answer(False) ↔
-    ∀ c : ℝ, 0 < c → c < 1 → ∃ K : ℕ, ∀ (n m : ℕ) (A : Fin m → Finset (Fin n)),
+theorem erdos_664 :
+    ¬ ∀ c : ℝ, 0 < c → c < 1 → ∃ K : ℕ, ∀ (n m : ℕ) (A : Fin m → Finset (Fin n)),
       (∀ i, c * √n < (A i).card) → (∀ i j, i ≠ j → (A i ∩ A j).card ≤ 1) →
         ∃ B : Finset (Fin n), (∀ i, (B ∩ A i).Nonempty) ∧
           ∀ i, (B ∩ A i).card ≤ K := by

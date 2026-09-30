@@ -64,7 +64,7 @@ $k_1 = \cdots = k_4 = 4$.
 -/
 @[category research solved, question, AMS 11,
   formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/main/src/v4.29.1/ErdosProblems/Erdos363.lean"]
-theorem erdos_363 : answer(False) ↔ ∀ ks : List ℕ,
+theorem erdos_363 : ¬ ∀ ks : List ℕ,
     {S : List (Finset ℕ) | IsValidCollection S ∧ S.map Finset.card = ks}.Finite := by
   sorry
 

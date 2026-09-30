@@ -62,8 +62,8 @@ Liu, Reiher, Sharifzadeh, and Staden [LRSS21] (see `erdos_533.variants.lrss_lowe
 -/
 @[category research solved, question, AMS 5, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos533.lean#L2922"]
-theorem erdos_533 : answer(False) ↔
-    ∀ δ : ℝ, 0 < δ → ∃ c : ℝ, 0 < c ∧ ∀ᶠ n : ℕ in atTop,
+theorem erdos_533 :
+    ¬ ∀ δ : ℝ, 0 < δ → ∃ c : ℝ, 0 < c ∧ ∀ᶠ n : ℕ in atTop,
       ∀ G : SimpleGraph (Fin n), G.CliqueFree 5 →
         δ * (n : ℝ) ^ 2 ≤ G.edgeFinset.card →
           ∃ S : Finset (Fin n), c * n ≤ (S.card : ℝ) ∧

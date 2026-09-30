@@ -88,8 +88,8 @@ not appear in the 3-uniform hypergraphs of large chromatic number consisting of 
 triples constructed in [EHR73], see `erdos_593.variants.common_pair_not_obligatory`.
 -/
 @[category research solved, question, AMS 5]
-theorem erdos_593.variants.two_colorable_implies_obligatory : answer(False) ↔
-    ∀ (W : Type) [Fintype W] (F : ThreeUniformHypergraph W),
+theorem erdos_593.variants.two_colorable_implies_obligatory :
+    ¬ ∀ (W : Type) [Fintype W] (F : ThreeUniformHypergraph W),
       F.IsTwoColorable → IsObligatory F := by
   sorry
 

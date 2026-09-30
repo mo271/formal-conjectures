@@ -48,9 +48,8 @@ formalised here.
 -/
 @[category research solved, question, AMS 5]
 theorem erdos_751.parts.i :
-    answer(False) ↔
-      ∀ k : ℕ, ∃ (V : Type) (G : SimpleGraph V), G.chromaticNumber = 4 ∧
-        ∀ m ∈ G.cycleLengths, ∀ m' ∈ G.cycleLengths, m < m' → m + k ≤ m' := by
+    ¬ ∀ k : ℕ, ∃ (V : Type) (G : SimpleGraph V), G.chromaticNumber = 4 ∧
+      ∀ m ∈ G.cycleLengths, ∀ m' ∈ G.cycleLengths, m < m' → m + k ≤ m' := by
   sorry
 
 /--
@@ -64,9 +63,8 @@ chromatic number $4$.
 -/
 @[category research solved, question, AMS 5]
 theorem erdos_751.parts.ii :
-    answer(False) ↔
-      ∀ k g : ℕ, ∃ (V : Type) (G : SimpleGraph V), G.chromaticNumber = 4 ∧ g ≤ G.girth ∧
-        ∀ m ∈ G.cycleLengths, ∀ m' ∈ G.cycleLengths, m < m' → m + k ≤ m' := by
+    ¬ ∀ k g : ℕ, ∃ (V : Type) (G : SimpleGraph V), G.chromaticNumber = 4 ∧ g ≤ G.girth ∧
+      ∀ m ∈ G.cycleLengths, ∀ m' ∈ G.cycleLengths, m < m' → m + k ≤ m' := by
   sorry
 
 /--

@@ -123,7 +123,7 @@ $\max_{\Phi'} \operatorname{Re}\langle a, \varphi \rangle < 6.112 < 6.115 \appro
 @[category research solved, question, AMS 5 11, formal_proof using formal_conjectures at
 "https://github.com/mo271/formal-conjectures/blob/f5afe85e1e02611f63c32ae041b33c67b7938cba/FormalConjectures/GreensOpenProblems/57.lean#L1100"]
 theorem green_57.variants.z3 :
-    answer(False) ↔ (Φ (ZMod 3) = Φ' (ZMod 3)) := by
+    ¬ (Φ (ZMod 3) = Φ' (ZMod 3)) := by
   sorry
 /--
 Is it true that for every finite abelian group $G$ the spaces $\Phi(G)$ and $\Phi'(G)$,
@@ -137,8 +137,7 @@ Green guesses that the answer is probably 'no'.
 @[category research solved, question, AMS 5 11, formal_proof using formal_conjectures at
 "https://github.com/mo271/formal-conjectures/blob/f5afe85e1e02611f63c32ae041b33c67b7938cba/FormalConjectures/GreensOpenProblems/57.lean#L1120"]
 theorem green_57 :
-  answer(False) ↔
-    ∀ (G : Type) [AddCommGroup G] [Fintype G] [DecidableEq G],
+    ¬ ∀ (G : Type) [AddCommGroup G] [Fintype G] [DecidableEq G],
       Φ G = Φ' G := by
   sorry
 

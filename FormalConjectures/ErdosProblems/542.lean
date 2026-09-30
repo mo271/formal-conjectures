@@ -80,8 +80,8 @@ without this restriction the answer would be negative for a trivial reason.
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos542.lean#L2114"]
-theorem erdos_542.parts.ii : answer(False) ↔
-    ∃ c > 0, ∀ (n : ℕ) (A : Finset ℕ), IsLcmFree n A → 1 ∉ A →
+theorem erdos_542.parts.ii :
+    ¬ ∃ c > 0, ∀ (n : ℕ) (A : Finset ℕ), IsLcmFree n A → 1 ∉ A →
       c * n ≤ ((uncovered n A).card : ℝ) := by
   sorry
 

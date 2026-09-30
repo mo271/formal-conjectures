@@ -43,8 +43,8 @@ The answer is no; the Erdős Problems page notes that this follows from the solu
 Erdős Problem 42.
 -/
 @[category research solved, question, AMS 5 11]
-theorem erdos_43.parts.i : answer(False) ↔
-    ∃ C : ℝ, ∀ᶠ N in Filter.atTop, ∀ (A B : Finset ℕ),
+theorem erdos_43.parts.i :
+    ¬ ∃ C : ℝ, ∀ᶠ N in Filter.atTop, ∀ (A B : Finset ℕ),
       A ⊆ Finset.Icc 1 N →
       B ⊆ Finset.Icc 1 N →
       IsSidon (A : Set ℕ) →
@@ -63,8 +63,8 @@ for some constant $c>0$?
 The answer is no; the Erdős Problems page records a negative answer due to Barreto.
 -/
 @[category research solved, question, AMS 5 11]
-theorem erdos_43.parts.ii : answer(False) ↔
-    ∃ᵉ (c > 0), ∃ o : ℕ → ℝ, o =o[Filter.atTop] (1 : ℕ → ℝ) ∧
+theorem erdos_43.parts.ii :
+    ¬ ∃ᵉ (c > 0), ∃ o : ℕ → ℝ, o =o[Filter.atTop] (1 : ℕ → ℝ) ∧
     ∀ᶠ N in Filter.atTop, ∀ (A B : Finset ℕ),
       A ⊆ Finset.Icc 1 N →
       B ⊆ Finset.Icc 1 N →

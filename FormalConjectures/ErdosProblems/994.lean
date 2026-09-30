@@ -52,8 +52,8 @@ This is a conjecture of Khintchine [Kh23] (with the exceptional null set of $\al
 depend on $E$). It is false, and was disproved by Marstrand [Ma70].
 -/
 @[category research solved, question, AMS 11 28]
-theorem erdos_994 : answer(False) ↔
-    ∀ E ⊆ Ioo (0 : ℝ) 1, MeasurableSet E →
+theorem erdos_994 :
+    ¬ ∀ E ⊆ Ioo (0 : ℝ) 1, MeasurableSet E →
       ∀ᵐ α : ℝ, Tendsto (visitAverage E α) atTop (nhds (volume E).toReal) := by
   sorry
 

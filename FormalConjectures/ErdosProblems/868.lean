@@ -48,7 +48,7 @@ Larsen and Larsen [LaLa26] answered this in the negative.
 -/
 @[category research solved, question, AMS 5 11]
 theorem erdos_868.parts.i :
-    answer(False) ↔ ∀ (A : Set ℕ), A.IsAsymptoticAddBasisOfOrder 2 →
+    ¬ ∀ (A : Set ℕ), A.IsAsymptoticAddBasisOfOrder 2 →
       atTop.Tendsto (fun n => ncard_add_repr A 2 n) atTop → ∃ B ⊆ A,
       B.IsAsymptoticAddBasisOfOrder 2 ∧ ∀ b ∈ B, ¬(B \ {b}).IsAsymptoticAddBasisOfOrder 2 := by
   sorry
@@ -62,7 +62,7 @@ Larsen and Larsen [LaLa26] constructed a counterexample with $f(n) > c \log n$ f
 -/
 @[category research solved, question, AMS 5 11]
 theorem erdos_868.parts.ii :
-    answer(False) ↔ ∀ᵉ (A : Set ℕ) (ε > 0), A.IsAsymptoticAddBasisOfOrder 2 →
+    ¬ ∀ᵉ (A : Set ℕ) (ε > 0), A.IsAsymptoticAddBasisOfOrder 2 →
       (∀ᶠ (n : ℕ) in atTop, ε * Real.log n < ncard_add_repr A 2 n) → ∃ B ⊆ A,
       B.IsAsymptoticAddBasisOfOrder 2 ∧ ∀ b ∈ B, ¬(B \ {b}).IsAsymptoticAddBasisOfOrder 2 := by
   sorry

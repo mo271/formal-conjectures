@@ -50,8 +50,7 @@ are $154$ and $266$, so the bound is $\lceil (154 + 266) / 38 \rceil = 12$.
 -/
 @[category research solved, question, AMS 5]
 theorem conjecture34 :
-  answer(False) ↔
-    ∀ (α : Type) [Fintype α] [DecidableEq α] [Nontrivial α]
+    ¬ ∀ (α : Type) [Fintype α] [DecidableEq α] [Nontrivial α]
       (G : SimpleGraph α) [DecidableRel G.Adj] (h : G.Connected),
       let C : Set α := center G
       let M : Set α := {v | G.degree v = G.maxDegree}

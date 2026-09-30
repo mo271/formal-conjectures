@@ -45,7 +45,7 @@ The same result was proven independently in [SWCol] by Sokoup and Weiss.
 @[category research solved, question, AMS 3 5,
   formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/dfe2d78128b493c572cf525b1b8edf4897fb7664/src/latest/ErdosProblems/Erdos965.lean#L42"]
 theorem erdos_965 :
-    answer(False) ↔ ∀ f : ℝ → Fin 2, ∃ A : Set ℝ, ¬ A.Countable ∧
+    ¬ ∀ f : ℝ → Fin 2, ∃ A : Set ℝ, ¬ A.Countable ∧
       ∀ᵉ (a ∈ A) (b ∈ A) (c ∈ A) (d ∈ A), a ≠ b → c ≠ d → f (a + b) = f (c + d) := by
   sorry
 
@@ -58,8 +58,8 @@ $k ≥ 2$ and every uncountable $A ⊆ ℝ$ the sums of $k$ distinct elements of
 monochromatic.
 -/
 @[category research solved, question, AMS 3 5]
-theorem erdos_965.variants.generalization : answer(False) ↔
-    ∀ f : ℝ → Fin 2, ∃ k ≥ 2, ∃ A : Set ℝ, ¬ A.Countable ∧ ∀ s t : Finset ℝ,
+theorem erdos_965.variants.generalization :
+    ¬ ∀ f : ℝ → Fin 2, ∃ k ≥ 2, ∃ A : Set ℝ, ¬ A.Countable ∧ ∀ s t : Finset ℝ,
       ↑s ⊆ A → ↑t ⊆ A → s.card = k → t.card = k → f (s.sum id) = f (t.sum id) := by
   sorry
 

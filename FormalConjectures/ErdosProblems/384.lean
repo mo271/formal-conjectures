@@ -60,8 +60,8 @@ divisor $p < 2$.
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos384.lean#L71"]
-theorem erdos_384.variants.strict : answer(False) ↔
-    ∀ n k : ℕ, 1 < k → k < n - 1 → (n, k) ≠ (7, 3) → (n, k) ≠ (7, 4) →
+theorem erdos_384.variants.strict :
+    ¬ ∀ n k : ℕ, 1 < k → k < n - 1 → (n, k) ≠ (7, 3) → (n, k) ≠ (7, 4) →
       ∃ p : ℕ, p.Prime ∧ p ∣ n.choose k ∧ 2 * p < n := by
   sorry
 

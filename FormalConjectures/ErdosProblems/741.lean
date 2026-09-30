@@ -68,8 +68,8 @@ This was disproved by the DeepMind prover agent.
 -/
 @[category research solved, question, AMS 5,
 formal_proof using formal_conjectures at "https://github.com/mo271/formal-conjectures/blob/486bc8afae062b6711cd16d3466d651ee2880a52/FormalConjectures/ErdosProblems/741.lean#L1449"]
-theorem erdos_741.variants.exact_density : answer(False) ↔
-    ∀ A : Set ℕ, HasPosDensity (A + A) → ∃ A₁ A₂,
+theorem erdos_741.variants.exact_density :
+    ¬ ∀ A : Set ℕ, HasPosDensity (A + A) → ∃ A₁ A₂,
     A = A₁ ∪ A₂ ∧ Disjoint A₁ A₂ ∧ HasPosDensity (A₁ + A₁)
     ∧ HasPosDensity (A₂ + A₂) := by
   sorry

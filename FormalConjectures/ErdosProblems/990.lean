@@ -76,8 +76,8 @@ $$
 $$
 -/
 @[category research solved, question, AMS 12 30, formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/main/src/v4.29.1/ErdosProblems/Erdos990.lean"]
-theorem erdos_990 : answer(False) ↔
-    ∃ C : ℝ, ∀ f : ℂ[X], f.coeff 0 ≠ 0 → ∀ α β : ℝ, 0 ≤ α → α ≤ β → β ≤ 2 * π →
+theorem erdos_990 :
+    ¬ ∃ C : ℝ, ∀ f : ℂ[X], f.coeff 0 ≠ 0 → ∀ α β : ℝ, 0 ≤ α → α ≤ β → β ≤ 2 * π →
       |(rootArgCount f (Set.Icc α β) : ℝ) - (β - α) / (2 * π) * (f.natDegree : ℝ)| ≤
         C * Real.sqrt ((f.support.card : ℝ) * Real.log (M f)) := by
   sorry

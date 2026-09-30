@@ -46,8 +46,8 @@ The statement below assumes $p \neq q$: for $p = q$ no such $n$ exists, because 
 both $n$ and $n+1$.
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos649.lean#L488"]
-theorem erdos_649 : answer(False) ↔
-    ∀ p q : ℕ, p.Prime → q.Prime → p ≠ q →
+theorem erdos_649 :
+    ¬ ∀ p q : ℕ, p.Prime → q.Prime → p ≠ q →
       ∃ n : ℕ, n.maxPrimeFac = p ∧ (n + 1).maxPrimeFac = q := by
   sorry
 

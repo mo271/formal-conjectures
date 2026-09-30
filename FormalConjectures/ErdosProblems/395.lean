@@ -66,7 +66,7 @@ $1$, but Carnielli and Carolino [CaCa11] observed that this is false, choosing $
 for $2\leq k\leq n$, where $n$ is even, since then the sum is at least $\sqrt{2}$ always.
 -/
 @[category research solved, question, AMS 5 60]
-theorem erdos_395.variants.one : answer(False) ↔ ∃ c : ℝ, 0 < c ∧ ∀ n : ℕ, 0 < n →
+theorem erdos_395.variants.one : ¬ ∃ c : ℝ, 0 < c ∧ ∀ n : ℕ, 0 < n →
     ∀ z : Fin n → ℂ, (∀ i, ‖z i‖ = 1) → c / n ≤ (signedSumCount z 1 : ℝ) / 2 ^ n := by
   sorry
 

@@ -67,8 +67,8 @@ satisfies the equality hypothesis and has no Hamiltonian path.
 -/
 @[category research solved, question, AMS 5, formal_proof using formal_conjectures at
   "https://github.com/infinityscroll/formal-conjectures/blob/9dd290db402c49922fa42793e4a7cfb802daf5c1/FormalConjectures/WrittenOnTheWallII/GraphConjecture200Counterexample.lean#L24-L195"]
-theorem conjecture200 : answer(False) ↔
-    ∀ (α : Type) [Fintype α] [DecidableEq α] [Nontrivial α]
+theorem conjecture200 :
+    ¬ ∀ (α : Type) [Fintype α] [DecidableEq α] [Nontrivial α]
       (G : SimpleGraph α) (_h : G.Connected),
       (largestInducedTreeSize G : ℝ) = ⌈1 + averageIndepNeighbors G⌉ →
       ∃ a b : α, ∃ p : G.Walk a b, p.IsHamiltonian := by

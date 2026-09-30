@@ -48,8 +48,8 @@ sum of the $a_i$ has that colour.
 -/
 @[category research solved, question, AMS 5 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos948.lean#L451"]
-theorem erdos_948 : answer(False) ↔
-    ∃ (f : ℕ → ℕ) (k : ℕ), 0 < k ∧ ∀ colouring : ℤ → Fin k,
+theorem erdos_948 :
+    ¬ ∃ (f : ℕ → ℕ) (k : ℕ), 0 < k ∧ ∀ colouring : ℤ → Fin k,
       ∃ a : ℕ → ℤ, StrictMono a ∧ {n | a n < f n}.Infinite ∧
         ∃ c : Fin k, ∀ S : Finset ℕ, S.Nonempty → colouring (∑ i ∈ S, a i) ≠ c := by
   sorry
@@ -60,8 +60,8 @@ this fails for $k = 2$, and it fails for every $k \ge 2$ by the negative answer 
 -/
 @[category research solved, question, AMS 5 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos948.lean#L451"]
-theorem erdos_948.variants.monochromatic : answer(False) ↔
-    ∃ (f : ℕ → ℕ) (k : ℕ), 2 ≤ k ∧ ∀ colouring : ℤ → Fin k,
+theorem erdos_948.variants.monochromatic :
+    ¬ ∃ (f : ℕ → ℕ) (k : ℕ), 2 ≤ k ∧ ∀ colouring : ℤ → Fin k,
       ∃ a : ℕ → ℤ, StrictMono a ∧ {n | a n < f n}.Infinite ∧
         ∃ c : Fin k, ∀ S : Finset ℕ, S.Nonempty → colouring (∑ i ∈ S, a i) = c := by
   sorry

@@ -52,7 +52,7 @@ remains open, with $B(2, 5)$ the best known open case.
 -/
 @[category research solved, question, AMS 20]
 theorem bounded_burnside_problem :
-    answer(False) ↔ ∀ (G : Type) [Group G] (fin_gen : Group.FG G)
+    ¬ ∀ (G : Type) [Group G] (fin_gen : Group.FG G)
       (n : ℕ) (hn : n > 0) (bounded : ∀ g : G, g^n = 1), Finite G := by
   sorry
 

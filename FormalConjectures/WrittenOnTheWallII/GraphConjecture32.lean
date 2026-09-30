@@ -50,8 +50,8 @@ is a counterexample, path = 5, distavg(A) = 4 and the average of eccentricity of
 degree vertices is 8/3."
 -/
 @[category research solved, question, AMS 5]
-theorem conjecture32 : answer(False) ↔
-    ∀ (α : Type) [Fintype α] [DecidableEq α] [Nontrivial α]
+theorem conjecture32 :
+    ¬ ∀ (α : Type) [Fintype α] [DecidableEq α] [Nontrivial α]
       (G : SimpleGraph α) [DecidableRel G.Adj] (h : G.Connected),
       let A : Finset α := Finset.univ.filter (fun v => G.degree v = G.minDegree)
       let M : Finset α := Finset.univ.filter (fun v => G.degree v = G.maxDegree)

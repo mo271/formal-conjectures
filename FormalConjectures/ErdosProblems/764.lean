@@ -53,7 +53,7 @@ with different main terms permitted.
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos764.lean#L3760"]
-theorem erdos_764 : answer(False) ↔ ∃ (A : Set ℕ) (c : ℝ), 0 < c ∧
+theorem erdos_764 : ¬ ∃ (A : Set ℕ) (c : ℝ), 0 < c ∧
     (fun N : ℕ ↦ (∑ n ∈ Finset.range (N + 1), tripleRep A n : ℝ) - c * N) =O[atTop]
       fun _ ↦ (1 : ℝ) := by
   sorry

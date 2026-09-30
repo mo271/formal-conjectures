@@ -67,8 +67,8 @@ implemented by GPT 5.5 with Codex (see the linked `formal_proof`).
     "https://github.com/google-deepmind/formal-conjectures/blob/b8c7a76f267c29eaa41d1212c211a920be8b05ea/FormalConjectures/ErdosProblems/619.lean#L6009",
   formal_proof using lean4 at
     "https://github.com/nick-kuhn/erdos-619/blob/7f65718b8c1019ecc24e6c9a6b04ec4c66a4e26f/Solution.lean#L5869"]
-theorem erdos_619 : answer(False) ↔
-    ∃ c > (0 : ℝ), ∀ (V : Type) [Fintype V] (G : SimpleGraph V),
+theorem erdos_619 :
+    ¬ ∃ c > (0 : ℝ), ∀ (V : Type) [Fintype V] (G : SimpleGraph V),
       G.Connected → G.CliqueFree 3 →
       (minNewEdges 4 G : ℝ) < (1 - c) * Fintype.card V := by
   sorry

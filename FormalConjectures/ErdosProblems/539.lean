@@ -72,8 +72,7 @@ Is $h(n) = \Theta(\sqrt{n})$? -/
   formal_proof using lean4 at
     "https://github.com/KitaKen1/erdos-539-sqrt-disproof/blob/f4b14f9ef32c111162d3fd587e1c65b27a1524d5/lean/Erdos539SqrtFC.lean#L41-L44"]
 theorem erdos_539.variants.sq :
-    answer(False) ↔
-      ((fun n ↦ (cofactorThreshold n : ℝ)) =Θ[atTop] fun n ↦ √n) := by
+    ¬ ((fun n ↦ (cofactorThreshold n : ℝ)) =Θ[atTop] fun n ↦ √n) := by
   sorry
 
 /-- Erdős and Szemerédi proved that$$n^{1/2} \ll h(n)$$. -/
@@ -87,8 +86,7 @@ theorem erdos_539.variants.sq_isBigO :
   formal_proof using lean4 at
     "https://github.com/KitaKen1/erdos-539-sqrt-disproof/blob/f4b14f9ef32c111162d3fd587e1c65b27a1524d5/lean/Erdos539SqrtFC.lean#L36-L39"]
 theorem erdos_539.variants.isBigO_sq :
-    answer(False) ↔
-      ((fun n ↦ (cofactorThreshold n : ℝ)) =O[atTop] fun n ↦ √n) := by
+    ¬ ((fun n ↦ (cofactorThreshold n : ℝ)) =O[atTop] fun n ↦ √n) := by
   sorry
 
 /-- Let $h(n)$ be maximal such that, for any set $A\subseteq \mathbb{N}$ of size $n$, the
@@ -99,9 +97,8 @@ The answer is negative; see [Sc+26, Theorem A.1] and the linked Lean proof. -/
   formal_proof using lean4 at
     "https://github.com/KitaKen1/erdos-539-formal-conjectures/blob/79897cf9241390eb168572f4a481e29e0e64b5f7/lean/Erdos539/FC.lean#L282-L296"]
 theorem erdos_539.variants.sq_cube_root :
-    answer(False) ↔
-      ((fun n ↦ (cofactorThreshold n : ℝ)) =Θ[atTop]
-        fun n ↦ (n : ℝ) ^ ((2 : ℝ) / 3)) := by
+    ¬ ((fun n ↦ (cofactorThreshold n : ℝ)) =Θ[atTop]
+      fun n ↦ (n : ℝ) ^ ((2 : ℝ) / 3)) := by
   sorry
 
 /-- Granville and Roesler [GR99] showed that $$h(n)\ll n^{2/3}$$.-/
@@ -115,9 +112,8 @@ theorem erdos_539.variants.isBigO_sq_cube_root :
   formal_proof using lean4 at
     "https://github.com/KitaKen1/erdos-539-formal-conjectures/blob/79897cf9241390eb168572f4a481e29e0e64b5f7/lean/Erdos539/FC.lean#L282-L296"]
 theorem erdos_539.variants.sq_cube_root_isBigO :
-    answer(False) ↔
-      ((fun n : ℕ ↦ (n : ℝ) ^ ((2 : ℝ) / 3)) =O[atTop]
-        fun n ↦ (cofactorThreshold n : ℝ)) := by
+    ¬ ((fun n : ℕ ↦ (n : ℝ) ^ ((2 : ℝ) / 3)) =O[atTop]
+      fun n ↦ (cofactorThreshold n : ℝ)) := by
   sorry
 
 /-- From [Er73]: The determination of
