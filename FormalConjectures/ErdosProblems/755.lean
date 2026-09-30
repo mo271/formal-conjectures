@@ -91,7 +91,7 @@ triangles of any positive side length: $T_\mathrm{unit} \leq T_\mathrm{anysize}$
 @[category research solved, question, AMS 52,
   formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/dfe2d78128b493c572cf525b1b8edf4897fb7664/src/latest/ErdosProblems/Erdos755.lean#L1344"]
 theorem erdos_755 :
-    answer(True) ↔ ∃ o : ℕ → ℝ,
+    ∃ o : ℕ → ℝ,
       o =o[atTop] (fun _ : ℕ => (1 : ℝ)) ∧
         ∀ᶠ n in atTop,
           (TUnit 6 n : ℝ) ≤ ((1 / 27 : ℝ) + o n) * (n : ℝ) ^ 3 := by

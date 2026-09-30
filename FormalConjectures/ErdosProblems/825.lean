@@ -40,7 +40,7 @@ sum of proper divisors of $n$.
 @[category research solved, question, AMS 11,
   formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/dfe2d78128b493c572cf525b1b8edf4897fb7664/src/latest/ErdosProblems/Erdos825.lean#L5893"]
 theorem erdos_825 :
-    answer(True) ↔ ∃ (C : ℝ) (_ : C > 0),
+    ∃ (C : ℝ) (_ : C > 0),
       ∀ (n) (_ : σ 1 n > C * n),
         ∃ s ⊆ n.properDivisors, n = s.sum id := by
   sorry

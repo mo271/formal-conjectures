@@ -50,7 +50,7 @@ Győri proved this with $1.03n^5$, which has been improved by Füredi. The answe
 independently by Grzesik [Gr12] and Hatami, Hladky, Král, Norine, and Razborov [HHKNR13].
 -/
 @[category research solved, question, AMS 5, formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/1d7b3f00780b85ed0462e79a1cd5650ee9055655/src/v4.29.1/ErdosProblems/Erdos24.lean"]
-theorem erdos_24 : answer(True) ↔
+theorem erdos_24 :
     ∀ (n : ℕ) (G : SimpleGraph (Fin (5 * n))), G.CliqueFree 3 →
       G.copyCount (cycleGraph 5) ≤ n ^ 5 := by
   sorry

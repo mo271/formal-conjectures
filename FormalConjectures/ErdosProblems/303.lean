@@ -40,7 +40,6 @@ This was formalized in Lean by Yuan using Seed-Prover.
 -/
 @[category research solved, question, AMS 5 11, formal_proof using lean4 at "https://www.erdosproblems.com/forum/thread/303"]
 theorem erdos_303 :
-    answer(True) ↔
     -- For any finite colouring of the integers
     ∀ (𝓒 : ℤ → ℤ), (Set.range 𝓒).Finite →
       -- There exists integers `a, b, c`

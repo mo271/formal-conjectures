@@ -48,7 +48,7 @@ whenever $1<q<\sqrt{q_1}$, where $q_1$ is the second Pisot-Vijayaraghavan number
 @[category research solved, question, AMS 11,
   formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/dfe2d78128b493c572cf525b1b8edf4897fb7664/src/latest/ErdosProblems/Erdos1096.lean#L44"]
 theorem erdos_1096 :
-    answer(True) ↔ ∃ ε > 0, ∀ q, 1 < q → q < 1 + ε →
+    ∃ ε > 0, ∀ q, 1 < q → q < 1 + ε →
     ∀ x : ℕ → ℝ, StrictMono x → Set.range x = { ∑ i ∈ S, q ^ i | S : Finset ℕ } →
     Tendsto (fun k => x (k + 1) - x k) atTop (𝓝 0) := by
   sorry

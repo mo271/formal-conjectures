@@ -48,7 +48,7 @@ Wirsing [Wi70]. See also `erdos_897.variants.log_growth`.
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos491.lean#L34"]
-theorem erdos_491 : answer(True) ↔
+theorem erdos_491 :
     ∀ (f : ℕ → ℝ), (∀ᵉ (a > 0) (b > 0), a.Coprime b → f (a * b) = f a + f b) →
       (∃ C : ℝ, ∀ n : ℕ, |f (n + 1) - f n| < C) →
       ∃ c : ℝ, (fun n : ℕ ↦ f n - c * Real.log n) =O[atTop] (fun _ : ℕ ↦ (1 : ℝ)) := by

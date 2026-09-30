@@ -75,7 +75,7 @@ Tao [Ta26] constructed such a sequence with $f(n) \gg \log n$ for all sufficient
 -/
 @[category research solved, question, AMS 5 11, formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/1268917deaaaa0d674f651287027baa26cea9920/src/latest/ErdosProblems/Erdos358.lean#L9111"]
 theorem erdos_358.parts.i :
-    answer(True) ↔ ∃ A, StrictMono A ∧ atTop.Tendsto (f A) atTop := by
+    ∃ A, StrictMono A ∧ atTop.Tendsto (f A) atTop := by
   sorry
 
 /--
@@ -87,7 +87,7 @@ This also follows from Tao's construction with $f(n) \gg \log n$ [Ta26].
 -/
 @[category research solved, question, AMS 5 11, formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/1268917deaaaa0d674f651287027baa26cea9920/src/latest/ErdosProblems/Erdos358.lean#L9115"]
 theorem erdos_358.parts.ii :
-    answer(True) ↔ ∃ A, StrictMono A ∧ ∀ᶠ n in atTop, 2 ≤ f A n := by
+    ∃ A, StrictMono A ∧ ∀ᶠ n in atTop, 2 ≤ f A n := by
   sorry
 
 /--
@@ -167,7 +167,7 @@ This follows from Tao's construction [Ta26], which gives $f(n)\gg\log n$: see
 @[category research solved, AMS 5 11]
 theorem erdos_358.variants.one_le :
     ∃ A, StrictMono A ∧ ∀ᶠ n in atTop, 1 ≤ g A n := by
-  obtain ⟨A, hA, hf⟩ := erdos_358.parts.ii.mp trivial
+  obtain ⟨A, hA, hf⟩ := erdos_358.parts.ii
   refine ⟨A, hA, ?_⟩
   filter_upwards [hf, eventually_gt_atTop 0] with n hn hn₀
   exact one_le_g_of_two_le_f hA hn₀ hn

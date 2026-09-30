@@ -44,7 +44,7 @@ The answer is yes, proved by Freiman [Fr73].
 -/
 @[category research solved, question, AMS 5 11]
 theorem erdos_245 :
-    answer(True) ↔ ∀ (A : Set ℕ), A.Infinite →
+    ∀ (A : Set ℕ), A.Infinite →
       atTop.Tendsto (fun N ↦ (A ∩ Icc 1 ⌊N⌋₊ |>.ncard : ℝ) / N) (𝓝 0) →
       3 ≤ atTop.limsup
         fun N : ℝ ↦ ((A + A) ∩ Icc 1 ⌊N⌋₊ |>.ncard : EReal)

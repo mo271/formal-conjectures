@@ -55,7 +55,7 @@ $$\left\{\sum_{a \in X} a : X \subseteq A \setminus B, X \textrm{ is finite}\rig
 contains all sufficiently large integers? -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/main/src/v4.29.1/ErdosProblems/Erdos351.lean"]
 theorem erdos_351 :
-    answer(True) ↔ ∀ P : ℚ[X], 0 < P.natDegree → 0 < P.leadingCoeff → HasCompleteImage P := by
+    ∀ P : ℚ[X], 0 < P.natDegree → 0 < P.leadingCoeff → HasCompleteImage P := by
   sorry
 
 /--

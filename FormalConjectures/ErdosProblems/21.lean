@@ -82,7 +82,7 @@ Tripathi [Tr14]. Barát and Wanless [BaWa21] proved that $f(5)=13$, and that $13
 -/
 @[category research solved, question, AMS 5, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos21.lean#L13036"]
-theorem erdos_21 : answer(True) ↔ ∃ C : ℕ, ∀ᶠ n : ℕ in atTop, f n ≤ C * n := by
+theorem erdos_21 : ∃ C : ℕ, ∀ᶠ n : ℕ in atTop, f n ≤ C * n := by
   sorry
 
 /-- Erdős and Lovász [ErLo75] proved that $\frac{8}{3}n-3\leq f(n)$ for all $n$. -/

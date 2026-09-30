@@ -44,7 +44,7 @@ See also [219](https://www.erdosproblems.com/219).
 -/
 @[category research solved, question, AMS 5 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1187.lean#L246"]
-theorem erdos_1187.parts.i : answer(True) ↔ ∀ k : ℕ, 3 ≤ k →
+theorem erdos_1187.parts.i : ∀ k : ℕ, 3 ≤ k →
     ∀ (κ : Type) [Finite κ] (c : ℤ → κ), ∃ S : Set ℤ, S.IsAPOfLength k ∧
       (∀ n ∈ S, ∃ p : ℕ, p.Prime ∧ (p : ℤ) = n) ∧
         ∃ γ : κ, ∀ n ∈ S, c n = γ := by

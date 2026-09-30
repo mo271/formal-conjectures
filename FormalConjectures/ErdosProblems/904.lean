@@ -52,7 +52,7 @@ A conjecture of Bollobás and Erdős. This was conjectured in [Er75] only in the
 -/
 @[category research solved, question, AMS 5, formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/main/src/v4.29.1/ErdosProblems/Erdos904.lean"]
 theorem erdos_904 :
-    answer(True) ↔ ∀ (V : Type*) [Fintype V] (G : SimpleGraph V) [DecidableRel G.Adj]
+    ∀ (V : Type*) [Fintype V] (G : SimpleGraph V) [DecidableRel G.Adj]
       (r : ℕ) (hr : r ∈ Set.Icc 1 (n V)) (hm : turanNumber (n V) r ≤ #G.edgeFinset),
       ∃ s, G.IsNClique r s ∧ 2 * r * #G.edgeFinset ≤ n V * ∑ v ∈ s, G.degree v := by
   sorry

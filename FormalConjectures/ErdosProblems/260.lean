@@ -41,7 +41,7 @@ For a proof, see [Wang, *Sparse Polynomial-Weighted Expansions*]
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at
   "https://github.com/Hanziwww/erdos260/blob/1f2baf4547f2c2805cdd160611b0b983f43941aa/Erdos260/DeepMind.lean#L92-L132"]
-theorem erdos_260 : answer(True) ↔
+theorem erdos_260 :
                   ∀ a : ℕ → ℤ, ∀ s : ℝ,
                   StrictMono a →
                   Tendsto (fun n => (a n : ℝ ) / n ) atTop atTop →

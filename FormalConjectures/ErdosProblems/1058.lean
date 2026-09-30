@@ -51,7 +51,7 @@ known cases are $n=1,2,3,4,5$. Luca [Lu01] proved that indeed these are the only
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1058.lean#L47"]
-theorem erdos_1058 : answer(True) ↔ {n | IsSolution n}.Finite := by
+theorem erdos_1058 : {n | IsSolution n}.Finite := by
   sorry
 
 /-- Luca [Lu01] proved that $n = 1, 2, 3, 4, 5$ are the only solutions. -/

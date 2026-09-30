@@ -46,7 +46,7 @@ satisfies
 -/
 @[category research solved, question, AMS 5, formal_proof using lean4 at
 "https://github.com/Kuberwastaken/c5-k4/blob/e62f216625438bc099707e466d2825ab483717a4/lean/GraphConjecture438b.lean"]
-theorem conjecture438b : answer(True) ↔
+theorem conjecture438b :
     ∀ (V : Type) [Fintype V] [DecidableEq V] (G : SimpleGraph V)
       [DecidableRel G.Adj], G.Connected → 3 < Fintype.card V →
       alphaTwo G ≤ G.indepNum +

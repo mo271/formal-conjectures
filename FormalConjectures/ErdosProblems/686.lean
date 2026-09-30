@@ -102,10 +102,9 @@ for some $k≥2$ and $m≥n+k$?
 -/
 @[category research solved, question, AMS 11]
 theorem erdos_686.variants.nine :
-    answer(True) ↔ ∃ᵉ (k ≥ 2) (n : ℕ) (m ≥ n + k),
+    ∃ᵉ (k ≥ 2) (n : ℕ) (m ≥ n + k),
       (9 : ℚ) = (∏ i ∈ Finset.Icc 1 k, (m + i)) / (∏ i ∈ Finset.Icc 1 k, (n + i)) := by
   -- Witness: k = 3, n = 11, m = 25, since (26·27·28)/(12·13·14) = 19656/2184 = 9.
-  simp only [true_iff]
   refine ⟨3, by norm_num, 11, 25, by norm_num, ?_⟩
   norm_num [Finset.prod_Icc_succ_top, Finset.Icc_self, Finset.prod_singleton]
 
@@ -127,9 +126,9 @@ for some $k≥2$ and $m≥n+k$?
 -/
 @[category research solved, question, AMS 11]
 theorem erdos_686.variants.non_square :
-    answer(True) ↔ ∀ N ≥ (2 : ℕ), (¬ IsSquare N) → ∃ᵉ (k ≥ 2) (n : ℕ) (m ≥ n + k),
+    ∀ N ≥ (2 : ℕ), (¬ IsSquare N) → ∃ᵉ (k ≥ 2) (n : ℕ) (m ≥ n + k),
       (N : ℚ) = (∏ i ∈ Finset.Icc 1 k, (m + i)) / (∏ i ∈ Finset.Icc 1 k, (n + i)) := by
-  refine ⟨fun _ N hN_ge_2 hN_not_square => ?_, fun _ => trivial⟩
+  intro N hN_ge_2 hN_not_square
 
   have hN_not_square' : ¬ ∃ s, s * s = N := fun ⟨s, hs⟩ => hN_not_square ⟨s, hs.symm⟩
 

@@ -161,7 +161,7 @@ the simplest genuinely open case.
 @[category research solved, question, AMS 3, formal_proof using formal_conjectures at
 "https://github.com/mo271/formal-conjectures/blob/c024db0fa3ac32c6dddcd6c28d7b0cd994dad580/FormalConjectures/ErdosProblems/70.lean#L126"]
 theorem omega_three :
-    answer(True) ↔ OrdinalCardinalRamsey3 (𝔠).ord ω 3 := by
+    OrdinalCardinalRamsey3 (𝔠).ord ω 3 := by
   sorry
 
 /--

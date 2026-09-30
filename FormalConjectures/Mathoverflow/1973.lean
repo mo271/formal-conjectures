@@ -47,7 +47,7 @@ Formalisation of the proof by Boris Alexeev.
 @[category research solved, question, AMS 32,
   formal_proof using lean4 at "https://github.com/plby/HopfProblem/blob/9ac8a456b526527837d7082ff775213ca8bc9809/Solution.lean"]
 theorem mathoverflow_1973 :
-    answer(True) ↔ ∃ atlas : ChartedSpace (EuclideanSpace ℂ (Fin 3)) (unitSphere 6),
+    ∃ atlas : ChartedSpace (EuclideanSpace ℂ (Fin 3)) (unitSphere 6),
       IsManifold 𝓘(ℂ, EuclideanSpace ℂ (Fin 3)) 1 (unitSphere 6) := by
   sorry
 

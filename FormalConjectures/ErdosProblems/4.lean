@@ -40,7 +40,7 @@ $$
 $$
 -/
 @[category research solved, question, AMS 11]
-theorem erdos_4 : answer(True) ↔ (∀ C > 0, Erdos4For C) := by
+theorem erdos_4 : (∀ C > 0, Erdos4For C) := by
   sorry
 
 /-- Rankin's theorem: there exists a positive constant $C$ such that `Erdos4For C` holds. -/

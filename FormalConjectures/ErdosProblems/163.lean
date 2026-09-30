@@ -46,7 +46,7 @@ monochromatic copy of `H`); transporting along `Fintype.equivFin` gives the stat
 -/
 @[category research solved, question, AMS 5, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos163.lean#L53"]
-theorem erdos_163 : answer(True) ↔
+theorem erdos_163 :
     ∀ (d : ℕ), 1 ≤ d →
       ∃ C > (0 : ℝ), ∀ (V : Type) [Fintype V] (H : SimpleGraph V),
         H.IsDegenerate d →

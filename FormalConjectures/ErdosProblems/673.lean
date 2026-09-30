@@ -50,7 +50,7 @@ conjecture and observes that it is indeed trivial that $G(n)\to \infty$ for almo
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos673.lean#L914"]
-theorem erdos_673.parts.i : answer(True) ↔ ∀ C : ℝ, {n : ℕ | C < G n}.HasDensity 1 := by
+theorem erdos_673.parts.i : ∀ C : ℝ, {n : ℕ | C < G n}.HasDensity 1 := by
   sorry
 
 /--

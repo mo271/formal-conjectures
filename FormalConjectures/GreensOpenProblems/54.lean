@@ -55,7 +55,7 @@ contains a symmetric convex body $C$ with $\gamma_n(C) \geq 1/4$, uniformly in $
 -/
 @[category research solved, question, AMS 46 52 60]
 theorem green_54 :
-    answer(True) ↔ ∀ K : Set (ℕ → ℝ), IsCompact K → Balanced ℝ K → (0.99 : ℝ≥0∞) ≤
+    ∀ K : Set (ℕ → ℝ), IsCompact K → Balanced ℝ K → (0.99 : ℝ≥0∞) ≤
     gaussianMeasureInf K → ∃ C : Set (ℕ → ℝ), IsCompact C ∧ Convex ℝ C ∧ C ⊆ (10 : ℕ) • K ∧
     (0.01 : ℝ≥0∞) ≤ gaussianMeasureInf C := by
   sorry

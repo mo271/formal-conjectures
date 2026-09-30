@@ -44,7 +44,7 @@ For finite $G$ this is equivalent to Menger's theorem. The answer is **yes**, pr
 Aharoni and Berger [AhBe09].
 -/
 @[category research solved, question, AMS 5]
-theorem erdos_599 : answer(True) ↔
+theorem erdos_599 :
     ∀ (V : Type) (G : SimpleGraph V) (A B : Set V),
       Disjoint A B → G.IsIndepSet A → G.IsIndepSet B →
       ∃ (ι : Type) (a b : ι → V) (p : ∀ i, G.Walk (a i) (b i)) (S : Set V),

@@ -37,7 +37,7 @@ $$
 This was formalized in Lean by Baretto and van Doorn using Aristotle.
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at "https://github.com/Woett/Lean-files/blob/main/ErdosProblem457.lean"]
-theorem erdos_457 : answer(True) ↔ ∃ ε > (0 : ℝ),
+theorem erdos_457 : ∃ ε > (0 : ℝ),
     { (n : ℕ) | ∀ (p : ℕ), p ≤ (2 + ε) * Real.log n → p.Prime →
       p ∣ ∏ i ∈ Finset.Icc 1 ⌊Real.log n⌋₊, (n + i) }.Infinite := by
   sorry

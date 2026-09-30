@@ -110,8 +110,7 @@ support functions.
 "https://github.com/mo271/formal-conjectures/blob/f5afe85e1e02611f63c32ae041b33c67b7938cba/FormalConjectures/GreensOpenProblems/57.lean#L1071"]
 theorem green_57.variants.z3_functional :
     let a : ZMod 3 → ℂ := ![(-1 : ℂ), -3, 3]
-    answer(True) ↔
-      supportFn (ZMod 3) a (Φ' (ZMod 3)) < supportFn (ZMod 3) a (Φ (ZMod 3)) := by
+    supportFn (ZMod 3) a (Φ' (ZMod 3)) < supportFn (ZMod 3) a (Φ (ZMod 3)) := by
   sorry
 
 /-- Do $\Phi(\mathbb{Z}/3\mathbb{Z})$ and $\Phi'(\mathbb{Z}/3\mathbb{Z})$ coincide?

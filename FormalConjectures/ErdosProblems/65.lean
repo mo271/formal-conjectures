@@ -41,7 +41,7 @@ Gyárfás, Komlós, and Szemerédi [GKS84] have proved that this sum is $\gg \lo
 the second question remains.
 -/
 @[category research solved, question, AMS 5]
-theorem erdos_65.parts.i : answer(True) ↔
+theorem erdos_65.parts.i :
     ∃ c > (0 : ℝ), ∀ (k : ℝ) (hk : 0 < k),
       ∀ (n : ℕ) (V : Type) [Fintype V] (G : SimpleGraph V),
         0 < n →

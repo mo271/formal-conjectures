@@ -85,7 +85,7 @@ outer measure `< 1`, there exists a finite independent set of size at least `n`.
 
 This was proved by Erdős and Hajnal [ErHa60]. -/
 @[category research solved, question, AMS 5 28]
-theorem erdos_501.variants.erdosHajnal_finite : answer(True) ↔
+theorem erdos_501.variants.erdosHajnal_finite :
     ∀ (n : ℕ) (A : ℝ → Set ℝ),
       (∀ x, Bornology.IsBounded (A x)) →
       (∀ x, volume.toOuterMeasure (A x) < 1) →
@@ -99,7 +99,7 @@ hypothesis.**
 Assuming CH (`ℵ₁ = 𝔠`), there exists a family `A : ℝ → Set ℝ` of bounded sets with
 Lebesgue outer measure `< 1` for which no infinite independent set exists. -/
 @[category research solved, question, AMS 5 28]
-theorem erdos_501.variants.hechler_CH : answer(True) ↔
+theorem erdos_501.variants.hechler_CH :
     (ℵ₁ = 𝔠) →
     ∃ (A : ℝ → Set ℝ),
       (∀ x, Bornology.IsBounded (A x)) ∧
@@ -117,7 +117,7 @@ This is implied by the stronger theorem of Newelski–Pawlikowski–Seredyński 
 Gladysz [Gl62] earlier proved the existence of an independent set of size 2. -/
 @[category research solved, question, AMS 5 28, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos501.lean#L38"]
-theorem erdos_501.variants.closed_size3 : answer(True) ↔
+theorem erdos_501.variants.closed_size3 :
     ∀ (A : ℝ → Set ℝ),
       (∀ x, IsClosed (A x)) →
       (∀ x, volume (A x) < 1) →
@@ -132,7 +132,7 @@ infinite independent set. This gives a strong affirmative answer to the second
 question of Problem 501. -/
 @[category research solved, question, AMS 5 28, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos501.lean#L31"]
-theorem erdos_501.variants.newelski_pawlikowski_seredynski : answer(True) ↔
+theorem erdos_501.variants.newelski_pawlikowski_seredynski :
     ∀ (A : ℝ → Set ℝ),
       (∀ x, IsClosed (A x)) →
       (∀ x, volume (A x) < 1) →
@@ -148,7 +148,7 @@ distinct reals `x y` such that `x ∉ A y` and `y ∉ A x`.
 This is a weaker result proved by Gladysz before the full Newelski–Pawlikowski–
 Seredyński theorem [NPS87]. -/
 @[category research solved, question, AMS 5 28]
-theorem erdos_501.variants.gladysz_size2 : answer(True) ↔
+theorem erdos_501.variants.gladysz_size2 :
     ∀ (A : ℝ → Set ℝ),
       (∀ x, IsClosed (A x)) →
       (∀ x, volume (A x) < 1) →

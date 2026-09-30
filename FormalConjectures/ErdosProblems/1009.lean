@@ -51,7 +51,7 @@ at most one vertex.
 -/
 @[category research solved, question, AMS 5, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1009.lean#L2347"]
-theorem erdos_1009 : answer(True) ↔ ∀ c : ℝ, 0 < c → ∃ f : ℕ, ∀ (n k : ℕ) (G : SimpleGraph (Fin n)),
+theorem erdos_1009 : ∀ c : ℝ, 0 < c → ∃ f : ℕ, ∀ (n k : ℕ) (G : SimpleGraph (Fin n)),
     n ^ 2 / 4 + k ≤ G.edgeSet.ncard → (k : ℝ) < c * n →
       ∃ T : Finset (Finset (Fin n)), (∀ t ∈ T, G.IsNClique 3 t) ∧
         (T : Set (Finset (Fin n))).Pairwise (fun s t => (s ∩ t).card ≤ 1) ∧ k ≤ T.card + f := by

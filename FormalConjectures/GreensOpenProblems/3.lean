@@ -39,7 +39,7 @@ The answer is yes. [FGY26] prove that an open product-free subset of $(0,1)$ has
 less than $\frac{1}{3}$. -/
 @[category research solved, question, AMS 11]
 theorem green_3 :
-    answer(True) ↔ ∀ A : Set ℝ,
+    ∀ A : Set ℝ,
       IsOpen A → A ⊆ Icc 0 1 → volume A > 1/3 →
         ∃ x y z, x ∈ A ∧ y ∈ A ∧ z ∈ A ∧ x * y = z := by
   sorry

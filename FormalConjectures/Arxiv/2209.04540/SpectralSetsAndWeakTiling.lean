@@ -75,8 +75,7 @@ measurable set $B$, if $A \times B$ is spectral, then $B$ is spectral.
 -/
 @[category research solved, question, AMS 42 46]
 theorem isSpectral_right_of_product_one_dimensional :
-    answer(True) ↔
-      ∀ (m : ℕ), 0 < m → spectralProductImpliesRightSpectral 1 m := by
+    ∀ (m : ℕ), 0 < m → spectralProductImpliesRightSpectral 1 m := by
   sorry
 
 /--
@@ -85,8 +84,7 @@ measurable set $B$, if $A \times B$ is spectral, then $B$ is spectral.
 -/
 @[category research solved, question, AMS 42 46]
 theorem isSpectral_right_of_product_two_dimensional :
-    answer(True) ↔
-      ∀ (m : ℕ), 0 < m → spectralProductImpliesRightSpectral 2 m := by
+    ∀ (m : ℕ), 0 < m → spectralProductImpliesRightSpectral 2 m := by
   sorry
 
 /--

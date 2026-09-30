@@ -48,7 +48,7 @@ also proves that $b(a)>a+(1/2-o(1))\log a$, and considers various generalisation
 problem.
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at "https://github.com/Woett/Lean-files/blob/main/ErdosProblem290.lean"]
-theorem erdos_290 : answer(True) ↔
+theorem erdos_290 :
     (∀ a : ℕ, 1 ≤ a → ∃ b : ℕ, a < b ∧ harmonicDen a (b + 1) < harmonicDen a b) := by
   sorry
 

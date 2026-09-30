@@ -42,7 +42,7 @@ interpretation is recorded separately.
 This was formalized in Lean 3 by Bloom and Mehta.
 -/
 @[category research solved, question, AMS 11, formal_proof using other_system at "https://github.com/b-mehta/unit-fractions/blob/master/src/final_results.lean"]
-theorem erdos_298 : answer(True) ↔ (∀ (A : Set ℕ), 0 ∉ A → 0 < A.upperDensity →
+theorem erdos_298 : (∀ (A : Set ℕ), 0 ∉ A → 0 < A.upperDensity →
     ∃ (S : Finset ℕ), ↑S ⊆ A ∧ ∑ n ∈ S, (1 / n : ℚ) = 1) := by
   sorry
 
@@ -50,7 +50,7 @@ theorem erdos_298 : answer(True) ↔ (∀ (A : Set ℕ), 0 ∉ A → 0 < A.upper
 The literal natural-density interpretation of Erdős Problem 298 follows from [Bl21].
 -/
 @[category research solved, question, AMS 11]
-theorem erdos_298.variants.natural_density : answer(True) ↔ (∀ (A : Set ℕ), 0 ∉ A →
+theorem erdos_298.variants.natural_density : (∀ (A : Set ℕ), 0 ∉ A →
     A.HasPosDensity →
     ∃ (S : Finset ℕ), ↑S ⊆ A ∧ ∑ n ∈ S, (1 / n : ℚ) = 1) := by
   sorry

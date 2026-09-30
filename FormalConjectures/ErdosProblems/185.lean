@@ -56,7 +56,7 @@ Furstenberg and Katznelson [FuKa91].
 -/
 @[category research solved, question, AMS 5 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos185.lean#L49"]
-theorem erdos_185 : answer(True) ↔ (fun n : ℕ => (f3 n : ℝ)) =o[atTop] fun n : ℕ => (3 : ℝ) ^ n := by
+theorem erdos_185 : (fun n : ℕ => (f3 n : ℝ)) =o[atTop] fun n : ℕ => (3 : ℝ) ^ n := by
   sorry
 
 /-- Moser showed that $f_3(n) \gg \frac{3^n}{\sqrt{n}}$. -/

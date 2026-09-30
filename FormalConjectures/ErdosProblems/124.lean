@@ -45,7 +45,7 @@ where $c_i \in \{0, 1\}$ and $a_i$ has only the digits $0, 1$ when written in ba
 Conjectured by Erdős [Er97], solved by Boris Alexeev using Aristotle.
 -/
 @[category research solved, question, AMS 11]
-lemma erdos124.zero : answer(True) ↔
+lemma erdos124.zero :
     ∀ D : Finset ℕ, (∀ d ∈ D, 3 ≤ d) → 1 ≤ ∑ d ∈ D, (d - 1 : ℚ)⁻¹ →
       ∀ᶠ n in atTop, n ∈ ∑ d ∈ D, sumsOfDistinctPowers d 0 := sorry
 

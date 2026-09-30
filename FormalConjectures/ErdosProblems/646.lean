@@ -43,7 +43,7 @@ The answer is yes, proved by Berend [Be97], who further proved that the sequence
 has bounded gaps (where the bound depends on the initial set of primes).
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/1d7b3f00780b85ed0462e79a1cd5650ee9055655/src/v4.29.1/ErdosProblems/Erdos646.lean"]
-theorem erdos_646 : answer(True) ↔
+theorem erdos_646 :
     ∀ S : Finset ℕ, (∀ p ∈ S, p.Prime) →
       {n : ℕ | ∀ p ∈ S, Even (padicValNat p (n !))}.Infinite := by
   sorry

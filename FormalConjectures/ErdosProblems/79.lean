@@ -44,7 +44,7 @@ Asked by Erdős, Faudree, Rousseau, and Schelp [EFRS93]. $K_4$ was long the only
 Wigderson [Wi24] proved that there are infinitely many such graphs.
 -/
 @[category research solved, question, AMS 5]
-theorem erdos_79 : answer(True) ↔
+theorem erdos_79 :
     ∀ (N : ℕ), ∃ (n : ℕ) (_ : N ≤ n) (G : SimpleGraph (Fin n)),
       ¬ G.IsRamseySizeLinear ∧
       ∀ H : G.Subgraph, H < ⊤ → H.coe.IsRamseySizeLinear := by

@@ -55,7 +55,7 @@ $P(2^n-1)\gg n^{1+\frac{1}{104\log\log n}}$ for all large $n$.
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos977.lean#L4271"]
-theorem erdos_977 : answer(True) ↔
+theorem erdos_977 :
     Tendsto (fun n : ℕ ↦ (Nat.maxPrimeFac (2 ^ n - 1) : ℝ) / n) atTop atTop := by
   sorry
 

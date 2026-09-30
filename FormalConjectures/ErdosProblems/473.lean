@@ -41,7 +41,7 @@ positive integers in which two numbers are adjacent when their sum is prime.
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos473.lean#L236"]
-theorem erdos_473 : answer(True) ↔
+theorem erdos_473 :
     ∃ a : ℕ ≃ ℕ+, ∀ n : ℕ, ((a n : ℕ) + (a (n + 1) : ℕ)).Prime := by
   sorry
 

@@ -41,7 +41,7 @@ communication) who verified using a SAT solver that this is true for all $n\geq 
 -/
 @[category research solved, question, AMS 5, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos895.lean#L268"]
-theorem erdos_895 : answer(True) ↔
+theorem erdos_895 :
     ∀ᶠ n in atTop, ∀ G : SimpleGraph (Set.Icc 1 n), G.CliqueFree 3 →
       ∃ a b c : Set.Icc 1 n, a ≠ b ∧ (a : ℕ) + (b : ℕ) = c ∧ G.IsIndepSet {a, b, c} := by
   sorry

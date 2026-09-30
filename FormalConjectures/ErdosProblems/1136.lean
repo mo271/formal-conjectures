@@ -49,7 +49,7 @@ the set of all integers congruent to $3\cdot 2^i\pmod{2^{i+2}}$ for any $i\geq 0
 density $1/2$.
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/main/src/v4.29.1/ErdosProblems/Erdos1136.lean"]
-theorem erdos_1136 : answer(True) ↔
+theorem erdos_1136 :
     ∃ A : Set ℕ, (1 / 3 : ℝ) < A.lowerDensity ∧ AvoidsPowersOfTwo A := by
   sorry
 

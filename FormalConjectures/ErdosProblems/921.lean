@@ -52,7 +52,7 @@ of this estimate.
 -/
 @[category research solved, question, AMS 5, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos921.lean#L39"]
-theorem erdos_921 : answer(True) ↔
+theorem erdos_921 :
     ∀ (k : ℕ), 4 ≤ k →
       ∃ (c₁ c₂ : ℝ), 0 < c₁ ∧ 0 < c₂ ∧
         (∀ᶠ (n : ℕ) in atTop,

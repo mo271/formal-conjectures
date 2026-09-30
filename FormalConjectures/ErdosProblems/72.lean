@@ -64,7 +64,7 @@ contradicts the previous belief of Erdős.
 -/
 @[category research solved, question, AMS 5, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos72.lean#L184"]
-theorem erdos_72 : answer(True) ↔ ∃ A : Set ℕ, A.HasDensity 0 ∧ ∃ c : ℚ, 0 < c ∧
+theorem erdos_72 : ∃ A : Set ℕ, A.HasDensity 0 ∧ ∃ c : ℚ, 0 < c ∧
     ∀ᶠ n : ℕ in atTop, ∀ G : SimpleGraph (Fin n), c ≤ G.averageDegree →
       ∃ (v : Fin n) (w : G.Walk v v), w.IsCycle ∧ w.length ∈ A := by
   sorry

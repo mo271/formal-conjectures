@@ -52,7 +52,7 @@ which gives the statement below by taking absolute values.
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1148.lean#L238"]
-theorem erdos_1148 : answer(True) ↔ ∀ᶠ n in atTop, Erdos1148Prop n := by
+theorem erdos_1148 : ∀ᶠ n in atTop, Erdos1148Prop n := by
   sorry
 
 /--

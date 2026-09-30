@@ -54,7 +54,7 @@ with no solutions using at most $\ll \epsilon^{-1}\log(1/\epsilon)$ colours.
 -/
 @[category research solved, question, AMS 5 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos894.lean#L310"]
-theorem erdos_894 : answer(True) ↔
+theorem erdos_894 :
     ∀ n : ℕ → ℕ, StrictMono n → (∀ k, 0 < n k) → IsLacunary n →
       ∃ (r : ℕ) (c : ℕ → Fin r), ∀ b k, c (b + n k) ≠ c b := by
   sorry

@@ -74,7 +74,7 @@ hypergraphs of chromatic number $> \kappa$ all of whose linear sub-hypergraphs a
 2-colorable. An obligatory `F` appears in such a hypergraph, hence is 2-colorable.
 -/
 @[category research solved, question, AMS 5]
-theorem erdos_593.variants.obligatory_implies_two_colorable : answer(True) ↔
+theorem erdos_593.variants.obligatory_implies_two_colorable :
     ∀ (W : Type) [Fintype W] (F : ThreeUniformHypergraph W),
       IsObligatory F → F.IsTwoColorable := by
   sorry
@@ -131,12 +131,10 @@ the injective edge-preserving map used in the hypergraph `Appears` definition. A
 -/
 @[category research solved, question, AMS 5]
 theorem erdos_593.variants.graph_case_bipartite_obligatory :
-    answer(True) ↔
     ∀ (V : Type*) (G : SimpleGraph V),
       ℵ₀ < G.chromaticCardinal →
       ∀ (W : Type*) [Fintype W] (F : SimpleGraph W), F.IsBipartite →
         F ⊑ G := by
-  simp only [true_iff]
   -- This is the Erdős–Galvin–Hajnal theorem [EGH75].
   sorry
 
@@ -148,12 +146,10 @@ smaller than all finite graphs.
 -/
 @[category research solved, question, AMS 5]
 theorem erdos_593.variants.graph_case_no_odd_cycle :
-    answer(True) ↔
     ∀ k : ℕ, Odd k → 3 ≤ k →
       ∃ (V : Type*) (G : SimpleGraph V),
         G.chromaticCardinal = ℵ_ 1 ∧
         IsEmpty (cycleGraph k →g G) := by
-  simp only [true_iff]
   -- This is the Erdős–Galvin–Hajnal theorem [EGH75].
   sorry
 

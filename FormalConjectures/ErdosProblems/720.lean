@@ -71,7 +71,7 @@ The answer is yes: Beck [Be83b] proved that in fact $\hat{R}(P_n)\ll n$.
 -/
 @[category research solved, question, AMS 5, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos720.lean#L39"]
-theorem erdos_720.parts.ii : answer(True) ↔
+theorem erdos_720.parts.ii :
     Tendsto (fun n : ℕ ↦ (sizeRamseyNumber (pathGraph (n + 1)) : ℝ) / (n : ℝ) ^ 2) atTop
       (nhds 0) := by
   sorry
@@ -83,7 +83,7 @@ The answer is yes: Beck [Be83b] proved that in fact $\hat{R}(C_n)\ll n$.
 -/
 @[category research solved, question, AMS 5, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos720.lean#L39"]
-theorem erdos_720.parts.iii : answer(True) ↔
+theorem erdos_720.parts.iii :
     Tendsto (fun n : ℕ ↦ (sizeRamseyNumber (cycleGraph n) : ℝ) / (n : ℝ) ^ 2) atTop
       (nhds 0) := by
   sorry

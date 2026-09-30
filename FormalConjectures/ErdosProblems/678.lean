@@ -82,7 +82,7 @@ stated directly, and `erdos_678.variants.not_infinitely_many_pairs` for why it c
 of a single $k$.
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/68da20b96673899166e94638f5a7fffeb7231d35/src/latest/ErdosProblems/Erdos678.lean"]
-theorem erdos_678 : answer(True) ↔
+theorem erdos_678 :
     ∀ᶠ k in atTop, {(m, n) | n + k ≤ m ∧ lcmInterval m (k + 1) < lcmInterval n k}.Nonempty := by
   sorry
 

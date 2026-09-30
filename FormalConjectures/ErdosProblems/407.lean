@@ -59,7 +59,7 @@ $n\geq 131082$ and $w(n)\leq 9$ for all $n$. (The largest $n$ for which $w(n)=9$
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos407.lean#L257"]
-theorem erdos_407 : answer(True) ↔ ∃ C : ℕ, ∀ n : ℕ, w n ≤ C := by
+theorem erdos_407 : ∃ C : ℕ, ∀ n : ℕ, w n ≤ C := by
   sorry
 
 end Erdos407

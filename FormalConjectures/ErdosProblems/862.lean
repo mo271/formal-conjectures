@@ -68,7 +68,7 @@ maximal Sidon set contains at most $2^{(1+o(1))N^{1/2}}$ Sidon sets, it follows 
 $$A_1(N) \geq 2^{(0.16+o(1))N^{1/2}}.$$
 -/
 @[category research solved, question, AMS 5 11, formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/main/src/v4.29.1/ErdosProblems/Erdos862.lean"]
-theorem erdos_862.parts.ii : answer(True) ↔
+theorem erdos_862.parts.ii :
     ∃ c : ℝ, 0 < c ∧ ∀ᶠ N : ℕ in atTop,
       (2 : ℝ) ^ ((N : ℝ) ^ c) < (numMaximalSidonSets N : ℝ) := by
   sorry

@@ -65,7 +65,7 @@ theorem oddOrderLatinSquareTransversal :
 The conjecture is known to be true for $n \leq 9$.
 -/
 @[category research solved, question, AMS 5]
-theorem oddOrderLeq9LatinSquareTransversal : answer(True) ↔
+theorem oddOrderLeq9LatinSquareTransversal :
     ∀ n ≤ 9, Odd n → ∀ (L : LatinSquare n), ∃ σ, IsTransversal L σ := by
   sorry
 

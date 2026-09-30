@@ -766,21 +766,15 @@ theorem ame_4_6_exists : ExistsAME 4 6 := by
 Shi--Zhang--Zhao--Li (2026). -/
 @[category research solved, question, AMS 5 15 81 94]
 theorem ame_7_6_open :
-    answer(True) ↔ ExistsAME 7 6 := by
-  constructor
-  · intro
-    exact (ame_7_exists_iff 6).2 (by norm_num)
-  · simp
+    ExistsAME 7 6 := by
+  exact (ame_7_exists_iff 6).2 (by norm_num)
 
 /-- An $\mathrm{AME}(7,10)$ state exists, by the complete seven-party classification of
 Shi--Zhang--Zhao--Li (2026). -/
 @[category research solved, question, AMS 5 15 81 94]
 theorem ame_7_10_open :
-    answer(True) ↔ ExistsAME 7 10 := by
-  constructor
-  · intro
-    exact (ame_7_exists_iff 10).2 (by norm_num)
-  · simp
+    ExistsAME 7 10 := by
+  exact (ame_7_exists_iff 10).2 (by norm_num)
 
 /-- Open benchmark statement: does an $\mathrm{AME}(8,4)$ state exist? -/
 @[category research open, question, AMS 5 15 81 94]
@@ -809,7 +803,7 @@ https://github.com/KitaKen1/ame-9-6-lean
 @[category research solved, question, AMS 5 15 81 94, formal_proof using lean4 at
   "https://github.com/KitaKen1/ame-9-6-lean/blob/500ee827dffbeed9bb2ed502adcd6690943a7463/lean/AME96/FormalTarget.lean#L13"]
 theorem ame_9_6_open :
-    answer(True) ↔ ExistsAME 9 6 := by
+    ExistsAME 9 6 := by
   sorry
 
 /--
@@ -823,7 +817,7 @@ Solved: a Lean 4 proof, derived from the Atlas proofs in
   formal_proof using lean4 at
     "https://github.com/niketp03/atlas-fc-verified/blob/15e4b3a7584e218cec531aeaf71cce72a8a9ecb1/AtlasFCSolutions/Oqp35.lean#L1238"]
 theorem ame_9_10_open :
-    answer(True) ↔ ExistsAME 9 10 := by
+    ExistsAME 9 10 := by
   sorry
 
 /-- Open benchmark statement: does an $\mathrm{AME}(10,6)$ state exist? -/
@@ -858,7 +852,7 @@ experimental pipeline
 @[category research solved, question, AMS 5 15 81 94, formal_proof using formal_conjectures at
 "https://github.com/mo271/formal-conjectures/blob/91bed229b434b68d66f5fd35cdcfee19a79985e8/FormalConjectures/OpenQuantumProblems/35.lean#L1861"]
 theorem ame_11_4_open :
-    answer(True) ↔ ExistsAME 11 4 := by
+    ExistsAME 11 4 := by
   sorry
 
 /-- Open benchmark statement: does an $\mathrm{AME}(11,5)$ state exist?
@@ -868,7 +862,7 @@ The DeepMind prover agent has shown that such a state exists.
 @[category research solved, question, AMS 5 15 81 94, formal_proof using formal_conjectures at
 "https://github.com/google-deepmind/formal-conjectures/blob/47383bf7fbe86effc9ac184446e320f26ddbee3a/FormalConjectures/OpenQuantumProblems/35.lean#L2138"]
 theorem ame_11_5_open :
-    answer(True) ↔ ExistsAME 11 5 := by
+    ExistsAME 11 5 := by
   sorry
 
 /-- Open benchmark statement: does an $\mathrm{AME}(11,6)$ state exist? -/
@@ -887,7 +881,7 @@ https://github.com/KitaKen1/ame-11-10-lean
   formal_proof using lean4 at
     "https://github.com/KitaKen1/ame-11-10-lean/blob/6b7d009a43970587a3386b690221bec4339ce271/lean/AME11_10FC.lean#L15-L21"]
 theorem ame_11_10_open :
-    answer(True) ↔ ExistsAME 11 10 := by
+    ExistsAME 11 10 := by
   sorry
 
 /-- Does an $\mathrm{AME}(12,5)$ state exist?
@@ -897,7 +891,7 @@ parameters $[12,6,7]_{25}$, whose associated nonbinary stabilizer state is an
 $\mathrm{AME}(12,5)$ state. -/
 @[category research solved, question, AMS 5 15 81 94]
 theorem ame_12_5_open :
-    answer(True) ↔ ExistsAME 12 5 := by
+    ExistsAME 12 5 := by
   sorry
 
 /-- Open benchmark statement: does an $\mathrm{AME}(12,6)$ state exist? -/

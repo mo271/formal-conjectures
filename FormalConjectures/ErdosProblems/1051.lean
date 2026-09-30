@@ -70,7 +70,7 @@ This was formalized in Lean by Baretto.
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at "https://www.erdosproblems.com/forum/thread/1051"]
 theorem erdos_1051 :
-    answer(True) ↔ ∀ (a : ℕ → ℤ), StrictMono a → GrowthCondition a →
+    ∀ (a : ℕ → ℤ), StrictMono a → GrowthCondition a →
       Irrational (ErdosSeries a) := by
   sorry
 

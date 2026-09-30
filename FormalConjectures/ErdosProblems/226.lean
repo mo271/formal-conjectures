@@ -48,7 +48,7 @@ $\mathbb{R}$.
 -/
 @[category research solved, question, AMS 30,
   formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/main/src/v4.29.1/ErdosProblems/Erdos226.lean"]
-theorem erdos_226 : answer(True) ↔
+theorem erdos_226 :
     ∃ F : ℂ → ℂ, Differentiable ℂ F ∧ (∀ x : ℝ, (F x).im = 0) ∧
       (∀ g : AffineMap ℝ ℝ ℝ, (fun x : ℝ => (F x).re) ≠ g) ∧
       PreservesRationality (fun x : ℝ => (F x).re) := by

@@ -133,7 +133,7 @@ vertices can be made bipartite after deleting at most $f(m)$ many vertices.
   formal_proof using lean4 at
     "https://github.com/Jayyhk/erdos-lean/blob/main/problems/750/Erdos750.lean"]
 theorem erdos_750 :
-    answer(True) ↔ ∀ (f : ℕ → ℝ≥0) (hf : atTop.Tendsto f atTop),
+    ∀ (f : ℕ → ℝ≥0) (hf : atTop.Tendsto f atTop),
       ∃ (V : Type*) (G : SimpleGraph V), G.chromaticNumber = ⊤ ∧
         ∀ (m : ℕ) (S : Set V), 0 < m → S.ncard = m →
           ∃ I ⊆ S, G.IsIndepSet I ∧ m / 2 - f m ≤ I.ncard := by
@@ -145,7 +145,7 @@ from a result of Erdős, Hajnal, and Szemerédi [EHS82], as described by Sellke 
 -/
 @[category research solved, question, AMS 5]
 theorem erdos_750.variants.epsilon :
-    answer(True) ↔ ∀ (ε : ℝ≥0), ε > 0 →
+    ∀ (ε : ℝ≥0), ε > 0 →
       ∃ (V : Type*) (G : SimpleGraph V), G.chromaticNumber = ⊤ ∧
         ∀ (m : ℕ) (S : Set V), 0 < m → S.ncard = m →
           ∃ I ⊆ S, G.IsIndepSet I ∧ m / 2 - ε * m ≤ I.ncard := by
@@ -156,7 +156,7 @@ In [ErHa67b] Erdős and Hajnal prove this for $f(m)\geq cm$ for all $c>1/4$.
 -/
 @[category research solved, question, AMS 5]
 theorem erdos_750.variants.c_gt_quarter :
-    answer(True) ↔ ∀ (c : ℝ≥0), c > 1 / 4 →
+    ∀ (c : ℝ≥0), c > 1 / 4 →
       ∃ (V : Type*) (G : SimpleGraph V), G.chromaticNumber = ⊤ ∧
         ∀ (m : ℕ) (S : Set V), 0 < m → S.ncard = m →
           ∃ I ⊆ S, G.IsIndepSet I ∧ m / 2 - c * m ≤ I.ncard := by

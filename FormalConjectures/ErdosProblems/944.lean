@@ -56,7 +56,7 @@ This was conjectured by Dirac in 1970.
 -/
 @[category research solved, question, AMS 11]
 theorem erdos_944.variants.dirac_conjecture :
-    answer(True) ↔ ∀ k ≥ 4, ∃ (V : Type u) (G : SimpleGraph V), G.IsErdos944 k 1 := by
+    ∀ k ≥ 4, ∃ (V : Type u) (G : SimpleGraph V), G.IsErdos944 k 1 := by
   sorry
 
 
@@ -105,7 +105,7 @@ $k \ge 4$.
   formal_proof using lean4 at
     "https://github.com/KitaKen1/erdos-944-dirac-k4-lean/blob/9606d77/lean4web/Erdos944K4R1Lean4Web.lean#L676-L690"]
 theorem erdos_944.variants.dirac_conjecture.k_eq_four :
-    answer(True) ↔ ∃ (V : Type u) (G : SimpleGraph V), G.IsErdos944 4 1 := by
+    ∃ (V : Type u) (G : SimpleGraph V), G.IsErdos944 4 1 := by
   sorry
 
 /--

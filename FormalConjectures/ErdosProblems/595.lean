@@ -74,7 +74,7 @@ This is the finite analogue of Problem 595. The proofs of Folkman [Fo70] and Ne�
 [NeRo75] give different explicit constructions.
 -/
 @[category research solved, question, AMS 5]
-theorem erdos_595.variants.folkman_finite : answer(True) ↔
+theorem erdos_595.variants.folkman_finite :
     ∀ n : ℕ, 1 ≤ n →
     ∃ (V : Type*) (_ : Fintype V) (G : SimpleGraph V),
       G.CliqueFree 4 ∧

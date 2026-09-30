@@ -74,7 +74,7 @@ some $c>0$ with $M_n>(\log n)^c$ infinitely often.
 -/
 @[category research solved, question, AMS 30, formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/1268917deaaaa0d674f651287027baa26cea9920/src/latest/ErdosProblems/Erdos119.lean#L1759"]
 theorem erdos_119.parts.i :
-    answer(True) ↔ ∀ (z : ℕ → ℂ) (hz : ∀ i : ℕ, ‖z i‖ = 1),
+    ∀ (z : ℕ → ℂ) (hz : ∀ i : ℕ, ‖z i‖ = 1),
       atTop.limsup (fun n => (M z n : EReal)) = ⊤ := by
   sorry
 
@@ -86,7 +86,7 @@ $\max_{n\leq N} M_n > N^c$.
 -/
 @[category research solved, question, AMS 30, formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/1268917deaaaa0d674f651287027baa26cea9920/src/latest/ErdosProblems/Erdos119.lean#L1712"]
 theorem erdos_119.parts.ii :
-    answer(True) ↔ ∀ (z : ℕ → ℂ) (hz : ∀ i : ℕ, ‖z i‖ = 1),
+    ∀ (z : ℕ → ℂ) (hz : ∀ i : ℕ, ‖z i‖ = 1),
       ∃ (c : ℝ) (hc : c > 0), Infinite {n : ℕ | M z n > n ^ c} := by
   sorry
 
@@ -99,7 +99,7 @@ Korsky (see the proof claims), who proved that $\sum_{k\leq n}M_k \gg \frac{n^{5
 -/
 @[category research solved, question, AMS 30, formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/1268917deaaaa0d674f651287027baa26cea9920/src/latest/ErdosProblems/Erdos119.lean#L1687"]
 theorem erdos_119.parts.iii :
-    answer(True) ↔ ∀ (z : ℕ → ℂ) (hz : ∀ i : ℕ, ‖z i‖ = 1),
+    ∀ (z : ℕ → ℂ) (hz : ∀ i : ℕ, ‖z i‖ = 1),
       ∃ (c : ℝ) (hc : c > 0), ∀ᶠ n in atTop,
         ∑ k ∈ range n, M z k > n ^ (1 + c) := by
   sorry

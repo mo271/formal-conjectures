@@ -46,7 +46,7 @@ The answer is yes, proved by Ruzsa [Ru78].
 -/
 @[category research solved, question, AMS 5,
   formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/dfe2d78128b493c572cf525b1b8edf4897fb7664/src/latest/ErdosProblems/Erdos899.lean#L793"]
-theorem erdos_899 : answer(True) ↔ ∀ (A : Set ℕ), A.Infinite →
+theorem erdos_899 : ∀ (A : Set ℕ), A.Infinite →
     Tendsto (fun N => (A ∩ Icc 1 N |>.ncard : ℝ) / N) atTop (𝓝 0) →
     atTop.limsup (fun N => ((A - A : Set ℕ) ∩ Icc 1 N |>.ncard : EReal) /
       (A ∩ Icc 1 N).ncard) = ⊤ := by

@@ -48,9 +48,8 @@ with `HasCycleLength G m` unfolding to `m ∈ G.cycleLengths`.
 @[category research solved, question, AMS 5, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos63.lean#L46"]
 theorem erdos_63 :
-    answer(True) ↔
-      ∀ {V : Type*} (G : SimpleGraph V), G.chromaticNumber = ⊤ →
-        ∀ N : ℕ, ∃ n ≥ N, 2 ^ n ∈ G.cycleLengths := by
+    ∀ {V : Type*} (G : SimpleGraph V), G.chromaticNumber = ⊤ →
+      ∀ N : ℕ, ∃ n ≥ N, 2 ^ n ∈ G.cycleLengths := by
   sorry
 
 -- TODO: Add variants of the problem.

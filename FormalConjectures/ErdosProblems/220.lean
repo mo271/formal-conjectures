@@ -60,7 +60,7 @@ $\gamma \geq 1$.
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos220.lean#L39"]
-theorem erdos_220 : answer(True) ↔
+theorem erdos_220 :
     ∃ C : ℝ, 0 < C ∧ ∀ n : ℕ, 1 ≤ n →
       (sumSquaredGaps (sortedTotatives n) : ℝ) ≤ C * (n : ℝ) ^ 2 / (n.totient : ℝ) := by
   sorry

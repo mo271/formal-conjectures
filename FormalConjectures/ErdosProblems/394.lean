@@ -67,9 +67,8 @@ Is it true that $\sum_{n\leq x}t_2(n)\ll \frac{x^2}{(\log x)^c}$ for some $c>0$?
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at "https://github.com/williamjblair/lean-proofs/blob/4f915a323443bfb1709a6805a013812016dca88a/starfleet/erdos-394/Research/FirstQuestion.lean"]
 theorem erdos_394.parts.i :
-    answer(True) ↔
-      ∃ c > (0 : ℝ), (fun x ↦ ∑ n ∈ Icc 1 ⌊x⌋₊,
-      (t 2 n : ℝ)) ≪ (fun x ↦ x ^ 2 / (Real.log x) ^ c) := by
+    ∃ c > (0 : ℝ), (fun x ↦ ∑ n ∈ Icc 1 ⌊x⌋₊,
+    (t 2 n : ℝ)) ≪ (fun x ↦ x ^ 2 / (Real.log x) ^ c) := by
   sorry
 
 /--
@@ -77,11 +76,10 @@ Is it true that, for $k\geq 2$, $\sum_{n\leq x}t_{k+1}(n) =o\left(\sum_{n\leq x}
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at "https://github.com/williamjblair/lean-proofs/blob/4f915a323443bfb1709a6805a013812016dca88a/starfleet/erdos-394/Research/DenseHierarchyLittleO.lean"]
 theorem erdos_394.parts.ii :
-    answer(True) ↔
-      ∀ k ≥ 2, (fun (x : ℝ) ↦ ∑ n ∈ Icc 1 ⌊x⌋₊,
-      (t (k + 1) n : ℝ)) =o[atTop]
-      (fun (x : ℝ) ↦ ∑ n ∈ Icc 1 ⌊x⌋₊,
-      (t k n : ℝ)) := by
+    ∀ k ≥ 2, (fun (x : ℝ) ↦ ∑ n ∈ Icc 1 ⌊x⌋₊,
+    (t (k + 1) n : ℝ)) =o[atTop]
+    (fun (x : ℝ) ↦ ∑ n ∈ Icc 1 ⌊x⌋₊,
+    (t k n : ℝ)) := by
   sorry
 
 /--

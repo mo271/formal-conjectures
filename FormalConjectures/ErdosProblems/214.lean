@@ -61,7 +61,7 @@ The answer is yes, proved by Juhász [Ju79], who proved more generally that the 
 must contain a congruent copy of any set of four points.
 -/
 @[category research solved, question, AMS 5 52, formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/main/src/v4.29.1/ErdosProblems/Erdos214.lean"]
-theorem erdos_214 : answer(True) ↔
+theorem erdos_214 :
     ∀ S : Set ℝ², UnitDistanceAvoiding S →
       ∃ p : Fin 4 → ℝ², (∀ i, p i ∈ Sᶜ) ∧ (p ≅ unitSquare) := by
   sorry

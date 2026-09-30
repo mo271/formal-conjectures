@@ -69,7 +69,7 @@ density. The linked formal proof (Alexeev and Codex) shows that there is `c > 0`
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos424.lean#L6409"]
-theorem erdos_424 : answer(True) ↔ 0 < generatedSet.lowerDensity := by
+theorem erdos_424 : 0 < generatedSet.lowerDensity := by
   sorry
 
 /--

@@ -97,7 +97,7 @@ parallelograms with a vertex at the origin.
   formal_proof using lean4 at
     "https://github.com/KitaKen1/lp-rogers-shephard-conjectures-lean/blob/c646c668c0568b8533bf5534abcf02aab4d2df72/lean/LpRogersShephardFC.lean#L108-L128"]
 theorem isParallelogramAtOrigin_of_volume_lpSum_eq :
-    answer(True) ↔ ∀ (K : Set ℝ²), Convex ℝ K → IsCompact K → (interior K).Nonempty →
+    ∀ (K : Set ℝ²), Convex ℝ K → IsCompact K → (interior K).Nonempty →
       HasCentreOfSymmetry K → (0 : ℝ²) ∈ K → ∀ p q : ℝ, 1 < p → 1 / p + 1 / q = 1 →
         volume (lpSum p K (-K)) = ENNReal.ofReal (rsConstant q) * volume K →
           IsParallelogramAtOrigin K := by

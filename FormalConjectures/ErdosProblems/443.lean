@@ -49,7 +49,7 @@ and that for any integer $s$ there exist infinitely many pairs $(m,n)$ such that
 question has size $s$.
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/1d7b3f00780b85ed0462e79a1cd5650ee9055655/src/v4.29.1/ErdosProblems/Erdos443.lean"]
-theorem erdos_443.parts.i : answer(True) ↔
+theorem erdos_443.parts.i :
     ∀ s : ℕ, ∃ m n : ℕ, n < m ∧ s ≤ (A n ∩ A m).card := by
   sorry
 
@@ -65,7 +65,7 @@ and that for any integer $s$ there exist infinitely many pairs $(m,n)$ such that
 question has size $s$.
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/1d7b3f00780b85ed0462e79a1cd5650ee9055655/src/v4.29.1/ErdosProblems/Erdos443.lean"]
-theorem erdos_443.parts.ii : answer(True) ↔
+theorem erdos_443.parts.ii :
     ∀ ε : ℝ, 0 < ε → ∃ n₀ : ℕ, ∀ m n : ℕ, n₀ < n → n < m →
       ((A n ∩ A m).card : ℝ) < ((m : ℝ) * n) ^ ε := by
   sorry

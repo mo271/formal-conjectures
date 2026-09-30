@@ -71,7 +71,7 @@ It follows from Croot's bounds [Cr99] that this holds for all sufficiently large
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos308.lean#L458"]
-theorem erdos_308.parts.ii : answer(True) ↔
+theorem erdos_308.parts.ii :
     ∀ᶠ N : ℕ in atTop, ∃ m, representable N = Set.Icc 1 m := by
   sorry
 

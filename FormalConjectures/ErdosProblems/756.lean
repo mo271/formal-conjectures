@@ -56,7 +56,7 @@ The answer is yes: Bhowmick [Bh24] constructs a set of $n$ points in $\mathbb{R}
 $\lfloor\frac{n}{4}\rfloor$ distances occur at least $n+1$ times.
 -/
 @[category research solved, question, AMS 52]
-theorem erdos_756 : answer(True) ↔
+theorem erdos_756 :
     (fun n : ℕ => (n : ℝ)) =O[atTop] (fun n : ℕ => (maxRichDistances n : ℝ)) := by
   sorry
 

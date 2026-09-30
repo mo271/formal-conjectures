@@ -69,7 +69,7 @@ The second question was solved by Sárközy [Sa99], who proved this with
 $\ell \gg \log n/\log\log n$.
 -/
 @[category research solved, question, AMS 5 11]
-theorem erdos_883.parts.ii : answer(True) ↔
+theorem erdos_883.parts.ii :
     ∀ l : ℕ, 1 ≤ l → ∀ᶠ n : ℕ in atTop, ∀ A : Finset ℕ,
       A ⊆ Finset.Icc 1 n →
       n / 2 + n / 3 - n / 6 < A.card →

@@ -43,7 +43,7 @@ The answer is yes, as proved by Wirsing [Wi67], and generalised by Halász [Ha68
 -/
 @[category research solved, question, AMS 11]
 theorem erdos_239 :
-    answer(True) ↔ ∀ f : ℕ → ℝ,
+    ∀ f : ℕ → ℝ,
     (∀ n ≥ 1, f n = 1 ∨ f n = -1) ∧
     (∀ m n, m.Coprime n → f (m * n) = f m * f n) ∧
     f 1 = 1 →

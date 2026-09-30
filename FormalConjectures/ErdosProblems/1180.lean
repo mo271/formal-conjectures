@@ -66,7 +66,7 @@ See also [540](https://www.erdosproblems.com/540).
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1180.lean#L1249"]
-theorem erdos_1180 : answer(True) ↔ ∀ ε : ℝ, 0 < ε → ∃ C : ℕ, ∀ p : ℕ, p.Prime → ∀ a : ZMod p,
+theorem erdos_1180 : ∀ ε : ℝ, 0 < ε → ∃ C : ℕ, ∀ p : ℕ, p.Prime → ∀ a : ZMod p,
     ∃ s : Multiset ℕ, s.card ≤ C ∧ Represents ε p a s := by
   sorry
 

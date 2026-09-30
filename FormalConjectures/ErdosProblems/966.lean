@@ -39,7 +39,7 @@ Erdős [Er75b] reported that 'Spencer has recently shown that such a sequence ex
 no reference.
 -/
 @[category research solved, question, AMS 5 11, formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/main/src/v4.29.1/ErdosProblems/Erdos966.lean"]
-theorem erdos_966 : answer(True) ↔
+theorem erdos_966 :
     ∀ k r : ℕ, 2 ≤ k → 2 ≤ r → ∃ A : Set ℕ, A.IsAPOfLengthFree (k + 1) ∧
       ∀ coloring : A → Fin r, ContainsMonoAPofLength coloring k := by
   sorry

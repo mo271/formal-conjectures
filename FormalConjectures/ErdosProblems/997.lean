@@ -65,8 +65,7 @@ The answer is yes, by [APSSV26, Section 4]; a Lean formalisation is available in
 @[category research solved, question, AMS 11, formal_proof using lean4 at
   "https://gist.githubusercontent.com/pitmonticone/016f2ed66b4cd1c4c4b9998095170e60/raw/b7dfc05c525ae385b5835f89f1ada721443e4305/Erdos997.lean"]
 theorem erdos_997 :
-    answer(True) ↔
-      ∀ α : ℝ, ¬ IsWellDistributed (fun n ↦ Int.fract (α * (n.nth Nat.Prime))) := by
+    ∀ α : ℝ, ¬ IsWellDistributed (fun n ↦ Int.fract (α * (n.nth Nat.Prime))) := by
   sorry
 
 /--

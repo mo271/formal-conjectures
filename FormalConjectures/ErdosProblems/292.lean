@@ -56,7 +56,7 @@ $\sum \frac{1}{m_i}=1$ then $\frac{1}{2}+\sum\frac{1}{2m_i}=1$ also.
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos292.lean#L116"]
-theorem erdos_292 : answer(True) ↔ A.HasDensity 1 := by
+theorem erdos_292 : A.HasDensity 1 := by
   sorry
 
 /-- Martin [Ma00] proved that if $B=\mathbb{N}\backslash A$ then

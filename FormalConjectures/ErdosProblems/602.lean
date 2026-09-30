@@ -96,13 +96,11 @@ particular satisfies `|A_i ∩ A_j| ≠ 1`), then Property B holds trivially.
 to `b_i` for each `i` (using disjointness, these choices don't conflict), and extend
 arbitrarily elsewhere. Then no `A_i` is monochromatic. -/
 @[category research solved, question, AMS 3 5]
-theorem erdos_602.variants.disjoint : answer(True) ↔
+theorem erdos_602.variants.disjoint :
     ∀ {α : Type*} {I : Type*} (A : I → Set α),
       (∀ i, (A i).Infinite) →
       (∀ i j, i ≠ j → Disjoint (A i) (A j)) →
       HasPropertyB I A := by
-  show True ↔ _
-  simp only [true_iff]
   intro α I A hInfinite hDisjoint
   -- For each i, pick two distinct elements a_fn i, b_fn i ∈ A i.
   have ha_b : ∀ i, ∃ a b : α, a ∈ A i ∧ b ∈ A i ∧ a ≠ b := by
@@ -155,7 +153,7 @@ condition is unnecessary. This is Bernstein's Lemma:
 every countable system of infinite sets has Property B.
 -/
 @[category research solved, question, AMS 3 5]
-theorem erdos_602.variants.countable_index : answer(True) ↔
+theorem erdos_602.variants.countable_index :
     ∀ {α : Type*} (A : ℕ → Set α),
       (∀ i, (A i).Countable ∧ (A i).Infinite) →
       (∀ i j, i ≠ j → (A i ∩ A j).Finite) →
@@ -242,14 +240,12 @@ If the family consists of exactly two countably infinite sets `A₀` and `A₁` 
   Assign `x` colour 0 and `y` colour 1. Both `A₀` and `A₁` contain `x` and `y`,
   so neither is monochromatic. -/
 @[category research solved, question, AMS 3 5]
-theorem erdos_602.variants.two_sets : answer(True) ↔
+theorem erdos_602.variants.two_sets :
     ∀ {α : Type*} (A : Fin 2 → Set α),
       (∀ i, (A i).Infinite) →
       (A 0 ∩ A 1).Finite →
       Set.ncard (A 0 ∩ A 1) ≠ 1 →
       HasPropertyB (Fin 2) A := by
-  show True ↔ _
-  simp only [true_iff]
   intro α A hInfinite hFin hNcard
   classical
   -- Case split: intersection empty or size ≥ 2.

@@ -102,7 +102,7 @@ further construction.
 -/
 @[category research solved, question, AMS 11]
 theorem erdos_939.variants.triples :
-    answer(True) ↔ {(a,b,c) | ({a, b, c} : Finset ℕ).Coprime ∧
+    {(a,b,c) | ({a, b, c} : Finset ℕ).Coprime ∧
       0 < a ∧ 0 < b ∧
       (3).Full a ∧ (3).Full b ∧ (3).Full c ∧
       a + b = c}.Infinite := by

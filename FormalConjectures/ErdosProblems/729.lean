@@ -38,7 +38,7 @@ Erdős [Er68c] proved that if $a!b!\mid n!$ then $a+b\leq n+O(\log n)$. This has
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/main/src/v4.29.1/ErdosProblems/Erdos729.lean"]
 theorem erdos_729 :
-    answer(True) ↔ ∀ (C : ℝ) (hC : C > 0),
+    ∀ (C : ℝ) (hC : C > 0),
       ∃ K ≥ 3, Set.Infinite { T : ℕ × ℕ × ℕ |
         let (a, b, n) := T
         a > 0 ∧ b > 0 ∧ n > 0 ∧

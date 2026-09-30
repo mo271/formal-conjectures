@@ -50,7 +50,7 @@ The answer is yes, proved by Fleischner and Stiebitz [FlSt92].
 -/
 @[category research solved, question, AMS 5, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos842.lean#L46"]
-theorem erdos_842 : answer(True) ↔
+theorem erdos_842 :
     ∀ (V : Type) (G : SimpleGraph V) (n : ℕ), IsTrianglesPlusHamiltonianCycle G n →
       G.chromaticNumber ≤ 3 := by
   sorry

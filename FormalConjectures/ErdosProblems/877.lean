@@ -64,7 +64,7 @@ See [748](https://www.erdosproblems.com/748) for the non-maximal case.
 -/
 @[category research solved, question, AMS 5 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos877.lean#L170"]
-theorem erdos_877 : answer(True) ↔
+theorem erdos_877 :
     (fun n : ℕ ↦ (fm n : ℝ)) =o[atTop] fun n : ℕ ↦ (2 : ℝ) ^ ((n : ℝ) / 2) := by
   sorry
 

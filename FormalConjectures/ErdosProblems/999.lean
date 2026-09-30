@@ -52,7 +52,7 @@ Erdős proved this in the special case when $f(q)q$ is bounded. The full conject
 Koukoulopoulos and Maynard [KoMa20].
 -/
 @[category research solved, question, AMS 11]
-theorem erdos_999 : answer(True) ↔ ∀ f : ℕ → ℝ, (∀ q, 0 ≤ f q) →
+theorem erdos_999 : ∀ f : ℕ → ℝ, (∀ q, 0 ≤ f q) →
     ((∀ᵐ x : ℝ, IsApproximable f x) ↔
       ¬ Summable fun q : ℕ ↦ (Nat.totient q : ℝ) * f q / q) := by
   sorry

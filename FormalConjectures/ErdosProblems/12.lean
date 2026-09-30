@@ -58,7 +58,7 @@ The DeepMind prover agent has found a formal proof of this statement.
 -/
 @[category research solved, question, AMS 11,
 formal_proof using formal_conjectures at "https://github.com/mo271/formal-conjectures/blob/8d872b465955e46e2d28bc165d186ea41fd0da9e/FormalConjectures/ErdosProblems/12.lean#L810"]
-theorem erdos_12.parts.i : answer(True) ↔ ∃ (A : Set ℕ), IsGood A ∧
+theorem erdos_12.parts.i : ∃ (A : Set ℕ), IsGood A ∧
     (0 : ℝ) < Filter.atTop.liminf
       (fun N => (A ∩ Icc 1 N).ncard / (N : ℝ).sqrt) := by
   sorry

@@ -37,7 +37,6 @@ Solved in [FrKlMo25].
 -/
 @[category research solved, question, AMS 5 11]
 theorem green_23 :
-  answer(True) ↔
     -- For every finite colouring of the natural numbers
     ∀ (k : ℕ) (c : ℕ → Fin k),
     -- there exist two numbers of the same colour whose squares sum to a square

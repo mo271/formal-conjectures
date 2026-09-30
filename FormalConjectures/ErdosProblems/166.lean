@@ -49,7 +49,7 @@ number defined through `CliqueFree`/`IndepSetFree`; this implies the statement b
 -/
 @[category research solved, question, AMS 5, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos166.lean#L83"]
-theorem erdos_166 : answer(True) ↔
+theorem erdos_166 :
     ∃ (c C : ℝ), 0 < c ∧ 0 < C ∧
       ∀ᶠ (k : ℕ) in atTop,
         (SimpleGraph.classicalRamsey 4 k : ℝ) ≥

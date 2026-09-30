@@ -69,7 +69,7 @@ This was formalized in Lean by Monticone using Aristotle.
 -/
 @[category research solved, question, AMS 5, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/main/src/v4.29.1/ErdosProblems/Erdos150.lean"]
-theorem erdos_150 : answer(True) ↔
+theorem erdos_150 :
     ∃ α : ℝ, α < 2 ∧
       Tendsto (fun n : ℕ ↦ (maxMinimalCuts n : ℝ) ^ (1 / n : ℝ)) atTop (𝓝 α) := by
   sorry

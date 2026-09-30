@@ -60,7 +60,7 @@ infinitely many $n$".
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos1099.lean#L63"]
-theorem erdos_1099 : answer(True) ↔
+theorem erdos_1099 :
     ∀ α : ℝ, 1 < α → ∃ C : ℝ, ∃ᶠ n : ℕ in atTop, h α n ≤ C := by
   sorry
 

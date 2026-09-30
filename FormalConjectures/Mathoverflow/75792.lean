@@ -211,7 +211,7 @@ theorem complexity_five_pow : answer(False) ↔ ∀ n : ℕ, 0 < n → complexit
 Reference: https://arxiv.org/abs/1207.4841
 -/
 @[category research solved, question, AMS 11]
-theorem complexity_three_pow : answer(True) ↔ ∀ n : ℕ, 0 < n → complexity (3 ^ n) = 3 * n := by
+theorem complexity_three_pow : ∀ n : ℕ, 0 < n → complexity (3 ^ n) = 3 * n := by
   sorry
 
 /-- Is `2n` the complexity of `2^n` for `0 < n`? -/

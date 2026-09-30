@@ -65,7 +65,7 @@ monochromatic set is a clique or an independent set of `G`.
 -/
 @[category research solved, question, AMS 5, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos191.lean#L1272"]
-theorem erdos_191 : answer(True) ↔ ∀ C : ℝ, 0 < C → ∀ᶠ n : ℕ in atTop,
+theorem erdos_191 : ∀ C : ℝ, 0 < C → ∀ᶠ n : ℕ in atTop,
     ∀ G : SimpleGraph (Finset.Icc 2 n), ∃ X : Finset (Finset.Icc 2 n),
       (G.IsClique X ∨ G.IsIndepSet X) ∧ C ≤ ∑ x ∈ X, 1 / Real.log (x : ℕ) := by
   sorry

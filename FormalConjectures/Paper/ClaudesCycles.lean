@@ -134,7 +134,7 @@ Knuth records this as settled in the final section of [Knu26], by [Ho26] with th
 [GPT26] for even `m ≥ 8`, and by [AM26] for the even case generally. -/
 @[category research solved, question, AMS 5]
 theorem cube_hamiltonian_arc_decomposition_even :
-    answer(True) ↔ ∀ᵉ (m : ℕ) (_ : NeZero m) (_ : Even m) (_ : 2 < m),
+    ∀ᵉ (m : ℕ) (_ : NeZero m) (_ : Even m) (_ : 2 < m),
       HasHamiltonianArcDecomposition m := by
   sorry
 

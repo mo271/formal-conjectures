@@ -52,7 +52,7 @@ Morawski, Petrova, and Pokrovskiy [CFMPP26].
 This problem is #35 in Ramsey Theory in the graphs problem collection.
 -/
 @[category research solved, question, AMS 5]
-theorem erdos_570 : answer(True) ↔
+theorem erdos_570 :
     ∀ (k : ℕ) (hk : 3 ≤ k),
       ∀ᶠ (m : ℕ) in atTop,
         ∀ (W : Type) [Fintype W] (H : SimpleGraph W) [DecidableRel H.Adj],

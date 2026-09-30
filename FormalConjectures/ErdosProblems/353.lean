@@ -54,7 +54,7 @@ configurations are given as variants below. The area of a polygon is taken to be
 measure of the convex hull of its vertices.
 -/
 @[category research solved, question, AMS 28 51, formal_proof using lean4 at "https://github.com/Jayyhk/erdos-lean/blob/110d489ed5c07e5b216453e092e9113127c98c9a/problems/353/Erdos353.lean"]
-theorem erdos_353 : answer(True) ↔
+theorem erdos_353 :
     ∀ A : Set ℝ², MeasurableSet A → volume A = ⊤ →
       ∃ a ∈ A, ∃ b ∈ A, ∃ c ∈ A, ∃ d ∈ A,
         IsIsoscelesTrapezoid a b c d ∧

@@ -71,7 +71,7 @@ subgraph with infinite edge-connectivity and uncountable chromatic number.
 -/
 @[category research solved, question, AMS 5]
 theorem erdos_1067.variants.infinite_edge_connectivity :
-    answer(True) ↔ ∀ (V : Type) (G : SimpleGraph V), G.chromaticCardinal = ℵ_ 1 →
+    ∀ (V : Type) (G : SimpleGraph V), G.chromaticCardinal = ℵ_ 1 →
       ∃ (H : G.Subgraph), H.coe.chromaticCardinal = ℵ_ 1 ∧ InfinitelyEdgeConnected H.coe := by
   sorry
 

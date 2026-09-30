@@ -42,7 +42,7 @@ This problem was first solved in the affirmative by Conlon, Fox, and Sudakov [CF
 proof is given by Hunter in the comments.
 -/
 @[category research solved, question, AMS 5, formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/main/src/v4.29.1/ErdosProblems/Erdos1008.lean"]
-theorem erdos_1008 : answer(True) ↔
+theorem erdos_1008 :
     ∃ c > (0 : ℝ), ∀ (V : Type) [Fintype V] (G : SimpleGraph V),
       ∃ H ≤ G, (cycleGraph 4).Free H ∧
         c * (G.edgeSet.ncard : ℝ) ^ (2 / 3 : ℝ) ≤ (H.edgeSet.ncard : ℝ) := by

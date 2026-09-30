@@ -88,7 +88,7 @@ This was formalized in Lean by Alexeev.
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at
   "https://github.com/plby/lean-proofs/blob/a28a04b6b8ce43d5260a7466677c1f23833bfc38/src/latest/ErdosProblems/Erdos123.lean"]
-theorem erdos_123 : answer(True) ↔ ∀ a > 1, ∀ b > 1, ∀ c > 1, PairwiseCoprime a b c →
+theorem erdos_123 : ∀ a > 1, ∀ b > 1, ∀ c > 1, PairwiseCoprime a b c →
     IsDComplete (↑(powers a) * ↑(powers b) * ↑(powers c)) := by sorry
 
 /--

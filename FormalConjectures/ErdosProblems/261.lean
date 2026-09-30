@@ -72,7 +72,7 @@ $$\frac{n}{2^n} = \sum_{1 \le k \le t} \frac{a_k}{2^{a_k}}?$$
 
 In [Er88c], Erdős notes that Cusick had a simple proof that infinitely many such $n$ exist. -/
 @[category research solved, question, AMS 11]
-theorem erdos_261.parts.i : answer(True) ↔ {n : ℕ | 0 < n ∧ Erdos261Prop n}.Infinite := by
+theorem erdos_261.parts.i : {n : ℕ | 0 < n ∧ Erdos261Prop n}.Infinite := by
   sorry
 
 /-- Tengely, Ulas, and Zygadlo [TUZ20] verified that every positive integer $n \le 10000$ has
@@ -106,7 +106,7 @@ $\mathbb{N}_{>0} \setminus \{4\}$ and by $\mathbb{N}_{>0} \setminus \{5, 6\}$. I
 "two" here is a misprint for $2^{\aleph_0}$ (see `erdos_261.parts.iii`, which remains open). -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at
   "https://github.com/g8r-b8/erdos261-lean/blob/976bddf21eafc93ea86a7a1bfd92b847070a6f31/Erdos261.lean#L87"]
-theorem erdos_261.variants.two_representations : answer(True) ↔ ∃ x : ℚ,
+theorem erdos_261.variants.two_representations : ∃ x : ℚ,
     2 ≤ #{a : ℕ → ℕ | Erdos261InfiniteRepresentation x a} := by
   sorry
 

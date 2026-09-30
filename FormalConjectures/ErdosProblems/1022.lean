@@ -68,7 +68,7 @@ chromatic number $3$. A similar counterexample was found independently by Koishi
 comments.
 -/
 @[category research solved, question, AMS 5]
-theorem erdos_1022.variants.lt_two : answer(True) ↔
+theorem erdos_1022.variants.lt_two :
     ∀ (t : ℕ) (c : ℝ), SparseImpliesPropertyB t c → c < 2 := by
   sorry
 

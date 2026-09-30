@@ -52,7 +52,7 @@ encoded as `IsEmpty (G.Coloring ℕ)`. The conclusion states that there is some
 $N$ such that for every $k \geq N$ the graph contains a cycle of odd length $2k + 1$.
 -/
 @[category research solved, question, AMS 3 5, formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/1268917deaaaa0d674f651287027baa26cea9920/src/latest/ErdosProblems/Erdos594.lean#L907"]
-theorem erdos_594 : answer(True) ↔
+theorem erdos_594 :
     ∀ (V : Type) (G : SimpleGraph V), IsEmpty (G.Coloring ℕ) →
       ∃ N : ℕ, ∀ k : ℕ, N ≤ k →
         ∃ (v : V) (w : G.Walk v v), w.IsCycle ∧ w.length = 2 * k + 1 := by

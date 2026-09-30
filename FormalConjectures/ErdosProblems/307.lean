@@ -59,11 +59,10 @@ $$
 $$
 -/
 @[category textbook, AMS 5 11]
-theorem erdos_307.variants.coprime : answer(True) ↔ ∃ P Q : Finset ℕ, 0 ∉ P ∩ Q ∧ 1 < #P ∧ 1 < #Q ∧
+theorem erdos_307.variants.coprime : ∃ P Q : Finset ℕ, 0 ∉ P ∩ Q ∧ 1 < #P ∧ 1 < #Q ∧
     Set.Pairwise P Nat.Coprime ∧ Set.Pairwise Q Nat.Coprime ∧
     1 = (∑ p ∈ P, (p : ℚ)⁻¹) * (∑ q ∈ Q, (q : ℚ)⁻¹) := by
-  show True ↔ _
-  simp only [Finset.mem_inter, not_and, true_iff]
+  simp only [Finset.mem_inter, not_and]
   use {1, 5}, {2, 3}
   norm_num +decide
 

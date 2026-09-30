@@ -38,7 +38,7 @@ The answer is yes, proved by Balister, Bollobás, Morris, Sahasrabudhe, and Tiba
 -/
 @[category research solved, question, AMS 5 12 41] -- TODO(lezeau): I'm a little unhappy with the `41` tag
 theorem erdos_228 :
-    answer(True) ↔ ∃ (c₁ : ℝ) (c₂ : ℝ), ∀ᶠ n : ℕ in Filter.atTop,
+    ∃ (c₁ : ℝ) (c₂ : ℝ), ∀ᶠ n : ℕ in Filter.atTop,
     ∃ p : Polynomial ℂ, p.degree = n ∧
     (∀ i ≤ n, p.coeff i = 1 ∨ p.coeff i = -1) ∧
     ∀ z : ℂ, ‖z‖ = 1 →

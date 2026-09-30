@@ -41,7 +41,7 @@ Ko [Ko40] proved there are none if $(x,y)=1$, but there are in fact infinitely m
 general - for example, $x=2^{12}3^6$, $y = 2^83^8$, and $z = 2^{11}3^7$.
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at "https://github.com/plby/lean-proofs/blob/main/src/v4.29.1/ErdosProblems/Erdos674.lean"]
-theorem erdos_674 : answer(True) ↔ solutionSet.Nonempty := by
+theorem erdos_674 : solutionSet.Nonempty := by
   sorry
 
 /--

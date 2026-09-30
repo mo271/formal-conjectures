@@ -79,7 +79,7 @@ This was formalized in Lean by van Doorn using Aristotle.
 -/
 @[category research solved, question, AMS 11, formal_proof using lean4 at
 "https://github.com/Woett/Lean-files/blob/main/ErdosProblem785.lean"]
-theorem erdos_785 : answer(True) ↔
+theorem erdos_785 :
     ∀ A B : Set ℕ, A.Infinite → B.Infinite → 0 ∉ A → 0 ∉ B → IsExactAdditiveComplement A B →
       Tendsto (fun x : ℕ => (counting A x * counting B x : ℝ) - (x : ℝ)) atTop atTop := by
   sorry

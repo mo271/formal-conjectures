@@ -41,7 +41,7 @@ generated projective modules over the preprojective algebra of type $A_5$ over $
 The result is pretriangulated but does not satisfy the octahedral axiom.
 -/
 @[category research solved, question, AMS 18]
-theorem mathoverflow_31809 : answer(True) ↔ ¬ (∀ (C : Type*) [Category C] [Preadditive C]
+theorem mathoverflow_31809 : ¬ (∀ (C : Type*) [Category C] [Preadditive C]
     [HasZeroObject C] [HasShift C ℤ] [∀ (n : ℤ), (shiftFunctor C n).Additive]
     [Pretriangulated C], IsTriangulated C) := by
   sorry
