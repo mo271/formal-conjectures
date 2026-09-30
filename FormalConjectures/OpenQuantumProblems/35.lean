@@ -785,19 +785,19 @@ theorem ame_7_10_open :
 /-- Open benchmark statement: does an $\mathrm{AME}(8,4)$ state exist? -/
 @[category research open, question, AMS 5 15 81 94]
 theorem ame_8_4_open :
-    answer(sorry) ↔ ExistsAME 8 4 := by
+    ExistsAME 8 4 := by
   sorry
 
 /-- Open benchmark statement: does an $\mathrm{AME}(8,6)$ state exist? -/
 @[category research open, question, AMS 5 15 81 94]
 theorem ame_8_6_open :
-    answer(sorry) ↔ ExistsAME 8 6 := by
+    ExistsAME 8 6 := by
   sorry
 
 /-- Open benchmark statement: does an $\mathrm{AME}(8,10)$ state exist? -/
 @[category research open, question, AMS 5 15 81 94]
 theorem ame_8_10_open :
-    answer(sorry) ↔ ExistsAME 8 10 := by
+    ExistsAME 8 10 := by
   sorry
 
 /-- Open benchmark statement: does an $\mathrm{AME}(9,6)$ state exist?
@@ -829,19 +829,19 @@ theorem ame_9_10_open :
 /-- Open benchmark statement: does an $\mathrm{AME}(10,6)$ state exist? -/
 @[category research open, question, AMS 5 15 81 94]
 theorem ame_10_6_open :
-    answer(sorry) ↔ ExistsAME 10 6 := by
+    ExistsAME 10 6 := by
   sorry
 
 /-- Open benchmark statement: does an $\mathrm{AME}(10,10)$ state exist? -/
 @[category research open, question, AMS 5 15 81 94]
 theorem ame_10_10_open :
-    answer(sorry) ↔ ExistsAME 10 10 := by
+    ExistsAME 10 10 := by
   sorry
 
 /-- Open benchmark statement: does an $\mathrm{AME}(11,3)$ state exist? -/
 @[category research open, question, AMS 5 15 81 94]
 theorem ame_11_3_open :
-    answer(sorry) ↔ ExistsAME 11 3 := by
+    ExistsAME 11 3 := by
   sorry
 
 /-- Open benchmark statement: does an $\mathrm{AME}(11,4)$ state exist?
@@ -874,7 +874,7 @@ theorem ame_11_5_open :
 /-- Open benchmark statement: does an $\mathrm{AME}(11,6)$ state exist? -/
 @[category research open, question, AMS 5 15 81 94]
 theorem ame_11_6_open :
-    answer(sorry) ↔ ExistsAME 11 6 := by
+    ExistsAME 11 6 := by
   sorry
 
 /-- Open benchmark statement: does an $\mathrm{AME}(11,10)$ state exist?
@@ -903,13 +903,13 @@ theorem ame_12_5_open :
 /-- Open benchmark statement: does an $\mathrm{AME}(12,6)$ state exist? -/
 @[category research open, question, AMS 5 15 81 94]
 theorem ame_12_6_open :
-    answer(sorry) ↔ ExistsAME 12 6 := by
+    ExistsAME 12 6 := by
   sorry
 
 /-- Open benchmark statement: does an $\mathrm{AME}(12,10)$ state exist? -/
 @[category research open, question, AMS 5 15 81 94]
 theorem ame_12_10_open :
-    answer(sorry) ↔ ExistsAME 12 10 := by
+    ExistsAME 12 10 := by
   sorry
 
 /- ## General conjecture -/

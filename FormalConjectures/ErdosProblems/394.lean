@@ -120,9 +120,8 @@ $t_k(n!)< t_{k-1}(n!)-1$ for all $1\leq k < n$.
 -/
 @[category research open, question, AMS 11]
 theorem erdos_394.variants.factorial_gap_conjecture :
-    answer(sorry) ↔
-      Set.Infinite { n : ℕ | ∀ k, 2 ≤ k → k < n →
-      t k (n !) < t (k - 1) (n !) - 1 } := by
+    Set.Infinite { n : ℕ | ∀ k, 2 ≤ k → k < n →
+    t k (n !) < t (k - 1) (n !) - 1 } := by
   sorry
 
 set_option maxRecDepth 20000 in

@@ -117,7 +117,7 @@ $b_1<\cdots <b_t$ of the form $2^k3^l5^m$ where $b_t<(1+\epsilon)b_1$.
 -/
 @[category research open, question, AMS 11]
 theorem erdos_123.variants.powers_2_3_5_snug :
-    answer(sorry) ↔ ∀ ε > 0, ∀ᶠ n in atTop,
+    ∀ ε > 0, ∀ᶠ n in atTop,
       ∃ A : Finset ℕ, (A : Set ℕ) ⊆ ↑(powers 2) * ↑(powers 3) * ↑(powers 5) ∧ IsSnug ε A ∧
         ∑ x ∈ A, x = n := by sorry
 

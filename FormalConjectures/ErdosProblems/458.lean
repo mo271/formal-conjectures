@@ -39,7 +39,7 @@ Is it true that for all $k \geq 1$, $\operatorname{lcm}(1, \dots, p_{k+1}-1) < p
 -/
 @[category research open, question, AMS 11]
 theorem erdos_458 :
-    answer(sorry) ↔ ∀ k : ℕ, lcm_upto ((k + 1).nth Prime - 1)
+    ∀ k : ℕ, lcm_upto ((k + 1).nth Prime - 1)
      < k.nth Prime * lcm_upto (k.nth Prime) := by
     sorry
 

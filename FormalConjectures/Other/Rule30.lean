@@ -79,8 +79,7 @@ eventually periodic: there is no positive period $p$ and threshold $N$ past whic
 repeats with period $p$. -/
 @[category research open, question, AMS 37 68]
 theorem centerColumn_not_eventually_periodic :
-    answer(sorry) ↔
-      ¬ ∃ p : ℕ, 0 < p ∧ ∃ N : ℕ, ∀ t : ℕ, N ≤ t → centerColumn (t + p) = centerColumn t := by
+    ¬ ∃ p : ℕ, 0 < p ∧ ∃ N : ℕ, ∀ t : ℕ, N ≤ t → centerColumn (t + p) = centerColumn t := by
   sorry
 
 /-- **Rule 30 Prize, Problem 2 (equal frequency).** Each color occurs on average equally often
@@ -89,7 +88,7 @@ Wolfram's phrasing that the discrete limit of $\mathrm{Total}[c[t]]/t$ as $t \to
 $1/2$. -/
 @[category research open, question, AMS 37 68]
 theorem centerColumn_frequency_half :
-    answer(sorry) ↔ {t : ℕ | centerColumn t}.HasDensity (1 / 2) := by
+    {t : ℕ | centerColumn t}.HasDensity (1 / 2) := by
   sorry
 
 end Rule30

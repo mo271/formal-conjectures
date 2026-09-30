@@ -40,7 +40,7 @@ This is an open problem.
 -/
 @[category research open, question, AMS 11]
 theorem erdos_1004 :
-    answer(sorry) ↔ ∀ c > (0 : ℝ), ∀ᶠ x in atTop, ∃ n ≤ x,
+    ∀ c > (0 : ℝ), ∀ᶠ x in atTop, ∃ n ≤ x,
       IsDistinctTotientRun n ⌊(Real.log (x : ℝ)) ^ c⌋₊ := by
   sorry
 

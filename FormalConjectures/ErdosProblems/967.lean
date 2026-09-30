@@ -71,7 +71,7 @@ theorem erdos_967.variants.yip (t : ℝ) (ht : t ≠ 0) :
 It remains open whether this is true for every finite sequence of integers.
 -/
 @[category research open, question, AMS 11 30]
-theorem erdos_967.variants.finite : answer(sorry) ↔
+theorem erdos_967.variants.finite :
     ∀ A : Finset ℕ, (∀ n ∈ A, 1 < n) → ∀ t : ℝ, 1 + (∑ n ∈ A, summand t n) ≠ 0 := by
   sorry
 
@@ -80,7 +80,7 @@ A question of Erdős and Ingham [ErIn64]. The simplest case they could not decid
 for was the finite sequence $\{2,3,5\}$.
 -/
 @[category research open, question, AMS 11 30]
-theorem erdos_967.variants.two_three_five : answer(sorry) ↔
+theorem erdos_967.variants.two_three_five :
     ∀ t : ℝ, 1 + (∑ n ∈ ({2, 3, 5} : Finset ℕ), summand t n) ≠ 0 := by
   sorry
 

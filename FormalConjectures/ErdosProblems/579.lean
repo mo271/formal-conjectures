@@ -52,7 +52,7 @@ Here $K_{2,2,2}$ is the complete tripartite graph with all parts of size $2$, en
 via `SimpleGraph.Free`.
 -/
 @[category research open, question, AMS 5]
-theorem erdos_579 : answer(sorry) ↔
+theorem erdos_579 :
     ∀ δ : ℝ, 0 < δ → ∃ c : ℝ, 0 < c ∧ ∀ᶠ n : ℕ in atTop,
       ∀ G : SimpleGraph (Fin n), octahedron.Free G →
         δ * (n : ℝ) ^ 2 ≤ G.edgeFinset.card →

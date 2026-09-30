@@ -44,7 +44,7 @@ negative for $d = 1$, so the dimension is restricted to $d \ge 2$, where the pro
 -/
 @[category research open, question, AMS 42 46]
 theorem exists_nowhereDense_spectralSet :
-    answer(sorry) ↔ ∃ d : ℕ, 2 ≤ d ∧
+    ∃ d : ℕ, 2 ≤ d ∧
       ∃ Ω : Set (Fin d → ℝ), Bornology.IsBounded Ω ∧ MeasurableSet Ω ∧
         IsNowhereDense Ω ∧ 0 < volume Ω ∧ isSpectral Ω := by
   sorry
@@ -95,8 +95,7 @@ measurable set $B$, must spectrality of $A \times B$ imply spectrality of $B$?
 -/
 @[category research open, question, AMS 42 46]
 theorem isSpectral_right_of_product_three_dimensional :
-    answer(sorry) ↔
-      ∀ (m : ℕ), 0 < m → spectralProductImpliesRightSpectral 3 m := by
+    ∀ (m : ℕ), 0 < m → spectralProductImpliesRightSpectral 3 m := by
   sorry
 
 /--
@@ -105,9 +104,8 @@ measurable set $B$, must spectrality of $A \times B$ imply spectrality of $B$?
 -/
 @[category research open, question, AMS 42 46]
 theorem isSpectral_right_of_product_of_convexBody :
-    answer(sorry) ↔
-      ∀ (n m : ℕ), 0 < n → 0 < m →
-        spectralProductImpliesRightSpectral n m := by
+    ∀ (n m : ℕ), 0 < n → 0 < m →
+      spectralProductImpliesRightSpectral n m := by
   sorry
 
 end SpectralSetProduct

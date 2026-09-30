@@ -97,7 +97,7 @@ theorem erdos_133.variants.furedi_seress : ∀ ε : ℝ, 0 < ε →
 /-- Is $f(n)\sim \sqrt{n}$? Alon believes that this is the truth. -/
 @[category research open, question, AMS 5]
 theorem erdos_133.variants.asymptotic :
-    answer(sorry) ↔ (fun n : ℕ ↦ (f n : ℝ)) ~[atTop] fun n ↦ √n := by
+    (fun n : ℕ ↦ (f n : ℝ)) ~[atTop] fun n ↦ √n := by
   sorry
 
 end Erdos133

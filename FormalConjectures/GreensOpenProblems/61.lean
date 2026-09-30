@@ -40,11 +40,10 @@ exist such $A$ with $|A| \ll_C n / \log^C n$ for any $C$.
 -/
 @[category research open, question, AMS 11]
 theorem green_61 :
-    answer(sorry) ↔
-      ∃ f : ℕ → ℝ, Tendsto f atTop (𝓝 0) ∧
-        ∀ n : ℕ, n ≥ 1 → ∀ (A : Finset ℕ),
-          (Finset.Icc 1 n).image (· ^ 2) ⊆ A + A →
-            (n : ℝ) ^ (1 - f n) ≤ A.card := by
+    ∃ f : ℕ → ℝ, Tendsto f atTop (𝓝 0) ∧
+      ∀ n : ℕ, n ≥ 1 → ∀ (A : Finset ℕ),
+        (Finset.Icc 1 n).image (· ^ 2) ⊆ A + A →
+          (n : ℝ) ^ (1 - f n) ≤ A.card := by
   sorry
 
 end Green61

@@ -133,7 +133,7 @@ Are there infinitely many Mersenne primes?
 -/
 @[category research open, question, AMS 11]
 theorem infinitely_many_mersenne_primes :
-  answer(sorry) ↔ Set.Infinite { p : ℕ | (mersenne p).Prime } := by
+  Set.Infinite { p : ℕ | (mersenne p).Prime } := by
     sorry
 
 /--
@@ -143,7 +143,7 @@ Are all Catalan-Mersenne numbers $c_n$ with $n \geq 5$ prime?
 -/
 @[category research open, question, AMS 11]
 theorem catalans_mersenne_conjecture :
-    answer(sorry) ↔ ∀ n ≥ 5, Nat.Prime (catalanMersenne n) := by
+    ∀ n ≥ 5, Nat.Prime (catalanMersenne n) := by
   sorry
 
 end Mersenne

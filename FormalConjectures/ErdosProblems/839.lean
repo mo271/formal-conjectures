@@ -52,7 +52,7 @@ such that no $a_i$ is the sum of consecutive $a_j$ for $j < i$.
 Is it true that $\limsup a_n / n = \infty$?
 -/
 @[category research open, question, AMS 11]
-theorem erdos_839.parts.i : answer(sorry) ↔
+theorem erdos_839.parts.i :
     ∀ (a : ℕ → ℕ), (∀ n, 1 ≤ a n) → StrictMono a → SumOfConsecutiveFree a →
     atTop.limsup (fun n : ℕ => (a n : ℝ≥0∞) / n) = ⊤ := by
   sorry
@@ -68,7 +68,7 @@ This is equivalent to asking whether the range $\{a_1,a_2,\ldots\}$ has logarith
 (see `Set.HasLogDensity`).
 -/
 @[category research open, question, AMS 11]
-theorem erdos_839.parts.ii : answer(sorry) ↔
+theorem erdos_839.parts.ii :
     ∀ (a : ℕ → ℕ), (∀ n, 1 ≤ a n) → StrictMono a → SumOfConsecutiveFree a →
     Set.HasLogDensity (Set.range a) 0 := by
   sorry

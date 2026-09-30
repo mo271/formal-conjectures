@@ -88,7 +88,7 @@ In [Er80] Erdős asks whether
 $$ \lim_{k \to \infty} (W(k))^{1/k} = \infty $$
 -/
 @[category research open, question, AMS 11]
-theorem erdos_138 : answer(sorry) ↔ atTop.Tendsto (fun k => (W k : ℝ)^(1/(k : ℝ))) atTop := by
+theorem erdos_138 : atTop.Tendsto (fun k => (W k : ℝ)^(1/(k : ℝ))) atTop := by
   sorry
 
 
@@ -111,7 +111,7 @@ In [Er81] Erdős asks whether $\frac{W(k+1)}{W(k)} \to \infty$.
 -/
 @[category research open, question, AMS 11]
 theorem erdos_138.variants.quotient :
-    answer(sorry) ↔ atTop.Tendsto (fun k => ((W (k + 1) : ℚ)/(W k))) atTop := by
+    atTop.Tendsto (fun k => ((W (k + 1) : ℚ)/(W k))) atTop := by
   sorry
 
 /--

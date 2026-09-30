@@ -66,13 +66,13 @@ theorem erdos_1099 : answer(True) ↔
 
 /-- Is $h_\alpha(n!)$ bounded? -/
 @[category research open, question, AMS 11]
-theorem erdos_1099.variants.factorial : answer(sorry) ↔ ∀ α : ℝ, 1 < α →
+theorem erdos_1099.variants.factorial : ∀ α : ℝ, 1 < α →
     ∃ C : ℝ, ∀ n : ℕ, h α n.factorial ≤ C := by
   sorry
 
 /-- Is $h_\alpha(\mathrm{lcm}(1,\ldots,n))$ bounded? -/
 @[category research open, question, AMS 11]
-theorem erdos_1099.variants.lcm : answer(sorry) ↔ ∀ α : ℝ, 1 < α →
+theorem erdos_1099.variants.lcm : ∀ α : ℝ, 1 < α →
     ∃ C : ℝ, ∀ n : ℕ, h α ((Finset.Icc 1 n).lcm id) ≤ C := by
   sorry
 

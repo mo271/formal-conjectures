@@ -81,7 +81,7 @@ def HasBoundedDensity (Λ : Set ℝ) : Prop :=
     a weak tiling measure for $\Omega$. Must $\mathrm{supp}(\nu)$ have bounded density? -/
 @[category research open, question, AMS 42 46]
 theorem problem_4_1 :
-    answer(sorry) ↔ ∀ (Ω : Set ℝ) (_ : IsFiniteUnionOfIntervals Ω)
+    ∀ (Ω : Set ℝ) (_ : IsFiniteUnionOfIntervals Ω)
       (ν : Measure ℝ) (_ : IsWeakTilingMeasure Ω ν), HasBoundedDensity ν.support := by
   sorry
 
@@ -90,7 +90,7 @@ theorem problem_4_1 :
     properly? -/
 @[category research open, question, AMS 42 46]
 theorem problem_4_2 :
-    answer(sorry) ↔ ∀ (n : ℕ) (_ : 3 ≤ n) (Ω : Set ℝ)
+    ∀ (n : ℕ) (_ : 3 ≤ n) (Ω : Set ℝ)
       (_ : IsUnionOfNIntervals n Ω) (ν : Measure ℝ) (_ : IsWeakTilingMeasure Ω ν),
       ∃ T : Set ℝ, IsProperTiling Ω T := by
   sorry

@@ -54,7 +54,7 @@ noncomputable def u (n : ℕ) : ℝ :=
 Does the set `{n | u n < u (n+1)}` have positive lower density?
 -/
 @[category research open, question, AMS 11]
-theorem erdos_968 : answer(sorry) ↔ 0 < {n : ℕ | u n < u (n + 1)}.lowerDensity := by
+theorem erdos_968 : 0 < {n : ℕ | u n < u (n + 1)}.lowerDensity := by
   sorry
 
 /--
@@ -83,7 +83,7 @@ Erdős asked whether there are infinitely many solutions to `uₙ < uₙ₊₁ <
 -/
 @[category research open, question, AMS 11]
 theorem erdos_968.variants.infinite_increasingTriples :
-    answer(sorry) ↔ {n : ℕ | u n < u (n + 1) ∧ u (n + 1) < u (n + 2)}.Infinite := by
+    {n : ℕ | u n < u (n + 1) ∧ u (n + 1) < u (n + 2)}.Infinite := by
   sorry
 
 /--
@@ -91,7 +91,7 @@ Erdős asked whether there are infinitely many solutions to `uₙ > uₙ₊₁ >
 -/
 @[category research open, question, AMS 11]
 theorem erdos_968.variants.infinite_decreasingTriples :
-    answer(sorry) ↔ {n : ℕ | u n > u (n + 1) ∧ u (n + 1) > u (n + 2)}.Infinite := by
+    {n : ℕ | u n > u (n + 1) ∧ u (n + 1) > u (n + 2)}.Infinite := by
   sorry
 
 end Erdos968

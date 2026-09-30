@@ -85,7 +85,7 @@ $$x\mapsto 2x,\quad x\mapsto 3x+2,\quad x\mapsto 6x+3$$
 has positive density.
 -/
 @[category research open, question, AMS 11]
-theorem erdos_1134.variants.klarner : answer(sorry) ↔
+theorem erdos_1134.variants.klarner :
     0 < (⋂₀ {S : Set ℕ | 0 ∈ S ∧
       ∀ x ∈ S, 2 * x ∈ S ∧ 3 * x + 2 ∈ S ∧ 6 * x + 3 ∈ S}).lowerDensity := by
   sorry

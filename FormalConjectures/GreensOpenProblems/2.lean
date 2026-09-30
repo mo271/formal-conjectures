@@ -55,7 +55,7 @@ Let $A \subset \mathbf{Z}$ be a set of $n$ integers. Is there a set $S \subset A
 $(\log n)^{100}$ such that the restricted sumset$S \hat{+} S$ is disjoint from $A$?
 -/
 @[category research open, question, AMS 11]
-theorem green_2 : answer(sorry) ↔
+theorem green_2 :
     ∀ᶠ n : ℕ in atTop, ∀ A : Finset ℤ, A.card = n →
       (maxRestrictedSumAvoidingSubsetSize A : ℝ) ≥ (Real.log n) ^ 100 := by
   sorry

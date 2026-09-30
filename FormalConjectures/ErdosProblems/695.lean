@@ -36,7 +36,7 @@ $$
 $$
 -/
 @[category research open, question, AMS 11]
-theorem erdos_695 : answer(sorry) ↔
+theorem erdos_695 :
     ∀ {q : ℕ → ℕ},
       StrictMono q →
       (∀ i, (q i).Prime) →
@@ -51,7 +51,7 @@ q(k) \leq \exp(k (\log k)^{1 + o(1)})?
 $$
 -/
 @[category research open, question, AMS 11]
-theorem erdos_695.variants.upperBound : answer(sorry) ↔
+theorem erdos_695.variants.upperBound :
     ∃ q : ℕ → ℕ,
       StrictMono q ∧
       (∀ i, (q i).Prime) ∧

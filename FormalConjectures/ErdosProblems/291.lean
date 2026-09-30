@@ -61,8 +61,7 @@ Is it true that $(a_n,L_n)=1$ occurs for infinitely many $n$?
 -/
 @[category research open, question, AMS 11]
 theorem erdos_291.parts.i :
-    answer(sorry) ↔
-      { n : ℕ | Nat.gcd (a n) (L n) = 1 }.Infinite := by
+    { n : ℕ | Nat.gcd (a n) (L n) = 1 }.Infinite := by
   sorry
 
 /--

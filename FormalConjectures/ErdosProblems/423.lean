@@ -107,7 +107,7 @@ than $a(k-1)$ that is a sum of at least two consecutive terms of the sequence.
 What is the asymptotic behaviour of this sequence? It seems likely that $a_n = n + o(n)$.
 -/
 @[category research open, question, AMS 5 11]
-theorem erdos_423 : answer(sorry) ↔
+theorem erdos_423 :
     ∀ a : ℕ → ℕ, IsHofstadterSeq a →
     (fun n : ℕ => (a n : ℝ) - n) =o[atTop] (fun n : ℕ => (n : ℝ)) := by
   sorry

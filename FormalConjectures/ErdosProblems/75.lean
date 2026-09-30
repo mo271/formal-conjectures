@@ -37,7 +37,6 @@ then `H` contains an independent set of size `> n ^ (1 - ε)`?
 -/
 @[category research open, question, AMS 5]
 theorem erdos_75 :
-    answer(sorry) ↔
     ∃ (V : Type) (G : SimpleGraph V),
       G.chromaticCardinal = ℵ_ 1 ∧
       #V = ℵ_ 1 ∧

@@ -38,7 +38,7 @@ Let $s_1 < s_2 < \dots$ be the sequence of squarefree numbers. Is it true that
 for any $\epsilon > 0$ and large $n$, $s_{n+1} - s_n \ll_\epsilon s_n^\epsilon$?
 -/
 @[category research open, question, AMS 11]
-theorem erdos_208.parts.i : answer(sorry) ↔
+theorem erdos_208.parts.i :
     ∀ ε > (0 : ℝ), (fun n => (s (n + 1) - s n : ℝ)) =O[atTop] (fun n => (s n : ℝ)^ε) := by sorry
 
 /--
@@ -46,7 +46,7 @@ Let $s_1 < s_2 < \dots$ be the sequence of squarefree numbers. Is it true that
 $s_{n + 1} - s_n \le (1 + o(1)) \cdot (\pi^2 / 6) \cdot \log (s_n) / \log (\log (s_n))$?
 -/
 @[category research open, question, AMS 11]
-theorem erdos_208.parts.ii : answer(sorry) ↔ ∃ (c : ℕ → ℝ), (c =o[atTop] (1 : ℕ → ℝ)) ∧ ∀ᶠ n in atTop,
+theorem erdos_208.parts.ii : ∃ (c : ℕ → ℝ), (c =o[atTop] (1 : ℕ → ℝ)) ∧ ∀ᶠ n in atTop,
       s (n + 1) - s n ≤ (1 + (c n)) * (π^2 / 6) * log (s n) / log (log (s n)) := by
   sorry
 

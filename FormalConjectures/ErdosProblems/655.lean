@@ -64,7 +64,7 @@ some kind of assumption that the points are in general position
 (e.g. no three on a line and no four on a circle) was intended.-/
 @[category research open, question, AMS 5 52]
 theorem erdos_655.variants.general_position :
-    answer(sorry) ↔ ∃ c > (0 : ℝ), ∀ᶠ n in atTop, ∀ (X : Finset ℝ²), #X = n → IsValid X →
+    ∃ c > (0 : ℝ), ∀ᶠ n in atTop, ∀ (X : Finset ℝ²), #X = n → IsValid X →
       InGeneralPosition X → (1 + c) * n / 2 ≤ distinctDistances X := by
   sorry
 

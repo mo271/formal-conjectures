@@ -48,7 +48,7 @@ Lenstra gave a heuristic argument against the existence of such a prime (see Dob
 -/
 @[category research open, question, AMS 11]
 theorem exists_isWieferichPrime_and_isMirimanoffPrime :
-    answer(sorry) ↔ ∃ p : ℕ, IsWieferichPrime p ∧ IsMirimanoffPrime p := by
+    ∃ p : ℕ, IsWieferichPrime p ∧ IsMirimanoffPrime p := by
   sorry
 
 /--
@@ -57,7 +57,7 @@ found no other below $9.7 \times 10^{14}$.
 -/
 @[category research open, question, AMS 11]
 theorem isMirimanoffPrime_iff :
-    answer(sorry) ↔ ∀ p, IsMirimanoffPrime p ↔ p = 11 ∨ p = 1006003 := by
+    ∀ p, IsMirimanoffPrime p ↔ p = 11 ∨ p = 1006003 := by
   sorry
 
 /-- The prime $11$ is a Mirimanoff prime but not a Wieferich prime. -/

@@ -204,7 +204,7 @@ Are there $n$ such that $n+2^{2^k}$ is always squarefree?
 -/
 @[category research open, question, AMS 11]
 theorem erdos_1209.parts.iii.b :
-    answer(sorry) ↔ ∃ n : ℕ, ∀ k : ℕ, Squarefree (n + 2 ^ (2 ^ k)) := by
+    ∃ n : ℕ, ∀ k : ℕ, Squarefree (n + 2 ^ (2 ^ k)) := by
   sorry
 
 /--
@@ -212,7 +212,7 @@ Are there $n$ such that $n+2^{2^k}$ is infinitely often a prime?
 -/
 @[category research open, question, AMS 11]
 theorem erdos_1209.parts.iii.c :
-    answer(sorry) ↔ ∃ n : ℕ, {k | (n + 2 ^ (2 ^ k)).Prime}.Infinite := by
+    ∃ n : ℕ, {k | (n + 2 ^ (2 ^ k)).Prime}.Infinite := by
   sorry
 
 /--
@@ -220,7 +220,7 @@ Are there $n$ such that $n+2^{2^k}$ is infinitely often squarefree?
 -/
 @[category research open, question, AMS 11]
 theorem erdos_1209.parts.iii.d :
-    answer(sorry) ↔ ∃ n : ℕ, {k | Squarefree (n + 2 ^ (2 ^ k))}.Infinite := by
+    ∃ n : ℕ, {k | Squarefree (n + 2 ^ (2 ^ k))}.Infinite := by
   sorry
 
 end Erdos1209

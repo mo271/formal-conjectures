@@ -46,7 +46,7 @@ noncomputable def f (n : ℕ) : ℝ := ⨅ A : {A : Finset ℕ | A.card = n ∧ 
 $$\frac{1}{t}\sum_{1\leq i<t}(s_{i+1}-s_i)^2 \to \infty$$
 as $\lvert A\rvert\to \infty$? -/
 @[category research open, question, AMS 5]
-theorem erdos_153 : answer(sorry) ↔ Tendsto f atTop atTop := by
+theorem erdos_153 : Tendsto f atTop atTop := by
   sorry
 
 end Erdos153

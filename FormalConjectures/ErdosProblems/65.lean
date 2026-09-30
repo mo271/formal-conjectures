@@ -56,7 +56,7 @@ Is the sum $\sum\frac{1}{a_i}$ minimised when $G$ is a complete bipartite graph?
 This problem is #65 in Extremal Graph Theory in the graphs problem collection.
 -/
 @[category research open, question, AMS 5]
-theorem erdos_65.parts.ii : answer(sorry) ↔
+theorem erdos_65.parts.ii :
     ∀ (k : ℝ) (hk : 0 < k),
       ∀ (n : ℕ) (V : Type) [Fintype V] (G : SimpleGraph V),
         0 < n →

@@ -54,7 +54,7 @@ many, see `infinite_isWieferichPrime`.
 -/
 @[category research open, question, AMS 11]
 theorem isWieferichPrime_iff :
-    answer(sorry) ↔ ∀ p, IsWieferichPrime p ↔ p = 1093 ∨ p = 3511 := by
+    ∀ p, IsWieferichPrime p ↔ p = 1093 ∨ p = 3511 := by
   sorry
 
 /--
@@ -65,12 +65,12 @@ $a^{p-1} \equiv 1 \pmod{p^2}$? The case $a = 1$ is trivial, since every prime qu
 -/
 @[category research open, question, AMS 11]
 theorem infinite_isWieferichPrimeBase :
-    answer(sorry) ↔ ∀ a : ℕ, {p : ℕ | IsWieferichPrimeBase a p}.Infinite := by
+    ∀ a : ℕ, {p : ℕ | IsWieferichPrimeBase a p}.Infinite := by
   sorry
 
 /-- Are there any Wieferich primes to base $47$? None is currently known. -/
 @[category research open, question, AMS 11]
-theorem exists_isWieferichPrimeBase_47 : answer(sorry) ↔ ∃ p, IsWieferichPrimeBase 47 p := by
+theorem exists_isWieferichPrimeBase_47 : ∃ p, IsWieferichPrimeBase 47 p := by
   sorry
 
 /-- The prime $1093$ is a Wieferich prime: $2^{1092} \equiv 1 \pmod{1093^2}$. -/

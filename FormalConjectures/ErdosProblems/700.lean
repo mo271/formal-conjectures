@@ -84,7 +84,7 @@ $n$, there are infinitely many $n$ — those of the form $p^2$ — with $f(n) \g
 question asks for the strict inequality.) Here $f(n) > n^{1/2}$ is written as `(f n) ^ 2 > n`. -/
 @[category research open, question, AMS 11]
 theorem erdos_700.parts.ii :
-    answer(sorry) ↔ {n : ℕ | ¬ n.Prime ∧ 1 < n ∧ (f n) ^ 2 > n}.Infinite := by
+    {n : ℕ | ¬ n.Prime ∧ 1 < n ∧ (f n) ^ 2 > n}.Infinite := by
   sorry
 
 /-- Let $f(n) = \min_{1 < k \le n/2} \gcd(n, \binom{n}{k})$.
@@ -96,7 +96,7 @@ Here $f(n) \ll_A n/(\log n)^A$ is spelled out as: for every `A > 0` there is a c
 (depending on `A`) with `f(n) ≤ C · n/(log n)^A` for every composite `n`. -/
 @[category research open, question, AMS 11]
 theorem erdos_700.parts.iii :
-    answer(sorry) ↔ (∀ A : ℝ, 0 < A → ∃ C : ℝ, 0 < C ∧ ∀ n : ℕ, ¬ n.Prime → 1 < n →
+    (∀ A : ℝ, 0 < A → ∃ C : ℝ, 0 < C ∧ ∀ n : ℕ, ¬ n.Prime → 1 < n →
       (f n : ℝ) ≤ C * (n : ℝ) / (Real.log n) ^ A) := by
   sorry
 

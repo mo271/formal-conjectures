@@ -61,7 +61,7 @@ noncomputable def f (r : ℕ) : ℝ≥0∞ :=
 
 /-- Does $f(r) \to \infty$? [Gr24]-/
 @[category research open, question, AMS 5 94]
-theorem green_40 : answer(sorry) ↔ Tendsto f atTop (𝓝 ⊤) := by
+theorem green_40 : Tendsto f atTop (𝓝 ⊤) := by
   sorry
 
 /-- The only value known is $f(1) = 1$, which follows from the existence of the Hamming code [Gr24]. -/
@@ -76,12 +76,12 @@ theorem green_40.upper_bound (r : ℕ) : f r ≤ (r ^ r : ℝ≥0∞) / (r.facto
 
 /-- The possibility that f(r) = 1 for all r has not been ruled out [Gr24] -/
 @[category research open, question, AMS 5 94]
-theorem green_40.f_eq_one_for_all : answer(sorry) ↔ ∀ r, f r = 1 := by
+theorem green_40.f_eq_one_for_all : ∀ r, f r = 1 := by
   sorry
 
 /-- It is not known whether f(2) = 1 [Gr24] -/
 @[category research open, question, AMS 5 94]
-theorem green_40.f_two_eq_one : answer(sorry) ↔ f 2 = 1 := by
+theorem green_40.f_two_eq_one : f 2 = 1 := by
   sorry
 
 /-- The best-known upper bound for $f(2)$ is $1.4238$ [CHL97]. -/
@@ -108,7 +108,7 @@ noncomputable def f_tilde (r : ℕ) : ℝ≥0∞ :=
 
 /-- Does $\tilde{f}(r) \to \infty$? [Gr24] -/
 @[category research open, question, AMS 5 94]
-theorem green_40.variants.arbitrary_subsets : answer(sorry) ↔ Tendsto f_tilde atTop (𝓝 ⊤) := by
+theorem green_40.variants.arbitrary_subsets : Tendsto f_tilde atTop (𝓝 ⊤) := by
   sorry
 
 /-- It is known that $\tilde{f}(2) = 1$ [St94]. -/
@@ -156,7 +156,7 @@ The target filter is `𝓝 ⊤`, as in `green_40` and `green_40.variants.arbitra
 `ℝ≥0∞`, `atTop` is the principal ultrafilter at `⊤`, so `Tendsto f_all atTop atTop` would say
 that `f_all r = ⊤` for all large `r` rather than that `f_all r → ∞`. -/
 @[category research open, question, AMS 5 94]
-theorem green_40.variants.all_n : answer(sorry) ↔ Tendsto f_all atTop (𝓝 ⊤) := by
+theorem green_40.variants.all_n : Tendsto f_all atTop (𝓝 ⊤) := by
   sorry
 
 end Green40

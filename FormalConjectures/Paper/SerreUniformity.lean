@@ -66,9 +66,8 @@ Galois representation for every prime $p > C$?
 -/
 @[category research open, question, AMS 11 14]
 theorem serre_uniformity :
-    answer(sorry) ↔
-      ∃ C : ℕ, ∀ (E : WeierstrassCurve ℚ) [E.IsElliptic], E.j ∉ cmJInvariants →
-        ∀ p : ℕ, p.Prime → C < p → HasFullTorsionAction E p := by
+    ∃ C : ℕ, ∀ (E : WeierstrassCurve ℚ) [E.IsElliptic], E.j ∉ cmJInvariants →
+      ∀ p : ℕ, p.Prime → C < p → HasFullTorsionAction E p := by
   sorry
 
 /--
@@ -80,9 +79,8 @@ a proof for $K = \mathbb{Q}$ — it is believed that, in this case, $p_K = 37$."
 -/
 @[category research open, question, AMS 11 14]
 theorem serre_uniformity.variants.bound_37 :
-    answer(sorry) ↔
-      ∀ (E : WeierstrassCurve ℚ) [E.IsElliptic], E.j ∉ cmJInvariants →
-        ∀ p : ℕ, p.Prime → 37 < p → HasFullTorsionAction E p := by
+    ∀ (E : WeierstrassCurve ℚ) [E.IsElliptic], E.j ∉ cmJInvariants →
+      ∀ p : ℕ, p.Prime → 37 < p → HasFullTorsionAction E p := by
   sorry
 
 end SerreUniformity

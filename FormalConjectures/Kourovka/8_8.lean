@@ -53,7 +53,7 @@ element $a$ such that each element of $G$ is conjugate to some power of $a$?
 Here a power of $a$ means $a^n$ for some $n \in \mathbb{Z}$.
 -/
 @[category research open, question, AMS 20]
-theorem kourovka_8_8b : answer(sorry) ↔
+theorem kourovka_8_8b :
     ∃ (G : Type) (_ : Group G), ¬ IsCyclic G ∧ Group.IsFinitelyPresented G ∧
       ∃ a : G, ∀ g : G, ∃ n : ℤ, IsConj g (a ^ n) := by
   sorry

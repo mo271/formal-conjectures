@@ -49,7 +49,7 @@ In a (noncommutative) ring which is left and right Noetherian,
 the intersection of the powers of the Jacobson ideal is trivial -/
 @[category research open, question, AMS 16]
 theorem jacobson_conjecture :
-    answer(sorry) ↔ ∀ (R : Type) [Ring R] [IsNoetherianRing R] [IsRightNoetherianRing R],
+    ∀ (R : Type) [Ring R] [IsNoetherianRing R] [IsRightNoetherianRing R],
       JacobsonConjectureFor R := by
   sorry
 

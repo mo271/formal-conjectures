@@ -30,7 +30,7 @@ namespace Erdos273
 Is there a covering system all of whose moduli are of the form $p-1$ for some primes $p \geq 5$?
 -/
 @[category research open, question, AMS 5 11]
-theorem erdos_273 : answer(sorry) ↔ ∃ c : StrictCoveringSystem ℤ, ∀ i, ∃ (p : ℕ), p.Prime ∧ 5 ≤ p ∧
+theorem erdos_273 : ∃ c : StrictCoveringSystem ℤ, ∀ i, ∃ (p : ℕ), p.Prime ∧ 5 ≤ p ∧
     c.moduli i = Ideal.span {↑(p - 1)} := by
   sorry
 

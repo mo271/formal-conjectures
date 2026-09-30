@@ -45,7 +45,7 @@ def FugledeConjectureFor (n : ℕ) : Prop :=
 -/
 @[category research open, question, AMS 42 46 47]
 theorem FugledeConjecture.variants.dim_1 :
-    answer(sorry) ↔ FugledeConjectureFor 1 := by
+    FugledeConjectureFor 1 := by
   sorry
 
 /--
@@ -57,7 +57,7 @@ unions of unit squares in $\mathbb{R}^2$. It is not yet published.
 -/
 @[category research open, question, AMS 42 46 47]
 theorem FugledeConjecture.variants.dim_2 :
-    answer(sorry) ↔ FugledeConjectureFor 2 := by
+    FugledeConjectureFor 2 := by
   sorry
 
 /--

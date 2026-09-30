@@ -40,7 +40,7 @@ In other words: if $G$ is sparse (every induced subgraph on $k$ vertices has $�
 is $G$ Ramsey size linear?
 -/
 @[category research open, question, AMS 5]
-theorem erdos_566 : answer(sorry) ↔
+theorem erdos_566 :
     ∀ (p : ℕ) (G : SimpleGraph (Fin p)),
       (∀ S : Finset (Fin p), 2 ≤ S.card → (G.induce S).edgeSet.ncard ≤ 2 * S.card - 3) →
       G.IsRamseySizeLinear := by

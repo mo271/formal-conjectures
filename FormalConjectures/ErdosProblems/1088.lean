@@ -71,9 +71,8 @@ The little-$o$ condition is stated after taking the base-$2$ logarithm.
 -/
 @[category research open, question, AMS 51]
 theorem erdos_1088 :
-    answer(sorry) ↔
-      ∀ n ≥ 3,
-        (fun d : ℕ ↦ Real.logb 2 (f d n : ℝ)) =o[atTop] (fun d : ℕ ↦ (d : ℝ)) := by
+    ∀ n ≥ 3,
+      (fun d : ℕ ↦ Real.logb 2 (f d n : ℝ)) =o[atTop] (fun d : ℕ ↦ (d : ℝ)) := by
   sorry
 
 end Erdos1088

@@ -66,7 +66,7 @@ exactly one solution, that is $\frac{f_\max(n)}{f_\min(n)} = 1$.
 -/
 @[category research open, question, AMS 11]
 theorem erdos_694.variants.carmichael :
-    answer(sorry) ↔ ∃ n > 0, ∃! m, Nat.totient m = n := by
+    ∃ n > 0, ∃! m, Nat.totient m = n := by
   sorry
 
 /--

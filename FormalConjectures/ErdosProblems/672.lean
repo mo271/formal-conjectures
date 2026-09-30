@@ -40,7 +40,7 @@ Erdős believed not, i.e. that `Erdos672With k l` holds for all $k ≥ 4$ and $l
 -/
 @[category research open, question, AMS 11]
 theorem erdos_672 :
-    answer(sorry) ↔ ∃ᵉ (k ≥ 4) (l > 1), ¬ Erdos672With k l := by
+    ∃ᵉ (k ≥ 4) (l > 1), ¬ Erdos672With k l := by
   sorry
 
 /-- According to https://www.erdosproblems.com/672, Euler proved this. -/

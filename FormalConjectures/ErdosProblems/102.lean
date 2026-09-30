@@ -114,7 +114,7 @@ the points. Is it true that, for fixed $c > 0$, $h_c(n) \to \infty$?
 -/
 @[category research open, question, AMS 52]
 theorem erdos_102 :
-    answer(sorry) ↔ ∀ c > 0, ∀ M : ℕ, ∀ᶠ n in atTop, (M : ℕ∞) ≤ h c n := by
+    ∀ c > 0, ∀ M : ℕ, ∀ᶠ n in atTop, (M : ℕ∞) ≤ h c n := by
   sorry
 
 /--
@@ -122,7 +122,7 @@ It is not known whether $h_c(n) \geq 5$ for all sufficiently large $n$.
 -/
 @[category research open, question, AMS 52]
 theorem erdos_102.variants.five :
-    answer(sorry) ↔ ∀ c > 0, ∀ᶠ n in atTop, (5 : ℕ∞) ≤ h c n := by
+    ∀ c > 0, ∀ᶠ n in atTop, (5 : ℕ∞) ≤ h c n := by
   sorry
 
 /--

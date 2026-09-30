@@ -45,7 +45,7 @@ This would have significant applications to Waring's problem. Erdős and Graham 
 -/
 @[category research open, question, AMS 11]
 theorem erdos_323.parts.i :
-    answer(sorry) ↔ ∀ k ≥ 1, ∀ ε > (0 : ℝ),
+    ∀ k ≥ 1, ∀ ε > (0 : ℝ),
       (fun (x : ℕ) ↦ (x : ℝ) ^ (1 - ε)) =O[atTop] (fun (x : ℕ) ↦ (f k k x : ℝ)) := by
   sorry
 
@@ -54,7 +54,7 @@ Is it true that if $m < k$ then $f_{k,m}(x) \gg x^{m/k}$ for sufficiently large 
 -/
 @[category research open, question, AMS 11]
 theorem erdos_323.parts.ii :
-    answer(sorry) ↔ ∀ k m : ℕ, 1 ≤ m → m < k →
+    ∀ k m : ℕ, 1 ≤ m → m < k →
       (fun (x : ℕ) ↦ (x : ℝ) ^ ((m : ℝ) / (k : ℝ))) =O[atTop] (fun (x : ℕ) ↦ (f k m x : ℝ)) := by
   sorry
 
@@ -73,7 +73,7 @@ For $k>2$ it is not known if $f_{k,k}(x)=o(x)$.
 -/
 @[category research open, question, AMS 11]
 theorem erdos_323.variants.k_gt_2 :
-    answer(sorry) ↔ ∀ k > 2, (fun (x : ℕ) ↦ (f k k x : ℝ)) =o[atTop] (fun (x : ℕ) ↦ (x : ℝ)) := by
+    ∀ k > 2, (fun (x : ℕ) ↦ (f k k x : ℝ)) =o[atTop] (fun (x : ℕ) ↦ (x : ℝ)) := by
   sorry
 
 end Erdos323

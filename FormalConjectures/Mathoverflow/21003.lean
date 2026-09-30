@@ -40,7 +40,7 @@ $f : \mathbb{Q} \times \mathbb{Q} \rightarrow \mathbb{Q}$ is a bijection?
 -/
 @[category research open, question, AMS 12]
 theorem mathoverflow_21003 :
-    answer(sorry) ↔ ∃ f : MvPolynomial (Fin 2) ℚ, Function.Bijective fun x ↦ f.eval x := by
+    ∃ f : MvPolynomial (Fin 2) ℚ, Function.Bijective fun x ↦ f.eval x := by
   sorry
 
 end Mathoverflow21003

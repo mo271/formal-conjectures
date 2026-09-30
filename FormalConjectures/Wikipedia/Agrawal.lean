@@ -50,7 +50,6 @@ remains a conjecture.
 -/
 @[category research open, question, AMS 11]
 theorem agrawal_conjecture :
-  answer(sorry) ↔
     ∀ (n r : ℕ), n > 1 → r > 0 → n.gcd r = 1 →
       let R := Polynomial (ZMod n)
       let X : R := Polynomial.X

@@ -39,11 +39,10 @@ Is every $x \in \{1, \ldots, p-1\}$ congruent to some product $a_1 a_2$ where $a
 -/
 @[category research open, question, AMS 11]
 theorem green_62 :
-    answer(sorry) ↔
-      ∀ᶠ p in atTop, p.Prime →
-        let A := (Finset.range p).filter Nat.Prime
-        ∀ x : ℕ, 1 ≤ x ∧ x < p →
-          ∃ a₁ ∈ A, ∃ a₂ ∈ A, (x : ZMod p) = (a₁ * a₂ : ZMod p) := by
+    ∀ᶠ p in atTop, p.Prime →
+      let A := (Finset.range p).filter Nat.Prime
+      ∀ x : ℕ, 1 ≤ x ∧ x < p →
+        ∃ a₁ ∈ A, ∃ a₂ ∈ A, (x : ZMod p) = (a₁ * a₂ : ZMod p) := by
   sorry
 
 end Green62

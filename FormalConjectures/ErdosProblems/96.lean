@@ -63,7 +63,7 @@ distance $1$ apart.
 -/
 @[category research open, question, AMS 52]
 theorem erdos_96 :
-    answer(sorry) ↔ (fun n => (maxConvexUnitDistances n : ℝ)) =O[atTop] fun n => (n : ℝ) := by
+    (fun n => (maxConvexUnitDistances n : ℝ)) =O[atTop] fun n => (n : ℝ) := by
   sorry
 
 end Erdos96

@@ -44,7 +44,7 @@ Do quasiperfect numbers exist?
 -/
 @[category research open, question, AMS 11]
 theorem exists_quasiperfect :
-    answer(sorry) ↔ ∃ n, Quasiperfect n := by
+    ∃ n, Quasiperfect n := by
   sorry
 
 end QuasiperfectNumbers

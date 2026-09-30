@@ -111,7 +111,6 @@ genuine content of the conjecture begins at $n = 4$.
 -/
 @[category research open, question, AMS 3]
 theorem erdos_70 :
-    answer(sorry) ↔
     ∀ᵉ (β : Ordinal.{0}) (n : ℕ) (_ : β.card ≤ ℵ₀) (_ : 2 ≤ n),
       RealCardinalRamsey3 β n := by
   sorry
@@ -142,7 +141,7 @@ countable ordinal not covered by their theorem.
 -/
 @[category research open, question, AMS 3]
 theorem omega_times_two_four :
-    answer(sorry) ↔ RealCardinalRamsey3 (ω * 2) 4 := by
+    RealCardinalRamsey3 (ω * 2) 4 := by
   sorry
 
 /--
@@ -176,7 +175,6 @@ making this a self-referential question about $\mathfrak{c}.\mathrm{ord} \to
 -/
 @[category research open, question, AMS 3]
 theorem omega_one :
-    answer(sorry) ↔
     ∀ᵉ (n : ℕ) (_ : 2 ≤ n),
       OrdinalCardinalRamsey3 (𝔠).ord (Cardinal.aleph 1).ord n := by
   sorry

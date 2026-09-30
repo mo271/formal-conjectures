@@ -37,7 +37,7 @@ Does $2A$ contain a coset of codimension $O_K(1)$?
 -/
 @[category research open, question, AMS 5 11]
 theorem green_52 :
-    answer(sorry) ↔ ∃ (c : ℕ → ℕ), ∀ (n K : ℕ) (A : Set (𝔽₂ n)) (S : Finset (𝔽₂ n)),
+    ∃ (c : ℕ → ℕ), ∀ (n K : ℕ) (A : Set (𝔽₂ n)) (S : Finset (𝔽₂ n)),
       S.card = K → A + (S : Set (𝔽₂ n)) = Set.univ →
       ∃ (V : AffineSubspace (ZMod 2) (𝔽₂ n)), (V : Set (𝔽₂ n)) ⊆ A + A ∧
         n ≤ Module.finrank (ZMod 2) V.direction + c K := by

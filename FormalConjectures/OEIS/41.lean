@@ -59,7 +59,7 @@ There are no partition numbers $a(k)$ of the form $x^m$, with $x,m$ integers $>1
 See comment by Zhi-Wei Sun (Dec 02 2013).
 -/
 @[category research open, question, AMS 11]
-theorem noPowerPartitionNumber : answer(sorry) ↔ ∀ k, ¬IsPerfectPower (a k) := by
+theorem noPowerPartitionNumber : ∀ k, ¬IsPerfectPower (a k) := by
   sorry
 
 end OeisA41

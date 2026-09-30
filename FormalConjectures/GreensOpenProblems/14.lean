@@ -243,7 +243,7 @@ theorem W_3_21_lower : answer(True) ↔ W 3 21 ≥ 416 := sorry
 
 /-- [AKS14, Table 2] conjectures that $W(3, 21) = 416$. -/
 @[category research open, question, AMS 5 11]
-theorem W_3_21_eq : answer(sorry) ↔ W 3 21 = 416 := sorry
+theorem W_3_21_eq : W 3 21 = 416 := sorry
 
 /-- $W(3, 22) \ge 464$ from [AKS14, Table 2], proved by an explicit good partition. -/
 @[category research solved, question, AMS 5 11]
@@ -251,7 +251,7 @@ theorem W_3_22_lower : answer(True) ↔ W 3 22 ≥ 464 := sorry
 
 /-- [AKS14, Table 2] conjectures that $W(3, 22) = 464$. -/
 @[category research open, question, AMS 5 11]
-theorem W_3_22_eq : answer(sorry) ↔ W 3 22 = 464 := sorry
+theorem W_3_22_eq : W 3 22 = 464 := sorry
 
 /-- $W(3, 23) \ge 516$ from [AKS14, Table 2], proved by an explicit good partition. -/
 @[category research solved, question, AMS 5 11]
@@ -259,7 +259,7 @@ theorem W_3_23_lower : answer(True) ↔ W 3 23 ≥ 516 := sorry
 
 /-- [AKS14, Table 2] conjectures that $W(3, 23) = 516$. -/
 @[category research open, question, AMS 5 11]
-theorem W_3_23_eq : answer(sorry) ↔ W 3 23 = 516 := sorry
+theorem W_3_23_eq : W 3 23 = 516 := sorry
 
 /-- $W(3, 24) \ge 593$ from [AKS14, Table 2], proved by an explicit good partition. -/
 @[category research solved, question, AMS 5 11]
@@ -267,7 +267,7 @@ theorem W_3_24_lower : answer(True) ↔ W 3 24 ≥ 593 := sorry
 
 /-- [AKS14, Table 2] conjectures that $W(3, 24) = 593$. -/
 @[category research open, question, AMS 5 11]
-theorem W_3_24_eq : answer(sorry) ↔ W 3 24 = 593 := sorry
+theorem W_3_24_eq : W 3 24 = 593 := sorry
 
 /-- $W(3, 25) \ge 656$ from [AKS14, Table 2], proved by an explicit good partition. -/
 @[category research solved, question, AMS 5 11]
@@ -275,7 +275,7 @@ theorem W_3_25_lower : answer(True) ↔ W 3 25 ≥ 656 := sorry
 
 /-- [AKS14, Table 2] conjectures that $W(3, 25) = 656$. -/
 @[category research open, question, AMS 5 11]
-theorem W_3_25_eq : answer(sorry) ↔ W 3 25 = 656 := sorry
+theorem W_3_25_eq : W 3 25 = 656 := sorry
 
 /-- $W(3, 26) \ge 727$ from [AKS14, Table 2], proved by an explicit good partition. -/
 @[category research solved, question, AMS 5 11]
@@ -283,7 +283,7 @@ theorem W_3_26_lower : answer(True) ↔ W 3 26 ≥ 727 := sorry
 
 /-- [AKS14, Table 2] conjectures that $W(3, 26) = 727$. -/
 @[category research open, question, AMS 5 11]
-theorem W_3_26_eq : answer(sorry) ↔ W 3 26 = 727 := sorry
+theorem W_3_26_eq : W 3 26 = 727 := sorry
 
 /-- $W(3, 27) \ge 770$ from [AKS14, Table 2], proved by an explicit good partition. -/
 @[category research solved, question, AMS 5 11]
@@ -291,7 +291,7 @@ theorem W_3_27_lower : answer(True) ↔ W 3 27 ≥ 770 := sorry
 
 /-- [AKS14, Table 2] conjectures that $W(3, 27) = 770$. -/
 @[category research open, question, AMS 5 11]
-theorem W_3_27_eq : answer(sorry) ↔ W 3 27 = 770 := sorry
+theorem W_3_27_eq : W 3 27 = 770 := sorry
 
 /-- $W(3, 28) \ge 827$ from [AKS14, Table 2], proved by an explicit good partition. -/
 @[category research solved, question, AMS 5 11]
@@ -299,7 +299,7 @@ theorem W_3_28_lower : answer(True) ↔ W 3 28 ≥ 827 := sorry
 
 /-- [AKS14, Table 2] conjectures that $W(3, 28) = 827$. -/
 @[category research open, question, AMS 5 11]
-theorem W_3_28_eq : answer(sorry) ↔ W 3 28 = 827 := sorry
+theorem W_3_28_eq : W 3 28 = 827 := sorry
 
 /-- $W(3, 29) \ge 868$ from [AKS14, Table 2], proved by an explicit good partition. -/
 @[category research solved, question, AMS 5 11]
@@ -307,7 +307,7 @@ theorem W_3_29_lower : answer(True) ↔ W 3 29 ≥ 868 := sorry
 
 /-- [AKS14, Table 2] conjectures that $W(3, 29) = 868$. -/
 @[category research open, question, AMS 5 11]
-theorem W_3_29_eq : answer(sorry) ↔ W 3 29 = 868 := sorry
+theorem W_3_29_eq : W 3 29 = 868 := sorry
 
 /-- $W(3, 30) \ge 903$ from [AKS14, Table 2], proved by an explicit good partition. -/
 @[category research solved, question, AMS 5 11]
@@ -315,7 +315,7 @@ theorem W_3_30_lower : answer(True) ↔ W 3 30 ≥ 903 := sorry
 
 /-- [AKS14, Table 2] conjectures that $W(3, 30) = 903$. -/
 @[category research open, question, AMS 5 11]
-theorem W_3_30_eq : answer(sorry) ↔ W 3 30 = 903 := sorry
+theorem W_3_30_eq : W 3 30 = 903 := sorry
 
 -- Further lower bounds for W(3,r) from [AKS14, Table 3], established by the good partitions
 -- (certificates) in [AKS14, Appendix A]; [AKS14] expects these can be improved.

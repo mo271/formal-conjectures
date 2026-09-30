@@ -39,10 +39,9 @@ We formalize this as an eventual statement for sufficiently large real $X$.
 -/
 @[category research open, question, AMS 11]
 theorem green_66 :
-    answer(sorry) ↔
-      ∀ᶠ X : ℝ in atTop,
-        ∃ n : ℕ, IsSumOfTwoSquares n ∧
-          (n : ℝ) ∈ Set.Icc (X - (1 / 10 : ℝ) * X ^ (1 / 4 : ℝ)) X := by
+    ∀ᶠ X : ℝ in atTop,
+      ∃ n : ℕ, IsSumOfTwoSquares n ∧
+        (n : ℝ) ∈ Set.Icc (X - (1 / 10 : ℝ) * X ^ (1 / 4 : ℝ)) X := by
   sorry
 
 /--

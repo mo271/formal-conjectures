@@ -62,7 +62,7 @@ $a(n) = 0$ for $n = 1$, $6$, $30$ and $54$. Are there any others?
 -/
 @[category research open, question, AMS 11]
 theorem conjecture :
-    answer(sorry) ↔ ∃ n : ℕ, n > 0 ∧ a n = 0 ∧ n ∉ ({1, 6, 30, 54} : Finset ℕ) := by
+    ∃ n : ℕ, n > 0 ∧ a n = 0 ∧ n ∉ ({1, 6, 30, 54} : Finset ℕ) := by
   sorry
 
 end OeisA109905

@@ -89,7 +89,7 @@ terminate in such cases?
 -/
 @[category research open, question, AMS 5]
 theorem erdos_282.variants.graham :
-    answer(sorry) ↔ ∀ x : ℚ, x ∈ Set.Ioo 0 1 → ∀ a d : ℕ, 1 < d →
+    ∀ x : ℚ, x ∈ Set.Ioo 0 1 → ∀ a d : ℕ, 1 < d →
       (x.den / x.den.gcd (a.gcd d)).gcd (d / a.gcd d) = 1 →
       greedyUnitFractionRem { n | n ≡ a [MOD d] } x =ᶠ[atTop] 0 := by
   sorry
@@ -107,7 +107,7 @@ fails to terminate almost always.
 -/
 @[category research open, question, AMS 5]
 theorem erdos_282.variants.sq :
-    answer(sorry) ↔ ∀ x : ℚ, (x : ℝ) ∈ Set.Ico 0 (π ^ 2 / 6 - 1) ∪ Set.Ico 1 (π ^ 2 / 6) →
+    ∀ x : ℚ, (x : ℝ) ∈ Set.Ico 0 (π ^ 2 / 6 - 1) ∪ Set.Ico 1 (π ^ 2 / 6) →
       greedyUnitFractionRem { n | IsSquare n } x =ᶠ[atTop] 0 := by
   sorry
 

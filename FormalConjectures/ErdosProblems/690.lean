@@ -89,7 +89,7 @@ theorem erdos_690.variants.cambie_not_unimodal (k : ℕ) (hk : 4 ≤ k) (hk' : k
 
 /-- Is $d_k(p)$ unimodular for any $k\geq 21$? -/
 @[category research open, question, AMS 11]
-theorem erdos_690.variants.large_k : answer(sorry) ↔
+theorem erdos_690.variants.large_k :
     ∃ k ≥ 21, ∀ d : ℕ → ℝ,
       (∀ p, p.Prime → (kthPrimeFactorSet k p).HasDensity (d p)) → IsUnimodalOnPrimes d := by
   sorry

@@ -45,7 +45,7 @@ $$
 $$
 -/
 @[category research open, question, AMS 11]
-theorem erdos_143.parts.i : answer(sorry) ↔ ∀ (A : Set ℝ), WellSeparatedSet A →
+theorem erdos_143.parts.i : ∀ (A : Set ℝ), WellSeparatedSet A →
     liminf (fun x => (A ∩ (Set.Icc 1 x)).ncard / x) atTop = 0 := by
   sorry
 

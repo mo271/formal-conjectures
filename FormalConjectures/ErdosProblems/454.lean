@@ -37,7 +37,7 @@ noncomputable def f (n : ℕ) : ℕ :=
 
 /-- Is it true that `limsup (fun n => (f n - 2 * n.nth Prime : ℕ∞)) atTop = ⊤`? -/
 @[category research open, question, AMS 11]
-theorem erdos_454 : answer(sorry) ↔ limsup (fun n => (f n - 2 * n.nth Prime : ℕ∞)) atTop = ⊤ := by
+theorem erdos_454 : limsup (fun n => (f n - 2 * n.nth Prime : ℕ∞)) atTop = ⊤ := by
   sorry
 
 /-- `limsup (fun n => (f n - 2 * n.nth Prime : ℕ∞)) atTop ≥ 2`, and this is proved in [Po79]. -/

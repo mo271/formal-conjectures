@@ -34,14 +34,14 @@ Is it true that, for any $a \in \mathbb{Z}$, there are infinitely many $n$ such 
 $$\phi(n) | n + a$$?
 -/
 @[category research open, question, AMS 11]
-theorem erdos_828 : answer(sorry) ↔ ∀ a : ℤ, Set.Infinite {n : ℕ | ↑(φ n) ∣ n + a} := by
+theorem erdos_828 : ∀ a : ℤ, Set.Infinite {n : ℕ | ↑(φ n) ∣ n + a} := by
   sorry
 
 /--
 When $n > 1$, Lehmer conjectured that $\phi(n) | n - 1$ if and only if $n$ is prime.
 -/
 @[category research open, question, AMS 11]
-theorem erdos_828.variants.lehmer_conjecture : answer(sorry) ↔ ∀ n > 1, φ n ∣ n - 1 ↔ Prime n := by
+theorem erdos_828.variants.lehmer_conjecture : ∀ n > 1, φ n ∣ n - 1 ↔ Prime n := by
   sorry
 
 /--

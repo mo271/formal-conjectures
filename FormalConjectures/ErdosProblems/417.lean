@@ -39,7 +39,7 @@ Does $\lim V(x)/V'(x)$ exist?
 -/
 @[category research open, question, AMS 11]
 theorem erdos_417.parts.i :
-    answer(sorry) ↔ ∃ L : ENNReal, Tendsto (fun x ↦
+    ∃ L : ENNReal, Tendsto (fun x ↦
       ({ k | k ∈ range totient ∧ (k : ℝ) ≤ x }.ncard : ENNReal) /
       ((totient '' { m | 1 ≤ m ∧ (m : ℝ) ≤ x }).ncard : ENNReal))
       atTop (𝓝 L) := by
@@ -50,7 +50,7 @@ Is it $>1$?
 -/
 @[category research open, question, AMS 11]
 theorem erdos_417.parts.ii :
-    answer(sorry) ↔ ∃ L > (1 : ENNReal), Tendsto (fun x ↦
+    ∃ L > (1 : ENNReal), Tendsto (fun x ↦
       ({ k | k ∈ range totient ∧ (k : ℝ) ≤ x }.ncard : ENNReal) /
       ((totient '' { m | 1 ≤ m ∧ (m : ℝ) ≤ x }).ncard : ENNReal))
       atTop (𝓝 L) := by

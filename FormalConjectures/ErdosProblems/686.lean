@@ -37,7 +37,7 @@ for some $k≥2$ and $m≥n+k$?
 -/
 @[category research open, question, AMS 11]
 theorem erdos_686 :
-    answer(sorry) ↔ ∀ N ≥ (2 : ℕ), ∃ᵉ (k ≥ 2) (n : ℕ) (m ≥ n + k),
+    ∀ N ≥ (2 : ℕ), ∃ᵉ (k ≥ 2) (n : ℕ) (m ≥ n + k),
       (N : ℚ) = (∏ i ∈ Finset.Icc 1 k, (m + i)) / (∏ i ∈ Finset.Icc 1 k, (n + i)) := by
   sorry
 
@@ -48,7 +48,7 @@ for some $k≥2$ and $m≥n+k$?
 -/
 @[category research open, question, AMS 11]
 theorem erdos_686.variants.square :
-    answer(sorry) ↔ ∀ N ≥ (2 : ℕ),  (IsSquare N) → ∃ᵉ (k ≥ 2) (n : ℕ) (m ≥ n + k),
+    ∀ N ≥ (2 : ℕ),  (IsSquare N) → ∃ᵉ (k ≥ 2) (n : ℕ) (m ≥ n + k),
       (N : ℚ) = (∏ i ∈ Finset.Icc 1 k, (m + i)) / (∏ i ∈ Finset.Icc 1 k, (n + i)) := by
   sorry
 
@@ -59,7 +59,7 @@ for some $k≥2$ and $m≥n+k$?
 -/
 @[category research open, question, AMS 11]
 theorem erdos_686.variants.four :
-    answer(sorry) ↔ ∃ᵉ (k ≥ 2) (n : ℕ) (m ≥ n + k),
+    ∃ᵉ (k ≥ 2) (n : ℕ) (m ≥ n + k),
       (4 : ℚ) = (∏ i ∈ Finset.Icc 1 k, (m + i)) / (∏ i ∈ Finset.Icc 1 k, (n + i)) := by
   sorry
 
@@ -116,7 +116,7 @@ for some $k≥2$ and $m≥n+k$?
 -/
 @[category research open, question, AMS 11]
 theorem erdos_686.variants.twenty_five :
-    answer(sorry) ↔ ∃ᵉ (k ≥ 2) (n : ℕ) (m ≥ n + k),
+    ∃ᵉ (k ≥ 2) (n : ℕ) (m ≥ n + k),
       (25 : ℚ) = (∏ i ∈ Finset.Icc 1 k, (m + i)) / (∏ i ∈ Finset.Icc 1 k, (n + i)) := by
   sorry
 

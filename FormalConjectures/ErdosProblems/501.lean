@@ -68,7 +68,7 @@ Known results: Erdős–Hajnal [ErHa60] proved the existence of arbitrarily larg
 independent sets. Hechler [He72] showed the answer is **no** assuming the continuum
 hypothesis. -/
 @[category research open, question, AMS 5 28]
-theorem erdos_501 : answer(sorry) ↔
+theorem erdos_501 :
     ∀ (A : ℝ → Set ℝ),
       (∀ x, Bornology.IsBounded (A x)) →
       (∀ x, volume.toOuterMeasure (A x) < 1) →

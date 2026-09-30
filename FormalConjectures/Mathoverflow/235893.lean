@@ -205,7 +205,7 @@ that of $f^{-1}$?
 -/
 @[category research open, question, AMS 26 54]
 theorem mathoverflow_235893 :
-    answer(sorry) ↔ ∀ n > 1, ∀ (f : ℝ^n ≃ ℝ^n), IsConnectedMap f → IsConnectedMap f.symm := by
+    ∀ n > 1, ∀ (f : ℝ^n ≃ ℝ^n), IsConnectedMap f → IsConnectedMap f.symm := by
   sorry
 
 /--

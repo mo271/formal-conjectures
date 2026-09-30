@@ -137,7 +137,7 @@ theorem fortunateNumber_three : fortunateNumber 3 = 13 := by
 /-- **Fortune's Conjecture**: Every Fortunate number is prime. -/
 @[category research open, question, AMS 11]
 theorem fortune_conjecture :
-    answer(sorry) ↔ (∀ n : ℕ, Nat.Prime (fortunateNumber n)) := by
+    (∀ n : ℕ, Nat.Prime (fortunateNumber n)) := by
   sorry
 
 end FortuneConjecture

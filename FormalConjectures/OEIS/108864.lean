@@ -103,7 +103,7 @@ Is $1155$ the last odd number in this sequence?
 -/
 @[category research open, question, AMS 11]
 theorem conjecture :
-    answer(sorry) ↔ ∀ n > 58, Even (a n) := by
+    ∀ n > 58, Even (a n) := by
   sorry
 
 end OeisA108864

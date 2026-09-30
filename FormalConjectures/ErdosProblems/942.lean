@@ -39,7 +39,7 @@ Is there some constant $c > 0$ such that $h(n) < (\log n)^{c + o(1)}$ and, for i
 $h(n) > (\log n)^{c - o(1)}$.
 -/
 @[category research open, question, AMS 11]
-theorem erdos_942 : answer(sorry) ↔ ∃ c > 0, ∃ (o : ℕ → ℝ), o =o[atTop] (1 : ℕ → ℝ) ∧
+theorem erdos_942 : ∃ c > 0, ∃ (o : ℕ → ℝ), o =o[atTop] (1 : ℕ → ℝ) ∧
     (∀ᶠ n in atTop, erdos_942.h n < (Real.log n) ^ (c + o n)) ∧
     {n | erdos_942.h n > (Real.log n) ^ (c - o n)}.Infinite := by
   sorry

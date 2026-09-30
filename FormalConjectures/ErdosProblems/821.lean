@@ -51,7 +51,7 @@ $g(n) > n^{1-\epsilon}$?
 -/
 @[category research open, question, AMS 11]
 theorem erdos_821 :
-    answer(sorry) ↔ ∀ ε > (0 : ℝ), { n : ℕ | (g n : ℝ) > (n : ℝ) ^ (1 - ε) }.Infinite := by
+    ∀ ε > (0 : ℝ), { n : ℕ | (g n : ℝ) > (n : ℝ) ^ (1 - ε) }.Infinite := by
   sorry
 
 /--

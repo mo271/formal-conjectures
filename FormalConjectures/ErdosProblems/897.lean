@@ -93,7 +93,7 @@ The known counterexample does not satisfy either of these extra hypotheses, so t
 open.
 -/
 @[category research open, question, AMS 11]
-theorem erdos_897.variants.parts.i : answer(sorry) ↔ ∀ (f : ℕ → ℝ),
+theorem erdos_897.variants.parts.i : ∀ (f : ℕ → ℝ),
     (∀ᵉ (a > 0) (b > 0), a.Coprime b → f (a * b) = f a + f b) →
     ((Filter.atTop ⊓ Filter.principal {(p, k) : ℕ × ℕ | p.Prime}).limsup
       (fun (p, k) => (f (p^k) / (p^k : ℝ).log : EReal)) = ⊤) →
@@ -111,7 +111,7 @@ The known counterexample does not satisfy either of these extra hypotheses, so t
 open.
 -/
 @[category research open, question, AMS 11]
-theorem erdos_897.variants.parts.ii : answer(sorry) ↔ ∀ (f : ℕ → ℝ),
+theorem erdos_897.variants.parts.ii : ∀ (f : ℕ → ℝ),
     (∀ᵉ (a > 0) (b > 0), a.Coprime b → f (a * b) = f a + f b) →
     ((Filter.atTop ⊓ Filter.principal {(p, k) : ℕ × ℕ | p.Prime}).limsup
       (fun (p, k) => (f (p^k) / (p^k : ℝ).log : EReal)) = ⊤) →

@@ -74,7 +74,7 @@ kept, only the condition $c<1$ is omitted. This weaker version remains open, alt
 conjectures the answer there to also be no.
 -/
 @[category research open, question, AMS 5]
-theorem erdos_664.variants.block_design : answer(sorry) ↔
+theorem erdos_664.variants.block_design :
     ∀ c : ℝ, 0 < c → ∃ K : ℕ, ∀ (n m : ℕ) (A : Fin m → Finset (Fin n)),
       (∀ i, c * √n < (A i).card) → (∀ x y : Fin n, x ≠ y → ∃! i, x ∈ A i ∧ y ∈ A i) →
         ∃ B : Finset (Fin n), (∀ i, (B ∩ A i).Nonempty) ∧

@@ -72,7 +72,7 @@ Does the sequence contain every positive integer (cf. A169741)?
 -/
 @[category research open, question, AMS 11]
 theorem conjecture :
-    answer(sorry) ↔ ∀ m : ℕ, 0 < m → ∃ n : ℕ, 0 < n ∧ a n = m := by
+    ∀ m : ℕ, 0 < m → ∃ n : ℕ, 0 < n ∧ a n = m := by
   sorry
 
 end OeisA109671

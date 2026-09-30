@@ -65,7 +65,7 @@ forbids those anchors and the question is open.
 -/
 @[category research open, question, AMS 11]
 theorem erdos_1212 :
-    answer(sorry) ↔ ∃ f : ℕ → ℕ × ℕ, Function.Injective f ∧ (∀ n, Adj (f n) (f (n + 1))) ∧
+    ∃ f : ℕ → ℕ × ℕ, Function.Injective f ∧ (∀ n, Adj (f n) (f (n + 1))) ∧
       (∀ n, Valid (f n)) ∧
       Tendsto (fun n => (f n).1 + (f n).2) atTop atTop := by
   sorry

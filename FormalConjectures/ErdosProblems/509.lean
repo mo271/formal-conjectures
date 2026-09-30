@@ -82,7 +82,7 @@ $\{z ∈ ℂ : |f(z)| ≤ 1\}$
 be covered by a set of closed discs the sum of whose radii is $≤ 2$?
 -/
 @[category research open, question, AMS 30]
-theorem erdos_509 : answer(sorry) ↔ ∀ (f : ℂ[X]), f.Monic → f.natDegree ≠ 0 →
+theorem erdos_509 : ∀ (f : ℂ[X]), f.Monic → f.natDegree ≠ 0 →
     ∃ (ι : Type), Nonempty (BoundedDiscCover {z | ‖f.eval z‖ ≤ 1} 2 ι) := by
   sorry
 

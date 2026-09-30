@@ -216,7 +216,7 @@ theorem complexity_three_pow : answer(True) ↔ ∀ n : ℕ, 0 < n → complexit
 
 /-- Is `2n` the complexity of `2^n` for `0 < n`? -/
 @[category research open, question, AMS 11]
-theorem complexity_two_pow : answer(sorry) ↔ ∀ n : ℕ, 0 < n → complexity (2 ^ n) = 2 * n := by
+theorem complexity_two_pow : ∀ n : ℕ, 0 < n → complexity (2 ^ n) = 2 * n := by
   sorry
 
 end Mathoverflow75792

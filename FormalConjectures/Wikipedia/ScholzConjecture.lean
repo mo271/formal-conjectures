@@ -42,7 +42,7 @@ $n - 1 + \ell(n)$.
 -/
 @[category research open, question, AMS 11 68]
 theorem scholz_conjecture :
-    answer(sorry) ↔ ∀ (n : ℕ), 0 < n → ℓ(2 ^ n - 1) ≤ n - 1 + ℓ(n) := by
+    ∀ (n : ℕ), 0 < n → ℓ(2 ^ n - 1) ≤ n - 1 + ℓ(n) := by
   sorry
 
 -- TODO(eyang07): add solved variants. See Wikipedia reference.

@@ -86,7 +86,7 @@ Does $A + B$ have positive upper density?
 -/
 @[category research open, question, AMS 11]
 theorem erdos_125.variants.positive_upper_density :
-    answer(sorry) ↔ 0 < (A + B).upperDensity := by
+    0 < (A + B).upperDensity := by
   sorry
 
 /--
@@ -95,7 +95,7 @@ Does $A + B$ have zero upper and lower density?
 -/
 @[category research open, question, AMS 11]
 theorem erdos_125.variants.zero_density :
-    answer(sorry) ↔ (A + B).upperDensity = 0 ∧ (A + B).lowerDensity = 0 := by
+    (A + B).upperDensity = 0 ∧ (A + B).lowerDensity = 0 := by
   sorry
 
 /--
@@ -104,7 +104,7 @@ Does $A + B$ have zero lower density, but positive upper density?
 -/
 @[category research open, question, AMS 11]
 theorem erdos_125.variants.zero_lower_positive_upper_density :
-    answer(sorry) ↔ (A + B).lowerDensity = 0 ∧ 0 < (A + B).upperDensity := by
+    (A + B).lowerDensity = 0 ∧ 0 < (A + B).upperDensity := by
   sorry
 
 /--

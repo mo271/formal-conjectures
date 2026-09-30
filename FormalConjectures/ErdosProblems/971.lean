@@ -39,7 +39,7 @@ Does there exist a constant `c > 0` such that for all large `d`,
 `p(a, d) > (1 + c) * φ(d) * log d` for `≫ φ(d)` many values of `a`?
 -/
 @[category research open, question, AMS 11]
-theorem erdos_971 : answer(sorry) ↔
+theorem erdos_971 :
     ∃ c > (0 : ℝ), ∃ C > (0 : ℝ), ∀ᶠ d in atTop,
       C * (d.totient : ℝ) ≤
         #{a < d | a.Coprime d ∧ (leastCongruentPrime a d : ℝ) > (1 + c) * d.totient * log d} := by

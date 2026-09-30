@@ -51,7 +51,7 @@ $\{1, \ldots, n\}$ such that $a_k + a_{k+1}$ is prime for all $1 \le k < n$. Thi
 be true, and has been verified for infinitely many $n$.
 -/
 @[category research open, question, AMS 11]
-theorem erdos_473.variants.finite : answer(sorry) ↔
+theorem erdos_473.variants.finite :
     ∀ n : ℕ, 2 ≤ n → ∃ a : Fin n ≃ Fin n, ∀ k : Fin n, ∀ h : k.val + 1 < n,
       ((a k).val + 1 + ((a ⟨k.val + 1, h⟩).val + 1)).Prime := by
   sorry

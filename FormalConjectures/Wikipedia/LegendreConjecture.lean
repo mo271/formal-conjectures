@@ -36,7 +36,7 @@ Does there always exist at least one prime between consecutive perfect squares?
 -/
 @[category research open, question, AMS 11]
 theorem legendre_conjecture :
-    answer(sorry) ↔ ∀ n ≥ 1, ∃ p ∈ Set.Ioo (n ^ 2) ((n + 1) ^ 2), Nat.Prime p := by
+    ∀ n ≥ 1, ∃ p ∈ Set.Ioo (n ^ 2) ((n + 1) ^ 2), Nat.Prime p := by
   sorry
 
 /--

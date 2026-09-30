@@ -49,7 +49,7 @@ and such that $X + Y$ is uniformly distributed on its range. Are $X$ and $Y$ the
 distributed on their ranges?
 -/
 @[category research open, question, AMS 60]
-theorem green_28 : answer(sorry) ↔
+theorem green_28 :
   ∀ (X Y : PMF ℤ), -- marginals, independence is built into indepSum
     X.support.Finite ∧ Y.support.Finite ∧ IsUniformOnSupport (indepSum X Y) →
       IsUniformOnSupport X ∧ IsUniformOnSupport Y := by

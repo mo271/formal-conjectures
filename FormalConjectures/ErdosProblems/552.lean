@@ -53,7 +53,7 @@ In particular, is it true that, for any $c > 0$, there are infinitely many $n$ s
 $$R(C_4, S_n) \leq n + \sqrt{n} - c?$$
 -/
 @[category research open, question, AMS 5]
-theorem erdos_552.parts.ii : answer(sorry) ↔
+theorem erdos_552.parts.ii :
     ∀ (c : ℝ), 0 < c →
       Set.Infinite {n : ℕ |
         (SimpleGraph.graphRamsey (SimpleGraph.cycleGraph 4)

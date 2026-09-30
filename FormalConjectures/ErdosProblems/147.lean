@@ -103,7 +103,7 @@ Janzer [Ja23] conjectures that for any $r\geq 3$ and $\epsilon>0$ there exists a
 $r$-regular graph $H$ such that $\mathrm{ex}(n;H) \ll n^{2-\frac{2}{r}+\epsilon}$.
 -/
 @[category research open, question, AMS 5]
-theorem erdos_147.variants.janzer_conjecture : answer(sorry) ↔ ∀ r : ℕ, 3 ≤ r → ∀ ε : ℝ, 0 < ε →
+theorem erdos_147.variants.janzer_conjecture : ∀ r : ℕ, 3 ≤ r → ∀ ε : ℝ, 0 < ε →
     ∃ (q : ℕ) (H : SimpleGraph (Fin q)), 0 < q ∧ H.IsRegularOfDegree r ∧
       (fun n : ℕ => (extremalNumber n H : ℝ)) =O[atTop]
         fun n : ℕ => (n : ℝ) ^ (2 - 2 / (r : ℝ) + ε) := by

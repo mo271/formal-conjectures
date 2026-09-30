@@ -128,7 +128,7 @@ It is not known whether or not there exists a Sidon subset of $\mathbb{Z}/p\math
 $(1 + o(1))\sqrt{p}$, for all $p$ [Gr24].
 -/
 @[category research open, question, AMS 5 11]
-theorem green_31.variants.zmod_p : answer(sorry) ↔
+theorem green_31.variants.zmod_p :
     ∃ S : (n : ℕ) → Finset (ZMod n),
     ∃ o : ℕ → ℝ,
       (o =o[atTop] fun _ : ℕ ↦ (1 : ℝ)) ∧
@@ -141,7 +141,7 @@ It is not known whether, if $G$ is an abelian group of size $n$, there always ex
 of $G$ of size $0.01\sqrt{n}$ [Gr24].
 -/
 @[category research open, question, AMS 5 11]
-theorem green_31.variants.abelian : answer(sorry) ↔
+theorem green_31.variants.abelian :
     ∀ (G : Type) [AddCommGroup G] [Fintype G],
       ∃ S : Finset G, IsSidon (S : Set G) ∧ 0.01 * Real.sqrt (Fintype.card G) ≤ S.card := by
   sorry
@@ -160,7 +160,7 @@ Another very nice old problem is whether there is a Sidon subset of $\{0, 1\}^n$
 where $N = 2^n$ [Gr24].
 -/
 @[category research open, question, AMS 5 11]
-theorem green_31.variants.sidon_01n : answer(sorry) ↔
+theorem green_31.variants.sidon_01n :
     ∃ S : (n : ℕ) → Finset (𝔽₂ n),
       (∀ n, IsBinarySidon (S n : Set (𝔽₂ n))) ∧
       ∀ᶠ n in atTop, ((2 : ℝ) ^ n) ^ (0.51 : ℝ) ≤ (S n).card := by

@@ -36,7 +36,7 @@ $$
 is $p$?
 -/
 @[category research open, question, AMS 11]
-theorem erdos_383 : answer(sorry) ↔
+theorem erdos_383 :
     ∀ k, {p : ℕ | p.Prime ∧ Nat.maxPrimeFac (∏ i ∈ Finset.Icc 0 k, (p ^ 2 + i)) = p}.Infinite := by
   sorry
 

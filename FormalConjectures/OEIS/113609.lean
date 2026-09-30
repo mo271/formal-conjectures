@@ -68,7 +68,7 @@ conjecture: there are more (but not < 10^6).
 -/
 @[category research open, question, AMS 11]
 theorem conjecture :
-  answer(sorry) ↔ ∃ q ≥ 1000000,
+  ∃ q ≥ 1000000,
     IsOeisPrimePower q ∧ IsOeisPrimePower (q + 2) ∧
     ¬ q.Prime ∧ ¬ (q + 2).Prime := by
   sorry

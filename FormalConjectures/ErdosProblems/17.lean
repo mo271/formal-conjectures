@@ -39,7 +39,7 @@ def IsClusterPrime (p : ℕ) : Prop :=
 
 /-- **Erdős Problem 17.** Are there infinitely many cluster primes? -/
 @[category research open, question, AMS 11]
-theorem erdos_17 : answer(sorry) ↔ {p : ℕ | IsClusterPrime p}.Infinite := by
+theorem erdos_17 : {p : ℕ | IsClusterPrime p}.Infinite := by
   sorry
 
 /-- The counting function of cluster primes $\le n$. -/

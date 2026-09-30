@@ -77,7 +77,7 @@ Does every positive integer occur as a difference in this sequence?
 -/
 @[category research open, question, AMS 11]
 theorem conjecture :
-    answer(sorry) ↔ ∀ d > 0, ∃ n, a (n + 1) = a n + d := by
+    ∀ d > 0, ∃ n, a (n + 1) = a n + d := by
   sorry
 
 end OeisA260194

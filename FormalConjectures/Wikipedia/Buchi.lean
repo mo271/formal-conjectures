@@ -40,7 +40,7 @@ if $(x+n)^2 + a$ is a square for $M$ consecutive values of $n$, then $a = 0$.
 -/
 @[category research open, question, AMS 11]
 theorem buchi_problem :
-    answer(sorry) ↔ ∃ M : ℕ, 1 ≤ M ∧ IsBuchi M := by
+    ∃ M : ℕ, 1 ≤ M ∧ IsBuchi M := by
   sorry
 
 

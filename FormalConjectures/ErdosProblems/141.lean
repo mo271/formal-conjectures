@@ -75,7 +75,7 @@ theorem exists_three_consecutive_primes_in_ap : ∃ (s : Set ℕ), s.IsAPAndPrim
 Let $k≥3$. Are there $k$ consecutive primes in arithmetic progression?
 -/
 @[category research open, question, AMS 5 11]
-theorem erdos_141 : answer(sorry) ↔
+theorem erdos_141 :
     ∀ k ≥ 3, ∃ (s : Set ℕ), s.IsAPAndPrimeProgressionOfLength k := by
   sorry
 
@@ -91,7 +91,7 @@ theorem erdos_141.variants.first_cases :
 Are there $11$ consecutive primes in arithmetic progression?
 -/
 @[category research open, question, AMS 5 11]
-theorem erdos_141.variants.eleven : answer(sorry) ↔
+theorem erdos_141.variants.eleven :
     ∃ (s : Set ℕ), s.IsAPAndPrimeProgressionOfLength 11 := by
   sorry
 
@@ -105,7 +105,7 @@ def consecutivePrimeArithmeticProgressions (k : ℕ) : Set (Set ℕ) :=
 It is open, even for $k=3$, whether there are infinitely many such progressions.
 -/
 @[category research open, question, AMS 5 11]
-theorem erdos_141.variants.infinite_three : answer(sorry) ↔
+theorem erdos_141.variants.infinite_three :
     (consecutivePrimeArithmeticProgressions 3).Infinite := by
   sorry
 
@@ -113,7 +113,7 @@ theorem erdos_141.variants.infinite_three : answer(sorry) ↔
 Fix a $k \geq 3$. Is it true that there are infinitely many arithmetic prime progressions of length $k$?
 -/
 @[category research open, question, AMS 5 11]
-theorem erdos_141.variants.infinite_general_case : answer(sorry) ↔
+theorem erdos_141.variants.infinite_general_case :
     ∀ k ≥ 3, (consecutivePrimeArithmeticProgressions k).Infinite := by
   sorry
 

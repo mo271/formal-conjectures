@@ -462,17 +462,15 @@ theorem eqSystem6_no_solution_d6 :
 equation system over $\mathbb{C}$? -/
 @[category research open, question, AMS 5 14 81]
 theorem eqSystem6_no_solution_ge3 :
-    answer(sorry) ↔
-      ∀ D : Nat, D ≥ 3 →
-        ¬ ∃ W : WeightsN 6 D ℂ, EqSystemN 6 D W := by
+    ∀ D : Nat, D ≥ 3 →
+      ¬ ∃ W : WeightsN 6 D ℂ, EqSystemN 6 D W := by
   sorry
 
 /-- For $N = 8$ and $D = 3$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{C}$? -/
 @[category research open, question, AMS 5 14 81]
 theorem eqSystem8_no_solution_d3 :
-    answer(sorry) ↔
-      ¬ ∃ W : WeightsN 8 3 ℂ, EqSystemN 8 3 W := by
+    ¬ ∃ W : WeightsN 8 3 ℂ, EqSystemN 8 3 W := by
   sorry
 
 /-- For $N = 8$ and $D = 10$, does there exist no solution to the monochromatic quantum graph
@@ -491,40 +489,35 @@ theorem eqSystem8_no_solution_d10 :
 equation system over $\mathbb{C}$? -/
 @[category research open, question, AMS 5 14 81]
 theorem eqSystem10_no_solution_d3 :
-    answer(sorry) ↔
-      ¬ ∃ W : WeightsN 10 3 ℂ, EqSystemN 10 3 W := by
+    ¬ ∃ W : WeightsN 10 3 ℂ, EqSystemN 10 3 W := by
   sorry
 
 /-- For $N = 10$ and $D = 4$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{C}$? -/
 @[category research open, question, AMS 5 14 81]
 theorem eqSystem10_no_solution_d4 :
-    answer(sorry) ↔
-      ¬ ∃ W : WeightsN 10 4 ℂ, EqSystemN 10 4 W := by
+    ¬ ∃ W : WeightsN 10 4 ℂ, EqSystemN 10 4 W := by
   sorry
 
 /-- For $N = 10$ and $D = 5$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{C}$? -/
 @[category research open, question, AMS 5 14 81]
 theorem eqSystem10_no_solution_d5 :
-    answer(sorry) ↔
-      ¬ ∃ W : WeightsN 10 5 ℂ, EqSystemN 10 5 W := by
+    ¬ ∃ W : WeightsN 10 5 ℂ, EqSystemN 10 5 W := by
   sorry
 
 /-- For $N = 10$ and $D = 6$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{C}$? -/
 @[category research open, question, AMS 5 14 81]
 theorem eqSystem10_no_solution_d6 :
-    answer(sorry) ↔
-      ¬ ∃ W : WeightsN 10 6 ℂ, EqSystemN 10 6 W := by
+    ¬ ∃ W : WeightsN 10 6 ℂ, EqSystemN 10 6 W := by
   sorry
 
 /-- For $N = 10$ and $D = 7$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{C}$? -/
 @[category research open, question, AMS 5 14 81]
 theorem eqSystem10_no_solution_d7 :
-    answer(sorry) ↔
-      ¬ ∃ W : WeightsN 10 7 ℂ, EqSystemN 10 7 W := by
+    ¬ ∃ W : WeightsN 10 7 ℂ, EqSystemN 10 7 W := by
   sorry
 
 /-- For $N = 10$ and $D = 8$, does there exist no solution to the monochromatic quantum graph
@@ -566,24 +559,21 @@ theorem eqSystem10_no_solution_d10 :
 equation system over $\mathbb{C}$? -/
 @[category research open, question, AMS 5 14 81]
 theorem eqSystem12_no_solution_d3 :
-    answer(sorry) ↔
-      ¬ ∃ W : WeightsN 12 3 ℂ, EqSystemN 12 3 W := by
+    ¬ ∃ W : WeightsN 12 3 ℂ, EqSystemN 12 3 W := by
   sorry
 
 /-- For $N = 14$ and $D = 3$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{C}$? -/
 @[category research open, question, AMS 5 14 81]
 theorem eqSystem14_no_solution_d3 :
-    answer(sorry) ↔
-      ¬ ∃ W : WeightsN 14 3 ℂ, EqSystemN 14 3 W := by
+    ¬ ∃ W : WeightsN 14 3 ℂ, EqSystemN 14 3 W := by
   sorry
 
 /-- For $N = 16$ and $D = 3$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{C}$? -/
 @[category research open, question, AMS 5 14 81]
 theorem eqSystem16_no_solution_d3 :
-    answer(sorry) ↔
-      ¬ ∃ W : WeightsN 16 3 ℂ, EqSystemN 16 3 W := by
+    ¬ ∃ W : WeightsN 16 3 ℂ, EqSystemN 16 3 W := by
   sorry
 
 
@@ -592,9 +582,8 @@ theorem eqSystem16_no_solution_d3 :
 quantum graph equation system over $\mathbb{C}$? -/
 @[category research open, question, AMS 5 14 81]
 theorem eqSystem_no_solution_ge6_ge3 :
-    answer(sorry) ↔
-      ∀ N D : Nat, N ≥ 6 → Even N → D ≥ 3 →
-        ¬ ∃ W : WeightsN N D ℂ, EqSystemN N D W := by
+    ∀ N D : Nat, N ≥ 6 → Even N → D ≥ 3 →
+      ¬ ∃ W : WeightsN N D ℂ, EqSystemN N D W := by
   sorry
 
 /- ## Open conjectures over ℝ -/
@@ -618,8 +607,7 @@ theorem eqSystem4_no_solution_ge4_real :
 equation system over $\mathbb{R}$? -/
 @[category research open, question, AMS 5 14 81]
 theorem eqSystem6_no_solution_d3_real :
-    answer(sorry) ↔
-      ¬ ∃ W : WeightsN 6 3 ℝ, EqSystemN 6 3 W := by
+    ¬ ∃ W : WeightsN 6 3 ℝ, EqSystemN 6 3 W := by
   sorry
 
 /-- For $N = 6$ and $D = 5$, does there exist no solution to the monochromatic quantum graph
@@ -637,17 +625,15 @@ theorem eqSystem6_no_solution_d5_real :
 equation system over $\mathbb{R}$? -/
 @[category research open, question, AMS 5 14 81]
 theorem eqSystem6_no_solution_ge3_real :
-    answer(sorry) ↔
-      ∀ D : Nat, D ≥ 3 →
-        ¬ ∃ W : WeightsN 6 D ℝ, EqSystemN 6 D W := by
+    ∀ D : Nat, D ≥ 3 →
+      ¬ ∃ W : WeightsN 6 D ℝ, EqSystemN 6 D W := by
   sorry
 
 /-- For $N = 8$ and $D = 3$, does there exist no solution to the monochromatic quantum graph
 equation system over $\mathbb{R}$? -/
 @[category research open, question, AMS 5 14 81]
 theorem eqSystem8_no_solution_d3_real :
-    answer(sorry) ↔
-      ¬ ∃ W : WeightsN 8 3 ℝ, EqSystemN 8 3 W := by
+    ¬ ∃ W : WeightsN 8 3 ℝ, EqSystemN 8 3 W := by
   sorry
 
 
@@ -656,17 +642,15 @@ theorem eqSystem8_no_solution_d3_real :
 equation system over $\mathbb{R}$? -/
 @[category research open, question, AMS 5 14 81]
 theorem eqSystem10_no_solution_d3_real :
-    answer(sorry) ↔
-      ¬ ∃ W : WeightsN 10 3 ℝ, EqSystemN 10 3 W := by
+    ¬ ∃ W : WeightsN 10 3 ℝ, EqSystemN 10 3 W := by
   sorry
 
 /-- For all even $N \geq 6$ and $D \geq 3$, does there exist no solution to the monochromatic
 quantum graph equation system over $\mathbb{R}$? -/
 @[category research open, question, AMS 5 14 81]
 theorem eqSystem_no_solution_ge6_ge3_real :
-    answer(sorry) ↔
-      ∀ N D : Nat, N ≥ 6 → Even N → D ≥ 3 →
-        ¬ ∃ W : WeightsN N D ℝ, EqSystemN N D W := by
+    ∀ N D : Nat, N ≥ 6 → Even N → D ≥ 3 →
+      ¬ ∃ W : WeightsN N D ℝ, EqSystemN N D W := by
   sorry
 
 /- ## Open conjectures over ℤ -/

@@ -85,7 +85,7 @@ have a factor in the covering set $\{3, 5, 7, 13, 19, 37, 73\}$.
 -/
 @[category research open, question, AMS 11]
 theorem selfridge_conjecture :
-    answer(sorry) ↔ IsLeast {k | k.IsSierpinskiNumber} 78557 := by
+    IsLeast {k | k.IsSierpinskiNumber} 78557 := by
   sorry
 
 /--
@@ -96,7 +96,7 @@ $k = 271129$.
 -/
 @[category research open, question, AMS 11]
 theorem prime_sierpinski_problem :
-    answer(sorry) ↔ IsLeast {k | k.IsSierpinskiNumber ∧ k.Prime} 271129 := by
+    IsLeast {k | k.IsSierpinskiNumber ∧ k.Prime} 271129 := by
   sorry
 
 /--
@@ -108,9 +108,8 @@ least Sierpiński number $k$ such that there exists exactly one Sierpiński numb
 -/
 @[category research open, question, AMS 11]
 theorem extended_sierpinski_problem :
-    answer(sorry) ↔
-      IsLeast {k | k.IsSierpinskiNumber ∧
-        ∃ k', k'.IsSierpinskiNumber ∧ k' < k} 271129 := by
+    IsLeast {k | k.IsSierpinskiNumber ∧
+      ∃ k', k'.IsSierpinskiNumber ∧ k' < k} 271129 := by
   sorry
 
 end SierpinskiNumber

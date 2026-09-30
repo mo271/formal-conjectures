@@ -58,7 +58,7 @@ Among the Sums of the First `2n` Primes*, [arXiv:1804.04198](https://arxiv.org/a
 -/
 @[category research open, question, AMS 11]
 theorem restricted_prime_number_theorem :
-    answer(sorry) ↔ ((fun n : ℕ => (piRestricted n : ℝ)) ~[atTop] (fun n : ℕ => (n : ℝ) / (2 * Real.log n))) := by
+    ((fun n : ℕ => (piRestricted n : ℝ)) ~[atTop] (fun n : ℕ => (n : ℝ) / (2 * Real.log n))) := by
   sorry
 
 /--
@@ -67,9 +67,8 @@ first $2m$ primes satisfies the Restricted Prime Number Theorem, $\pi(m, (S_{2m}
 -/
 @[category research open, question, AMS 11]
 theorem restricted_prime_number_theorem.variants.even_subsequence :
-    answer(sorry) ↔
-      ((fun m : ℕ => (((Finset.Icc 1 m).filter (fun k => Nat.Prime (S (2 * k)))).card : ℝ)) ~[atTop]
-        (fun m : ℕ => (m : ℝ) / Real.log m)) := by
+    ((fun m : ℕ => (((Finset.Icc 1 m).filter (fun k => Nat.Prime (S (2 * k)))).card : ℝ)) ~[atTop]
+      (fun m : ℕ => (m : ℝ) / Real.log m)) := by
   sorry
 
 end MathOverflow434111

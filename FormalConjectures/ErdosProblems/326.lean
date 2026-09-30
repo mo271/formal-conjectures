@@ -49,7 +49,7 @@ Erdős and Graham conjectured a negative answer to this question [ErGr80].
 `Set.IsAsymptoticAddBasisOfOrder · 2` on sets of naturals ordered by inclusion.
 -/
 @[category research open, question, AMS 5 11]
-theorem erdos_326 : answer(sorry) ↔ ∃ (a : ℕ → ℕ), StrictMono a ∧
+theorem erdos_326 : ∃ (a : ℕ → ℕ), StrictMono a ∧
     Minimal (fun A : Set ℕ ↦ A.IsAsymptoticAddBasisOfOrder 2) (Set.range a) ∧
       ∃ (c : ℝ), c ≠ 0 ∧ Tendsto (fun n ↦ (a n : ℝ) / n ^ 2) atTop (𝓝 c) := by
   sorry

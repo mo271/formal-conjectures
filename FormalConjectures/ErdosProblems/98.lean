@@ -68,7 +68,7 @@ $h(n)/n\to \infty$?
 -/
 @[category research open, question, AMS 52]
 theorem erdos_98 :
-    answer(sorry) ↔ Tendsto (fun n : ℕ ↦ ((h n : ℝ) / (n : ℝ))) atTop atTop := by
+    Tendsto (fun n : ℕ ↦ ((h n : ℝ) / (n : ℝ))) atTop atTop := by
   sorry
 
 /--

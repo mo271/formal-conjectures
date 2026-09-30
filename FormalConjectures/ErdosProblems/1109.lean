@@ -56,7 +56,7 @@ This theorem formalizes the subpolynomial bound as `f(N) = O(N^ε)` for every `�
 -/
 @[category research open, question, AMS 5 11]
 theorem erdos_1109 :
-    answer(sorry) ↔ ∀ ε > (0 : ℝ),
+    ∀ ε > (0 : ℝ),
       (fun N : ℕ => (f N : ℝ)) ≪ fun N : ℕ => (N : ℝ) ^ ε := by
   sorry
 
@@ -65,7 +65,7 @@ Is the stronger polylogarithmic bound $f(N) \leq (\log N)^{O(1)}$ true?
 -/
 @[category research open, question, AMS 5 11]
 theorem erdos_1109.variants.polylog :
-    answer(sorry) ↔ ∃ C > (0 : ℝ),
+    ∃ C > (0 : ℝ),
       (fun N : ℕ => (f N : ℝ)) ≪ fun N : ℕ => (Real.log N) ^ C := by
   sorry
 

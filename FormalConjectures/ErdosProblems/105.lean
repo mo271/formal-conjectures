@@ -75,7 +75,7 @@ theorem erdos_105.variants.beck_szemeredi_trotter : ∃ c > (0 : ℝ),
 It remains possible that this holds with $n-4$ (or in general with $n-O(1)$ or $(1-o(1))n$).
 -/
 @[category research open, question, AMS 5 52]
-theorem erdos_105.variants.sub_four : answer(sorry) ↔
+theorem erdos_105.variants.sub_four :
     ∀ A B : Finset ℝ², Disjoint A B → A.card = B.card + 4 →
       ¬ Collinear ℝ (A : Set ℝ²) →
       ∃ p ∈ A, ∃ q ∈ A, p ≠ q ∧ ∀ b ∈ B, b ∉ line[ℝ, p, q] := by

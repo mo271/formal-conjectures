@@ -37,7 +37,7 @@ Must there be a set $A \subseteq \mathbb{R} \setminus S$ of cardinality continuu
 $A + A \subseteq \mathbb{R}\setminus S$?
 -/
 @[category research open, question, AMS 5]
-theorem erdos_949 : answer(sorry) ↔
+theorem erdos_949 :
     ∀ S : Set ℝ, (∀ a ∈ S, ∀ b ∈ S, a + b ∉ S) → ∃ A ⊆ Sᶜ, #A = 𝔠 ∧ A + A ⊆ Sᶜ := by
   sorry
 

@@ -52,7 +52,7 @@ component or not; I do not even have a plausible guess."
 -/
 @[category research open, question, AMS 11]
 theorem erdos_1146 :
-    answer(sorry) ↔ IsEssentialComponent { k | ∃ m n : ℕ, k = 2 ^ m * 3 ^ n } := by
+    IsEssentialComponent { k | ∃ m n : ℕ, k = 2 ^ m * 3 ^ n } := by
   sorry
 
 end Erdos1146

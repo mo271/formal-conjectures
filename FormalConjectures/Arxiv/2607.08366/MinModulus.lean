@@ -63,7 +63,7 @@ valid, which would make the statement false for a reason unrelated to the questi
 -/
 @[category research open, question, AMS 11]
 theorem min_modulus :
-    answer(sorry) ↔ ∀ n N : ℕ, 2 ≤ n → 0 < N → N < minModulus n →
+    ∀ n N : ℕ, 2 ≤ n → 0 < N → N < minModulus n →
       ∀ A : Finset (ZMod N), #A = n → ¬ IsValidMod A := by
   sorry
 

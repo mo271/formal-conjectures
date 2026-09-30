@@ -43,7 +43,7 @@ and `P` is a set of distinct primes such that the following equation holds:
 $\sum_{p \in P} \frac{1}{p} = 1 - \frac{1}{m}$?
 -/
 @[category research open, question, AMS 11]
-theorem erdos_313 : answer(sorry) ↔ erdos313Solutions.Infinite := by
+theorem erdos_313 : erdos313Solutions.Infinite := by
   sorry
 
 @[category test, AMS 11]

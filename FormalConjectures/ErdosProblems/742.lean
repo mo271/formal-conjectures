@@ -56,7 +56,7 @@ $n = 26$, and Füredi [Fü92] proved it for all sufficiently large $n$.
 -/
 @[category research open, question, AMS 5]
 theorem erdos_742 :
-    answer(sorry) ↔ ∀ (V : Type*) [Fintype V] [DecidableEq V]
+    ∀ (V : Type*) [Fintype V] [DecidableEq V]
     (G : SimpleGraph V) [DecidableRel G.Adj], IsDiameter2Critical G →
     G.edgeFinset.card ≤ (Fintype.card V) ^ 2 / 4 := by
   sorry

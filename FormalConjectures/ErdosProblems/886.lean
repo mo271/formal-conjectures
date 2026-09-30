@@ -47,7 +47,7 @@ Erdős attributes this conjecture to Ruzsa.
 -/
 @[category research open, question, AMS 11]
 theorem erdos_886 :
-    answer(sorry) ↔ ∀ ε > 0, ∃ K : ℕ, ∀ᶠ n in atTop, (Erdos886Divisors n ε 1).card ≤ K := by
+    ∀ ε > 0, ∃ K : ℕ, ∀ᶠ n in atTop, (Erdos886Divisors n ε 1).card ≤ K := by
   sorry
 
 /--

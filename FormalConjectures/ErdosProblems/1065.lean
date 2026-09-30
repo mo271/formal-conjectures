@@ -37,7 +37,7 @@ by *Richard K. Guy*
  -/
 @[category research open, question, AMS 11]
 theorem erdos_1065.parts.i :
-    answer(sorry) ↔ Set.Infinite {p | ∃ q k, p.Prime ∧ q.Prime ∧ p = 2^k * q + 1} := by
+    Set.Infinite {p | ∃ q k, p.Prime ∧ q.Prime ∧ p = 2^k * q + 1} := by
   sorry
 
 /--
@@ -45,7 +45,7 @@ Are there infinitely many primes $p$ such that $p = 2^k 3^l q + 1$
 for some prime $q$ and $k ≥ 0$, $l ≥ 0$?
 -/
 @[category research open, question, AMS 11]
-theorem erdos_1065.parts.ii : answer(sorry) ↔
+theorem erdos_1065.parts.ii :
     Set.Infinite {p | ∃ q k l, p.Prime ∧ q.Prime ∧ p = 2^k * 3^l * q + 1} := by
   sorry
 

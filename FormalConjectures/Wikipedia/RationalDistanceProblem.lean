@@ -42,7 +42,7 @@ Does there exist a point in the plane at rational distance from all four vertice
 -/
 @[category research open, question, AMS 11 51]
 theorem rational_distance_problem :
-    answer(sorry) ↔ ∃ P : ℝ² , ∀ i, ¬ Irrational (dist P (UnitSquareCorners i)) := by
+    ∃ P : ℝ² , ∀ i, ¬ Irrational (dist P (UnitSquareCorners i)) := by
   sorry
 
 end RationalDistanceProblem

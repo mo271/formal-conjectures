@@ -226,17 +226,17 @@ $2^r - 1$ and $2^r - 3$ with $r \ge 4$.
 -/
 @[category research open, question, AMS 11 12]
 theorem u_invariant_values.variants.odd :
-    answer(sorry) ↔ ∀ n, Odd n → 9 ≤ n → IsUInvariant n := by
+    ∀ n, Odd n → 9 ≤ n → IsUInvariant n := by
   sorry
 
 /-- The smallest open case of the form $2^r - 3$: is there a field of $u$-invariant $13$? -/
 @[category research open, question, AMS 11 12]
-theorem u_invariant_values.variants.thirteen : answer(sorry) ↔ IsUInvariant 13 := by
+theorem u_invariant_values.variants.thirteen : IsUInvariant 13 := by
   sorry
 
 /-- The smallest open case of the form $2^r - 1$: is there a field of $u$-invariant $15$? -/
 @[category research open, question, AMS 11 12]
-theorem u_invariant_values.variants.fifteen : answer(sorry) ↔ IsUInvariant 15 := by
+theorem u_invariant_values.variants.fifteen : IsUInvariant 15 := by
   sorry
 
 end KaplanskyUInvariant

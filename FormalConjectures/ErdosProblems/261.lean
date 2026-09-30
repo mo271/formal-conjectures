@@ -84,14 +84,14 @@ theorem erdos_261.variants.le_10000 {n : ℕ} (hn_pos : 0 < n) (hn : n ≤ 10000
 
 /-- Do all positive integers $n$ have the required property? -/
 @[category research open, question, AMS 11]
-theorem erdos_261.parts.ii : answer(sorry) ↔ ∀ n > 0, Erdos261Prop n := by
+theorem erdos_261.parts.ii : ∀ n > 0, Erdos261Prop n := by
   sorry
 
 /-- Is there a rational number $x$ such that
 $$x = \sum_{k=1}^{\infty} \frac{a_k}{2^{a_k}}$$
 has at least $2^{\aleph_0}$ representations by pairwise distinct positive integers $a_k$? -/
 @[category research open, question, AMS 11]
-theorem erdos_261.parts.iii : answer(sorry) ↔ ∃ x : ℚ,
+theorem erdos_261.parts.iii : ∃ x : ℚ,
     𝔠 ≤ #{a : ℕ → ℕ | Erdos261InfiniteRepresentation x a} := by
   sorry
 

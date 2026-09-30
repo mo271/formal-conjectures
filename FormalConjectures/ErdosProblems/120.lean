@@ -45,7 +45,7 @@ of positive measure which does not contain any set of the shape $a * A + b$
 for some $a,b \in \mathbb{R}$ and $a \neq 0$?
 -/
 @[category research open, question, AMS 5 28]
-theorem erdos_120 : answer(sorry) ↔ ∀ A : Set ℝ, A.Infinite → Erdos120For A := by
+theorem erdos_120 : ∀ A : Set ℝ, A.Infinite → Erdos120For A := by
   sorry
 
 /--

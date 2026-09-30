@@ -34,11 +34,10 @@ contain a composite number?
 -/
 @[category research open, question, AMS 5 11]
 theorem green_58 :
-    answer(sorry) ↔
-      ∀ᶠ (N : ℕ) in Filter.atTop, ∀ᵉ (A ⊆ Finset.Icc 1 N) (B ⊆ Finset.Icc 1 N),
-        (N : ℝ) ^ (0.49 : ℝ) ≤ (A.card : ℝ) →
-        (N : ℝ) ^ (0.49 : ℝ) ≤ (B.card : ℝ) →
-        ∃ m ∈ (A + B), m.Composite := by
+    ∀ᶠ (N : ℕ) in Filter.atTop, ∀ᵉ (A ⊆ Finset.Icc 1 N) (B ⊆ Finset.Icc 1 N),
+      (N : ℝ) ^ (0.49 : ℝ) ≤ (A.card : ℝ) →
+      (N : ℝ) ^ (0.49 : ℝ) ≤ (B.card : ℝ) →
+      ∃ m ∈ (A + B), m.Composite := by
   sorry
 
 end Green58

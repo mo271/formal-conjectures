@@ -46,7 +46,7 @@ How many (ordered) solutions are there to `σ(a) + σ(b) = σ(a + b)` with `a + 
 Is it true that this number is asymptotic to `c * x` for some constant `c > 0`?
 -/
 @[category research open, question, AMS 11]
-theorem erdos_1061 : answer(sorry) ↔ ∃ c : ℝ, 0 < c ∧ S ~[atTop] (fun x : ℝ ↦ c * x) := by
+theorem erdos_1061 : ∃ c : ℝ, 0 < c ∧ S ~[atTop] (fun x : ℝ ↦ c * x) := by
   sorry
 
 end Erdos1061

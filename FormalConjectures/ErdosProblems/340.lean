@@ -134,7 +134,7 @@ theorem erdos_340.variants._22_mem_sub :
 The smallest integer which is unknown to be in $A - A$ is $33$.
  -/
 @[category research open, question, AMS 5]
-theorem erdos_340.variants._33_mem_sub : answer(sorry) ↔
+theorem erdos_340.variants._33_mem_sub :
     33 ∈ Set.range greedySidon - Set.range greedySidon := by
   sorry
 
@@ -146,7 +146,7 @@ theorem erdos_340.variants._33_mem_sub : answer(sorry) ↔
 It may be true that all or almost all integers are in $A - A$.
 -/
 @[category research open, question, AMS 5]
-theorem erdos_340.variants.cofinite_sub : answer(sorry) ↔
+theorem erdos_340.variants.cofinite_sub :
     ∀ᶠ n in cofinite, n ∈ Set.range greedySidon - Set.range greedySidon := by
   sorry
 
@@ -154,7 +154,7 @@ theorem erdos_340.variants.cofinite_sub : answer(sorry) ↔
 It may be true that all or almost all integers are in $A - A$.
 -/
 @[category research open, question, AMS 5]
-theorem erdos_340.variants.co_density_zero_sub : answer(sorry) ↔
+theorem erdos_340.variants.co_density_zero_sub :
     ∃ S : Set ℕ, S.HasDensity 0 ∧ ∀ n ∈ Sᶜ, n ∈ Set.range greedySidon - Set.range greedySidon := by
   sorry
 

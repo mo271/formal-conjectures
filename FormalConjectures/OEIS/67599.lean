@@ -70,7 +70,7 @@ theorem a_6 : a 6 = 2131 := by
 -/
 @[category research open, question, AMS 11]
 theorem conjecture :
-    answer(sorry) ↔ ∃ n : ℕ, 2 ≤ n ∧ a n = n := by
+    ∃ n : ℕ, 2 ≤ n ∧ a n = n := by
   sorry
 
 end OeisA67599

@@ -82,7 +82,7 @@ If $k>3$ (and $k \neq 2^l$), and for all primes $p$ there exists $n$ such that $
 then are there infinitely many $n$ for which $f(n)$ is $(k-2)$-power-free?
 -/
 @[category research open, question, AMS 11]
-theorem erdos_978.parts.ii : answer(sorry) ↔
+theorem erdos_978.parts.ii :
     ∀ {f : ℤ[X]}, Irreducible f → f.natDegree > 3 →
     (¬ ∃ l : ℕ, f.natDegree = 2 ^ l) → 0 < f.leadingCoeff →
     (∀ (p : ℕ), p.Prime → ∃ n : ℕ, ¬ (p : ℤ) ^ (f.natDegree - 2) ∣ f.eval (n : ℤ)) →
@@ -91,7 +91,7 @@ theorem erdos_978.parts.ii : answer(sorry) ↔
 
 /-- Does `n ^ 4 + 2` represent infinitely many squarefree numbers? -/
 @[category research open, question, AMS 11]
-theorem erdos_978.parts.iii : answer(sorry) ↔ {n : ℕ | Squarefree (n ^ 4 + 2)}.Infinite := by
+theorem erdos_978.parts.iii : {n : ℕ | Squarefree (n ^ 4 + 2)}.Infinite := by
   sorry
 
 end Erdos978

@@ -81,7 +81,7 @@ $p_{n_i}$ and $p_{n_i+1}$, which is `primeGap (n i)`, and not the gap between th
 indexed by two consecutive members of the sequence.
 -/
 @[category research open, question, AMS 11]
-theorem erdos_5 : answer(sorry) ↔ ∀ C : ℝ, 0 ≤ C →
+theorem erdos_5 : ∀ C : ℝ, 0 ≤ C →
     ∃ n : ℕ → ℕ, StrictMono n ∧ Tendsto (fun i => normalizedGap (n i)) atTop (𝓝 C) := by
   sorry
 
@@ -93,7 +93,7 @@ Since $\infty\in S$ is known (see `erdos_5.variants.westzynthius`), the open con
 equality of the finite part of $S$ with $[0,\infty)$.
 -/
 @[category research open, question, AMS 11]
-theorem erdos_5.variants.limit_point_set : answer(sorry) ↔ limitPointSet = Ici 0 := by
+theorem erdos_5.variants.limit_point_set : limitPointSet = Ici 0 := by
   sorry
 
 /--
@@ -204,7 +204,7 @@ In [Er65b], [Er85c], and [Er97c] Erdős asks whether $S$ is everywhere dense (bu
 notes that clearly $S$ is closed so this is equivalent to asking whether $S=[0,\infty]$).
 -/
 @[category research open, question, AMS 11]
-theorem erdos_5.variants.dense : answer(sorry) ↔ Ici (0 : ℝ) ⊆ closure limitPointSet := by
+theorem erdos_5.variants.dense : Ici (0 : ℝ) ⊆ closure limitPointSet := by
   sorry
 
 /--

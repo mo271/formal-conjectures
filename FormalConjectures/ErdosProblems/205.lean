@@ -103,7 +103,7 @@ The $n$ constructed in this way are divisible by a large power of $2$. It remain
 there exist arbitrarily large odd counterexamples.
 -/
 @[category research open, question, AMS 11]
-theorem erdos_205.variants.odd_counterexamples : answer(sorry) ↔
+theorem erdos_205.variants.odd_counterexamples :
     {n : ℕ | Odd n ∧ ¬ IsRepresentable (fun m => Real.log (Real.log m)) n}.Infinite := by
   sorry
 

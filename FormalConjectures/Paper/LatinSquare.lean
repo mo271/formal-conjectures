@@ -57,7 +57,7 @@ Conjecture 3.2 in [Wa2011]:
 Each Latin square of odd order has at least one transversal.
 -/
 @[category research open, question, AMS 5]
-theorem oddOrderLatinSquareTransversal : answer(sorry) ↔
+theorem oddOrderLatinSquareTransversal :
     ∀ (n : ℕ), Odd n → ∀ (L : LatinSquare n), ∃ σ, IsTransversal L σ := by
   sorry
 
@@ -73,7 +73,7 @@ theorem oddOrderLeq9LatinSquareTransversal : answer(True) ↔
 The smallest odd number for which this conjecture is not known is 11.
 -/
 @[category research open, question, AMS 5]
-theorem latinSquareOrder11Transversal : answer(sorry) ↔
+theorem latinSquareOrder11Transversal :
     ∀ (L : LatinSquare 11), ∃ σ, IsTransversal L σ := by
   sorry
 
@@ -88,7 +88,7 @@ Conjecture 5.1 in [Wa2011]:
 Every latin square has a near-transversal
 -/
 @[category research open, question, AMS 5]
-theorem latinSquareNearTransversal : answer(sorry) ↔
+theorem latinSquareNearTransversal :
     ∀ (n : ℕ) (L : LatinSquare n), ∃ ρ σ, IsNearTransversal L ρ σ := by
   sorry
 
@@ -166,7 +166,7 @@ $$
 for all odd $n \geq 3$.
 -/
 @[category research open, question, AMS 5]
-theorem numTransversalsZn : answer(sorry) ↔
+theorem numTransversalsZn :
       ∃ᵉ (c₁ > (0 : ℝ)) (c₂ < (1 : ℝ)) (_ : c₁ < c₂),
       ∀ n ≥ 3, Odd n →
         (z n : ℝ) ∈ Set.Icc (c₁ ^ n * n.factorial) (c₂ ^ n * n.factorial) := by
@@ -181,7 +181,7 @@ It is not even known if this limit exists. Note that $z_n = 0$ for even $n$ (see
 limit must be restricted to odd $n$; here we parametrise odd $n$ as $2k + 1$.
 -/
 @[category research open, question, AMS 5]
-theorem growthRateZn : answer(sorry) ↔
+theorem growthRateZn :
     Filter.Tendsto (fun k => (1 : ℝ) / (2 * k + 1) *
       Real.log (z (2 * k + 1) / (2 * k + 1).factorial)) Filter.atTop
       (nhds (-1)) := by
@@ -221,7 +221,7 @@ The smallest unresolved case of the MOLS existence problem: whether there are `1
 orthogonal latin squares of order `12`.
 -/
 @[category research open, question, AMS 5]
-theorem molsOrder12 : answer(sorry) ↔ HasCompleteMOLS 12 := by
+theorem molsOrder12 : HasCompleteMOLS 12 := by
   sorry
 
 /-

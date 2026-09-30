@@ -92,7 +92,7 @@ theorem erdos_21.variants.lower (n : ℕ) : (8 / 3 : ℝ) * n - 3 ≤ f n := by
 
 /-- It has been speculated (see e.g. [Ka94]) that the correct answer is $3n+O(1)$. -/
 @[category research open, question, AMS 5]
-theorem erdos_21.variants.three_n : answer(sorry) ↔ ∃ C : ℕ, ∀ᶠ n : ℕ in atTop,
+theorem erdos_21.variants.three_n : ∃ C : ℕ, ∀ᶠ n : ℕ in atTop,
     f n ≤ 3 * n + C ∧ 3 * n ≤ f n + C := by
   sorry
 

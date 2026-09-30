@@ -118,7 +118,7 @@ theorem jacobian_conjecture {k : Type} [CommRing k] [Nontrivial k] :
 /-- Does the Jacobian conjecture hold in the two variable case? -/
 @[category research open, question, AMS 14]
 theorem jacobian_conjecture_two_variables :
-    answer(sorry) ↔ ∀ {k : Type} [Field k] [CharZero k], JacobianConjectureProp k (Fin 2) := by
+    ∀ {k : Type} [Field k] [CharZero k], JacobianConjectureProp k (Fin 2) := by
   sorry
 
 end Conjecture

@@ -38,7 +38,7 @@ Does $2A_i$ contain a coset of codimension $O_K(1)$ for some $i$?
 -/
 @[category research open, question, AMS 5 11]
 theorem green_53 :
-    answer(sorry) ↔ ∃ (c : ℕ → ℕ), ∀ (n K : ℕ) (A : Fin K → Set (𝔽₂ n)),
+    ∃ (c : ℕ → ℕ), ∀ (n K : ℕ) (A : Fin K → Set (𝔽₂ n)),
       (⋃ i, A i) = Set.univ →
       Pairwise (Disjoint on A) →
       ∃ (i : Fin K) (S : AffineSubspace (ZMod 2) (𝔽₂ n)),

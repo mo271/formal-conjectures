@@ -48,7 +48,7 @@ Let `A ⊂ R` be a set of positive measure. Does $A$ contain an affine copy of `
 -/
 @[category research open, question, AMS 28]
 theorem green_94 :
-   answer(sorry) ↔ ∀ A : Set ℝ,
+   ∀ A : Set ℝ,
    MeasurableSet A ∧ volume A > 0 →
    ∃ a b : ℝ, a ≠ 0 ∧ ∀ n : ℕ, a * (1 / 2^n) + b ∈ A := by
   sorry

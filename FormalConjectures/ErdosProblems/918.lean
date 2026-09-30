@@ -39,7 +39,7 @@ subgraph on $\aleph_1$ vertices has chromatic number $\leq\aleph_0$? -/
 -- Formalisation note: source material [ErHa68b] uses only induced subgraphs
 @[category research open, question, AMS 5]
 theorem erdos_918.parts.i :
-    answer(sorry) ↔ ∃ (V : Type u) (G : SimpleGraph V), #V = ℵ_ 2 ∧ G.chromaticCardinal = ℵ_ 2 ∧
+    ∃ (V : Type u) (G : SimpleGraph V), #V = ℵ_ 2 ∧ G.chromaticCardinal = ℵ_ 2 ∧
       ∀ (W : Set V) (_ : #W = ℵ₁), (G.induce W).chromaticCardinal ≤ ℵ₀ := by
   sorry
 
@@ -50,7 +50,6 @@ every subgraph on $\aleph_\omega$ vertices has chromatic number $\leq\aleph_0$? 
 -- finite `k` under GCH, and `ℵ_ω` is the limit of that family, so this asks the single next case.
 @[category research open, question, AMS 5]
 theorem erdos_918.parts.ii :
-    answer(sorry) ↔
     ∃ (V : Type u) (G : SimpleGraph V), #V = ℵ_ (ω + 1) ∧ G.chromaticCardinal = ℵ₁ ∧
       ∀ (W : Set V) (_ : #W = ℵ_ ω), (G.induce W).chromaticCardinal ≤ ℵ₀ := by
   sorry
@@ -65,7 +64,7 @@ subgraph on $\aleph_1$ vertices has chromatic number $\leq\aleph_0$? -/
 -- cardinal `1`, and that is the source's own reason for the impossibility there.
 @[category research open, question, AMS 5]
 theorem erdos_918.variants.all_subgraphs.parts.i :
-    answer(sorry) ↔ ∃ (V : Type u) (G : SimpleGraph V), #V = ℵ_ 2 ∧ G.chromaticCardinal = ℵ_ 2 ∧
+    ∃ (V : Type u) (G : SimpleGraph V), #V = ℵ_ 2 ∧ G.chromaticCardinal = ℵ_ 2 ∧
       ∀ (H : G.Subgraph) (_ : #H.verts = ℵ₁), H.coe.chromaticCardinal ≤ ℵ₀ := by
   sorry
 
@@ -73,9 +72,8 @@ theorem erdos_918.variants.all_subgraphs.parts.i :
 every subgraph on $\aleph_\omega$ vertices has chromatic number $\leq\aleph_0$? -/
 @[category research open, question, AMS 5]
 theorem erdos_918.variants.all_subgraphs.parts.ii :
-    answer(sorry) ↔
-      ∃ (V : Type u) (G : SimpleGraph V), #V = ℵ_ (ω + 1) ∧ G.chromaticCardinal = ℵ₁ ∧
-      ∀ (H : G.Subgraph) (_ : #H.verts = ℵ_ ω), H.coe.chromaticCardinal ≤ ℵ₀ := by
+    ∃ (V : Type u) (G : SimpleGraph V), #V = ℵ_ (ω + 1) ∧ G.chromaticCardinal = ℵ₁ ∧
+    ∀ (H : G.Subgraph) (_ : #H.verts = ℵ_ ω), H.coe.chromaticCardinal ≤ ℵ₀ := by
   sorry
 
 /-- A question of Erd\H{o}s and Hajnal [ErHa68b], who proved, assuming the generalized continuum

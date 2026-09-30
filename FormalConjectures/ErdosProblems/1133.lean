@@ -41,7 +41,6 @@ $1\leq i\leq n$, then $$\max_{x\in [-1,1]}\lvert P(x)\rvert >C.$$
 -/
 @[category research open, question, AMS 26 41]
 theorem erdos_1133 :
-    answer(sorry) ↔
     ∀ C > (0 : ℝ), ∃ ε > (0 : ℝ), ∀ᶠ n : ℕ in atTop,
       ∀ x : Fin n → Icc (-1 : ℝ) 1,
         ∃ y : Fin n → Icc (-1 : ℝ) 1,

@@ -148,7 +148,7 @@ distances between points in $A$. Prove that for large $n$ there are at least two
 -/
 @[category research open, question, AMS 52]
 theorem erdos_91 :
-    answer(sorry) ↔ ∀ᶠ n : ℕ in atTop, ¬ UniqueMinimizer n := by
+    ∀ᶠ n : ℕ in atTop, ¬ UniqueMinimizer n := by
   sorry
 
 

@@ -43,7 +43,7 @@ $$\sum_{n\in A}\cos(n\theta) < -cN^{1/2}?$$
 -/
 @[category research open, question, AMS 11]
 theorem erdos_510 :
-    answer(sorry) ↔ ∃ (c : ℝ) (hc : 0 < c),
+    ∃ (c : ℝ) (hc : 0 < c),
       ∀ᶠ N in atTop, ∀ (A : Finset ℕ), 0 ∉ A → #A = N →
       ∃ θ, ∑ n ∈ A, cos (n * θ) < -c * sqrt N := by
   sorry

@@ -49,7 +49,7 @@ We state the problem by asking if `Nat.primeFactorsList` is polynomial-time comp
 
 *Reference:* [Wikipedia](https://en.wikipedia.org/wiki/Integer_factorization) -/
 @[category research open, question, AMS 68]
-theorem isPolyTime_primeFactorsList : answer(sorry) ↔ IsPolyTime Nat.primeFactorsList := by
+theorem isPolyTime_primeFactorsList : IsPolyTime Nat.primeFactorsList := by
   sorry
 
 end PolyTime

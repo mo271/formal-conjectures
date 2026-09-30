@@ -34,7 +34,7 @@ irrational?
 -/
 @[category research open, question, AMS 11]
 theorem erdos_68 :
-    answer(sorry) ↔ Irrational (∑' n : ℕ, 1 / ((n + 2).factorial - 1 : ℝ)) := by
+    Irrational (∑' n : ℕ, 1 / ((n + 2).factorial - 1 : ℝ)) := by
   sorry
 
 /--

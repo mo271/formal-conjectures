@@ -46,7 +46,7 @@ The condition that $G$ have at least two edges excludes degenerate forbidden gra
 extremal number is eventually zero, for which the displayed asymptotic with $c>0$ is impossible.
 -/
 @[category research open, question, AMS 5]
-theorem erdos_713.parts.i : answer(sorry) ↔
+theorem erdos_713.parts.i :
     ∀ (q : ℕ) (G : SimpleGraph (Fin q)), G.IsBipartite → 2 ≤ G.edgeFinset.card →
       ∃ α c : ℝ, α ∈ Set.Ico 1 2 ∧ 0 < c ∧
         Asymptotics.IsEquivalent atTop
@@ -62,7 +62,7 @@ The same nondegeneracy condition on $G$ is used as in part (i). Rationality mean
 number $\alpha$ lies in the image of the canonical embedding $\mathbb{Q}\to\mathbb{R}$.
 -/
 @[category research open, question, AMS 5]
-theorem erdos_713.parts.ii : answer(sorry) ↔
+theorem erdos_713.parts.ii :
     ∀ (q : ℕ) (G : SimpleGraph (Fin q)), G.IsBipartite → 2 ≤ G.edgeFinset.card →
       ∀ α c : ℝ, α ∈ Set.Ico 1 2 → 0 < c →
         Asymptotics.IsEquivalent atTop

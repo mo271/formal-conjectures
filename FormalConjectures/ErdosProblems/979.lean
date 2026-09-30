@@ -35,7 +35,7 @@ Let $k ≥ 2$, and let $f_k(n)$ count the number of solutions to $n = p_1^k + \d
 where the $p_i$ are prime numbers. Is it true that $\limsup f_k(n) = \infty$?
 -/
 @[category research open, question, AMS 11]
-theorem erdos_979 : answer(sorry) ↔
+theorem erdos_979 :
     ∀ k ≥ 2, Filter.limsup (fun n => (solutionSet n k).encard) Filter.atTop = ⊤ := by
   sorry
 

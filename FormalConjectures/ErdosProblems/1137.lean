@@ -36,10 +36,9 @@ $$\frac{\max_{n < x}d_{n}d_{n-1}}{(\max_{n < x}d_n)^2}\to 0$$ as $x\to \infty$?
 -/
 @[category research open, question, AMS 11]
 theorem erdos_1137 :
-    answer(sorry) ↔
-     Tendsto (fun x ↦
-        (((range x).sup (fun n ↦ (primeGap n) * (primeGap (n - 1))) : ℕ) : ℝ) /
-        (((range x).sup primeGap : ℕ) : ℝ) ^ 2) atTop (𝓝 0) := by
+    Tendsto (fun x ↦
+       (((range x).sup (fun n ↦ (primeGap n) * (primeGap (n - 1))) : ℕ) : ℝ) /
+       (((range x).sup primeGap : ℕ) : ℝ) ^ 2) atTop (𝓝 0) := by
   sorry
 
 end Erdos1137

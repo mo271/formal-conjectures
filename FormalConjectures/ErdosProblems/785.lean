@@ -174,7 +174,7 @@ theorem erdos_785.variants.chen_fang_limsup (A B : Set ℕ) (hA : A.Infinite) (h
 Chen conjectures that this should be true with $3/2$.
 -/
 @[category research open, question, AMS 11]
-theorem erdos_785.variants.chen_conjecture : answer(sorry) ↔
+theorem erdos_785.variants.chen_conjecture :
     ∀ A B : Set ℕ, A.Infinite → B.Infinite → 0 ∉ A → 0 ∉ B → IsAdditiveComplement A B →
       limsup (fun x : ℕ => ((counting A x * counting B x : ℝ) / (x : ℝ) : EReal)) atTop
           < ((3 / 2 : ℝ) : EReal) →

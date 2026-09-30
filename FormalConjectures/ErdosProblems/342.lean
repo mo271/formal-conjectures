@@ -113,9 +113,8 @@ theorem erdos_342.test.a3 : ∀ a : ℕ → ℕ, IsUlamSequence a → a 3 = 4 :=
 Do infinitely many pairs $(a, a+2)$ occur in Ulam's sequence? -/
 @[category research open, question, AMS 5 11 40]
 theorem erdos_342.parts.i :
-    answer(sorry) ↔
-      ∀ a : ℕ → ℕ, IsUlamSequence a →
-        Set.Infinite {n : ℕ | ∃ m, a m = a n + 2} := by
+    ∀ a : ℕ → ℕ, IsUlamSequence a →
+      Set.Infinite {n : ℕ | ∃ m, a m = a n + 2} := by
   sorry
 
 /--
@@ -123,10 +122,9 @@ Does Ulam's sequence eventually have periodic differences? That is, is $a(n+1) -
 -/
 @[category research open, question, AMS 5 11 40]
 theorem erdos_342.parts.ii :
-    answer(sorry) ↔
-      ∀ a : ℕ → ℕ, IsUlamSequence a →
-        let d (n : ℕ) : ℤ := a (n + 1) - a n
-        ∃ p > 0, ∀ᶠ m in atTop, d (m + p) = d m := by
+    ∀ a : ℕ → ℕ, IsUlamSequence a →
+      let d (n : ℕ) : ℤ := a (n + 1) - a n
+      ∃ p > 0, ∀ᶠ m in atTop, d (m + p) = d m := by
   sorry
 
 /--
@@ -134,9 +132,8 @@ Part (iii), is the density of the sequence 0?
 -/
 @[category research open, question, AMS 5 11 40]
 theorem erdos_342.parts.iii :
-    answer(sorry) ↔
-      ∀ a : ℕ → ℕ, IsUlamSequence a →
-        Set.upperDensity (Set.range a) = 0 := by
+    ∀ a : ℕ → ℕ, IsUlamSequence a →
+      Set.upperDensity (Set.range a) = 0 := by
   sorry
 
 end Erdos342

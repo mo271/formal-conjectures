@@ -44,7 +44,7 @@ def Erdos375Prop : Prop := ∀ n ≥ 1, ∀ k, (∀ i < k, ¬ (n + i + 1).Prime)
 
 /-- Is `Erdos375Prop` true? -/
 @[category research open, question, AMS 11]
-theorem erdos_375 : answer(sorry) ↔ Erdos375Prop := by
+theorem erdos_375 : Erdos375Prop := by
   sorry
 
 /-- If `Erdos375Prop` is true, then `(n + 1).nth Prime - n.nth Prime < (n.nth Prime) ^ (1 / 2 - c)`

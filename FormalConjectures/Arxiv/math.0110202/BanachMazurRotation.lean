@@ -45,7 +45,7 @@ isometric equivalences acts transitively on the unit sphere is linearly isometri
 space.
 -/
 @[category research open, question, AMS 46]
-theorem banach_mazur_rotation_problem : answer(sorry) ↔
+theorem banach_mazur_rotation_problem :
     ∀ (E : Type*) [NormedAddCommGroup E] [NormedSpace ℝ E] [CompleteSpace E] [SeparableSpace E]
       [IsPretransitive (E ≃ₗᵢ[ℝ] E) (sphere (0 : E) 1)], ∃ (H : Type*) (_ : NormedAddCommGroup H)
       (_ : InnerProductSpace ℝ H),

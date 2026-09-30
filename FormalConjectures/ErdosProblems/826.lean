@@ -36,7 +36,7 @@ $$
 $$
 -/
 @[category research open, question, AMS 11]
-theorem erdos_826 : answer(sorry) ↔
+theorem erdos_826 :
     ∃ C > (0 : ℝ), { n | ∀ k ≥ 1, σ 0 (n + k) ≤ C * k }.Infinite := by
   sorry
 

@@ -35,7 +35,7 @@ Are there infinitely many solutions to $\phi(n) = \phi(n+1)$, where $\phi$ is th
 function?
 -/
 @[category research open, question, AMS 11]
-theorem erdos_1003 : answer(sorry) ↔ Set.Infinite {n | φ n = φ (n + 1)} := by
+theorem erdos_1003 : Set.Infinite {n | φ n = φ (n + 1)} := by
   sorry
 
 /--
@@ -46,7 +46,7 @@ $$\phi(n) = \phi(n+1) = \cdots = \phi (n+k)$$ has infinitely many solutions.
 -/
 @[category research open, question, AMS 11]
 theorem erdos_1003.variants.Icc :
-    answer(sorry) ↔ ∀ k ≥ 1, {n | ∀ i ∈ Set.Icc 1 k, φ n = φ (n + i)}.Infinite := by
+    ∀ k ≥ 1, {n | ∀ i ∈ Set.Icc 1 k, φ n = φ (n + i)}.Infinite := by
   sorry
 
 /--

@@ -45,9 +45,8 @@ $\limsup_{n\to \infty} \frac{2^k3^l}{n\log n}=\infty$?
 -/
 @[category research open, question, AMS 11]
 theorem erdos_933 :
-    answer(sorry) ↔
-      atTop.limsup (fun n : ℕ ↦
-        ((((2 ^ k n * 3 ^ l n : ℕ) : ℝ) / ((n : ℝ) * Real.log (n : ℝ))) : EReal)) = ⊤ := by
+    atTop.limsup (fun n : ℕ ↦
+      ((((2 ^ k n * 3 ^ l n : ℕ) : ℝ) / ((n : ℝ) * Real.log (n : ℝ))) : EReal)) = ⊤ := by
   sorry
 
 /--

@@ -98,7 +98,7 @@ Tong asks whether, for any given odd prime $q$, there are infinitely many primes
 there is no integer $n$ with $P(n)=p$ and $P(n+1)=q$.
 -/
 @[category research open, question, AMS 11]
-theorem erdos_649.variants.tong_question : answer(sorry) ↔
+theorem erdos_649.variants.tong_question :
     ∀ q : ℕ, q.Prime → Odd q →
       {p : ℕ |
         p.Prime ∧ ¬ ∃ n : ℕ, n.maxPrimeFac = p ∧ (n + 1).maxPrimeFac = q}.Infinite := by

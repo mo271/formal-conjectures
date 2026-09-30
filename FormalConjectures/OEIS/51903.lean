@@ -67,7 +67,7 @@ condition is $\phi(n) \mid n - 1$.
 -/
 @[category research open, question, AMS 11]
 theorem conjecture1 :
-    answer(sorry) ↔ ∃ n : ℕ, 4 < n ∧ ¬ n.Prime ∧ n.totient ∣ (n - a n) := by
+    ∃ n : ℕ, 4 < n ∧ ¬ n.Prime ∧ n.totient ∣ (n - a n) := by
   sorry
 
 /--
@@ -77,7 +77,7 @@ Are there odd numbers $n$ such that $a(n) > 1$ and $n \equiv a(n) \pmod{\lambda(
 -/
 @[category research open, question, AMS 11]
 theorem conjecture2 :
-    answer(sorry) ↔ ∃ n : ℕ, Odd n ∧ 1 < a n ∧ ∀ b : ℕ, b ^ n ≡ b ^ (a n) [MOD n] := by
+    ∃ n : ℕ, Odd n ∧ 1 < a n ∧ ∀ b : ℕ, b ^ n ≡ b ^ (a n) [MOD n] := by
   sorry
 
 /--
@@ -87,7 +87,7 @@ Are there odd numbers $n$ such that $a(n) > 1$ and $n \equiv a(n) \pmod{\operato
 -/
 @[category research open, question, AMS 11]
 theorem conjecture3 :
-    answer(sorry) ↔ ∃ n : ℕ, Odd n ∧ 1 < a n ∧ 2 ^ n ≡ 2 ^ (a n) [MOD n] := by
+    ∃ n : ℕ, Odd n ∧ 1 < a n ∧ 2 ^ n ≡ 2 ^ (a n) [MOD n] := by
   sorry
 
 end OeisA51903

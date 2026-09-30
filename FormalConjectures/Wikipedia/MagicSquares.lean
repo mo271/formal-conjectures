@@ -41,7 +41,7 @@ See [Magic Square of Squares](https://static.nsta.org/pdfs/QuantumV6N3.pdf)
 -/
 @[category research open, question, AMS 11]
 theorem exists_magic_square_squares :
-    answer(sorry) ↔ ∃ m : Fin 3 → Fin 3 → ℕ, ∃ t : ℕ,
+    ∃ m : Fin 3 → Fin 3 → ℕ, ∃ t : ℕ,
        m.Injective2 ∧
        (∀ i j, 0 < (m i j) ∧ IsSquare (m i j)) ∧
        (∀ i, ∑ j, m i j = t) ∧
@@ -63,7 +63,7 @@ and all row sums and column sums are equal.
 -/
 @[category research open, question, AMS 5 11]
 theorem exists_semi_magic_square_cubes :
-    answer(sorry) ↔ ∃ m : Fin 3 → Fin 3 → ℕ, ∃ t : ℕ,
+    ∃ m : Fin 3 → Fin 3 → ℕ, ∃ t : ℕ,
        m.Injective2 ∧
        (∀ i j, ∃ n : ℕ, 0 < n ∧ m i j = n ^ 3) ∧
        (∀ i, ∑ j, m i j = t) ∧

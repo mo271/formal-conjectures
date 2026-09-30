@@ -62,7 +62,7 @@ Is it true that, for every $k \geq 1$, there exist integers $N_1 < \dots < N_k$ 
 $|\cap_i D(N_i)| \geq k$?
 -/
 @[category research open, question, AMS 11]
-theorem erdos_885 : answer(sorry) ↔ ∀ k ≥ 1,
+theorem erdos_885 : ∀ k ≥ 1,
     ∃ Ns : Finset ℕ,
       (∀ n ∈ Ns, 1 ≤ n) ∧
       Ns.card = k ∧

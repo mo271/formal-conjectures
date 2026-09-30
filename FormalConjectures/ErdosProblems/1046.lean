@@ -77,7 +77,7 @@ Erdős, Herzog, and Piranian [EHP58] conjecture that if $\{ z: \lvert f(z)\rvert
 connected then its diameter is at least $2$.
 -/
 @[category research open, question, AMS 30]
-theorem erdos_1046.variants.diameter : answer(sorry) ↔ ∀ f : ℂ[X], f.Monic →
+theorem erdos_1046.variants.diameter : ∀ f : ℂ[X], f.Monic →
     IsConnected (closedLemniscate f) → 2 ≤ Metric.ediam (closedLemniscate f) := by
   sorry
 

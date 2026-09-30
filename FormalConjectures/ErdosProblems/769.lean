@@ -94,9 +94,8 @@ exact coverage permits only one tile, so no cutoff exists.
 -/
 @[category research open, question, AMS 52]
 theorem erdos_769.variants.growth_rate :
-    answer(sorry) ↔
-      ∃ c : ℕ → ℕ, (∀ n, 0 < n → IsCutoff n (c n)) ∧
-        ∃ γ : ℝ, Tendsto (fun n : ℕ => Real.log (c n) / (n * Real.log n)) atTop (𝓝 γ) := by
+    ∃ c : ℕ → ℕ, (∀ n, 0 < n → IsCutoff n (c n)) ∧
+      ∃ γ : ℝ, Tendsto (fun n : ℕ => Real.log (c n) / (n * Real.log n)) atTop (𝓝 γ) := by
   sorry
 
 end Erdos769

@@ -38,7 +38,7 @@ theorem sylvester_schur (n i : ℕ) (hi : 1 ≤ i) (hi_half : i ≤ n / 2) :
 $p \ge i$ with $p \mid \gcd\big(\binom{n}{i}, \binom{n}{j}\big)$?
 -/
 @[category research open, question, AMS 11]
-theorem erdos_699 : answer(sorry) ↔
+theorem erdos_699 :
     ∀ n i j : ℕ,
       1 ≤ i →
       i < j →
@@ -49,7 +49,7 @@ theorem erdos_699 : answer(sorry) ↔
 /-- Erdős and Szekeres conjectured that, apart from a finite exceptional set of triples `(n, i, j)`,
 one can always take `p > i` in the prime divisor statement. -/
 @[category research open, question, AMS 11]
-theorem erdos_szekeres_strengthening : answer(sorry) ↔
+theorem erdos_szekeres_strengthening :
     ∃ E : Finset (ℕ × ℕ × ℕ), ∀ n i j : ℕ,
       1 ≤ i →
       i < j →

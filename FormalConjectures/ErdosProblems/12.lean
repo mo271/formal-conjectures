@@ -83,7 +83,7 @@ such that $a \mid (b+c)$ and $b,c > a$. Is it true that $∑_{n \in A} \frac{1}{
 -/
 @[category research open, question, AMS 11]
 theorem erdos_12.parts.iii :
-    answer(sorry) ↔ ∀ (A : Set ℕ), IsGood A → Summable (fun (n : A) ↦ (1 / n : ℝ)) := by
+    ∀ (A : Set ℕ), IsGood A → Summable (fun (n : A) ↦ (1 / n : ℝ)) := by
   sorry
 
 /--

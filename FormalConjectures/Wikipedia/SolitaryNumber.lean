@@ -49,7 +49,7 @@ def IsSolitary (n : ℕ) : Prop := 0 < n ∧ ∀ m, Friendly m n → m = n
 currently unresolved is $10$, with abundancy index $\sigma(10) / 10 = 9/5$.
 -/
 @[category research open, question, AMS 11]
-theorem is_ten_solitary : answer(sorry) ↔ IsSolitary 10 := by
+theorem is_ten_solitary : IsSolitary 10 := by
   sorry
 
 /--
@@ -59,7 +59,7 @@ is infinite.
 -/
 @[category research open, question, AMS 11]
 theorem infinite_club_exists :
-    answer(sorry) ↔ ∃ n, 0 < n ∧ {m : ℕ | Friendly m n}.Infinite := by
+    ∃ n, 0 < n ∧ {m : ℕ | Friendly m n}.Infinite := by
   sorry
 
 end SolitaryNumber

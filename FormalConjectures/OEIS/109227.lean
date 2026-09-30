@@ -83,7 +83,7 @@ Conjecture: $a(2)$ and $a(121)$ are primes. Are there any more?
 -/
 @[category research open, question, AMS 11]
 theorem conjecture :
-    answer(sorry) ↔ ∃ n > 0, n ≠ 2 ∧ n ≠ 121 ∧ (a n).Prime := by
+    ∃ n > 0, n ≠ 2 ∧ n ≠ 121 ∧ (a n).Prime := by
   sorry
 
 end OeisA109227

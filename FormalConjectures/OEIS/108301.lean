@@ -62,7 +62,7 @@ theorem primes_in_a :
 
 /-- $a(0)$, $a(1)$, $a(5)$, $a(6)$, $a(7)$ and $a(11)$ are primes. Are there any more? -/
 @[category research open, question, AMS 11]
-theorem conjecture : answer(sorry) ↔ ∃ n > 11, (a n).Prime := by
+theorem conjecture : ∃ n > 11, (a n).Prime := by
   sorry
 
 end OeisA108301

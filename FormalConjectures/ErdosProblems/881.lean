@@ -51,7 +51,7 @@ is an additive basis of order `k + 1`?
 -/
 @[category research open, question, AMS 5 11]
 theorem erdos_881 :
-    answer(sorry) ↔ ∀ (k : ℕ) (A : Set ℕ),
+    ∀ (k : ℕ) (A : Set ℕ),
       IsMinimalAsymptoticAddBasisOfOrder k A →
         ∃ (B : Set ℕ), B ⊆ A ∧ B.Infinite ∧
           (A \ B).IsAsymptoticAddBasisOfOrder (k + 1) := by

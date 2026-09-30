@@ -38,7 +38,7 @@ Erdős Problem 855 (Segal's conjecture): $\pi(x + y) \le \pi(x) + \pi(y)$
 for all sufficiently large $x, y$, i.e. for all $x, y \ge N$ for some $N$.
 -/
 @[category research open, question, AMS 11]
-theorem erdos_855 : answer(sorry) ↔
+theorem erdos_855 :
     ∀ᶠ (xy : ℕ × ℕ) in atTop ×ˢ atTop, π (xy.1 + xy.2) ≤ π xy.1 + π xy.2 := by
   sorry
 

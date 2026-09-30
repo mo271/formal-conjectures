@@ -36,9 +36,8 @@ Is it true that $$\limsup_{k \to \infty} \frac{u_{k+1}-u_k}{\log k}=\infty?$$
 -/
 @[category research open, question, AMS 11]
 theorem erdos_1139 :
-    answer(sorry) ↔
-      letI u := Nat.nth (fun n ↦ 0 < n ∧ Ω n ≤ 2)
-      atTop.limsup (fun k : ℕ ↦ (((u (k + 1) : ℝ) - (u k : ℝ)) / Real.log (↑k + 1) : EReal)) = ⊤ := by
+    letI u := Nat.nth (fun n ↦ 0 < n ∧ Ω n ≤ 2)
+    atTop.limsup (fun k : ℕ ↦ (((u (k + 1) : ℝ) - (u k : ℝ)) / Real.log (↑k + 1) : EReal)) = ⊤ := by
   sorry
 
 end Erdos1139

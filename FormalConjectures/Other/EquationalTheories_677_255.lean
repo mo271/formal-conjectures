@@ -65,7 +65,7 @@ Discussion thread:
 https://leanprover.zulipchat.com/#narrow/channel/458659-Equational/topic/FINITE.3A.20677.20-.3E.20255 -/
 @[category research open, question, AMS 8]
 theorem Finite.Equation677_implies_Equation255 :
-    answer(sorry) ↔ ∀ (G : Type) (_ : Magma G), Finite G → Equation677 G → Equation255 G := by
+    ∀ (G : Type) (_ : Magma G), Finite G → Equation677 G → Equation255 G := by
   sorry
 
 end EquationalTheories_677_255

@@ -37,7 +37,7 @@ contains a subgraph of girth ≥ r and chromatic number ≥ k?
 -/
 @[category research open, question, AMS 5]
 theorem erdos_108 :
-    answer(sorry) ↔ ∀ r ≥ 4, ∀ k ≥ (2 : ℕ), ∃ (f : ℕ),
+    ∀ r ≥ 4, ∀ k ≥ (2 : ℕ), ∃ (f : ℕ),
     ∀ (V : Type u) (G : SimpleGraph V) (_ : Nonempty V)
       (hchro : f ≤ SimpleGraph.chromaticNumber G),
     ∃ (H : G.Subgraph), (SimpleGraph.girth H.coe ≥ r) ∧

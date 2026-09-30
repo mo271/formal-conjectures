@@ -47,7 +47,7 @@ $H$ such that we can take $f(n) = n^{c(H)}$ in the above formulation.
 -/
 @[category research open, question, AMS 5]
 theorem erdos_61 :
-    answer(sorry) ↔ ∀ {α : Type*} [Fintype α] [DecidableEq α] (H : SimpleGraph α),
+    ∀ {α : Type*} [Fintype α] [DecidableEq α] (H : SimpleGraph α),
       ∃ c > (0 : ℝ), IsErdosHajnalLowerBound H (fun n : ℕ => (n : ℝ) ^ c) := by
   sorry
 

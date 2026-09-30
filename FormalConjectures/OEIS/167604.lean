@@ -73,7 +73,7 @@ theorem a_4 : a 4 = 11 := by
 /-- Does Chua's sequence contain every prime? -/
 @[category research open, question, AMS 11]
 theorem conjecture :
-    answer(sorry) ↔ ∀ p : ℕ, p.Prime → ∃ n ≥ 1, a n = p := by
+    ∀ p : ℕ, p.Prime → ∃ n ≥ 1, a n = p := by
   sorry
 
 end OeisA167604

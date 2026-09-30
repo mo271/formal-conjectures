@@ -40,9 +40,8 @@ $n$, there must exist an integer in $[n,n+p_1\cdots p_k)$ with $>k$ many prime f
 -/
 @[category research open, question, AMS 11]
 theorem erdos_891 :
-    answer(sorry) ↔
-      ∀ k ≥ 2, ∀ᶠ n in atTop,
-      ∃ m ∈ Ico n (n + ∏ i ∈ range k, i.nth Nat.Prime), k < ω m := by
+    ∀ k ≥ 2, ∀ᶠ n in atTop,
+    ∃ m ∈ Ico n (n + ∏ i ∈ range k, i.nth Nat.Prime), k < ω m := by
   sorry
 
 /--
@@ -62,7 +61,7 @@ This is unknown even for $k=2$ - that is, is it true that in every interval of $
 -/
 @[category research open, question, AMS 11]
 theorem erdos_891.variants.case_k_2 :
-    answer(sorry) ↔ ∀ᶠ n in atTop,
+    ∀ᶠ n in atTop,
       ∃ m ∈ Ico n (n + 6), 3 ≤ ω m := by
   sorry
 

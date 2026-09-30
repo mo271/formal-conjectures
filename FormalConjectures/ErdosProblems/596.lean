@@ -97,7 +97,7 @@ Erdős Problem 595. The finite Ramsey property holds (Folkman 1970, Nešetřil�
 [NeRo75]); the open part is whether every $K_4$-free graph is a countable union of
 triangle-free graphs. -/
 @[category research open, question, AMS 5]
-theorem erdos_596.variants.K4_K3_exceptional_iff : answer(sorry) ↔
+theorem erdos_596.variants.K4_K3_exceptional_iff :
     IsErdosHajnalExceptional (completeGraph (Fin 4)) (completeGraph (Fin 3)) := by
   sorry
 

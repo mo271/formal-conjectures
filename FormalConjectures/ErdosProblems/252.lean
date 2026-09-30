@@ -49,7 +49,7 @@ noncomputable def erdos_252_sum (k : ℕ) : ℝ := ∑' n, σ k n / (n ! : ℝ)
 /-- Erdős Problem 252: irrationality of the sum for a given $k$. -/
 @[category research open, question, AMS 11]
 theorem erdos_252 :
-    answer(sorry) ↔ ∀ k ≥ 1, Irrational (erdos_252_sum k) := by
+    ∀ k ≥ 1, Irrational (erdos_252_sum k) := by
   sorry
 
 /-- `∑ σ 0 n / n!` is irrational. This is proved in [ErSt71]. -/
@@ -81,7 +81,7 @@ theorem erdos_252.variants.k_eq_four : Irrational (erdos_252_sum 4) := by
 /-- For a fixed `k ≥ 5`, is `∑ σ k n / n!` irrational?. -/
 @[category research open, question, AMS 11]
 theorem erdos_252.variants.k_ge_five :
-    answer(sorry) ↔ ∀ k ≥ 5, Irrational (erdos_252_sum k) := by
+    ∀ k ≥ 5, Irrational (erdos_252_sum k) := by
   sorry
 
 /-- If Schinzel's conjecture is true, then `∑ σ k n / n!` is irrational for all `k`. This is proved

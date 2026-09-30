@@ -53,7 +53,7 @@ Are there infinitely many perfect numbers?
 -/
 @[category research open, question, AMS 11]
 theorem infinitely_many_perfect :
-    answer(sorry) ↔ {n : ℕ | Perfect n}.Infinite := by
+    {n : ℕ | Perfect n}.Infinite := by
   sorry
 
 /--
@@ -69,7 +69,7 @@ has the form $2^{p-1}(2^p - 1)$ where $2^p - 1$ is a Mersenne prime.
 -/
 @[category research open, question, AMS 11]
 theorem infinitely_many_even_perfect :
-    answer(sorry) ↔ {n : ℕ | Perfect n ∧ Even n}.Infinite := by
+    {n : ℕ | Perfect n ∧ Even n}.Infinite := by
   sorry
 
 /--

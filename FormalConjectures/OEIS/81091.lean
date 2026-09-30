@@ -62,7 +62,7 @@ with $0 < i < n$.
 -/
 @[category research open, question, AMS 11]
 theorem conjectureA81091 :
-    answer(sorry) ↔ Set.Infinite {p : ℕ | A p} := by
+    Set.Infinite {p : ℕ | A p} := by
   sorry
 
 -- TODO(Paul-Lez): add result that for m ≥ 3, there is no prime number with precisely 2m bits, exactly two of which are zero bits.

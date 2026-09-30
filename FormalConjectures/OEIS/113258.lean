@@ -55,7 +55,7 @@ Is there a nontrivial power after $a(4) = 5^3$?
 -/
 @[category research open, question, AMS 11]
 theorem conjecture :
-  answer(sorry) ↔ ∃ n > 4, ∃ b > 1, ∃ e > 1, a n = b ^ e := by
+  ∃ n > 4, ∃ b > 1, ∃ e > 1, a n = b ^ e := by
   sorry
 
 end OeisA113258

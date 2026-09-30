@@ -45,7 +45,7 @@ Let $k \ge 4$ and $r\ge 1$. Must there exist a graph $G$ with chromatic number $
 -/
 @[category research open, question, AMS 11]
 theorem erdos_944 :
-    answer(sorry) ↔ ∀ k ≥ 4, ∀ r ≥ 1, ∃ (V : Type u) (G : SimpleGraph V), G.IsErdos944 k r := by
+    ∀ k ≥ 4, ∀ r ≥ 1, ∃ (V : Type u) (G : SimpleGraph V), G.IsErdos944 k r := by
   sorry
 
 /--

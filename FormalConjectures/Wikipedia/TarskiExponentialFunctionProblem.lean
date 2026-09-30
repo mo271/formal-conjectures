@@ -73,7 +73,7 @@ field $\mathbb{R}_{\exp} = (\mathbb{R}, +, \cdot, -, 0, 1, \le, \exp)$ decidable
 -/
 @[category research open, question, AMS 3 12]
 theorem tarski_exponential_function_problem :
-    answer(sorry) ↔ (Language.orderedExpField.completeTheory ℝ).IsDecidable := by
+    (Language.orderedExpField.completeTheory ℝ).IsDecidable := by
   sorry
 
 /-- The real version of Schanuel's conjecture: if $x_1, \ldots, x_n$ are real numbers that are

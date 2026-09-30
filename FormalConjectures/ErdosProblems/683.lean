@@ -51,7 +51,7 @@ most $2k$, so $P(n, k) \ge k^{1+c}$ fails for large $k$. The range $k \le n/2$ i
 [discussion](https://www.erdosproblems.com/forum/discuss/683)).
 -/
 @[category research open, question, AMS 11]
-theorem erdos_683 : answer(sorry) ↔
+theorem erdos_683 :
     ∃ c > (0 : ℝ), ∀ n k : ℕ, 0 < k ∧ k ≤ n / 2 →
       (P n k : ℝ) ≥ min (↑(n - k + 1) : ℝ) ((k : ℝ) ^ (1 + c)) := by
   sorry

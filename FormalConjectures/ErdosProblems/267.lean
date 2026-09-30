@@ -43,7 +43,7 @@ Let $n_1 < n_2 < \dots$ be an infinite sequence with $\frac {n_k}{k} \to \infty$
 $\sum_k \frac 1 {F_{n_k}}$ be irrational?
 -/
 @[category research open, question, AMS 11]
-theorem erdos_267.variants.generalisation_ratio_limit_to_infinity : answer(sorry) ↔ ∀ (n : ℕ → ℕ),
+theorem erdos_267.variants.generalisation_ratio_limit_to_infinity : ∀ (n : ℕ → ℕ),
     StrictMono n → Filter.Tendsto (fun k => (n (k+1) / k.succ : ℝ)) Filter.atTop Filter.atTop →
     Irrational (∑' k, 1 / (Nat.fib <| n k)) := by
   sorry

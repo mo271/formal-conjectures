@@ -72,14 +72,14 @@ Equivalently, every positive integer eventually becomes a palindrome under the L
 -/
 @[category research open, question, AMS 11]
 theorem no_lychrel_numbers_base10 :
-    answer(sorry) ↔ ∀ n : ℕ, 0 < n → ¬ IsLychrel10 n := by
+    ∀ n : ℕ, 0 < n → ¬ IsLychrel10 n := by
   sorry
 
 /--
 The first widely studied open case: whether `196` is a base-10 Lychrel number.
 -/
 @[category research open, question, AMS 11]
-theorem isLychrel10_196 : answer(sorry) ↔ IsLychrel10 196 := by
+theorem isLychrel10_196 : IsLychrel10 196 := by
   sorry
 
 /-- An equivalent formulation of `no_lychrel_numbers_base10`. -/

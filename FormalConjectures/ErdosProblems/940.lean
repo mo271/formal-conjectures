@@ -40,7 +40,7 @@ has density $0$?
 -/
 @[category research open, question, AMS 11]
 theorem erdos_940 :
-    answer(sorry) ↔ ∀ r ≥ 3,
+    ∀ r ≥ 3,
       {n : ℕ | ∃ (S : Multiset ℕ), S.card ≤ r ∧ (∀ s ∈ S, r.Full s) ∧ n = S.sum}.HasDensity 0 := by
   sorry
 
@@ -64,7 +64,6 @@ that is not $\pm 4 \bmod 9$, which is density $7/9$.
 -/
 @[category research open, question, AMS 11]
 theorem erdos_940.variants.three_cubes :
-    answer(sorry) ↔
     {n : ℕ | ∃ (S : Multiset ℕ), S.card ≤ 3 ∧ n = (Multiset.map (· ^ 3) S).sum}.HasDensity 0 := by
   sorry
 
@@ -75,7 +74,6 @@ $r$-powerful numbers?
 -/
 @[category research open, question, AMS 11]
 theorem erdos_940.variants.large_integers :
-    answer(sorry) ↔
     ∀ r ≥ 3, ¬ (∀ᶠ x in atTop, ∃ (S : Multiset ℕ), S.card ≤ r ∧ (∀ s ∈ S, r.Full s) ∧ x = S.sum) := by
   sorry
 

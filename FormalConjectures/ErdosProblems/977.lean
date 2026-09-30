@@ -77,7 +77,7 @@ be open still. Murty and Wong [MuWo02] proved that $P(n!+1)>(1+o(1))n\log n$ ass
 conjecture.
 -/
 @[category research open, question, AMS 11]
-theorem erdos_977.variants.factorial : answer(sorry) ↔
+theorem erdos_977.variants.factorial :
     Tendsto (fun n : ℕ ↦ (Nat.maxPrimeFac (n.factorial + 1) : ℝ) / n) atTop atTop := by
   sorry
 

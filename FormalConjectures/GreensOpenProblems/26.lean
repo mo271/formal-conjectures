@@ -83,7 +83,7 @@ theorem green_26.variants.alm91 :
 /-- The analogous problem in $\mathbb{F}^n_p$ remains open. [Gr24] -/
 @[category research open, question, AMS 5 11 15]
 theorem green_26.variants.open :
-    answer(sorry) ↔ ∀ (p : ℕ) [Fact p.Prime],
+    ∀ (p : ℕ) [Fact p.Prime],
       (∃ C, ∀ n, ∀ A : Fin C → Set (𝔽 p n), (∀ i, IsCube (A i)) →
       ∑ i, A i = univ) := by
   sorry

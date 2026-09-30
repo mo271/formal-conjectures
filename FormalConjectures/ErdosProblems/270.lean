@@ -79,13 +79,13 @@ Crmarić and Kovač [CrKo25] show that the set of the possible values of such a 
 measure zero.
 -/
 @[category research open, question, AMS 11]
-theorem erdos_270.variants.monotone : answer(sorry) ↔
+theorem erdos_270.variants.monotone :
     ∀ f : ℕ → ℕ, Monotone f → Tendsto f atTop atTop → Irrational (series f) := by
   sorry
 
 /-- Even the case $f(n)=n$ is unknown. -/
 @[category research open, question, AMS 11]
-theorem erdos_270.variants.linear : answer(sorry) ↔ Irrational (series id) := by
+theorem erdos_270.variants.linear : Irrational (series id) := by
   sorry
 
 end Erdos270

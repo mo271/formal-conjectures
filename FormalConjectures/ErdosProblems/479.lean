@@ -32,7 +32,7 @@ Is it true that, for every integer $k\neq 1$, there are infinitely many $n$ such
 $2^n\equiv k\pmod{n}$?
 -/
 @[category research open, question, AMS 11]
-theorem erdos_479 : answer(sorry) ↔ ∀ᵉ (k : ℤ) (k ≠ 1),
+theorem erdos_479 : ∀ᵉ (k : ℤ) (k ≠ 1),
     { n : ℕ | (2 : ℤ) ^ n ≡ k [ZMOD (n : ℤ)] }.Infinite := by
   sorry
 

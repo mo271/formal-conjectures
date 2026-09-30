@@ -34,7 +34,6 @@ $1 - \exp(-(c*K)) < \sum_{n \in S} 1/n \le 1$?
 -/
 @[category research open, question, AMS 5 11]
 theorem erdos_312 :
-    answer(sorry) ↔
     ∃ (c : ℝ), 0 < c ∧
       ∀ (K : ℝ), 1 < K →
         ∃ (N₀ : ℕ),

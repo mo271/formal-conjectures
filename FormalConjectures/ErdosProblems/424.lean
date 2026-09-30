@@ -77,7 +77,7 @@ A literal interpretation of "positive density": the natural density of `generate
 (i.e. the lower and upper density agree) and is positive.
 -/
 @[category research open, question, AMS 11]
-theorem erdos_424.variants.exact_density : answer(sorry) ↔ generatedSet.HasPosDensity := by
+theorem erdos_424.variants.exact_density : generatedSet.HasPosDensity := by
   sorry
 
 -- TODO(firsching): formalize the statements from the additional material

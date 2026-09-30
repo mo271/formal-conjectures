@@ -100,7 +100,7 @@ theorem erdos_1180.variants.lower_bound : ∃ K : ℝ, 0 < K ∧ ∀ ε : ℝ, 0
 
 /-- Is $C_\epsilon\leq \epsilon^{-1-o(1)}$? -/
 @[category research open, question, AMS 11]
-theorem erdos_1180.variants.optimal : answer(sorry) ↔ ∀ δ : ℝ, 0 < δ →
+theorem erdos_1180.variants.optimal : ∀ δ : ℝ, 0 < δ →
     ∀ᶠ ε : ℝ in nhdsWithin 0 (Set.Ioi 0), (C ε : ℝ) ≤ ε⁻¹ ^ (1 + δ) := by
   sorry
 

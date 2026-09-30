@@ -40,12 +40,11 @@ any odd cycle of length $\leq r$?
 -/
 @[category research open, question, AMS 5]
 theorem erdos_740 :
-    answer(sorry) ↔
-      ∀ (V : Type*) (G : SimpleGraph V),
-        ℵ₀ ≤ G.chromaticCardinal →
-          ∀ (r : ℕ),
-            ∃ (H : G.Subgraph), H.coe.chromaticCardinal = G.chromaticCardinal ∧
-              NoShortOddCycle H.coe r := by
+    ∀ (V : Type*) (G : SimpleGraph V),
+      ℵ₀ ≤ G.chromaticCardinal →
+        ∀ (r : ℕ),
+          ∃ (H : G.Subgraph), H.coe.chromaticCardinal = G.chromaticCardinal ∧
+            NoShortOddCycle H.coe r := by
   sorry
 
 -- TODO: add the related infinitary chromatic-number statements from erdosproblems.com.

@@ -37,7 +37,6 @@ determined by them?
 -/
 @[category research open, question, AMS 5 52]
 theorem green_77 :
-    answer(sorry) ↔
     ∃ (o : ℕ → ℝ), Tendsto o atTop (𝓝 0) ∧
       α ≪ fun n ↦ n ^ (-2 + o n) := by
   sorry

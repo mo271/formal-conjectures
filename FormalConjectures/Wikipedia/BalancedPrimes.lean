@@ -35,7 +35,7 @@ Are there infinitely many $n$ such that $(p_n + p_{n+2}) / 2$ is prime?
 -/
 @[category research open, question, AMS 11]
 theorem balanced_primes :
-    answer(sorry) ↔ {n : ℕ | Prime ((Nat.nth Prime n + Nat.nth Prime (n + 2)) / 2)}.Infinite := by
+    {n : ℕ | Prime ((Nat.nth Prime n + Nat.nth Prime (n + 2)) / 2)}.Infinite := by
   sorry
 
 /--
@@ -45,7 +45,7 @@ $p_n = \dfrac{\sum_{i = 1} ^ k p_{n - i} + p_{n + i}}{2*k}$?
 -/
 @[category research open, question, AMS 11]
 theorem balanced_primes_order :
-    answer(sorry) ↔ ∀ k > 0, {n : ℕ | k ≤ n ∧ 2 * k * Nat.nth Prime n = ∑ i ∈ .Ioc 0 k,
+    ∀ k > 0, {n : ℕ | k ≤ n ∧ 2 * k * Nat.nth Prime n = ∑ i ∈ .Ioc 0 k,
       ((n - i).nth Prime + (n + i).nth Prime)}.Infinite := by
   sorry
 

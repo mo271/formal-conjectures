@@ -97,7 +97,7 @@ holds for $n \le 2$ and is open for every $n \ge 3$.
 -/
 @[category research open, question, AMS 11 12 14]
 theorem pfister_problem.variants.eq_two_pow :
-    answer(sorry) ↔ ∀ n : ℕ, IsLeast (pythagorasBounds (MvRatFunc (Fin n) ℝ)) (2 ^ n) := by
+    ∀ n : ℕ, IsLeast (pythagorasBounds (MvRatFunc (Fin n) ℝ)) (2 ^ n) := by
   sorry
 
 /--

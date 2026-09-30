@@ -81,7 +81,7 @@ Improvements are known under the Riemann Hypothesis.
 -/
 @[category research open, question, AMS 11]
 theorem error_term_improvement :
-    answer(sorry) ↔ ∃ δ > (0 : ℝ),
+    ∃ δ > (0 : ℝ),
       (fun x : ℝ => (Q x : ℝ) - A * x ^ ((1 : ℝ) / 2) - B * x ^ ((1 : ℝ) / 3)) =O[atTop]
         fun x => x ^ ((1 : ℝ) / 6 - δ) := by
   sorry

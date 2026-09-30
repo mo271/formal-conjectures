@@ -67,7 +67,7 @@ hold when both suprema are finite?
 -/
 @[category research open, question, AMS 26]
 theorem mathoverflow_347178.variants.bounded_only :
-    answer(sorry) ↔ ∀ᵉ (n ≥ 2) (f : ℝ^n → ℝ) (hf : ContDiff ℝ 1 f)
+    ∀ᵉ (n ≥ 2) (f : ℝ^n → ℝ) (hf : ContDiff ℝ 1 f)
         (h : BddAbove (range f)) (h' : BddAbove (range (fun x ↦ f (x + gradient f x)))),
         (⨆ x, f x) = ⨆ x, f (x + gradient f x) := by
   sorry

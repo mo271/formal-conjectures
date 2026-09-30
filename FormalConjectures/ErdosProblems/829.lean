@@ -55,9 +55,8 @@ $O((\log n)^C)$ as $n \to \infty$?
 -/
 @[category research open, question, AMS 11]
 theorem erdos_829 :
-    answer(sorry) ↔
-      ∃ C : ℕ, (fun n : ℕ => (sumRep cubes n : ℝ)) =O[atTop]
-        (fun n : ℕ => (Real.log n) ^ C) := by
+    ∃ C : ℕ, (fun n : ℕ => (sumRep cubes n : ℝ)) =O[atTop]
+      (fun n : ℕ => (Real.log n) ^ C) := by
   sorry
 
 /-- There is exactly one ordered pair of cubes summing to $0$, namely $(0, 0)$. -/

@@ -54,10 +54,9 @@ $(1 - \varepsilon) \frac{n}{2}$ distinct distances.
 -/
 @[category research open, question, AMS 51 52]
 theorem erdos_660 :
-    answer(sorry) ↔
-      ∀ ε : ℝ, 0 < ε → ∀ᶠ n in Filter.atTop, ∀ P : Finset ℝ³,
-        P.card = n → IsPolyhedronVertices P →
-        (1 - ε) * ((n : ℝ) / 2) ≤ (distinctDistances P : ℝ) := by
+    ∀ ε : ℝ, 0 < ε → ∀ᶠ n in Filter.atTop, ∀ P : Finset ℝ³,
+      P.card = n → IsPolyhedronVertices P →
+      (1 - ε) * ((n : ℝ) / 2) ≤ (distinctDistances P : ℝ) := by
   sorry
 
 /--
@@ -77,7 +76,7 @@ distances, but gives no reference.
 -/
 @[category research open, question, AMS 51 52]
 theorem erdos_660.variants.Er75f :
-    answer(sorry) ↔ ∃ c > (0 : ℝ), ∀ᶠ n in Filter.atTop, ∀ P : Finset ℝ³,
+    ∃ c > (0 : ℝ), ∀ᶠ n in Filter.atTop, ∀ P : Finset ℝ³,
       P.card = n → IsPolyhedronVertices P →
       c * n ≤ (distinctDistances P : ℝ) := by
   sorry

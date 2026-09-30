@@ -40,7 +40,7 @@ noncomputable def FloorMultiples.interleave (a b γ : ℝ) (n : ℕ) : ℤ :=
 $$\{ \lfloor \alpha\rfloor,\lfloor 2\alpha\rfloor,\lfloor 4\alpha\rfloor,\ldots\}\cup
 \{ \lfloor \beta\rfloor,\lfloor 2\beta\rfloor,\lfloor 4\beta\rfloor,\ldots\}$$ complete? -/
 @[category research open, question, AMS 11]
-theorem erdos_354.parts.i : answer(sorry) ↔ ∀ᵉ (α > 0) (β > 0), Irrational (α / β) →
+theorem erdos_354.parts.i : ∀ᵉ (α > 0) (β > 0), Irrational (α / β) →
     IsAddCompleteNatSeq' (FloorMultiples.interleave α β 2) := by
   sorry
 
@@ -48,7 +48,7 @@ theorem erdos_354.parts.i : answer(sorry) ↔ ∀ᵉ (α > 0) (β > 0), Irration
 $$\{ \lfloor \alpha\rfloor,\lfloor \gamma\alpha\rfloor,\lfloor \gamma^2\alpha\rfloor,\ldots\}\cup
 \{ \lfloor \beta\rfloor,\lfloor \gamma\beta\rfloor,\lfloor \gamma^2\beta\rfloor,\ldots\}$$ complete? -/
 @[category research open, question, AMS 11]
-theorem erdos_354.parts.ii : answer(sorry) ↔ ∃ γ ∈ Set.Ioo (1 : ℝ) 2, ∀ᵉ (α > 0) (β > 0), Irrational (α / β) →
+theorem erdos_354.parts.ii : ∃ γ ∈ Set.Ioo (1 : ℝ) 2, ∀ᵉ (α > 0) (β > 0), Irrational (α / β) →
     IsAddCompleteNatSeq' (FloorMultiples.interleave α β γ) := by
   sorry
 

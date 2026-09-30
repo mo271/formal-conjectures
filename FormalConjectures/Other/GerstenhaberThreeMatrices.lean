@@ -59,10 +59,9 @@ $K$-algebra $K[A, B, C]$ they generate always at most $n$?
 -/
 @[category research open, question, AMS 15 16]
 theorem finrank_adjoin_triple_le :
-    answer(sorry) ↔
-      ∀ (K : Type*) [Field K] (n : ℕ) (A B C : Matrix (Fin n) (Fin n) K),
-        ({A, B, C} : Set (Matrix (Fin n) (Fin n) K)).Pairwise Commute →
-          Module.finrank K (Algebra.adjoin K {A, B, C}) ≤ n := by
+    ∀ (K : Type*) [Field K] (n : ℕ) (A B C : Matrix (Fin n) (Fin n) K),
+      ({A, B, C} : Set (Matrix (Fin n) (Fin n) K)).Pairwise Commute →
+        Module.finrank K (Algebra.adjoin K {A, B, C}) ≤ n := by
   sorry
 
 /--

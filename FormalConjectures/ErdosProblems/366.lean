@@ -31,7 +31,7 @@ namespace Erdos366
 Are there any $2$-full $n$ such that $n+1$ is $3$-full?
 -/
 @[category research open, question, AMS 11]
-theorem erdos_366 : answer(sorry) ↔ ∃ n > 0, (2).Full n ∧ (3).Full (n + 1) := by
+theorem erdos_366 : ∃ n > 0, (2).Full n ∧ (3).Full (n + 1) := by
   sorry
 
 /--
@@ -57,7 +57,7 @@ theorem erdos_366.variants.three_two :
 Are there any consecutive pairs of $3$-full integers?
 -/
 @[category research open, question, AMS 11]
-theorem erdos_366.variants.weaker : answer(sorry) ↔
+theorem erdos_366.variants.weaker :
     ∃ n > 0, (3).Full n ∧ (3).Full (n + 1) := by
   sorry
 

@@ -121,7 +121,7 @@ $$\sum_{a\in A}\frac{1}{a}\leq 1+o(1),$$
 where the $o(1)$ term $\to 0$ as $n\to \infty$.
 -/
 @[category research open, question, AMS 11]
-theorem erdos_542.variants.one_add_little_o : answer(sorry) ↔
+theorem erdos_542.variants.one_add_little_o :
     ∃ o : ℕ → ℝ, Tendsto o atTop (nhds 0) ∧
       ∀ (n : ℕ) (A : Finset ℕ), IsLcmFree n A → ∑ a ∈ A, (1 : ℝ) / a ≤ 1 + o n := by
   sorry
@@ -131,7 +131,7 @@ In [Er98] Erdős mentions that he, Schinzel, and Szekeres conjectured that $2,3,
 $3,4,5,7,11$ are the only two sequences for which the sum is $>1$.
 -/
 @[category research open, question, AMS 11]
-theorem erdos_542.variants.only_two : answer(sorry) ↔
+theorem erdos_542.variants.only_two :
     ∀ (n : ℕ) (A : Finset ℕ), IsLcmFree n A → 1 < ∑ a ∈ A, (1 : ℝ) / a →
       A = {2, 3, 5} ∨ A = {3, 4, 5, 7, 11} := by
   sorry

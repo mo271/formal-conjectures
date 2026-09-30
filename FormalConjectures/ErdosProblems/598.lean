@@ -41,7 +41,7 @@ Can one colour the countable subsets of $m$ using $\kappa$ many colours so that 
 $X \subseteq m$ with $|X| = \kappa$ contains subsets of all possible colours?
 -/
 @[category research open, question, AMS 3 5]
-theorem erdos_598 : answer(sorry) ↔
+theorem erdos_598 :
     ∀ (m : Type*) [Infinite m],
     ∃ c : { s : Set m // s.Countable } → κ.out,
     ∀ X : Set m, #X = κ →

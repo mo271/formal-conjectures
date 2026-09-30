@@ -44,11 +44,10 @@ The remainder `n % p` is computed in `ℕ` before casting to `ℝ`.
 -/
 @[category research open, question, AMS 11]
 theorem erdos_726 :
-    answer(sorry) ↔
-      (fun n : ℕ ↦ ∑ p ∈ (range (n + 1)).filter
-          (fun p : ℕ ↦ p.Prime ∧ (p : ℝ) / 2 < ((n % p : ℕ) : ℝ)),
-        (1 : ℝ) / (p : ℝ))
-      ~[atTop] (fun n : ℕ ↦ Real.log (Real.log (n : ℝ)) / 2) := by
+    (fun n : ℕ ↦ ∑ p ∈ (range (n + 1)).filter
+        (fun p : ℕ ↦ p.Prime ∧ (p : ℝ) / 2 < ((n % p : ℕ) : ℝ)),
+      (1 : ℝ) / (p : ℝ))
+    ~[atTop] (fun n : ℕ ↦ Real.log (Real.log (n : ℝ)) / 2) := by
   sorry
 
 /--

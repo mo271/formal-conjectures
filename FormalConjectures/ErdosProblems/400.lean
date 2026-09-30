@@ -42,7 +42,7 @@ Can one show that $\sum_{n\leq x}g_k(n) \sim c_k x\log x$ for some constant $c_k
 -/
 @[category research open, question, AMS 11]
 theorem erdos_400.parts.i :
-    answer(sorry) ↔ ∀ᵉ (k ≥ 2), ∃ c : ℝ,
+    ∀ᵉ (k ≥ 2), ∃ c : ℝ,
       (fun x : ℕ ↦ (∑ n ∈ Icc 1 x, (g k n : ℝ))) ~[atTop]
       (fun x : ℕ ↦ c * x * Real.log x) := by
   sorry
@@ -53,7 +53,7 @@ $g_k(n)=c_k\log x+o(\log x)$?
 -/
 @[category research open, question, AMS 11]
 theorem erdos_400.parts.ii :
-    answer(sorry) ↔ ∀ᵉ (k ≥ 2), ∃ c : ℝ, ∀ ε > 0,
+    ∀ᵉ (k ≥ 2), ∃ c : ℝ, ∀ ε > 0,
       Tendsto (fun x : ℕ ↦
         (((Icc 1 x).filter (fun n ↦
           |(g k n : ℝ) - c * Real.log x| ≤ ε * Real.log x)).card : ℝ) / x)

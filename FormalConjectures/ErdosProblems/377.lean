@@ -46,7 +46,7 @@ $$
 for all $n$?
 -/
 @[category research open, question, AMS 11]
-theorem erdos_377 : answer(sorry) ↔
+theorem erdos_377 :
     ∃ C > (0 : ℝ), ∀ (n : ℕ), sumInvPrimesNotDvdCentralBinom n ≤ C := by
   sorry
 

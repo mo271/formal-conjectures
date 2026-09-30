@@ -46,7 +46,7 @@ Does there exist an almost perfect number that is not a power of 2?
 -/
 @[category research open, question, AMS 11]
 theorem exists_almost_perfect_not_power_of_two :
-    answer(sorry) ↔ ∃ n : ℕ, AlmostPerfect n ∧ ¬ ∃ k : ℕ, n = 2^k := by
+    ∃ n : ℕ, AlmostPerfect n ∧ ¬ ∃ k : ℕ, n = 2^k := by
   sorry
 
 end AlmostPerfectNumbers

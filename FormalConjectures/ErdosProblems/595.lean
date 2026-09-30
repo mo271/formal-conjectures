@@ -51,7 +51,7 @@ not the union of countably many triangle-free graphs?
 A problem of Erdős and Hajnal [Er87].
 -/
 @[category research open, question, AMS 5]
-theorem erdos_595 : answer(sorry) ↔
+theorem erdos_595 :
     ∃ (V : Type*) (_ : Infinite V) (G : SimpleGraph V),
       G.CliqueFree 4 ∧ ¬IsCountableUnionOfTriangleFree G := by
   sorry

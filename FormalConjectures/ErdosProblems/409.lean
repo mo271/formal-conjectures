@@ -107,7 +107,7 @@ Can infinitely many $n$ reach the same prime under the iteration $n\mapsto\phi(n
 -/
 @[category research open, question, AMS 11]
 theorem erdos_409.parts.ii :
-    answer(sorry) ↔ ∃ (p : ℕ) (hp : p.Prime), { n | ∃ i, (φ · + 1)^[i] n = p }.Infinite := by
+    ∃ (p : ℕ) (hp : p.Prime), { n | ∃ i, (φ · + 1)^[i] n = p }.Infinite := by
   sorry
 
 /--
@@ -175,7 +175,7 @@ Is it true that iterates of $n\mapsto\sigma(n) - 1$ always reach a prime?
 -/
 @[category research open, question, AMS 11]
 theorem erdos_409.variants.sigma_prime_termination :
-    answer(sorry) ↔ ∀ n > 1, ∃ i, (σ 1 · - 1)^[i] n |>.Prime := by
+    ∀ n > 1, ∃ i, (σ 1 · - 1)^[i] n |>.Prime := by
   sorry
 
 end Erdos409

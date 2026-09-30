@@ -111,7 +111,7 @@ countable compact Hausdorff space X such that $𝔠 < |X|$.
 Note: [Ar2013] uses a blanket convention that all spaces are
 Tychonoff and "compact" means compact Hausdorff. -/
 @[category research open, question, AMS 54]
-theorem existsWeaklyFirstCountableCompactBig : answer(sorry) ↔
+theorem existsWeaklyFirstCountableCompactBig :
     ∃ (X : Type) (_ : TopologicalSpace X),
       WeaklyFirstCountableTopology X ∧ CompactSpace X ∧ T2Space X ∧
         𝔠 < #X := by
@@ -142,7 +142,7 @@ theorem CH.existsWeaklyFirstCountableCompactNotFirstCountable
 Souslin number, then does its cardinality not exceed the continuum? -/
 @[category research open, question, AMS 54]
 theorem cardinalMk_le_continuum_of_weaklyFirstCountable_of_countableSouslinNumber :
-    answer(sorry) ↔ ∀ (X : Type) (_ : TopologicalSpace X), T35Space X →
+    ∀ (X : Type) (_ : TopologicalSpace X), T35Space X →
       WeaklyFirstCountableTopology X → HasCountableSouslinNumber X → #X ≤ 𝔠 := by
   sorry
 

@@ -67,7 +67,7 @@ The general question of an independent Hindman set remains open. Here the $a_i$ 
 distinct positive integers and $S$ ranges over the nonempty subsets of $\{1,\ldots,k\}$.
 -/
 @[category research open, question, AMS 5]
-theorem erdos_895.variants.hindman : answer(sorry) ↔
+theorem erdos_895.variants.hindman :
     ∀ k : ℕ, ∀ᶠ n in atTop, ∀ G : SimpleGraph (Set.Icc 1 n), G.CliqueFree 3 →
       ∃ a : Fin k → ℕ, StrictMono a ∧ ∃ I : Set (Set.Icc 1 n), G.IsIndepSet I ∧
         Subtype.val '' I = {m | ∃ S : Finset (Fin k), S.Nonempty ∧ m = ∑ i ∈ S, a i} := by

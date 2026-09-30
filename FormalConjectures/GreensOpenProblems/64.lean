@@ -40,7 +40,7 @@ counted with multiplicity (i.e. $\Omega(p - 2)$ is odd)?
 -/
 @[category research open, question, AMS 11]
 theorem green_64 :
-    answer(sorry) ↔ {p : ℕ | p.Prime ∧ Odd (Ω (p - 2))}.Infinite := by
+    {p : ℕ | p.Prime ∧ Odd (Ω (p - 2))}.Infinite := by
   sorry
 
 /-- $5$ satisfies the condition: $5$ is prime and $5 - 2 = 3$ is prime, so $\Omega(3) = 1$ is odd. -/
@@ -71,7 +71,7 @@ Green notes this is "probably more natural".
 -/
 @[category research open, question, AMS 11]
 theorem green_64.variants.p_sub_one :
-    answer(sorry) ↔ {p : ℕ | p.Prime ∧ Odd (Ω (p - 1))}.Infinite := by
+    {p : ℕ | p.Prime ∧ Odd (Ω (p - 1))}.Infinite := by
   sorry
 
 end Green64

@@ -59,7 +59,7 @@ example : ∀ i < 15, ¬ 99215 - i ∣ Nat.choose 99215 15 :=
 
 /-- The following is Schinzel's conjecture, which appears in [Gu04]. -/
 @[category research open, question, AMS 11]
-theorem erdos_387.variants.schinzel : answer(sorry) ↔
+theorem erdos_387.variants.schinzel :
     ∀ᶠ k in atTop, ¬ IsPrimePow k → ∃ n : ℕ, ∀ i < k, ¬ n - i ∣ n.choose k := by
   sorry
 

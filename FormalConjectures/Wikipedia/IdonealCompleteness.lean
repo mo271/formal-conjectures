@@ -100,8 +100,7 @@ Idoneal numbers completeness conjecture.
 -/
 @[category research open, question, AMS 11]
 theorem idoneal_numbers_completeness :
-    answer(sorry) ↔
-      ∀ n : ℕ, IsIdoneal n → n ∈ knownIdonealNumbers := by
+    ∀ n : ℕ, IsIdoneal n → n ∈ knownIdonealNumbers := by
   sorry
 
 end Idoneal

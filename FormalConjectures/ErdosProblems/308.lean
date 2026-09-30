@@ -108,7 +108,7 @@ unit fractions with denominators from $\{1,\ldots,N\}$ has the shape $\{1,\ldots
 $m$?
 -/
 @[category research open, question, AMS 11]
-theorem erdos_308.variants.all_N : answer(sorry) ↔
+theorem erdos_308.variants.all_N :
     ∀ N ≥ 1, ∃ m, representable N = Set.Icc 1 m := by
   sorry
 

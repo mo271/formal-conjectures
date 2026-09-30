@@ -63,7 +63,7 @@ $H \sqcup K$, so "$G$ is the product of $H$ and $K$" is stated as
 $H \sqcup K = G$.
 -/
 @[category research open, question, AMS 20]
-theorem kourovka_1_40 : answer(sorry) ↔
+theorem kourovka_1_40 :
     ∀ (G : Type) [Group G] (H K : Subgroup G),
       H.Normal → K.Normal → IsEngelGroup H → IsEngelGroup K → H ⊔ K = ⊤ →
       IsEngelGroup G := by

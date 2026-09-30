@@ -60,7 +60,7 @@ $t(H, G) \ge t(K_2, G)^{e(H)}$, where $K_2$ denotes the single-edge graph on 2 v
 (i.e. `completeGraph (Fin 2)`).
 -/
 @[category research open, question, AMS 5]
-theorem sidorenko_conjecture : answer(sorry) ↔
+theorem sidorenko_conjecture :
     ∀ {V W : Type} [Fintype V] [Fintype W] [DecidableEq V] [DecidableEq W] [Nonempty W]
       (H : SimpleGraph V) (G : SimpleGraph W)
       [DecidableRel H.Adj] [DecidableRel G.Adj],
@@ -76,7 +76,7 @@ $t(H, W) \ge t(K_2, W)^{e(H)}$, where $t(K_2, W) = p(W)$ is the edge density of 
 and $t(H, W)$ is the graphon homomorphism density of $H$ in $W$.
 -/
 @[category research open, question, AMS 5]
-theorem sidorenko_conjecture_graphon : answer(sorry) ↔
+theorem sidorenko_conjecture_graphon :
     ∀ {V : Type*} [Fintype V] [DecidableEq V] (H : SimpleGraph V) [DecidableRel H.Adj],
       H.IsBipartite →
       ∀ (W : Graphon),
@@ -134,7 +134,7 @@ $$ t_{\vec{T}}(G) \le 2^{-e(T)} $$
 where $e(T)$ is the total number of edges in $T$.
 -/
 @[category research open, question, AMS 5]
-theorem tournament_anti_sidorenko_trees_conjecture : answer(sorry) ↔
+theorem tournament_anti_sidorenko_trees_conjecture :
     ∀ {V : Type*} [Fintype V] [DecidableEq V] (T : SimpleGraph V) [DecidableRel T.Adj],
       T.IsTree →
       ∃ (D : Digraph V),
@@ -155,7 +155,7 @@ $$ t_{\vec{T}}(W) \le 2^{-e(T)} $$
 where $e(T)$ is the total number of edges in $T$.
 -/
 @[category research open, question, AMS 5]
-theorem tournament_anti_sidorenko_trees_conjecture_tournamenton : answer(sorry) ↔
+theorem tournament_anti_sidorenko_trees_conjecture_tournamenton :
     ∀ {V : Type*} [Fintype V] [DecidableEq V] (T : SimpleGraph V) [DecidableRel T.Adj],
       T.IsTree →
       ∃ (D : Digraph V),

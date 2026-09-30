@@ -53,7 +53,7 @@ The only known such $n$ are $4, 7, 15, 21, 45, 75, 105$ (OEIS [A039669](https://
 -/
 @[category research open, question, AMS 11]
 theorem erdos_1142 :
-    answer(sorry) ↔ Infinite { n | Erdos1142Prop n } := by
+    Infinite { n | Erdos1142Prop n } := by
   sorry
 
 /--

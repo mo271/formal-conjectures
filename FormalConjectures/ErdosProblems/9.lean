@@ -73,7 +73,7 @@ Is the upper density of the set of odd numbers that cannot be expressed as a pri
 two powers of 2 positive?
 -/
 @[category research open, question, AMS 5 11]
-theorem erdos_9 : answer(sorry) ↔ 0 < Erdos9A.upperDensity := by
+theorem erdos_9 : 0 < Erdos9A.upperDensity := by
   sorry
 
 end Erdos9

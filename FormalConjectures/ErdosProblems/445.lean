@@ -51,7 +51,7 @@ This is discussed in this MathOverflow question [MathOverflow].
 -/
 @[category research open, question, AMS 11]
 theorem erdos_445 :
-    answer(sorry) ↔ ∀ c : ℝ, c > 1 / 2 →
+    ∀ c : ℝ, c > 1 / 2 →
       ∀ᶠ p : ℕ in atTop, p.Prime → ∀ n : ℕ, Erdos445Prop c p n := by
   sorry
 

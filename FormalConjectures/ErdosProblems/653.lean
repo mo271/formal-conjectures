@@ -35,7 +35,7 @@ $$R(x_1)\leq \cdots \leq R(x_n).$$
 Let $g(n)$ be the maximum number of distinct values the $R(x_i)$ can take. Is it true that
 $g(n) \geq (1-o(1))n$? -/
 @[category research open, question, AMS 5 52]
-theorem erdos_653 : answer(sorry) ↔ ∃ o : ℕ → ℝ, o =o[atTop] (1 : ℕ → ℝ) ∧
+theorem erdos_653 : ∃ o : ℕ → ℝ, o =o[atTop] (1 : ℕ → ℝ) ∧
     ∀ᶠ n in atTop, (1 - o n) * n ≤ maximalDistinctDistancesFrom n := by
   sorry
 

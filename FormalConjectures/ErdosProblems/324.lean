@@ -34,7 +34,7 @@ Does there exist a polynomial $f(x)\in\mathbb{Z}[x]$ such that all the sums $f(a
 $a < b$ nonnegative integers are distinct?
 -/
 @[category research open, question, AMS 11]
-theorem erdos_324 : answer(sorry) ↔
+theorem erdos_324 :
     ∃ f : ℤ[X], {(a, b) : ℕ × ℕ | a < b}.InjOn fun (a, b) => f.eval (a : ℤ) + f.eval (b : ℤ) := by
   sorry
 

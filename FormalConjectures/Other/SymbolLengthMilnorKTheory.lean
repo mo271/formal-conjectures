@@ -130,7 +130,7 @@ is a sum of at most $k$ symbols?
 -/
 @[category research open, question, AMS 12 19]
 theorem symbol_length_problem.variants.bounded :
-    answer(sorry) ↔ ∀ m n p : ℕ, p.Prime →
+    ∀ m n p : ℕ, p.Prime →
       (symbolLengthBounds (MvRatFunc (Fin m) ℂ) p n).Nonempty := by
   sorry
 
@@ -143,7 +143,7 @@ Degree $0$ is excluded because $K^M_0(F)/p = \mathbb{Z}/p$ has symbol length $p 
 -/
 @[category research open, question, AMS 12 19]
 theorem symbol_length_problem.variants.uniform :
-    answer(sorry) ↔ ∀ m n : ℕ, 0 < n → ∃ k : ℕ, ∀ p : ℕ, p.Prime →
+    ∀ m n : ℕ, 0 < n → ∃ k : ℕ, ∀ p : ℕ, p.Prime →
       k ∈ symbolLengthBounds (MvRatFunc (Fin m) ℂ) p n := by
   sorry
 
@@ -202,7 +202,7 @@ does not involve $p$, an affirmative answer would settle
 -/
 @[category research open, question, AMS 12 16 19]
 theorem symbol_length_problem.variants.degree_two_isLeast :
-    answer(sorry) ↔ ∀ m p : ℕ, 1 ≤ m → p.Prime →
+    ∀ m p : ℕ, 1 ≤ m → p.Prime →
       IsLeast (symbolLengthBounds (MvRatFunc (Fin m) ℂ) p 2) (m - 1) := by
   sorry
 

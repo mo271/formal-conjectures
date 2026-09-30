@@ -75,7 +75,7 @@ countably infinite set is in bijection with `ℕ`, the two formulations are equi
 working over an arbitrary ground type makes the statement apply immediately to, e.g.,
 almost-disjoint families of countable subsets of an uncountable space. -/
 @[category research open, question, AMS 3 5]
-theorem erdos_602 : answer(sorry) ↔
+theorem erdos_602 :
     ∀ {α : Type*} {I : Type*} (A : I → Set α),
       (∀ i, (A i).Countable ∧ (A i).Infinite) →
       (∀ i j, i ≠ j → (A i ∩ A j).Finite) →

@@ -51,7 +51,7 @@ such that $a_1\cdots a_r = b_1\cdots b_s$ with $a_i, b_j\in A$ can only hold whe
 $r = s$?
 -/
 @[category research open, question, AMS 11]
-theorem erdos_786.parts.i : answer(sorry) ↔ ∀ ε > 0, ε ≤ 1 →
+theorem erdos_786.parts.i : ∀ ε > 0, ε ≤ 1 →
     ∃ (A : Set ℕ) (δ : ℝ), 0 ∉ A ∧ 1 - ε < δ ∧ A.HasDensity δ ∧ A.IsMulCardSet := by
   sorry
 
@@ -61,7 +61,7 @@ $a_1\cdots a_r = b_1\cdots b_s$ with $a_i, b_j\in A$ can only hold when
 $r = s$?
 -/
 @[category research open, question, AMS 11]
-theorem erdos_786.parts.ii : answer(sorry) ↔
+theorem erdos_786.parts.ii :
     ∃ (A : ℕ → Set ℕ) (f : ℕ → ℝ) (_ : f =o[atTop] (1 : ℕ → ℝ)),
     ∀ N, A N ⊆ Set.Icc 1 (N + 1) ∧ (1 - f N) * N ≤ (A N).ncard ∧ (A N).IsMulCardSet := by
   sorry

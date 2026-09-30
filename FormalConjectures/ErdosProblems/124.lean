@@ -59,7 +59,7 @@ written in base $d_i$?
 Conjectured by Burr, Erdős, Graham, and Li [BEGL96]
 -/
 @[category research open, question, AMS 11]
-lemma erdos124.ne_zero : answer(sorry) ↔
+lemma erdos124.ne_zero :
     ∀ k ≠ 0, ∀ D : Finset ℕ, (∀ d ∈ D, 3 ≤ d) → 1 ≤ ∑ d ∈ D, (d - 1 : ℚ)⁻¹ → D.gcd id = 1 →
       ∀ᶠ n in atTop, n ∈ ∑ d ∈ D, sumsOfDistinctPowers d k := by
   sorry

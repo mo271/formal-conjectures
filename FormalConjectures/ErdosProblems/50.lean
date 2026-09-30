@@ -76,7 +76,7 @@ $f(c)$ is the natural density of $\{n : \varphi(n) < cn\}$. Is it true that ther
 that the derivative $f'(x)$ exists and is positive?
 -/
 @[category research open, question, AMS 11]
-theorem erdos_50 : answer(sorry) ↔ ∀ᵉ (f : ℝ → ℝ) (hf : IsDistributionOfPhiRatio f),
+theorem erdos_50 : ∀ᵉ (f : ℝ → ℝ) (hf : IsDistributionOfPhiRatio f),
     ¬∃ x ∈ Icc (0 : ℝ) 1, ∃ y > 0, HasDerivWithinAt f y (Icc 0 1) x := by
   sorry
 

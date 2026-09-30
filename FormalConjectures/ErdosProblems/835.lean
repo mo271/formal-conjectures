@@ -49,7 +49,7 @@ $k+1$ colours such that for every $A\subset \{1,\ldots,2k\}$ with $\lvert A\rver
 colours appear among the $k$-sized subsets of $A$?
 -/
 @[category research open, question, AMS 5]
-theorem erdos_835 : answer(sorry) ↔ ∃ k > 2, Property k := by
+theorem erdos_835 : ∃ k > 2, Property k := by
   sorry
 
 @[category test, AMS 5]
@@ -64,7 +64,7 @@ This is equivalent to asking whether there exists $k > 2$ such that the chromati
 Johnson graph $J(2k, k)$ is $k+1$.
 -/
 @[category research open, question, AMS 5]
-theorem erdos_835.variants.johnson : answer(sorry) ↔ ∃ l,
+theorem erdos_835.variants.johnson : ∃ l,
     -- making sure k > 2
     letI k := l + 3
     J(2 * k, k).chromaticNumber = k + 1 := by
@@ -159,7 +159,7 @@ theorem johnsonGraph_chromaticNumber_odd_of_johnson_chromaticNumber_composite :
 
 /-- Is the chromatic number of `J(2 * k, k)` always at least `k + 2`? -/
 @[category research open, question, AMS 5]
-theorem johnson_chromaticNumber : answer(sorry) ↔
+theorem johnson_chromaticNumber :
     ∀ k ≥ 3, k + 2 ≤ J(2 * k, k).chromaticNumber :=
   sorry
 
