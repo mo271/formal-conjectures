@@ -48,7 +48,7 @@ Does there exist a $k>2$ such that the $k$-sized subsets of {1,...,2k} can be co
 $k+1$ colours such that for every $A\subset \{1,\ldots,2k\}$ with $\lvert A\rvert=k+1$ all $k+1$
 colours appear among the $k$-sized subsets of $A$?
 -/
-@[category research open, AMS 5]
+@[category research open, question, AMS 5]
 theorem erdos_835 : answer(sorry) ↔ ∃ k > 2, Property k := by
   sorry
 
@@ -63,7 +63,7 @@ Alternative statement of Erdős Problem 835 using the chromatic number of the Jo
 This is equivalent to asking whether there exists $k > 2$ such that the chromatic number of the
 Johnson graph $J(2k, k)$ is $k+1$.
 -/
-@[category research open, AMS 5]
+@[category research open, question, AMS 5]
 theorem erdos_835.variants.johnson : answer(sorry) ↔ ∃ l,
     -- making sure k > 2
     letI k := l + 3
@@ -158,7 +158,7 @@ theorem johnsonGraph_chromaticNumber_odd_of_johnson_chromaticNumber_composite :
   · omega
 
 /-- Is the chromatic number of `J(2 * k, k)` always at least `k + 2`? -/
-@[category research open, AMS 5]
+@[category research open, question, AMS 5]
 theorem johnson_chromaticNumber : answer(sorry) ↔
     ∀ k ≥ 3, k + 2 ≤ J(2 * k, k).chromaticNumber :=
   sorry
