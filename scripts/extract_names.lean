@@ -135,8 +135,9 @@ structure TheoremInfo where
   formalProofs : List FormalProofInfo
   hasSorryFreeProof : Bool
   subsets : List String
-  /-- Whether the declaration carries the `question` attribute. -/
-  question : Bool
+  /-- The kind of question (`"yes_no"` or `"value"`) if the declaration carries the
+  `question` attribute. -/
+  question : Option String
   answerKinds : List String
   fileFirstAdded : Option String
   fileLastModified : Option String
@@ -156,8 +157,9 @@ def TheoremInfo.toFilteredJson (info : TheoremInfo) (exclude : Std.HashSet Strin
     ++ (if exclude.contains "hasSorryFreeProof" then [] else
         [("hasSorryFreeProof", toJson info.hasSorryFreeProof)])
     ++ (if info.subsets.isEmpty then [] else [("subsets", toJson info.subsets)])
-    ++ (if exclude.contains "question" || !info.question then [] else
-        [("question", toJson info.question)])
+    ++ (match info.question with
+        | some kind => if exclude.contains "question" then [] else [("question", toJson kind)]
+        | none => [])
     ++ (if exclude.contains "answerKinds" then [] else
         [("answerKinds", toJson info.answerKinds)])
     ++ (if exclude.contains "fileFirstAdded" then [] else
@@ -335,7 +337,7 @@ unsafe def main (args : List String) : IO Unit := do
                 formalProofs := formalProofs,
                 hasSorryFreeProof := hasSorryFreeProof,
                 subsets := subsets
-                question := ← isQuestion name
+                question := (← getQuestionKind? name).map toString
                 answerKinds := answerKinds
                 fileFirstAdded := fileFirstAdded
                 fileLastModified := fileLastModified
