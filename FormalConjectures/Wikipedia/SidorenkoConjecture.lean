@@ -82,9 +82,14 @@ theorem sidorenko_conjecture : answer(False) ↔
 For every finite bipartite simple graph $H$ and every graphon $W$ on $[0, 1]$ with Lebesgue measure:
 $t(H, W) \ge t(K_2, W)^{e(H)}$, where $t(K_2, W) = p(W)$ is the edge density of $W$,
 and $t(H, W)$ is the graphon homomorphism density of $H$ in $W$.
+
+This is false. The finite counterexample of [OAI26a] (see `sidorenko_conjecture`) also refutes
+the graphon form: the step graphon of the finite host graph has the same homomorphism
+densities and the same edge density as the host. This reduction is not part of the linked Lean
+proof of the finite form.
 -/
-@[category research open, AMS 5]
-theorem sidorenko_conjecture_graphon : answer(sorry) ↔
+@[category research solved, AMS 5]
+theorem sidorenko_conjecture_graphon : answer(False) ↔
     ∀ {V : Type*} [Fintype V] [DecidableEq V] (H : SimpleGraph V) [DecidableRel H.Adj],
       H.IsBipartite →
       ∀ (W : Graphon),

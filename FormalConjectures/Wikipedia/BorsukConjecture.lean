@@ -114,7 +114,7 @@ $9$ by an internal OpenAI model in September 2026 [OAI26]; see `borsuk_conjectur
 the linked Lean proof. The cases $4 \leq n \leq 8$ remain open.
 -/
 @[category research solved, AMS 52, formal_proof using lean4 at
-  "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Geometry/Borsuk/Counterexample.lean#L49"]
+  "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Geometry/Borsuk/Main.lean#L117"]
 theorem borsuk_conjecture : ¬ ∀ n, 4 ≤ n → n ≤ 62 → BorsukConjecture n := by
   sorry
 
@@ -222,7 +222,7 @@ by $10$ sets of smaller diameter. This was proved by an internal OpenAI model in
 currently known to be false.
 -/
 @[category research solved, AMS 52, formal_proof using lean4 at
-  "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Geometry/Borsuk/Counterexample.lean#L49"]
+  "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Geometry/Borsuk/Main.lean#L117"]
 theorem borsuk_conjecture.not_nine : ¬ BorsukConjecture 9 := by
   sorry
 
