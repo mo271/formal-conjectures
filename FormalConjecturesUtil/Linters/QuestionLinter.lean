@@ -21,10 +21,14 @@ public import Mathlib.Tactic.Lemma
 
 /-! # The Question Linter
 
-The `QuestionLinter` ensures that the `question` attribute is not forgotten on a value question:
-a theorem whose statement refers to its own unknown `<theorem>.answer` must carry
-`@[question value]`. The attribute itself checks the converse, that a tagged theorem does refer
-to its unknown.
+The `QuestionLinter` checks two things about the unknown `<theorem>.answer` of a value question:
+
+- The `question` attribute is not forgotten: a theorem whose statement refers to its own
+  unknown must carry `@[question value]`. The attribute itself checks the converse, that a
+  tagged theorem does refer to its unknown.
+- A research statement mentions no other theorem's unknown: a statement that refers to
+  `bar.answer` from `theorem foo` is most likely a copy-and-paste error. A `test` or `API`
+  statement about an unknown is fine.
 -/
 
 public meta section
@@ -48,14 +52,31 @@ def checkValueQuestionTagged (declName : Name) (declId : Syntax) : CommandElabM 
       m!"The statement refers to its unknown `{declName ++ `answer}`, so it asks for a value; \
         tag the theorem `@[question value]`."
 
+/-- Warns when the statement of the research theorem `declName`, or of a theorem tagged
+`question`, refers to the unknown `bar.answer` of another theorem. -/
+def checkNoForeignAnswer (declName : Name) (declId : Syntax) : CommandElabM Unit := do
+  let env ← getEnv
+  let some info := env.find? declName | return
+  let isResearch := (categoryExt.getState env).toArray.any fun t =>
+    t.declName == declName && t.category matches .research _
+  unless isResearch || (← getQuestionKind? declName).isSome do return
+  for c in info.type.getUsedConstants do
+    if c.getString! == "answer" && c != declName ++ `answer then
+      logLintIf linter.style.question_attribute declId
+        m!"The statement refers to `{c}`, the unknown of another question. A statement about \
+          its own unknown refers to `{declName ++ `answer}`; a statement about `{c}` belongs \
+          to a `test` or `API` theorem."
+
 /-- The question linter checks that a theorem using its `answer` definition is tagged
-`@[question value]`. -/
+`@[question value]`, and that a research statement uses no other theorem's `answer`. -/
 def questionLinter : Linter where
   run := withSetOptionIn fun stx => do
     match stx with
     | `(command| $mods:declModifiers theorem $declId:declId $_:declSig $_:declVal)
     | `(command| $mods:declModifiers lemma $declId:declId $_:declSig $_:declVal) =>
-      checkValueQuestionTagged (← FormalConjectures.Linter.resolveDeclName mods declId) declId
+      let declName ← FormalConjectures.Linter.resolveDeclName mods declId
+      checkValueQuestionTagged declName declId
+      checkNoForeignAnswer declName declId
     | _ => return
 
 initialize do

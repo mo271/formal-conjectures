@@ -43,11 +43,35 @@ def tagged_value_question.answer : Nat := sorry
 theorem tagged_value_question : 2 + 2 = tagged_value_question.answer := by
   sorry
 
--- A statement about another theorem's unknown is not itself a value question.
+-- A `test` or `API` statement about another theorem's unknown is fine.
 #guard_msgs in
 @[category test, AMS 11]
 theorem about_another_answer : tagged_value_question.answer = tagged_value_question.answer := by
   rfl
+
+-- A research statement must not mention another theorem's unknown.
+/--
+warning: The statement refers to `QuestionLinter.tagged_value_question.answer`, the unknown of another question. A statement about its own unknown refers to `QuestionLinter.foreign_answer.answer`; a statement about `QuestionLinter.tagged_value_question.answer` belongs to a `test` or `API` theorem.
+
+Note: This linter can be disabled with `set_option linter.style.question_attribute false`
+-/
+#guard_msgs in
+@[category research open, AMS 11]
+theorem foreign_answer : 2 + 2 = tagged_value_question.answer := by
+  sorry
+
+def foreign_answer_in_question.answer : Nat := sorry
+
+/--
+warning: The statement refers to `QuestionLinter.tagged_value_question.answer`, the unknown of another question. A statement about its own unknown refers to `QuestionLinter.foreign_answer_in_question.answer`; a statement about `QuestionLinter.tagged_value_question.answer` belongs to a `test` or `API` theorem.
+
+Note: This linter can be disabled with `set_option linter.style.question_attribute false`
+-/
+#guard_msgs in
+@[category research open, question value, AMS 11]
+theorem foreign_answer_in_question :
+    foreign_answer_in_question.answer = tagged_value_question.answer := by
+  sorry
 
 -- A yes-or-no question has no unknown and needs no `value`.
 #guard_msgs in
