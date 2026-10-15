@@ -345,6 +345,8 @@ theorem hadwiger_nelson : UnitDistancePlaneGraph.chromaticNumber = hadwiger_nels
 - Once the question is answered, fill in the definition, for example
   `def foo.answer : ℕ := 5`, and leave the statement unchanged. The proof then
   proves the statement for that value.
+- A linter checks that a theorem whose statement uses its `answer` definition
+  carries `@[question value]`, and the attribute checks the converse.
 - Do not use the `answer(sorry)` elaborator for new problems. It is being
   replaced by this convention.
 
