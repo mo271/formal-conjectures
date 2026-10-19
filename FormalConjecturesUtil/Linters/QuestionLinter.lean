@@ -26,9 +26,9 @@ The `QuestionLinter` checks two things about the unknown `<theorem>.answer` of a
 - The `question` attribute is not forgotten: a theorem whose statement refers to its own
   unknown must carry `@[question value]`. The attribute itself checks the converse, that a
   tagged theorem does refer to its unknown.
-- A research statement mentions no other theorem's unknown: a statement that refers to
-  `bar.answer` from `theorem foo` is most likely a copy-and-paste error. A `test` or `API`
-  statement about an unknown is fine.
+- A statement mentions no other theorem's unknown: a statement that refers to `bar.answer`
+  from `theorem foo` is most likely a copy-and-paste error. A `test` or `API` statement is
+  exempt, since a sanity check about an unknown is what those are for.
 -/
 
 public meta section
@@ -52,14 +52,13 @@ def checkValueQuestionTagged (declName : Name) (declId : Syntax) : CommandElabM 
       m!"The statement refers to its unknown `{declName ++ `answer}`, so it asks for a value; \
         tag the theorem `@[question value]`."
 
-/-- Warns when the statement of the research theorem `declName`, or of a theorem tagged
-`question`, refers to the unknown `bar.answer` of another theorem. -/
+/-- Warns when the statement of `declName` refers to the unknown `bar.answer` of another
+theorem, unless `declName` is a `test` or `API` statement. -/
 def checkNoForeignAnswer (declName : Name) (declId : Syntax) : CommandElabM Unit := do
   let env ← getEnv
   let some info := env.find? declName | return
-  let isResearch := (categoryExt.getState env).toArray.any fun t =>
-    t.declName == declName && t.category matches .research _
-  unless isResearch || (← getQuestionKind? declName).isSome do return
+  if (categoryExt.getState env).toArray.any fun t =>
+      t.declName == declName && (t.category == .test || t.category == .API) then return
   for c in info.type.getUsedConstants do
     if c.getString! == "answer" && c != declName ++ `answer then
       logLintIf linter.style.question_attribute declId
@@ -68,7 +67,7 @@ def checkNoForeignAnswer (declName : Name) (declId : Syntax) : CommandElabM Unit
           to a `test` or `API` theorem."
 
 /-- The question linter checks that a theorem using its `answer` definition is tagged
-`@[question value]`, and that a research statement uses no other theorem's `answer`. -/
+`@[question value]`, and that a statement uses no other theorem's `answer`. -/
 def questionLinter : Linter where
   run := withSetOptionIn fun stx => do
     match stx with
