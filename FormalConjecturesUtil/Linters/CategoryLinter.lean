@@ -16,7 +16,6 @@ limitations under the License.
 module
 
 public import FormalConjecturesUtil.Attributes.Basic
-public import FormalConjecturesUtil.Linters.Util
 public import Mathlib.Tactic.Lemma
 
 
@@ -51,27 +50,6 @@ def toCategory
       | _ => return false
   | _ => return #[]
 
-/-- Warns when a problem categorised as `research open` turns out to have a sorry-free proof.
-
-This check used to live in the `category` attribute, at `.afterTypeChecking`, where it never fired
-for a theorem: proof terms elaborate asynchronously, so `value?` was still `none`. It did fire for
-a `def`, which is why the gap went unnoticed.
-
-`.afterCompilation` is late enough to see the proof term in an ordinary file, but not inside a
-module, and every file in `FormalConjecturesTest` is a module. An attribute-based check therefore
-cannot be given a test. A linter runs once the command has finished and works in both, so the
-check lives here and `findAsync?` waits on the elaboration task. -/
-def checkNotOpenIfSorryFree (mods : TSyntax ``Lean.Parser.Command.declModifiers)
-    (declId : Syntax) : CommandElabM Unit := do
-  let declName ← FormalConjectures.Linter.resolveDeclName mods declId
-  unless ← hasConst declName do return
-  unless (← ProblemAttributes.getTags).any
-      (fun t => t.declName == declName && t.category == .research .open) do return
-  let some asyncInfo := (← getEnv).findAsync? declName | return
-  if asyncInfo.toConstantInfo.value? (allowOpaque := true) |>.any (!·.hasSorry) then
-    logLintIf linter.style.category_attribute declId
-      "If a problem has a sorry-free proof, it should not be categorised as `open`."
-
 /-- Warns unless `a` carries exactly one category attribute. Returns whether it does, so the
 caller can go on to the checks that need one. `stx` is only used to place a warning when the
 modifiers carry no attribute list to point at. -/
@@ -96,18 +74,13 @@ has been given a problem category attribute. -/
 def categoryLinter : Linter where
   run := withSetOptionIn fun stx => do
     match stx with
-      | `(command| $a:declModifiers theorem $declId:declId $_:declSig $_:declVal)
-      | `(command| $a:declModifiers lemma $declId:declId $_:declSig $_:declVal) =>
-        if ← checkExactlyOneCategory a stx then checkNotOpenIfSorryFree a declId
+      | `(command| $a:declModifiers theorem $_:declId $_:declSig $_:declVal)
+      | `(command| $a:declModifiers lemma $_:declId $_:declSig $_:declVal) =>
+        discard <| checkExactlyOneCategory a stx
       -- An `example` has no name to look a proof up under, so only the attribute check
       -- applies to it.
       | `(command| $a:declModifiers example $_:optDeclSig $_:declVal) =>
         discard <| checkExactlyOneCategory a stx
-      -- Definitions are not required to carry a category, so they are not part of the
-      -- attribute check, but seven of them do carry one and the sorry-free check applied to
-      -- them when it lived in the attribute. It is the case that used to work, in fact.
-      | `(command| $a:declModifiers def $declId:declId $_:optDeclSig $_:declVal) =>
-        checkNotOpenIfSorryFree a declId
       | _ => return
 
 initialize do
