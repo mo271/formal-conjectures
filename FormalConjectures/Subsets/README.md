@@ -12,7 +12,7 @@ Each file defines a list of 100 problem names drawn from the repository:
     with verified formal statements (`category research open`).
 -   **FC100SolvedSet2** — 100 hard-to-formalise solved research problems with
     verified formal statements (`category research solved`) and no existing
-    formal proof.
+    formal proof at benchmark release.
 
 The lists reference problems by `Name` (via the `decl_name%` elaborator) and
 include a compile-time check verifying the expected category counts.
